@@ -18,6 +18,12 @@ const SITE_CONFIG = {
   // Optional: base URL of your own file host (R2 / S3 / …). Empty = none.
   FILE_HOST_BASE_URL: "",
 
+  // Same-origin CORS proxy (Pages Function) for reader/ZIP fetches against
+  // sources that don't send Access-Control-Allow-Origin (PapersDB, BOS).
+  // The function itself allowlists hosts. Empty string = no proxy
+  // (those sources fall back to the "use ⭳" hint).
+  PROXY_BASE: "/proxy",
+
   // Small badge in the nav showing where files come from.
   HOST_BADGE: "index · mirrors",
 

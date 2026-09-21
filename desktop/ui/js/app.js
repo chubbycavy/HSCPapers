@@ -530,7 +530,7 @@
       const f = files[i];
       $("#zipProgress").textContent = `Fetching ${i + 1}/${files.length}…`;
       try {
-        const res = await fetch(f.url);
+        const res = await fetch(proxied(f.url));
         if (!res.ok) throw new Error(res.status);
         zip.file(f.relpath, await res.blob());
         ok++;
@@ -578,6 +578,19 @@
   const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "cdn.papersdb.org", "www.boardofstudies.nsw.edu.au"]);
   function isFastHostUrl(u) {
     try { return FAST_SAVE_HOSTS.has(new URL(u).host); } catch { return false; }
+  }
+  // Hosts whose files can be read cross-site by JS (they send ACAO:*) —
+  // reader + ZIP fetch them directly. Everything else goes through the
+  // same-origin /proxy Pages Function (allowlisted, Range passthrough)
+  // when SITE_CONFIG.PROXY_BASE is set; with no proxy, the CORS hint fires.
+  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev"]);
+  function proxied(u) {
+    const p = window.SITE_CONFIG?.PROXY_BASE;
+    if (!p || !u) return u;
+    try {
+      if (CORS_OK_HOSTS.has(new URL(u).host)) return u;
+      return p + "?url=" + encodeURIComponent(u);
+    } catch { return u; }
   }
   let lastSlowSkipped = 0; // slow-route files excluded from the last filesForPapers() call
 
@@ -972,7 +985,7 @@
   let readerDoc = null, readerPage = 1, readerPath = null, readerSystemPath = null;
   function openReader(path, title) {
     if (!path) return;
-    readerPath = path;
+    readerPath = IS_TAURI ? path : proxied(path);
     readerSystemPath = IS_TAURI ? path : null;
     $("#readerTitle").textContent = title || "Paper";
     $("#readerErr").textContent = "";
