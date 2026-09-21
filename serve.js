@@ -1,12 +1,13 @@
-// Local preview server for the HSC Papers Mirror — zero dependencies.
+// Local preview server for HSCPapers — zero dependencies.
 // Double-click start-site.bat (it runs this file, then opens your browser).
-// Keep the console window open while testing; close it to stop the site.
+// Serves desktop/ui/ — the single canonical web UI (also used by the
+// Tauri desktop app), so local preview always matches production.
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { exec } = require("child_process");
 
-const ROOT = __dirname;
+const ROOT = path.join(__dirname, "desktop", "ui");
 const START_PORT = 8000;
 const MAX_TRIES = 11; // try 8000..8010
 const NO_OPEN = process.argv.includes("--no-open");

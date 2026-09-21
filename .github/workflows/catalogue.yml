@@ -1,0 +1,42 @@
+# Nightly catalogue rebuild: THSC listings + NESA + mirrors -> papers.json.
+# The commit to main triggers the Cloudflare Pages redeploy automatically.
+name: rebuild-catalogue
+
+on:
+  schedule:
+    - cron: "0 20 * * *" # 06:00 AEST — daily, before the school day
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogue
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Rebuild catalogue
+        working-directory: desktop
+        run: node tools/build-index.cjs --no-cache
+
+      - name: Commit (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add desktop/ui/data/papers.json
+          if git diff --cached --quiet; then
+            echo "Catalogue unchanged — no commit"
+          else
+            git commit -m "catalogue: nightly rebuild ($(date -u +%F))"
+            git push
+          fi

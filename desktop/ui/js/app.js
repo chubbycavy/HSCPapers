@@ -112,9 +112,20 @@
 
   /* ---------- config badge ---------- */
   const base = (window.SITE_CONFIG?.FILE_HOST_BASE_URL || "").replace(/^https?:\/\//, "");
-  $("#hostBadge").textContent = "⇪ " + (base || "no file host set");
-  $("#hostBadge").title = window.SITE_CONFIG?.FILE_HOST_BASE_URL || "";
+  $("#hostBadge").textContent = "⇪ " + (window.SITE_CONFIG?.HOST_BADGE || base || "no file host set");
+  $("#hostBadge").title = window.SITE_CONFIG?.FILE_HOST_BASE_URL || window.SITE_CONFIG?.HOST_BADGE || "";
   $("#contactEmail").textContent = window.SITE_CONFIG?.CONTACT_EMAIL || "";
+
+  /* ---------- desktop-app link (footer + about; hidden if unconfigured) ---------- */
+  const appUrl = window.SITE_CONFIG?.DESKTOP_APP_URL || "";
+  if (appUrl && !IS_TAURI) { // web only — desktop users already have the app
+    const a = $("#desktopAppLink");
+    if (a) { a.href = appUrl; a.hidden = false; }
+    const fa = $("#footerDesktopLinkA");
+    if (fa) { fa.href = appUrl; $("#footerDesktopLink").hidden = false; }
+    const ga = $("#footerGitLinkA");
+    if (ga) { ga.href = (appUrl.split("/releases")[0] || appUrl); $("#footerGitLink").hidden = false; }
+  }
 
   /* ---------- URL deep-linking ---------- */
   function readURL() {
@@ -415,10 +426,16 @@
         <div class="card-actions">
           <a class="mini-btn go" href="${esc(paperHref)}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}">⭳ Paper</a>
           ${solHref ? `<a class="mini-btn" href="${esc(solHref)}" target="_blank" rel="noopener" download data-rel="${esc(srel || "")}">Solutions</a>` : ""}
+          ${!IS_TAURI && paperHref && paperHref !== "#" ? `<button class="mini-btn" data-read>📖 Read</button>` : ""}
         </div>
       </div>`;
     el.querySelector("h3").textContent = p.title;
     el.querySelector(".meta").textContent = `${p.subject} · ${p.school} · ${p.size || ""}`.replace(/ · $/, "");
+    const readBtn = el.querySelector("[data-read]");
+    if (readBtn) readBtn.addEventListener("click", (e) => {
+      e.preventDefault(); e.stopPropagation();
+      openReader(paperHref, p.title);
+    });
     const box = el.querySelector("input");
     box.addEventListener("change", () => {
       if (box.checked) state.selected.add(p.id);
@@ -427,7 +444,7 @@
       renderBulk();
     });
     el.addEventListener("click", (e) => {
-      if (e.target.closest("a") || e.target === box) return;
+      if (e.target.closest("a") || e.target.closest("button") || e.target === box) return;
       box.checked = !box.checked;
       box.dispatchEvent(new Event("change"));
     });
@@ -515,7 +532,7 @@
       try {
         const res = await fetch(f.url);
         if (!res.ok) throw new Error(res.status);
-        zip.file(f.name, await res.blob());
+        zip.file(f.relpath, await res.blob());
         ok++;
       } catch (e) {
         console.warn("ZIP fetch failed (host needs CORS):", f.url, e);
@@ -950,19 +967,24 @@
   }
 
   /* ----- embedded reader overlay (pdf.js, in-page: zero state loss) ----- */
+  // Tauri: opens local library files. Web: opens paper URLs directly
+  // (works wherever the source sends CORS headers; falls back to a hint).
   let readerDoc = null, readerPage = 1, readerPath = null, readerSystemPath = null;
   function openReader(path, title) {
-    if (!IS_TAURI || !window.__TAURI__) return;
-    readerPath = path; readerSystemPath = path;
+    if (!path) return;
+    readerPath = path;
+    readerSystemPath = IS_TAURI ? path : null;
     $("#readerTitle").textContent = title || "Paper";
     $("#readerErr").textContent = "";
     $("#reader").hidden = false;
     document.body.style.overflow = "hidden";
+    const sysBtn = $("#readerOpenSys");
+    if (sysBtn) sysBtn.hidden = !IS_TAURI;
     if (window.pdfjsLib) {
       pdfjsLib.GlobalWorkerOptions.workerSrc = "pdfjs/pdf.worker.min.js";
-      loadReaderDoc(path);
+      loadReaderDoc();
     } else {
-      $("#readerErr").textContent = "Reader engine is still loading — try again in a second (or use 📂).";
+      $("#readerErr").textContent = "Reader engine is still loading — try again in a second (or use the ⭳ button).";
     }
   }
   function closeReader() {
@@ -970,15 +992,17 @@
     document.body.style.overflow = "";
     readerDoc = null; readerPage = 1;
   }
-  async function loadReaderDoc(path) {
+  async function loadReaderDoc() {
     try {
-      const url = window.__TAURI__.core.convertFileSrc(path);
+      const url = (IS_TAURI && readerSystemPath) ? window.__TAURI__.core.convertFileSrc(readerSystemPath) : readerPath;
       const doc = await window.pdfjsLib.getDocument({ url }).promise;
       readerDoc = doc;
       readerPage = 1;
       showReaderPage(1);
     } catch (e) {
-      $("#readerErr").textContent = "Could not open paper: " + (e?.message || e);
+      $("#readerErr").textContent = IS_TAURI
+        ? "Could not open paper: " + (e?.message || e)
+        : "Could not open this paper in the reader (the source may not allow cross-site reading). Use the ⭳ download button instead.";
     }
   }
   async function showReaderPage(n) {

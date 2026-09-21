@@ -1,12 +1,41 @@
-# HSC Papers Mirror — THSCOnline-style index
+# HSCPapers
 
-Static front-end for Trial + HSC papers. **PDFs live on a separate file host** — this site only stores an index (`data/papers.json`) and builds download links from one base URL.
+Fast, searchable index of NSW HSC **trial papers, past HSC papers and school
+assessment tasks** — organised `Subject → Year → School`, split HSC (NESA past
+papers) vs Trial (school-written). This repo ships two products from one codebase:
+
+1. **Website** — `desktop/ui/` (deployed via Cloudflare Pages). Pure static:
+   search, faceted filters, embedded PDF reader + study timer, bulk download
+   (individually / structured ZIP / copy links). Hosts **no PDFs itself** —
+   every download resolves to its source: community mirrors (HSC Portal,
+   PapersDB), the Board of Studies archive, or official NESA links.
+2. **Desktop app** (Tauri 2) — same UI, plus a Rust download backend:
+   direct-to-folder library, queued/resumable batches, adaptive pacing, CDN
+   mirror lanes + THSC-resolver fallback, embedded reader over saved files.
+   See [`desktop/README.md`](desktop/README.md).
+
+## Layout
+
+```
+desktop/
+  sources.json          frozen source config (THSC, mirrors, polite-fetch policy)
+  ui/                   ★ CANONICAL WEB UI — index.html, css/, js/, data/, pdfjs/
+    data/papers.json    GENERATED catalogue (7,015 papers / 8,892 files) — do not hand-edit
+  tools/build-index.cjs catalogue builder (THSC listings + NESA + mirrors)
+  tools/.cache/         builder HTTP cache (git-ignored)
+  src-tauri/            Tauri app (Rust backend + NSIS installer config)
+serve.js                zero-dependency local preview server (serves desktop/ui)
+start-site.bat          Windows: double-click to preview locally
+.github/workflows/      nightly catalogue rebuild (commit + auto-deploy)
+```
+
+The old root-level website copy (95-entry demo) was retired — `desktop/ui` is
+the single source of truth for web and desktop.
 
 ## Run locally
 
-**Easiest (Windows): double-click `start-site.bat`.** It starts a local server (via `serve.js`, Node.js only — nothing to install) and opens the site in your browser. Keep the black window open while testing; close it to stop the site.
-
-Manual alternative (any static server works — required, since `fetch()` for `papers.json` is blocked on `file://`):
+**Windows: double-click `start-site.bat`** (Node.js only — nothing to
+install). Any static server works too:
 
 ```powershell
 npx serve .
@@ -14,60 +43,56 @@ npx serve .
 python -m http.server 8000
 ```
 
-Then open http://localhost:8000 (or the port shown).
+Then open the port shown. `fetch()` needs a server — it's blocked on `file://`.
 
-## Point it at your file host
+## Deploy (Cloudflare Pages — free)
 
-1. Upload PDFs to your host (Cloudflare R2, AWS S3, VPS/Nginx, GitHub Pages…) keeping folder structure, e.g. `trial/physics/2024-knox-physics-paper.pdf`.
-2. Edit `js/config.js`:
-   ```js
-   FILE_HOST_BASE_URL: "https://papers.yourdomain.com"
-   ```
-3. Single-file downloads work immediately (plain `<a href>` links — no CORS needed).
-4. For **Download ZIP** to work, the host must send `Access-Control-Allow-Origin: *` (ZIP fetches files with JS). Without it the button shows a message and users fall back to “Download individually”.
+1. Push this repo to GitHub (done — `chubbycavy/HSCPapers`).
+2. Cloudflare Dashboard → Workers & Pages → Create → Pages → **Connect to Git**
+   → pick `HSCPapers`.
+3. Build settings:
+   - **Root directory**: `desktop/ui`
+   - **Build command**: *(none)* — the UI is fully static
+   - **Output directory**: `/`
+4. Deploy. The `*.pages.dev` URL is live; every push to `main` redeploys.
 
-## Add papers (mirror workflow)
+The nightly GitHub Action (`catalogue.yml`) regenerates
+`desktop/ui/data/papers.json` and commits it — the push triggers a site
+redeploy automatically.
 
-Append entries to `data/papers.json`:
+## Catalogue
 
-```json
-{
-  "id": "trial-2024-physics-knox",
-  "subject": "Physics",
-  "year": 2024,
-  "school": "Knox Grammar",
-  "type": "trial",
-  "title": "2024 Knox Grammar Physics Trial",
-  "path": "trial/physics/2024-knox-physics-paper.pdf",
-  "solutionPath": "trial/physics/2024-knox-physics-solutions.pdf",
-  "size": "3.1 MB",
-  "hasSolutions": true
-}
+Regenerate locally any time (polite: cached, ~150ms between fetches):
+
+```powershell
+node desktop/tools/build-index.cjs            # full rebuild (cache when fresh)
+node desktop/tools/build-index.cjs --no-cache # refetch everything
+node desktop/tools/build-index.cjs --limit=6  # quick parser test (partial output)
 ```
 
-- Organisation mirrors THSCOnline: `subject → year → school`, split `hsc` (school: `"NESA"`) vs `trial`.
-- `path` is relative to `FILE_HOST_BASE_URL`, or a full `https://…` URL to override per-file.
-- Paths starting with `Maths Advanced/`, `Physics/`, `data/`, `./`, `../` or `/` are treated as **site-local** and served from this site (used by the local test folders below).
-- Search, filters, counts, subject strip, selection + ZIP pick up new entries automatically.
+Current catalogue: **7,015 papers / 8,892 files (6,079 fast)** — sources
+`thsc-listing` + `nesa` + mirrors (HSC Portal, PapersDB, Board of Studies).
+Slow-route files (~640, THSC rate-limited resolver) are hidden by default
+(sidebar toggle 🐢). Papers belong to their schools/authors and NESA — see
+`desktop/sources.json` attribution.
 
-## Local test files
+## Web vs desktop capabilities
 
-`Maths Advanced/` (30 trial PDFs) and `Physics/` (30 trial PDFs) are indexed in `data/papers.json` and resolve locally, so search / filters / multi-select / ZIP can be tested end-to-end with `npx serve .` — no remote host needed. Combined "Trials & Solutions" PDFs carry `hasSolutions: true` with no separate `solutionPath`.
+| | Website | Desktop app |
+|---|---|---|
+| Search, filters, level pills, deep links | ✅ | ✅ |
+| Embedded reader + study timer | ✅ (CORS-permitting sources) | ✅ (local files) |
+| Single downloads | ✅ | ✅ |
+| Bulk downloads | Browser ZIP, ≤30 files (RAM-bound) | Unlimited, queued, resumable, direct-to-folder |
+| Library tools (Verify / Import) | — | ✅ |
+| Slow-route (THSC resolver) files | Fallback links only | ✅ (background, polite pacing) |
 
-## Features
+## Sources & attribution
 
-- Live search across subject / school / year / title (`?q=ruse` deep-links)
-- Filters: subject, year, school, HSC vs Trial, solutions-only + sorting
-- Multi-select (click card or checkbox) → **Download ZIP** (JSZip), **Download individually**, **Copy links**
-- Dark mode, responsive, grid/list view, shareable filter URLs
+- **THSCOnline** (thsconline.github.io) — catalogue metadata + resolver
+- **HSC Portal** (hscportal.app) — community mirror (fast files)
+- **PapersDB** (papersdb.org) — community fast mirror (Maths + Science)
+- **Board of Studies / NESA** — official past papers + marking materials
 
-## Files
-
-```
-index.html          main page
-css/styles.css      theme + layout
-js/config.js        ★ file-host base URL (change this to go live)
-js/app.js           search / filter / select / bulk download
-data/papers.json    catalogue (95 entries: 35 remote samples + 60 local test PDFs)
-template 1.html     original baseline template (kept for reference)
-```
+All papers remain the property of their schools/authors and NESA. This is a
+study-use index; not affiliated with NESA.

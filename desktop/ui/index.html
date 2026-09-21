@@ -19,7 +19,7 @@
     <div class="nav-links">
       <a href="#browse" class="active">Browse</a>
       <a href="#subjects">Subjects</a>
-      <a href="#about">Hosting setup</a>
+      <a href="#about">About</a>
     </div>
     <div class="nav-right">
       <span class="host-badge" id="hostBadge" title="Remote file host">…</span>
@@ -137,19 +137,16 @@
 <section class="about" id="about">
   <div class="about-card">
     <div>
-      <h2>How file hosting works</h2>
-      <p>Papers are <b>not</b> stored in this repo. Every download button links to your remote file host:</p>
-      <ol style="margin-top:.6rem">
-        <li>Upload PDFs to your host (R2 / S3 / VPS / Drive-mirror) keeping the folder names from <code>data/papers.json</code>.</li>
-        <li>Set <code>FILE_HOST_BASE_URL</code> in <code>js/config.js</code> to your host.</li>
-        <li>Add new papers by appending entries to <code>data/papers.json</code> — the UI (search, filters, counts, ZIP) updates automatically.</li>
-      </ol>
-      <p style="margin-top:.6rem">Single-file downloads are plain links (no CORS needed). “Download ZIP” fetches via JavaScript, so enable <code>Access-Control-Allow-Origin: *</code> on the host for that button.</p>
+      <h2>What this is</h2>
+      <p>A fast, searchable index of <b>trial papers, past HSC papers and school assessment tasks</b> — organised <code>Subject → Year → School</code>, split HSC (NESA past papers) vs Trial (school-written).</p>
+      <p style="margin-top:.6rem">The site hosts no PDFs itself: every download resolves to its source — the community mirrors <b>HSC Portal</b> and <b>PapersDB</b>, the Board of Studies archive, and official <b>NESA</b> links. Catalogue metadata mirrors <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>.</p>
+      <p style="margin-top:.6rem">🐢 <b>Slow-route papers</b> exist only behind THSC's rate-limited resolver; they're hidden by default (sidebar toggle to show). Select papers to download individually or as a ZIP.</p>
     </div>
     <div>
-      <h2>Organisation (THSCOnline mirror)</h2>
-      <p><code>Subject → Year → School</code>, split by <code>HSC</code> (NESA past papers) vs <code>Trial</code> (school-written). Each entry can carry a <code>solutionPath</code> so papers + solutions travel together in selections and ZIPs.</p>
-      <p style="margin-top:.6rem">Tip: share a filtered view with a link — search &amp; filters sync to the URL (e.g. <code>?q=ruse&amp;type=trial</code>).</p>
+      <h2>Tips</h2>
+      <p>Share a filtered view with a link — search &amp; filters sync to the URL (e.g. <code>?q=ruse&amp;type=trial</code>).</p>
+      <p style="margin-top:.6rem">📖 <b>Read</b> opens papers in the embedded reader with a study timer. Where a source blocks cross-site reading, use ⭳ instead.</p>
+      <p style="margin-top:.6rem">Prefer a desktop library with queued, resumable, direct-to-folder downloads? <a id="desktopAppLink" href="#" target="_blank" rel="noopener" hidden>⭳ Get the HSCPapers desktop app</a>.</p>
     </div>
   </div>
 </section>
@@ -167,12 +164,14 @@
   <b>HSCPapers</b> · THSCOnline-style index · Not affiliated with NESA<br>
   Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>.
   Fast mirrors: <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>, <a href="https://papersdb.org/" target="_blank" rel="noopener">PapersDB</a>, Board of Studies archive.
+  <span id="footerDesktopLink" hidden> · <a id="footerDesktopLinkA" href="#" target="_blank" rel="noopener">⭳ Desktop app</a></span>
+  <span id="footerGitLink" hidden> · <a id="footerGitLinkA" href="#" target="_blank" rel="noopener">GitHub</a></span>
   Contact: <span id="contactEmail"></span>
 </footer>
 
 <div id="reader" class="reader-overlay" hidden>
   <div class="reader-bar">
-    <button class="bar-btn" id="readerClose">← Library</button>
+    <button class="bar-btn" id="readerClose">← Back</button>
     <span id="readerTitle" class="reader-title"></span>
     <span id="readerPageInfo" class="reader-pageinfo"></span>
     <button class="bar-btn" id="readerPrev">‹ Prev</button>
