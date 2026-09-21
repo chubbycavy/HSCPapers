@@ -67,7 +67,9 @@ export async function onRequest(context) {
     });
   }
 
-  const headers = cors();
+  // Real Headers object — the plain cors() object is fine when passed
+  // directly into new Response(...), but .set() needs a Headers instance.
+  const headers = new Headers(cors());
   for (const h of ["content-type", "content-length", "content-range", "accept-ranges", "etag", "last-modified", "cache-control"]) {
     const v = upstream.headers.get(h);
     if (v) headers.set(h, v);
