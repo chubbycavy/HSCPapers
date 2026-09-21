@@ -518,39 +518,55 @@
     const files = selectedFiles();
     if (!files.length) return;
     if (IS_TAURI) { tauriSaveClick(); return; }
-    const max = window.SITE_CONFIG?.MAX_ZIP_FILES || 30;
-    if (files.length > max) {
-      $("#zipProgress").textContent = `Too many files (${files.length} > ${max}). Deselect or ZIP in batches.`;
+    const maxFiles = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
+    const budgetBytes = (window.SITE_CONFIG?.MAX_ZIP_BUDGET_MB || 500) * 1048576;
+    if (files.length > maxFiles) {
+      $("#zipProgress").textContent = `Too many files (${files.length} > ${maxFiles}). Deselect some, or use the desktop app for bulk saves.`;
       return;
     }
-    if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load (CDN blocked). Use Download individually."; return; }
+    if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load. Use “Download individually”."; return; }
     const zip = new JSZip();
-    let ok = 0;
+    let ok = 0, bytes = 0, budgetStop = null;
+    const budget = budgetBytes;
+    const fmtMB = (n) => (n / 1048576).toFixed(1) + " MB";
     for (let i = 0; i < files.length; i++) {
       const f = files[i];
-      $("#zipProgress").textContent = `Fetching ${i + 1}/${files.length}…`;
+      $("#zipProgress").textContent = `Fetching ${i + 1}/${files.length} · ${fmtMB(bytes)} so far…`;
       try {
         const res = await fetch(proxied(f.url));
         if (!res.ok) throw new Error(res.status);
-        zip.file(f.relpath, await res.blob());
+        const blob = await res.blob();
+        if (bytes + blob.size > budget) {
+          // Budget enforced DURING the build with real sizes: emit what we
+          // have instead of risking a tab crash on oversized selections.
+          budgetStop = i;
+          break;
+        }
+        zip.file(f.relpath, blob);
+        bytes += blob.size;
         ok++;
       } catch (e) {
-        console.warn("ZIP fetch failed (host needs CORS):", f.url, e);
+        console.warn("ZIP fetch failed (source blocked / proxy error):", f.url, e);
       }
     }
     if (!ok) {
       $("#zipProgress").textContent = "Host blocked ZIP (needs CORS *). Use “Download individually”.";
       return;
     }
-    $("#zipProgress").textContent = "Compressing…";
-    const blob = await zip.generateAsync({ type: "blob" });
+    $("#zipProgress").textContent = `Packing ${fmtMB(bytes)}…`;
+    // STORE, not DEFLATE: PDFs barely compress (~2-5%), so compression is
+    // pure cost — one full second pass in RAM. Stored entries keep peak
+    // memory at ~raw bytes, which is what makes the 500MB budget safe.
+    const blob = await zip.generateAsync({ type: "blob", compression: "STORE" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = window.SITE_CONFIG?.ZIP_NAME || "hsc-papers-selection.zip";
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 8000);
-    $("#zipProgress").textContent = `Done — ${ok}/${files.length} files ✓`;
-    setTimeout(renderBulk, 3000);
+    $("#zipProgress").textContent = budgetStop !== null
+      ? `Done — ${ok} files (≈${fmtMB(bytes)}), budget reached at ${budgetStop + 1} of ${files.length}. Deselect more or use the desktop app for the rest.`
+      : `Done — ${ok}/${files.length} files (≈${fmtMB(bytes)}) ✓`;
+    setTimeout(renderBulk, 5000);
   });
 
   /* ----- Tauri desktop downloads (Rust backend -> Documents/HSCPapers) ----- */

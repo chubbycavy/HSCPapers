@@ -34,10 +34,13 @@ const SITE_CONFIG = {
   // ZIP filename when users bulk-download a selection
   ZIP_NAME: "hsc-papers-selection.zip",
 
-  // Max files per browser ZIP (kept small: each file is fetched into RAM,
-  // and polite caps matter while files come from community mirror CDNs).
-  // The desktop app has no such limit (Rust backend streams to disk).
-  MAX_ZIP_FILES: 30,
+  // Browser ZIP limits: each file is fetched into tab RAM, so the count
+  // cap plus a running byte budget keep the build inside safe memory.
+  // Budget is enforced during the build with real sizes — an oversized
+  // selection still produces a partial ZIP with a note, not a crash.
+  // The desktop app has no such limits (Rust backend streams to disk).
+  MAX_ZIP_FILES: 200,
+  MAX_ZIP_BUDGET_MB: 500,
 
   // Desktop app download link (footer). Empty string hides the button.
   DESKTOP_APP_URL: "https://github.com/chubbycavy/HSCPapers/releases",
