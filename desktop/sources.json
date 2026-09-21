@@ -1,0 +1,56 @@
+{
+  "_doc": "Frozen source config for the HSCPapers desktop app (Phase 1). See desktop/README.md for the full picture.",
+  "attribution": {
+    "catalogue": "THSCOnline (https://thsconline.github.io/s/) — papers belong to their schools/authors and NESA.",
+    "siteCodeLicense": "MIT (c) 2014 thsconline — covers site code; paper PDFs remain third-party content for bona-fide study use.",
+    "appPolicy": "Metadata is cached and refreshed politely. PDFs download ONLY when the user picks them, max 3 at a time, via THSC's official download endpoints (same URLs their own download button uses). No rehosting, no bulk mirroring."
+  },
+  "github": {
+    "owner": "thsconline",
+    "repo": "s",
+    "branch": "thsconline-website",
+    "treeApi": "https://api.github.com/repos/thsconline/s/git/trees/thsconline-website?recursive=1",
+    "rawBase": "https://raw.githubusercontent.com/thsconline/s/thsconline-website",
+    "pagesBase": "https://thsconline.github.io/s"
+  },
+  "hscIndex": {
+    "raw": "https://raw.githubusercontent.com/thsconline/json/master/HSCpapers.json",
+    "schema": "[{course_name, packs: [{year, link, docs: [{doc_name, doc_link}]}]}]",
+    "note": "Direct NESA doc links. Preferred source for HSC exam papers + marking guidelines."
+  },
+  "trialPipeline": {
+    "how": "Listing HTML (yr*/**/trialpapers_*.html, hscpapers_*.html) holds school sections + links of form pdf(this, <viewno>). Bytes live on the maintainer's Google Drive and resolve at download time via the official endpoint below.",
+    "downloadEndpoint": "https://thsconline.github.io/s/d/{viewno}/{title}",
+    "viewerEndpoint": "https://thsconline.github.io/s/v/{viewno}/{title}",
+    "note": "Appended per-entry as absolute `url` (our fileUrl() already passes absolute URLs through). No Apps Script internals are scraped.",
+    "workerEndpoints": "THSC's official v2 site (thsconline.pages.dev, viewer.js rewritten 2026-05-24) rotates 15 extra Apps Script deployments + the original to spread load. Same data API; the app mirrors that behaviour in Rust (desktop/src-tauri/src/main.rs WORKERS)."
+  },
+  "mirrors": {
+    "_doc": "Public mirrors acknowledged on THSC's own homepage. Download priority: NESA direct > mirror files > THSC script resolver (16-way worker pool). Each catalogue entry keeps its THSC router URL as `fallbackUrl`.",
+    "hscportal": {
+      "catalogue": "https://www.hscportal.app/papers.json",
+      "fileBase": "https://hscportal.pages.dev/",
+      "match": "entry.v (THSC viewno) + entry.n (THSC link text) match our listing entries 1:1; pdfUrl/cf serve direct PDFs (verified anonymously). Coverage: 6,449 trials/assessments/other, all subjects, 1978-2025.",
+      "credit": "HSC Portal (hscportal.app) — community mirror of THSC papers, self-hosted on Cloudflare Pages."
+    },
+    "papersdb": {
+      "base": "https://papersdb.org",
+      "cdnBase": "https://cdn.papersdb.org",
+      "subjects": ["Biology", "Chemistry", "Mathematics Advanced", "Mathematics Extension 1", "Mathematics Extension 2", "Mathematics Standard", "Miscellaneous", "Physics"],
+      "match": "Server-rendered /browse/<Subject>/<Trials|HSC>[/<School>] pages -> cdn.papersdb.org PDFs named '<School> <Year> <Subject> Trials[ & Solutions].pdf' (THSC's exact naming).",
+      "credit": "PapersDB (papersdb.org) — community fast mirror (Maths & Science), listed on THSC's homepage."
+    },
+    "zaxu": {
+      "base": "https://thsc.zaxu.xyz",
+      "note": "h5ai file mirror, pre-2020 coverage, all subjects. NOT crawled (JS-rendered listings); reserved as manual fallback.",
+      "credit": "Zaxu mirror (thsc.zaxu.xyz) — community file mirror, listed on THSC's homepage."
+    }
+  },
+  "localFolders": ["Maths Advanced", "Physics"],
+  "policy": {
+    "userAgent": "HSCPapers/1.0 (study use; cached index, on-demand downloads)",
+    "metaDelayMs": 150,
+    "maxConcurrentDownloads": 3,
+    "cacheTtlHours": 72
+  }
+}

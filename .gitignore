@@ -1,0 +1,15 @@
+# Paper libraries — third-party content; never published
+HSC Papers/
+HSCPapers2/
+Maths Advanced/
+Physics/
+
+# Build artifacts & caches
+desktop/src-tauri/target/
+desktop/src-tauri/gen/
+desktop/tools/.cache/
+desktop/node_modules/
+
+# Runtime / workspace
+*.part
+.opencode/

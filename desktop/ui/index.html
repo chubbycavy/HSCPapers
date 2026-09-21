@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HSC trial papers and past HSC papers, organised by subject, year and school. THSCOnline-style mirror with search and bulk download.">
+  <title>HSC Papers Mirror — Trial & HSC Papers</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f46e5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>H</text></svg>">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="#top">
+      <span class="logo-mark">H</span>
+      <span>HSC Papers<small>Mirror · Trial + HSC</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#browse" class="active">Browse</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#about">Hosting setup</a>
+    </div>
+    <div class="nav-right">
+      <span class="host-badge" id="hostBadge" title="Remote file host">…</span>
+      <button class="icon-btn" id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <span class="eyebrow">● THSCOnline-style mirror</span>
+  <h1>Every HSC paper. <span>One fast place.</span></h1>
+  <p>Search trial papers and past HSC papers by subject, year, school and type. Tick to select, then download individually or as one ZIP.</p>
+
+  <div class="search-wrap">
+    <form class="search" id="searchForm">
+      <span class="s-icon">⌕</span>
+      <input id="q" type="text" placeholder="Search — try “Ruse physics 2024” or “Ext 2”…" autocomplete="off" aria-label="Search papers">
+      <button type="submit">Search</button>
+    </form>
+    <div class="quick-pills" id="typePills">
+      <button class="pill on" data-type="all">All papers</button>
+      <button class="pill" data-type="hsc">HSC past papers</button>
+      <button class="pill" data-type="trial">Trial papers</button>
+      <button class="pill" data-type="internal">Internals &amp; other</button>
+      <button class="pill" data-type="solutions">With solutions only</button>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><b id="statPapers">–</b><span>papers indexed</span></div>
+    <div class="stat"><b id="statSubjects">–</b><span>subjects</span></div>
+    <div class="stat"><b id="statSchools">–</b><span>schools + NESA</span></div>
+    <div class="stat"><b id="statSolutions">–</b><span>with solutions</span></div>
+  </div>
+</section>
+
+<main class="layout" id="browse">
+  <div class="subject-strip" id="subjects">
+    <h2>Browse by subject</h2>
+    <div class="strip-scroll" id="subjectStrip"></div>
+  </div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="panel">
+      <h2>Type <button data-clear="type">Reset</button></h2>
+      <div class="seg" id="typeSeg">
+        <button data-type="all" class="on">All</button>
+        <button data-type="hsc">HSC</button>
+        <button data-type="trial">Trial</button>
+        <button data-type="internal">Other</button>
+      </div>
+      <div class="toggle-row" style="margin-top:.6rem">
+        <span>Solutions only</span>
+        <label class="switch"><input type="checkbox" id="solOnly"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row" style="margin-top:.6rem">
+        <span title="~640 files only exist behind THSC's rate-limited resolver (~20-40 min extra per batch). Off = saves skip them.">Slow-route papers 🐢</span>
+        <label class="switch"><input type="checkbox" id="slowRoute"><span class="slider"></span></label>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Level <button data-clear="level">Reset</button></h2>
+      <div class="seg" id="levelSeg">
+        <button data-level="all" class="on">All</button>
+        <button data-level="hsc">Yr 12</button>
+        <button data-level="preliminary">Yr 11</button>
+        <button data-level="year10">Yr 10</button>
+        <button data-level="year9">Yr 9</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Subject <button data-clear="subject">Reset</button></h2>
+      <input class="filter-search" id="subjectFilterSearch" placeholder="Filter subjects…">
+      <div class="check-list" id="subjectList"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Year <button data-clear="year">Reset</button></h2>
+      <div class="check-list" id="yearList"></div>
+    </div>
+
+    <div class="panel">
+      <h2>School <button data-clear="school">Reset</button></h2>
+      <input class="filter-search" id="schoolFilterSearch" placeholder="Filter schools…">
+      <div class="check-list" id="schoolList"></div>
+    </div>
+  </aside>
+
+  <section class="content">
+    <div class="toolbar">
+      <button class="btn filters-toggle" id="filtersToggle">☰ Filters</button>
+      <div class="results-count"><span id="resultsCount">0 papers</span> <span id="activeFilterNote"></span></div>
+      <div class="spacer"></div>
+      <select class="select" id="sortSel" aria-label="Sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="az">Subject A–Z</option>
+        <option value="school">School A–Z</option>
+      </select>
+      <button class="btn" id="viewBtn" title="Toggle grid / list view">▤ View</button>
+      <button class="btn" id="selectAllBtn">Select all</button>
+      <button class="btn" id="clearSelBtn">Clear</button>
+    </div>
+    <div class="resume-bar" id="resumeBar" hidden>
+      <span id="resumeBarText"></span>
+      <button class="btn primary" id="resumeBarBtn">Resume</button>
+      <button class="bb-btn bb-ghost" id="resumeBarDismiss" title="Abandon batch">✕</button>
+    </div>
+    <div class="grid" id="cards"></div>
+  </section>
+</main>
+
+<section class="about" id="about">
+  <div class="about-card">
+    <div>
+      <h2>How file hosting works</h2>
+      <p>Papers are <b>not</b> stored in this repo. Every download button links to your remote file host:</p>
+      <ol style="margin-top:.6rem">
+        <li>Upload PDFs to your host (R2 / S3 / VPS / Drive-mirror) keeping the folder names from <code>data/papers.json</code>.</li>
+        <li>Set <code>FILE_HOST_BASE_URL</code> in <code>js/config.js</code> to your host.</li>
+        <li>Add new papers by appending entries to <code>data/papers.json</code> — the UI (search, filters, counts, ZIP) updates automatically.</li>
+      </ol>
+      <p style="margin-top:.6rem">Single-file downloads are plain links (no CORS needed). “Download ZIP” fetches via JavaScript, so enable <code>Access-Control-Allow-Origin: *</code> on the host for that button.</p>
+    </div>
+    <div>
+      <h2>Organisation (THSCOnline mirror)</h2>
+      <p><code>Subject → Year → School</code>, split by <code>HSC</code> (NESA past papers) vs <code>Trial</code> (school-written). Each entry can carry a <code>solutionPath</code> so papers + solutions travel together in selections and ZIPs.</p>
+      <p style="margin-top:.6rem">Tip: share a filtered view with a link — search &amp; filters sync to the URL (e.g. <code>?q=ruse&amp;type=trial</code>).</p>
+    </div>
+  </div>
+</section>
+
+<div class="bulkbar" id="bulkbar" role="status" aria-live="polite">
+  <b id="bulkCount">0 selected</b>
+  <button class="bb-btn bb-zip" id="zipBtn">⭳ Download ZIP</button>
+  <button class="bb-btn bb-each" id="eachBtn">Download individually</button>
+  <button class="bb-btn bb-each" id="copyBtn">Copy links</button>
+  <button class="bb-btn bb-ghost" id="bulkClear">✕</button>
+  <span class="progress" id="zipProgress"></span>
+</div>
+
+<footer>
+  <b>HSCPapers</b> · THSCOnline-style index · Not affiliated with NESA<br>
+  Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>.
+  Fast mirrors: <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>, <a href="https://papersdb.org/" target="_blank" rel="noopener">PapersDB</a>, Board of Studies archive.
+  Contact: <span id="contactEmail"></span>
+</footer>
+
+<div id="reader" class="reader-overlay" hidden>
+  <div class="reader-bar">
+    <button class="bar-btn" id="readerClose">← Library</button>
+    <span id="readerTitle" class="reader-title"></span>
+    <span id="readerPageInfo" class="reader-pageinfo"></span>
+    <button class="bar-btn" id="readerPrev">‹ Prev</button>
+    <span id="readerPageNum" class="reader-pagenum">1 / 1</span>
+    <button class="bar-btn" id="readerNext">Next ›</button>
+    <button class="bar-btn" id="readerTimerBtn" title="Study timer">⏱</button>
+    <span id="readerTimer" class="reader-timer" hidden>00:00</span>
+    <select id="readerTimerPreset" class="bar-select" hidden>
+      <option value="0">Count up</option>
+      <option value="1800">30 min</option>
+      <option value="3600">1 hour</option>
+      <option value="7200">2 hours</option>
+      <option value="10800">3 hours</option>
+      <option value="custom">Custom…</option>
+    </select>
+    <span id="readerTimerCustomWrap" hidden>
+      <input id="readerTimerCustom" class="bar-select" type="number" min="1" max="600" placeholder="min" style="width:5.2rem" aria-label="Timer minutes">
+      <button class="bar-btn" id="readerTimerStart">Start</button>
+    </span>
+    <button class="bar-btn" id="readerOpenSys" title="Open in system PDF app">📂</button>
+  </div>
+  <div class="reader-scroll" id="readerScroll"><canvas id="readerCanvas"></canvas><div id="readerErr" class="reader-err"></div></div>
+</div>
+
+<script src="pdfjs/pdf.min.js" defer></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
