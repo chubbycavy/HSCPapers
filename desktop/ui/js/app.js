@@ -254,10 +254,12 @@
     lab.className = "check";
     lab.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}> <span></span> <span class="count">${count}</span>`;
     lab.querySelector("span").textContent = label;
+    lab.querySelector("span").textContent = label;
     lab.querySelector("input").addEventListener("change", (e) => {
       if (e.target.checked) state[list].add(value);
       else state[list].delete(value);
-      writeURL(); scheduleRender();
+      writeURL();
+      applyFilterChange();
     });
     return lab;
   }
@@ -333,7 +335,7 @@
     const all = document.createElement("button");
     all.className = "subj-chip" + (state.subjects.size === 0 ? " on" : "");
     all.innerHTML = `<b>All subjects</b><span>${effectivePapers().length} papers</span>`;
-    all.addEventListener("click", () => { state.subjects.clear(); buildFilters(); buildSubjectStrip(); writeURL(); render(); });
+    all.addEventListener("click", () => { state.subjects.clear(); applyFilterChange(); });
     strip.appendChild(all);
     [...counts.keys()].sort().forEach(s => {
       const b = document.createElement("button");
@@ -343,7 +345,7 @@
       b.addEventListener("click", () => {
         if (state.subjects.has(s) && state.subjects.size === 1) state.subjects.clear();
         else { state.subjects.clear(); state.subjects.add(s); }
-        buildFilters(); buildSubjectStrip(); writeURL(); render();
+        applyFilterChange();
         document.getElementById("browse").scrollIntoView({ behavior: "smooth" });
       });
       strip.appendChild(b);
@@ -411,7 +413,7 @@
     if (state.type !== "all") add(state.type === "internal" ? "Internals & other" : state.type.toUpperCase(), () => { state.type = "all"; });
     if (state.level !== "all") add({ hsc: "Yr 12", preliminary: "Yr 11", year10: "Yr 10", year9: "Yr 9" }[state.level] || state.level, () => { state.level = "all"; });
     if (state.solutionsOnly) add("Solutions only", () => { state.solutionsOnly = false; $("#solOnly").checked = false; });
-    if (state.includeSlowRoute) add("🐢 slow-route shown", () => {
+    if (state.includeSlowRoute) add("🐢 Slow-route shown", () => {
       state.includeSlowRoute = false; $("#slowRoute").checked = false;
       // Mirror the toggle handler: selection never references hidden papers.
       const hide = new Set(state.papers.filter(p => !isFastHostUrl(p.url)).map(p => p.id));
@@ -487,16 +489,14 @@
     const viewFiles = filesForPapers(list).length;
     lastSlowSkipped = skipBefore;
     resultsCount.textContent += ` · ${viewFiles} file${viewFiles === 1 ? "" : "s"}`;
-    // When the toggle hides slow-route papers, say so right here — the
-    // catalogue stat (7,015) and what's visible always reconcile.
     if (!state.includeSlowRoute) {
       const hiddenN = filtered(true).length - list.length;
-      if (hiddenN > 0) resultsCount.textContent += ` · ${hiddenN} slow-route hidden (toggle to show)`;
+      if (hiddenN > 0) resultsCount.textContent += ` · ${hiddenN} hidden (🐢 toggle)`;
     }
     renderChips();
 
     if (!list.length) {
-      cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>No papers match</b>Try clearing a filter or searching “maths”, “Ruse”, “2024”…</div>`;
+      cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>No papers match</b>Try clearing a filter, or search “maths”, “Ruse” or “2024”.</div>`;
     } else {
       cardsEl.innerHTML = "";
       const frag = document.createDocumentFragment();
@@ -589,6 +589,9 @@
   function renderBulk() {
     const n = state.selected.size;
     if (n !== lastBulkCount) {
+      // Selection changed: stale status text (cap notes, finished-run lines)
+      // belongs to the OLD selection — clear it unless a Tauri batch is live.
+      if (!tauriRun) $("#zipProgress").textContent = "";
       // Both numbers, explicitly — papers selected and files they produce
       // (solutions ride along; skips from slow sols surface as a note).
       const f = n ? selectedFiles().length : 0;
@@ -602,7 +605,6 @@
     // (save-all flow), so progress/status stay visible.
     const show = n > 0 || !!tauriRun;
     if (show !== lastBulkShown) { bulkbarEl.classList.toggle("show", show); lastBulkShown = show; }
-    // status text is owned by tauri* functions — never wiped here
   }
 
   $("#selectAllBtn").addEventListener("click", () => {
@@ -610,13 +612,15 @@
     // the ZIP button never has to reject — the bulk bar shows the ceiling.
     const cap = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
     const files = filesForPapers(filtered());
-    if (files.length > cap) {
+    const capped = files.length > cap;
+    if (capped) {
       state.selected = new Set(files.slice(0, cap).map(f => f.kind === "solutions" ? f.id.slice(0, -4) : f.id));
-      tauriStatus(`Select all capped at ${cap} files (${filtered().length} matched)`);
     } else {
       filtered().forEach(p => state.selected.add(p.id));
     }
     render();
+    // AFTER render: renderBulk clears stale status on selection changes.
+    if (capped) tauriStatus(`Select all: capped at ${cap} files (${files.length} matched)`);
   });
   $("#clearSelBtn").addEventListener("click", () => { state.selected.clear(); render(); });
   $("#bulkClear").addEventListener("click", () => {
@@ -640,7 +644,7 @@
     const files = selectedFiles();
     const text = files.map(f => f.url).join("\n");
     try { await navigator.clipboard.writeText(text); $("#zipProgress").textContent = "Links copied ✓"; }
-    catch { $("#zipProgress").textContent = "Copy blocked — select & copy manually"; }
+    catch { $("#zipProgress").textContent = "Copy blocked — select and copy manually"; }
     setTimeout(renderBulk, 2500);
   });
 
@@ -657,7 +661,7 @@
       capped = files.length;
       files = files.slice(0, maxFiles);
     }
-    if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load. Use “Download individually”."; return; }
+    if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load. Use Download individually."; return; }
     const zip = new JSZip();
     let ok = 0, bytes = 0, budgetStop = null;
     const budget = budgetBytes;
@@ -683,7 +687,7 @@
       }
     }
     if (!ok) {
-      $("#zipProgress").textContent = "Host blocked ZIP (needs CORS *). Use “Download individually”.";
+      $("#zipProgress").textContent = "ZIP blocked by the source (needs CORS). Use Download individually.";
       return;
     }
     $("#zipProgress").textContent = `Packing ${fmtMB(bytes)}…`;
@@ -704,50 +708,76 @@
     setTimeout(renderBulk, 5000);
   });
 
-  /* ----- drag-select: pointer-drag across cards adds them ----- */
-  // Mouse only (touch keeps tap-toggles). Additive — dragging never
-  // deselects; precise control stays with checkboxes. The click that
-  // follows a real drag is swallowed so the start card doesn't flip.
-  let dragSel = null;
+  /* ----- drag-select v2: Windows-style rubber band ----- */
+  // Mouse only (touch keeps tap-toggles); additive — the band never
+  // deselects. A fixed marquee rect selects every rendered card it
+  // intersects (rAF-throttled), with edge autoscroll near viewport
+  // top/bottom. The click that follows a real drag is swallowed.
+  let marquee = null;   // {x0doc, y0doc, seen:Set, active, raf}
   let didDrag = false;
+  let marqueePX = 0, marqueePY = 0;
+  const marqueeEl = document.createElement("div");
+  marqueeEl.className = "marquee";
+  document.body.appendChild(marqueeEl);
   function dragAddCard(card) {
     const box = card.querySelector("input");
     if (box && !box.checked) box.click(); // reuses the card's own change wiring
   }
+  function marqueeApply(px, py) {
+    const sx = window.scrollX, sy = window.scrollY;
+    const L = Math.min(marquee.x0doc, sx + px), R = Math.max(marquee.x0doc, sx + px);
+    const T = Math.min(marquee.y0doc, sy + py), B = Math.max(marquee.y0doc, sy + py);
+    for (const card of cardsEl.querySelectorAll(".card")) {
+      const b = card.getBoundingClientRect();
+      if (b.right + sx <= L || b.left + sx >= R || b.bottom + sy <= T || b.top + sy >= B) continue;
+      const id = card.dataset.id;
+      if (id && !marquee.seen.has(id)) { marquee.seen.add(id); dragAddCard(card); }
+    }
+    marqueeEl.style.left = Math.min(marquee.x0doc - sx, px) + "px";
+    marqueeEl.style.top = Math.min(marquee.y0doc - sy, py) + "px";
+    marqueeEl.style.width = Math.abs(px - (marquee.x0doc - sx)) + "px";
+    marqueeEl.style.height = Math.abs(py - (marquee.y0doc - sy)) + "px";
+    marqueeEl.style.display = "block";
+  }
+  function marqueeLoop() {
+    if (!marquee) return;
+    const edge = 70;
+    if (marqueePY < edge) window.scrollBy(0, -14);
+    else if (marqueePY > window.innerHeight - edge) window.scrollBy(0, 14);
+    marqueeApply(marqueePX, marqueePY);
+    marquee.raf = requestAnimationFrame(marqueeLoop);
+  }
   cardsEl.addEventListener("pointerdown", (e) => {
     didDrag = false;
     if (e.pointerType !== "mouse" || e.button !== 0) return;
-    const card = e.target.closest(".card");
-    if (!card || e.target.closest("input,button,a")) return;
-    dragSel = { startEl: card, seen: new Set(), active: false };
+    if (e.target.closest("input,button,a")) return;
+    marquee = { x0doc: e.clientX + window.scrollX, y0doc: e.clientY + window.scrollY, seen: new Set(), active: false, raf: 0 };
   });
-  cardsEl.addEventListener("pointermove", (e) => {
-    if (!dragSel) return;
-    const card = e.target.closest?.(".card");
-    if (!card) return;
-    if (!dragSel.active) {
-      if (card === dragSel.startEl) return;
-      dragSel.active = true;
-      cardsEl.classList.add("drag-select");
-      dragAddCard(dragSel.startEl);
-      dragSel.seen.add(dragSel.startEl.dataset.id);
-    }
-    const id = card.dataset.id;
-    if (!id || dragSel.seen.has(id)) return;
-    dragSel.seen.add(id);
-    dragAddCard(card);
-  });
-  function dragEnd() {
-    if (dragSel?.active) {
+  window.addEventListener("pointermove", (e) => {
+    if (!marquee) return;
+    if (e.pointerType !== "mouse") return;
+    marqueePX = e.clientX; marqueePY = e.clientY;
+    if (!marquee.active) {
+      const dx = Math.abs(e.clientX + window.scrollX - marquee.x0doc);
+      const dy = Math.abs(e.clientY + window.scrollY - marquee.y0doc);
+      if (dx < 6 && dy < 6) return;
+      marquee.active = true;
       didDrag = true;
-      cardsEl.classList.remove("drag-select");
-      renderBulk();
+      document.body.classList.add("drag-select");
     }
-    dragSel = null;
+    marqueeApply(e.clientX, e.clientY);
+    if (!marquee.raf) marquee.raf = requestAnimationFrame(marqueeLoop);
+  });
+  function marqueeEnd() {
+    if (marquee?.active) { didDrag = true; renderBulk(); }
+    if (marquee) cancelAnimationFrame(marquee.raf);
+    marqueeEl.style.display = "none";
+    document.body.classList.remove("drag-select");
+    marquee = null;
   }
-  cardsEl.addEventListener("pointerup", dragEnd);
-  cardsEl.addEventListener("pointercancel", dragEnd);
-  cardsEl.addEventListener("pointerleave", dragEnd);
+  window.addEventListener("pointerup", marqueeEnd);
+  window.addEventListener("pointercancel", marqueeEnd);
+  window.addEventListener("blur", marqueeEnd);
 
   /* ----- Tauri desktop downloads (Rust backend -> Documents/HSCPapers) ----- */
   let tauriRun = null;     // {total, ok, fail, bytesTotal, bytesDone, t0, cancel}
@@ -1365,18 +1395,33 @@
     state.view = state.view === "grid" ? "list" : "grid";
     cardsEl.classList.toggle("list", state.view === "list");
   });
-  $("#filtersToggle").addEventListener("click", () => $("#sidebar").classList.toggle("open"));
+  /* Left-column wheel routing, guarded: when the sidebar has its own
+     overflow (a long list panel is open), the wheel anywhere left of the
+     content column — the sidebar AND its gutter/margins — scrolls the
+     sidebar. When the sidebar fits on screen, the page scrolls naturally. */
+  const sidebarEl = $("#sidebar");
+  document.addEventListener("wheel", (e) => {
+    if (!$("#reader").hidden || !sidebarEl) return;
+    const r = sidebarEl.getBoundingClientRect();
+    if (e.clientX >= r.right || e.clientY < r.top || e.clientY > r.bottom) return;
+    if (sidebarEl.scrollHeight <= sidebarEl.clientHeight + 1) return; // nothing to scroll
+    e.preventDefault();
+    sidebarEl.scrollTop += e.deltaY;
+  }, { passive: false });
 
   /* Subject strip: mouse wheel scrolls it horizontally (touch swipes
-     natively). The old left-column wheel router is gone — collapsible
-     panels keep the sidebar short, so the page scrolls naturally. */
+     natively). At either horizontal end the wheel falls through so the
+     page keeps scrolling — no dead zone at the ends. */
   const stripEl = $("#subjectStrip");
   if (stripEl) {
     stripEl.addEventListener("wheel", (e) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && stripEl.scrollWidth > stripEl.clientWidth) {
-        e.preventDefault();
-        stripEl.scrollLeft += e.deltaY;
-      }
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return; // native horizontal
+      const maxL = stripEl.scrollWidth - stripEl.clientWidth;
+      const atStart = stripEl.scrollLeft <= 0 && e.deltaY < 0;
+      const atEnd = maxL <= 0 || (stripEl.scrollLeft >= maxL - 1 && e.deltaY > 0);
+      if (atStart || atEnd) return;
+      e.preventDefault();
+      stripEl.scrollLeft += e.deltaY;
     }, { passive: false });
   }
 
