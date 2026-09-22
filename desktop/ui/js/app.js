@@ -6,13 +6,12 @@
   const $ = (s) => document.querySelector(s);
   const cardsEl = $("#cards");
   const resultsCount = $("#resultsCount");
-  const activeFilterNote = $("#activeFilterNote");
   const bulkbarEl = $("#bulkbar");
   const bulkCountEl = $("#bulkCount");
   const zipProgressEl = $("#zipProgress");
 
   // Perf (behaviour-preserving): page the card render + coalesce rapid renders.
-  const PAGE_SIZE = 60;
+  const PAGE_SIZE = 120;
   let renderQueued = false;
   let lastFilterSig = null;
   let lastBulkCount = -1;
@@ -22,6 +21,16 @@
     if (renderQueued) return;
     renderQueued = true;
     requestAnimationFrame(() => { renderQueued = false; render(); });
+  }
+
+  // Shared: rebuild facet UI + URL after any filter mutation.
+  function applyFilterChange() {
+    syncPills();
+    buildFilters();
+    buildSubjectStrip();
+    updateStats();
+    writeURL();
+    scheduleRender();
   }
 
   const state = {
@@ -41,10 +50,13 @@
     visibleCount: PAGE_SIZE, // paging: cards rendered (Show more raises it; reset on filter change)
   };
 
-  /* Persisted UI state — survives reader overlays, restarts, and crashes so
-     filters/selection never desync from what the user left behind. */
+  /* Persisted UI state — desktop only. The desktop app keeps filters/
+     selection across restarts; the website always opens fresh (deep links
+     still restore filters explicitly via ?q=…). Theme + density persist on
+     both (device preferences, not filters). */
   const STATE_KEY = "hsc-state-v1";
   function persistState() {
+    if (!IS_TAURI) return;
     try {
       localStorage.setItem(STATE_KEY, JSON.stringify({
         q: state.q, type: state.type, level: state.level, solutionsOnly: state.solutionsOnly,
@@ -56,6 +68,7 @@
     } catch {}
   }
   function restoreState() {
+    if (!IS_TAURI) return;
     try {
       const s = JSON.parse(localStorage.getItem(STATE_KEY) || "null");
       if (!s) return;
@@ -108,6 +121,24 @@
   $("#themeBtn").addEventListener("click", () => {
     root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
     localStorage.setItem("hsc-theme", root.dataset.theme);
+  });
+
+  /* ---------- density (compact mode) — persists like theme, both platforms ---------- */
+  const DENSITY_KEY = "hsc-density";
+  function applyDensity() {
+    const compact = localStorage.getItem(DENSITY_KEY) === "compact";
+    document.body.classList.toggle("compact", compact);
+    const btn = $("#densityBtn");
+    if (btn) {
+      btn.classList.toggle("on", compact);
+      btn.setAttribute("aria-pressed", String(compact));
+    }
+  }
+  applyDensity();
+  $("#densityBtn").addEventListener("click", () => {
+    if (localStorage.getItem(DENSITY_KEY) === "compact") localStorage.removeItem(DENSITY_KEY);
+    else localStorage.setItem(DENSITY_KEY, "compact");
+    applyDensity();
   });
 
   /* ---------- config badge ---------- */
@@ -182,11 +213,12 @@
     $("#statSubjects").textContent = new Set(eff.map(p => p.subject)).size;
     $("#statSchools").textContent = new Set(eff.map(p => p.school)).size;
     $("#statSolutions").textContent = eff.filter(p => p.hasSolutions).length;
-    // Level pill counts — labels come from a map (never mangle the button
-    // text: "Yr 12" loses its "12" to any trailing-digit strip).
+    // Level pill counts — faceted like the sidebar lists (every OTHER filter
+    // applied), and labels come from a map (never mangle "Yr 12" digits).
     const LEVEL_LABELS = { all: "All", hsc: "Yr 12", preliminary: "Yr 11", year10: "Yr 10", year9: "Yr 9" };
-    const levelCounts = { all: eff.length, hsc: 0, preliminary: 0, year10: 0, year9: 0 };
-    for (const p of eff) {
+    const levelBase = filterPapers({ exclude: "level", noSort: true });
+    const levelCounts = { all: levelBase.length, hsc: 0, preliminary: 0, year10: 0, year9: 0 };
+    for (const p of levelBase) {
       if (p.level === "HSC") levelCounts.hsc++;
       else if (p.level === "Preliminary") levelCounts.preliminary++;
       else if (p.level === "Year 10") levelCounts.year10++;
@@ -208,8 +240,13 @@
     return state.includeSlowRoute ? state.papers : state.papers.filter(p => isFastHostUrl(p.url));
   }
   function countsBy(key) {
+    // Faceted counting: count over the catalogue with every OTHER filter
+    // applied (this facet's own filter is excluded so selected values keep
+    // their numbers and unselected ones react to the active filters).
+    const FACETS = new Set(["subject", "year", "school"]);
+    const src = FACETS.has(key) ? filterPapers({ exclude: key, noSort: true }) : effectivePapers();
     const m = new Map();
-    for (const p of effectivePapers()) m.set(p[key], (m.get(p[key]) || 0) + 1);
+    for (const p of src) m.set(p[key], (m.get(p[key]) || 0) + 1);
     return m;
   }
   function checkRow(list, value, label, count, checked) {
@@ -225,10 +262,15 @@
     return lab;
   }
   function buildFilters() {
-    // subjects
+    // subjects — unselected values that dropped to 0 under the active
+    // filters are hidden (they can't match); selected values always stay.
     const sCounts = countsBy("subject");
     const sList = $("#subjectList"); sList.innerHTML = "";
-    [...sCounts.keys()].sort().forEach(s => sList.appendChild(checkRow("subjects", s, s, sCounts.get(s), state.subjects.has(s))));
+    [...sCounts.keys()].sort().forEach(s => {
+      const n = sCounts.get(s);
+      if (!n && !state.subjects.has(s)) return;
+      sList.appendChild(checkRow("subjects", s, s, n, state.subjects.has(s)));
+    });
     // Wired once: buildFilters() re-runs on strip/reset clicks, so guard
     // against stacking duplicate listeners (was a growing lag source).
     const subjSearch = $("#subjectFilterSearch");
@@ -242,11 +284,19 @@
     // years
     const yCounts = countsBy("year");
     const yList = $("#yearList"); yList.innerHTML = "";
-    [...yCounts.keys()].sort((a, b) => b - a).forEach(y => yList.appendChild(checkRow("years", y, String(y), yCounts.get(y), state.years.has(y))));
+    [...yCounts.keys()].sort((a, b) => b - a).forEach(y => {
+      const n = yCounts.get(y);
+      if (!n && !state.years.has(y)) return;
+      yList.appendChild(checkRow("years", y, String(y), n, state.years.has(y)));
+    });
     // schools
     const schCounts = countsBy("school");
     const schList = $("#schoolList"); schList.innerHTML = "";
-    [...schCounts.keys()].sort().forEach(s => schList.appendChild(checkRow("schools", s, s, schCounts.get(s), state.schools.has(s))));
+    [...schCounts.keys()].sort().forEach(s => {
+      const n = schCounts.get(s);
+      if (!n && !state.schools.has(s)) return;
+      schList.appendChild(checkRow("schools", s, s, n, state.schools.has(s)));
+    });
     const schSearch = $("#schoolFilterSearch");
     if (!schSearch.dataset.wired) {
       schSearch.dataset.wired = "1";
@@ -255,11 +305,18 @@
         [...schList.children].forEach(row => row.style.display = row.textContent.toLowerCase().includes(v) ? "" : "none");
       });
     }
-    // resets (also guarded — same stacking issue as above)
+    // resets (also guarded — same stacking issue as above). The buttons live
+    // inside <summary>, so prevent the summary's default toggle action.
+    const hint = (id, set) => { const el = $(id); if (el) el.textContent = set ? `· ${set} selected` : ""; };
+    hint("#subjectHint", state.subjects.size);
+    hint("#yearHint", state.years.size);
+    hint("#schoolHint", state.schools.size);
     document.querySelectorAll("[data-clear]").forEach(btn => {
       if (btn.dataset.wired) return;
       btn.dataset.wired = "1";
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       const k = btn.dataset.clear;
       if (k === "type") { state.type = "all"; state.solutionsOnly = false; $("#solOnly").checked = false; }
       if (k === "level") state.level = "all";
@@ -299,30 +356,40 @@
     const hay = `${p.subject} ${p.school} ${p.year} ${p.title} ${p.type}`.toLowerCase();
     return tokens.every(t => hay.includes(t));
   }
-  function filtered(ignoreSlow) {
+  // Core filter. opts.exclude skips ONE facet — used for faceted counting
+  // (each list counts with every other filter applied, so numbers react to
+  // what's already active). opts.includeSlow reads the full catalogue;
+  // opts.noSort skips sorting (count-only paths).
+  function filterPapers(opts = {}) {
+    const no = (k) => opts.exclude === k;
     const tokens = norm(state.q).split(/\s+/).filter(Boolean);
-    // ignoreSlow: same filters but over the FULL catalogue — used to report
-    // how many slow-route papers the toggle is hiding.
-    let out = (ignoreSlow ? state.papers : effectivePapers()).filter(p => {
-      if (state.type === "internal") {
-        if (p.type !== "assessment" && p.type !== "other") return false;
-      } else if (state.type !== "all" && p.type !== state.type) return false;
-      if (state.level !== "all") {
+    let out = (opts.includeSlow ? state.papers : effectivePapers()).filter(p => {
+      if (!no("type")) {
+        if (state.type === "internal") {
+          if (p.type !== "assessment" && p.type !== "other") return false;
+        } else if (state.type !== "all" && p.type !== state.type) return false;
+      }
+      if (!no("level") && state.level !== "all") {
         const lv = { hsc: "HSC", preliminary: "Preliminary", year10: "Year 10", year9: "Year 9" }[state.level];
         if (p.level !== lv) return false;
       }
-      if (state.solutionsOnly && !p.hasSolutions) return false;
-      if (state.subjects.size && !state.subjects.has(p.subject)) return false;
-      if (state.years.size && !state.years.has(p.year)) return false;
-      if (state.schools.size && !state.schools.has(p.school)) return false;
+      if (!no("solutions") && state.solutionsOnly && !p.hasSolutions) return false;
+      if (!no("subject") && state.subjects.size && !state.subjects.has(p.subject)) return false;
+      if (!no("year") && state.years.size && !state.years.has(p.year)) return false;
+      if (!no("school") && state.schools.size && !state.schools.has(p.school)) return false;
       if (tokens.length && !matches(p, tokens)) return false;
       return true;
     });
-    if (state.sort === "new") out.sort((a, b) => b.year - a.year || a.subject.localeCompare(b.subject));
-    if (state.sort === "old") out.sort((a, b) => a.year - b.year || a.subject.localeCompare(b.subject));
-    if (state.sort === "az") out.sort((a, b) => a.subject.localeCompare(b.subject) || b.year - a.year);
-    if (state.sort === "school") out.sort((a, b) => a.school.localeCompare(b.school) || b.year - a.year);
+    if (!opts.noSort) {
+      if (state.sort === "new") out.sort((a, b) => b.year - a.year || a.subject.localeCompare(b.subject));
+      if (state.sort === "old") out.sort((a, b) => a.year - b.year || a.subject.localeCompare(b.subject));
+      if (state.sort === "az") out.sort((a, b) => a.subject.localeCompare(b.subject) || b.year - a.year);
+      if (state.sort === "school") out.sort((a, b) => a.school.localeCompare(b.school) || b.year - a.year);
+    }
     return out;
+  }
+  function filtered(ignoreSlow) {
+    return filterPapers({ includeSlow: ignoreSlow });
   }
 
   /* ---------- render ---------- */
@@ -333,6 +400,62 @@
       [...state.years].sort((a, b) => a - b).join("|"),
       [...state.schools].sort().join("|"), state.sort].join("~");
   }
+
+  /* ---------- active-filter chips (visible + individually clearable) ---------- */
+  function renderChips() {
+    const row = $("#chipsRow");
+    if (!row) return;
+    const chips = [];
+    const add = (label, fn) => chips.push({ label, fn });
+    if (state.q) add(`“${state.q}”`, () => { state.q = ""; $("#q").value = ""; });
+    if (state.type !== "all") add(state.type === "internal" ? "Internals & other" : state.type.toUpperCase(), () => { state.type = "all"; });
+    if (state.level !== "all") add({ hsc: "Yr 12", preliminary: "Yr 11", year10: "Yr 10", year9: "Yr 9" }[state.level] || state.level, () => { state.level = "all"; });
+    if (state.solutionsOnly) add("Solutions only", () => { state.solutionsOnly = false; $("#solOnly").checked = false; });
+    if (state.includeSlowRoute) add("🐢 slow-route shown", () => {
+      state.includeSlowRoute = false; $("#slowRoute").checked = false;
+      // Mirror the toggle handler: selection never references hidden papers.
+      const hide = new Set(state.papers.filter(p => !isFastHostUrl(p.url)).map(p => p.id));
+      for (const id of [...state.selected]) if (hide.has(id)) state.selected.delete(id);
+    });
+    for (const s of state.subjects) add(s, () => state.subjects.delete(s));
+    for (const y of state.years) add(String(y), () => state.years.delete(y));
+    for (const s of state.schools) add(s, () => state.schools.delete(s));
+    row.innerHTML = "";
+    row.hidden = !chips.length;
+    if (chips.length) {
+      for (const c of chips) {
+        const b = document.createElement("button");
+        b.className = "chip";
+        b.innerHTML = `<span></span><i aria-hidden="true">✕</i>`;
+        b.querySelector("span").textContent = c.label;
+        b.addEventListener("click", () => { c.fn(); persistState(); applyFilterChange(); });
+        row.appendChild(b);
+      }
+      if (chips.length >= 2) {
+        const all = document.createElement("button");
+        all.className = "chip chip-all";
+        all.textContent = "Clear all ✕";
+        all.addEventListener("click", () => {
+          state.q = ""; $("#q").value = "";
+          state.type = "all"; state.level = "all";
+          state.solutionsOnly = false; $("#solOnly").checked = false;
+          state.subjects.clear(); state.years.clear(); state.schools.clear();
+          persistState(); applyFilterChange();
+        });
+        row.appendChild(all);
+      }
+    }
+    // Mobile Filters button badge mirrors the chip count.
+    const badge = $("#filterBadge");
+    if (badge) { badge.hidden = !chips.length; badge.textContent = chips.length; }
+  }
+  // Auto-append: load the next page as the user nears the bottom. The
+  // explicit Show more button stays as the fallback (and the click target).
+  const moreIO = new IntersectionObserver((entries) => {
+    if (!entries.some(en => en.isIntersecting)) return;
+    const btn = showMoreWrap?.querySelector("button");
+    if (btn) btn.click();
+  }, { rootMargin: "900px 0px" });
   function renderShowMore(total, shown) {
     if (!showMoreWrap) {
       showMoreWrap = document.createElement("div");
@@ -346,6 +469,7 @@
       btn.textContent = `Show more (${shown} of ${total})`;
       btn.addEventListener("click", () => { state.visibleCount += PAGE_SIZE; render(); });
       showMoreWrap.appendChild(btn);
+      moreIO.observe(showMoreWrap);
     }
   }
   function render() {
@@ -369,12 +493,7 @@
       const hiddenN = filtered(true).length - list.length;
       if (hiddenN > 0) resultsCount.textContent += ` · ${hiddenN} slow-route hidden (toggle to show)`;
     }
-    const bits = [];
-    if (state.q) bits.push(`“${state.q}”`);
-    if (state.type !== "all") bits.push(state.type === "internal" ? "Internals & other" : state.type.toUpperCase());
-    if (state.level !== "all") bits.push({ hsc: "Yr 12", preliminary: "Yr 11", year10: "Yr 10", year9: "Yr 9" }[state.level] || state.level);
-    if (state.solutionsOnly) bits.push("solutions");
-    activeFilterNote.textContent = bits.length ? "· " + bits.join(" · ") : "";
+    renderChips();
 
     if (!list.length) {
       cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>No papers match</b>Try clearing a filter or searching “maths”, “Ruse”, “2024”…</div>`;
@@ -397,6 +516,7 @@
   function cardEl(p) {
     const el = document.createElement("div");
     el.className = "card" + (state.selected.has(p.id) ? " selected" : "");
+    el.dataset.id = p.id;
     const paperHref = p.url || window.fileUrl(p.path);
     const solHref = p.solutionUrl || (p.solutionPath ? window.fileUrl(p.solutionPath) : null);
     const prel = libraryRel(p, "paper");
@@ -444,6 +564,7 @@
       renderBulk();
     });
     el.addEventListener("click", (e) => {
+      if (didDrag) { didDrag = false; return; }
       if (e.target.closest("a") || e.target.closest("button") || e.target === box) return;
       box.checked = !box.checked;
       box.dispatchEvent(new Event("change"));
@@ -485,7 +606,16 @@
   }
 
   $("#selectAllBtn").addEventListener("click", () => {
-    filtered().forEach(p => state.selected.add(p.id));
+    // Cap the SELECTION to the first maxFiles files (current sort order) so
+    // the ZIP button never has to reject — the bulk bar shows the ceiling.
+    const cap = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
+    const files = filesForPapers(filtered());
+    if (files.length > cap) {
+      state.selected = new Set(files.slice(0, cap).map(f => f.kind === "solutions" ? f.id.slice(0, -4) : f.id));
+      tauriStatus(`Select all capped at ${cap} files (${filtered().length} matched)`);
+    } else {
+      filtered().forEach(p => state.selected.add(p.id));
+    }
     render();
   });
   $("#clearSelBtn").addEventListener("click", () => { state.selected.clear(); render(); });
@@ -515,14 +645,17 @@
   });
 
   $("#zipBtn").addEventListener("click", async () => {
-    const files = selectedFiles();
+    let files = selectedFiles();
     if (!files.length) return;
     if (IS_TAURI) { tauriSaveClick(); return; }
     const maxFiles = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
     const budgetBytes = (window.SITE_CONFIG?.MAX_ZIP_BUDGET_MB || 500) * 1048576;
+    let capped = null;
     if (files.length > maxFiles) {
-      $("#zipProgress").textContent = `Too many files (${files.length} > ${maxFiles}). Deselect some, or use the desktop app for bulk saves.`;
-      return;
+      // Never block on count: take the first maxFiles (current selection
+      // order) and say so — the budget stop below handles the rest.
+      capped = files.length;
+      files = files.slice(0, maxFiles);
     }
     if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load. Use “Download individually”."; return; }
     const zip = new JSZip();
@@ -565,9 +698,56 @@
     setTimeout(() => URL.revokeObjectURL(a.href), 8000);
     $("#zipProgress").textContent = budgetStop !== null
       ? `Done — ${ok} files (≈${fmtMB(bytes)}), budget reached at ${budgetStop + 1} of ${files.length}. Deselect more or use the desktop app for the rest.`
-      : `Done — ${ok}/${files.length} files (≈${fmtMB(bytes)}) ✓`;
+      : capped
+        ? `Done — ${ok} of ${capped} selected (capped at ${maxFiles} files, ≈${fmtMB(bytes)}) ✓`
+        : `Done — ${ok}/${files.length} files (≈${fmtMB(bytes)}) ✓`;
     setTimeout(renderBulk, 5000);
   });
+
+  /* ----- drag-select: pointer-drag across cards adds them ----- */
+  // Mouse only (touch keeps tap-toggles). Additive — dragging never
+  // deselects; precise control stays with checkboxes. The click that
+  // follows a real drag is swallowed so the start card doesn't flip.
+  let dragSel = null;
+  let didDrag = false;
+  function dragAddCard(card) {
+    const box = card.querySelector("input");
+    if (box && !box.checked) box.click(); // reuses the card's own change wiring
+  }
+  cardsEl.addEventListener("pointerdown", (e) => {
+    didDrag = false;
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    const card = e.target.closest(".card");
+    if (!card || e.target.closest("input,button,a")) return;
+    dragSel = { startEl: card, seen: new Set(), active: false };
+  });
+  cardsEl.addEventListener("pointermove", (e) => {
+    if (!dragSel) return;
+    const card = e.target.closest?.(".card");
+    if (!card) return;
+    if (!dragSel.active) {
+      if (card === dragSel.startEl) return;
+      dragSel.active = true;
+      cardsEl.classList.add("drag-select");
+      dragAddCard(dragSel.startEl);
+      dragSel.seen.add(dragSel.startEl.dataset.id);
+    }
+    const id = card.dataset.id;
+    if (!id || dragSel.seen.has(id)) return;
+    dragSel.seen.add(id);
+    dragAddCard(card);
+  });
+  function dragEnd() {
+    if (dragSel?.active) {
+      didDrag = true;
+      cardsEl.classList.remove("drag-select");
+      renderBulk();
+    }
+    dragSel = null;
+  }
+  cardsEl.addEventListener("pointerup", dragEnd);
+  cardsEl.addEventListener("pointercancel", dragEnd);
+  cardsEl.addEventListener("pointerleave", dragEnd);
 
   /* ----- Tauri desktop downloads (Rust backend -> Documents/HSCPapers) ----- */
   let tauriRun = null;     // {total, ok, fail, bytesTotal, bytesDone, t0, cancel}
@@ -1187,23 +1367,32 @@
   });
   $("#filtersToggle").addEventListener("click", () => $("#sidebar").classList.toggle("open"));
 
-  /* Wheel routing over the left column: the sidebar is the ONLY scroller on
-     the left. Page margins and the empty column space below its panels used
-     to fall through to the main grid. The reader overlay gets left alone,
-     and hovering the subject strip (above the sidebar) still scrolls the
-     page normally. */
-  const layoutEl = document.querySelector(".layout");
-  const sidebarEl = $("#sidebar");
-  if (layoutEl && sidebarEl) {
-    layoutEl.addEventListener("wheel", (e) => {
-      if (!$("#reader").hidden) return;
-      const r = sidebarEl.getBoundingClientRect();
-      if (e.clientX < r.right && e.clientY >= r.top) {
+  /* Subject strip: mouse wheel scrolls it horizontally (touch swipes
+     natively). The old left-column wheel router is gone — collapsible
+     panels keep the sidebar short, so the page scrolls naturally. */
+  const stripEl = $("#subjectStrip");
+  if (stripEl) {
+    stripEl.addEventListener("wheel", (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && stripEl.scrollWidth > stripEl.clientWidth) {
         e.preventDefault();
-        sidebarEl.scrollTop += e.deltaY;
+        stripEl.scrollLeft += e.deltaY;
       }
     }, { passive: false });
   }
+
+  /* Mobile drawer: the Filters button slides the sidebar in over a backdrop. */
+  const backdrop = $("#drawerBackdrop");
+  function setDrawer(open) {
+    $("#sidebar").classList.toggle("open", open);
+    if (backdrop) backdrop.classList.toggle("show", open);
+    document.body.classList.toggle("drawer-lock", open);
+  }
+  $("#filtersToggle").addEventListener("click", () => setDrawer(!$("#sidebar").classList.contains("open")));
+  if (backdrop) backdrop.addEventListener("click", () => setDrawer(false));
+  $("#drawerClose")?.addEventListener("click", () => setDrawer(false));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && $("#reader").hidden && $("#sidebar").classList.contains("open")) setDrawer(false);
+  });
 
   load();
 })();

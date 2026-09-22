@@ -63,8 +63,10 @@
   </div>
 
   <aside class="sidebar" id="sidebar">
-    <div class="panel">
-      <h2>Type <button data-clear="type">Reset</button></h2>
+    <button class="icon-btn drawer-close" id="drawerClose" title="Close filters" aria-label="Close filters">✕</button>
+
+    <details class="panel" open>
+      <summary><h2>Type <button data-clear="type">Reset</button></h2></summary>
       <div class="seg" id="typeSeg">
         <button data-type="all" class="on">All</button>
         <button data-type="hsc">HSC</button>
@@ -79,10 +81,10 @@
         <span title="~640 files only exist behind THSC's rate-limited resolver (~20-40 min extra per batch). Off = saves skip them.">Slow-route papers 🐢</span>
         <label class="switch"><input type="checkbox" id="slowRoute"><span class="slider"></span></label>
       </div>
-    </div>
+    </details>
 
-    <div class="panel">
-      <h2>Level <button data-clear="level">Reset</button></h2>
+    <details class="panel" open>
+      <summary><h2>Level <button data-clear="level">Reset</button></h2></summary>
       <div class="seg" id="levelSeg">
         <button data-level="all" class="on">All</button>
         <button data-level="hsc">Yr 12</button>
@@ -90,30 +92,30 @@
         <button data-level="year10">Yr 10</button>
         <button data-level="year9">Yr 9</button>
       </div>
-    </div>
+    </details>
 
-    <div class="panel">
-      <h2>Subject <button data-clear="subject">Reset</button></h2>
+    <details class="panel" id="panelSubject">
+      <summary><h2>Subject <button data-clear="subject">Reset</button></h2><span class="panel-hint" id="subjectHint"></span></summary>
       <input class="filter-search" id="subjectFilterSearch" placeholder="Filter subjects…">
       <div class="check-list" id="subjectList"></div>
-    </div>
+    </details>
 
-    <div class="panel">
-      <h2>Year <button data-clear="year">Reset</button></h2>
+    <details class="panel" id="panelYear">
+      <summary><h2>Year <button data-clear="year">Reset</button></h2><span class="panel-hint" id="yearHint"></span></summary>
       <div class="check-list" id="yearList"></div>
-    </div>
+    </details>
 
-    <div class="panel">
-      <h2>School <button data-clear="school">Reset</button></h2>
+    <details class="panel" id="panelSchool">
+      <summary><h2>School <button data-clear="school">Reset</button></h2><span class="panel-hint" id="schoolHint"></span></summary>
       <input class="filter-search" id="schoolFilterSearch" placeholder="Filter schools…">
       <div class="check-list" id="schoolList"></div>
-    </div>
+    </details>
   </aside>
 
   <section class="content">
     <div class="toolbar">
-      <button class="btn filters-toggle" id="filtersToggle">☰ Filters</button>
-      <div class="results-count"><span id="resultsCount">0 papers</span> <span id="activeFilterNote"></span></div>
+      <button class="btn filters-toggle" id="filtersToggle">☰ Filters <span class="fbadge" id="filterBadge" hidden></span></button>
+      <div class="results-count"><span id="resultsCount">0 papers</span></div>
       <div class="spacer"></div>
       <select class="select" id="sortSel" aria-label="Sort">
         <option value="new">Newest first</option>
@@ -122,9 +124,11 @@
         <option value="school">School A–Z</option>
       </select>
       <button class="btn" id="viewBtn" title="Toggle grid / list view">▤ View</button>
+      <button class="btn" id="densityBtn" title="Toggle compact density (more columns)" aria-pressed="false">Compact</button>
       <button class="btn" id="selectAllBtn">Select all</button>
       <button class="btn" id="clearSelBtn">Clear</button>
     </div>
+    <div class="chips" id="chipsRow" hidden></div>
     <div class="resume-bar" id="resumeBar" hidden>
       <span id="resumeBarText"></span>
       <button class="btn primary" id="resumeBarBtn">Resume</button>
@@ -159,6 +163,8 @@
   <button class="bb-btn bb-ghost" id="bulkClear">✕</button>
   <span class="progress" id="zipProgress"></span>
 </div>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
 
 <footer>
   <b>HSCPapers</b> · THSCOnline-style index · Not affiliated with NESA<br>
