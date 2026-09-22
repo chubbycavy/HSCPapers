@@ -1,5 +1,14 @@
 /* HSC Papers Mirror — modern, fast, THSCOnline-style */
+/* [trial-b] Self-hosted Inter (variable, latin subset) — vendored, no CDN */
+@font-face {
+  font-family: "Inter var";
+  src: url("../fonts/inter-var-latin.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
+  --font-ui: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --bg: #f8fafc;
   --surface: #ffffff;
   --surface-2: #f1f5f9;
@@ -34,7 +43,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-ui);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -151,8 +160,9 @@ header {
 }
 .hero h1 {
   font-size: clamp(1.9rem, 4.4vw, 3rem);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-weight: 850;
+  line-height: 1.08;
   max-width: 720px;
   margin: 0 auto;
 }
