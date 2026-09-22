@@ -243,8 +243,22 @@ header {
   flex: 1;
 }
 /* Subjects strip */
-.subject-strip {
-  grid-column: 1 / -1;
+/* Subjects strip (sticky app bar — always visible while browsing) */
+.strip-bar {
+  position: sticky;
+  top: var(--header-h, 61px);
+  z-index: 40;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.strip-inner { max-width: 1220px; margin: 0 auto; padding: 0.55rem 1.5rem 0.7rem; width: 100%; }
+.strip-bar .strip-inner h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.45rem;
 }
 .subject-strip h2, .panel h2 { font-size: 1.02rem; letter-spacing: -0.01em; margin-bottom: 0.7rem; }
 .strip-scroll {
@@ -400,6 +414,31 @@ details.panel > summary { border-radius: var(--radius-sm); }
 
 /* Content */
 .content { min-width: 0; }
+/* Shell mode (desktop widths): the page becomes an app shell — header and
+   strip stay pinned, the layout locks to the remaining viewport, and the
+   paper grid is THE ONLY scroll region. About/footer live below in normal
+   flow, so the page bottom is always reachable. */
+@media (min-width: 921px) {
+  .layout {
+    flex: none;
+    height: calc(100dvh - var(--header-h, 61px));
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+    padding: 1.2rem 1.5rem 1.2rem;
+  }
+  .sidebar { position: relative; top: auto; max-height: none; min-height: 0; }
+  .content { overflow-y: auto; min-height: 0; scrollbar-width: thin; }
+  .content > .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.7rem;
+  }
+  .content > .chips { margin-top: 0.55rem; }
+}
 .toolbar {
   display: flex;
   align-items: center;
@@ -640,6 +679,41 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
   padding: 0 1.5rem 3rem;
   width: 100%;
 }
+
+/* Features band (marketing) */
+.features { max-width: 1220px; margin: 0 auto; padding: 1.8rem 1.5rem 0.8rem; width: 100%; }
+.features h2 { font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 1.1rem; text-align: center; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.9rem; }
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--shadow);
+}
+.feature-card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; letter-spacing: -0.01em; }
+.feature-card p { font-size: 0.88rem; color: var(--muted); }
+.feature-card code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.05rem 0.35rem;
+  border-radius: 6px;
+  color: var(--text);
+}
+.feat-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  justify-content: center;
+  margin-top: 1.4rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius);
+}
+.feat-stats span { font-size: 0.86rem; font-weight: 700; color: var(--accent); }
 .about-card {
   background: var(--surface);
   border: 1px solid var(--border);

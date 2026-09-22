@@ -27,8 +27,8 @@ const SITE_CONFIG = {
   // Small badge in the nav showing where files come from.
   HOST_BADGE: "index · mirrors",
 
-  SITE_NAME: "HSC Papers",
-  TAGLINE: "Trial & HSC papers — THSCOnline-style index",
+  SITE_NAME: "HSCPapers",
+  TAGLINE: "Every NSW HSC paper — searchable, readable, downloadable",
   CONTACT_EMAIL: "",
 
   // ZIP filename when users bulk-download a selection

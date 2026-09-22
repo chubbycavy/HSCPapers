@@ -9,6 +9,10 @@
   const bulkbarEl = $("#bulkbar");
   const bulkCountEl = $("#bulkCount");
   const zipProgressEl = $("#zipProgress");
+  // Shell metrics: the paper column's scroller (shell mode) — used by the
+  // auto-append observer, marquee math, and autoscroll targeting.
+  const scrollerEl = document.querySelector(".content");
+  function pageOffsetY() { return window.scrollY + (scrollerEl?.scrollTop || 0); }
 
   // Perf (behaviour-preserving): page the card render + coalesce rapid renders.
   const PAGE_SIZE = 120;
@@ -122,6 +126,14 @@
     root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
     localStorage.setItem("hsc-theme", root.dataset.theme);
   });
+
+  /* ---------- shell metrics: exact sticky-header height feeds the locked layout ---------- */
+  const headerEl = document.querySelector("header");
+  function setHeaderVar() {
+    if (headerEl) root.style.setProperty("--header-h", headerEl.offsetHeight + "px");
+  }
+  setHeaderVar();
+  window.addEventListener("resize", setHeaderVar);
 
   /* ---------- density (compact mode) — persists like theme, both platforms ---------- */
   const DENSITY_KEY = "hsc-density";
@@ -451,13 +463,14 @@
     const badge = $("#filterBadge");
     if (badge) { badge.hidden = !chips.length; badge.textContent = chips.length; }
   }
-  // Auto-append: load the next page as the user nears the bottom. The
-  // explicit Show more button stays as the fallback (and the click target).
+  // Auto-append: load the next page as the user nears the bottom of the
+  // paper column (root = the shell scroller; viewport fallback on mobile).
+  // The explicit Show more button stays as the fallback (and the click target).
   const moreIO = new IntersectionObserver((entries) => {
     if (!entries.some(en => en.isIntersecting)) return;
     const btn = showMoreWrap?.querySelector("button");
     if (btn) btn.click();
-  }, { rootMargin: "900px 0px" });
+  }, { root: scrollerEl || null, rootMargin: "400px 0px" });
   function renderShowMore(total, shown) {
     if (!showMoreWrap) {
       showMoreWrap = document.createElement("div");
@@ -724,26 +737,36 @@
     if (box && !box.checked) box.click(); // reuses the card's own change wiring
   }
   function marqueeApply(px, py) {
-    const sx = window.scrollX, sy = window.scrollY;
+    // Two scroll layers: window (page, horizontal + mobile vertical) and the
+    // shell's content scroller (desktop card column). Band + card boxes live
+    // in the combined offset space so both scroll directions stay correct.
+    const sx = window.scrollX;
+    const offY = pageOffsetY();
+    const y0 = marquee.y0doc, y1 = py + offY;
     const L = Math.min(marquee.x0doc, sx + px), R = Math.max(marquee.x0doc, sx + px);
-    const T = Math.min(marquee.y0doc, sy + py), B = Math.max(marquee.y0doc, sy + py);
+    const T = Math.min(y0, y1), B = Math.max(y0, y1);
     for (const card of cardsEl.querySelectorAll(".card")) {
       const b = card.getBoundingClientRect();
-      if (b.right + sx <= L || b.left + sx >= R || b.bottom + sy <= T || b.top + sy >= B) continue;
+      if (b.right + sx <= L || b.left + sx >= R || b.bottom + offY <= T || b.top + offY >= B) continue;
       const id = card.dataset.id;
       if (id && !marquee.seen.has(id)) { marquee.seen.add(id); dragAddCard(card); }
     }
     marqueeEl.style.left = Math.min(marquee.x0doc - sx, px) + "px";
-    marqueeEl.style.top = Math.min(marquee.y0doc - sy, py) + "px";
+    marqueeEl.style.top = Math.min(y0 - offY, py) + "px";
     marqueeEl.style.width = Math.abs(px - (marquee.x0doc - sx)) + "px";
-    marqueeEl.style.height = Math.abs(py - (marquee.y0doc - sy)) + "px";
+    marqueeEl.style.height = Math.abs(py - (y0 - offY)) + "px";
     marqueeEl.style.display = "block";
   }
   function marqueeLoop() {
     if (!marquee) return;
     const edge = 70;
-    if (marqueePY < edge) window.scrollBy(0, -14);
-    else if (marqueePY > window.innerHeight - edge) window.scrollBy(0, 14);
+    const dir = marqueePY < edge ? -1 : marqueePY > window.innerHeight - edge ? 1 : 0;
+    if (dir) {
+      // Autoscroll the layer the cursor is over: the shell's paper column in
+      // shell mode, the page otherwise.
+      if (scrollerEl && scrollerEl.scrollHeight > scrollerEl.clientHeight) scrollerEl.scrollTop += dir * 14;
+      else window.scrollBy(0, dir * 14);
+    }
     marqueeApply(marqueePX, marqueePY);
     marquee.raf = requestAnimationFrame(marqueeLoop);
   }
@@ -751,7 +774,7 @@
     didDrag = false;
     if (e.pointerType !== "mouse" || e.button !== 0) return;
     if (e.target.closest("input,button,a")) return;
-    marquee = { x0doc: e.clientX + window.scrollX, y0doc: e.clientY + window.scrollY, seen: new Set(), active: false, raf: 0 };
+    marquee = { x0doc: e.clientX + window.scrollX, y0doc: e.clientY + pageOffsetY(), seen: new Set(), active: false, raf: 0 };
   });
   window.addEventListener("pointermove", (e) => {
     if (!marquee) return;
@@ -759,7 +782,7 @@
     marqueePX = e.clientX; marqueePY = e.clientY;
     if (!marquee.active) {
       const dx = Math.abs(e.clientX + window.scrollX - marquee.x0doc);
-      const dy = Math.abs(e.clientY + window.scrollY - marquee.y0doc);
+      const dy = Math.abs(e.clientY + pageOffsetY() - marquee.y0doc);
       if (dx < 6 && dy < 6) return;
       marquee.active = true;
       didDrag = true;
