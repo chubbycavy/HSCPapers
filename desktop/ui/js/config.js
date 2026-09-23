@@ -24,8 +24,9 @@ const SITE_CONFIG = {
   // (those sources fall back to the "use ⭳" hint).
   PROXY_BASE: "/proxy",
 
-  // Small badge in the nav showing where files come from.
-  HOST_BADGE: "index · mirrors",
+  // Small badge in the nav showing which surface you're on ("🖥 Desktop app"
+  // shows in the desktop app; this is the web counterpart).
+  HOST_BADGE: "🌐 Website",
 
   SITE_NAME: "HSCPapers",
   TAGLINE: "Every NSW HSC paper — searchable, readable, downloadable",
