@@ -42,8 +42,8 @@ const SITE_CONFIG = {
   MAX_ZIP_FILES: 200,
   MAX_ZIP_BUDGET_MB: 500,
 
-  // Desktop app download link (footer). Empty string hides the button.
-  DESKTOP_APP_URL: "https://github.com/chubbycavy/HSCPapers/releases",
+  // Desktop app download link (footer + about). Empty string hides the button.
+  DESKTOP_APP_URL: "https://github.com/chubbycavy/HSCPapers/releases/latest",
 };
 
 /**
