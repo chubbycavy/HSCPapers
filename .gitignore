@@ -17,3 +17,6 @@ desktop/node_modules/
 
 # Browser-ZIP test artifacts (downloads land in the repo folder)
 hsc-papers-selection.zip
+
+# Downloaded installers / release artifacts (browser saves land in the repo folder)
+HSCPapers_*.exe
