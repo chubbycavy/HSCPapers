@@ -1,0 +1,35 @@
+name: "Content removal request"
+description: "Rights-holder request to remove indexed material (honored within 24 hours — see TAKEDOWN.md)"
+title: "[Removal] <paper title or URL>"
+labels: ["removal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for rights-holders and content-removal requests.
+        HSCPapers hosts no PDFs — it is a free, non-commercial index; every
+        download resolves to a public source (NESA / Board of Studies, or the
+        community mirrors THSCOnline lists). Papers belong to their
+        schools/authors and NESA. Removals are permanent and honored within
+        24 hours of a valid request — full policy in TAKEDOWN.md.
+  - type: textarea
+    id: material
+    attributes:
+      label: "Paper title or page URL"
+      description: "Which indexed paper(s) should be removed? One per line is fine."
+    validations:
+      required: true
+  - type: textarea
+    id: ownership
+    attributes:
+      label: "The material you own or represent"
+      description: "Your relationship to the material (author, school, publisher)."
+    validations:
+      required: true
+  - type: textarea
+    id: contact
+    attributes:
+      label: "Your name and contact details"
+      description: "So we can confirm the removal in writing."
+    validations:
+      required: true

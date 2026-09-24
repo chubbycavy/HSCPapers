@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "General questions / feedback"
+    url: https://github.com/chubbycavy/HSCPapers/issues
+    about: "Anything that isn't a removal request (bugs, ideas, takedown follow-ups)."

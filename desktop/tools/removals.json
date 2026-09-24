@@ -1,0 +1,4 @@
+{
+  "_doc": "Takedown registry — see TAKEDOWN.md at the repo root. Entries here are EXCLUDED from every catalogue rebuild (permanent removal on valid rights-holder request). Managed manually, append-only. 'id' matches the catalogue paper id; 'url' matches either the primary or fallback URL. Template: { \"id\": \"\", \"url\": \"\", \"reason\": \"\", \"requestedBy\": \"\", \"date\": \"\" }.",
+  "entries": []
+}

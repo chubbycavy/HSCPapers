@@ -726,6 +726,8 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
 }
 .about-card h2 { font-size: 1.05rem; margin-bottom: 0.5rem; }
 .about-card p, .about-card li { font-size: 0.9rem; color: var(--muted); }
+/* Third card (Content & removal) spans the row for policy prominence */
+.about-card > div:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 1.1rem; }
 .about-card code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.8rem;

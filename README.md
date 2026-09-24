@@ -60,6 +60,23 @@ The nightly GitHub Action (`catalogue.yml`) regenerates
 `desktop/ui/data/papers.json` and commits it — the push triggers a site
 redeploy automatically.
 
+## Legal & removal
+
+- **Code**: © chubbycavy, all rights reserved (no license granted).
+- **Papers**: remain the property of their schools/authors and NESA. This is
+  a non-commercial, study-use **index** and hosts no PDFs.
+- **Removal requests**: see [TAKEDOWN.md](TAKEDOWN.md) — honored within 24
+  hours and permanent (the nightly builder excludes removed papers via
+  `desktop/tools/removals.json`; the removal form is a GitHub issue template).
+- **Deliberately parked** (documented decision — revisit consciously):
+  self-hosting papers (R2) and unlimited streaming ZIP. The index-first
+  posture keeps exposure low; both gates stay documented above.
+- **Known limitation, deferred with the paid phases**: `/proxy` rate limiting
+  isn't available on a `pages.dev` subdomain (rate-limit rules need an owned
+  zone). Worst case without it: free-quota exhaustion degrades reader/ZIP for
+  the ~16% of papers that use the proxy for one day; browsing, Portal files
+  (64% of the catalogue) and the desktop app are unaffected by design.
+
 ## Numbers contract (keep marketing honest)
 
 Every number shown on the site/app traces to a source — update them together:

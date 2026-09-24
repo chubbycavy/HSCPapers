@@ -23,6 +23,19 @@ const OUT = path.join(DESKTOP, "ui", "data", "papers.json");
 fs.mkdirSync(CACHE, { recursive: true });
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 
+/* Takedown registry (see TAKEDOWN.md): papers removed on valid rights-holder
+   request are excluded from EVERY rebuild — removed papers never reappear
+   via the nightly build. Match by catalogue id, primary URL or fallback URL
+   (the same paper can carry different ids across sources). */
+const REMOVALS = { ids: new Set(), urls: new Set() };
+try {
+  const rj = JSON.parse(fs.readFileSync(path.join(__dirname, "removals.json"), "utf8"));
+  for (const r of (rj.entries || [])) {
+    if (r.id) REMOVALS.ids.add(r.id);
+    if (r.url) REMOVALS.urls.add(r.url);
+  }
+} catch { /* no registry yet — nothing removed */ }
+
 const NO_CACHE = process.argv.includes("--no-cache");
 const LIMIT = (() => {
   const m = process.argv.find((a) => a.startsWith("--limit="));
@@ -846,6 +859,15 @@ if (require.main === module) {
     console.log(`url-dedupe: removed ${urlDups} duplicate-URL entries`);
     papers.length = 0;
     papers.push(...urlDeduped);
+  }
+  // Takedowns: filter AFTER dedupe so the registry has final say.
+  if (REMOVALS.ids.size || REMOVALS.urls.size) {
+    const kept = papers.filter((p) =>
+      !REMOVALS.ids.has(p.id) && !REMOVALS.urls.has(p.url) && !REMOVALS.urls.has(p.fallbackUrl));
+    const removedN = papers.length - kept.length;
+    if (removedN) console.log(`takedowns: excluded ${removedN} paper(s) per removals.json (permanent)`);
+    papers.length = 0;
+    papers.push(...kept);
   }
   const fastN = papers.filter((p) => p.mirror).length;
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;

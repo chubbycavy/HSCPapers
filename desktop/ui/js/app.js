@@ -170,6 +170,15 @@
     if (ga) { ga.href = (appUrl.split("/releases")[0] || appUrl); $("#footerGitLink").hidden = false; }
   }
 
+  /* ---------- removal channel (rights-holder takedown path; both surfaces) ---------- */
+  const takedownUrl = window.SITE_CONFIG?.TAKE_DOWN_URL || "";
+  if (takedownUrl) {
+    const ra = $("#removalLink");
+    if (ra) { ra.href = takedownUrl; ra.hidden = false; }
+    const fra = $("#footerRemovalLinkA");
+    if (fra) { fra.href = takedownUrl; $("#footerRemovalLink").hidden = false; }
+  }
+
   /* ---------- URL deep-linking ---------- */
   function readURL() {
     const p = new URLSearchParams(location.search);

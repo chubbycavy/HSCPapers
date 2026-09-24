@@ -46,6 +46,10 @@ const SITE_CONFIG = {
   // Desktop app download link (footer + about). Empty string hides the button.
   DESKTOP_APP_URL: "https://github.com/chubbycavy/HSCPapers/releases/latest",
 
+  // Rights-holder removal channel (public policy: TAKEDOWN.md at the repo
+  // root; honored within 24 hours). Empty string hides the links.
+  TAKE_DOWN_URL: "https://github.com/chubbycavy/HSCPapers/issues/new?template=removal-request.yml",
+
   // Desktop only: the app prefers this live, nightly-rebuilt catalogue at
   // startup and falls back to the bundled copy when offline. The site itself
   // ignores this (same-origin asset already).
