@@ -12,3 +12,4 @@
 
 /data/*
   Cache-Control: public, max-age=600
+  Access-Control-Allow-Origin: *

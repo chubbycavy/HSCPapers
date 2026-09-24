@@ -199,14 +199,25 @@
 
   /* ---------- load data ---------- */
   async function load() {
-    try {
-      const res = await fetch("data/papers.json", { cache: "no-store" });
-      const json = await res.json();
-      state.papers = json.papers || [];
-    } catch (e) {
-      cardsEl.innerHTML = `<div class="empty"><b>Couldn't load data/papers.json</b>Run via a local server (e.g. <code>npx serve .</code>) — fetch() is blocked on file://.</div>`;
-      return;
+    let json = null;
+    // Desktop: prefer the LIVE nightly catalogue (fresh papers without
+    // reinstalling), fall back to the bundled copy when offline/blocked.
+    if (IS_TAURI && window.SITE_CONFIG?.LIVE_CATALOGUE_URL) {
+      try {
+        const res = await fetch(window.SITE_CONFIG.LIVE_CATALOGUE_URL, { cache: "no-store" });
+        if (res.ok) json = await res.json();
+      } catch {}
     }
+    if (!json) {
+      try {
+        const res = await fetch("data/papers.json", { cache: "no-store" });
+        json = await res.json();
+      } catch (e) {
+        cardsEl.innerHTML = `<div class="empty"><b>Couldn't load data/papers.json</b>Run via a local server (e.g. <code>npx serve .</code>) — fetch() is blocked on file://.</div>`;
+        return;
+      }
+    }
+    state.papers = json.papers || [];
     restoreState(); // saved filters/selection first…
     readURL();      // …URL deep-link overrides on top
     syncUI();       // reflect restored state in inputs/pills/sort
@@ -264,6 +275,8 @@
   function checkRow(list, value, label, count, checked) {
     const lab = document.createElement("label");
     lab.className = "check";
+    lab.dataset.list = list;
+    lab.dataset.value = String(value);
     lab.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}> <span></span> <span class="count">${count}</span>`;
     lab.querySelector("span").textContent = label;
     lab.querySelector("span").textContent = label;
@@ -276,6 +289,13 @@
     return lab;
   }
   function buildFilters() {
+    // Preserve scroll + focus across rebuilds: every checkbox click rebuilds
+    // these lists (faceted counts), so a reset would yank the user back to
+    // the top and kill multi-row selection flow.
+    const sidebarBox = $("#sidebar");
+    const savedScroll = sidebarBox ? sidebarBox.scrollTop : 0;
+    const focusedRow = document.activeElement?.closest?.(".check");
+    const focusRef = focusedRow ? { list: focusedRow.dataset.list, value: focusedRow.dataset.value } : null;
     // subjects — unselected values that dropped to 0 under the active
     // filters are hidden (they can't match); selected values always stay.
     const sCounts = countsBy("subject");
@@ -339,6 +359,13 @@
       if (k === "school") state.schools.clear();
       syncPills(); buildFilters(); writeURL(); render();
     });});
+    // Restore: same scroll depth, same focused row (if it survived the
+    // faceted recount) — multi-row selection flow stays uninterrupted.
+    if (sidebarBox) sidebarBox.scrollTop = savedScroll;
+    if (focusRef) {
+      const again = [...document.querySelectorAll(`.check[data-list="${focusRef.list}"][data-value="${CSS.escape(focusRef.value)}"] input`)][0];
+      if (again) again.focus({ preventScroll: true });
+    }
   }
 
   function buildSubjectStrip() {
@@ -552,13 +579,14 @@
           <span class="tag ${p.type}">${{ hsc: "HSC", trial: "Trial", assessment: "Assessment", other: "Other" }[p.type] || (p.type === "hsc" ? "HSC" : "Trial")}</span>
           <span class="tag">${esc(String(p.year))}</span>
           ${p.hasSolutions ? `<span class="tag sol">Solutions</span>` : ""}
+          ${!IS_TAURI && downloadedSet().has(p.id) ? `<span class="tag got" title="Downloaded before in this browser">✓ Got</span>` : ""}
           ${slowTag ? `<span class="tag slow" title="${esc(slowTip)}">${slowTag}</span>` : ""}
         </div>
         <h3></h3>
         <div class="meta"></div>
         <div class="card-actions">
-          <a class="mini-btn go" href="${esc(paperHref)}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}">⭳ Paper</a>
-          ${solHref ? `<a class="mini-btn" href="${esc(solHref)}" target="_blank" rel="noopener" download data-rel="${esc(srel || "")}">Solutions</a>` : ""}
+          <a class="mini-btn go" href="${esc(paperHref)}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}" ${!IS_TAURI ? `data-dl data-name="${esc(safeName(p, "paper"))}"` : ""}>⭳ Paper</a>
+          ${solHref ? `<a class="mini-btn" href="${esc(solHref)}" target="_blank" rel="noopener" download data-rel="${esc(srel || "")}" ${!IS_TAURI ? `data-dl data-name="${esc(safeName(p, "solutions"))}"` : ""}>Solutions</a>` : ""}
           ${!IS_TAURI && paperHref && paperHref !== "#" ? `<button class="mini-btn" data-read>📖 Read</button>` : ""}
         </div>
       </div>`;
@@ -569,6 +597,13 @@
       e.preventDefault(); e.stopPropagation();
       openReader(paperHref, p.title);
     });
+    if (!IS_TAURI) {
+      el.querySelectorAll("a[data-dl]").forEach(a => a.addEventListener("click", (e) => {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return; // browser opens in new tab
+        e.preventDefault();
+        instantDownload(a.href, a.dataset.name, p.id);
+      }));
+    }
     const box = el.querySelector("input");
     box.addEventListener("change", () => {
       if (box.checked) state.selected.add(p.id);
@@ -621,8 +656,14 @@
   }
 
   $("#selectAllBtn").addEventListener("click", () => {
-    // Cap the SELECTION to the first maxFiles files (current sort order) so
-    // the ZIP button never has to reject — the bulk bar shows the ceiling.
+    // Desktop: UNLIMITED — the Rust backend has no browser caps. Web: cap the
+    // SELECTION to the first maxFiles files (current sort order) so the
+    // browser ZIP never has to reject — the bulk bar shows the ceiling.
+    if (IS_TAURI) {
+      filtered().forEach(p => state.selected.add(p.id));
+      render();
+      return;
+    }
     const cap = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
     const files = filesForPapers(filtered());
     const capped = files.length > cap;
@@ -646,20 +687,41 @@
     state.selected.clear(); render();
   });
 
-  $("#eachBtn").addEventListener("click", () => {
-    const files = selectedFiles();
-    if (!files.length) return;
-    // Open sequentially — browsers may block >~5 popups; user allows once.
-    files.forEach((f, i) => setTimeout(() => window.open(f.url, "_blank", "noopener"), i * 350));
-  });
-
-  $("#copyBtn").addEventListener("click", async () => {
-    const files = selectedFiles();
-    const text = files.map(f => f.url).join("\n");
-    try { await navigator.clipboard.writeText(text); $("#zipProgress").textContent = "Links copied ✓"; }
-    catch { $("#zipProgress").textContent = "Copy blocked — select and copy manually"; }
-    setTimeout(renderBulk, 2500);
-  });
+  /* ---------- instant single downloads (web): fetch -> blob -> named save ---------- */
+  // Card ⭳ buttons download immediately (no viewer tab): same-origin blob
+  // makes the `download` attribute + our filename work, and failures are
+  // reportable. Desktop keeps its Save-to-library flow instead.
+  let dlState = null;
+  function downloadedSet() {
+    if (dlState) return dlState;
+    try { dlState = new Set(JSON.parse(localStorage.getItem("hsc-downloaded") || "[]")); }
+    catch { dlState = new Set(); }
+    return dlState;
+  }
+  function markDownloaded(id) {
+    if (IS_TAURI || !id) return; // desktop: the real check is the library on disk
+    downloadedSet().add(id);
+    if (dlState.size > 600) dlState = new Set([...dlState].slice(-300)); // ring buffer
+    try { localStorage.setItem("hsc-downloaded", JSON.stringify([...dlState].slice(-600))); } catch {}
+  }
+  async function instantDownload(url, filename, paperId) {
+    try {
+      const res = await fetch(proxied(url));
+      if (!res.ok) throw new Error(res.status);
+      const blob = await res.blob();
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = filename || "paper.pdf";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+      markDownloaded(paperId);
+      scheduleRender(); // refresh ✓ Got badges
+      return true;
+    } catch (e) {
+      tauriStatus(`Download failed (${filename || "paper"}): ${e?.message || e}`);
+      return false;
+    }
+  }
 
   $("#zipBtn").addEventListener("click", async () => {
     let files = selectedFiles();
@@ -674,7 +736,7 @@
       capped = files.length;
       files = files.slice(0, maxFiles);
     }
-    if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load. Use Download individually."; return; }
+    if (typeof JSZip === "undefined") { $("#zipProgress").textContent = "ZIP library failed to load. Use the ⭳ buttons on each card."; return; }
     const zip = new JSZip();
     let ok = 0, bytes = 0, budgetStop = null;
     const budget = budgetBytes;
@@ -700,7 +762,7 @@
       }
     }
     if (!ok) {
-      $("#zipProgress").textContent = "ZIP blocked by the source (needs CORS). Use Download individually.";
+      $("#zipProgress").textContent = "ZIP blocked by the source (needs CORS). Use the ⭳ buttons on each card.";
       return;
     }
     $("#zipProgress").textContent = `Packing ${fmtMB(bytes)}…`;
@@ -1290,6 +1352,23 @@
     if (readerSystemPath) window.__TAURI__.core.invoke("open_file", { path: readerSystemPath })
       .catch((err) => tauriStatus("Open failed: " + (err?.message || err)));
   });
+  // Print: web only (desktop prints via the system PDF app on 📂).
+  if (IS_TAURI) $("#readerPrint")?.remove();
+  $("#readerPrint")?.addEventListener("click", () => {
+    const cv = $("#readerCanvas");
+    if (!readerDoc || !cv) { $("#readerErr").textContent = "Nothing to print yet — open a paper first."; return; }
+    const w = window.open("", "_blank", "width=860,height=1000");
+    if (!w) { $("#readerErr").textContent = "Print blocked — allow pop-ups for this site to use printing."; return; }
+    w.document.open();
+    w.document.write(
+      `<title>${($("#readerTitle").textContent || "Paper").replace(/</g, "&lt;")}</title>` +
+      `<style>@page{margin:10mm}body{margin:0;display:flex;justify-content:center}img{width:100%;max-width:840px}</style>` +
+      `<img src="${cv.toDataURL("image/png")}" alt="paper page">`
+    );
+    w.document.close();
+    const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 350);
+    w.addEventListener("beforeunload", () => clearTimeout(t));
+  });
   document.addEventListener("keydown", (e) => {
     if ($("#reader").hidden) return;
     if (e.key === "Escape") closeReader();
@@ -1418,15 +1497,15 @@
     state.view = state.view === "grid" ? "list" : "grid";
     cardsEl.classList.toggle("list", state.view === "list");
   });
-  /* Left-column wheel routing, guarded: when the sidebar has its own
-     overflow (a long list panel is open), the wheel anywhere left of the
-     content column — the sidebar AND its gutter/margins — scrolls the
-     sidebar. When the sidebar fits on screen, the page scrolls naturally. */
+  /* Left-column wheel routing, guarded: the wheel over the SIDEBAR ITSELF
+     scrolls the sidebar when it actually overflows (a long list panel is
+     open); anywhere else — including the far-left gutter — the page scrolls
+     naturally (to About/footer in shell mode). */
   const sidebarEl = $("#sidebar");
   document.addEventListener("wheel", (e) => {
     if (!$("#reader").hidden || !sidebarEl) return;
     const r = sidebarEl.getBoundingClientRect();
-    if (e.clientX >= r.right || e.clientY < r.top || e.clientY > r.bottom) return;
+    if (e.clientX < r.left || e.clientX >= r.right || e.clientY < r.top || e.clientY > r.bottom) return;
     if (sidebarEl.scrollHeight <= sidebarEl.clientHeight + 1) return; // nothing to scroll
     e.preventDefault();
     sidebarEl.scrollTop += e.deltaY;

@@ -47,6 +47,15 @@ export async function onRequest(context) {
     return new Response("Forbidden: host not allowed", { status: 403, headers: cors() });
   }
 
+  // ?dl=1 -> force-download: Content-Disposition attachment instead of the
+  // source's inline display. Used by the instant-download card buttons.
+  const forceDownload = url.searchParams.get("dl") === "1";
+  const downloadName = (() => {
+    const seg = target.pathname.split("/").pop() || "paper.pdf";
+    try { return decodeURIComponent(seg).replace(/[\\/:*?"<>|]+/g, "-").slice(-80) || "paper.pdf"; }
+    catch { return "paper.pdf"; }
+  })();
+
   const fwd = {};
   for (const h of PASS_HEADERS) {
     const v = request.headers.get(h);
@@ -74,5 +83,6 @@ export async function onRequest(context) {
     const v = upstream.headers.get(h);
     if (v) headers.set(h, v);
   }
+  if (forceDownload) headers.set("Content-Disposition", `attachment; filename="${downloadName}"`);
   return new Response(upstream.body, { status: upstream.status, headers });
 }

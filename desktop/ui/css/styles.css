@@ -833,3 +833,7 @@ body.drawer-lock { overflow: hidden; }
 /* ---------- slow-route tag (v0.8.2) ---------- */
 .tag.slow { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
 [data-theme="dark"] .tag.slow { background: #451a03; color: #fcd34d; border-color: #92400e; }
+
+/* ---------- downloaded-before badge (device-local, web) ---------- */
+.tag.got { color: #047857; background: #ecfdf5; border-color: #a7f3d0; }
+[data-theme="dark"] .tag.got { color: #6ee7b7; background: #06362a; border-color: #0e5c49; }

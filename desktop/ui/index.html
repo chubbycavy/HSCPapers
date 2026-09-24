@@ -179,9 +179,7 @@
 <div class="bulkbar" id="bulkbar" role="status" aria-live="polite">
   <b id="bulkCount">0 selected</b>
   <button class="bb-btn bb-zip" id="zipBtn">⭳ Download ZIP</button>
-  <button class="bb-btn bb-each" id="eachBtn">Download individually</button>
-  <button class="bb-btn bb-each" id="copyBtn">Copy links</button>
-  <button class="bb-btn bb-ghost" id="bulkClear">✕</button>
+  <button class="bb-btn bb-ghost" id="bulkClear" title="Clear selection">✕</button>
   <span class="progress" id="zipProgress"></span>
 </div>
 
@@ -218,6 +216,7 @@
       <input id="readerTimerCustom" class="bar-select" type="number" min="1" max="600" placeholder="min" style="width:5.2rem" aria-label="Timer minutes">
       <button class="bar-btn" id="readerTimerStart">Start</button>
     </span>
+    <button class="bar-btn" id="readerPrint" title="Print this page">🖨</button>
     <button class="bar-btn" id="readerOpenSys" title="Open in system PDF app">📂</button>
   </div>
   <div class="reader-scroll" id="readerScroll"><canvas id="readerCanvas"></canvas><div id="readerErr" class="reader-err"></div></div>

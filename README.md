@@ -60,6 +60,22 @@ The nightly GitHub Action (`catalogue.yml`) regenerates
 `desktop/ui/data/papers.json` and commits it — the push triggers a site
 redeploy automatically.
 
+## Numbers contract (keep marketing honest)
+
+Every number shown on the site/app traces to a source — update them together:
+
+- **Live counts** (papers / subjects / schools / solutions in the hero) are
+  derived from `desktop/ui/data/papers.json` — always correct by construction.
+- **Static claims** live in `desktop/ui/js/config.js`:
+  `MAX_ZIP_FILES` (200) + `MAX_ZIP_BUDGET_MB` (500). When these change, update
+  in the same commit: hero sub ("up to 200 papers…"), the meta description,
+  feature card 4, the features stats band, and the desktop ZIP notes.
+- Catalogue-scale claims ("7,000+ papers", "12,000+ files", "5,600+
+  one-click", "1967–2026") are durable round numbers — re-derive from the
+  current catalogue when they drift by more than ~5%.
+- Download/traffic counters: intentionally absent until real analytics exist
+  (Cloudflare Web Analytics toggle in the dashboard).
+
 ## Catalogue
 
 Regenerate locally any time (polite: cached, ~150ms between fetches):
