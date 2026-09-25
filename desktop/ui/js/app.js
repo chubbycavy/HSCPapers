@@ -1219,6 +1219,7 @@
           <button data-act="change">⚙ Change folder…</button>
           <button data-act="import">⇪ Import files…</button>
           <button data-act="verify" title="Scans the FULL catalogue (all 8,892 files) regardless of the slow-route toggle">🔍 Verify library</button>
+          <button data-act="check-update" title="Checks GitHub for a newer release">⬇ Check for updates</button>
         </div>`;
       menu.addEventListener("click", async (e) => {
         const item = e.target.closest(".menu-list button");
@@ -1257,6 +1258,13 @@
             const res = await window.__TAURI__.core.invoke("saved_paths", { relpaths: rels });
             const have = res.filter(Boolean).length;
             tauriStatus(`Library: ${have}/${rels.length} catalogue files on disk (${rels.length - have} missing) ✓`);
+          } else if (act === "check-update") {
+            const btn = item;
+            btn.disabled = true;
+            btn.textContent = "🔍 Checking…";
+            await checkForUpdates(false);
+            btn.disabled = false;
+            btn.textContent = "🔍 Check for updates";
           }
         } catch (e) { tauriStatus("Library action failed: " + (e?.message || e)); }
       });
@@ -1270,7 +1278,60 @@
       }).catch(() => { /* title stays default */ });
     }
     showResumeBar(); // offer resume of an interrupted batch
+    checkForUpdates(true); // silent self-update check at launch
   }
+
+  /* ---------- app self-update (keyless; Rust verifies the GitHub digest) ---------- */
+  let updateInfo = null;
+  let updateBarPinned = false;
+  async function checkForUpdates(silent = true) {
+    if (!IS_TAURI) return;
+    try {
+      const info = await window.__TAURI__.core.invoke("update_check");
+      updateInfo = info;
+      if (info.update_available && !updateBarPinned) showUpdateBar();
+      else if (!silent && !info.update_available) tauriStatus(`Up to date — running the latest release ✓`);
+    } catch (e) {
+      if (!silent) tauriStatus("Update check failed: " + (e?.message || e));
+    }
+  }
+  function showUpdateBar() {
+    const bar = $("#updateBar");
+    if (!bar || !updateInfo) return;
+    $("#updateBarText").textContent = `Update available — v${updateInfo.version}`;
+    bar.hidden = false;
+  }
+  $("#updateNowBtn").addEventListener("click", async () => {
+    if (!updateInfo) return;
+    if (tauriRun) { tauriStatus("Finish the current download batch first — the update installs after"); return; }
+    const btn = $("#updateNowBtn");
+    btn.disabled = true;
+    $("#updateBarText").textContent = "Downloading update…";
+    try {
+      await window.__TAURI__.core.invoke("update_install", {
+        version: updateInfo.version,
+        url: updateInfo.assetUrl,
+        expectedDigest: updateInfo.digest,
+      });
+      // Success path: the installer runs and the app relaunches itself.
+    } catch (e) {
+      // The happy path ends with app.exit(0), so a dropped connection here
+      // means "installing" — only surface real errors.
+      const msg = String(e?.message || e);
+      if (!/connection|closed|dropped/i.test(msg)) tauriStatus("Update failed: " + msg);
+      btn.disabled = false;
+      $("#updateBarText").textContent = "Update available";
+    }
+  });
+  $("#updateLaterBtn").addEventListener("click", () => {
+    updateBarPinned = true;
+    $("#updateBar").hidden = true;
+  });
+  window.__TAURI__?.event?.listen("update-progress", (ev) => {
+    const p = ev.payload || {};
+    const total = p.total ? ` of ${(p.total / 1048576).toFixed(1)} MB` : "";
+    $("#updateBarText").textContent = `Downloading update… ${(p.downloaded / 1048576).toFixed(1)} MB${total}` + (p.done ? " — installing…" : "");
+  });
 
   /* Open saved papers: patch card buttons via the backend (validated paths). */
   let savedCheckQueued = false;

@@ -672,6 +672,24 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
 .resume-bar[hidden] { display: none; }
 .resume-bar span { color: var(--text); }
 
+/* App self-update bar (keyless updater) */
+.update-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.9rem;
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+.update-bar[hidden] { display: none; }
+.update-bar span { color: var(--text); }
+
 /* About / footer */
 .about {
   max-width: 1220px;

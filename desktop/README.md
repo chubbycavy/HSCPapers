@@ -170,8 +170,18 @@ npm.cmd run tauri build   # -> src-tauri/target/release/bundle/nsis/
         position over the left column (page margins and empty column space
         used to fall through to the main grid); the reader overlay is left
         alone and the subject strip still scrolls the page.
-- [ ] Phase 3: About screen polish
-- [ ] Phase 4: GitHub Releases auto-updater
+- [x] **v0.9.2 (Phase 4): keyless self-updater**
+  - App checks GitHub Releases at launch (and via Library ▾ → Check for
+    updates); prompts only when idle — a running download batch defers it
+  - Downloads the new NSIS installer through the Rust engine, **verifies the
+    SHA-256 against the digest GitHub attests at upload**, then installs
+    silently (`/S`) and relaunches (`/R`); a digest mismatch aborts and
+    discards — an unverified binary never runs
+  - **No signing keys exist** — nothing to lose or leak; the trust root is
+    the GitHub account (2FA). Migration to minisign later rides one of
+    these keyless updates (the handover release embeds the pubkey)
+- [x] Phase 3: About screen polish
+- [ ] Phase 4: GitHub Releases auto-updater → **done via keyless self-updater (v0.9.2)**
 - [ ] v0.9 (planned): full-featured public website — Cloudflare Pages + Worker
       backend (resolver proxy, ZIP streaming, reader CORS proxy). Defaults to
       CDN-route files; no local-library layer (browser sandbox).

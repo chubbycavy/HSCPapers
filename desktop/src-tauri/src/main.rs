@@ -1299,6 +1299,167 @@ fn reveal_in_folder(app: AppHandle, path: String) -> Result<(), String> {
     Ok(())
 }
 
+/* ---------- app self-update (keyless: GitHub-attested SHA-256 digest) ----------
+ *
+ * Trust model: the GitHub repo is the source of truth (protected by the
+ * account's 2FA). Every release asset carries a GitHub-computed digest, and
+ * the installer is SHA-256-verified against it before it is ever executed.
+ * No signing keys exist, so there is nothing to lose or leak; upgrading to
+ * minisign verification later can ride one of these keyless updates.
+ */
+const RELEASES_API: &str = "https://api.github.com/repos/chubbycavy/HSCPapers/releases/latest";
+
+#[derive(serde::Serialize, Clone)]
+struct UpdateInfo {
+    update_available: bool,
+    version: String,
+    notes: String,
+    asset_url: String,
+    digest: String, // "sha256:<hex>", GitHub-attested
+    asset_size: u64,
+}
+
+fn version_tuple(s: &str) -> [u64; 3] {
+    let mut out = [0u64; 3];
+    for (i, part) in s.trim_start_matches('v').trim().split('.').take(3).enumerate() {
+        out[i] = part.trim().parse().unwrap_or(0);
+    }
+    out
+}
+
+fn version_gt(a: &str, b: &str) -> bool {
+    let (a, b) = (version_tuple(a), version_tuple(b));
+    a > b
+}
+
+/// Check the latest GitHub release against the running version. Returns the
+/// full info either way (the UI decides what to show). Read-only.
+#[tauri::command]
+async fn update_check(state: State<'_, AppState>) -> Result<UpdateInfo, String> {
+    let resp = state
+        .client
+        .get(RELEASES_API)
+        .header(reqwest::header::ACCEPT, "application/vnd.github+json")
+        .send()
+        .await
+        .map_err(|e| format!("update check: {e}"))?;
+    if !resp.status().is_success() {
+        return Err(format!("update check: HTTP {}", resp.status()));
+    }
+    let json: serde_json::Value = resp.json().await.map_err(|e| format!("update check: {e}"))?;
+    let tag = json["tag_name"]
+        .as_str()
+        .unwrap_or("")
+        .trim_start_matches('v')
+        .to_string();
+    let notes = json["body"].as_str().unwrap_or_default().to_string();
+    let mut asset_url = String::new();
+    let mut digest = String::new();
+    let mut asset_size = 0u64;
+    if let Some(assets) = json["assets"].as_array() {
+        for a in assets {
+            let name = a["name"].as_str().unwrap_or("");
+            if name.starts_with("HSCPapers_") && name.ends_with("x64-setup.exe") {
+                asset_url = a["browser_download_url"].as_str().unwrap_or("").to_string();
+                digest = a["digest"].as_str().unwrap_or_default().to_string();
+                asset_size = a["size"].as_u64().unwrap_or(0);
+                break;
+            }
+        }
+    }
+    let update_available = !tag.is_empty()
+        && version_gt(&tag, env!("CARGO_PKG_VERSION"))
+        && !asset_url.is_empty()
+        && !digest.is_empty();
+    Ok(UpdateInfo {
+        update_available,
+        version: tag,
+        notes,
+        asset_url,
+        digest,
+        asset_size,
+    })
+}
+
+#[derive(serde::Serialize, Clone)]
+struct UpdateProgress {
+    downloaded: u64,
+    total: Option<u64>,
+    done: bool,
+}
+
+/// Download the new installer, verify its SHA-256 against the GitHub-attested
+/// digest, then launch it silently and exit so files unlock. Refuses while a
+/// download batch is running (permits in use). A digest mismatch aborts — an
+/// unverified binary never runs.
+#[tauri::command]
+async fn update_install(
+    app: AppHandle,
+    state: State<'_, AppState>,
+    version: String,
+    url: String,
+    expected_digest: String,
+) -> Result<(), String> {
+    if state.dl.available_permits() < MAX_WORKERS {
+        return Err("finish the current download batch first".into());
+    }
+    if !url.starts_with("https://github.com/") && !url.starts_with("https://objects.githubusercontent.com/") {
+        return Err("refusing unexpected update URL".into());
+    }
+    let want = expected_digest.trim().trim_start_matches("sha256:").to_lowercase();
+    if want.len() != 64 || !want.chars().all(|c| c.is_ascii_hexdigit()) {
+        return Err("release has no verifiable SHA-256 digest — refusing to install".into());
+    }
+    let resp = state
+        .client
+        .get(&url)
+        .send()
+        .await
+        .map_err(|e| format!("download: {e}"))?;
+    if !resp.status().is_success() {
+        return Err(format!("download: HTTP {}", resp.status()));
+    }
+    let total = resp.content_length().unwrap_or(0);
+    let tmp = std::env::temp_dir().join(format!("HSCPapers_{}_x64-setup.exe", version));
+    let mut file = tokio::fs::File::create(&tmp).await.map_err(|e| format!("temp file: {e}"))?;
+    let mut hasher = Sha256::new();
+    let mut stream = resp.bytes_stream();
+    let mut pos: u64 = 0;
+    let mut last_emit = std::time::Instant::now() - std::time::Duration::from_secs(1);
+    while let Some(chunk) = stream.next().await {
+        let chunk = chunk.map_err(|e| format!("download: {e}"))?;
+        hasher.update(&chunk);
+        file.write_all(&chunk).await.map_err(|e| format!("write: {e}"))?;
+        pos += chunk.len() as u64;
+        if last_emit.elapsed().as_millis() >= 300 {
+            last_emit = std::time::Instant::now();
+            let _ = app.emit(
+                "update-progress",
+                UpdateProgress { downloaded: pos, total: if total > 0 { Some(total) } else { None }, done: false },
+            );
+        }
+    }
+    file.flush().await.map_err(|e| format!("write: {e}"))?;
+    let got = hex::encode(hasher.finalize());
+    if got != want {
+        let _ = tokio::fs::remove_file(&tmp).await;
+        return Err("update SHA-256 mismatch — installer discarded, staying on the current version".into());
+    }
+    let _ = app.emit(
+        "update-progress",
+        UpdateProgress { downloaded: pos, total: Some(pos), done: true },
+    );
+    // Launch the NSIS installer (silent + restart) and exit so files unlock.
+    // Tauri NSIS handles the running-app case; /R relaunches after install.
+    let installer = tmp.clone();
+    std::thread::spawn(move || {
+        std::thread::sleep(std::time::Duration::from_millis(600));
+        let _ = std::process::Command::new(&installer).args(["/S", "/R"]).spawn();
+    });
+    app.exit(0);
+    Ok(())
+}
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
@@ -1362,7 +1523,9 @@ fn main() {
             preflight,
             cancel_downloads,
             open_file,
-            reveal_in_folder
+            reveal_in_folder,
+            update_check,
+            update_install
         ])
         .run(tauri::generate_context!())
         .expect("HSCPapers failed to start");
