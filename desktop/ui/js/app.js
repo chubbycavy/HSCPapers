@@ -895,7 +895,9 @@
 
   // Hosts proven to serve direct bytes — everything else (THSC router,
   // dead NESA wcm) is a "slow route" resolved via the throttled resolver.
-  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "cdn.papersdb.org", "www.boardofstudies.nsw.edu.au"]);
+  // (PapersDB was removed 2026-09-25: its papers are self-hosted now —
+  // desktop/tools/selfhost.json — and its CDN blocks foreign referers.)
+  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.boardofstudies.nsw.edu.au"]);
   function isFastHostUrl(u) {
     try { return FAST_SAVE_HOSTS.has(new URL(u).host); } catch { return false; }
   }
@@ -903,7 +905,8 @@
   // reader + ZIP fetch them directly. Everything else goes through the
   // same-origin /proxy Pages Function (allowlisted, Range passthrough)
   // when SITE_CONFIG.PROXY_BASE is set; with no proxy, the CORS hint fires.
-  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev"]);
+  // Our own R2 bucket (self-hosted papers) sends ACAO:* too.
+  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev"]);
   function proxied(u) {
     const p = window.SITE_CONFIG?.PROXY_BASE;
     if (!p || !u) return u;

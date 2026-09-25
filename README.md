@@ -6,9 +6,10 @@ papers) vs Trial (school-written). This repo ships two products from one codebas
 
 1. **Website** — `desktop/ui/` (deployed via Cloudflare Pages). Pure static:
    search, faceted filters, embedded PDF reader + study timer, bulk download
-   (individually / structured ZIP / copy links). Hosts **no PDFs itself** —
-   every download resolves to its source: community mirrors (HSC Portal,
-   PapersDB), the Board of Studies archive, or official NESA links.
+   (structured ZIP, copy links). Mostly an index — downloads resolve to
+   their source: the HSC Portal mirror, the Board of Studies archive, or
+   official NESA links — plus a small **self-hosted set** (76 papers served
+   from our own Cloudflare R2 bucket, see `desktop/tools/selfhost.json`).
 2. **Desktop app** (Tauri 2) — same UI, plus a Rust download backend:
    direct-to-folder library, queued/resumable batches, adaptive pacing, CDN
    mirror lanes + THSC-resolver fallback, embedded reader over saved files.
@@ -69,13 +70,16 @@ redeploy automatically.
   hours and permanent (the nightly builder excludes removed papers via
   `desktop/tools/removals.json`; the removal form is a GitHub issue template).
 - **Deliberately parked** (documented decision — revisit consciously):
-  self-hosting papers (R2) and unlimited streaming ZIP. The index-first
-  posture keeps exposure low; both gates stay documented above.
-- **Known limitation, deferred with the paid phases**: `/proxy` rate limiting
-  isn't available on a `pages.dev` subdomain (rate-limit rules need an owned
-  zone). Worst case without it: free-quota exhaustion degrades reader/ZIP for
-  the ~16% of papers that use the proxy for one day; browsing, Portal files
-  (64% of the catalogue) and the desktop app are unaffected by design.
+  **full** library self-hosting and unlimited streaming ZIP. Proxy rate
+  limiting is likewise deferred (needs an owned zone).
+- **Phase-2-lite: ACTIVATED 2026-09-25** — 76 PapersDB-origin papers (421 MB)
+  self-hosted on Cloudflare R2 (free tier, $0/mo) after that mirror's
+  maintainer applied referer protection against this project. Registered in
+  `desktop/tools/selfhost.json`; the builder rewrites those URLs at every
+  rebuild, so the site and desktop app are fully independent of PapersDB.
+  The **"Submit a paper" issue template** is the continuous-update path for
+  the newest trials: submitted papers land in the library + registry and go
+  live self-hosted, same day.
 
 ## Numbers contract (keep marketing honest)
 

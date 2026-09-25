@@ -30,13 +30,17 @@ Include:
 
 ## Scope notes
 
-- We do not host copies of papers. Files on third-party mirrors
-  (HSC Portal, PapersDB, Board of Studies, NESA) can only be
-  *delinked* by us — the underlying hosts may need to be contacted
+- We do not host copies of papers **except a small self-hosted subset**
+  (76 papers from our own study library — see
+  `desktop/tools/selfhost.json`). Removal requests cover those identically:
+  the catalogue entry is removed and the file is deleted from the bucket
+  within 24 hours.
+- Files on third-party mirrors (HSC Portal, Board of Studies, NESA) can
+  only be *delinked* by us — the underlying hosts may need to be contacted
   directly, and we will tell you which.
-- Valid requests only: where a claim is unclear (for example,
-  material publicly released by NESA or in the Board of Studies
-  archive), we may ask for clarification first.
+- Valid requests only: where a claim is unclear (for example, material
+  publicly released by NESA or in the Board of Studies archive), we may
+  ask for clarification first.
 
 ## Our position
 

@@ -353,7 +353,10 @@ if (require.main === module) {
   // (ii) PapersDB: crawl the server-rendered /browse tree — Trials, HSC and
   // Y11/Y12 Internals. Filenames follow THSC's Drive naming:
   // <School> <Year> <Subject> Trials[ & Solutions].pdf / HSC <Year> <Subject>[ & Solutions].pdf
+  // Skipped entirely when the mirror is disabled (e.g. its maintainer
+  // requested delisting / applied hotlink protection — see sources.json).
   const PDB = SOURCES.mirrors.papersdb;
+  const PDB_ENABLED = PDB && PDB.enabled !== false;
   const pdbTrials = new Map();    // normSubject|normSchool|year -> {url, sol}
   const pdbHSC = new Map();       // normSubject|year -> {url, sol}
   const pdbInternals = new Map(); // normSubject|normSchool|year -> {url, sol}
@@ -387,7 +390,7 @@ if (require.main === module) {
     const fname = decodeURIComponent(u.split("?")[0].split("/").pop());
     return { fname, url: u };
   };
-  for (const subject of pdbSubjects) {
+  if (PDB_ENABLED) for (const subject of pdbSubjects) {
     try {
       // Trials: type page -> school pages
       const trialsHtml = await cached("pdb-t-" + slug(subject) + ".html", `${PDB.base}/browse/${encodeURIComponent(subject)}/Trials`);
@@ -473,7 +476,8 @@ if (require.main === module) {
       }
     }
   }
-  console.log(`mirror-papersdb: ${pdbMatched} additional papers -> direct CDN URLs`);
+  console.log(`mirror-papersdb: ${pdbMatched} additional papers -> direct CDN URLs${PDB_ENABLED ? "" : " (mirror disabled in sources.json)"}`);
+  if (!PDB_ENABLED) console.log("mirror-papersdb: disabled (sources.json) — PapersDB-origin papers are served from the selfhost registry instead");
 
   // (iv) Unique harvest — papers the mirrors hold that THSC's listing crawl
   // doesn't (portal's practice/other pages, PapersDB extras). These become
@@ -868,6 +872,42 @@ if (require.main === module) {
     if (removedN) console.log(`takedowns: excluded ${removedN} paper(s) per removals.json (permanent)`);
     papers.length = 0;
     papers.push(...kept);
+  }
+  // Self-host remirror (selfhost.json): papers whose bytes we host on our
+  // own R2 bucket. Matched by (subject, year, school, type) — NOT by mirror
+  // URL — so entries are restored even when the PapersDB mirror is disabled
+  // and its crawl never runs. Matching papers keep their pre-rewrite URL as
+  // fallback; records with no existing paper become new selfhost entries.
+  let SELFHOST = null;
+  try { SELFHOST = JSON.parse(fs.readFileSync(path.join(__dirname, "selfhost.json"), "utf8")); } catch { /* none yet */ }
+  if (SELFHOST && SELFHOST.base && Array.isArray(SELFHOST.entries)) {
+    const R2_HOST = new URL(SELFHOST.base).host;
+    const tupleOf = (p) => `${normKey(p.subject)}|${normKey(p.school)}|${p.year}|${p.type}`;
+    let rewritten = 0, added = 0;
+    const tuples = new Set(papers.map((p) => tupleOf(p)));
+    for (const e of SELFHOST.entries) {
+      const tuple = `${normKey(e.subject)}|${normKey(e.school)}|${e.year}|${e.type}`;
+      const url = `${SELFHOST.base}/${encodeURI(e.key)}`;
+      const cands = papers.filter((p) => tupleOf(p) === tuple && !((p.url || "").startsWith(SELFHOST.base)));
+      if (cands.length) {
+        const p = cands[0];
+        p.fallbackUrl = p.fallbackUrl || p.url; // keep the old route as backup
+        p.url = url;
+        p.mirror = "selfhost";
+        rewritten++;
+      } else if (!tuples.has(tuple)) {
+        tuples.add(tuple);
+        papers.push({
+          id: `selfhost-${e.year || "na"}-${slug(e.subject)}-${slug(e.school)}`,
+          subject: e.subject, level: e.level, year: e.year, school: e.school, type: e.type,
+          title: `${e.year} ${e.school} ${e.subject} ${e.type === "trial" ? "Trial" : e.type === "hsc" ? "HSC" : "Assessment"}`,
+          url, fallbackUrl: e.fallbackUrl || "", solutionPath: "", size: "",
+          hasSolutions: !!e.hasSolutions, source: "selfhost", mirror: "selfhost",
+        });
+        added++;
+      }
+    }
+    console.log(`self-host: ${rewritten} rewritten, +${added} added -> ${SELFHOST.base}`);
   }
   const fastN = papers.filter((p) => p.mirror).length;
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;

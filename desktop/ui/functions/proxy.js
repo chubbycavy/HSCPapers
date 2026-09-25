@@ -4,10 +4,12 @@
 // fetches for those sources. Portal already sends ACAO:* — it stays direct.
 //
 // Hard host allowlist — this is NOT an open proxy. NESA wcm links are
-// deliberately excluded (they serve HTML wrappers, not PDFs).
+// deliberately excluded (they serve HTML wrappers, not PDFs). PapersDB is
+// also excluded: its maintainer applied referer protection against this
+// project (2026-09-25) and those papers are now self-hosted instead
+// (see desktop/tools/selfhost.json).
 const ALLOWED_HOSTS = new Set([
   "hscportal.pages.dev",
-  "cdn.papersdb.org",
   "www.boardofstudies.nsw.edu.au",
 ]);
 

@@ -36,7 +36,9 @@
     "papersdb": {
       "base": "https://papersdb.org",
       "cdnBase": "https://cdn.papersdb.org",
-      "subjects": ["Biology", "Chemistry", "Mathematics Advanced", "Mathematics Extension 1", "Mathematics Extension 2", "Mathematics Standard", "Miscellaneous", "Physics"],
+      "enabled": false,
+      "_disabledNote": "PapersDB delisted 2026-09-25: its maintainer applied referer hotlink protection against this project and asked to be left alone. The 76 PapersDB-origin papers are self-hosted from our own study library (see desktop/tools/selfhost.json) — flip enabled back to true to resume indexing their site.",
+      "subjects": ["Biology", "Chemistry", "Mathematics Advanced", "Mathematics Extension 1", "Mathematics Extension 2", "Miscellaneous", "Physics"],
       "match": "Server-rendered /browse/<Subject>/<Trials|HSC>[/<School>] pages -> cdn.papersdb.org PDFs named '<School> <Year> <Subject> Trials[ & Solutions].pdf' (THSC's exact naming).",
       "credit": "PapersDB (papersdb.org) — community fast mirror (Maths & Science), listed on THSC's homepage."
     },
