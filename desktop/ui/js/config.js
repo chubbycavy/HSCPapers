@@ -50,6 +50,10 @@ const SITE_CONFIG = {
   // root; honored within 24 hours). Empty string hides the links.
   TAKE_DOWN_URL: "https://github.com/chubbycavy/HSCPapers/issues/new?template=removal-request.yml",
 
+  // Paper submission channel (the continuous-update path: submissions are
+  // verified, added to the self-host library, and live same day).
+  SUBMIT_URL: "https://github.com/chubbycavy/HSCPapers/issues/new?template=submit-paper.yml",
+
   // Desktop only: the app prefers this live, nightly-rebuilt catalogue at
   // startup and falls back to the bundled copy when offline. The site itself
   // ignores this (same-origin asset already).

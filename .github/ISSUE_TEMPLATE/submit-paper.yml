@@ -1,0 +1,31 @@
+name: "Submit a paper"
+description: "Contribute a trial/HSC paper to the catalogue (self-hosted, live same day)"
+title: "[Submit] <school> <year> <subject> paper"
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submissions keep the catalogue current without waiting for upstream
+        mirrors. What happens next: the maintainer verifies the paper, adds
+        it to the study library + self-host registry, and it goes live on
+        the site — usually the same day. Papers remain the property of
+        their schools/authors and NESA; removal requests are honored
+        within 24 hours (see TAKEDOWN.md).
+  - type: input
+    id: paper
+    attributes:
+      label: "Paper details"
+      description: "School, year, subject, and type — e.g. 'Baulkham Hills 2026 Mathematics Extension 2 trial (with solutions)'"
+    validations:
+      required: true
+  - type: textarea
+    id: link
+    attributes:
+      label: "Where you found it (public link if available)"
+      description: "School website, newsletter, community post — helps verification. Leave blank if you're attaching the PDF."
+  - type: textarea
+    id: file
+    attributes:
+      label: "Attach the PDF (or paste a direct download link)"
+      description: "Drag the PDF into this box, or paste a direct link. If neither is possible, describe where to find it."

@@ -179,6 +179,15 @@
     if (fra) { fra.href = takedownUrl; $("#footerRemovalLink").hidden = false; }
   }
 
+  /* ---------- paper submission channel (continuous-update path) ---------- */
+  const submitUrl = window.SITE_CONFIG?.SUBMIT_URL || "";
+  if (submitUrl) {
+    const sa = $("#submitLink");
+    if (sa) { sa.href = submitUrl; sa.hidden = false; }
+    const fsa = $("#footerSubmitLinkA");
+    if (fsa) { fsa.href = submitUrl; $("#footerSubmitLink").hidden = false; }
+  }
+
   /* ---------- URL deep-linking ---------- */
   function readURL() {
     const p = new URLSearchParams(location.search);
