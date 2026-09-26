@@ -10,6 +10,7 @@
 // excluded (its papers are now self-hosted — see desktop/tools/selfhost.json).
 const ALLOWED_HOSTS = new Set([
   "hscportal.pages.dev",
+  "www.nsw.gov.au",
   "www.boardofstudies.nsw.edu.au",
 ]);
 

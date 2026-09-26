@@ -906,7 +906,7 @@
   // dead NESA wcm) is a "slow route" resolved via the throttled resolver.
   // (A third-party mirror was delisted 2026-09-25; its papers are
   // self-hosted now — desktop/tools/selfhost.json.)
-  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.boardofstudies.nsw.edu.au"]);
+  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au"]);
   function isFastHostUrl(u) {
     try { return FAST_SAVE_HOSTS.has(new URL(u).host); } catch { return false; }
   }

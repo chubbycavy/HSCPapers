@@ -722,6 +722,23 @@ if (require.main === module) {
     papers.length = 0;
     papers.push(...kept);
   }
+  // NESA dead-link recovery (nesa-recovery.json): dead wcm URLs -> verified
+  // public links on nsw.gov.au (the exam-paper pages + archive NESA rebuilt).
+  // Applied like the removals registry — matched by the dead URL exactly.
+  let NESAREC = null;
+  try { NESAREC = JSON.parse(fs.readFileSync(path.join(__dirname, "nesa-recovery.json"), "utf8")); } catch { /* none yet */ }
+  if (NESAREC && NESAREC.entries) {
+    let nesaN = 0;
+    for (const p of papers) {
+      const hit = NESAREC.entries[p.url];
+      if (!hit) continue;
+      p.fallbackUrl = p.fallbackUrl || p.url; // keep the dead URL trail for reference
+      p.url = hit.url;
+      p.mirror = "nesa-archive";
+      nesaN++;
+    }
+    console.log(`nesa-recovery: rewrote ${nesaN} dead wcm URLs -> nsw.gov.au`);
+  }
   // Self-host remirror (selfhost.json): papers whose bytes we host on our
   // own R2 bucket. Matched by (subject, year, school, type) — NOT by mirror
   // URL — so entries are restored even when third-party mirrors are disabled
@@ -762,7 +779,7 @@ if (require.main === module) {
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
   console.log(`routes: fast ${fastN} · script ${scriptN} · dead wcm ${deadN} · total ${papers.length}`);
-  const isFastHost = (u) => /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|boardofstudies\.nsw\.edu\.au/.test(u || "");
+  const isFastHost = (u) => /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au/.test(u || "");
   const fastFiles = papers.reduce((n, p) => n + (p.url && isFastHost(p.url) ? 1 : 0) + (p.solutionUrl && isFastHost(p.solutionUrl) ? 1 : 0), 0);
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);

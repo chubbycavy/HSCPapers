@@ -1,0 +1,1094 @@
+{
+ "_doc": "NESA dead-link recovery registry (C2): dead wcm URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
+ "generated": "2026-09-26T13:22:11.982Z",
+ "entries": {
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f2201bb4-2e35-48c0-b666-55c886c0206b/2018-hsc-aboriginal-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-aboriginal-studies.pdf",
+   "title": "2018 Aboriginal Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/26d4041d-8210-4b48-89ef-84e8cd677914/2017-hsc-aboriginal-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-aboriginal-studies.pdf",
+   "title": "2017 Aboriginal Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/44af6833-557f-4a32-969e-b0da0cd2f274/2016-hsc-aboriginal-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-aboriginal-studies.pdf",
+   "title": "2016 Aboriginal Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e69b804c-34dc-449d-976f-1941ef5d83a8/2018-hsc-agriculture.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-agriculture.pdf",
+   "title": "2018 Agriculture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/bb6f5d0b-d903-4e32-8579-2d97ee4928d3/2017-hsc-agriculture.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-agriculture.pdf",
+   "title": "2017 Agriculture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d53d08a4-36aa-4af2-88cf-76157521feaa/2016-hsc-agriculture.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-agriculture.pdf",
+   "title": "2016 Agriculture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b6b1605-b3df-4dc3-91a1-3451ccb62055/2018-hsc-ancient-history.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-ancient-history-archive.pdf",
+   "title": "2018 Ancient History HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b7a62d5-568e-43c8-b30d-3b8d49f9c77e/2017-hsc-ancient-history.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-ancient-history-archive.pdf",
+   "title": "2017 Ancient History HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/44446ad0-8e8a-4f0f-bf0d-a4dc22467cb3/2016-hsc-ancient-history.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-ancient-history-archive.pdf",
+   "title": "2016 Ancient History HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/263ede90-9e24-4216-97fd-63dad0fb774e/2018-hsc-arabic-continuers.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-arabic-continuers.pdf",
+   "title": "2018 Arabic Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9d4b686e-a482-44f0-8a32-a5b9be4333e1/2017-hsc-arabic-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-arabic-cont.pdf",
+   "title": "2017 Arabic Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8f532442-f051-4eee-bb2e-48e1babe5602/2016-hsc-arabic-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-arabic-cont.pdf",
+   "title": "2016 Arabic Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4c0aa134-6652-4251-949f-b1c752952dcb/2018-hsc-armenian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-armenian-transcript_archive.pdf",
+   "title": "2018 Armenian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/84d4c881-a685-42d0-87ef-2bbe7330c28f/2017-hsc-armenian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-armenian-transcript-archive-1.pdf",
+   "title": "2017 Armenian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3d692199-6527-42b9-b7be-d81a3f278426/2016-hsc-armenian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-armenian-transcript-archive.pdf",
+   "title": "2016 Armenian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0fede656-18d0-4306-bae7-8a01b51be29f/2018-hsc-vet-auto-mechanical-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2018-hsc-vet-auto-mechanical-tech-archive.pdf",
+   "title": "2018 Automotive – Mechanical Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f9e53e0c-75ef-4039-814b-b198e63052bf/2018-hsc-vet-auto-vehicle-body.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2018-hsc-vet-auto-mechanical-tech-archive.pdf",
+   "title": "2018 Automotive – Vehicle Body HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/614fe2a0-a28f-42da-b9b4-4a253bd61b2a/2017-hsc-vet-auto-mechanical-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2017-hsc-vet-auto-mechanical-tech-archive.pdf",
+   "title": "2017 Automotive – Mechanical Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d76deff7-7edb-42d6-af29-4ceba6125acf/2017-hsc-vet-auto-vehicle-body.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2017-hsc-vet-auto-mechanical-tech-archive.pdf",
+   "title": "2017 Automotive – Vehicle Body HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b1a3048a-eac5-4daa-bba2-1fe7944ec267/2016-hsc-vet-auto-mechanical-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2016-hsc-vet-auto-mechanical-tech-archive.pdf",
+   "title": "2016 Automotive – Mechanical Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9b86a662-0d11-4524-9059-15879367a1f1/2016-hsc-vet-auto-vehicle-body.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2016-hsc-vet-auto-mechanical-tech-archive.pdf",
+   "title": "2016 Automotive – Vehicle Body HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/114983e9-8298-435f-842e-2223ad1a757d/2018-hsc-biology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2018-hsc-biology-archive.pdf",
+   "title": "2018 Biology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fc23024b-f91e-468c-90b5-8d522b8d2dbf/2017-hsc-biology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2017-hsc-biology-archive.pdf",
+   "title": "2017 Biology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/adc1d586-5f58-4d32-a053-6a6c71fe9628/2016-hsc-biology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-02/2016-hsc-biology-archive.pdf",
+   "title": "2016 Biology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/622e3827-d7ed-44f5-84ad-ae3dad81e738/2018-hsc-business-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-business-services.pdf",
+   "title": "2018 Business Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/39c7f78f-f736-4254-94cb-403a56a47339/2017-hsc-vet-business-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-business-services.pdf",
+   "title": "2017 Business Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9ee7f443-e1c7-4af7-a9f9-21797c63e723/2016-hsc-vet-business-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-business-services.pdf",
+   "title": "2016 Business Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/858727ca-1db5-4df0-ab13-8a3496f3e4ff/2018-hsc-business-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-business-studies.pdf",
+   "title": "2018 Business Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/54c0daaf-2bc2-4d45-98cf-37dfed260dda/2017-hsc-business-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-business-studies.pdf",
+   "title": "2017 Business Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b34cb127-f93f-41dd-92f5-5ea9135548ce/2016-hsc-business-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-business-studies.pdf",
+   "title": "2016 Business Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b17504ca-d354-4e45-ba86-e36a1bdb00ad/2018-hsc-chemistry.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-chemistry-archive.pdf",
+   "title": "2018 Chemistry HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/cb65ca25-fc28-4e21-8f2d-4886bf176ddd/2017-hsc-chemistry.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-chemistry-archive.pdf",
+   "title": "2017 Chemistry HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e76232cd-1d84-4d3e-92ce-ea41546810f6/2016-hsc-chemistry.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-chemistry-archive.pdf",
+   "title": "2016 Chemistry HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1348c301-145b-4cd1-8831-38d85b5e87fa/2018-hsc-chinese-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-chinese-beg.pdf",
+   "title": "2018 Chinese Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6ad4f344-4caa-40a7-836f-05228c87042e/2017-hsc-chinese-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-chinese-beg.pdf",
+   "title": "2017 Chinese Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a7440429-9bda-4762-b1a2-c31704c9a50b/2016-hsc-chinese-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-chinese-beg.pdf",
+   "title": "2016 Chinese Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c82ae1e2-f1fe-4e92-8871-e623cb8bce56/2018-hsc-chinese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-chinese-cont.pdf",
+   "title": "2018 Chinese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/94a9aa7f-d06f-4725-af8f-9ce4c616844c/2017-hsc-chinese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-chinese-cont.pdf",
+   "title": "2017 Chinese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/82e4c411-41f2-4f7a-8ca2-ee3355853996/2016-hsc-chinese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-chinese-cont.pdf",
+   "title": "2016 Chinese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8a9aab57-16db-48bf-a582-51a9f71e879b/2018-hsc-classical-greek-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-classical-greek-ext.pdf",
+   "title": "2018 Classical Greek Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/154d7883-58b1-4fb7-9c7c-17287b768446/2017-hsc-cl-greek-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-cl-greek-ext.pdf",
+   "title": "2017 Classical Greek Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/559a4e96-c55c-4fec-ab4f-43216680cd96/2016-hsc-cl-greek-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-cl-greek-ext.pdf",
+   "title": "2016 Classical Greek Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a1f459ad-0425-4877-af90-af7fceeb5676/2018-hsc-community-and-family-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-community-and-family-studies.pdf",
+   "title": "2018 Community and Family Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d96d37d5-dcd4-4b7e-9a88-8b693b7ed793/2017-hsc-community-and-family.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-community-and-family.pdf",
+   "title": "2017 Community and Family Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5f6ae236-7cf9-402f-a307-a9ba09db88d8/2016-hsc-community-and-family.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-community-and-family.pdf",
+   "title": "2016 Community and Family Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b8d3b913-5d09-4d02-a08d-8875011299e8/2018-hsc-vet-construction.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-construction_0.pdf",
+   "title": "2018 Construction HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3af0828c-d9af-477c-bb1d-6531b6afbfe2/2017-hsc-vet-construction.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-construction.pdf",
+   "title": "2017 Construction HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/dc7bfe4b-b453-4c26-a810-2042fe709315/2016-hsc-vet-construction.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-construction.pdf",
+   "title": "2016 Construction HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3ae000be-9725-4204-8506-ea07165480c5/2018-hsc-croatian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-croatian-transcript-archive.pdf",
+   "title": "2018 Croatian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0084da0e-8f2e-4e5e-890d-a0f1e89af4a8/2017-hsc-croatian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-croatian-transcript-archive.pdf",
+   "title": "2017 Croatian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e267a016-5e71-483d-a9ba-f50aa98f5faa/2016-hsc-croatian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-croatian-transcript-archive.pdf",
+   "title": "2016 Croatian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/48fa37cd-d6ba-4b4a-b0c4-792973521aff/2018-hsc-dance-sec-1-core.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-dance-sec-1-core.pdf",
+   "title": "2018 Dance HSC Exam Paper  - Section 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3caa5288-18c8-4b73-95e1-bbadeed851b7/2018-hsc-dance-sec-2-major.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-dance-sec-1-core.pdf",
+   "title": "2018 Dance HSC Exam Paper  - Section 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/634b6597-1b21-44ad-b0c4-d27cd734905c/2017-hsc-dance-section-1-core.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-dance-section-1-core.pdf",
+   "title": "2017 Dance HSC Exam Paper  - Section 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/35b94be3-0b02-4f96-9021-4981b56009ae/2017-hsc-dance-section-2-major.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-dance-section-1-core.pdf",
+   "title": "2017 Dance HSC Exam Paper  - Section 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a8395aba-d922-402a-91ca-7128c7ae78f2/2016-hsc-dance-1-core.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-dance-1-core.pdf",
+   "title": "2016 Dance HSC Exam Paper  - Section 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/7347d7a6-f7e4-4e04-952e-513ef93d93e0/2016-hsc-dance-2-major.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-dance-1-core.pdf",
+   "title": "2016 Dance HSC Exam Paper  - Section 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2b0eb047-8fd3-43d2-89a5-2382ba5dca29/2018-hsc-design-and-technology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-design-and-technology.pdf",
+   "title": "2018 Design and Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f2ddf44f-45b6-4775-9eec-3a1299a6049d/2017-hsc-design-and-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-design-and-tech.pdf",
+   "title": "2017 Design and Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/98b809b4-4e21-4a9b-ac85-0d4edf8bafe4/2016-hsc-design-and-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-design-and-tech.pdf",
+   "title": "2016 Design and Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8fd575a4-e79c-46ba-8528-c674f27ef9df/2018-hsc-drama.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-drama.pdf",
+   "title": "2018 Drama HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a36f02c3-62e2-41bc-9028-d2296cb426e5/2017-hsc-drama.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-drama.pdf",
+   "title": "2017 Drama HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8e989ab1-b33c-4aa4-bebc-bdb120c5dff6/2016-hsc-drama.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-drama.pdf",
+   "title": "2016 Drama HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6e038b6e-1c37-4d93-8797-0539f1375e10/2018-hsc-earth-and-environmental-science.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-earth-and-environmental-science-archive.pdf",
+   "title": "2018 Earth and Environmental Science HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/28031864-af52-4fef-828b-356ca6b2f662/2017-hsc-earth-and-enviro-sci.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-earth-and-enviro-science-archive.pdf",
+   "title": "2017 Earth and Environmental Science HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/08c0c3d5-8808-45fe-96e7-e876cf355bab/2016-hsc-earth-and-enviro-sci.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-earth-and-enviro-sci-archive.pdf",
+   "title": "2016 Earth and Environmental Science HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6a7e7c78-0dc8-44c1-b701-b4e358541657/2018-hsc-economics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-economics.pdf",
+   "title": "2018 Economics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fef45a39-d7af-40d5-9ad0-b4f987be28c2/2017-hsc-economics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-economics.pdf",
+   "title": "2017 Economics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/09166211-0e2d-4863-8e6c-fa9573edbcdc/2016-hsc-economics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-economics.pdf",
+   "title": "2016 Economics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/518861e0-c9d4-4407-a057-210e48eb3b3a/2018-hsc-vet-electrotechnology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-electrotechnology.pdf",
+   "title": "2018 Electrotechnology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1b2729a7-9393-4601-95ff-2ae09ae676bc/2017-hsc-vet-electrotechnology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-electrotechnology.pdf",
+   "title": "2017 Electrotechnology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/65c4d4f4-21c7-43d0-abe6-a81f5933806a/2016-hsc-vet-electrotechnology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-electrotechnology.pdf",
+   "title": "2016 Electrotechnology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/432242fa-ee36-4c87-988c-093a16599662/2018-hsc-engineering-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-engineering-studies.pdf",
+   "title": "2018 Engineering Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f892452a-3e25-4c2d-ad7d-9c9bb1852b9b/2017-hsc-engineering-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-engineering-studies.pdf",
+   "title": "2017 Engineering Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d7114ef2-04bd-4517-90a4-02da378219c7/2016-hsc-engineering-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-engineering-studies.pdf",
+   "title": "2016 Engineering Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e0b1fed1-1464-4198-8c56-0445ec1219eb/2018-hsc-english-std-adv-p1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-advanced-paper-2.pdf",
+   "title": "2018 English Advanced HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fa0ede80-1fc2-4123-a600-afa47c3b1383/2018-hsc-english%E2%80%93advanced-paper-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-advanced-paper-2.pdf",
+   "title": "2018 English Advanced HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4fd3938f-959e-4b24-ad79-9b379aad98f7/2017-hsc-english-p1-std-and-adv.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-advanced-hsc-paper-2-sample-writing-booklet-2017.pdf",
+   "title": "2017 English Advanced HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/50c12b7e-c3ec-4578-b2e1-647fbebcad69/2017-hsc-english-advanced-p2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-advanced-hsc-paper-2-sample-writing-booklet-2017.pdf",
+   "title": "2017 English Advanced HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1b6c662e-e645-4f35-8523-82c10c2b62df/2016-hsc-english-p1-std-and-adv.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-std-adv-sample-hsc-exam-paper-2016.pdf",
+   "title": "2016 English Advanced HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/da55b41d-d2cb-4ea5-b257-543f483122c3/2016-hsc-english-adv-p2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-std-adv-sample-hsc-exam-paper-2016.pdf",
+   "title": "2016 English Advanced HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9ad94cec-c1dd-4079-bb55-794c528409dc/english-adv-hsc-exam-1-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-english-std-hsc-exam-1.pdf",
+   "title": "2015 English Advanced HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b3a4a6f8-9559-4ffd-80c6-17f50f1948cc/english-adv-hsc-exam-2-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-english-std-hsc-exam-1.pdf",
+   "title": "2015 English Advanced HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/65fad7ae-446a-4bb0-9c70-1a9c0bf37f29/english-adv-hsc-exam-paper-1-2014.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-1.pdf",
+   "title": "2014 English Advanced HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9b5c05ba-a565-4f2a-ad9f-56244ff35098/english-adv-hsc-exam-paper-2-2014.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-1.pdf",
+   "title": "2014 English Advanced HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b7ee895a-2f84-4db9-8e2a-fa1ca437d52d/2018-hsc-english-extension-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-extension-1.pdf",
+   "title": "2018 English Extension 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d9b41554-364a-40d4-b2fe-ca62e2c3076f/2017-hsc-english-ext-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-ext-1.pdf",
+   "title": "2017 English Extension 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/eaaa74fe-c3e1-417c-b474-7e7f04e10ae2/2016-hsc-english-ext-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-english-ext-1.pdf",
+   "title": "2016 English Extension 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/75632b47-6109-4262-b073-ae0dc05e6b7b/2018-hsc-english-std-adv-p1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-standard-paper-2.pdf",
+   "title": "2018 English Standard HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/91a4c387-f03e-41ee-b44c-b9ea5dde16a3/2018-hsc-english-standard-paper-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-standard-paper-2.pdf",
+   "title": "2018 English Standard HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/367c0660-aac8-46df-b6e3-e5543173754e/2017-hsc-english-p1-std-and-adv.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-p1-std-and-adv.pdf",
+   "title": "2017 English Standard HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/56653885-e537-411a-8126-17642ba150f7/2017-hsc-english-standard-p2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-p1-std-and-adv.pdf",
+   "title": "2017 English Standard HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/34347a88-1d0b-4b1d-b625-03ec4addda27/2016-hsc-english-p1-std-and-adv.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-std-adv-sample-hsc-exam-paper-2016.pdf",
+   "title": "2016 English Standard HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f4e443cf-4c07-4da5-af0d-ba5b6790a971/2016-hsc-english-std-p2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-std-adv-sample-hsc-exam-paper-2016.pdf",
+   "title": "2016 English Standard HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3d08cbb2-f486-4007-b7a6-2568f6329426/english-std-hsc-exam-1-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-english-std-hsc-exam-1.pdf",
+   "title": "2015 English Standard HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/7401fc0c-dc14-4526-99e8-990b1bb8b14e/english-std-hsc-exam-2-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-english-std-hsc-exam-1.pdf",
+   "title": "2015 English Standard HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a0ac3925-6dbd-4441-a27b-00d5767875a5/english-std-hsc-exam-paper-1-2014.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-1.pdf",
+   "title": "2014 English Standard HSC Exam Paper 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/58cf0cba-8307-4c4e-8bb5-3de9613d7279/english-std-hsc-exam-paper-2-2014.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-1.pdf",
+   "title": "2014 English Standard HSC Exam Paper 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/88882926-ef50-482e-90af-c70099c5cd6d/2018-hsc-vet-entertainment.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-entertainment.pdf",
+   "title": "2018 Entertainment Industry HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d0e56002-3a66-4cce-8f5e-966bd2b1b9aa/2017-hsc-vet-entertainment.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-entertainment.pdf",
+   "title": "2017 Entertainment Industry HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/50bfc39b-9e89-48dd-8bbe-bca4242715a0/2016-hsc-vet-entertainment.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-entertainment.pdf",
+   "title": "2016 Entertainment Industry HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/cc5e8830-cda8-49d9-84b2-9a7b75d4982e/2018-hsc-filipino.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-filipino-cont-transcript.pdf",
+   "title": "2018 Filipino Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8b2432f6-da8f-469e-8209-c6577fe758be/2017-hsc-filipino.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-filipino-cont-transcript.pdf",
+   "title": "2017 Filipino Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a902189c-c40d-4c3c-9657-afebe8f9a0a6/2016-hsc-filipino.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-filipino-transcript.pdf",
+   "title": "2016 Filipino Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1c8d3057-73b3-479c-9a00-652964d3196d/2018-hsc-vet-financial-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-financial-services.pdf",
+   "title": "2018 Financial Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/747d6812-e65d-4214-9f4c-1149c5145a91/2017-hsc-vet-financial-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-financial-services.pdf",
+   "title": "2017 Financial Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c5e9537e-26b9-4702-8a21-cbbf1011c66e/2016-hsc-vet-financial-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-financial-services.pdf",
+   "title": "2016 Financial Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/af8538b6-1b9e-4679-af17-abd6b36cf809/2018-hsc-food-technology.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-food-technology.pdf",
+   "title": "2018 Food Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b032abd6-9539-4f17-b2dc-fed857ace90f/2017-hsc-food-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-food-tech.pdf",
+   "title": "2017 Food Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/eef12ebe-e964-4c9d-a109-a5fb0e88710c/2016-hsc-food-tech.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-food-tech.pdf",
+   "title": "2016 Food Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5432f725-74d5-4c13-be40-bb65c693f8f3/2018-hsc-french-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-french-beg-transcript.pdf",
+   "title": "2018 French Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ef19f16a-0a97-4a80-81b4-a370dc2741eb/2017-hsc-french-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-french-beg-transcript.pdf",
+   "title": "2017 French Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d3296090-4dca-415d-9262-b25c03b304c2/2016-hsc-french-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-french-beg-transcript.pdf",
+   "title": "2016 French Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f65f6267-29ad-430d-b199-0a617afb9d7e/2018-hsc-french-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-french-cont-transcript.pdf",
+   "title": "2018 French Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/55f37c30-5028-4c3a-ac87-0246202235c9/2017-hsc-french-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-french-cont-transcript.pdf",
+   "title": "2017 French Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1c99a004-a633-4f60-b449-6d5063e8807e/2016-hsc-french-continuers.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-french-cont-transcript.pdf",
+   "title": "2016 French Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/589fb2b7-639c-4bb6-b3d0-96ca144aca52/2018-hsc-geography.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-geography-archive.pdf",
+   "title": "2018 Geography HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/362fd011-debd-4b91-83a6-0def3567ae50/2017-hsc-geography.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-geography-archive.pdf",
+   "title": "2017 Geography HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b7a649da-e8a4-4f70-a1ca-2a6014b8021f/2016-hsc-geography.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-geography-archive.pdf",
+   "title": "2016 Geography HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f494bbce-4d61-4706-91d6-79cb372441fc/2018-hsc-german-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-german-beg-transcript.pdf",
+   "title": "2018 German Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/85535bd9-c640-4c14-9f6f-a541c1df4ecf/2017-hsc-german-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-german-beg-transcript.pdf",
+   "title": "2017 German Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/56828e72-9cac-4e9c-a75e-afff71da3f28/2016-hsc-german-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-german-beg-transcript.pdf",
+   "title": "2016 German Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c3b50e2b-11fa-4803-bcb7-abb3ed687925/2018-hsc-german-continuers.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-german-cont-transcript.pdf",
+   "title": "2018 German Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2ed1cd75-83bd-4773-b9cb-cc93253b962e/2017-hsc-german-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-german-cont-transcript.pdf",
+   "title": "2017 German Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5b41e4bf-49c4-45df-aecf-751ef7db97f7/2016-hsc-german-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-german-cont-transcript.pdf",
+   "title": "2016 German Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/594a8342-e326-451d-be16-feee3bcc0216/2018-hsc-history-extension.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-history-extension-archive.pdf",
+   "title": "2018 History Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fcddc802-1cea-44e0-9c9d-26d45365de8d/2017-hsc-history-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-history-ext-archive.pdf",
+   "title": "2017 History Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c8cb55a4-8b3a-4c97-a91e-5afc3f8fe428/2016-hsc-history-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-history-ext-archive.pdf",
+   "title": "2016 History Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e55fb858-24ff-40c8-a876-e23d4729c0d5/2018-hsc-vet-hospitality-food-and-beverage.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-hospitality-food-and-beverage.pdf",
+   "title": "2018 Hospitality Food And Beverage HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/cd641aeb-48c6-4f3e-855f-0341827dcf20/2018-hsc-vet-hospitality-kitchen-op-and-cookery.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-hospitality-food-and-beverage.pdf",
+   "title": "2018 Hospitality Kitchen Operations And Cookery HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/15b6b402-52dd-40e4-a6c8-15881ef1b3bb/2017-hsc-vet-hospitality-food-beverage.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-hospitality-food-beverage.pdf",
+   "title": "2017 Hospitality Food And Beverage HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ed96f51b-c244-4f59-a7c4-d452d45ec826/2017-hsc-vet-hospitality-kitchen-ops-cookery.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-hospitality-food-beverage.pdf",
+   "title": "2017 Hospitality Kitchen Operations And Cookery HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5c992e96-b873-4f97-bb9a-38cb7694cb33/2016-hsc-vet-hospitality-food-beverage.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-hospitality-food-beverage.pdf",
+   "title": "2016 Hospitality Food And Beverage HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/39aa3f37-0292-4045-a5af-3528eb97e886/2016-hsc-vet-hospitality-kitchen-ops-cookery.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-hospitality-food-beverage.pdf",
+   "title": "2016 Hospitality Kitchen Operations And Cookery HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/01edfcc3-4c66-4f98-b78c-3f9e98a83aac/2018-hsc-vet-human-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-human-services.pdf",
+   "title": "2018 Human Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2a301c0c-dea0-413a-ba4c-fe784c7b4113/2017-hsc-vet-human-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-human-services.pdf",
+   "title": "2017 Human Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9ce7b723-a678-4968-84f3-f4e7e5691ee6/2016-hsc-vet-human-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-human-services.pdf",
+   "title": "2016 Human Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/25abfb06-6281-4c87-bed0-6df42cb05319/vet-human-services-hsc-exam-2012.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/vet-human-services-hsc-exam-2012.pdf",
+   "title": "2012 Human Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4e1f7c48-000c-4bf9-a84e-82969cd2e0fc/2018-hsc-indonesian-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-indonesian-beg.pdf",
+   "title": "2018 Indonesian Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d25781be-7d09-49ac-9e39-9aff7cd0d8ce/2017-hsc-indonesian-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-indonesian-beg.pdf",
+   "title": "2017 Indonesian Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ab1a65b4-e9b3-4594-965e-952c363b6db0/2016-hsc-indonesian-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-indonesian-beg.pdf",
+   "title": "2016 Indonesian Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/216a90f6-af0f-4922-8ec5-66e1a2575b79/2018-hsc-indonesian-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-indonesian-cont.pdf",
+   "title": "2018 Indonesian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1c9732b4-5fb0-43d4-9c88-bc7a31fb120c/2017-hsc-indonesian-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-indonesian-cont.pdf",
+   "title": "2017 Indonesian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ca031c8a-5873-44e3-a17e-1ae9ece30c6f/2016-hsc-indonesian-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-indonesian-cont.pdf",
+   "title": "2016 Indonesian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c1279683-0408-4e8f-9bd5-26e3be381e24/2018-hsc-ind-tech-automotive.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-ind-tech-automotive.pdf",
+   "title": "2018 Industrial Technology Automotive HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a1a81ccb-9208-4555-aeca-c4e773c1afc8/2018-hsc-ind-tech-electronics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-ind-tech-automotive.pdf",
+   "title": "2018 Industrial Technology Electronics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b34a9bc-4621-4796-9ab3-1a29fc1c4706/2018-hsc-ind-tech-graphics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-ind-tech-automotive.pdf",
+   "title": "2018 Industrial Technology Graphics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0b9b605e-d19f-44ad-b91c-a63bb9504533/2018-hsc-ind-tech-metal-and-engineering.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-ind-tech-automotive.pdf",
+   "title": "2018 Industrial Technology Metal And Engineering HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a14b4912-c97c-488c-ab1b-dd5183b3aaad/2018-hsc-ind-tech-multimedia.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-ind-tech-automotive.pdf",
+   "title": "2018 Industrial Technology Multimedia HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a4c0355e-dae5-49a8-bee1-07641725227e/2018-hsc-ind-tech-timber.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-ind-tech-automotive.pdf",
+   "title": "2018 Industrial Technology Timber Products And Furniture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e03bcd63-9381-4cd0-a967-3242e3a8407e/2017-hsc-ind-tech-automotive.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-ind-tech-automotive.pdf",
+   "title": "2017 Industrial Technology Automotive HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/233fffff-e6de-434b-bd58-f4ecf9ecd6f7/2017-hsc-ind-tech-electronics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-ind-tech-automotive.pdf",
+   "title": "2017 Industrial Technology Electronics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5d23c374-7e37-41b9-b541-4e6aa0429c0e/2017-hsc-ind-tech-graphics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-ind-tech-automotive.pdf",
+   "title": "2017 Industrial Technology Graphics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e3045d8e-3565-441a-905b-270bc282ae75/2017-hsc-ind-tech-metal-and-engineering.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-ind-tech-automotive.pdf",
+   "title": "2017 Industrial Technology Metal And Engineering HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f26fd7ba-0632-4e4c-9ec1-11fae116613b/2017-hsc-ind-tech-multimedia.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-ind-tech-automotive.pdf",
+   "title": "2017 Industrial Technology Multimedia HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b5d187f0-1f1b-4d2d-82d7-8c95594cd7cd/2017-hsc-ind-tech-timber.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-ind-tech-automotive.pdf",
+   "title": "2017 Industrial Technology Timber Products And Furniture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fc625f7a-280d-4922-ab3e-3d8ed5e11593/2016-hsc-ind-tech-automotive.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-ind-tech-automotive.pdf",
+   "title": "2016 Industrial Technology Automotive HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3646d6c3-86fc-437d-98c6-c20252ce69e1/2016-hsc-ind-tech-electronics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-ind-tech-automotive.pdf",
+   "title": "2016 Industrial Technology Electronics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ea152fa6-4d8a-471f-8922-2adec52d4f19/2016-hsc-ind-tech-graphics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-ind-tech-automotive.pdf",
+   "title": "2016 Industrial Technology Graphics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/71d9c07f-45af-4171-9053-b0b53f1ec331/2016-hsc-ind-tech-metal-and-engineering.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-ind-tech-automotive.pdf",
+   "title": "2016 Industrial Technology Metal And Engineering HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4102b82f-ea0f-4fef-a471-006a70a211be/2016-hsc-ind-tech-multimedia.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-ind-tech-automotive.pdf",
+   "title": "2016 Industrial Technology Multimedia HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/be364e54-94e1-4ed5-b64c-01c3a2eb9b4c/2016-hsc-ind-tech-timber.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-ind-tech-automotive.pdf",
+   "title": "2016 Industrial Technology Timber Products And Furniture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/80fbe755-edb9-4ddd-b3cd-44470d8e756d/indt-tech-automotive-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/indt-tech-automotive-hsc-exam-2015.pdf",
+   "title": "2015 Industrial Technology Automotive HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5106990f-efc8-48e9-be52-449ba2f6150a/indt-tech-electronics-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/indt-tech-automotive-hsc-exam-2015.pdf",
+   "title": "2015 Industrial Technology Electronics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c7d98403-a806-453e-a878-2b98366bb666/indt-tech-graphics-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/indt-tech-automotive-hsc-exam-2015.pdf",
+   "title": "2015 Industrial Technology Graphics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/174972da-5809-4451-9300-92edb601d88e/indt-tech-metal-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/indt-tech-automotive-hsc-exam-2015.pdf",
+   "title": "2015 Industrial Technology Metal And Engineering HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3039025a-5d79-4f38-9f26-648a1ddf1d80/indt-tech-multimedia-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/indt-tech-automotive-hsc-exam-2015.pdf",
+   "title": "2015 Industrial Technology Multimedia HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5e5a8289-34b2-4306-9cc7-db1cc21bc9ec/indt-tech-timber-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/indt-tech-automotive-hsc-exam-2015.pdf",
+   "title": "2015 Industrial Technology Timber Products And Furniture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/7f7d7ef8-bc65-42ee-bf68-b52d267a2a52/2018-hsc-vet-idt-digital-animation.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-idt-digital-animation.pdf",
+   "title": "2018 Information and Digital Technology Digital Animation HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4a4c4d94-bad9-4d17-be3e-65d21a8ccd4b/2018-hsc-vet-idt-networking-hardware.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-idt-digital-animation.pdf",
+   "title": "2018 Information and Digital Technology Networking And Hardware HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1ed6a1b1-0d0b-4f3a-b041-5a773d835e69/2018-hsc-vet-idt-web-and-software.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-idt-digital-animation.pdf",
+   "title": "2018 Information and Digital Technology Web And Software Applications HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6c10fb4e-84fd-4f01-af32-45cb0916441e/2017-hsc-vet-idt-digital-animation.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-idt-digital-animation.pdf",
+   "title": "2017 Information and Digital Technology Digital Animation HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/bf3a80ea-b633-4862-afa8-db187c197de9/2017-hsc-vet-idt-networking-and-hardware.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-idt-digital-animation.pdf",
+   "title": "2017 Information and Digital Technology Networking And Hardware HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f90272c1-792a-48d1-b9cf-42bbab9dfc18/2017-hsc-vet-idt-web-and-software.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-idt-digital-animation.pdf",
+   "title": "2017 Information and Digital Technology Web And Software Applications HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f49c0ab7-9a0b-4d19-b4f7-cee6fc49db41/2016-hsc-vet-idt-digital-animation.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-idt-digital-animation.pdf",
+   "title": "2016 Information and Digital Technology Digital Animation HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0443231d-4d92-43b1-9a7b-ae8a9998387e/2016-hsc-vet-idt-networking-and-hardware.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-idt-digital-animation.pdf",
+   "title": "2016 Information and Digital Technology Networking And Hardware HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b405fe98-16de-49af-9e07-47d09cd612e5/2016-hsc-vet-idt-web-and-software.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-idt-digital-animation.pdf",
+   "title": "2016 Information and Digital Technology Web And Software Applications HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8ed0d29a-e6d5-4aac-b5fb-442a3ccf9035/vet-idt-digital-animation-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/vet-idt-digital-animation-hsc-exam-2015.pdf",
+   "title": "2015 Information and Digital Technology Digital Animation HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f17766dc-1a5f-4369-9bf8-a48d3d92257d/vet-idt-digital-networking-hardware-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/vet-idt-digital-animation-hsc-exam-2015.pdf",
+   "title": "2015 Information and Digital Technology Networking And Hardware HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c13c634e-3981-4273-bb5d-1573ebbe711d/vet-idt-web-software-applications-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/vet-idt-digital-animation-hsc-exam-2015.pdf",
+   "title": "2015 Information and Digital Technology Web And Software Applications HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/662f944c-5ef7-4011-bbcc-194bb4cf58da/2018-hsc-italian-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-italian-beg.pdf",
+   "title": "2018 Italian Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/20ae096a-d804-4e34-9466-567b4bc5bb35/2017-hsc-italian-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-italian-beg.pdf",
+   "title": "2017 Italian Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fe494661-277b-4e25-9323-3e291ce108f4/2016-hsc-italian-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-italian-beg.pdf",
+   "title": "2016 Italian Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/31ddacfd-c95a-460a-8e78-40dcd5b3521e/2018-hsc-italian-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-italian-cont.pdf",
+   "title": "2018 Italian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/efa27a00-8dea-43f9-8e70-eb2cf0fec974/2017-hsc-italian-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-italian-cont.pdf",
+   "title": "2017 Italian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/23282676-72a6-4a90-aea2-33e6ecea9884/2016-hsc-italian-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-italian-cont.pdf",
+   "title": "2016 Italian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/822e978b-04cb-4024-908e-bcbf9eeac1a9/2018-hsc-japanese-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-japanese-beginners-transcript.pdf",
+   "title": "2018 Japanese Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2abd6b8a-4cd6-48c8-b451-ecca34d40a60/2017-hsc-japanese-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-japanese-beginners-transcript.pdf",
+   "title": "2017 Japanese Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/48550d2c-07bc-4d8e-b4fa-83db646af0c9/2016-hsc-japanese-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-japanese-beginners-transcript.pdf",
+   "title": "2016 Japanese Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/854a6907-b510-4ec5-b82a-8834252d83a5/2018-hsc-japanese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-japanese-continuers-transcript.pdf",
+   "title": "2018 Japanese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9b93ea7d-c054-4e69-88a3-1164bcaf0b3e/2017-hsc-japanese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-japanese-continuers-transcript.pdf",
+   "title": "2017 Japanese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/69ac94a3-006d-47fd-b2d1-ebc1c0488e6f/2016-hsc-japanese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-japanese-continuers-transcript.pdf",
+   "title": "2016 Japanese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5b4b88b6-b745-446c-9099-de62c5d6fe0e/2018-hsc-korean-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-korean-beg-transcript.pdf",
+   "title": "2018 Korean Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1b9e0ddf-ec43-4bfa-8e93-3ce2f6f23c26/2017-hsc-korean-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-korean-beg-transcript.pdf",
+   "title": "2017 Korean Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0a44415b-fc50-4e7f-80c6-ff483d2f88c3/2018-hsc-korean-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-korean-cont-transcript.pdf",
+   "title": "2018 Korean Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/450766c2-1071-4ce1-88ad-08fb3e097910/2017-hsc-korean-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-korean-cont-transcript.pdf",
+   "title": "2017 Korean Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a2996555-c040-4c51-9b7a-782004e7d266/2016-hsc-korean-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-korean-cont-transcript.pdf",
+   "title": "2016 Korean Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a586c669-dadb-4432-87c0-d54bb0fb3175/2018-hsc-latin-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-latin-continuers.pdf",
+   "title": "2018 Latin Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b5954cba-200d-46ba-8c35-7b15afb5c683/2018-hsc-latin-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-latin-extension.pdf",
+   "title": "2018 Latin Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b7a65d06-6b72-41d8-9dc8-141c93a0de74/2017-hsc-latin-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-latin-extension.pdf",
+   "title": "2017 Latin Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0926248d-0656-4a9b-8ce9-19c49656d8ae/2018-hsc-legal-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-legal-studies.pdf",
+   "title": "2018 Legal Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c98405ce-b13d-41ad-a559-5584ea39a788/2017-hsc-legal-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-legal-studies.pdf",
+   "title": "2017 Legal Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/00aa1af2-2da3-4bed-a3ec-1a9c21ab3949/2016-hsc-legal-studies.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-legal-studies.pdf",
+   "title": "2016 Legal Studies HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8e9f3072-c973-43d9-90d7-c1bea2b136ab/2018-hsc-mathematics-ext-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-mathematics-ext-1.pdf",
+   "title": "2018 Mathematics Extension 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/807028e6-87cd-4c19-bf19-9c3c7f6e6be8/2017-hsc-maths-ext-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-maths-ext-1.pdf",
+   "title": "2017 Mathematics Extension 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/756b83c4-d51a-4033-ae36-ff7cd39d4369/2016-hsc-maths-ext-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths-ext-1.pdf",
+   "title": "2016 Mathematics Extension 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/faaffce8-847b-4fc6-8d72-4cb072dd8c56/2018-hsc-mathematics-ext-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-mathematics-ext-2.pdf",
+   "title": "2018 Mathematics Extension 2 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/700df45c-5316-4877-9766-ccd681854bb8/2017-hsc-maths-ext-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-maths-ext-2.pdf",
+   "title": "2017 Mathematics Extension 2 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d483decf-16ed-4afd-b3da-60807d00addd/2016-hsc-maths-ext-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths-ext-2.pdf",
+   "title": "2016 Mathematics Extension 2 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ae894adf-b9aa-445b-9d37-532d9511061c/2018-hsc-modern-greek-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-modern-greek-beg-transcript.pdf",
+   "title": "2018 Modern Greek Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e8603ed0-871b-45f4-aa6e-8070b5a8086d/2017-hsc-modern-greek-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-modern-greek-beg-transcript.pdf",
+   "title": "2017 Modern Greek Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/03f21409-1f2e-48ee-aa66-14b0b47e59ea/2016-hsc-modern-greek-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-modern-greek-beg-transcript.pdf",
+   "title": "2016 Modern Greek Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c6b15937-313b-4806-8994-6c39ed1092d6/2018-hsc-modern-greek-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-modern-greek-cont-transcript.pdf",
+   "title": "2018 Modern Greek Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/69f35f3a-9f5f-4b14-a7e9-8692d2c7db87/2017-hsc-modern-greek-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-modern-greek-cont-transcript.pdf",
+   "title": "2017 Modern Greek Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/035235be-49b6-47aa-bb24-c6f6c3b76d81/2016-hsc-modern-greek-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-modern-greek-cont-transcript.pdf",
+   "title": "2016 Modern Greek Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/19e57198-f479-45b9-aedb-ebcba5d35dd1/2018-hsc-modern-greek-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-modern-greek-extension-oral.pdf",
+   "title": "2018 Modern Greek Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/901dcee2-b1b8-4984-862f-23cbede1ab4d/2017-hsc-modern-greek-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-modern-greek-extension-oral.pdf",
+   "title": "2017 Modern Greek Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/bf026d37-5c9e-43be-974a-429c1dfaf9cb/2016-hsc-modern-greek-ext.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-modern-greek-extension-oral.pdf",
+   "title": "2016 Modern Greek Extension HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9d423a64-bf19-4579-b155-688f732de3a9/2018-hsc-modern-hebrew-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-modern-hebrew-continuers-transcript.pdf",
+   "title": "2018 Modern Hebrew Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9c360c81-3d08-49fe-b2eb-f64658843cbe/2017-hsc-modern-hebrew-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-modern-hebrew-continuers-transcript.pdf",
+   "title": "2017 Modern Hebrew Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/24e65646-a9ff-4425-86e9-1e9763a47986/2016-hsc-modern-hebrew-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-modern-hebrew-continuers-transcript.pdf",
+   "title": "2016 Modern Hebrew Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/715055f4-8c43-44be-9b81-aa4901d0b370/2018-hsc-modern-history.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-modern-history-archive.pdf",
+   "title": "2018 Modern History HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/7eec5dc6-fada-443d-b560-0b3bde6f8810/2017-hsc-modern-history.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-modern-history-archive.pdf",
+   "title": "2017 Modern History HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2798031b-db0c-4098-b049-067d26fff4a9/2016-hsc-modern-history.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-modern-history-archive.pdf",
+   "title": "2016 Modern History HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8666d9b0-1eb6-4972-90ab-143fea48f1a8/2018-hsc-music-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-music-1.pdf",
+   "title": "2018 Music 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fc44474a-736f-40ff-886c-227c52a1bec0/2017-hsc-music-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-music-1.pdf",
+   "title": "2017 Music 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e55a9a58-d465-4c34-bbf9-6f7d2fd4be06/2016-hsc-music-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-music-1.pdf",
+   "title": "2016 Music 1 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c0994246-8f0e-4669-ba9b-96c4e7ffc388/2018-hsc-music-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-music-2.pdf",
+   "title": "2018 Music 2 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/11fa0bda-e5c3-4a65-8d4c-c3ca9f6908f7/2017-hsc-music-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-music-2.pdf",
+   "title": "2017 Music 2 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2f409518-d3f3-40e7-9dee-bd0a16a8a35b/2016-hsc-music-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-music-2.pdf",
+   "title": "2016 Music 2 HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/dfca82ef-5e10-45dd-b908-dec528d2bf77/2018-hsc-physics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-physics-archive.pdf",
+   "title": "2018 Physics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/27f6eee8-da04-4373-aa0d-6e038f04a92e/2017-hsc-physics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-physics-archive.pdf",
+   "title": "2017 Physics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5c414559-9792-41e6-bd98-e43c9097168d/2016-hsc-physics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-physics-archive.pdf",
+   "title": "2016 Physics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/bcf1256d-0424-40af-84ec-a8919257a653/2018-hsc-vet-primary-industries.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-primary-industries.pdf",
+   "title": "2018 Primary Industries HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/578d8122-30e2-4bd7-a7e3-777c8d3ce1c0/2017-hsc-vet-primary-industries.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-primary-industries.pdf",
+   "title": "2017 Primary Industries HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fbd8e64a-0878-42cc-9798-060ac24dba4c/2016-hsc-vet-primary-industries.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-primary-industries.pdf",
+   "title": "2016 Primary Industries HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3e5374ee-be9e-440e-a698-ca57846a3597/2018-hsc-vet-retail-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-retail-services.pdf",
+   "title": "2018 Retail Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/98474161-855f-494a-8b98-36363fe4163b/2017-hsc-vet-retail-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-retail-services.pdf",
+   "title": "2017 Retail Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/937aada7-da4e-435c-b319-8c2bfcedd198/2016-hsc-vet-retail-services.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-retail-services.pdf",
+   "title": "2016 Retail Services HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c63e7141-6ad4-42cb-8308-61c039eaf250/2018-hsc-serbian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2018-hsc-serbian-transcript.pdf",
+   "title": "2018 Serbian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/458f2e79-0fe4-4eb7-b161-de88953d004f/2017-hsc-serbian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2017-hsc-serbian-transcript.pdf",
+   "title": "2017 Serbian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/030313d4-0a8b-4527-92af-c6b46d1e4a0f/2016-hsc-serbian.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2016-hsc-serbian-transcript.pdf",
+   "title": "2016 Serbian Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ceac14ff-3343-4fef-96ed-95609a685412/2018-hsc-society-and-culture.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-society-and-culture.pdf",
+   "title": "2018 Society and Culture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/28d2f5b2-9400-450d-92ec-d17b6352b275/2017-hsc-society-and-culture.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-society-and-culture.pdf",
+   "title": "2017 Society and Culture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c47876f4-d382-4446-b752-ae4ea8231f1d/2016-hsc-society-and-culture.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-society-and-culture.pdf",
+   "title": "2016 Society and Culture HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3bc9feec-5bda-4a37-9ffb-6d6135101674/2018-hsc-spanish-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-spanish-beg-transcript.pdf",
+   "title": "2018 Spanish Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4136891c-4164-4a81-b8b6-4461ab360e89/2017-hsc-spanish-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-spanish-beg-transcript.pdf",
+   "title": "2017 Spanish Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5f537fd8-8b42-4644-8b92-529df77886f5/2016-hsc-spanish-beg.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-spanish-beg-transcript.pdf",
+   "title": "2016 Spanish Beginners HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/80d72770-9d42-4fe8-99b6-803767b66797/2018-hsc-spanish-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-spanish-continuers-transcript.pdf",
+   "title": "2018 Spanish Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/302d849f-f833-486e-8db4-47e7af71d472/2017-hsc-spanish-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-spanish-continuers-transcript.pdf",
+   "title": "2017 Spanish Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6fbbf2d7-5c95-4580-8872-e0d56f1d62b9/2016-hsc-spanish-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-spanish-continuers-transcript.pdf",
+   "title": "2016 Spanish Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/135d350f-6117-4ce2-b0fd-3ff36f2afc5d/2018-hsc-sor-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-studies-of-religion-mg.pdf",
+   "title": "2018 Studies of Religion SOR I HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/42e092ff-e207-46c2-9660-9f836913eab8/2018-hsc-sor-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-studies-of-religion-mg.pdf",
+   "title": "2018 Studies of Religion SOR II HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4d6cb0ea-23af-44db-9a1d-fdcc10d08fe0/2017-hsc-sor-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-mg-studies-of-religion.pdf",
+   "title": "2017 Studies of Religion SOR I HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9e09433d-acb6-43c7-85e5-0fa4e2cce286/2017-hsc-sor-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-mg-studies-of-religion.pdf",
+   "title": "2017 Studies of Religion SOR II HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5f9f70e7-7beb-4dab-8296-3680c3f4f881/2016-hsc-sor-1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-mg-studies-of-religion.pdf",
+   "title": "2016 Studies of Religion SOR I HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/69929e5e-0152-459e-90fc-b7b0174c8e9f/2016-hsc-sor-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-mg-studies-of-religion.pdf",
+   "title": "2016 Studies of Religion SOR II HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f3fa1bc9-b814-4c69-894f-57db02aaca5c/2018-hsc-swedish.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2018-hsc-swedish-transcript-archive.pdf",
+   "title": "2018 Swedish Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5da7615b-eb58-4d79-8cc6-66d3907c5407/2017-hsc-swedish.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2017-hsc-swedish-transcript.pdf",
+   "title": "2017 Swedish Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/45202992-f857-4136-a450-f3ecef1856c4/2016-hsc-swedish.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2016-hsc-swedish-transcript.pdf",
+   "title": "2016 Swedish Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6cd5e869-918d-4734-b0eb-675edb62ed7e/2018-hsc-textiles-and-design.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-textiles-and-design.pdf",
+   "title": "2018 Textiles and Design HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/983e624d-b77d-47a8-b63d-ae9f4452e9de/2017-hsc-textiles-and-design.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-textiles-and-design.pdf",
+   "title": "2017 Textiles and Design HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f602193e-3b79-4600-b2ae-f46e40fef386/2016-hsc-textiles-and-design.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-textiles-and-design.pdf",
+   "title": "2016 Textiles and Design HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8f203e40-e1bc-406c-88f5-e52daffddb44/2018-hsc-vet-tourism-travel-and-events.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vet-tourism-travel-and-events.pdf",
+   "title": "2018 Tourism, Travel and Events HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/50b812f2-c2f1-4f74-b3ba-fec7272e772a/2017-hsc-vet-tourism-travel-and-events.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vet-tourism-travel-and-events.pdf",
+   "title": "2017 Tourism, Travel and Events HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f5b29d93-06a6-4008-aed3-1e703d1c64c9/2016-hsc-vet-tourism-travel-and-events.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vet-tourism-travel-and-events.pdf",
+   "title": "2016 Tourism, Travel and Events HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/7b2a91be-f857-4e73-a304-db5168378799/2018-hsc-vietnamese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-vietnamese-continuers%2Btranscript.pdf",
+   "title": "2018 Vietnamese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e4c89469-d3f9-4262-b862-894acfd532a0/2017-hsc-vietnamese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-vietnamese-continuers%2Btranscript.pdf",
+   "title": "2017 Vietnamese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fbe32ba5-e663-44c4-a186-401d83ce4225/2016-hsc-vietnamese-cont.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-vietnamese-continuers%2Btranscript.pdf",
+   "title": "2016 Vietnamese Continuers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/caf557a6-8b32-47c7-b027-e6f25ee601b1/2018-hsc-visual-arts.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-visual-arts.pdf",
+   "title": "2018 Visual Arts HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/21881fca-faf1-45fd-985c-9f41081ecae1/2017-hsc-visual-arts.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-visual-arts-archive.pdf",
+   "title": "2017 Visual Arts HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e0e78da9-7717-4c9b-8521-f1a061106f8b/2016-hsc-visual-arts.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-visual-arts-archive.pdf",
+   "title": "2016 Visual Arts HSC Exam Paper"
+  }
+ }
+}
