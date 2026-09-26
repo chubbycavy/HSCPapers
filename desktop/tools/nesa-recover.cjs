@@ -99,16 +99,42 @@ function extractPdfLinks(html) {
   console.log(`course resources: ${courses.length}`);
 
   // 3. which courses do we need? map dead subjects -> course URLs
+  // Course-title normalization must also strip a trailing "archive" — the
+  // replaced courses (Mathematics, PDHPE, ESL, SDD, IPT...) exist ONLY as
+  // "-archive" pages on nsw.gov.au, and those archives hold exactly the
+  // dead-era papers we're recovering.
   const neededCourses = new Map(); // normSubject -> course url
   for (const c of courses) {
-    const title = c.title.replace(/\s*HSC exam papers\s*/i, "").trim();
+    const title = c.title
+      .replace(/\s*HSC exam papers\s*/i, "")
+      .replace(/\s*archive\s*$/i, "")
+      .trim();
     neededCourses.set(normKey(title), c);
   }
+  // Subject-name aliases: dead subjects whose nsw.gov.au course is named
+  // differently (renamed courses, slash-compound names, abbreviations).
+  const SUBJECT_ALIASES = {
+    "esl": ["english esl"],
+    "chinese and literature chinese background speakers": ["chinese and literature"],
+    "chinese in context heritage chinese mandarin": ["chinese in context"],
+    "indonesian and literature indonesian background speakers": ["indonesian and literature"],
+    "japanese and literature japanese background speakers": ["japanese and literature"],
+    "japanese in context heritage japanese": ["japanese in context"],
+    "korean and literature korean background speakers": ["korean and literature"],
+    "korean in context heritage korean": ["korean in context"],
+    "russian background speakers": ["russian continuers"],
+  };
   const deadSubjects = [...new Set(dead.map((p) => p.subject))];
   const unmatchedSubjects = [];
   const courseFor = new Map();
   for (const s of deadSubjects) {
-    const c = neededCourses.get(normKey(s));
+    const nkS = normKey(s);
+    let c = neededCourses.get(nkS);
+    if (!c) {
+      for (const a of (SUBJECT_ALIASES[nkS] || [])) {
+        if (neededCourses.get(a)) { c = neededCourses.get(a); break; }
+      }
+    }
     if (c) courseFor.set(s, c);
     else unmatchedSubjects.push(s);
   }
@@ -189,7 +215,15 @@ function extractPdfLinks(html) {
       return res.ok;
     } catch { return false; }
   }
+  // Registry is CUMULATIVE: load existing entries first so each run adds
+  // recoveries without wiping previous ones (a rebuild re-applies the whole
+  // registry, so losing entries would regress already-recovered papers).
   const recovery = {};
+  try {
+    const prev = JSON.parse(fs.readFileSync(OUT, "utf8"));
+    for (const [k, v] of Object.entries(prev.entries || {})) recovery[k] = v;
+    console.log(`existing registry entries loaded: ${Object.keys(recovery).length}`);
+  } catch { /* first run */ }
   let matched = 0, verified = 0;
   const unmatched = [];
   for (const p of dead) {
@@ -232,9 +266,39 @@ function extractPdfLinks(html) {
   }
   console.log("candidate links by year:", JSON.stringify(byYear));
 
+  // 6. slow-route recovery: THSC router URLs whose (course, year) has an
+  // official nsw.gov.au exam paper (year pages 2019-2026 are verified to
+  // exist for recent courses). One paper PDF per course/year on the official
+  // pages — matching is conservative: (subject, year) + type=hsc only.
+  const slow = catalogue.filter((p) => /thsconline\.github\.io\/s\/d\//.test(p.url || ""));
+  const slowRecent = slow.filter((p) => Number(p.year) >= 2019);
+  console.log(`\nslow-route: ${slow.length} total | recent (2019-2026): ${slowRecent.length}`);
+  let slowMatched = 0, slowVerified = 0;
+  for (const p of slowRecent) {
+    const course = courseFor.get(p.subject) || neededCourses.get(normKey(p.subject));
+    if (!course) continue;
+    try {
+      const yHtml = await cachedFetch(`${course.url}/${p.year}`, `slow-${normKey(p.subject)}-${p.year}.html`, `${course.url}/${p.year}`);
+      crawled++;
+      const pdfs = extractPdfLinks(yHtml).map((u) => ({ url: new URL(u, `${course.url}/${p.year}`).href, text: "" }));
+      // official year page: first pdf = the exam paper, -mg/-marking = guidelines
+      const paper = pdfs.find((x) => !/-mg-|-marking/i.test(x.url));
+      const mg = pdfs.find((x) => /-mg-|-marking/i.test(x.url));
+      if (!paper) continue;
+      slowMatched++;
+      const ok = await verify(paper.url);
+      if (!ok) continue;
+      const rec = recovery[p.url] || (recovery[p.url] = { url: paper.url, title: p.title });
+      rec.url = paper.url;
+      if (mg) rec.markingGuidelines = mg.url;
+      slowVerified++;
+    } catch { /* course/year page may not exist for this course */ }
+  }
+  console.log(`slow-route recovery: ${slowMatched} matched, ${slowVerified} verified -> nsw.gov.au`);
+
   if (REPORT_ONLY) { console.log("[report-only — registry not written]"); return; }
   fs.writeFileSync(OUT, JSON.stringify({
-    _doc: "NESA dead-link recovery registry (C2): dead wcm URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
+    _doc: "NESA dead-link recovery registry (C2): dead wcm URLs AND slow-route router URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
     generated: new Date().toISOString(),
     entries: recovery,
   }, null, 1) + "\n");

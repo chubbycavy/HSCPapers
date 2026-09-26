@@ -1,7 +1,248 @@
 {
- "_doc": "NESA dead-link recovery registry (C2): dead wcm URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
- "generated": "2026-09-26T13:22:11.982Z",
+ "_doc": "NESA dead-link recovery registry (C2): dead wcm URLs AND slow-route router URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
+ "generated": "2026-09-26T13:45:07.728Z",
  "entries": {
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ca56906c-cf90-48ea-9804-5b29407fcdb9/2018-hsc-chinese-and-literature.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-chinese-and-literature.pdf",
+   "title": "2018 Chinese and Literature/Chinese Background Speakers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a2d89ebf-9b38-4d82-bb1d-6083f46098cd/2017-hsc-chinese-and-literature.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-chinese-and-literature.pdf",
+   "title": "2017 Chinese and Literature/Chinese Background Speakers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/92f5e55e-dbb2-4190-8908-3b0cda571102/2016-hsc-chinese-bs.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-chinese-bs.pdf",
+   "title": "2016 Chinese and Literature/Chinese Background Speakers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/70c9ea13-0464-4433-b701-91b089e3ac8d/2018-hsc-chinese-in-context.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-chinese-in-context-exam.pdf",
+   "title": "2018 Chinese in Context/Heritage Chinese (Mandarin) In Context HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4f10b528-a1eb-47b5-8a3f-f1395dbe5893/2017-hsc-chinese-in-context.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-chinese-in-context-exam.pdf",
+   "title": "2017 Chinese in Context/Heritage Chinese (Mandarin) In Context HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/726d2cc3-f4a5-488a-8319-58927b4d9c75/2016-hsc-chinese-heritage.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-chinese-heritage-exam.pdf",
+   "title": "2016 Chinese in Context/Heritage Chinese (Mandarin) HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ef2e8ddd-22e6-4017-906f-af72b640be1d/heritage-chinese-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2015-hsc-heritage-chinese-exam.pdf",
+   "title": "2015 Chinese in Context/Heritage Chinese (Mandarin) HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3287352f-b9a6-4658-84ed-c2e8d3b87b8f/2018-hsc-english-esl-p1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-eng-esl-paper-2-archive.pdf",
+   "title": "2018 ESL HSC Exam Paper - 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a9e26fb0-e929-48e6-bbb7-298f9d05dc3d/2018-hsc-eng-esl-paper-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-eng-esl-paper-2-archive.pdf",
+   "title": "2018 ESL HSC Exam Paper - 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/95a58f29-6eb7-44cf-8ccf-76350e459853/2017-hsc-esl-p1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-esl-p1-archive.pdf",
+   "title": "2017 ESL HSC Exam Paper - 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c4adb17e-4d6f-4931-b6b0-d2ad40a186c4/2017-hsc-esl-p2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-esl-p1-archive.pdf",
+   "title": "2017 ESL HSC Exam Paper - 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e61775f2-f8e2-433d-8f3b-00c827866970/2016-hsc-english-esl-p1.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-esl-paper-1-archive.pdf",
+   "title": "2016 ESL HSC Exam Paper - 1"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2fc32a04-da89-456f-a0a4-f1512ca6bdd4/2016-hsc-english-esl-p2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-esl-paper-1-archive.pdf",
+   "title": "2016 ESL HSC Exam Paper - 2"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/20e49f98-bfa1-43ca-a791-db78322fcb0f/2018-hsc-indonesian-and-literature.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-indonesian-and-literature.pdf",
+   "title": "2018 Indonesian and Literature/Indonesian Background Speakers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/541e0033-9bb9-4be0-9bcb-9782fc16f2e2/2017-hsc-indonesian-and-literature.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2017-hsc-indonesian-and-literature.pdf",
+   "title": "2017 Indonesian and Literature/Indonesian Background Speakers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f15258c5-b0d3-4ae0-b371-3c359a3ac0d4/2016-hsc-indonesian-bs.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2016-hsc-indonesian-bs.pdf",
+   "title": "2016 Indonesian and Literature/Indonesian Background Speakers HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6f5008f1-b580-4293-8d4c-1e54bf7e75ec/2018-hsc-ipt.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2018-hsc-ipt.pdf",
+   "title": "2018 Information Processes and Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/683708fb-6b5f-4e8b-9d66-a1e28b170f68/2017-hsc-ipt.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2017-hsc-ipt.pdf",
+   "title": "2017 Information Processes and Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4f7d70bc-f48e-4bc2-9d10-ba0044432d40/2016-hsc-ipt.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2016-hsc-ipt.pdf",
+   "title": "2016 Information Processes and Technology HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0eaab308-0f9e-4d78-9d17-4a943d151523/2017-hsc-japanese-in-context.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-japanese-in-context-transcript-archive.pdf",
+   "title": "2017 Japanese in Context/Heritage Japanese In Context HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/ed2bb0a3-b60a-4fd9-9382-17f033b3a9cf/2016-hsc-japanese-heritage.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2016-hsc-japanese-heritage-transcript-archive.pdf",
+   "title": "2016 Japanese in Context/Heritage Japanese HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/81a4d3a6-ffbf-4149-8d7b-c6bfd34269d2/2018-hsc-korean-in-context.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2018-hsc-korean-in-context-transcript-archive.pdf",
+   "title": "2018 Korean in Context/Heritage Korean In Context HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/40a394ec-349a-4311-a719-1350835bd0dd/2017-hsc-korean-in-context.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2017-hsc-korean-in-context-transcript.pdf",
+   "title": "2017 Korean in Context/Heritage Korean In Context HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0c2b98fe-d4b1-4f82-af55-fb4ee0dd3b09/2016-hsc-korean-heritage.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/heritage-korean-hsc-exam-transcript-2016-archive.pdf",
+   "title": "2016 Korean in Context/Heritage Korean HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9b8503bb-b6bb-4818-803a-661ba2289782/2018-hsc-mathematics.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-mathematics.pdf",
+   "title": "2018 Mathematics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/bc11fd79-e2ec-4c02-967c-b31a741b621c/2017-hsc-maths.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-mathematics.pdf",
+   "title": "2017 Mathematics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/47b7a5d2-8729-4d55-825a-7e840444d93f/2016-hsc-maths.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths.pdf",
+   "title": "2016 Mathematics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/33156c3f-4bf4-471a-985a-f3efc2cb0e09/maths-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-maths-hsc-exam.pdf",
+   "title": "2015 Mathematics HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0f98e3de-3e02-4831-b2e0-a51c9cd20c2f/2018-hsc-maths-general-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-maths-general-2.pdf",
+   "title": "2018 Mathematics General HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fbff82c5-a755-406e-b05a-8d3150a3f8b6/2017-hsc-maths-general-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-maths-general-2.pdf",
+   "title": "2017 Mathematics General HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/06a68d63-e1aa-4616-b0fe-5144a7a8ed0d/2016-hsc-maths-general-2.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths-general-2.pdf",
+   "title": "2016 Mathematics General HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/95674604-33e4-452a-85da-5f13612c830a/maths-general-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-maths-general-hsc-exam.pdf",
+   "title": "2015 Mathematics General HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3f95a93b-5043-4de4-b37a-178fbbf5a6cd/maths-general-hsc-exam-2014.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-maths-general-hsc-exam.pdf",
+   "title": "2014 Mathematics General HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9726bbff-fab5-4ede-ac44-8cdfe98add67/maths-general-2-specimen-paper-14.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-maths-general-hsc-exam.pdf",
+   "title": "2014 Mathematics General 2 Specimen Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a4f7bff7-d6c8-435e-a7b2-c61342cf6992/maths-general-2-worked-solutions-14.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-maths-general-hsc-exam.pdf",
+   "title": "2014 Mathematics General 2 Specimen Exam Paper  Worked Solutions"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/04d87f05-885d-4def-bacd-f3cf0dba01d5/2018-hsc-pdhpe.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-pdhpe.pdf",
+   "title": "2018 Personal Development, Health and Physical Education HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/73526f6f-3fa2-4a4f-8027-bab5e16a4d1f/2017-hsc-pdhpe.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-pdhpe.pdf",
+   "title": "2017 Personal Development, Health and Physical Education HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/4bfd4dd8-1ad2-484d-a405-ba3ea3ce3c73/2016-hsc-pdhpe.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-pdhpe.pdf",
+   "title": "2016 Personal Development, Health and Physical Education HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/00cbdf2b-978a-4176-8e5a-deb877a73924/pdhpe-hsc-exam-2015.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/pdhpe-hsc-exam-2015.pdf",
+   "title": "2015 Personal Development, Health and Physical Education HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8b0014e8-87c9-415f-9077-2c4fde1e20a5/2018-hsc-software-design-and-development.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2018-hsc-sdd.pdf",
+   "title": "2018 Software Design and Development HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e1b5d35d-15b8-4c5a-a502-b2c775826621/2017-hsc-sdd.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2017-hsc-sdd.pdf",
+   "title": "2017 Software Design and Development HSC Exam Paper"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e4d81adc-99bb-45ee-92b8-85e939f60a05/2016-hsc-sdd.pdf?MOD=AJPERES": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-08/2016-hsc-sdd.pdf",
+   "title": "2016 Software Design and Development HSC Exam Paper"
+  },
+  "https://thsconline.github.io/s/d/5106/Sydney%20Boys%202019%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-hsc-mathematics.pdf",
+   "title": "2019 Sydney Boys Mathematics Assessment (Half-Yearly)",
+   "markingGuidelines": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-mathematics-marking-feedback.pdf"
+  },
+  "https://thsconline.github.io/s/d/5106/Sydney%20Grammar%202019%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-hsc-mathematics.pdf",
+   "title": "2019 Sydney Grammar Mathematics Assessment (Half-Yearly)",
+   "markingGuidelines": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-mathematics-marking-feedback.pdf"
+  },
+  "https://thsconline.github.io/s/d/5106/Sydney%20Tech%202019%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-hsc-mathematics.pdf",
+   "title": "2019 Sydney Tech Mathematics Assessment (Half-Yearly)",
+   "markingGuidelines": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-mathematics-marking-feedback.pdf"
+  },
+  "https://thsconline.github.io/s/d/1078/James%20Ruse%202020": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2020-hsc-agriculture.pdf",
+   "title": "2020 James Ruse Agriculture Trial"
+  },
+  "https://thsconline.github.io/s/d/1578/Shore%202025%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-11/2025-hsc-business-studies.pdf",
+   "title": "2025 Shore Business Studies Trial"
+  },
+  "https://thsconline.github.io/s/d/1828/Barker%202022": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2022-hsc-chemistry.pdf",
+   "title": "2022 Barker Chemistry Trial"
+  },
+  "https://thsconline.github.io/s/d/1828/Barker%202023": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2023-hsc-chemistry_20240318.pdf",
+   "title": "2023 Barker Chemistry Trial"
+  },
+  "https://thsconline.github.io/s/d/1828/Killara%202019%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-hsc-chemistry.pdf",
+   "title": "2019 Killara Chemistry Trial"
+  },
+  "https://thsconline.github.io/s/d/1828/Killara%202025%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-11/2025-hsc-chemistry.pdf",
+   "title": "2025 Killara Chemistry Trial"
+  },
+  "https://thsconline.github.io/s/d/2728/James%20Ruse%202022%20P2%20(Adv.)": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2022-hsc-english-advanced-p1.pdf",
+   "title": "2022 James Ruse English Advanced Trial"
+  },
+  "https://thsconline.github.io/s/d/2727/Abbotsleigh%202022%20P2%20(Std.)": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2022-hsc-english-standard-p1.pdf",
+   "title": "2022 Abbotsleigh English Standard Trial"
+  },
+  "https://thsconline.github.io/s/d/2727/Ascham%202022%20P2%20(Std.)": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2022-hsc-english-standard-p1.pdf",
+   "title": "2022 Ascham English Standard Trial"
+  },
+  "https://thsconline.github.io/s/d/2727/Riverview%202022%20P2%20(Std.)": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2022-hsc-english-standard-p1.pdf",
+   "title": "2022 Riverview English Standard Trial"
+  },
+  "https://thsconline.github.io/s/d/2727/Sydney%20Grammar%202022%20P2%20(Std.)": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2022-hsc-english-standard-p1.pdf",
+   "title": "2022 Sydney Grammar English Standard Trial"
+  },
+  "https://thsconline.github.io/s/d/4644/James%20Ruse%202021": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2021-hsc-latin-extension.pdf",
+   "title": "2021 James Ruse Latin Extension Trial"
+  },
+  "https://thsconline.github.io/s/d/5096/Sydney%20Boys%202019%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-hsc-mathematics.pdf",
+   "title": "2019 Sydney Boys Mathematics Assessment (Half-Yearly)",
+   "markingGuidelines": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-mathematics-marking-feedback.pdf"
+  },
+  "https://thsconline.github.io/s/d/5096/Sydney%20Grammar%202019%20w.%20sol": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-hsc-mathematics.pdf",
+   "title": "2019 Sydney Grammar Mathematics Assessment (Half-Yearly)",
+   "markingGuidelines": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2019-mathematics-marking-feedback.pdf"
+  },
   "https://educationstandards.nsw.edu.au/wps/wcm/connect/f2201bb4-2e35-48c0-b666-55c886c0206b/2018-hsc-aboriginal-studies.pdf?MOD=AJPERES": {
    "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-aboriginal-studies.pdf",
    "title": "2018 Aboriginal Studies HSC Exam Paper"
