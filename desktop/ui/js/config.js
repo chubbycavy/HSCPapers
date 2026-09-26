@@ -2,9 +2,10 @@
    SITE CONFIG — HSCPapers (web + desktop share this file)
    --------------------------------------------------------------------------
    Downloads model: the catalogue (data/papers.json) carries ABSOLUTE file
-   URLs per entry — fast files come straight from the community mirrors
-   (HSC Portal, PapersDB) or official sources (Board of Studies, NESA).
-   This front-end hosts no PDFs itself.
+   URLs per entry — fast files come straight from the community mirror
+   (HSC Portal) or official sources (Board of Studies, NESA); a small set is
+   self-hosted on our own R2 bucket. This front-end hosts no PDFs beyond
+   that self-hosted set.
 
    - Single downloads: plain links, no CORS setup needed.
    - Browser "Download ZIP": fetches via JS, so it only works for sources
@@ -19,7 +20,7 @@ const SITE_CONFIG = {
   FILE_HOST_BASE_URL: "",
 
   // Same-origin CORS proxy (Pages Function) for reader/ZIP fetches against
-  // sources that don't send Access-Control-Allow-Origin (PapersDB, BOS).
+  // sources that don't send Access-Control-Allow-Origin (BOS).
   // The function itself allowlists hosts. Empty string = no proxy
   // (those sources fall back to the "use ⭳" hint).
   PROXY_BASE: "/proxy",

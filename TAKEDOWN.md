@@ -1,10 +1,11 @@
 # Content removal (takedown) policy
 
 HSCPapers is a free, non-commercial index of NSW HSC study material.
-It hosts no PDF files: every download resolves to a public source —
-official NESA / Board of Studies releases, or the community mirrors
-(HSC Portal, PapersDB) that THSCOnline itself lists. All papers remain
-the property of their schools/authors and NESA.
+It hosts no PDF files beyond a small self-hosted set from our own study
+library: every other download resolves to a public source — official
+NESA / Board of Studies releases, or the community mirror (HSC Portal)
+that THSCOnline itself lists. All papers remain the property of their
+schools/authors and NESA.
 
 ## How to request removal
 

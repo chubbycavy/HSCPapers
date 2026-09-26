@@ -27,7 +27,7 @@ node tools/build-index.cjs --limit=6  # quick parser test
 ```
 
 Current catalogue: **7,015 papers / 8,892 files (6,079 fast)** — sources
-`thsc-listing` + `nesa` + mirrors (HSC Portal, PapersDB, Board of Studies).
+`thsc-listing` + `nesa` + mirrors (HSC Portal, Board of Studies).
 Papers belong to their schools/authors and NESA; the app is a study-use index
 — see `sources.json` attribution.
 
@@ -45,17 +45,17 @@ Release installer:
 npm.cmd run tauri build   # -> src-tauri/target/release/bundle/nsis/
 ```
 
-## Status (v0.8.1)
+## Status (v0.9.2)
 
 - [x] Phases 1-2: sources, builder, Tauri shell, backend, installer
 - [x] Mass downloads: pacing, backoff, queue, resume, save-all, overnight
-- [x] Mirror layer (portal/papersdb/BOS direct URLs + fallbacks + worker pool)
+- [x] Mirror layer (portal/BOS direct URLs + fallbacks + worker pool)
 - [x] **v0.6.0:** path-normalizer fix (Library/Open/Verify), NESA re-routed to
       BOS + router fallbacks, per-lane speed display, 🔍 Verify, Import polish,
       embedded PDF reader
 - [x] **v0.7.0:** builder reorder + mirror transfers, BOS letter-page fix,
       honest route counts, host-based lane assignment, 6 CDN lanes, UI desync
-      fixes, in-page reader overlay, PapersDB Mathematics Standard
+      fixes, in-page reader overlay, extended Mathematics Standard coverage
 - [x] **v0.8.0:**
       - **File-count consistency:** all save confirmations/progress now count
         FILES (papers + solutions) — the old UI mixed papers (6,948) and files
@@ -202,10 +202,10 @@ npm.cmd run tauri build   # -> src-tauri/target/release/bundle/nsis/
   resolver endpoints (16-way worker pool mirrored from their v2 site code).
 - **HSC Portal** (hscportal.app / hscportal.pages.dev) — community mirror,
   6,449 self-hosted papers, all subjects, 1978-2025.
-- **PapersDB** (papersdb.org / cdn.papersdb.org) — community fast mirror
-  (Maths incl. Standard & Science), 2001-2026.
 - **NESA** (educationstandards.nsw.edu.au / boardofstudies.nsw.edu.au) —
   official HSC exam papers + marking materials (direct links).
+- **Self-hosted set** (76 papers) — from our own study library, served from
+  our own Cloudflare R2 bucket (`desktop/tools/selfhost.json`).
 All papers remain the property of their schools/authors and NESA.
 
 ## Download behaviour (verified against THSC's live site)

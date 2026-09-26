@@ -1,13 +1,13 @@
 // Pages Function: same-origin CORS proxy for PDF sources that don't send
-// Access-Control-Allow-Origin (PapersDB CDN, Board of Studies archive).
+// Access-Control-Allow-Origin (Board of Studies archive).
 // Enables the embedded reader (PDF.js range requests) and browser ZIP
-// fetches for those sources. Portal already sends ACAO:* — it stays direct.
+// fetches for those sources. Portal and our self-hosted R2 bucket already
+// send ACAO:* — they stay direct.
 //
 // Hard host allowlist — this is NOT an open proxy. NESA wcm links are
-// deliberately excluded (they serve HTML wrappers, not PDFs). PapersDB is
-// also excluded: its maintainer applied referer protection against this
-// project (2026-09-25) and those papers are now self-hosted instead
-// (see desktop/tools/selfhost.json).
+// deliberately excluded (they serve HTML wrappers, not PDFs). A third-party
+// mirror was delisted 2026-09-25 at its maintainer's request and is likewise
+// excluded (its papers are now self-hosted — see desktop/tools/selfhost.json).
 const ALLOWED_HOSTS = new Set([
   "hscportal.pages.dev",
   "www.boardofstudies.nsw.edu.au",

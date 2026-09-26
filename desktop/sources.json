@@ -33,15 +33,6 @@
       "match": "entry.v (THSC viewno) + entry.n (THSC link text) match our listing entries 1:1; pdfUrl/cf serve direct PDFs (verified anonymously). Coverage: 6,449 trials/assessments/other, all subjects, 1978-2025.",
       "credit": "HSC Portal (hscportal.app) — community mirror of THSC papers, self-hosted on Cloudflare Pages."
     },
-    "papersdb": {
-      "base": "https://papersdb.org",
-      "cdnBase": "https://cdn.papersdb.org",
-      "enabled": false,
-      "_disabledNote": "PapersDB delisted 2026-09-25: its maintainer applied referer hotlink protection against this project and asked to be left alone. The 76 PapersDB-origin papers are self-hosted from our own study library (see desktop/tools/selfhost.json) — flip enabled back to true to resume indexing their site.",
-      "subjects": ["Biology", "Chemistry", "Mathematics Advanced", "Mathematics Extension 1", "Mathematics Extension 2", "Miscellaneous", "Physics"],
-      "match": "Server-rendered /browse/<Subject>/<Trials|HSC>[/<School>] pages -> cdn.papersdb.org PDFs named '<School> <Year> <Subject> Trials[ & Solutions].pdf' (THSC's exact naming).",
-      "credit": "PapersDB (papersdb.org) — community fast mirror (Maths & Science), listed on THSC's homepage."
-    },
     "zaxu": {
       "base": "https://thsc.zaxu.xyz",
       "note": "h5ai file mirror, pre-2020 coverage, all subjects. NOT crawled (JS-rendered listings); reserved as manual fallback.",

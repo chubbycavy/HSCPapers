@@ -313,9 +313,10 @@ if (require.main === module) {
 
   /* 3c. Mirror layer — fast direct URLs for matched papers.
    * Priority: NESA direct (already in catalogue) > HSC Portal (hscportal.pages.dev,
-   * matched via THSC viewno + link text) > PapersDB (cdn.papersdb.org, matched via
-   * subject/school/year). Matched entries keep their THSC router URL as
-   * `fallbackUrl` so the app can degrade to the slow-but-official path. */
+   * matched via THSC viewno + link text). Matched entries keep their THSC
+   * router URL as `fallbackUrl` so the app can degrade to the
+   * slow-but-official path. Self-hosted papers (selfhost.json) are rewritten
+   * separately at the end of the merge. */
 
   // (i) HSC Portal: one cached fetch, exact match on (viewno | normalised link text)
   const portalRaw = await cached("hscportal-papers.json", SOURCES.mirrors.hscportal.catalogue);
@@ -350,137 +351,9 @@ if (require.main === module) {
   }
   console.log(`mirror-hscportal: ${portalMatched} papers -> direct CDN URLs (exact viewno+title match only)`);
 
-  // (ii) PapersDB: crawl the server-rendered /browse tree — Trials, HSC and
-  // Y11/Y12 Internals. Filenames follow THSC's Drive naming:
-  // <School> <Year> <Subject> Trials[ & Solutions].pdf / HSC <Year> <Subject>[ & Solutions].pdf
-  // Skipped entirely when the mirror is disabled (e.g. its maintainer
-  // requested delisting / applied hotlink protection — see sources.json).
-  const PDB = SOURCES.mirrors.papersdb;
-  const PDB_ENABLED = PDB && PDB.enabled !== false;
-  const pdbTrials = new Map();    // normSubject|normSchool|year -> {url, sol}
-  const pdbHSC = new Map();       // normSubject|year -> {url, sol}
-  const pdbInternals = new Map(); // normSubject|normSchool|year -> {url, sol}
-  const pdbSubjects = (PDB.subjects || []).filter((s) => s !== "Miscellaneous");
-  const SCHOOL_ALIASES = {
-    "pymble": ["presbyterian", "pymble ladies", "plc sydney"],
-    "presbyterian": ["pymble"],
-    "hurlstone": ["hurlstone agricultural high", "hurlstone ag"],
-    "fort st": ["fort street", "fort street high", "fort st high"],
-    "sydney tech": ["sydney technology high", "sydney technical high"],
-    "james ruse": ["james ruse agricultural high"],
-    "sydney boys": ["sydney boys high"],
-    "sydney girls": ["sydney girls high"],
-    "north sydney boys": ["north sydney boys high"],
-    "north sydney girls": ["north sydney girls high"],
-    "normanhurst boys": ["normanhurst boys high"],
-    "st george girls": ["st george girls high"],
-    "baulkham hills": ["baulkham hills high"],
-    "cafs": ["community and family studies"],
-  };
-  const schoolKeys = (name) => {
-    const k = normKey(name);
-    const out = new Set([k]);
-    for (const [base, list] of Object.entries(SCHOOL_ALIASES)) {
-      if (k === base) list.forEach((x) => out.add(normKey(x)));
-      else if (list.map(normKey).includes(k)) out.add(base);
-    }
-    return [...out];
-  };
-  const pdbFileUrl = (u) => {
-    const fname = decodeURIComponent(u.split("?")[0].split("/").pop());
-    return { fname, url: u };
-  };
-  if (PDB_ENABLED) for (const subject of pdbSubjects) {
-    try {
-      // Trials: type page -> school pages
-      const trialsHtml = await cached("pdb-t-" + slug(subject) + ".html", `${PDB.base}/browse/${encodeURIComponent(subject)}/Trials`);
-      const schools = [...trialsHtml.matchAll(/href="\/browse\/[^"]+\/Trials\/([^"]+)"/g)]
-        .map((m2) => decodeURIComponent(m2[1].replace(/%20/g, " ")));
-      for (const school of [...new Set(schools)]) {
-        const schoolHtml = await cached(
-          `pdb-ts-${slug(subject)}-${slug(school)}.html`,
-          `${PDB.base}/browse/${encodeURIComponent(subject)}/Trials/${encodeURIComponent(school)}`
-        );
-        for (const a of schoolHtml.matchAll(/href="(https:\/\/cdn\.papersdb\.org\/[^"]+\.pdf)"/g)) {
-          const { fname, url } = pdbFileUrl(a[1]);
-          const fm = fname.match(/^(.+?)\s+((?:19|20)\d{2})\s+(.+?)\s+Trials(\s*&\s*Solutions)?\.pdf$/i);
-          if (!fm) continue;
-          pdbTrials.set(`${normKey(subject)}|${normKey(fm[1])}|${Number(fm[2])}`, { url, sol: !!fm[4] });
-        }
-      }
-    } catch (e) { console.log(`  papersdb trials: skipped ${subject} (${e.message})`); }
-    try {
-      // HSC: files sit directly on the type page
-      const hHtml = await cached("pdb-h-" + slug(subject) + ".html", `${PDB.base}/browse/${encodeURIComponent(subject)}/HSC`);
-      for (const a of hHtml.matchAll(/href="(https:\/\/cdn\.papersdb\.org\/[^"]+\.pdf)"/g)) {
-        const { fname, url } = pdbFileUrl(a[1]);
-        const fm = fname.match(/^(?:(.+?)\s+)?((?:19|20)\d{2})\s+(.+?)\s+HSC(\s*&\s*Solutions)?\.pdf$/i);
-        if (!fm) continue;
-        const key = `${normKey(subject)}|${Number(fm[2])}`;
-        if (!pdbHSC.has(key)) pdbHSC.set(key, { url, sol: !!fm[4] });
-      }
-    } catch (e) { console.log(`  papersdb hsc: skipped ${subject} (${e.message})`); }
-    for (const [dir, level] of [["Y11 Internals", "Preliminary"], ["Y12 Internals", "HSC"]]) {
-      try {
-        const lvlKey = level === "Preliminary" ? "11" : "12";
-        const tHtml = await cached(`pdb-i${lvlKey}-${slug(subject)}.html`, `${PDB.base}/browse/${encodeURIComponent(subject)}/${encodeURIComponent(dir)}`);
-        const intSchools = [...tHtml.matchAll(new RegExp(`href="/browse/[^"]+/${dir.replace(/ /g, "%20")}/([^"]+)"`, "g"))]
-          .map((m2) => decodeURIComponent(m2[1].replace(/%20/g, " ")));
-        const pages = [...new Set(intSchools)].length
-          ? [...new Set(intSchools)].map((school) => ({ school, html: null, url: `${PDB.base}/browse/${encodeURIComponent(subject)}/${encodeURIComponent(dir)}/${encodeURIComponent(school)}`, cacheKey: `pdb-i${lvlKey}-${slug(subject)}-${slug(school)}.html` }))
-          : [{ school: "", html: tHtml, url: null, cacheKey: null }];
-        for (const pg of pages) {
-          const html = pg.html !== null ? pg.html : await cached(pg.cacheKey, pg.url);
-          for (const a of html.matchAll(/href="(https:\/\/cdn\.papersdb\.org\/[^"]+\.pdf)"/g)) {
-            const { fname, url } = pdbFileUrl(a[1]);
-            const fm = fname.match(/^(?:(.+?)\s+)?((?:19|20)\d{2})\s+(.+?)\.pdf$/i);
-            if (!fm) continue;
-            const school2 = pg.school || (fm[1] && !/^(?:19|20)\d{2}$/.test(fm[1]) ? fm[1].trim() : "NESA");
-            const key = `${normKey(subject)}|${normKey(school2)}|${Number(fm[2])}`;
-            if (!pdbInternals.has(key)) pdbInternals.set(key, { url, sol: /&\s*solutions/i.test(fname), school2, subject, year: Number(fm[2]), level });
-          }
-        }
-      } catch (e) { console.log(`  papersdb ${dir}: skipped ${subject} (${e.message})`); }
-    }
-  }
-
-  // (iii) PapersDB matching: trials -> Trials, hsc -> HSC, assessment -> Internals
-  const pdbUsedUrls = new Set();
-  const tryMirror = (p, hit, name) => {
-    if (!hit) return false;
-    p.fallbackUrl = p.fallbackUrl || p.url;
-    p.url = hit.url;
-    p.mirror = name;
-    pdbUsedUrls.add(hit.url);
-    return true;
-  };
-  let pdbMatched = 0;
-  for (const p of papers) {
-    if (p.mirror || p.source !== "thsc-listing" || !p.year) continue;
-    if (p.type === "trial") {
-      for (const k of schoolKeys(p.school)) {
-        const hit = pdbTrials.get(`${normKey(p.subject)}|${k}|${p.year}`);
-        if (hit && tryMirror(p, hit, "papersdb")) { pdbMatched++; break; }
-      }
-    } else if (p.type === "hsc") {
-      const hit = pdbHSC.get(`${normKey(p.subject)}|${p.year}`);
-      if (hit && tryMirror(p, hit, "papersdb")) pdbMatched++;
-    } else if (p.type === "assessment") {
-      const dirs = p.level === "Preliminary" ? ["11"] : p.level === "HSC" ? ["12"] : ["11", "12"];
-      for (const d of dirs) {
-        for (const k of schoolKeys(p.school)) {
-          const hit = pdbInternals.get(`${normKey(p.subject)}|${k}|${p.year}`);
-          if (hit && tryMirror(p, hit, "papersdb")) { pdbMatched++; break; }
-        }
-        if (p.mirror) break;
-      }
-    }
-  }
-  console.log(`mirror-papersdb: ${pdbMatched} additional papers -> direct CDN URLs${PDB_ENABLED ? "" : " (mirror disabled in sources.json)"}`);
-  if (!PDB_ENABLED) console.log("mirror-papersdb: disabled (sources.json) — PapersDB-origin papers are served from the selfhost registry instead");
 
   // (iv) Unique harvest — papers the mirrors hold that THSC's listing crawl
-  // doesn't (portal's practice/other pages, PapersDB extras). These become
+  // doesn't (portal's practice/other pages). These become
   // NEW catalogue entries with the THSC router URL kept as fallback.
   const haveKey = new Set(papers.map((p) => `${normKey(p.subject)}|${normKey(p.school)}|${p.year}|${p.type}`));
   const PORTAL_SUBJECT_MAP = {
@@ -599,30 +472,6 @@ if (require.main === module) {
     solStandalone++;
   }
   console.log(`unique-hscportal-sol: ${solAttached} attached to parent papers, +${solStandalone} standalone solution files (${solAlready} already in catalogue, ${solAmbiguous} ambiguous)`);
-
-  let addedPdb = 0;
-  for (const [key, hit] of [...pdbTrials, ...pdbHSC, ...pdbInternals]) {
-    if (pdbUsedUrls.has(hit.url)) continue;
-    const [nSubject, nSchool, nYear] = key.split("|");
-    const subject = nSubject.replace(/\b\w/g, (c) => c.toUpperCase());
-    const school = nSchool.replace(/\b\w/g, (c) => c.toUpperCase());
-    const year = Number(nYear);
-    const isTrial = pdbTrials.get(key) === hit;
-    const type = isTrial ? "trial" : pdbHSC.get(key) === hit ? "hsc" : "assessment";
-    const ukey = `${normKey(subject)}|${normKey(school)}|${year}|${type}`;
-    if (haveKey.has(ukey)) continue;
-    haveKey.add(ukey);
-    pdbUsedUrls.add(hit.url);
-    push({
-      id: `pdb-${year || "na"}-${slug(subject)}-${slug(school)}`,
-      subject, year, school, type,
-      title: `${year} ${school} ${subject} ${type === "trial" ? "Trial" : type === "hsc" ? "HSC" : "Assessment"}`,
-      url: hit.url, fallbackUrl: "", solutionPath: "", size: "",
-      hasSolutions: !!hit.sol, source: "papersdb-unique", mirror: "papersdb",
-    });
-    addedPdb++;
-  }
-  console.log(`unique-papersdb: +${addedPdb} papers not present in the THSC listing crawl`);
 
   // (v) Board of Studies direct harvest (2000-2015) — THSC's own admin script
   // (admin_scripts/thsc_paper_update_json.ps1) builds its index JSONs by
@@ -875,8 +724,8 @@ if (require.main === module) {
   }
   // Self-host remirror (selfhost.json): papers whose bytes we host on our
   // own R2 bucket. Matched by (subject, year, school, type) — NOT by mirror
-  // URL — so entries are restored even when the PapersDB mirror is disabled
-  // and its crawl never runs. Matching papers keep their pre-rewrite URL as
+  // URL — so entries are restored even when third-party mirrors are disabled
+  // and their crawls never run. Matching papers keep their pre-rewrite URL as
   // fallback; records with no existing paper become new selfhost entries.
   let SELFHOST = null;
   try { SELFHOST = JSON.parse(fs.readFileSync(path.join(__dirname, "selfhost.json"), "utf8")); } catch { /* none yet */ }
@@ -913,7 +762,7 @@ if (require.main === module) {
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
   console.log(`routes: fast ${fastN} · script ${scriptN} · dead wcm ${deadN} · total ${papers.length}`);
-  const isFastHost = (u) => /hscportal\.pages\.dev|cdn\.papersdb\.org|boardofstudies\.nsw\.edu\.au/.test(u || "");
+  const isFastHost = (u) => /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|boardofstudies\.nsw\.edu\.au/.test(u || "");
   const fastFiles = papers.reduce((n, p) => n + (p.url && isFastHost(p.url) ? 1 : 0) + (p.solutionUrl && isFastHost(p.solutionUrl) ? 1 : 0), 0);
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);
@@ -921,7 +770,7 @@ if (require.main === module) {
   // 4. write catalogue
   const generated = new Date().toISOString();
   fs.writeFileSync(OUT, JSON.stringify({
-    _comment: "Generated by desktop/tools/build-index.cjs. Sources: THSCOnline listings (official resolver, kept as fallbackUrl) + NESA direct + community mirrors acknowledged on THSC's homepage (HSC Portal hscportal.app, PapersDB papersdb.org). Papers belong to their schools/authors and NESA; mirrors are credited in-app.",
+    _comment: "Generated by desktop/tools/build-index.cjs. Sources: THSCOnline listings (official resolver, kept as fallbackUrl) + NESA direct + community mirrors acknowledged on THSC's homepage (HSC Portal hscportal.app). A small self-hosted set is served from our own R2 bucket (desktop/tools/selfhost.json). Papers belong to their schools/authors and NESA; mirrors are credited in-app.",
     generated, sources: "desktop/sources.json",
     papers,
   }, null, 1) + "\n");

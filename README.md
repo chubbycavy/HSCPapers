@@ -72,11 +72,11 @@ redeploy automatically.
 - **Deliberately parked** (documented decision — revisit consciously):
   **full** library self-hosting and unlimited streaming ZIP. Proxy rate
   limiting is likewise deferred (needs an owned zone).
-- **Phase-2-lite: ACTIVATED 2026-09-25** — 76 PapersDB-origin papers (421 MB)
-  self-hosted on Cloudflare R2 (free tier, $0/mo) after that mirror's
-  maintainer applied referer protection against this project. Registered in
+- **Phase-2-lite: ACTIVATED 2026-09-25** — 76 papers (421 MB) self-hosted on
+  Cloudflare R2 (free tier, $0/mo) after a third-party mirror applied
+  referer protection against this project. Registered in
   `desktop/tools/selfhost.json`; the builder rewrites those URLs at every
-  rebuild, so the site and desktop app are fully independent of PapersDB.
+  rebuild, so the site and desktop app are fully independent of any mirror.
   The **"Submit a paper" issue template** is the continuous-update path for
   the newest trials: submitted papers land in the library + registry and go
   live self-hosted, same day.
@@ -108,7 +108,7 @@ node desktop/tools/build-index.cjs --limit=6  # quick parser test (partial outpu
 ```
 
 Current catalogue: **7,015 papers / 8,892 files (6,079 fast)** — sources
-`thsc-listing` + `nesa` + mirrors (HSC Portal, PapersDB, Board of Studies).
+`thsc-listing` + `nesa` + mirrors (HSC Portal, Board of Studies).
 Slow-route files (~640, THSC rate-limited resolver) are hidden by default
 (sidebar toggle 🐢). Papers belong to their schools/authors and NESA — see
 `desktop/sources.json` attribution.
@@ -128,8 +128,9 @@ Slow-route files (~640, THSC rate-limited resolver) are hidden by default
 
 - **THSCOnline** (thsconline.github.io) — catalogue metadata + resolver
 - **HSC Portal** (hscportal.app) — community mirror (fast files)
-- **PapersDB** (papersdb.org) — community fast mirror (Maths + Science)
 - **Board of Studies / NESA** — official past papers + marking materials
+- A small set of papers is **self-hosted** from our own study library
+  (`desktop/tools/selfhost.json`); removal requests cover them identically
 
 All papers remain the property of their schools/authors and NESA. This is a
 study-use index; not affiliated with NESA.

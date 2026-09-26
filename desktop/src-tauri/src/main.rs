@@ -1106,8 +1106,6 @@ struct PreflightOut {
 fn source_of(url: &str) -> &'static str {
     if url.contains("hscportal.pages.dev") {
         "portal"
-    } else if url.contains("cdn.papersdb.org") {
-        "papersdb"
     } else if url.contains("boardofstudies.nsw.edu.au") {
         "bos"
     } else if url.contains("educationstandards.nsw.edu.au") {
