@@ -534,8 +534,9 @@ body.compact .grid.list { grid-template-columns: 1fr; }
 body.compact .card { padding: 0.6rem 0.7rem 0.55rem; contain-intrinsic-size: auto 120px; }
 body.compact .card h3 { font-size: 0.87rem; margin-bottom: 0.15rem; }
 body.compact .card .meta { font-size: 0.74rem; margin-bottom: 0.4rem; }
-body.compact .card-top { margin-bottom: 0.25rem; gap: 0.3rem; }
-body.compact .tag { font-size: 0.62rem; padding: 0.08rem 0.4rem; }
+body.compact .card-top { margin-bottom: 0.25rem; gap: 0.3rem; padding-right: 1.15rem; }
+body.compact .tag { font-size: 0.58rem; padding: 0.08rem 0.34rem; }
+body.compact .star-btn { font-size: 0.85rem; padding: 0.1rem 0.2rem; top: 0.35rem; right: 0.35rem; }
 body.compact .card-actions { gap: 0.3rem; }
 body.compact .card-actions .mini-btn { padding: 0.26rem 0.5rem; font-size: 0.72rem; }
 body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
@@ -566,7 +567,7 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
   margin-top: 0.25rem; flex-shrink: 0; cursor: pointer;
 }
 .card-body { min-width: 0; flex: 1; }
-.card-top { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.4rem; padding-right: 1.6rem; }
+.card-top { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.4rem; padding-right: 1.25rem; }
 /* Card star: bookmark toggle (feeds the ★ My papers shelf) */
 .star-btn {
   position: absolute; top: 0.45rem; right: 0.55rem;
