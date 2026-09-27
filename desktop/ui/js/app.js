@@ -51,6 +51,7 @@
     selected: new Set(),  // paper ids (select = paper + solutions if present)
     includeSolutionsInZip: true,
     includeSlowRoute: false, // 🐢 THSC-resolver files: excluded from saves by default
+    mine: false,          // ★ My papers shelf (bookmarks ∪ downloaded ∪ recent)
     visibleCount: PAGE_SIZE, // paging: cards rendered (Show more raises it; reset on filter change)
   };
 
@@ -65,9 +66,10 @@
       localStorage.setItem(STATE_KEY, JSON.stringify({
         q: state.q, type: state.type, level: state.level, solutionsOnly: state.solutionsOnly,
         subjects: [...state.subjects], years: [...state.years], schools: [...state.schools],
-        sort: state.sort, view: state.view, selected: [...state.selected],
+        sort: state.sort, view: state.view,         selected: [...state.selected],
         includeSolutionsInZip: state.includeSolutionsInZip,
         includeSlowRoute: state.includeSlowRoute,
+        mine: state.mine,
       }));
     } catch {}
   }
@@ -88,6 +90,7 @@
       if (Array.isArray(s.selected)) s.selected.forEach((id) => { if (id) state.selected.add(id); });
       if (typeof s.includeSolutionsInZip === "boolean") state.includeSolutionsInZip = s.includeSolutionsInZip;
       if (typeof s.includeSlowRoute === "boolean") state.includeSlowRoute = s.includeSlowRoute;
+      if (typeof s.mine === "boolean") state.mine = s.mine;
     } catch {}
   }
 
@@ -202,6 +205,7 @@
       else state.type = t;
     }
     if (p.get("level") && ["all", "hsc", "preliminary", "year10", "year9"].includes(p.get("level"))) state.level = p.get("level");
+    if (p.get("mine") === "1") state.mine = true;
     for (const [key, set] of [["subject", state.subjects], ["year", state.years], ["school", state.schools]]) {
       if (p.get(key)) p.get(key).split(",").map(s => s.trim()).filter(Boolean).forEach(v => set.add(key === "year" ? Number(v) : v));
     }
@@ -214,6 +218,7 @@
     if (state.type !== "all") p.set("type", state.type);
     if (state.level !== "all") p.set("level", state.level);
     if (state.solutionsOnly) p.set("type", state.type === "all" ? "solutions" : state.type);
+    if (state.mine) p.set("mine", "1");
     if (state.subjects.size) p.set("subject", [...state.subjects].join(","));
     if (state.years.size) p.set("year", [...state.years].join(","));
     if (state.schools.size) p.set("school", [...state.schools].join(","));
@@ -420,7 +425,7 @@
       e.preventDefault();
       e.stopPropagation();
       const k = btn.dataset.clear;
-      if (k === "type") { state.type = "all"; state.solutionsOnly = false; $("#solOnly").checked = false; }
+      if (k === "type") { state.type = "all"; state.solutionsOnly = false; $("#solOnly").checked = false; state.mine = false; $("#mineOnly").checked = false; }
       if (k === "level") state.level = "all";
       if (k === "subject") state.subjects.clear();
       if (k === "year") state.years.clear();
@@ -483,6 +488,7 @@
         if (p.level !== lv) return false;
       }
       if (!no("solutions") && state.solutionsOnly && !p.hasSolutions) return false;
+      if (!no("mine") && state.mine && !shelfHas(p.id)) return false;
       if (!no("subject") && state.subjects.size && !state.subjects.has(p.subject)) return false;
       if (!no("year") && state.years.size && !state.years.has(p.year)) return false;
       if (!no("school") && state.schools.size && !state.schools.has(p.school)) return false;
@@ -504,7 +510,7 @@
   /* ---------- render ---------- */
   function esc(s) { return (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
   function filterSig() {
-    return [state.q, state.type, state.level, state.solutionsOnly,
+    return [state.q, state.type, state.level, state.solutionsOnly, state.mine,
       [...state.subjects].sort().join("|"),
       [...state.years].sort((a, b) => a - b).join("|"),
       [...state.schools].sort().join("|"), state.sort].join("~");
@@ -520,6 +526,7 @@
     if (state.type !== "all") add(state.type === "internal" ? "Internals & other" : state.type.toUpperCase(), () => { state.type = "all"; });
     if (state.level !== "all") add({ hsc: "Yr 12", preliminary: "Yr 11", year10: "Yr 10", year9: "Yr 9" }[state.level] || state.level, () => { state.level = "all"; });
     if (state.solutionsOnly) add("Solutions only", () => { state.solutionsOnly = false; $("#solOnly").checked = false; });
+    if (state.mine) add("★ My papers", () => { state.mine = false; $("#mineOnly").checked = false; });
     if (state.includeSlowRoute) add("🐢 Slow-route shown", () => {
       state.includeSlowRoute = false; $("#slowRoute").checked = false;
       // Mirror the toggle handler: selection never references hidden papers.
@@ -604,7 +611,7 @@
     renderChips();
 
     if (!list.length) {
-      cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>No papers match</b>Try clearing a filter, or search “maths”, “Ruse” or “2024”.</div>`;
+      cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>${state.mine ? "Nothing on your shelf yet" : "No papers match"}</b>${state.mine ? "★ Star papers, download them, or open them in the reader — they’ll gather here. Stored on this device, no accounts." : "Try clearing a filter, or search “maths”, “Ruse” or “2024”."}</div>`;
     } else {
       cardsEl.innerHTML = "";
       const frag = document.createDocumentFragment();
@@ -642,6 +649,7 @@
         : "Only the SOLUTIONS file needs the slow route — the paper itself downloads fast; solutions save only when the toggle is on";
     el.innerHTML = `
       <input type="checkbox" ${state.selected.has(p.id) ? "checked" : ""} aria-label="Select ${esc(p.title)}">
+      <button class="star-btn ${bkState.has(p.id) ? "on" : ""}" data-star title="${bkState.has(p.id) ? "Remove bookmark" : "Bookmark this paper"}" aria-label="Bookmark ${esc(p.title)}">★</button>
       <div class="card-body">
         <div class="card-top">
           <span class="tag ${p.type}">${{ hsc: "HSC", trial: "Trial", assessment: "Assessment", other: "Other" }[p.type] || (p.type === "hsc" ? "HSC" : "Trial")}</span>
@@ -663,7 +671,16 @@
     const readBtn = el.querySelector("[data-read]");
     if (readBtn) readBtn.addEventListener("click", (e) => {
       e.preventDefault(); e.stopPropagation();
-      openReader(paperHref, p.title);
+      openReader(paperHref, p.title, p.id);
+    });
+    const starBtn = el.querySelector("[data-star]");
+    starBtn.addEventListener("click", (e) => {
+      e.preventDefault(); e.stopPropagation();
+      toggleBookmark(p.id);
+      const on = bkState.has(p.id);
+      starBtn.classList.toggle("on", on);
+      starBtn.title = on ? "Remove bookmark" : "Bookmark this paper";
+      if (state.mine) scheduleRender(); // unstar can remove it from the shelf view
     });
     if (!IS_TAURI) {
       el.querySelectorAll("a[data-dl]").forEach(a => a.addEventListener("click", (e) => {
@@ -801,6 +818,29 @@
     downloadedSet().add(id);
     if (dlState.size > 600) dlState = new Set([...dlState].slice(-300)); // ring buffer
     try { localStorage.setItem("hsc-downloaded", JSON.stringify([...dlState].slice(-600))); } catch {}
+  }
+
+  /* Bookmarks + recently viewed: device-local shelf data (same pattern as
+     ✓ Got — localStorage, no accounts). "★ My papers" = starred ∪ downloaded
+     ∪ recently opened, so daily users get one personal place. Bookmarks
+     capped at 2000 ids, recent ring at 50. */
+  let bkState = new Set();
+  try { bkState = new Set(JSON.parse(localStorage.getItem("hsc-bookmarked") || "[]").filter(Boolean)); } catch {}
+  let rvState = [];
+  try { rvState = JSON.parse(localStorage.getItem("hsc-recent") || "[]").filter(Boolean).slice(0, 50); } catch {}
+  function saveBookmarks() {
+    try { localStorage.setItem("hsc-bookmarked", JSON.stringify([...bkState].slice(-2000))); } catch {}
+  }
+  function toggleBookmark(id) {
+    if (bkState.has(id)) bkState.delete(id); else bkState.add(id);
+    saveBookmarks();
+  }
+  function logRecentlyViewed(id) {
+    rvState = [id, ...rvState.filter(x => x !== id)].slice(0, 50);
+    try { localStorage.setItem("hsc-recent", JSON.stringify(rvState)); } catch {}
+  }
+  function shelfHas(id) {
+    return bkState.has(id) || downloadedSet().has(id) || rvState.includes(id);
   }
   async function instantDownload(url, filename, paperId) {
     try {
@@ -1435,7 +1475,7 @@
           // Primary: open the embedded reader.
           b.addEventListener("click", (e) => {
             e.preventDefault();
-            openReader(path, title);
+            openReader(path, title, b.closest(".card")?.dataset.id);
           });
           // Secondary chip: open in the system PDF app.
           const sys = document.createElement("a");
@@ -1456,8 +1496,9 @@
   // Tauri: opens local library files. Web: opens paper URLs directly
   // (works wherever the source sends CORS headers; falls back to a hint).
   let readerDoc = null, readerPage = 1, readerPath = null, readerSystemPath = null;
-  function openReader(path, title) {
+  function openReader(path, title, id) {
     if (!path) return;
+    if (id) logRecentlyViewed(id); // shelf: recently-opened ring (last 50)
     readerPath = IS_TAURI ? path : proxied(path);
     readerSystemPath = IS_TAURI ? path : null;
     $("#readerTitle").textContent = title || "Paper";
@@ -1609,7 +1650,7 @@
   function syncPills() {
     document.querySelectorAll("#typePills .pill").forEach(p => {
       const t = p.dataset.type;
-      const on = t === "solutions" ? state.solutionsOnly : state.type === t && !state.solutionsOnly && t !== "all" ? true : t === "all" && state.type === "all" && !state.solutionsOnly;
+      const on = t === "solutions" ? state.solutionsOnly : t === "mine" ? state.mine : state.type === t && !state.solutionsOnly && t !== "all" ? true : t === "all" && state.type === "all" && !state.solutionsOnly;
       p.classList.toggle("on", !!on);
     });
     document.querySelectorAll("#typeSeg button").forEach(b => b.classList.toggle("on", b.dataset.type === state.type));
@@ -1619,6 +1660,7 @@
   function syncUI() {
     $("#q").value = state.q;
     $("#solOnly").checked = state.solutionsOnly;
+    $("#mineOnly").checked = state.mine;
     $("#slowRoute").checked = state.includeSlowRoute;
     $("#sortSel").value = state.sort;
     cardsEl.classList.toggle("list", state.view === "list");
@@ -1627,9 +1669,11 @@
   document.querySelectorAll("#typePills .pill").forEach(p => p.addEventListener("click", () => {
     const t = p.dataset.type;
     if (t === "solutions") state.solutionsOnly = !state.solutionsOnly;
-    else { state.type = t; if (t !== "all") { /* keep sol flag */ } }
+    else if (t === "mine") state.mine = !state.mine;
+    else state.type = t;
     if (t === "all") { state.type = "all"; state.solutionsOnly = false; }
     $("#solOnly").checked = state.solutionsOnly;
+    $("#mineOnly").checked = state.mine;
     syncPills(); writeURL(); render();
   }));
   document.querySelectorAll("#typeSeg button").forEach(b => b.addEventListener("click", () => {
@@ -1639,6 +1683,7 @@
     state.level = b.dataset.level; syncPills(); writeURL(); render();
   }));
   $("#solOnly").addEventListener("change", (e) => { state.solutionsOnly = e.target.checked; syncPills(); writeURL(); render(); });
+  $("#mineOnly").addEventListener("change", (e) => { state.mine = e.target.checked; syncPills(); writeURL(); render(); });
   $("#slowRoute").addEventListener("change", (e) => {
     state.includeSlowRoute = e.target.checked;
     if (tauriArmed) { tauriArmed = null; $("#zipBtn").textContent = "⭳ Save to library"; } // stale confirm

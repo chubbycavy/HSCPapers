@@ -567,6 +567,17 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
 }
 .card-body { min-width: 0; flex: 1; }
 .card-top { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+/* Card star: bookmark toggle (feeds the ★ My papers shelf) */
+.star-btn {
+  position: absolute; top: 0.45rem; right: 0.55rem;
+  border: none; background: none; padding: 0.15rem 0.25rem;
+  font-size: 1rem; line-height: 1; cursor: pointer;
+  color: var(--muted); opacity: 0.4;
+  transition: opacity 0.15s, color 0.15s;
+}
+.star-btn:hover { opacity: 1; }
+.star-btn.on { color: #f59e0b; opacity: 1; }
+[data-theme="dark"] .star-btn.on { color: #fbbf24; }
 .tag {
   font-size: 0.7rem;
   font-weight: 800;
