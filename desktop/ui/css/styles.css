@@ -872,8 +872,6 @@ body.drawer-lock { overflow: hidden; }
 .pane-num { font-variant-numeric: tabular-nums; color: var(--muted, #64748b); min-width: 3.6rem; text-align: center; }
 .pane-label + .bar-btn { margin-left: auto; }
 .pane-close { opacity: .85; }
-.reader-tabs { display: flex; gap: .25rem; }
-.reader-tabs .tab.on { background: var(--primary, #4f46e5); color: #fff; }
 .bar-btn.on { background: var(--primary, #4f46e5); color: #fff; }
 @media (max-width: 860px) {
   .reader-split { flex-direction: column; }

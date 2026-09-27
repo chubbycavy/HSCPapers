@@ -157,9 +157,19 @@
     scheduleRender(); // tag labels are compact-aware (B11) — rebuild them
   });
 
-  /* F6 PWA: installable + offline catalogue (web only — Tauri is native). */
+  /* F6 PWA: installable + offline catalogue (web only — Tauri is native).
+     SW takeover: when a newly deployed worker claims this page, auto-reload
+     ONCE so the user lands on fresh code + caches without knowing the SW
+     dance existed (v1.0.0→v1.0.1 taught this the hard way). */
   if (!IS_TAURI && "serviceWorker" in navigator && location.protocol === "https:") {
     navigator.serviceWorker.register("sw.js").catch(() => {});
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      try {
+        if (sessionStorage.getItem("hsc-sw-reloaded")) return;
+        sessionStorage.setItem("hsc-sw-reloaded", "1");
+        location.reload();
+      } catch {}
+    });
   }
 
   /* ---------- config badge ---------- */
@@ -785,7 +795,6 @@
     // AFTER render: renderBulk clears stale status on selection changes.
     if (capped) tauriStatus(`Select all: capped at ${cap} files (${files.length} matched)`);
   });
-  $("#clearSelBtn").addEventListener("click", () => { state.selected.clear(); render(); });
   $("#shareBtn").addEventListener("click", async () => {
     // Web recipients can only ZIP up to MAX_ZIP_FILES, so links cap there
     // too (unknown recipient surface — desktop sharers included).
@@ -1614,18 +1623,23 @@
   function applyReaderChrome() {
     const split = readerMode === "split";
     $("#paneSol").hidden = !split;
-    $("#readerTabs").hidden = !split;
     $("#readerSyncBtn").hidden = !split;
     $("#readerSyncBtn").classList.toggle("on", readerSync);
     $("#readerAddSol").hidden = !(readerSolUrl && !split);
+    // Split mode: the panes own navigation and printing — the global bar's
+    // duplicated controls hide (single-pane mode keeps them all).
+    $("#readerPrev").hidden = split;
+    $("#readerNext").hidden = split;
+    $("#readerPageNum").hidden = split;
+    $("#readerPageInfo").hidden = split;
+    const gp = $("#readerPrint");
+    if (gp) gp.hidden = split;
     setFocus(readerFocus, true);
   }
   function setFocus(key, silent) {
     readerFocus = key;
     $("#panePaper").classList.toggle("focus", key === "paper");
     $("#paneSol").classList.toggle("focus", key === "sol");
-    $("#tabPaper").classList.toggle("on", key === "paper");
-    $("#tabSol").classList.toggle("on", key === "sol");
     if (!silent) syncGlobalPage();
   }
   function syncGlobalPage() {
@@ -1705,8 +1719,6 @@
   $("#readerClose").addEventListener("click", closeReader);
   $("#readerPrev").addEventListener("click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); });
   $("#readerNext").addEventListener("click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); });
-  $("#tabPaper").addEventListener("click", () => setFocus("paper"));
-  $("#tabSol").addEventListener("click", () => setFocus("sol"));
   $("#paneSolClose").addEventListener("click", (e) => {
     e.stopPropagation();
     try { readerPanes.sol.doc?.destroy(); } catch {}
