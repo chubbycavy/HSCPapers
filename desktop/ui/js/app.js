@@ -154,6 +154,7 @@
     if (localStorage.getItem(DENSITY_KEY) === "compact") localStorage.removeItem(DENSITY_KEY);
     else localStorage.setItem(DENSITY_KEY, "compact");
     applyDensity();
+    scheduleRender(); // tag labels are compact-aware (B11) — rebuild them
   });
 
   /* ---------- config badge ---------- */
@@ -268,6 +269,7 @@
       else dropped++; // removed/expired ids (e.g. takedown removals)
     }
     if (restored) sharedSelNote = { restored, dropped };
+    else if (dropped) sharedSelNote = { restored: 0, dropped, dead: true };
   }
 
   /* ---------- load data ---------- */
@@ -293,6 +295,10 @@
     state.papers = json.papers || [];
     restoreState(); // saved filters/selection first…
     await readURL(); // …URL deep-link overrides on top (incl. ?sel= restores)
+    if (sharedSelNote?.dead) { // B6: whole link expired — honest notice, not silence
+      showSelNotice(`Shared selection — ${sharedSelNote.dropped} paper${sharedSelNote.dropped === 1 ? "" : "s"} from this link ${sharedSelNote.dropped === 1 ? "is" : "are"} no longer available`);
+      sharedSelNote = null; // consume before renderBulk can misread it
+    }
     syncUI();       // reflect restored state in inputs/pills/sort
     buildFilters();
     buildSubjectStrip();
@@ -642,7 +648,13 @@
     // tag made it look mislabeled.
     const slowPaper = !isFastHostUrl(p.url);
     const slowSol = solHref ? !isFastHostUrl(solHref) : false;
-    const slowTag = slowPaper && slowSol ? "🐢 paper + sol" : slowPaper ? "🐢 paper" : slowSol ? "🐢 sol" : "";
+    const slowFull = slowPaper && slowSol ? "🐢 paper + sol" : slowPaper ? "🐢 paper" : slowSol ? "🐢 sol" : "";
+    // B11: compact mode shortens labels so tag rows never wrap (height stays
+    // constant); the 🐢 tooltip keeps the full detail on every density.
+    const compact = document.body.classList.contains("compact");
+    const slowTag = compact && slowFull ? "🐢" : slowFull;
+    const gotTag = compact ? "✓" : "✓ Got";
+    const solTag = compact ? "Sol" : "Solutions";
     const slowTip = slowPaper && slowSol
       ? "Paper AND solutions need THSC's rate-limited resolver (or are dead links)"
       : slowPaper
@@ -655,8 +667,8 @@
         <div class="card-top">
           <span class="tag ${p.type}">${{ hsc: "HSC", trial: "Trial", assessment: "Assessment", other: "Other" }[p.type] || (p.type === "hsc" ? "HSC" : "Trial")}</span>
           <span class="tag">${esc(String(p.year))}</span>
-          ${p.hasSolutions ? `<span class="tag sol">Solutions</span>` : ""}
-          ${!IS_TAURI && downloadedSet().has(p.id) ? `<span class="tag got" title="Downloaded before in this browser">✓ Got</span>` : ""}
+          ${p.hasSolutions ? `<span class="tag sol">${solTag}</span>` : ""}
+          ${!IS_TAURI && downloadedSet().has(p.id) ? `<span class="tag got" title="Downloaded before in this browser">${gotTag}</span>` : ""}
           ${slowTag ? `<span class="tag slow" title="${esc(slowTip)}">${slowTag}</span>` : ""}
         </div>
         <h3></h3>
@@ -828,6 +840,21 @@
     }
     if (tauriArmed) clearArmedUI();
     state.selected.clear(); render();
+  });
+
+  /* B6: transient notice bar above the grid (stale shared links etc.) */
+  let selNoticeTimer = null;
+  function showSelNotice(text) {
+    const bar = $("#selNotice");
+    if (!bar) return;
+    $("#selNoticeText").textContent = text;
+    bar.hidden = false;
+    clearTimeout(selNoticeTimer);
+    selNoticeTimer = setTimeout(() => { bar.hidden = true; }, 10000);
+  }
+  $("#selNoticeClose").addEventListener("click", () => {
+    clearTimeout(selNoticeTimer);
+    $("#selNotice").hidden = true;
   });
 
   /* ---------- instant single downloads (web): fetch -> blob -> named save ---------- */
