@@ -36,6 +36,11 @@ const SITE_CONFIG = {
   // ZIP filename when users bulk-download a selection
   ZIP_NAME: "hsc-papers-selection.zip",
 
+  // Canonical public URL used to build share links (?sel=…). The desktop
+  // app must NEVER use its own origin (tauri://localhost — recipients
+  // couldn't open it); the web uses the same value (equals its own origin).
+  SHARE_BASE_URL: "https://hscpapers.pages.dev",
+
   // Browser ZIP limits: each file is fetched into tab RAM, so the count
   // cap plus a running byte budget keep the build inside safe memory.
   // Budget is enforced during the build with real sizes — an oversized

@@ -566,13 +566,15 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
   margin-top: 0.25rem; flex-shrink: 0; cursor: pointer;
 }
 .card-body { min-width: 0; flex: 1; }
-.card-top { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.card-top { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.4rem; padding-right: 1.6rem; }
 /* Card star: bookmark toggle (feeds the ★ My papers shelf) */
 .star-btn {
   position: absolute; top: 0.45rem; right: 0.55rem;
-  border: none; background: none; padding: 0.15rem 0.25rem;
+  border: none; background: var(--surface); padding: 0.15rem 0.3rem;
   font-size: 1rem; line-height: 1; cursor: pointer;
   color: var(--muted); opacity: 0.4;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px var(--surface);
   transition: opacity 0.15s, color 0.15s;
 }
 .star-btn:hover { opacity: 1; }

@@ -555,6 +555,7 @@
           state.q = ""; $("#q").value = "";
           state.type = "all"; state.level = "all";
           state.solutionsOnly = false; $("#solOnly").checked = false;
+          state.mine = false; $("#mineOnly").checked = false;
           state.subjects.clear(); state.years.clear(); state.schools.clear();
           persistState(); applyFilterChange();
         });
@@ -782,15 +783,42 @@
     if (!ids.length) { tauriStatus("Select papers first, then Share"); return; }
     const enc = await encodeSel(ids);
     if (!enc) { tauriStatus("Selection too large to share on this browser"); return; }
-    const url = `${location.origin}${location.pathname}?sel=${enc}`;
-    if (navigator.share) {
+    // Share links ALWAYS point at the production site: inside the desktop
+    // app location.origin is the tauri:// WebView, which no recipient can
+    // open. SHARE_BASE_URL (config.js) is the canonical public URL.
+    const base = (window.SITE_CONFIG?.SHARE_BASE_URL || "").replace(/\/+$/, "")
+      || (location.origin + location.pathname).replace(/\/+$/, "");
+    const url = `${base}/?sel=${enc}`;
+    const note = `🔗 Share link copied — ${ids.length} papers${capped ? ` (capped at ${cap} files)` : ""} open pre-selected on any device`;
+    // Mobile: the native share sheet is the best UX there. Desktop: the OS
+    // share flyout is confusing and often empty — copy straight to the
+    // clipboard instead.
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    if (navigator.share && isMobile) {
       try { await navigator.share({ title: "HSCPapers — shared selection", url }); return; }
       catch (e) { if (e && e.name === "AbortError") return; }
     }
     try {
       await navigator.clipboard.writeText(url);
-      tauriStatus(`🔗 Share link copied — ${ids.length} papers${capped ? ` (capped at ${cap} files)` : ""} open pre-selected on any device`);
-    } catch { window.prompt("Copy this share link:", url); }
+      tauriStatus(note);
+    } catch {
+      // Clipboard denied: textarea fallback (prompt() is a no-op in Tauri).
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = url;
+        ta.style.cssText = "position:fixed;opacity:0";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        ta.remove();
+        if (ok) tauriStatus(note);
+        else if (!IS_TAURI) window.prompt("Copy this share link:", url);
+        else tauriStatus("Couldn't copy the share link — please try again");
+      } catch {
+        if (!IS_TAURI) window.prompt("Copy this share link:", url);
+        else tauriStatus("Couldn't copy the share link — please try again");
+      }
+    }
   });
   $("#bulkClear").addEventListener("click", () => {
     if (tauriRun) {
@@ -1650,7 +1678,7 @@
   function syncPills() {
     document.querySelectorAll("#typePills .pill").forEach(p => {
       const t = p.dataset.type;
-      const on = t === "solutions" ? state.solutionsOnly : t === "mine" ? state.mine : state.type === t && !state.solutionsOnly && t !== "all" ? true : t === "all" && state.type === "all" && !state.solutionsOnly;
+      const on = t === "solutions" ? state.solutionsOnly : t === "mine" ? state.mine : state.type === t && !state.solutionsOnly && t !== "all" ? true : t === "all" && state.type === "all" && !state.solutionsOnly && !state.mine;
       p.classList.toggle("on", !!on);
     });
     document.querySelectorAll("#typeSeg button").forEach(b => b.classList.toggle("on", b.dataset.type === state.type));
