@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Search 7,000+ NSW HSC trial papers, past HSC exams and school assessments across 121 subjects (1967–2026). Read in-browser with a study timer, filter by school and year, and download one paper — or up to 200 in one structured ZIP. Free, no sign-up, no ads.">
   <title>HSCPapers — HSC &amp; Trial Papers</title>
+  <link rel="canonical" href="https://hscpapers.pages.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HSCPapers">
+  <meta property="og:title" content="HSCPapers — HSC &amp; Trial Papers">
+  <meta property="og:description" content="7,000+ NSW HSC trial papers, past HSC exams and school assessments across 121 subjects (1967–2026). Read in-browser, filter by school and year, take up to 200 papers home in one ZIP. Free, no sign-up, no ads.">
+  <meta property="og:url" content="https://hscpapers.pages.dev/">
+  <meta property="og:image" content="https://hscpapers.pages.dev/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HSCPapers — HSC &amp; Trial Papers">
+  <meta name="twitter:description" content="7,000+ NSW HSC trial papers, past HSC exams and school assessments across 121 subjects (1967–2026). Free, no sign-up, no ads.">
+  <meta name="twitter:image" content="https://hscpapers.pages.dev/og-card.png">
+  <meta name="theme-color" content="#4f46e5">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"HSCPapers","url":"https://hscpapers.pages.dev/","description":"Free index of NSW HSC trial papers, past HSC exams and school assessments.","potentialAction":{"@type":"SearchAction","target":"https://hscpapers.pages.dev/?q={search_term_string}","query-input":"required name=search_term_string"}}
+  </script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f46e5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>H</text></svg>">
 </head>
@@ -31,7 +48,7 @@
 <section class="hero" id="top">
   <span class="eyebrow">● 7,000+ papers · 60 years · 100% free</span>
   <h1>Every HSC paper. <span>One fast place.</span></h1>
-  <p>The complete index of NSW trial papers, past HSC exams and school assessments — searchable, filterable and downloadable in seconds. Read any paper in your browser, take up to 200 papers home in one structured ZIP, or let the desktop app pull the entire library in minutes at ~30&nbsp;MB/s. No sign-up. No paywalls. No ads.</p>
+  <p>The complete index of NSW trial papers, past HSC exams and school assessments — searchable, filterable and downloadable in seconds. Read any paper in your browser, take up to 200 papers home in one structured ZIP, share any selection with a single link, or let the desktop app pull the entire library in minutes at ~30&nbsp;MB/s. No sign-up. No paywalls. No ads.</p>
 
   <div class="search-wrap">
     <form class="search" id="searchForm">
@@ -151,7 +168,7 @@
     <div class="feature-card"><h3>Search that finds it</h3><p>Full-text across subject, school, year and title. Type “Ruse ext2 2024” and land on the paper — and every filtered view is a shareable link.</p></div>
     <div class="feature-card"><h3>Filters that think</h3><p>Faceted filters that recount live: narrow by a year and the subject and school lists recount instantly. No dead ends, no stale numbers.</p></div>
     <div class="feature-card"><h3>Read without leaving</h3><p>An embedded reader with a built-in study timer — 30, 60 or 90 minutes, or custom. Open a paper, start the clock, get to work. Nothing to download, nothing to install.</p></div>
-    <div class="feature-card"><h3>Multi-select at full speed</h3><p>Drag a band across the grid to sweep papers, hit Select all, and take up to 200 files home as one ZIP that mirrors <code>Subject/Year/</code> folders — solutions ride along automatically.</p></div>
+    <div class="feature-card"><h3>Multi-select at full speed</h3><p>Drag a band across the grid to sweep papers, hit Select all, and take up to 200 files home as one ZIP that mirrors <code>Subject/Year/</code> folders — solutions ride along automatically. One click turns any selection into a single link your study group can open pre-loaded.</p></div>
     <div class="feature-card"><h3>Genuinely fast</h3><p>Papers come straight from fast CDN mirrors, so single downloads start instantly. The desktop app bulk-pulls the entire library in minutes at ~30&nbsp;MB/s — queued, resumable, polite.</p></div>
     <div class="feature-card"><h3>A real library on your PC</h3><p>The free desktop app saves into your own folder structure: background queues, skip-if-exists resume, direct-to-folder saves, and offline access to everything you’ve stored.</p></div>
     <div class="feature-card"><h3>Never out of date</h3><p>The catalogue rebuilds itself nightly from official NESA releases and community mirrors, the app updates itself, and anyone can submit a new paper — it goes live the same day.</p></div>
@@ -176,6 +193,7 @@
       <p>· Share any view — search and filters live in the URL (e.g. <code>?q=ruse&amp;type=trial</code>)</p>
       <p>· 📖 <b>Read</b> opens any paper in-page; the ⏱ timer keeps you honest</p>
       <p>· Select several papers for a structured ZIP — folders arrive as <code>Subject/Year/</code>, solutions included</p>
+      <p>· 🔗 <b>Share</b> a selection — one link restores the exact same papers on anyone’s screen, ready to ZIP</p>
       <p>· 🐢 Slow-route papers hide by default; flip the toggle when you want everything visible</p>
       <p>· For whole-library downloads, install the desktop app — queued, resumable, ~30&nbsp;MB/s, straight into your own folders. <a id="desktopAppLink" href="#" target="_blank" rel="noopener" hidden>⭳ Get the HSCPapers desktop app</a></p>
     </div>
@@ -191,6 +209,7 @@
 <div class="bulkbar" id="bulkbar" role="status" aria-live="polite">
   <b id="bulkCount">0 selected</b>
   <button class="bb-btn bb-zip" id="zipBtn">⭳ Download ZIP</button>
+  <button class="bb-btn" id="shareBtn" title="Copy a link that restores this exact selection">🔗 Share</button>
   <button class="bb-btn bb-ghost" id="bulkClear" title="Clear selection">✕</button>
   <span class="progress" id="zipProgress"></span>
 </div>

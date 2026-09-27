@@ -189,7 +189,11 @@
   }
 
   /* ---------- URL deep-linking ---------- */
-  function readURL() {
+  // ?sel=… restores a shared selection (see "shared selections" below).
+  // sel stays in the URL afterwards — refresh/re-share keeps working; any
+  // filter change rewrites params (dropping sel) via writeURL.
+  let sharedSelNote = null; // {restored, dropped} — surfaced once by renderBulk
+  async function readURL() {
     const p = new URLSearchParams(location.search);
     if (p.get("q")) { state.q = p.get("q"); $("#q").value = state.q; }
     if (p.get("type") && ["all", "hsc", "trial", "internal", "solutions"].includes(p.get("type"))) {
@@ -201,6 +205,7 @@
     for (const [key, set] of [["subject", state.subjects], ["year", state.years], ["school", state.schools]]) {
       if (p.get(key)) p.get(key).split(",").map(s => s.trim()).filter(Boolean).forEach(v => set.add(key === "year" ? Number(v) : v));
     }
+    if (p.get("sel")) await applySharedSel(p.get("sel"));
     syncPills();
   }
   function writeURL() {
@@ -213,6 +218,51 @@
     if (state.years.size) p.set("year", [...state.years].join(","));
     if (state.schools.size) p.set("school", [...state.schools].join(","));
     history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
+  }
+
+  /* ---------- shared selections (?sel=…) ---------- */
+  // Encode: newline-joined paper ids -> gzip -> base64url ("g.<data>"). Ids
+  // (not positions) keep links immune to nightly catalogue reorders; gzip
+  // keeps even 200-paper links short. Without CompressionStream (old
+  // browsers) fall back to plain comma-joined ids when they fit; otherwise
+  // the share is refused with a note. Desktop persists selections locally,
+  // so links matter most on the web — both surfaces can share.
+  async function encodeSel(ids) {
+    const raw = ids.join("\n");
+    if (typeof CompressionStream === "undefined")
+      return raw.length <= 1400 ? raw.replace(/\n/g, ",") : null;
+    const buf = new Uint8Array(await new Response(
+      new Blob([raw]).stream().pipeThrough(new CompressionStream("gzip"))
+    ).arrayBuffer());
+    let bin = "";
+    for (const b of buf) bin += String.fromCharCode(b);
+    return "g." + btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  }
+  async function decodeSel(v) {
+    try {
+      let text = v;
+      if (v.startsWith("g.")) {
+        const b64 = v.slice(2).replace(/-/g, "+").replace(/_/g, "/");
+        const bin = atob(b64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        text = await new Response(
+          new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))
+        ).text();
+      }
+      return [...new Set(text.split(/[\n,]+/).map(s => s.trim()).filter(Boolean))];
+    } catch { return null; }
+  }
+  async function applySharedSel(v) {
+    const ids = await decodeSel(v);
+    if (!ids || !ids.length) return; // unreadable/empty — ignore silently
+    const known = new Set(state.papers.map(p => p.id));
+    let restored = 0, dropped = 0;
+    for (const id of ids) {
+      if (known.has(id)) { state.selected.add(id); restored++; }
+      else dropped++; // removed/expired ids (e.g. takedown removals)
+    }
+    if (restored) sharedSelNote = { restored, dropped };
   }
 
   /* ---------- load data ---------- */
@@ -237,7 +287,7 @@
     }
     state.papers = json.papers || [];
     restoreState(); // saved filters/selection first…
-    readURL();      // …URL deep-link overrides on top
+    await readURL(); // …URL deep-link overrides on top (incl. ?sel= restores)
     syncUI();       // reflect restored state in inputs/pills/sort
     buildFilters();
     buildSubjectStrip();
@@ -665,6 +715,12 @@
         ? `${n} paper${n === 1 ? "" : "s"} · ${f} file${f === 1 ? "" : "s"} to save`
         : "no papers selected";
       if (f && lastSlowSkipped) tauriStatus(`🐢 ${lastSlowSkipped} slow-route file${lastSlowSkipped === 1 ? "" : "s"} skipped (of the selection)`);
+      if (sharedSelNote && !tauriRun) {
+        $("#zipProgress").textContent =
+          `🔗 Shared selection — ${sharedSelNote.restored} paper${sharedSelNote.restored === 1 ? "" : "s"} restored` +
+          (sharedSelNote.dropped ? ` · ${sharedSelNote.dropped} link item${sharedSelNote.dropped === 1 ? "" : "s"} no longer available` : "");
+        sharedSelNote = null;
+      }
       lastBulkCount = n;
     }
     // Keep the bar up while a batch runs even with an empty selection
@@ -695,6 +751,30 @@
     if (capped) tauriStatus(`Select all: capped at ${cap} files (${files.length} matched)`);
   });
   $("#clearSelBtn").addEventListener("click", () => { state.selected.clear(); render(); });
+  $("#shareBtn").addEventListener("click", async () => {
+    // Web recipients can only ZIP up to MAX_ZIP_FILES, so links cap there
+    // too (unknown recipient surface — desktop sharers included).
+    const cap = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
+    let ids = [...state.selected];
+    const files = selectedFiles();
+    const capped = files.length > cap;
+    if (capped) {
+      const kept = new Set(files.slice(0, cap).map(f => f.kind === "solutions" ? f.id.slice(0, -4) : f.id));
+      ids = ids.filter(id => kept.has(id));
+    }
+    if (!ids.length) { tauriStatus("Select papers first, then Share"); return; }
+    const enc = await encodeSel(ids);
+    if (!enc) { tauriStatus("Selection too large to share on this browser"); return; }
+    const url = `${location.origin}${location.pathname}?sel=${enc}`;
+    if (navigator.share) {
+      try { await navigator.share({ title: "HSCPapers — shared selection", url }); return; }
+      catch (e) { if (e && e.name === "AbortError") return; }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      tauriStatus(`🔗 Share link copied — ${ids.length} papers${capped ? ` (capped at ${cap} files)` : ""} open pre-selected on any device`);
+    } catch { window.prompt("Copy this share link:", url); }
+  });
   $("#bulkClear").addEventListener("click", () => {
     if (tauriRun) {
       tauriRun.cancel = true; // remaining files stay queued for resume

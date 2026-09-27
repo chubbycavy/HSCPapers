@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hscpapers.pages.dev/sitemap.xml
