@@ -6,7 +6,7 @@
      → recently read papers re-open offline
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
-const VERSION = "v1";
+const VERSION = "v2"; // v2: fixes PDF cache corruption (Range/206) + stale shell
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
 const PAGES_CACHE = `hsc-pages-${VERSION}`;
 const PDF_CACHE = `hsc-pdfs-${VERSION}`;
@@ -35,9 +35,23 @@ async function cacheFirst(req, cacheName) {
   const hit = await cache.match(req);
   if (hit) return hit;
   const res = await fetch(req);
-  if (res.ok || res.type === "opaque") {
+  if (res.ok) await cache.put(req, res.clone());
+  return res;
+}
+/* PDFs: pdf.js fetches with HTTP Range requests (206 Partial). Caching a
+   partial body and replaying it for later requests truncates the file —
+   pdf.js then "parses" a fragment: blank page, counter stuck at 1/1.
+   Rules: never touch the cache for a Range request; only cache COMPLETE
+   (status 200) responses; serve cached full copies only to rangeless requests. */
+async function pdfFetch(req) {
+  if (req.headers.get("range")) return fetch(req); // ranged → network, always
+  const cache = await caches.open(PDF_CACHE);
+  const hit = await cache.match(req);
+  if (hit) return hit;
+  const res = await fetch(req);
+  if (res.status === 200 && res.type !== "opaque") {
     await cache.put(req, res.clone());
-    if (cacheName === PDF_CACHE) await trimPdfs(cache);
+    await trimPdfs(cache);
   }
   return res;
 }
@@ -66,10 +80,15 @@ self.addEventListener("fetch", (e) => {
   const p = url.pathname;
   if (req.mode === "navigate") { e.respondWith(networkFirst(req, SHELL_CACHE)); return; }
   if (p === "/data/papers.json") { e.respondWith(networkFirst(req, PAGES_CACHE)); return; }
-  if (p === "/proxy" || /\.pdf$/i.test(p)) { e.respondWith(cacheFirst(req, PDF_CACHE)); return; }
+  if (p === "/proxy" || /\.pdf$/i.test(p)) { e.respondWith(pdfFetch(req)); return; }
+  // App code: network-first so deploys always reach clients (cache fallback
+  // keeps offline sessions working). pdfjs/vendor are immutable binaries.
+  if (p.endsWith(".css") || p.startsWith("/js/") || p === "/index.html") {
+    e.respondWith(networkFirst(req, SHELL_CACHE));
+    return;
+  }
   if (
-    SHELL.includes(p) || p.startsWith("/css/") || p.startsWith("/js/") ||
-    p.startsWith("/pdfjs/") || p.startsWith("/vendor/") ||
+    SHELL.includes(p) || p.startsWith("/pdfjs/") || p.startsWith("/vendor/") ||
     p === "/robots.txt" || p === "/sitemap.xml"
   ) {
     e.respondWith(cacheFirst(req, SHELL_CACHE));

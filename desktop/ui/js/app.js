@@ -1540,7 +1540,10 @@
             const p = state.papers.find(x => x.id === card?.dataset.id);
             if (p) {
               const srel = libraryRel(p, "solutions");
-              if (srel) {
+              // v1.0.0 bug: the solutions button IS the solutions file —
+              // opening it must not split with itself. Only the PAPER
+              // button brings its solutions along.
+              if (srel && srel !== b.dataset.rel) {
                 const idx = rels.indexOf(srel);
                 if (idx >= 0 && res[idx]) solLocal = res[idx];
               }
@@ -1593,7 +1596,9 @@
     $("#readerErr").hidden = true; $("#readerErr").textContent = "";
     $("#reader").hidden = false;
     document.body.style.overflow = "hidden";
-    readerMode = readerSolUrl ? "split" : "single";
+    // Solutions are HIDDEN by default (attempt first, then check): the
+    // reader always opens paper-only — ＋ Solutions adds the second pane.
+    readerMode = "single";
     readerFocus = "paper";
     applyReaderChrome();
     const sysBtn = $("#readerOpenSys");
@@ -1601,7 +1606,6 @@
     if (window.pdfjsLib) {
       pdfjsLib.GlobalWorkerOptions.workerSrc = "pdfjs/pdf.worker.min.js";
       loadPane("paper");
-      if (readerMode === "split") loadPane("sol");
     } else {
       $("#readerErr").hidden = false;
       $("#readerErr").textContent = "Reader engine is still loading — try again in a second (or use the ⭳ button).";
@@ -1671,12 +1675,19 @@
     const pane = readerPanes[key];
     if (!pane.doc) return;
     n = Math.max(1, Math.min(n, pane.numPages));
+    // Render guard: a canvas hosts exactly one pdf.js render at a time —
+    // overlapping calls (fast paging, sync chains) left blank canvases with
+    // a stale counter. Serialize per pane and drop superseded renders.
+    pane.renderSeq = (pane.renderSeq || 0) + 1;
+    const seq = pane.renderSeq;
     try {
       const pg = await pane.doc.getPage(n);
       const vp = pg.getViewport({ scale: 1.6 });
       const cv = paneCanvas(key);
+      if (seq !== pane.renderSeq) return; // superseded while fetching the page
       cv.width = vp.width; cv.height = vp.height;
       await pg.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
+      if (seq !== pane.renderSeq) return; // superseded mid-render
       pane.page = n;
       paneNumEl(key).textContent = `${n} / ${pane.numPages}`;
       cv.closest(".pane-scroll").scrollTop = 0;
@@ -1686,6 +1697,7 @@
         if (readerPanes[other].doc) await renderPanePage(other, n, { fromSync: true });
       }
     } catch (e) {
+      if (seq !== pane.renderSeq) return; // superseded — not this render's error
       $("#readerErr").hidden = false;
       $("#readerErr").textContent = "Page render failed: " + (e?.message || e);
     }
