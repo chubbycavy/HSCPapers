@@ -4,6 +4,10 @@
   "use strict";
 
   const $ = (s) => document.querySelector(s);
+  // Null-tolerant wiring: a missing static element degrades to "that button
+  // does nothing" instead of crashing the whole app — a stale-shell version
+  // mismatch used to kill every card render this way (v1.0.2 lesson).
+  const on = (sel, ev, fn, opts) => $(sel)?.addEventListener(ev, fn, opts);
   const cardsEl = $("#cards");
   const resultsCount = $("#resultsCount");
   const bulkbarEl = $("#bulkbar");
@@ -125,7 +129,7 @@
   const root = document.documentElement;
   const savedTheme = localStorage.getItem("hsc-theme");
   if (savedTheme) root.dataset.theme = savedTheme;
-  $("#themeBtn").addEventListener("click", () => {
+  on("#themeBtn", "click", () => {
     root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
     localStorage.setItem("hsc-theme", root.dataset.theme);
   });
@@ -150,7 +154,7 @@
     }
   }
   applyDensity();
-  $("#densityBtn").addEventListener("click", () => {
+  on("#densityBtn", "click", () => {
     if (localStorage.getItem(DENSITY_KEY) === "compact") localStorage.removeItem(DENSITY_KEY);
     else localStorage.setItem(DENSITY_KEY, "compact");
     applyDensity();
@@ -774,7 +778,7 @@
     if (show !== lastBulkShown) { bulkbarEl.classList.toggle("show", show); lastBulkShown = show; }
   }
 
-  $("#selectAllBtn").addEventListener("click", () => {
+  on("#selectAllBtn", "click", () => {
     // Desktop: UNLIMITED — the Rust backend has no browser caps. Web: cap the
     // SELECTION to the first maxFiles files (current sort order) so the
     // browser ZIP never has to reject — the bulk bar shows the ceiling.
@@ -795,7 +799,7 @@
     // AFTER render: renderBulk clears stale status on selection changes.
     if (capped) tauriStatus(`Select all: capped at ${cap} files (${files.length} matched)`);
   });
-  $("#shareBtn").addEventListener("click", async () => {
+  on("#shareBtn", "click", async () => {
     // Web recipients can only ZIP up to MAX_ZIP_FILES, so links cap there
     // too (unknown recipient surface — desktop sharers included).
     const cap = window.SITE_CONFIG?.MAX_ZIP_FILES || 200;
@@ -846,7 +850,7 @@
       }
     }
   });
-  $("#bulkClear").addEventListener("click", () => {
+  on("#bulkClear", "click", () => {
     if (tauriRun) {
       tauriRun.cancel = true; // remaining files stay queued for resume
       tauriStatus("Cancelling — the current download will stop within a second…");
@@ -866,7 +870,7 @@
     clearTimeout(selNoticeTimer);
     selNoticeTimer = setTimeout(() => { bar.hidden = true; }, 10000);
   }
-  $("#selNoticeClose").addEventListener("click", () => {
+  on("#selNoticeClose", "click", () => {
     clearTimeout(selNoticeTimer);
     $("#selNotice").hidden = true;
   });
@@ -930,7 +934,7 @@
     }
   }
 
-  $("#zipBtn").addEventListener("click", async () => {
+  on("#zipBtn", "click", async () => {
     let files = selectedFiles();
     if (!files.length) return;
     if (IS_TAURI) { tauriSaveClick(); return; }
@@ -1490,7 +1494,7 @@
     $("#updateBarText").textContent = `Update available — v${updateInfo.version}`;
     bar.hidden = false;
   }
-  $("#updateNowBtn").addEventListener("click", async () => {
+  on("#updateNowBtn", "click", async () => {
     if (!updateInfo) return;
     if (tauriRun) { tauriStatus("Finish the current download batch first — the update installs after"); return; }
     const btn = $("#updateNowBtn");
@@ -1512,7 +1516,7 @@
       $("#updateBarText").textContent = "Update available";
     }
   });
-  $("#updateLaterBtn").addEventListener("click", () => {
+  on("#updateLaterBtn", "click", () => {
     updateBarPinned = true;
     $("#updateBar").hidden = true;
   });
@@ -1716,31 +1720,31 @@
       $("#readerErr").textContent = "Page render failed: " + (e?.message || e);
     }
   }
-  $("#readerClose").addEventListener("click", closeReader);
-  $("#readerPrev").addEventListener("click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); });
-  $("#readerNext").addEventListener("click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); });
-  $("#paneSolClose").addEventListener("click", (e) => {
+  on("#readerClose", "click", closeReader);
+  on("#readerPrev", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); });
+  on("#readerNext", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); });
+  on("#paneSolClose", "click", (e) => {
     e.stopPropagation();
     try { readerPanes.sol.doc?.destroy(); } catch {}
     readerPanes.sol = mkPane();
     readerMode = "single"; readerFocus = "paper";
     applyReaderChrome();
   });
-  $("#readerAddSol").addEventListener("click", (e) => {
+  on("#readerAddSol", "click", (e) => {
     e.stopPropagation();
     if (!readerSolUrl || readerMode === "split") return;
     readerMode = "split";
     applyReaderChrome();
     loadPane("sol");
   });
-  $("#readerSyncBtn").addEventListener("click", (e) => {
+  on("#readerSyncBtn", "click", (e) => {
     e.stopPropagation();
     readerSync = !readerSync;
     try { localStorage.setItem("hsc-reader-sync", readerSync ? "1" : "0"); } catch {}
     $("#readerSyncBtn").classList.toggle("on", readerSync);
     tauriStatus(readerSync ? "🔗 Pages turn together" : "🔗 Pages turn independently");
   });
-  $("#readerOpenSys").addEventListener("click", () => {
+  on("#readerOpenSys", "click", () => {
     const pane = readerPanes[readerFocus];
     if (pane.sysPath) window.__TAURI__.core.invoke("open_file", { path: pane.sysPath })
       .catch((err) => tauriStatus("Open failed: " + (err?.message || err)));
@@ -1804,7 +1808,7 @@
     const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 500);
     w.addEventListener("beforeunload", () => clearTimeout(t));
   }
-  $("#readerPrint")?.addEventListener("click", () => {
+  on("#readerPrint", "click", () => {
     const pane = readerPanes[readerFocus];
     if (!pane.doc || !paneCanvas(readerFocus)) {
       $("#readerErr").hidden = false;
@@ -1848,7 +1852,7 @@
     $("#readerTimer").hidden = false;
     $("#readerTimerCustomWrap").hidden = true;
   }
-  $("#readerTimerBtn").addEventListener("click", () => {
+  on("#readerTimerBtn", "click", () => {
     const on = $("#readerTimer").hidden;
     $("#readerTimer").hidden = !on;
     $("#readerTimerPreset").hidden = !on;
@@ -1860,7 +1864,7 @@
       timerDisplay();
     }
   });
-  $("#readerTimerPreset").addEventListener("change", (e) => {
+  on("#readerTimerPreset", "change", (e) => {
     if (e.target.value === "custom") {
       $("#readerTimerCustomWrap").hidden = false;
       $("#readerTimerCustom").focus();
@@ -1869,21 +1873,21 @@
     $("#readerTimerCustomWrap").hidden = true;
     timerRun(Number(e.target.value));
   });
-  $("#readerTimerStart").addEventListener("click", () => {
+  on("#readerTimerStart", "click", () => {
     const mins = Math.max(1, Math.min(600, Number($("#readerTimerCustom").value) || 0));
     if (mins) timerRun(mins * 60);
   });
-  $("#readerTimerCustom").addEventListener("keydown", (e) => {
+  on("#readerTimerCustom", "keydown", (e) => {
     if (e.key === "Enter") { e.preventDefault(); $("#readerTimerStart").click(); }
   });
 
   /* ---------- events ---------- */
   let debounce;
-  $("#q").addEventListener("input", (e) => {
+  on("#q", "input", (e) => {
     clearTimeout(debounce);
     debounce = setTimeout(() => { state.q = e.target.value.trim(); writeURL(); scheduleRender(); }, 160);
   });
-  $("#searchForm").addEventListener("submit", (e) => {
+  on("#searchForm", "submit", (e) => {
     e.preventDefault();
     state.q = $("#q").value.trim(); writeURL(); render();
     document.getElementById("browse").scrollIntoView({ behavior: "smooth" });
@@ -1923,9 +1927,9 @@
   document.querySelectorAll("#levelSeg button").forEach(b => b.addEventListener("click", () => {
     state.level = b.dataset.level; syncPills(); writeURL(); render();
   }));
-  $("#solOnly").addEventListener("change", (e) => { state.solutionsOnly = e.target.checked; syncPills(); writeURL(); render(); });
-  $("#mineOnly").addEventListener("change", (e) => { state.mine = e.target.checked; syncPills(); writeURL(); render(); });
-  $("#slowRoute").addEventListener("change", (e) => {
+  on("#solOnly", "change", (e) => { state.solutionsOnly = e.target.checked; syncPills(); writeURL(); render(); });
+  on("#mineOnly", "change", (e) => { state.mine = e.target.checked; syncPills(); writeURL(); render(); });
+  on("#slowRoute", "change", (e) => {
     state.includeSlowRoute = e.target.checked;
     if (tauriArmed) { tauriArmed = null; $("#zipBtn").textContent = "⭳ Save to library"; } // stale confirm
     if (!state.includeSlowRoute) {
@@ -1940,8 +1944,8 @@
     updateStats();      // hero stats + level pills follow
     render();           // grid hides/shows + results count + bulk counter
   });
-  $("#sortSel").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
-  $("#viewBtn").addEventListener("click", () => {
+  on("#sortSel", "change", (e) => { state.sort = e.target.value; render(); });
+  on("#viewBtn", "click", () => {
     state.view = state.view === "grid" ? "list" : "grid";
     cardsEl.classList.toggle("list", state.view === "list");
   });
@@ -1982,9 +1986,9 @@
     if (backdrop) backdrop.classList.toggle("show", open);
     document.body.classList.toggle("drawer-lock", open);
   }
-  $("#filtersToggle").addEventListener("click", () => setDrawer(!$("#sidebar").classList.contains("open")));
+  on("#filtersToggle", "click", () => setDrawer(!$("#sidebar").classList.contains("open")));
   if (backdrop) backdrop.addEventListener("click", () => setDrawer(false));
-  $("#drawerClose")?.addEventListener("click", () => setDrawer(false));
+  on("#drawerClose", "click", () => setDrawer(false));
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && $("#reader").hidden && $("#sidebar").classList.contains("open")) setDrawer(false);
   });

@@ -6,7 +6,7 @@
      → recently read papers re-open offline
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
-const VERSION = "v2"; // v2: fixes PDF cache corruption (Range/206) + stale shell
+const VERSION = "v3"; // v3: cache writes are best-effort (can never break a good fetch)
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
 const PAGES_CACHE = `hsc-pages-${VERSION}`;
 const PDF_CACHE = `hsc-pdfs-${VERSION}`;
@@ -19,7 +19,13 @@ const SHELL = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(SHELL_CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // Per-asset allSettled: one missing/redirecting asset must never stall
+  // the install (a stalled install keeps the old broken worker alive).
+  e.waitUntil(
+    caches.open(SHELL_CACHE)
+      .then(c => Promise.allSettled(SHELL.map(s => c.add(s))))
+      .then(() => self.skipWaiting())
+  );
 });
 self.addEventListener("activate", (e) => {
   e.waitUntil((async () => {
@@ -30,12 +36,18 @@ self.addEventListener("activate", (e) => {
   })());
 });
 
+/* Cache writes are BEST-EFFORT: a failed/rejected put (odd headers, storage
+   pressure, exotic request modes) must never turn a healthy fetch into an
+   error — that killed whole sessions in v2. */
+async function putBestEffort(cache, req, res) {
+  try { await cache.put(req, res.clone()); } catch {}
+}
 async function cacheFirst(req, cacheName) {
   const cache = await caches.open(cacheName);
   const hit = await cache.match(req);
   if (hit) return hit;
   const res = await fetch(req);
-  if (res.ok) await cache.put(req, res.clone());
+  if (res.ok) await putBestEffort(cache, req, res);
   return res;
 }
 /* PDFs: pdf.js fetches with HTTP Range requests (206 Partial). Caching a
@@ -50,7 +62,7 @@ async function pdfFetch(req) {
   if (hit) return hit;
   const res = await fetch(req);
   if (res.status === 200 && res.type !== "opaque") {
-    await cache.put(req, res.clone());
+    await putBestEffort(cache, req, res);
     await trimPdfs(cache);
   }
   return res;
@@ -59,7 +71,7 @@ async function networkFirst(req, cacheName) {
   const cache = await caches.open(cacheName);
   try {
     const res = await fetch(req);
-    if (res.ok) await cache.put(req, res.clone());
+    if (res.ok) await putBestEffort(cache, req, res);
     return res;
   } catch {
     const hit = await cache.match(req) || await cache.match("/");
