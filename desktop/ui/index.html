@@ -240,10 +240,16 @@
   <div class="reader-bar">
     <button class="bar-btn" id="readerClose">← Back</button>
     <span id="readerTitle" class="reader-title"></span>
+    <div id="readerTabs" class="reader-tabs" hidden>
+      <button class="bar-btn tab on" id="tabPaper" title="Focus the paper pane">Paper</button>
+      <button class="bar-btn tab" id="tabSol" title="Focus the solutions pane">Solutions</button>
+    </div>
     <span id="readerPageInfo" class="reader-pageinfo"></span>
     <button class="bar-btn" id="readerPrev">‹ Prev</button>
     <span id="readerPageNum" class="reader-pagenum">1 / 1</span>
     <button class="bar-btn" id="readerNext">Next ›</button>
+    <button class="bar-btn" id="readerSyncBtn" hidden title="Turn pages together — solutions follows the paper and vice versa">🔗</button>
+    <button class="bar-btn" id="readerAddSol" hidden title="Open the solutions alongside the paper">＋ Solutions</button>
     <button class="bar-btn" id="readerTimerBtn" title="Study timer">⏱</button>
     <span id="readerTimer" class="reader-timer" hidden>00:00</span>
     <select id="readerTimerPreset" class="bar-select" hidden>
@@ -261,7 +267,28 @@
     <button class="bar-btn" id="readerPrint" title="Print this page">🖨</button>
     <button class="bar-btn" id="readerOpenSys" title="Open in system PDF app">📂</button>
   </div>
-  <div class="reader-scroll" id="readerScroll"><canvas id="readerCanvas"></canvas><div id="readerErr" class="reader-err"></div></div>
+  <div class="reader-split" id="readerSplit">
+    <div class="reader-pane focus" id="panePaper" data-pane="paper">
+      <div class="pane-bar">
+        <span class="pane-label">Paper</span>
+        <button class="bar-btn pane-nav" title="Previous page">‹</button>
+        <span class="pane-num" id="numPaper">1 / 1</span>
+        <button class="bar-btn pane-nav" title="Next page">›</button>
+      </div>
+      <div class="reader-scroll pane-scroll"><canvas id="canvasPaper"></canvas></div>
+    </div>
+    <div class="reader-pane" id="paneSol" data-pane="sol" hidden>
+      <div class="pane-bar">
+        <span class="pane-label">Solutions</span>
+        <button class="bar-btn pane-nav" title="Previous page">‹</button>
+        <span class="pane-num" id="numSol">1 / 1</span>
+        <button class="bar-btn pane-nav" title="Next page">›</button>
+        <button class="bar-btn pane-close" id="paneSolClose" title="Close solutions">✕</button>
+      </div>
+      <div class="reader-scroll pane-scroll"><canvas id="canvasSol"></canvas></div>
+    </div>
+  </div>
+  <div id="readerErr" class="reader-err" hidden></div>
 </div>
 
 <script src="pdfjs/pdf.min.js" defer></script>

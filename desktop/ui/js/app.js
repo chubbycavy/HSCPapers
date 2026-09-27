@@ -684,7 +684,7 @@
     const readBtn = el.querySelector("[data-read]");
     if (readBtn) readBtn.addEventListener("click", (e) => {
       e.preventDefault(); e.stopPropagation();
-      openReader(paperHref, p.title, p.id);
+      openReader(paperHref, p.title, p.id, solHref || null); // auto-split when solutions exist
     });
     const starBtn = el.querySelector("[data-star]");
     starBtn.addEventListener("click", (e) => {
@@ -1527,10 +1527,20 @@
           b.removeAttribute("target");
           b.removeAttribute("download");
           b.textContent = "📖 View";
-          // Primary: open the embedded reader.
+          // Primary: open the embedded reader (split when solutions are on disk).
           b.addEventListener("click", (e) => {
             e.preventDefault();
-            openReader(path, title, b.closest(".card")?.dataset.id);
+            const card = b.closest(".card");
+            let solLocal = null;
+            const p = state.papers.find(x => x.id === card?.dataset.id);
+            if (p) {
+              const srel = libraryRel(p, "solutions");
+              if (srel) {
+                const idx = rels.indexOf(srel);
+                if (idx >= 0 && res[idx]) solLocal = res[idx];
+              }
+            }
+            openReader(path, title, card?.dataset.id, solLocal);
           });
           // Secondary chip: open in the system PDF app.
           const sys = document.createElement("a");
@@ -1547,76 +1557,191 @@
     });
   }
 
-  /* ----- embedded reader overlay (pdf.js, in-page: zero state loss) ----- */
+  /* ----- embedded reader overlay (pdf.js) — single or SPLIT (paper + solutions) ----- */
   // Tauri: opens local library files. Web: opens paper URLs directly
   // (works wherever the source sends CORS headers; falls back to a hint).
-  let readerDoc = null, readerPage = 1, readerPath = null, readerSystemPath = null;
-  function openReader(path, title, id) {
+  // F5: papers WITH solutions open side by side — independent page
+  // navigation per pane, optional page-follow sync (🔗), vertical stack on
+  // mobile. Single-pane mode behaves exactly like the pre-F5 reader.
+  function mkPane() { return { doc: null, page: 1, sysPath: null, numPages: 0 }; }
+  const readerPanes = { paper: mkPane(), sol: mkPane() };
+  let readerMode = "single"; // "single" (one pane) | "split" (both)
+  let readerFocus = "paper"; // keyboard + global bar + print target
+  let readerSync = false;    // page-follow toggle (persisted, default off)
+  try { readerSync = localStorage.getItem("hsc-reader-sync") === "1"; } catch {}
+  let readerPaperUrl = null, readerSolUrl = null;
+  let pendingPaperId = null; // B8: recently-viewed logs only on a successful load
+
+  function paneCanvas(key) { return $(key === "paper" ? "#canvasPaper" : "#canvasSol"); }
+  function paneNumEl(key) { return $(key === "paper" ? "#numPaper" : "#numSol"); }
+
+  function openReader(path, title, id, solPath) {
     if (!path) return;
-    if (id) logRecentlyViewed(id); // shelf: recently-opened ring (last 50)
-    readerPath = IS_TAURI ? path : proxied(path);
-    readerSystemPath = IS_TAURI ? path : null;
+    pendingPaperId = id || null;
+    readerPaperUrl = IS_TAURI ? path : proxied(path);
+    readerSolUrl = solPath ? (IS_TAURI ? solPath : proxied(solPath)) : null;
+    readerPanes.paper = mkPane();
+    readerPanes.sol = mkPane();
+    readerPanes.paper.sysPath = IS_TAURI ? path : null;
+    readerPanes.sol.sysPath = IS_TAURI && solPath ? solPath : null;
     $("#readerTitle").textContent = title || "Paper";
-    $("#readerErr").textContent = "";
+    $("#readerErr").hidden = true; $("#readerErr").textContent = "";
     $("#reader").hidden = false;
     document.body.style.overflow = "hidden";
+    readerMode = readerSolUrl ? "split" : "single";
+    readerFocus = "paper";
+    applyReaderChrome();
     const sysBtn = $("#readerOpenSys");
     if (sysBtn) sysBtn.hidden = !IS_TAURI;
     if (window.pdfjsLib) {
       pdfjsLib.GlobalWorkerOptions.workerSrc = "pdfjs/pdf.worker.min.js";
-      loadReaderDoc();
+      loadPane("paper");
+      if (readerMode === "split") loadPane("sol");
     } else {
+      $("#readerErr").hidden = false;
       $("#readerErr").textContent = "Reader engine is still loading — try again in a second (or use the ⭳ button).";
     }
+  }
+  function applyReaderChrome() {
+    const split = readerMode === "split";
+    $("#paneSol").hidden = !split;
+    $("#readerTabs").hidden = !split;
+    $("#readerSyncBtn").hidden = !split;
+    $("#readerSyncBtn").classList.toggle("on", readerSync);
+    $("#readerAddSol").hidden = !(readerSolUrl && !split);
+    setFocus(readerFocus, true);
+  }
+  function setFocus(key, silent) {
+    readerFocus = key;
+    $("#panePaper").classList.toggle("focus", key === "paper");
+    $("#paneSol").classList.toggle("focus", key === "sol");
+    $("#tabPaper").classList.toggle("on", key === "paper");
+    $("#tabSol").classList.toggle("on", key === "sol");
+    if (!silent) syncGlobalPage();
+  }
+  function syncGlobalPage() {
+    const pane = readerPanes[readerFocus];
+    if (!pane?.doc) return;
+    $("#readerPageNum").textContent = `${pane.page} / ${pane.numPages}`;
+    $("#readerPageInfo").textContent = `${pane.numPages} page${pane.numPages === 1 ? "" : "s"}`;
   }
   function closeReader() {
     $("#reader").hidden = true;
     document.body.style.overflow = "";
-    readerDoc = null; readerPage = 1;
+    for (const key of ["paper", "sol"]) {
+      try { readerPanes[key].doc?.destroy(); } catch {}
+      readerPanes[key] = mkPane();
+    }
+    readerMode = "single"; readerFocus = "paper"; pendingPaperId = null;
+    $("#readerErr").hidden = true; $("#readerErr").textContent = "";
   }
-  async function loadReaderDoc() {
+  async function loadPane(key) {
+    const pane = readerPanes[key];
     try {
-      const url = (IS_TAURI && readerSystemPath) ? window.__TAURI__.core.convertFileSrc(readerSystemPath) : readerPath;
+      const url = (IS_TAURI && pane.sysPath) ? window.__TAURI__.core.convertFileSrc(pane.sysPath)
+        : (key === "paper" ? readerPaperUrl : readerSolUrl);
       const doc = await window.pdfjsLib.getDocument({ url }).promise;
-      readerDoc = doc;
-      readerPage = 1;
-      showReaderPage(1);
+      pane.doc = doc;
+      pane.numPages = doc.numPages;
+      if (key === "paper" && pendingPaperId) { logRecentlyViewed(pendingPaperId); pendingPaperId = null; } // B8
+      await renderPanePage(key, 1);
     } catch (e) {
-      $("#readerErr").textContent = IS_TAURI
-        ? "Could not open paper: " + (e?.message || e)
-        : "Could not open this paper in the reader (the source may not allow cross-site reading). Use the ⭳ download button instead.";
+      if (key === "sol") {
+        // Solutions failed to load → graceful fallback to single-pane paper.
+        try { pane.doc?.destroy(); } catch {}
+        readerPanes.sol = mkPane();
+        readerMode = "single";
+        applyReaderChrome();
+        $("#readerErr").hidden = false;
+        $("#readerErr").textContent = "Solutions couldn't open in the reader (the source may not allow cross-site reading) — the ⭳ download still works.";
+      } else {
+        $("#readerErr").hidden = false;
+        $("#readerErr").textContent = IS_TAURI
+          ? "Could not open paper: " + (e?.message || e)
+          : "Could not open this paper in the reader (the source may not allow cross-site reading). Use the ⭳ download button instead.";
+      }
     }
   }
-  async function showReaderPage(n) {
-    if (!readerDoc) return;
+  async function renderPanePage(key, n, opts = {}) {
+    const pane = readerPanes[key];
+    if (!pane.doc) return;
+    n = Math.max(1, Math.min(n, pane.numPages));
     try {
-      const pg = await readerDoc.getPage(n);
+      const pg = await pane.doc.getPage(n);
       const vp = pg.getViewport({ scale: 1.6 });
-      const cv = $("#readerCanvas");
+      const cv = paneCanvas(key);
       cv.width = vp.width; cv.height = vp.height;
       await pg.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
-      readerPage = n;
-      $("#readerPageNum").textContent = `${n} / ${readerDoc.numPages}`;
-      $("#readerPageInfo").textContent = `${readerDoc.numPages} page${readerDoc.numPages === 1 ? "" : "s"}`;
-      $("#readerScroll").scrollTop = 0;
+      pane.page = n;
+      paneNumEl(key).textContent = `${n} / ${pane.numPages}`;
+      cv.closest(".pane-scroll").scrollTop = 0;
+      if (key === readerFocus) syncGlobalPage();
+      if (readerSync && !opts.fromSync && readerMode === "split") {
+        const other = key === "paper" ? "sol" : "paper";
+        if (readerPanes[other].doc) await renderPanePage(other, n, { fromSync: true });
+      }
     } catch (e) {
+      $("#readerErr").hidden = false;
       $("#readerErr").textContent = "Page render failed: " + (e?.message || e);
     }
   }
   $("#readerClose").addEventListener("click", closeReader);
-  $("#readerPrev").addEventListener("click", () => { if (readerDoc && readerPage > 1) showReaderPage(readerPage - 1); });
-  $("#readerNext").addEventListener("click", () => { if (readerDoc && readerPage < readerDoc.numPages) showReaderPage(readerPage + 1); });
+  $("#readerPrev").addEventListener("click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); });
+  $("#readerNext").addEventListener("click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); });
+  $("#tabPaper").addEventListener("click", () => setFocus("paper"));
+  $("#tabSol").addEventListener("click", () => setFocus("sol"));
+  $("#paneSolClose").addEventListener("click", (e) => {
+    e.stopPropagation();
+    try { readerPanes.sol.doc?.destroy(); } catch {}
+    readerPanes.sol = mkPane();
+    readerMode = "single"; readerFocus = "paper";
+    applyReaderChrome();
+  });
+  $("#readerAddSol").addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!readerSolUrl || readerMode === "split") return;
+    readerMode = "split";
+    applyReaderChrome();
+    loadPane("sol");
+  });
+  $("#readerSyncBtn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    readerSync = !readerSync;
+    try { localStorage.setItem("hsc-reader-sync", readerSync ? "1" : "0"); } catch {}
+    $("#readerSyncBtn").classList.toggle("on", readerSync);
+    tauriStatus(readerSync ? "🔗 Pages turn together" : "🔗 Pages turn independently");
+  });
   $("#readerOpenSys").addEventListener("click", () => {
-    if (readerSystemPath) window.__TAURI__.core.invoke("open_file", { path: readerSystemPath })
+    const pane = readerPanes[readerFocus];
+    if (pane.sysPath) window.__TAURI__.core.invoke("open_file", { path: pane.sysPath })
       .catch((err) => tauriStatus("Open failed: " + (err?.message || err)));
   });
+  // Per-pane click = focus; per-pane bar nav = that pane's pages.
+  for (const key of ["paper", "sol"]) {
+    const el = $(key === "paper" ? "#panePaper" : "#paneSol");
+    el.addEventListener("click", () => setFocus(key));
+    const [prevBtn, nextBtn] = el.querySelectorAll(".pane-nav");
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); setFocus(key);
+      const p = readerPanes[key];
+      if (p.doc && p.page > 1) renderPanePage(key, p.page - 1);
+    });
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); setFocus(key);
+      const p = readerPanes[key];
+      if (p.doc && p.page < p.numPages) renderPanePage(key, p.page + 1);
+    });
+  }
   // Print: web only (desktop prints via the system PDF app on 📂).
   if (IS_TAURI) $("#readerPrint")?.remove();
-  $("#readerPrint")?.addEventListener("click", () => {
-    const cv = $("#readerCanvas");
-    if (!readerDoc || !cv) { $("#readerErr").textContent = "Nothing to print yet — open a paper first."; return; }
+  function printReaderPage(key) {
+    const cv = paneCanvas(key);
     const w = window.open("", "_blank", "width=860,height=1000");
-    if (!w) { $("#readerErr").textContent = "Print blocked — allow pop-ups for this site to use printing."; return; }
+    if (!w) {
+      $("#readerErr").hidden = false;
+      $("#readerErr").textContent = "Print blocked — allow pop-ups for this site to use printing.";
+      return;
+    }
     w.document.open();
     w.document.write(
       `<title>${($("#readerTitle").textContent || "Paper").replace(/</g, "&lt;")}</title>` +
@@ -1626,12 +1751,21 @@
     w.document.close();
     const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 350);
     w.addEventListener("beforeunload", () => clearTimeout(t));
+  }
+  $("#readerPrint")?.addEventListener("click", () => {
+    const pane = readerPanes[readerFocus];
+    if (!pane.doc || !paneCanvas(readerFocus)) {
+      $("#readerErr").hidden = false;
+      $("#readerErr").textContent = "Nothing to print yet — open a paper first.";
+      return;
+    }
+    printReaderPage(readerFocus);
   });
   document.addEventListener("keydown", (e) => {
     if ($("#reader").hidden) return;
     if (e.key === "Escape") closeReader();
-    else if (e.key === "ArrowLeft" && readerPage > 1) showReaderPage(readerPage - 1);
-    else if (e.key === "ArrowRight" && readerDoc && readerPage < readerDoc.numPages) showReaderPage(readerPage + 1);
+    else if (e.key === "ArrowLeft") { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); }
+    else if (e.key === "ArrowRight") { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); }
   });
 
   /* ----- study timer (presets + custom minutes; exam lengths aren't parseable reliably) ----- */
