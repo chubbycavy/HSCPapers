@@ -873,6 +873,11 @@ body.drawer-lock { overflow: hidden; }
 .pane-label + .bar-btn { margin-left: auto; }
 .pane-close { opacity: .85; }
 .bar-btn.on { background: var(--primary, #4f46e5); color: #fff; }
+/* Class-kill: an author display rule (e.g. .reader-pane { display:flex })
+   overrides the UA's [hidden] → display:none, which kept the empty
+   solutions pane permanently visible. This one rule makes [hidden]
+   authoritative everywhere, present and future. */
+[hidden] { display: none !important; }
 @media (max-width: 860px) {
   .reader-split { flex-direction: column; }
   .reader-pane { border-right: none; border-bottom: 1px solid rgba(125,125,155,.25); }
