@@ -852,8 +852,17 @@ body.drawer-lock { overflow: hidden; }
 .reader-timer.warn { color: #d97706; }
 .reader-timer.done { color: #dc2626; }
 .reader-scroll { flex: 1; overflow: auto; text-align: center; background: var(--soft, #e9ecf3); }
-.reader-scroll canvas { margin: 1rem auto; display: block; box-shadow: 0 2px 14px rgba(10,15,40,.35); background: #fff; max-width: 96%; }
+/* Continuous scroll: one placeholder per page, rendered lazily in a window
+   around the viewport. aspect-ratio keeps scroll height stable before a
+   page renders; the placeholder shows its page number while empty. */
+.rpage { position: relative; margin: 1rem auto; width: min(96%, 860px); background: var(--surface-2, #eef0f6); box-shadow: 0 2px 14px rgba(10,15,40,.35); overflow: hidden; }
+.rpage::before { content: attr(data-n); position: absolute; inset: 0; display: grid; place-items: center; color: #aab2c8; font: 800 2.2rem system-ui; }
+.rpage.done { background: #fff; }
+.rpage.done::before { content: none; }
+.rpage canvas { display: block; width: 100%; height: auto; }
+.rpage.rerr::before { content: "⚠ " attr(data-n); color: #dc2626; font-size: 1.2rem; }
 .reader-err { color: #dc2626; padding: 1.2rem; font-weight: 700; }
+.bar-btn:disabled { opacity: .45; cursor: not-allowed; }
 /* F5 split-view: paper + solutions side by side */
 .reader-split { flex: 1; display: flex; min-height: 0; }
 .reader-pane { flex: 1; min-width: 0; display: flex; flex-direction: column; border-right: 1px solid rgba(125,125,155,.25); position: relative; }

@@ -150,6 +150,7 @@
         <option value="school">School A–Z</option>
       </select>
       <button class="btn icon-only" id="viewBtn" title="Toggle grid / list view" aria-label="Toggle grid / list view">▤</button>
+      <button class="btn icon-only" id="densityBtn" title="Toggle compact density (more columns)" aria-pressed="false" aria-label="Toggle compact density">▦</button>
       <button class="btn" id="selectAllBtn" title="Select all (capped at the ZIP limit)">Select all</button>
     </div>
     <div class="chips" id="chipsRow" hidden></div>
@@ -273,7 +274,7 @@
         <span class="pane-num" id="numPaper">1 / 1</span>
         <button class="bar-btn pane-nav" title="Next page">›</button>
       </div>
-      <div class="reader-scroll pane-scroll"><canvas id="canvasPaper"></canvas></div>
+      <div class="reader-scroll pane-scroll" id="scrollPaper"></div>
     </div>
     <div class="reader-pane" id="paneSol" data-pane="sol" hidden>
       <div class="pane-bar">
@@ -284,7 +285,7 @@
         <button class="bar-btn pane-nav" title="Next page">›</button>
         <button class="bar-btn pane-close" id="paneSolClose" title="Close solutions">✕</button>
       </div>
-      <div class="reader-scroll pane-scroll"><canvas id="canvasSol"></canvas></div>
+      <div class="reader-scroll pane-scroll" id="scrollSol"></div>
     </div>
   </div>
   <div id="readerErr" class="reader-err" hidden></div>

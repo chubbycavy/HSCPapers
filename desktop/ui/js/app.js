@@ -1578,13 +1578,17 @@
     });
   }
 
-  /* ----- embedded reader overlay (pdf.js) — single or SPLIT (paper + solutions) ----- */
+  /* ----- embedded reader overlay (pdf.js) — continuous scroll, single or SPLIT ----- */
   // Tauri: opens local library files. Web: opens paper URLs directly
   // (works wherever the source sends CORS headers; falls back to a hint).
-  // F5: papers WITH solutions open side by side — independent page
-  // navigation per pane, optional page-follow sync (🔗), vertical stack on
-  // mobile. Single-pane mode behaves exactly like the pre-F5 reader.
-  function mkPane() { return { doc: null, page: 1, sysPath: null, numPages: 0 }; }
+  // Continuous scroll: each pane holds one placeholder element per page
+  // (aspect-ratio stable before render) rendered lazily in a window around
+  // the viewport; far pages unload their canvas + page object to bound
+  // memory. Paper/Solutions panes navigate and print independently; 🔗
+  // sync follows the page index across panes.
+  function mkPane() {
+    return { doc: null, page: 1, sysPath: null, numPages: 0, pages: [], queue: [], inFlight: 0, observer: null, scrollTick: false, syncLock: false, dims: null };
+  }
   const readerPanes = { paper: mkPane(), sol: mkPane() };
   let readerMode = "single"; // "single" (one pane) | "split" (both)
   let readerFocus = "paper"; // keyboard + global bar + print target
@@ -1593,8 +1597,8 @@
   let readerPaperUrl = null, readerSolUrl = null;
   let pendingPaperId = null; // B8: recently-viewed logs only on a successful load
 
-  function paneCanvas(key) { return $(key === "paper" ? "#canvasPaper" : "#canvasSol"); }
   function paneNumEl(key) { return $(key === "paper" ? "#numPaper" : "#numSol"); }
+  function paneScrollEl(key) { return $(key === "paper" ? "#scrollPaper" : "#scrollSol"); }
 
   function openReader(path, title, id, solPath) {
     if (!path) return;
@@ -1629,7 +1633,15 @@
     $("#paneSol").hidden = !split;
     $("#readerSyncBtn").hidden = !split;
     $("#readerSyncBtn").classList.toggle("on", readerSync);
-    $("#readerAddSol").hidden = !(readerSolUrl && !split);
+    // ＋ Solutions is ALWAYS present in single mode — disabled with an honest
+    // tooltip when the paper has no loadable solutions file, so the toggle's
+    // existence is never a mystery.
+    const addSol = $("#readerAddSol");
+    addSol.hidden = split;
+    addSol.disabled = !readerSolUrl;
+    addSol.title = readerSolUrl
+      ? "Open the solutions alongside the paper"
+      : "No solutions file available for this paper";
     // Split mode: the panes own navigation and printing — the global bar's
     // duplicated controls hide (single-pane mode keeps them all).
     $("#readerPrev").hidden = split;
@@ -1656,7 +1668,14 @@
     $("#reader").hidden = true;
     document.body.style.overflow = "";
     for (const key of ["paper", "sol"]) {
-      try { readerPanes[key].doc?.destroy(); } catch {}
+      const pane = readerPanes[key];
+      pane.observer?.disconnect();
+      for (const pg of pane.pages) {
+        pg.dead = true; // any in-flight render aborts cleanly
+        try { pg.pageRef?.destroy(); } catch {}
+      }
+      paneScrollEl(key).innerHTML = "";
+      try { pane.doc?.destroy(); } catch {}
       readerPanes[key] = mkPane();
     }
     readerMode = "single"; readerFocus = "paper"; pendingPaperId = null;
@@ -1671,7 +1690,31 @@
       pane.doc = doc;
       pane.numPages = doc.numPages;
       if (key === "paper" && pendingPaperId) { logRecentlyViewed(pendingPaperId); pendingPaperId = null; } // B8
-      await renderPanePage(key, 1);
+      // Page placeholders: uniform dims from page 1 (exam papers are
+      // uniform; a deviant page simply renders at its own size in place).
+      const p1 = await doc.getPage(1);
+      const vp1 = p1.getViewport({ scale: 1 });
+      pane.dims = { w: vp1.width, h: vp1.height };
+      const sc = paneScrollEl(key);
+      sc.innerHTML = "";
+      sc.scrollTop = 0;
+      pane.pages = [];
+      const frag = document.createDocumentFragment();
+      for (let n = 1; n <= pane.numPages; n++) {
+        const d = document.createElement("div");
+        d.className = "rpage";
+        d.dataset.n = String(n);
+        d.style.aspectRatio = `${vp1.width} / ${vp1.height}`;
+        const cv = document.createElement("canvas");
+        d.appendChild(cv);
+        frag.appendChild(d);
+        pane.pages.push({ el: d, canvas: cv, rendered: false, rendering: false, pageRef: null, dead: false });
+      }
+      sc.appendChild(frag);
+      setupPaneObserver(key);
+      wirePaneScroll(key);
+      queueRender(key, 1); // eager first page
+      if (key === readerFocus) syncGlobalPage();
     } catch (e) {
       if (key === "sol") {
         // Solutions failed to load → graceful fallback to single-pane paper.
@@ -1689,43 +1732,132 @@
       }
     }
   }
-  async function renderPanePage(key, n, opts = {}) {
+  /* Lazy render queue: ≤3 concurrent page renders per pane, nearest to the
+     viewport first. Each page renders into ITS OWN canvas, so pages never
+     contend — the old single-canvas race is structurally gone. */
+  function queueRender(key, n) {
     const pane = readerPanes[key];
-    if (!pane.doc) return;
-    n = Math.max(1, Math.min(n, pane.numPages));
-    // Render guard: a canvas hosts exactly one pdf.js render at a time —
-    // overlapping calls (fast paging, sync chains) left blank canvases with
-    // a stale counter. Serialize per pane and drop superseded renders.
-    pane.renderSeq = (pane.renderSeq || 0) + 1;
-    const seq = pane.renderSeq;
-    try {
-      const pg = await pane.doc.getPage(n);
-      const vp = pg.getViewport({ scale: 1.6 });
-      const cv = paneCanvas(key);
-      if (seq !== pane.renderSeq) return; // superseded while fetching the page
-      cv.width = vp.width; cv.height = vp.height;
-      await pg.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
-      if (seq !== pane.renderSeq) return; // superseded mid-render
-      pane.page = n;
-      paneNumEl(key).textContent = `${n} / ${pane.numPages}`;
-      cv.closest(".pane-scroll").scrollTop = 0;
-      if (key === readerFocus) syncGlobalPage();
-      if (readerSync && !opts.fromSync && readerMode === "split") {
-        const other = key === "paper" ? "sol" : "paper";
-        if (readerPanes[other].doc) await renderPanePage(other, n, { fromSync: true });
-      }
-    } catch (e) {
-      if (seq !== pane.renderSeq) return; // superseded — not this render's error
-      $("#readerErr").hidden = false;
-      $("#readerErr").textContent = "Page render failed: " + (e?.message || e);
+    const pg = pane.pages?.[n - 1];
+    if (!pane.doc || !pg || pg.rendered || pg.rendering || pane.queue.includes(n)) return;
+    pane.queue.push(n);
+    pane.queue.sort((a, b) => Math.abs(a - pane.page) - Math.abs(b - pane.page));
+    pumpRenders(key);
+  }
+  function pumpRenders(key) {
+    const pane = readerPanes[key];
+    while (pane.inFlight < 3 && pane.queue.length) {
+      const n = pane.queue.shift();
+      const pg = pane.pages[n - 1];
+      if (pg.rendered || pg.rendering) continue;
+      pane.inFlight++;
+      renderPanePageAt(key, n).finally(() => { pane.inFlight--; pumpRenders(key); });
     }
   }
+  async function renderPanePageAt(key, n) {
+    const pane = readerPanes[key];
+    const pg = pane.pages[n - 1];
+    if (!pane.doc || !pg || pg.rendered) return;
+    pg.rendering = true;
+    try {
+      const page = await pane.doc.getPage(n);
+      if (pg.dead) return;
+      pg.pageRef = page;
+      const vp = page.getViewport({ scale: 1.6 });
+      const cv = pg.canvas;
+      cv.width = vp.width; cv.height = vp.height;
+      await page.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
+      if (pg.dead) return;
+      pg.rendered = true;
+      pg.el.classList.add("done");
+      pg.el.classList.remove("rerr");
+    } catch (e) {
+      if (!pg.dead) pg.el.classList.add("rerr"); // per-page failure stays isolated
+    } finally {
+      pg.rendering = false;
+    }
+  }
+  function setupPaneObserver(key) {
+    const pane = readerPanes[key];
+    pane.observer?.disconnect();
+    pane.observer = new IntersectionObserver((entries) => {
+      for (const en of entries) if (en.isIntersecting) queueRender(key, Number(en.target.dataset.n));
+    }, { root: paneScrollEl(key), rootMargin: "900px 0px" });
+    for (const pg of pane.pages) pane.observer.observe(pg.el);
+  }
+  function wirePaneScroll(key) {
+    const sc = paneScrollEl(key);
+    sc.onscroll = () => { // property assignment: never stacks across reloads
+      const pane = readerPanes[key];
+      if (pane.scrollTick) return;
+      pane.scrollTick = true;
+      requestAnimationFrame(() => { pane.scrollTick = false; onPaneScroll(key); });
+    };
+  }
+  function onPaneScroll(key) {
+    const pane = readerPanes[key];
+    const sc = paneScrollEl(key);
+    if (!pane.doc || !pane.pages.length) return;
+    const half = sc.clientHeight * 0.4;
+    let cur = 1;
+    for (let i = 0; i < pane.pages.length; i++) {
+      if (pane.pages[i].el.offsetTop <= sc.scrollTop + half) cur = i + 1;
+      else break;
+    }
+    sweepUnload(key, sc.scrollTop, sc.clientHeight);
+    if (cur !== pane.page) {
+      pane.page = cur;
+      paneNumEl(key).textContent = `${cur} / ${pane.numPages}`;
+      if (key === readerFocus) syncGlobalPage();
+      if (readerSync && readerMode === "split" && !pane.syncLock) syncPaneTo(key, cur);
+    }
+    pumpRenders(key);
+  }
+  function sweepUnload(key, scrollTop, vh) {
+    const pane = readerPanes[key];
+    const mid = scrollTop + vh / 2;
+    for (const pg of pane.pages) {
+      if (!pg.rendered || pg.rendering) continue;
+      if (Math.abs(pg.el.offsetTop + pg.el.offsetHeight / 2 - mid) > vh * 2.5) {
+        pg.rendered = false;
+        pg.el.classList.remove("done");
+        pg.canvas.width = pg.canvas.height = 0;
+        try { pg.pageRef?.destroy(); } catch {}
+        pg.pageRef = null;
+      }
+    }
+  }
+  function jumpToPage(key, n) {
+    const pane = readerPanes[key];
+    if (!pane.doc) return;
+    const target = Math.max(1, Math.min(n, pane.numPages));
+    pane.pages[target - 1].el.scrollIntoView({ block: "start", behavior: "auto" });
+    onPaneScroll(key);
+  }
+  function syncPaneTo(key, n) {
+    const other = key === "paper" ? "sol" : "paper";
+    const op = readerPanes[other];
+    if (!op.doc || op.syncLock) return;
+    const target = Math.min(n, op.numPages);
+    if (target === op.page) return;
+    op.syncLock = true;
+    op.page = target;
+    paneNumEl(other).textContent = `${target} / ${op.numPages}`;
+    op.pages[target - 1].el.scrollIntoView({ block: "start", behavior: "auto" });
+    setTimeout(() => { op.syncLock = false; }, 180);
+  }
   on("#readerClose", "click", closeReader);
-  on("#readerPrev", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); });
-  on("#readerNext", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); });
+  on("#readerPrev", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) jumpToPage(readerFocus, p.page - 1); });
+  on("#readerNext", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) jumpToPage(readerFocus, p.page + 1); });
   on("#paneSolClose", "click", (e) => {
     e.stopPropagation();
-    try { readerPanes.sol.doc?.destroy(); } catch {}
+    const pane = readerPanes.sol;
+    pane.observer?.disconnect();
+    for (const pg of pane.pages) {
+      pg.dead = true;
+      try { pg.pageRef?.destroy(); } catch {}
+    }
+    paneScrollEl("sol").innerHTML = "";
+    try { pane.doc?.destroy(); } catch {}
     readerPanes.sol = mkPane();
     readerMode = "single"; readerFocus = "paper";
     applyReaderChrome();
@@ -1757,12 +1889,12 @@
     prevBtn.addEventListener("click", (e) => {
       e.stopPropagation(); setFocus(key);
       const p = readerPanes[key];
-      if (p.doc && p.page > 1) renderPanePage(key, p.page - 1);
+      if (p.doc && p.page > 1) jumpToPage(key, p.page - 1);
     });
     nextBtn.addEventListener("click", (e) => {
       e.stopPropagation(); setFocus(key);
       const p = readerPanes[key];
-      if (p.doc && p.page < p.numPages) renderPanePage(key, p.page + 1);
+      if (p.doc && p.page < p.numPages) jumpToPage(key, p.page + 1);
     });
     el.querySelector(".pane-print")?.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -1777,9 +1909,8 @@
   }
   async function printPane(key, allPages) {
     const pane = readerPanes[key];
-    const cv = paneCanvas(key);
     const fail = (msg) => { $("#readerErr").hidden = false; $("#readerErr").textContent = msg; };
-    if (!pane.doc || !cv) { fail("Nothing to print yet — open a paper first."); return; }
+    if (!pane.doc) { fail("Nothing to print yet — open a paper first."); return; }
     const w = window.open("", "_blank", "width=860,height=1000");
     if (!w) { fail("Print blocked — allow pop-ups for this site to use printing."); return; }
     const title = ($("#readerTitle").textContent || "Paper").replace(/</g, "&lt;");
@@ -1790,27 +1921,26 @@
       `<title>${title}</title>` +
       `<style>@page{margin:10mm}body{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}img{width:100%;max-width:840px}</style>`
     );
+    const scratch = document.createElement("canvas"); // offscreen — the live
+    // page canvases belong to the continuous scroll and are never touched.
     for (let i = 1; i <= max; i++) {
       try {
-        // Renders through the pane's canvas — doubling as visible progress
-        // (the pane-num shows the counter while the loop runs).
         const pg = await pane.doc.getPage(i);
         const vp = pg.getViewport({ scale: 1.6 });
-        cv.width = vp.width; cv.height = vp.height;
-        await pg.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
-        w.document.write(`<img src="${cv.toDataURL("image/png")}" alt="page ${i}">`);
+        scratch.width = vp.width; scratch.height = vp.height;
+        await pg.render({ canvasContext: scratch.getContext("2d"), viewport: vp }).promise;
+        w.document.write(`<img src="${scratch.toDataURL("image/png")}" alt="page ${i}">`);
         if (allPages) paneNumEl(key).textContent = `🖨 ${i} / ${max}`;
       } catch { /* skip a failed page rather than abort the print run */ }
     }
     if (capped) w.document.write(`<p style="font:600 .8rem system-ui;color:#555">First ${MAX_PRINT_PAGES} of ${pane.numPages} pages (print cap).</p>`);
     w.document.close();
-    if (allPages) renderPanePage(key, pane.page); // restore the pane display
     const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 500);
     w.addEventListener("beforeunload", () => clearTimeout(t));
   }
   on("#readerPrint", "click", () => {
     const pane = readerPanes[readerFocus];
-    if (!pane.doc || !paneCanvas(readerFocus)) {
+    if (!pane.doc) {
       $("#readerErr").hidden = false;
       $("#readerErr").textContent = "Nothing to print yet — open a paper first.";
       return;
@@ -1820,8 +1950,8 @@
   document.addEventListener("keydown", (e) => {
     if ($("#reader").hidden) return;
     if (e.key === "Escape") closeReader();
-    else if (e.key === "ArrowLeft") { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) renderPanePage(readerFocus, p.page - 1); }
-    else if (e.key === "ArrowRight") { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) renderPanePage(readerFocus, p.page + 1); }
+    else if (e.key === "ArrowLeft") { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) jumpToPage(readerFocus, p.page - 1); }
+    else if (e.key === "ArrowRight") { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) jumpToPage(readerFocus, p.page + 1); }
   });
 
   /* ----- study timer (presets + custom minutes; exam lengths aren't parseable reliably) ----- */
