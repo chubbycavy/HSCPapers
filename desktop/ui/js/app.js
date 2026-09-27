@@ -1731,25 +1731,48 @@
       const p = readerPanes[key];
       if (p.doc && p.page < p.numPages) renderPanePage(key, p.page + 1);
     });
+    el.querySelector(".pane-print")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      printPane(key, true); // F4: whole paper / solutions (capped, progress)
+    });
   }
   // Print: web only (desktop prints via the system PDF app on 📂).
-  if (IS_TAURI) $("#readerPrint")?.remove();
-  function printReaderPage(key) {
+  const MAX_PRINT_PAGES = 60;
+  if (IS_TAURI) {
+    $("#readerPrint")?.remove();
+    document.querySelectorAll(".pane-print").forEach(b => b.remove());
+  }
+  async function printPane(key, allPages) {
+    const pane = readerPanes[key];
     const cv = paneCanvas(key);
+    const fail = (msg) => { $("#readerErr").hidden = false; $("#readerErr").textContent = msg; };
+    if (!pane.doc || !cv) { fail("Nothing to print yet — open a paper first."); return; }
     const w = window.open("", "_blank", "width=860,height=1000");
-    if (!w) {
-      $("#readerErr").hidden = false;
-      $("#readerErr").textContent = "Print blocked — allow pop-ups for this site to use printing.";
-      return;
-    }
+    if (!w) { fail("Print blocked — allow pop-ups for this site to use printing."); return; }
+    const title = ($("#readerTitle").textContent || "Paper").replace(/</g, "&lt;");
+    const max = allPages ? Math.min(pane.numPages, MAX_PRINT_PAGES) : 1;
+    const capped = allPages && pane.numPages > MAX_PRINT_PAGES;
     w.document.open();
     w.document.write(
-      `<title>${($("#readerTitle").textContent || "Paper").replace(/</g, "&lt;")}</title>` +
-      `<style>@page{margin:10mm}body{margin:0;display:flex;justify-content:center}img{width:100%;max-width:840px}</style>` +
-      `<img src="${cv.toDataURL("image/png")}" alt="paper page">`
+      `<title>${title}</title>` +
+      `<style>@page{margin:10mm}body{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}img{width:100%;max-width:840px}</style>`
     );
+    for (let i = 1; i <= max; i++) {
+      try {
+        // Renders through the pane's canvas — doubling as visible progress
+        // (the pane-num shows the counter while the loop runs).
+        const pg = await pane.doc.getPage(i);
+        const vp = pg.getViewport({ scale: 1.6 });
+        cv.width = vp.width; cv.height = vp.height;
+        await pg.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
+        w.document.write(`<img src="${cv.toDataURL("image/png")}" alt="page ${i}">`);
+        if (allPages) paneNumEl(key).textContent = `🖨 ${i} / ${max}`;
+      } catch { /* skip a failed page rather than abort the print run */ }
+    }
+    if (capped) w.document.write(`<p style="font:600 .8rem system-ui;color:#555">First ${MAX_PRINT_PAGES} of ${pane.numPages} pages (print cap).</p>`);
     w.document.close();
-    const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 350);
+    if (allPages) renderPanePage(key, pane.page); // restore the pane display
+    const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 500);
     w.addEventListener("beforeunload", () => clearTimeout(t));
   }
   $("#readerPrint")?.addEventListener("click", () => {
@@ -1759,7 +1782,7 @@
       $("#readerErr").textContent = "Nothing to print yet — open a paper first.";
       return;
     }
-    printReaderPage(readerFocus);
+    printPane(readerFocus, false);
   });
   document.addEventListener("keydown", (e) => {
     if ($("#reader").hidden) return;

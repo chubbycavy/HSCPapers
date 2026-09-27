@@ -870,8 +870,8 @@ body.drawer-lock { overflow: hidden; }
 }
 .pane-label { color: var(--muted, #6b7280); text-transform: uppercase; letter-spacing: .06em; font-size: .7rem; }
 .pane-num { font-variant-numeric: tabular-nums; color: var(--muted, #64748b); min-width: 3.6rem; text-align: center; }
-.pane-close { margin-left: auto; }
-.pane-label + .pane-nav { margin-left: auto; }
+.pane-label + .bar-btn { margin-left: auto; }
+.pane-close { opacity: .85; }
 .reader-tabs { display: flex; gap: .25rem; }
 .reader-tabs .tab.on { background: var(--primary, #4f46e5); color: #fff; }
 .bar-btn.on { background: var(--primary, #4f46e5); color: #fff; }
