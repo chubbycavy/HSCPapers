@@ -157,6 +157,11 @@
     scheduleRender(); // tag labels are compact-aware (B11) — rebuild them
   });
 
+  /* F6 PWA: installable + offline catalogue (web only — Tauri is native). */
+  if (!IS_TAURI && "serviceWorker" in navigator && location.protocol === "https:") {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  }
+
   /* ---------- config badge ---------- */
   const base = (window.SITE_CONFIG?.FILE_HOST_BASE_URL || "").replace(/^https?:\/\//, "");
   $("#hostBadge").textContent = "⇪ " + (window.SITE_CONFIG?.HOST_BADGE || base || "no file host set");

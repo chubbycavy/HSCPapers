@@ -13,3 +13,9 @@
 /data/*
   Cache-Control: public, max-age=600
   Access-Control-Allow-Origin: *
+
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Cache-Control: no-cache
