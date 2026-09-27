@@ -1642,27 +1642,14 @@
     addSol.title = readerSolUrl
       ? "Open the solutions alongside the paper"
       : "No solutions file available for this paper";
-    // Split mode: the panes own navigation and printing — the global bar's
-    // duplicated controls hide (single-pane mode keeps them all).
-    $("#readerPrev").hidden = split;
-    $("#readerNext").hidden = split;
-    $("#readerPageNum").hidden = split;
-    $("#readerPageInfo").hidden = split;
-    const gp = $("#readerPrint");
-    if (gp) gp.hidden = split;
-    setFocus(readerFocus, true);
+    // The pane bars own page navigation and printing everywhere — the
+    // global bar carries only unique controls (v1.0.6 de-duplication).
+    setFocus(readerFocus);
   }
-  function setFocus(key, silent) {
+  function setFocus(key) {
     readerFocus = key;
     $("#panePaper").classList.toggle("focus", key === "paper");
     $("#paneSol").classList.toggle("focus", key === "sol");
-    if (!silent) syncGlobalPage();
-  }
-  function syncGlobalPage() {
-    const pane = readerPanes[readerFocus];
-    if (!pane?.doc) return;
-    $("#readerPageNum").textContent = `${pane.page} / ${pane.numPages}`;
-    $("#readerPageInfo").textContent = `${pane.numPages} page${pane.numPages === 1 ? "" : "s"}`;
   }
   function closeReader() {
     $("#reader").hidden = true;
@@ -1714,7 +1701,6 @@
       setupPaneObserver(key);
       wirePaneScroll(key);
       queueRender(key, 1); // eager first page
-      if (key === readerFocus) syncGlobalPage();
     } catch (e) {
       if (key === "sol") {
         // Solutions failed to load → graceful fallback to single-pane paper.
@@ -1807,7 +1793,6 @@
     if (cur !== pane.page) {
       pane.page = cur;
       paneNumEl(key).textContent = `${cur} / ${pane.numPages}`;
-      if (key === readerFocus) syncGlobalPage();
       if (readerSync && readerMode === "split" && !pane.syncLock) syncPaneTo(key, cur);
     }
     pumpRenders(key);
@@ -1846,8 +1831,6 @@
     setTimeout(() => { op.syncLock = false; }, 180);
   }
   on("#readerClose", "click", closeReader);
-  on("#readerPrev", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page > 1) jumpToPage(readerFocus, p.page - 1); });
-  on("#readerNext", "click", () => { const p = readerPanes[readerFocus]; if (p.doc && p.page < p.numPages) jumpToPage(readerFocus, p.page + 1); });
   on("#paneSolClose", "click", (e) => {
     e.stopPropagation();
     const pane = readerPanes.sol;
@@ -1903,10 +1886,7 @@
   }
   // Print: web only (desktop prints via the system PDF app on 📂).
   const MAX_PRINT_PAGES = 60;
-  if (IS_TAURI) {
-    $("#readerPrint")?.remove();
-    document.querySelectorAll(".pane-print").forEach(b => b.remove());
-  }
+  if (IS_TAURI) document.querySelectorAll(".pane-print").forEach(b => b.remove());
   async function printPane(key, allPages) {
     const pane = readerPanes[key];
     const fail = (msg) => { $("#readerErr").hidden = false; $("#readerErr").textContent = msg; };
@@ -1938,15 +1918,6 @@
     const t = setTimeout(() => { try { w.focus(); w.print(); } catch {} }, 500);
     w.addEventListener("beforeunload", () => clearTimeout(t));
   }
-  on("#readerPrint", "click", () => {
-    const pane = readerPanes[readerFocus];
-    if (!pane.doc) {
-      $("#readerErr").hidden = false;
-      $("#readerErr").textContent = "Nothing to print yet — open a paper first.";
-      return;
-    }
-    printPane(readerFocus, false);
-  });
   document.addEventListener("keydown", (e) => {
     if ($("#reader").hidden) return;
     if (e.key === "Escape") closeReader();

@@ -35,7 +35,7 @@ module.exports = async function run() {
     `<tr><th class="subj-col">${esc(s)} <i>${subjects.get(s)}</i></th>` +
     yearList.map(y => {
       const n = grid.get(`${s}|${y}`) || 0;
-      return `<td class="${bucket(n)}" ${n ? `title="${esc(s)} · ${y}: ${n} paper${n === 1 ? "" : "s"}"` : ""}></td>`;
+      return `<td class="${bucket(n)}" ${n ? `data-label="${esc(s)} · ${y}: ${n} paper${n === 1 ? "" : "s"}"` : ""}></td>`;
     }).join("") + "</tr>"
   ).join("");
   const schoolRows = schoolList.map(([s, n], i) =>
@@ -71,6 +71,8 @@ module.exports = async function run() {
   .school-table td:last-child, .school-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   h2 { margin-top: 2.2rem; }
   .cov-note { color: var(--muted, #6b7280); font-size: .8rem; margin-top: 2rem; }
+  /* Instant hover tooltip (native title needs a ~1s delay and feels broken on tiny cells) */
+  #covtip { position: fixed; z-index: 99; background: #111827; color: #fff; font: 600 .78rem system-ui; padding: .35rem .6rem; border-radius: 8px; pointer-events: none; display: none; box-shadow: 0 4px 14px rgba(0,0,0,.25); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -104,6 +106,20 @@ module.exports = async function run() {
 <footer>
   <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a>
 </footer>
+<div id="covtip"></div>
+<script>
+(() => {
+  const tip = document.getElementById("covtip");
+  for (const td of document.querySelectorAll("table.matrix td[data-label]")) {
+    td.addEventListener("mouseenter", () => { tip.textContent = td.dataset.label; tip.style.display = "block"; });
+    td.addEventListener("mousemove", (e) => {
+      tip.style.left = Math.min(e.clientX + 12, window.innerWidth - tip.offsetWidth - 8) + "px";
+      tip.style.top = Math.max(8, e.clientY - 34) + "px";
+    });
+    td.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+  }
+})();
+</script>
 </body>
 </html>
 `;
