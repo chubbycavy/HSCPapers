@@ -812,6 +812,7 @@ if (require.main === module) {
   for (const p of report.pages) console.log(`  [${p.type}/${p.via}] ${p.page} -> "${p.subject}" (${p.entries})`);
   console.log("sample:", JSON.stringify(papers.slice(0, 2), null, 1).slice(0, 900));
   console.log(`wrote ${OUT}`);
+  await require("./coverage-report.cjs")(); // F7: regenerate the public coverage page
 })().catch((e) => { console.error("BUILD FAILED:", e.message); process.exit(1); });
 }
 
