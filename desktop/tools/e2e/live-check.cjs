@@ -38,8 +38,8 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   const cards = await page.locator("#cards .card").count();
   if (cards > 0) pass(`live catalogue renders (${cards} cards on page 1)`);
   else fail("live catalogue renders no cards");
-  const og = await page.content();
-  if (og.includes("og:title") && og.includes("canonical")) pass("og/canonical present");
+  const ogHtml = await (await fetch(BASE + "?cb=" + Date.now(), { redirect: "follow" })).text();
+  if (ogHtml.includes("og:title") && ogHtml.includes("canonical")) pass("og/canonical present");
   else fail("og/canonical missing");
 
   // coverage page (server-rendered content assertions; the hover journey
