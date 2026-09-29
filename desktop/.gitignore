@@ -2,3 +2,7 @@ tools/.cache/
 node_modules/
 src-tauri/target/
 src-tauri/gen/
+
+desktop/tools/e2e/artifacts/
+tools/e2e/artifacts/
+test-results/
