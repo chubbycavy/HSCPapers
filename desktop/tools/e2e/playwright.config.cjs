@@ -8,6 +8,7 @@ module.exports = {
   workers: 1,
   outputDir: "./artifacts",
   use: {
+    headless: true, // pinned explicitly — no visible browser windows, ever
     baseURL: "http://localhost:8000",
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
@@ -19,6 +20,8 @@ module.exports = {
     cwd: "../../..",
     reuseExistingServer: true,
     timeout: 30_000,
+    stdout: "ignore", // the spawned server never paints the console
+    stderr: "pipe",
   },
   reporter: [["list"], ["json", { outputFile: "./artifacts/report.json" }]],
 };

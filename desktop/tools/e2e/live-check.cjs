@@ -31,7 +31,7 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   else fail("sw cache-control missing no-cache");
 
   // 2. browser checks (rendering-level — the classes our static tests miss)
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(BASE, { waitUntil: "load", timeout: 60_000 });
   await page.waitForSelector("#cards .card", { timeout: 30_000 });
