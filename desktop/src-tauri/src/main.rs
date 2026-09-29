@@ -1332,10 +1332,7 @@ fn version_gt(a: &str, b: &str) -> bool {
     a > b
 }
 
-/// Check the latest GitHub release against the running version. Returns the
-/// full info either way (the UI decides what to show). Read-only.
-#[tauri::command]
-async fn update_check(state: State<'_, AppState>) -> Result<UpdateInfo, String> {
+async fn latest_release(state: &State<'_, AppState>) -> Result<UpdateInfo, String> {
     let resp = state
         .client
         .get(RELEASES_API)
@@ -1352,7 +1349,6 @@ async fn update_check(state: State<'_, AppState>) -> Result<UpdateInfo, String> 
         .unwrap_or("")
         .trim_start_matches('v')
         .to_string();
-    let notes = json["body"].as_str().unwrap_or_default().to_string();
     let mut asset_url = String::new();
     let mut digest = String::new();
     let mut asset_size = 0u64;
@@ -1367,18 +1363,24 @@ async fn update_check(state: State<'_, AppState>) -> Result<UpdateInfo, String> 
             }
         }
     }
-    let update_available = !tag.is_empty()
-        && version_gt(&tag, env!("CARGO_PKG_VERSION"))
-        && !asset_url.is_empty()
-        && !digest.is_empty();
     Ok(UpdateInfo {
-        update_available,
+        update_available: !tag.is_empty()
+            && version_gt(&tag, env!("CARGO_PKG_VERSION"))
+            && !asset_url.is_empty()
+            && !digest.is_empty(),
         version: tag,
-        notes,
+        notes: json["body"].as_str().unwrap_or_default().to_string(),
         asset_url,
         digest,
         asset_size,
     })
+}
+
+/// Check the latest GitHub release against the running version. Returns the
+/// full info either way (the UI decides what to show). Read-only.
+#[tauri::command]
+async fn update_check(state: State<'_, AppState>) -> Result<UpdateInfo, String> {
+    latest_release(&state).await
 }
 
 #[derive(serde::Serialize, Clone)]
@@ -1396,23 +1398,48 @@ struct UpdateProgress {
 async fn update_install(
     app: AppHandle,
     state: State<'_, AppState>,
-    version: String,
-    url: String,
-    expected_digest: String,
+    version: Option<String>,
+    url: Option<String>,
+    expected_digest: Option<String>,
 ) -> Result<(), String> {
     if state.dl.available_permits() < MAX_WORKERS {
         return Err("finish the current download batch first".into());
     }
-    if !url.starts_with("https://github.com/") && !url.starts_with("https://objects.githubusercontent.com/") {
-        return Err("refusing unexpected update URL".into());
+    // Self-sufficient install: a stale frontend may not carry usable asset
+    // fields at all (v1.0.4's JS read a mismatched field name and sent
+    // url: undefined). When the args are missing/empty, re-derive the
+    // latest release HERE and enforce "actually newer" — a broken client
+    // still heals through this same command.
+    let info = if version.as_deref().map(|v| !v.is_empty()).unwrap_or(false)
+        && url.as_deref().map(|u| !u.is_empty()).unwrap_or(false)
+        && expected_digest.as_deref().map(|d| !d.is_empty()).unwrap_or(false)
+    {
+        UpdateInfo {
+            update_available: true,
+            version: version.unwrap(),
+            notes: String::new(),
+            asset_url: url.unwrap(),
+            digest: expected_digest.unwrap(),
+            asset_size: 0,
+        }
+    } else {
+        latest_release(&state).await?
+    };
+    if !info.update_available {
+        return Err(format!("already up to date (running v{})", env!("CARGO_PKG_VERSION")));
     }
-    let want = expected_digest.trim().trim_start_matches("sha256:").to_lowercase();
+    let want = info.digest.trim().trim_start_matches("sha256:").to_lowercase();
     if want.len() != 64 || !want.chars().all(|c| c.is_ascii_hexdigit()) {
         return Err("release has no verifiable SHA-256 digest — refusing to install".into());
     }
+    if !info.asset_url.starts_with("https://github.com/")
+        && !info.asset_url.starts_with("https://objects.githubusercontent.com/")
+    {
+        return Err("refusing unexpected update URL".into());
+    }
     let resp = state
         .client
-        .get(&url)
+        .get(&info.asset_url)
         .send()
         .await
         .map_err(|e| format!("download: {e}"))?;
@@ -1420,7 +1447,7 @@ async fn update_install(
         return Err(format!("download: HTTP {}", resp.status()));
     }
     let total = resp.content_length().unwrap_or(0);
-    let tmp = std::env::temp_dir().join(format!("HSCPapers_{}_x64-setup.exe", version));
+    let tmp = std::env::temp_dir().join(format!("HSCPapers_{}_x64-setup.exe", info.version));
     let mut file = tokio::fs::File::create(&tmp).await.map_err(|e| format!("temp file: {e}"))?;
     let mut hasher = Sha256::new();
     let mut stream = resp.bytes_stream();

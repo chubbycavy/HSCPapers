@@ -1503,17 +1503,24 @@
     try {
       await window.__TAURI__.core.invoke("update_install", {
         version: updateInfo.version,
-        url: updateInfo.assetUrl,
+        // The Rust struct serializes snake_case (no rename_all) — reading
+        // .assetUrl sent undefined and the install died before starting.
+        // With any missing field the Rust side now re-derives the latest
+        // release itself (self-healing for stale clients).
+        url: updateInfo.asset_url,
         expectedDigest: updateInfo.digest,
       });
       // Success path: the installer runs and the app relaunches itself.
     } catch (e) {
+      console.warn("update failed:", e);
       // The happy path ends with app.exit(0), so a dropped connection here
-      // means "installing" — only surface real errors.
+      // means "installing" — only surface real errors, IN THE BAR: the
+      // bulkbar (tauriStatus) is selection-gated and hidden right now.
       const msg = String(e?.message || e);
-      if (!/connection|closed|dropped/i.test(msg)) tauriStatus("Update failed: " + msg);
+      $("#updateBarText").textContent = /connection|closed|dropped/i.test(msg)
+        ? "Update available"
+        : "Update failed: " + msg;
       btn.disabled = false;
-      $("#updateBarText").textContent = "Update available";
     }
   });
   on("#updateLaterBtn", "click", () => {
