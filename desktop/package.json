@@ -1,15 +1,17 @@
 {
-  "name": "hscpapes-desktop",
+  "name": "hscpapers-desktop",
   "private": true,
   "version": "1.0.8",
-  "type": "module",
   "scripts": {
     "tauri": "tauri",
     "dev": "tauri dev",
-    "build": "tauri build",`n    "test:sweep": "node tools/sweep-check.cjs",`n    "test:e2e": "npx playwright test --config tools/e2e/playwright.config.cjs",`n    "test:live": "node tools/e2e/live-check.cjs"
+    "build": "tauri build",
+    "test:sweep": "node tools/sweep-check.cjs",
+    "test:e2e": "npx playwright test --config tools/e2e/playwright.config.cjs",
+    "test:live": "node tools/e2e/live-check.cjs"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
+    "@playwright/test": "^1.55.0",
     "@tauri-apps/cli": "^2"
   }
 }
