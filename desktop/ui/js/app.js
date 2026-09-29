@@ -2024,7 +2024,9 @@
     if (t === "solutions") state.solutionsOnly = !state.solutionsOnly;
     else if (t === "mine") state.mine = !state.mine;
     else state.type = t;
-    if (t === "all") { state.type = "all"; state.solutionsOnly = false; }
+    // "All papers" is the everything-off pill — the shelf filter too, or
+    // users landing on an empty ★ shelf could never get back by clicking it
+    if (t === "all") { state.type = "all"; state.solutionsOnly = false; state.mine = false; }
     $("#solOnly").checked = state.solutionsOnly;
     $("#mineOnly").checked = state.mine;
     syncPills(); writeURL(); render();

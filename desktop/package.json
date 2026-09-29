@@ -6,9 +6,10 @@
   "scripts": {
     "tauri": "tauri",
     "dev": "tauri dev",
-    "build": "tauri build"
+    "build": "tauri build",`n    "test:sweep": "node tools/sweep-check.cjs",`n    "test:e2e": "npx playwright test --config tools/e2e/playwright.config.cjs",`n    "test:live": "node tools/e2e/live-check.cjs"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tauri-apps/cli": "^2"
   }
 }
