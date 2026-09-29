@@ -40,6 +40,18 @@ test.describe("catalogue", () => {
     expect(after).not.toBe(before);
   });
 
+  test("stacked filters keep both pills lit (solutions-only + type)", async ({ page }) => {
+    await ready(page);
+    await page.locator('#typePills [data-type="solutions"]').click();
+    await page.locator('#typePills [data-type="trial"]').click();
+    await expect(page.locator('#typePills [data-type="trial"]')).toHaveClass(/on/);
+    await expect(page.locator('#typePills [data-type="solutions"]')).toHaveClass(/on/);
+    // the sidebar Type segment agrees
+    await expect(page.locator('#typeSeg [data-type="trial"]')).toHaveClass(/on/);
+    // the all-pill stays unlit (restrictions are active)
+    await expect(page.locator('#typePills [data-type="all"]')).not.toHaveClass(/on/);
+  });
+
   test("star/tag bounding boxes never overlap (B5 regression guard)", async ({ page }) => {
     await ready(page);
     const idx = await page.evaluate(() => {

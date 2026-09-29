@@ -2003,7 +2003,13 @@
   function syncPills() {
     document.querySelectorAll("#typePills .pill").forEach(p => {
       const t = p.dataset.type;
-      const on = t === "solutions" ? state.solutionsOnly : t === "mine" ? state.mine : state.type === t && !state.solutionsOnly && t !== "all" ? true : t === "all" && state.type === "all" && !state.solutionsOnly && !state.mine;
+      // Stacked filters both light: a type pill stays lit while
+      // Solutions-only (or the shelf) is also active — the old
+      // !state.solutionsOnly guard made stacked filters look inactive.
+      const on = t === "solutions" ? state.solutionsOnly
+        : t === "mine" ? state.mine
+        : t === "all" ? (state.type === "all" && !state.solutionsOnly && !state.mine)
+        : state.type === t;
       p.classList.toggle("on", !!on);
     });
     document.querySelectorAll("#typeSeg button").forEach(b => b.classList.toggle("on", b.dataset.type === state.type));
