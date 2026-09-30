@@ -50,6 +50,18 @@ export async function onRequest(context) {
     return new Response("Forbidden: host not allowed", { status: 403, headers: cors() });
   }
 
+  // Same-family redirect following: redirects may leave the exact allowlist
+  // ONLY within the original target's own registrable-domain family (e.g.
+  // nsw.gov.au → educationstandards.nsw.gov.au). Shared-hosting platforms
+  // (pages.dev — anyone can host there) get exact-match hops only.
+  const HOST_FAMILY = {
+    "www.nsw.gov.au": "nsw.gov.au",
+    "www.boardofstudies.nsw.edu.au": "nsw.edu.au",
+  };
+  const family = HOST_FAMILY[target.host] || null;
+  const hopAllowed = (host) =>
+    ALLOWED_HOSTS.has(host) || (family ? host === family || host.endsWith("." + family) : false);
+
   // ?dl=1 -> force-download: Content-Disposition attachment instead of the
   // source's inline display. Used by the instant-download card buttons.
   const forceDownload = url.searchParams.get("dl") === "1";
@@ -85,7 +97,7 @@ export async function onRequest(context) {
         } catch {
           return new Response("Forbidden: unparseable redirect", { status: 403, headers: cors() });
         }
-        if (!/^https?:$/.test(next.protocol) || !ALLOWED_HOSTS.has(next.host)) {
+        if (!/^https?:$/.test(next.protocol) || !hopAllowed(next.host)) {
           return new Response("Forbidden: redirect to host not allowed", { status: 403, headers: cors() });
         }
         targetUrl = next.toString();
