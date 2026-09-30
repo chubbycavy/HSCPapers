@@ -559,8 +559,9 @@ if (require.main === module) {
     const suffixes = ["index.html", ...(year <= 2012 ? ["index2.html", "index3.html", "index4.html"] : [])];
     let got = 0;
     for (const root of roots) {
-      for (const sfx of suffixes) {
-        const key = `bos-${year}-${slug(root.slice(8, 60))}-${slug(sfx)}.html`;
+    for (const sfx of suffixes) {
+      progress(`BOS ${year}: fetching ${sfx} (root ${roots.indexOf(root) + 1}/${roots.length})`);
+      const key = `bos-${year}-${slug(root.slice(8, 60))}-${slug(sfx)}.html`;
         let html = null;
         try { html = await cached(key, root + sfx); } catch { continue; }
         // NESA's 2026 migration 301s some BOS letter-range pages to a JS-only
