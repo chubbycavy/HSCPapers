@@ -50,7 +50,26 @@ async function cached(key, url, { api = false } = {}) {
   await sleep(SOURCES.policy.metaDelayMs);
   // Hard per-request timeout — web.archive.org can hang otherwise.
   const signal = typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(30000) : undefined;
-  const r = await fetch(url, { headers: api ? { ...UA, Accept: "application/vnd.github+json" } : UA, signal });
+  const headers = api ? { ...UA, Accept: "application/vnd.github+json" } : { ...UA };
+  // In CI, authenticate GitHub API calls (60/hr unauthenticated per shared
+  // runner IP -> 403s; authenticated = 1,000/hr). Local builds stay
+  // unauthenticated unless GH_TOKEN is exported.
+  if (api && (process.env.GH_TOKEN || process.env.GITHUB_TOKEN)) {
+    headers.Authorization = "Bearer " + (process.env.GH_TOKEN || process.env.GITHUB_TOKEN);
+  }
+  let r;
+  for (let attempt = 1; ; attempt++) {
+    r = await fetch(url, { headers, signal: attempt > 1 ? (typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(60000) : undefined) : signal });
+    if (r.ok) break;
+    // Rate-limited: back off (honouring retry-after) and retry — the shared
+    // runner IP pool can transiently 403 on unauthenticated API calls.
+    if ((r.status === 403 || r.status === 429) && attempt < 3) {
+      const wait = Math.min(Number(r.headers.get("retry-after")) * 1000 || attempt * 4000, 30000);
+      await sleep(wait);
+      continue;
+    }
+    break;
+  }
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${url}`);
   const t = await r.text();
   fs.mkdirSync(path.dirname(file), { recursive: true });

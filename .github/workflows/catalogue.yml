@@ -27,6 +27,8 @@ jobs:
 
       - name: Rebuild catalogue
         working-directory: desktop
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # authenticated API: 1,000/hr vs 60/hr on shared runner IPs
         run: node tools/build-index.cjs --no-cache
 
       - name: Commit (if changed)
