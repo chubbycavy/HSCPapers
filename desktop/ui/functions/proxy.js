@@ -66,12 +66,33 @@ export async function onRequest(context) {
   }
 
   let upstream;
+  let targetUrl = target.toString();
   try {
-    upstream = await fetch(target.toString(), {
-      method: request.method,
-      headers: fwd,
-      redirect: "follow",
-    });
+    // Manual redirect following with EVERY hop re-validated against the
+    // allowlist — redirect:"follow" would let an allowlisted host's 302
+    // launder arbitrary-origin bytes through this proxy.
+    for (let hop = 0; hop < 5; hop++) {
+      upstream = await fetch(targetUrl, {
+        method: request.method,
+        headers: fwd,
+        redirect: "manual",
+      });
+      const loc = upstream.headers.get("location");
+      if (upstream.status >= 300 && upstream.status < 400 && loc) {
+        let next;
+        try {
+          next = new URL(loc, targetUrl);
+        } catch {
+          return new Response("Forbidden: unparseable redirect", { status: 403, headers: cors() });
+        }
+        if (!/^https?:$/.test(next.protocol) || !ALLOWED_HOSTS.has(next.host)) {
+          return new Response("Forbidden: redirect to host not allowed", { status: 403, headers: cors() });
+        }
+        targetUrl = next.toString();
+        continue;
+      }
+      break;
+    }
   } catch (e) {
     return new Response("Upstream fetch failed: " + (e?.message || e), {
       status: 502,

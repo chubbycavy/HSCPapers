@@ -1,0 +1,16 @@
+# Dependabot — automated dependency vulnerability alerts + updates.
+# npm (desktop) + cargo (src-tauri) + GitHub Actions versions.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/desktop"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "cargo"
+    directory: "/desktop/src-tauri"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
