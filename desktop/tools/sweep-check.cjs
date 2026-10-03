@@ -231,6 +231,19 @@ async function main() {
     if (q[0] === 5 && q[q.length - 1] === 8) pass("render-queue nearest-first"); else fail("render-queue priority");
     const clamp = (n, o) => Math.min(n, o);
     if (clamp(30, 10) === 10 && clamp(5, 10) === 5) pass("sync clamp"); else fail("sync clamp");
+    // URL list-encoding round-trip: subject names can contain COMMAS
+    // ("Personal Development, Health and Physical Education"). Wire format:
+    // values %-encoded (+ for spaces), separated by %7C; legacy links
+    // separated values with a RAW comma — a name's own comma is always %2C,
+    // so the raw-level split before decoding is unambiguous.
+    const enc = (v) => encodeURIComponent(v).replace(/%20/g, "+");
+    const dec = (s) => { try { return decodeURIComponent(s.replace(/\+/g, " ")); } catch { return s; } };
+    const parseList = (raw) => (/%7C/i.test(raw) ? raw.split(/%7C/i) : raw.split(",")).map(dec).map((s) => s.trim());
+    const pdhpe = "Personal Development, Health and Physical Education";
+    const r1 = parseList(enc(pdhpe) + "%7C" + enc("Chemistry")); // the new format
+    const r2 = parseList("Chemistry,Physics"); // the legacy format
+    const r3 = parseList(enc(pdhpe)); // a lone comma-name (the landing CTA / the old shared link)
+    if (JSON.stringify(r1) === JSON.stringify([pdhpe, "Chemistry"]) && JSON.stringify(r2) === JSON.stringify(["Chemistry", "Physics"]) && r3[0] === pdhpe) pass("filter-list URL round-trip (comma-safe raw-level split)"); else fail("filter-list URL round-trip");
   }
 
   /* [7] share round-trip logic */

@@ -227,7 +227,18 @@
     if (p.get("level") && ["all", "hsc", "preliminary", "year10", "year9"].includes(p.get("level"))) state.level = p.get("level");
     if (p.get("mine") === "1") state.mine = true;
     for (const [key, set] of [["subject", state.subjects], ["year", state.years], ["school", state.schools]]) {
-      if (p.get(key)) p.get(key).split(",").map(s => s.trim()).filter(Boolean).forEach(v => set.add(key === "year" ? Number(v) : v));
+      const m = location.search.match(new RegExp(`[?&]${key}=([^&]*)`));
+      if (!m) continue;
+      const raw = m[1];
+      // Split on the SEPARATOR before decoding: the current format separates
+      // values with | (%7C), the legacy format with a raw comma. A name's OWN
+      // comma is always %-encoded (%2C — URLSearchParams and
+      // encodeURIComponent both emit it), so it is never a separator and
+      // comma-bearing subject names survive the round-trip.
+      (/%7C|\|/i.test(raw) ? raw.split(/%7C|\|/i) : raw.split(","))
+        .map((s) => { try { return decodeURIComponent(s.replace(/\+/g, " ")); } catch { return s; } })
+        .map((s) => s.trim()).filter(Boolean)
+        .forEach(v => set.add(key === "year" ? Number(v) : v));
     }
     if (p.get("sel")) await applySharedSel(p.get("sel"));
     syncPills();
@@ -239,9 +250,9 @@
     if (state.level !== "all") p.set("level", state.level);
     if (state.solutionsOnly) p.set("type", state.type === "all" ? "solutions" : state.type);
     if (state.mine) p.set("mine", "1");
-    if (state.subjects.size) p.set("subject", [...state.subjects].join(","));
-    if (state.years.size) p.set("year", [...state.years].join(","));
-    if (state.schools.size) p.set("school", [...state.schools].join(","));
+    if (state.subjects.size) p.set("subject", [...state.subjects].join("|"));
+    if (state.years.size) p.set("year", [...state.years].join("|"));
+    if (state.schools.size) p.set("school", [...state.schools].join("|"));
     history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
   }
 
@@ -470,7 +481,10 @@
       if (k === "subject") state.subjects.clear();
       if (k === "year") state.years.clear();
       if (k === "school") state.schools.clear();
-      syncPills(); buildFilters(); writeURL(); render();
+      // the canonical pipeline (NOT the old inline shape): the level-seg
+      // counts + the strip counts live in updateStats/buildSubjectStrip —
+      // bypassing them left the filtered numbers stale after every reset.
+      persistState(); applyFilterChange();
     });});
     // Restore: same scroll depth, same focused row (if it survived the
     // faceted recount) — multi-row selection flow stays uninterrupted.
@@ -2089,16 +2103,16 @@
     if (t === "all") { state.type = "all"; state.solutionsOnly = false; state.mine = false; }
     $("#solOnly").checked = state.solutionsOnly;
     $("#mineOnly").checked = state.mine;
-    syncPills(); writeURL(); render();
+    persistState(); applyFilterChange();
   }));
   document.querySelectorAll("#typeSeg button").forEach(b => b.addEventListener("click", () => {
-    state.type = b.dataset.type; syncPills(); writeURL(); render();
+    state.type = b.dataset.type; persistState(); applyFilterChange();
   }));
   document.querySelectorAll("#levelSeg button").forEach(b => b.addEventListener("click", () => {
-    state.level = b.dataset.level; syncPills(); writeURL(); render();
+    state.level = b.dataset.level; persistState(); applyFilterChange();
   }));
-  on("#solOnly", "change", (e) => { state.solutionsOnly = e.target.checked; syncPills(); writeURL(); render(); });
-  on("#mineOnly", "change", (e) => { state.mine = e.target.checked; syncPills(); writeURL(); render(); });
+  on("#solOnly", "change", (e) => { state.solutionsOnly = e.target.checked; persistState(); applyFilterChange(); });
+  on("#mineOnly", "change", (e) => { state.mine = e.target.checked; persistState(); applyFilterChange(); });
   on("#slowRoute", "change", (e) => {
     state.includeSlowRoute = e.target.checked;
     if (tauriArmed) { tauriArmed = null; $("#zipBtn").textContent = "⭳ Save to library"; } // stale confirm

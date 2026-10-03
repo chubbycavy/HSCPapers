@@ -52,6 +52,45 @@ test.describe("catalogue", () => {
     await expect(page.locator('#typePills [data-type="all"]')).not.toHaveClass(/on/);
   });
 
+  test("reset recounts the level-seg counts (stale-count guard)", async ({ page }) => {
+    await ready(page);
+    await page.goto("/?subject=Chemistry");
+    await page.waitForSelector("#cards .card", { timeout: 30_000 });
+    const chem = parseInt((await page.locator("#resultsCount").textContent()).match(/^([\d,]+) papers/)[1].replace(/,/g, ""), 10);
+    expect(chem).toBeGreaterThan(0);
+    // the level counts are subject-faceted while the filter is on
+    await expect(page.locator('#levelSeg button[data-level="all"]')).toContainText(String(chem));
+    // reset the subject filter — every count surface must follow
+    await page.locator("#panelSubject summary").click();
+    await page.locator('[data-clear="subject"]').click();
+    await page.waitForTimeout(600); // scheduleRender + the recounts
+    const total = parseInt((await page.locator("#resultsCount").textContent()).match(/^([\d,]+) papers/)[1].replace(/,/g, ""), 10);
+    expect(total).toBeGreaterThan(chem);
+    // THE FIX: the level seg's counts recounted with the reset
+    await expect(page.locator('#levelSeg button[data-level="all"]')).toContainText(String(total));
+  });
+
+  test("comma-bearing subject CTA filters correctly (PDHPE)", async ({ page }) => {
+    await page.goto("/?subject=" + encodeURIComponent("Personal Development, Health and Physical Education"));
+    await page.waitForSelector("#cards .card", { timeout: 30_000 });
+    const n = parseInt((await page.locator("#resultsCount").textContent()).match(/^([\d,]+) papers/)[1].replace(/,/g, ""), 10);
+    expect(n).toBeGreaterThan(0); // the comma-split produced 0 before the fix
+    const chip = await page.locator("#chipsRow .chip span").first().textContent();
+    expect(chip).toContain("Personal Development, Health");
+    expect(await page.locator("#subjectList .check input:checked").count()).toBe(1);
+    // the level filter works after a CTA arrival
+    await page.locator('#levelSeg button[data-level="hsc"]').click();
+    await page.waitForTimeout(500);
+    const n2 = parseInt((await page.locator("#resultsCount").textContent()).match(/^([\d,]+) papers/)[1].replace(/,/g, ""), 10);
+    expect(n2).toBeGreaterThan(0);
+    expect(n2).toBeLessThanOrEqual(n);
+    // the reload round-trip: the comma-bearing name survives writeURL→readURL
+    await page.reload();
+    await page.waitForSelector("#cards .card", { timeout: 30_000 });
+    const n3 = parseInt((await page.locator("#resultsCount").textContent()).match(/^([\d,]+) papers/)[1].replace(/,/g, ""), 10);
+    expect(n3).toBe(n2);
+  });
+
   test("rapid filter toggling never desyncs state (Bug 2 race guard)", async ({ page }) => {
     await ready(page);
     await page.locator("#panelSubject summary").click();
