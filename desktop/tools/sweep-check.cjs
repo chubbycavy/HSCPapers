@@ -306,6 +306,34 @@ async function main() {
     if (iconsOk) pass(`manifest icons present (${(manifest.icons || []).length})`);
   }
 
+  /* [10] landing pages cross-check (Phase C) */
+  console.log("\n[10] landing pages cross-check");
+  {
+    const slugOf = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    const bySubject = new Map();
+    for (const p of papers) { if (!bySubject.has(p.subject)) bySubject.set(p.subject, 0); bySubject.set(p.subject, bySubject.get(p.subject) + 1); }
+    const subjects = [...bySubject.keys()];
+    let landed = 0;
+    for (const s of subjects) {
+      const f = path.join(UI, "subjects", slugOf(s), "index.html");
+      if (!fs.existsSync(f)) { fail(`landing page missing: /subjects/${slugOf(s)}/`); continue; }
+      landed++;
+      const html = fs.readFileSync(f, "utf8");
+      const n = bySubject.get(s);
+      if (!html.includes(`<b>${n}</b>`) || !html.includes("papers indexed")) { fail(`landing page count wrong for "${s}"`, `expected ${n}`); }
+    }
+    if (landed === subjects.length && subjects.length) pass(`landing pages: ${landed}/${subjects.length} present with correct counts`);
+    const hub = path.join(UI, "subjects", "index.html");
+    if (fs.existsSync(hub) && fs.readFileSync(hub, "utf8").includes("Browse NSW HSC papers by subject")) pass("subjects hub present");
+    else fail("subjects hub missing");
+    const sm = fs.readFileSync(path.join(UI, "sitemap.xml"), "utf8");
+    const nUrls = (sm.match(/<loc>/g) || []).length;
+    if (nUrls >= subjects.length + 4 && sm.includes("/subjects/")) pass(`sitemap covers the landing pages (${nUrls} urls)`);
+    else fail(`sitemap under-covers the landing pages (${nUrls} urls)`);
+    if (sm.includes(`<loc>https://hscpapers.pages.dev/subjects/${slugOf(subjects[0])}/</loc>`) || !subjects.length) pass("sitemap url scheme matches the page paths");
+    else fail("sitemap url scheme mismatch");
+  }
+
   console.log("\n==== SWEEP SUMMARY ====");
   console.log(`PASS ${passes} | FAIL ${fails} | WARN ${warns}`);
   if (fails) { console.error("SWEEP RED -- fix before shipping"); process.exitCode = 1; }

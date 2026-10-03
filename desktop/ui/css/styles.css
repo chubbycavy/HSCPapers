@@ -157,6 +157,7 @@ header {
   margin: 0 auto;
 }
 .hero h1 span {
+  display: block;
   background: linear-gradient(90deg, #4f46e5, #7c3aed, #06b6d4);
   -webkit-background-clip: text;
   background-clip: text;

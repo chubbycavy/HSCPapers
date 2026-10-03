@@ -59,6 +59,22 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   if (cov.includes("data-label") && cov.includes("covtip") && cov.includes("Subjects")) pass("coverage page carries the live matrix + instant tooltip");
   else fail("coverage page markers missing");
 
+  // landing pages (Phase C): the hub + one subject page, real content
+  const papersLocal = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
+  const sample = papersLocal.find((p) => p.subject === "Chemistry") ? "chemistry" : null;
+  const hub = await (await fetch(BASE + "subjects/?cb=" + Date.now(), { redirect: "follow" })).text();
+  if (hub.includes("Browse NSW HSC papers by subject") && hub.includes("/subjects/")) pass("subjects hub live");
+  else fail("subjects hub missing");
+  const sitemapTxt = await (await fetch(BASE + "sitemap.xml?cb=" + Date.now(), { redirect: "follow" })).text();
+  const nUrls = (sitemapTxt.match(/<loc>/g) || []).length;
+  if (nUrls >= 100 && sitemapTxt.includes("/subjects/")) pass(`sitemap live with subject pages (${nUrls} urls)`);
+  else fail(`sitemap under-covers (${nUrls} urls)`);
+  if (sample) {
+    const sp = await (await fetch(BASE + "subjects/" + sample + "/?cb=" + Date.now(), { redirect: "follow" })).text();
+    if (sp.includes("past papers") && sp.includes("papers indexed") && sp.includes("Open")) pass("sample subject page live with the paper table");
+    else fail("sample subject page missing/incomplete");
+  }
+
   // 3. reader journey on OUR bucket only
   const r2Paper = (live.papers || []).find((p) => (p.url || "").startsWith("https://pub-ec23"));
   if (r2Paper) {

@@ -975,6 +975,8 @@ if (require.main === module) {
   console.log("sample:", JSON.stringify(papers.slice(0, 2), null, 1).slice(0, 900));
   console.log(`wrote ${OUT}`);
   await require("./coverage-report.cjs")(); // F7: regenerate the public coverage page
+  const landing = await require("./landing-pages.cjs")(); // Phase C: per-subject static pages + the sitemap
+  console.log(`landing: ${landing.pages} pages (${landing.subjects} subjects) · sitemap ${landing.sitemapUrls} urls`);
 })().catch((e) => { console.error("BUILD FAILED:", e.message); process.exit(1); });
 }
 
