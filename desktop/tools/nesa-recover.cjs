@@ -145,6 +145,7 @@ function extractPdfLinks(html) {
 
   // 4. crawl: course page -> year pages + archive page -> archive year pages -> PDF links
   const pdfLinksByCourse = new Map(); // normSubject -> [{url, text}]
+  const pdfLinksByYear = new Map(); // "normSubject|year" -> Set<url> (context: the YEAR lives in the page path, not always in the filename)
   let crawled = 0;
   const neededYears = new Set(dead.map((p) => String(p.year)));
   const hrefYear = (href) => {
@@ -194,11 +195,20 @@ function extractPdfLinks(html) {
         archiveYearPages = crawlYearPages(aHtml, aUrl, new Set());
       }
       // crawl year pages (course years + archive years) for the needed years
+      const yearCollect = (html, baseUrl, year) => {
+        const key = `${nk}|${year}`;
+        let set = pdfLinksByYear.get(key);
+        if (!set) { set = new Set(); pdfLinksByYear.set(key, set); }
+        for (const m of html.matchAll(/href="([^"]*\.pdf[^"]*)"/gi)) {
+          try { set.add(new URL(m[1], baseUrl).href); } catch { /* bad href */ }
+        }
+      };
       for (const yp of [...yearPages, ...archiveYearPages]) {
         try {
           const yHtml = await cachedFetch(yp.u, `page-${nk}-${yp.year}-${crawled}.html`, yp.u);
           crawled++;
           collect(yHtml, yp.u);
+          yearCollect(yHtml, yp.u, yp.year);
         } catch { /* per-year page may not exist */ }
       }
       pdfLinksByCourse.set(nk, pdfs);
@@ -213,6 +223,16 @@ function extractPdfLinks(html) {
     try {
       const res = await fetch(url, { method: "HEAD", headers: UA });
       return res.ok;
+    } catch { return false; }
+  }
+  // stronger than HEAD: a 200 HTML page would pass verify() — check the
+  // actual bytes start with %PDF (ranged GET, 16 bytes).
+  async function magicOk(url) {
+    try {
+      const res = await fetch(url, { headers: { ...UA, Range: "bytes=0-15" } });
+      if (!res.ok) return false;
+      const text = await res.text();
+      return text.startsWith("%PDF");
     } catch { return false; }
   }
   // Registry is CUMULATIVE: load existing entries first so each run adds
@@ -245,7 +265,27 @@ function extractPdfLinks(html) {
       if (uLow.includes(subjSlug.split("-")[0])) score += 1;
       if (score > (best?.score ?? -1)) best = { url: u, score };
     }
-    if (!best) { unmatched.push(p); continue; }
+    if (!best) {
+      // context-year fallback: the (course, year) page's own pdfs — the year
+      // lives in the PAGE path even when the filename omits it. The page's
+      // non-marking pdf is the exam paper; magic-verified before acceptance.
+      const ctx = [...(pdfLinksByYear.get(`${normKey(p.subject)}|${yearStr}`) || [])]
+        .filter((u) => !/-mg-|-marking|-feedback|guideline|sample-answer/i.test(u));
+      let ctxBest = null;
+      for (const u of ctx) {
+        const score = (/paper|exam/.test(u.toLowerCase()) ? 2 : 0) + (u.toLowerCase().includes(subjSlug.split("-")[0]) ? 1 : 0);
+        if (!ctxBest || score > ctxBest.score) ctxBest = { url: u, score };
+      }
+      if (!ctxBest) { unmatched.push(p); continue; }
+      matched++;
+      if (await magicOk(ctxBest.url)) {
+        verified++;
+        recovery[p.url] = { url: ctxBest.url, title: p.title };
+      } else {
+        unmatched.push(p);
+      }
+      continue;
+    }
     matched++;
     const ok = await verify(best.url);
     if (ok) {
@@ -297,11 +337,12 @@ function extractPdfLinks(html) {
   console.log(`slow-route recovery: ${slowMatched} matched, ${slowVerified} verified -> nsw.gov.au`);
 
   // 7. SOLUTION recovery: dead/soft-dead educationstandards solution URLs
-  // (the 301-to-NESA-homepage class) -> the course year-page's marking-
+  // (the 301-to-NESA-homepage class) -> the (course, year) page's marking-
   // guidelines/marking-feedback PDF (NESA's marking guidelines ARE the
-  // official solutions). Grouped by (subject, year) — one year-page fetch
-  // covers every dead solution in that pair. Registry keys = the dead
-  // SOLUTION urls; the builder matches them via p.solutionUrl.
+  // official solutions). Uses the context-year map built during the crawl —
+  // INCLUDING the archive year pages: the 2000-2015 dead solutions live on
+  // archive-era pages the old main-path fetch never reached. Registry keys
+  // = the dead SOLUTION urls; the builder matches them via p.solutionUrl.
   const deadSols = catalogue.filter((p) =>
     p.solutionUrl && /educationstandards\.nsw\.edu\.au/.test(p.solutionUrl));
   console.log(`\nsolution recovery: ${deadSols.length} educationstandards solution URLs (soft-dead candidates)`);
@@ -317,21 +358,22 @@ function extractPdfLinks(html) {
     const subject = k.split("|")[0], yearStr = k.split("|")[1];
     const course = courseFor.get(subject) || neededCourses.get(normKey(subject));
     if (!course) continue;
-    try {
-      const yHtml = await cachedFetch(`${course.url}/${yearStr}`, `sol-${normKey(subject)}-${yearStr}.html`);
-      crawled++;
-      const pdfs = extractPdfLinks(yHtml).map((u) => new URL(u, `${course.url}/${yearStr}`).href);
-      const mg = pdfs.find((x) => /-mg-|-marking|-feedback|guideline/i.test(x));
-      if (!mg) continue;
-      const ok = await verify(mg);
-      if (!ok) continue;
-      solMatched++;
-      for (const p of list) {
-        if (recovery[p.solutionUrl] && recovery[p.solutionUrl].url === mg) continue; // already mapped
-        recovery[p.solutionUrl] = { url: mg, title: p.title, solution: true };
-        solVerified++;
-      }
-    } catch { /* course/year page may not exist for this course */ }
+    const ctx = [...(pdfLinksByYear.get(`${normKey(subject)}|${yearStr}`) || [])]
+      .filter((u) => /-mg-|-marking|-feedback|guideline|sample-answer|notes-from|-sa-|-nfc-/i.test(u));
+    if (!ctx.length) continue;
+    let mg = null;
+    for (const u of ctx) {
+      const rank = (/-mg-|-marking|guideline/.test(u) ? 2 : 0) + (/-feedback/.test(u) ? 1 : 0);
+      if (!mg || rank > mg.rank) mg = { url: u, rank };
+    }
+    if (!mg) continue;
+    if (!(await magicOk(mg.url))) continue;
+    solMatched++;
+    for (const p of list) {
+      if (recovery[p.solutionUrl] && recovery[p.solutionUrl].url === mg.url) continue; // already mapped
+      recovery[p.solutionUrl] = { url: mg.url, title: p.title, solution: true };
+      solVerified++;
+    }
   }
   console.log(`solution recovery: ${solMatched} (subject,year) pairs matched, ${solVerified} solution URLs mapped -> nsw.gov.au`);
 

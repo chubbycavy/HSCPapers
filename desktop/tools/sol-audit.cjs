@@ -184,9 +184,17 @@ async function waybackCandidate(url) {
   narrate(`sweep: ${withSol.length} entries carry solutionUrl (${distinctSols.length} distinct) · ${deadPrimaryEntries.length} on the dead host class · ${distinctFallbacks.length} distinct fallbacks`);
   const entriesOf = new Map(); // url -> [ids]
   for (const p of withSol) { if (!entriesOf.has(p.solutionUrl)) entriesOf.set(p.solutionUrl, []); entriesOf.get(p.solutionUrl).push(p.id); }
+  // The blacklist's urls are NOT in the catalogue (the builder cleared them)
+  // — they must still be probed: a url that probes live again is removed
+  // from the blacklist and the next rebuild restores its solutions.
+  let deadRegIn = null;
+  try { deadRegIn = JSON.parse(fs.readFileSync(DEAD_OUT, "utf8")); } catch { /* none yet */ }
+  const blacklisted = deadRegIn?.urls ? Object.keys(deadRegIn.urls) : [];
+  if (blacklisted.length) narrate(`blacklist carried in: ${blacklisted.length} urls (re-probed for live-recovery)`);
+  const probeUrls = [...new Set([...distinctSols, ...blacklisted])];
 
   // ---- 2. probe everything (resumable via the probe cache) ----
-  const all = [...distinctSols, ...distinctFallbacks];
+  const all = [...new Set([...probeUrls, ...distinctFallbacks])];
   const uncached = all.filter((u) => !cacheGet(u, "probe"));
   narrate(`probing ${all.length} distinct urls (${uncached.length} uncached, 6 workers, 100ms stagger)…`);
   let done = 0;
@@ -204,8 +212,8 @@ async function waybackCandidate(url) {
   for (const r of cls.values()) tally[r.cls] = (tally[r.cls] || 0) + 1;
   narrate(`probe tally (solutionUrls + fallbacks): ${JSON.stringify(tally)}`);
 
-  // broken = anything not live-pdf, restricted to PRIMARY solution urls
-  const broken = distinctSols.filter((u) => cls.get(u).cls !== "live-pdf");
+  // broken = anything not live-pdf among the probe population
+  const broken = probeUrls.filter((u) => cls.get(u).cls !== "live-pdf");
   narrate(`broken solutionUrls: ${broken.length} (${[...new Set(broken.map((u) => cls.get(u).cls))].join(", ")})`);
 
   // ---- 3. candidates from the local caches ----
@@ -213,7 +221,7 @@ async function waybackCandidate(url) {
   const bosMap = mineBosPages();
   const pairs = new Map(); // "subject|year" -> [{ deadUrl, entryId }]
   for (const u of broken) {
-    for (const id of entriesOf.get(u)) {
+    for (const id of (entriesOf.get(u) || [])) {
       const p = catalogue.find((x) => x.id === id);
       if (!p || !p.year) continue;
       const k = `${normKey(p.subject)}|${p.year}`;
@@ -310,7 +318,7 @@ async function waybackCandidate(url) {
     const deadReg = (() => { try { return JSON.parse(fs.readFileSync(DEAD_OUT, "utf8")); } catch { return { _doc: "", generated: "", urls: {} }; } })();
     let addedD = 0, removedD = 0;
     const now = new Date().toISOString();
-    for (const u of distinctSols) {
+    for (const u of probeUrls) {
       const c = cls.get(u)?.cls;
       const isDead = c && c !== "live-pdf";
       const had = !!deadReg.urls[u];
