@@ -565,7 +565,12 @@ if (require.main === module) {
       progress(`BOS ${year}: fetching ${sfx} (root ${roots.indexOf(root) + 1}/${roots.length})`);
       const key = `bos-${year}-${slug(root.slice(8, 60))}-${slug(sfx)}.html`;
         let html = null;
-        try { html = await cached(key, root + sfx); } catch { continue; }
+        try { html = await cached(key, root + sfx); } catch {
+          // Some year directories 404 outright on the live BOS server (2007
+          // at least) while the PDFs stay live — the 2017 Wayback snapshot
+          // holds the index page the live server lost.
+          try { html = await cached(`bos-${year}-wayback-${slug(sfx)}.html`, `https://web.archive.org/web/20171230134701/${root}${sfx}`); } catch { continue; }
+        }
         // NESA's 2026 migration 301s some BOS letter-range pages to a JS-only
         // shell (same as the dead /wcm/connect links) while the PDFs on the
         // same server stay live. Fall back to the 2017 Wayback snapshot.
@@ -583,7 +588,14 @@ if (require.main === module) {
             const kind = bosKindFor(stripTags(a[2]));
             if (!kind) continue;
             let abs;
-            try { abs = new URL(a[1].replace(/^\/\//, "https://"), root + sfx).href; } catch { continue; }
+            try {
+              // wayback captures carry relative forms ("web/<ts>/<abs-url>") —
+              // resolving those against the BOS root bakes garbage urls;
+              // extract the embedded absolute and normalize to https.
+              const wbm = a[1].match(/^\/?web\/\d{14}\/(.+)$/i);
+              const raw = wbm ? wbm[1] : a[1];
+              abs = new URL(raw.replace(/^\/\//, "https://").replace(/^http:\/\//, "https://"), root + sfx).href;
+            } catch { continue; }
             if (!/^https:/.test(abs)) continue;
             bosPrefer(`${normKey(subject)}|${year}|${kind}`, abs, stripTags(a[2]));
           }
@@ -596,6 +608,84 @@ if (require.main === module) {
     const prev = bosMap.get(key);
     const likeP1 = /paper\s*1|standard and advanced/i.test(text);
     if (!prev || (likeP1 && !/paper\s*1|standard and advanced/i.test(prev.text))) bosMap.set(key, { url, text });
+  }
+  // BOS row labels carry flavor suffixes the NESA subject name drops
+  // ("Industrial Technology - Automotive Industries") — umbrella matching:
+  // exact key first, else keys starting "<cand> " for the same (year, kind);
+  // a single flavor auto-matches, multiple need the entry title's tokens to
+  // pick a clear winner (conservative — ties stay unmatched).
+  const bosLookup = (cands, year, kind, title) => {
+    const titleNk = normKey(title);
+    for (const cand of cands) {
+      const hit = bosMap.get(`${cand}|${year}|${kind}`);
+      if (hit) return hit;
+    }
+    for (const cand of cands) {
+      const flavorKeys = [...bosMap.keys()].filter((k) => k.startsWith(`${cand} `) && k.endsWith(`|${year}|${kind}`));
+      if (!flavorKeys.length) continue;
+      if (flavorKeys.length === 1) return bosMap.get(flavorKeys[0]);
+      const scored = flavorKeys
+        .map((k) => {
+          const flavor = k.slice(cand.length + 1, k.length - `|${year}|${kind}`.length);
+          const toks = flavor.split(/\s+/).filter((w) => w.length > 2);
+          return { k, score: toks.filter((w) => titleNk.includes(w)).length };
+        })
+        .sort((a, b) => b.score - a.score);
+      if (scored[0].score > 0 && scored[0].score > scored[1].score) return bosMap.get(scored[0].k);
+    }
+    return null;
+  };
+  // 3b. THSC index-resolution: dan's migration added an id-indexed resource
+  // map (repo path: index/<viewno>.json, keyed by anchor text) — the direct
+  // file URLs behind every pdf(this, viewno) anchor. Runs BEFORE the mirror
+  // passes and the listing-hsc dedupe: dan indexes listing pages whose
+  // entries the dedupe consumes (the resolved fast URL then transfers to the
+  // NESA twin like any other mirror). His /s/em/<path> viewer routes decode
+  // to the hosted origin root (thsconline.github.io/<path> — verified live,
+  // CORS-OK); absolute URLs (BOS archive mirrors) pass through unchanged.
+  // The old s/d endpoint stays as the fallback. Graceful: pages without an
+  // index yet keep the legacy route until dan's migration covers them.
+  {
+    const pagesOrigin = new URL(SOURCES.github.pagesBase).origin;
+    const decode = (u) => {
+      if (u.startsWith("/s/em/")) {
+        try { return new URL(decodeURIComponent(u.slice("/s/em/".length)), pagesOrigin + "/").href; } catch { return null; }
+      }
+      if (u.startsWith("/")) {
+        try { return new URL(u, pagesOrigin + "/").href; } catch { return null; }
+      }
+      return u; // absolute (e.g. BOS archive mirrors)
+    };
+    const viewnos = new Set(papers.filter(p => p.source === "thsc-listing").map(p => p.viewno));
+    phase(`phase 2a: resolving ${viewnos.size} THSC id-indexes (dan's new file routing)`);
+    const indexMap = new Map(); // viewno -> {linkText -> directUrl}
+    let idxMissing = 0;
+    for (const vn of viewnos) {
+      try {
+        const raw = await cached(`thsc-index-${vn}.json`, `${SOURCES.github.rawBase}/index/${vn}.json`);
+        const j = JSON.parse(raw.replace(/^\uFEFF/, ""));
+        const map = {};
+        for (const [key, res] of Object.entries(j)) {
+          const item = Array.isArray(res) ? res.find(x => x.default) || res[0] : res;
+          const url = item && item.url ? decode(String(item.url)) : null;
+          if (url) map[key.trim().toLowerCase()] = url;
+        }
+        indexMap.set(vn, map);
+      } catch { idxMissing++; }
+    }
+    let idxN = 0;
+    for (const p of papers) {
+      if (p.source !== "thsc-listing") continue;
+      const map = indexMap.get(p.viewno);
+      if (!map) continue;
+      const hit = map[String(p.linkText || "").trim().toLowerCase()];
+      if (!hit) continue;
+      p.fallbackUrl = p.fallbackUrl || p.url; // the dead/legacy endpoint kept as fallback
+      p.url = hit;
+      p.mirror = "thsc-index";
+      idxN++;
+    }
+    console.log(`thsc-index: resolved ${idxN} entries to direct official URLs (${idxMissing} pages not indexed yet)`);
   }
   // Candidate subject keys: NESA course names don't always match BOS row
   // labels ("Studies of Religion" vs rows "studies of religion i/ii",
@@ -616,6 +706,9 @@ if (require.main === module) {
     }
     if (base === "esl") { out.add("english esl"); out.add("english as a second language"); out.add("english as a second language (esl)"); }
     if (base === "english esl") { out.add("esl"); out.add("english as a second language"); out.add("english as a second language (esl)"); }
+    // the BOS index carries the pre-rename course rows as ONE shared pdf
+    if (base === "english advanced" || base === "english standard") out.add("english standard and advanced");
+    if (base === "information and digital technology") out.add("information technology");
     return [...out].filter(Boolean);
   };
   let bosMatched = 0;
@@ -623,20 +716,15 @@ if (require.main === module) {
     if (p.mirror || !p.year || p.type !== "hsc" || p.source !== "thsc-listing") continue;
     const isSolDoc = p.hasSolutions && /solutions/i.test(p.title);
     const kinds = isSolDoc ? ["mg", "sa", "nfc"] : ["paper"];
-    for (const cand of subjectCands(p.subject)) {
-      let done = false;
-      for (const kind of kinds) {
-        const hit = bosMap.get(`${cand}|${p.year}|${kind}`);
-        if (hit) {
-          p.fallbackUrl = p.fallbackUrl || p.url;
-          p.url = hit.url;
-          p.mirror = "boardofstudies";
-          bosMatched++;
-          done = true;
-          break;
-        }
+    for (const kind of kinds) {
+      const hit = bosLookup(subjectCands(p.subject), p.year, kind, p.title);
+      if (hit) {
+        p.fallbackUrl = p.fallbackUrl || p.url;
+        p.url = hit.url;
+        p.mirror = "boardofstudies";
+        bosMatched++;
+        break;
       }
-      if (done) break;
     }
   }
   console.log(`mirror-boardofstudies: ${bosMatched} listing papers -> direct BOS URLs`);
@@ -721,19 +809,13 @@ if (require.main === module) {
   for (const p of papers) {
     if (p.source !== "nesa" || !p.year || p.type !== "hsc") continue;
     if (!p.mirror) {
-      for (const cand of subjectCands(p.subject)) {
-        const hit = bosMap.get(`${cand}|${p.year}|paper`);
-        if (hit) { p.url = hit.url; p.mirror = "boardofstudies"; bosNesaPapers++; break; }
-      }
+      const hit = bosLookup(subjectCands(p.subject), p.year, "paper", p.title);
+      if (hit) { p.url = hit.url; p.mirror = "boardofstudies"; bosNesaPapers++; }
     }
     if (p.solutionUrl && /educationstandards|wcm\/connect/.test(p.solutionUrl)) {
-      for (const cand of subjectCands(p.subject)) {
-        let replaced = false;
-        for (const kind of ["mg", "sa", "nfc"]) {
-          const hit = bosMap.get(`${cand}|${p.year}|${kind}`);
-          if (hit) { p.solutionUrl = hit.url; bosNesaSol++; replaced = true; break; }
-        }
-        if (replaced) break;
+      for (const kind of ["mg", "sa", "nfc"]) {
+        const hit = bosLookup(subjectCands(p.subject), p.year, kind, p.title);
+        if (hit) { p.solutionUrl = hit.url; bosNesaSol++; break; }
       }
     }
   }
@@ -763,44 +845,6 @@ if (require.main === module) {
     if (removedN) console.log(`takedowns: excluded ${removedN} paper(s) per removals.json (permanent)`);
     papers.length = 0;
     papers.push(...kept);
-  }
-
-  // 3b. THSC index-resolution: dan's migration added an id-indexed resource
-  // map (repo path: index/<viewno>.json, keyed by anchor text) — the direct
-  // official file URLs behind every pdf(this, viewno) anchor. Resolve each
-  // THSC-listing entry's primary URL through it; the old s/d endpoint (now
-  // 404-dead) stays as the fallback. Graceful: pages without an index yet
-  // keep the legacy route until dan's migration covers them.
-  {
-    const viewnos = new Set(papers.filter(p => p.source === "thsc-listing").map(p => p.viewno));
-    phase(`phase 2a: resolving ${viewnos.size} THSC id-indexes (dan's new file routing)`);
-    const indexMap = new Map(); // viewno -> {linkText -> directUrl}
-    let resolved = 0, idxMissing = 0;
-    for (const vn of viewnos) {
-      try {
-        const raw = await cached(`thsc-index-${vn}.json`, `${SOURCES.github.rawBase}/index/${vn}.json`);
-        const j = JSON.parse(raw.replace(/^\uFEFF/, ""));
-        const map = {};
-        for (const [key, res] of Object.entries(j)) {
-          const item = Array.isArray(res) ? res.find(x => x.default) || res[0] : res;
-          if (item && item.url) map[key.trim().toLowerCase()] = item.url;
-        }
-        indexMap.set(vn, map);
-      } catch { idxMissing++; }
-    }
-    let idxN = 0;
-    for (const p of papers) {
-      if (p.source !== "thsc-listing") continue;
-      const map = indexMap.get(p.viewno);
-      if (!map) continue;
-      const hit = map[String(p.linkText || "").trim().toLowerCase()];
-      if (!hit) continue;
-      p.fallbackUrl = p.fallbackUrl || p.url; // the dead/legacy endpoint kept as fallback
-      p.url = hit;
-      p.mirror = "thsc-index";
-      idxN++;
-    }
-    console.log(`thsc-index: resolved ${idxN} entries to direct official URLs (${idxMissing} pages not indexed yet)`);
   }
 
   // NESA dead-link recovery (nesa-recovery.json): dead wcm URLs -> verified
@@ -895,7 +939,8 @@ if (require.main === module) {
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
   console.log(`routes: fast ${fastN} · script ${scriptN} · dead wcm ${deadN} · total ${papers.length}`);
-  const isFastHost = (u) => /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au/.test(u || "");
+  const FAST_HOST_RE = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io/;
+  const isFastHost = (u) => !!u && !/\/s\/[dvfz]\//.test(u) && FAST_HOST_RE.test(u); // THSC route endpoints (router/viewer) excluded
   const fastFiles = papers.reduce((n, p) => n + (p.url && isFastHost(p.url) ? 1 : 0) + (p.solutionUrl && isFastHost(p.solutionUrl) ? 1 : 0), 0);
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);

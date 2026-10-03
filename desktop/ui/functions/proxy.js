@@ -12,6 +12,7 @@ const ALLOWED_HOSTS = new Set([
   "hscportal.pages.dev",
   "www.nsw.gov.au",
   "www.boardofstudies.nsw.edu.au",
+  "thsconline.github.io",
 ]);
 
 // PDF.js issues ranged GETs; mirror them so the reader stays fast.

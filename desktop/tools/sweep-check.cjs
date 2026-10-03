@@ -146,7 +146,7 @@ async function main() {
     const fast = hostsOf(appJs, "const FAST_SAVE_HOSTS");
     const cors = hostsOf(appJs, "const CORS_OK_HOSTS");
     const allowed = hostsOf(proxyJs, "const ALLOWED_HOSTS");
-    const biLine = (builder.split("\n").find((l) => l.includes("isFastHost =")) || "");
+    const biLine = (builder.split("\n").find((l) => l.includes("FAST_HOST_RE")) || "");
     const biInner = biLine ? biLine.slice(biLine.indexOf("/"), biLine.lastIndexOf("/") + 1).replace(/^\/|\/$/g, "") : "";
     const biHosts = new Set(biInner.split("|").map((h) => h.replace(/\\+/g, "").trim()).filter(Boolean));
     const stripWww = (h) => h.replace(/^www\./, "");
@@ -158,8 +158,8 @@ async function main() {
     } else { warn("host sets not parseable (regex drift)"); ok = false; }
     if (fast && cors) for (const h of cors) if (!fast.has(h)) { fail(`CORS_OK_HOSTS host "${h}" not in FAST_SAVE_HOSTS`); ok = false; }
     if (allowed) for (const h of ["www.nsw.gov.au", "www.boardofstudies.nsw.edu.au"]) if (!allowed.has(h)) { fail(`proxy ALLOWED_HOSTS missing "${h}"`); ok = false; }
-    const mainRsHosts = new Set([...mainRs.matchAll(/"(hscportal\.pages\.dev|pub-ec23[a-f0-9]*\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au)"/g)].map((m) => m[1]));
-    if (fast) for (const h of fast) if (!mainRsHosts.has(stripWww(h))) warn(`main.rs does not literally mention fast host "${h}"`);
+    const mainRsHosts = new Set([...mainRs.matchAll(/"(hscportal\.pages\.dev|pub-ec23[a-f0-9]*\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io)"/g)].map((m) => m[1]));
+    if (fast) for (const h of fast) { const s = stripWww(h); if (!mainRsHosts.has(h) && !mainRsHosts.has(s)) warn(`main.rs does not literally mention fast host "${h}"`); }
     if (ok) pass(`host layers in sync: ${fast ? fast.size : "?"} fast hosts, ${allowed ? allowed.size : "?"} proxy-allowed`);
   }
 
@@ -194,9 +194,10 @@ async function main() {
   /* [5] claims/numbers contract */
   console.log("\n[5] claims/numbers contract");
   {
-    const fastRe = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au/;
+    const fastRe = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io/;
+    const isFast = (u) => u && !/\/s\/[dvfz]\//.test(u) && fastRe.test(u); // THSC route endpoints excluded
     const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
-    const fastFiles = papers.reduce((n, p) => n + (p.url && fastRe.test(p.url) ? 1 : 0) + (p.solutionUrl && fastRe.test(p.solutionUrl) ? 1 : 0), 0);
+    const fastFiles = papers.reduce((n, p) => n + (isFast(p.url) ? 1 : 0) + (isFast(p.solutionUrl) ? 1 : 0), 0);
     const subjects = new Set(papers.map((p) => p.subject)).size;
     for (const [claim, actual, min] of [["7,000+", papers.length, 6750], ["7,700+", totalFiles, 7550], ["6,400+", fastFiles, 6250]]) {
       if (html.includes(claim)) { if (actual >= min) pass(`claim "${claim}" holds (actual ${actual})`); else fail(`claim "${claim}" DRIFTED`, `actual ${actual} < floor ${min}`); }

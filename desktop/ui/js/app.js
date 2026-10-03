@@ -718,7 +718,7 @@
     const readBtn = el.querySelector("[data-read]");
     if (readBtn) readBtn.addEventListener("click", (e) => {
       e.preventDefault(); e.stopPropagation();
-      openReader(paperHref, p.title, p.id, solHref || null, p.solFallbackUrl || null); // auto-split when solutions exist
+      openReader(paperHref, p.title, p.id, solHref || null, p.solFallbackUrl || null, p.fallbackUrl || null); // auto-split when solutions exist
     });
     const starBtn = el.querySelector("[data-star]");
     starBtn.addEventListener("click", (e) => {
@@ -1114,16 +1114,16 @@
   // dead NESA wcm) is a "slow route" resolved via the throttled resolver.
   // (A third-party mirror was delisted 2026-09-25; its papers are
   // self-hosted now — desktop/tools/selfhost.json.)
-  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au"]);
+  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.github.io"]);
   function isFastHostUrl(u) {
-    try { return FAST_SAVE_HOSTS.has(new URL(u).host); } catch { return false; }
+    try { const url = new URL(u); if (/^\/s\/[dvfz]\//.test(url.pathname)) return false; return FAST_SAVE_HOSTS.has(url.host); } catch { return false; }
   }
   // Hosts whose files can be read cross-site by JS (they send ACAO:*) —
   // reader + ZIP fetch them directly. Everything else goes through the
   // same-origin /proxy Pages Function (allowlisted, Range passthrough)
   // when SITE_CONFIG.PROXY_BASE is set; with no proxy, the CORS hint fires.
   // Our own R2 bucket (self-hosted papers) sends ACAO:* too.
-  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev"]);
+  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "thsconline.github.io"]);
   function proxied(u) {
     const p = window.SITE_CONFIG?.PROXY_BASE;
     if (!p || !u) return u;
@@ -1616,22 +1616,24 @@
   let readerFocus = "paper"; // keyboard + global bar + print target
   let readerSync = false;    // page-follow toggle (persisted, default off)
   try { readerSync = localStorage.getItem("hsc-reader-sync") === "1"; } catch {}
-  let readerPaperUrl = null, readerSolUrl = null, readerSolFallbackUrl = null;
+  let readerPaperUrl = null, readerSolUrl = null, readerSolFallbackUrl = null, readerPaperFallbackUrl = null;
   let pendingPaperId = null; // B8: recently-viewed logs only on a successful load
 
   function paneNumEl(key) { return $(key === "paper" ? "#numPaper" : "#numSol"); }
   function paneScrollEl(key) { return $(key === "paper" ? "#scrollPaper" : "#scrollSol"); }
 
-  function openReader(path, title, id, solPath, solFallbackPath) {
+  function openReader(path, title, id, solPath, solFallbackPath, paperFallbackPath) {
     if (!path) return;
     pendingPaperId = id || null;
     readerPaperUrl = IS_TAURI ? path : proxied(path);
     readerSolUrl = solPath ? (IS_TAURI ? solPath : proxied(solPath)) : null;
-    // Live fallback for dead-primary solutions (Bug 1 residue): the catalogue
-    // keeps a working URL beside some soft-dead ones. Same-URL guard avoids
-    // retrying an identical address pointlessly.
+    // Live fallbacks for dead-primary files (Bug 1 residue): the catalogue
+    // keeps a working URL beside some dead ones. Same-URL guards avoid
+    // retrying identical addresses pointlessly.
     readerSolFallbackUrl = solFallbackPath && solFallbackPath !== solPath
       ? (IS_TAURI ? solFallbackPath : proxied(solFallbackPath)) : null;
+    readerPaperFallbackUrl = paperFallbackPath && paperFallbackPath !== path
+      ? (IS_TAURI ? paperFallbackPath : proxied(paperFallbackPath)) : null;
     readerPanes.paper = mkPane();
     readerPanes.sol = mkPane();
     readerPanes.paper.sysPath = IS_TAURI ? path : null;
@@ -1754,10 +1756,26 @@
           ? "These solutions are no longer available at the source (the link no longer points at a document) — the ⭳ download still works."
           : "Solutions couldn't open in the reader (the source may not allow cross-site reading) — the ⭳ download still works.";
       } else {
+        // One fallback attempt before giving up: the catalogue keeps the
+        // legacy route (or a mirror) as fallbackUrl — worth one try on a
+        // 404-class failure (dan's migration retired the /s/d endpoints;
+        // the retry is a no-op when the fallback is dead too).
+        const alt = (!pane.paperFallbackTried && readerPaperFallbackUrl) ? readerPaperFallbackUrl : null;
+        if (alt) {
+          try { pane.doc?.destroy(); } catch {}
+          readerPanes.paper = mkPane();
+          readerPanes.paper.paperFallbackTried = true;
+          return loadPane(key, alt); // recursion happens at most once
+        }
         $("#readerErr").hidden = false;
+        // A 404/410 from the source is a dead link, not a CORS problem —
+        // say that honestly instead of guessing about cross-site reading.
+        const notFound = /unexpected server response|\(404\)|\(410\)/i.test(String(e?.message || e));
         $("#readerErr").textContent = IS_TAURI
           ? "Could not open paper: " + (e?.message || e)
-          : "Could not open this paper in the reader (the source may not allow cross-site reading). Use the ⭳ download button instead.";
+          : notFound
+            ? "This paper's file is no longer available at its source — the ⭳ download may still work."
+            : "Could not open this paper in the reader (the source may not allow cross-site reading). Use the ⭳ download button instead.";
       }
     }
   }
