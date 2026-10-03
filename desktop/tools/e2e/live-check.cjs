@@ -34,8 +34,16 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(BASE, { waitUntil: "load", timeout: 60_000 });
-  await page.waitForSelector("#cards .card", { timeout: 30_000 });
-  const cards = await page.locator("#cards .card").count();
+  // The SW takeover-reload (fresh profile -> clientsClaim -> controllerchange
+  // -> one-time reload) can land between the cards rendering and the count —
+  // the same race the og/canonical check dodges via fetch. Reload-tolerant
+  // retry here.
+  let cards = 0;
+  for (let attempt = 0; attempt < 2 && cards === 0; attempt++) {
+    try { await page.waitForSelector("#cards .card", { timeout: 30_000 }); } catch { /* navigation raced */ }
+    cards = await page.locator("#cards .card").count();
+    if (cards === 0 && attempt === 0) await page.reload({ waitUntil: "load", timeout: 60_000 });
+  }
   if (cards > 0) pass(`live catalogue renders (${cards} cards on page 1)`);
   else fail("live catalogue renders no cards");
   const ogHtml = await (await fetch(BASE + "?cb=" + Date.now(), { redirect: "follow" })).text();
