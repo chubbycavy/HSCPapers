@@ -17,7 +17,10 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   const n = (live.papers || []).length;
   const nsw = (live.papers || []).filter((p) => (p.url || "").includes("www.nsw.gov.au")).length;
   const r2 = (live.papers || []).filter((p) => (p.url || "").includes("pub-ec23")).length;
-  if (n >= 7000 && nsw >= 331 && r2 >= 70) pass(`catalogue: ${n} papers | nsw ${nsw} | r2 ${r2}`);
+  // floors track the current baseline: 6,975 papers after the same-file
+  // dedupe collapse; 319 nsw.gov.au primaries after dan's index transfers
+  // moved some to his GitHub hosting
+  if (n >= 6900 && nsw >= 310 && r2 >= 70) pass(`catalogue: ${n} papers | nsw ${nsw} | r2 ${r2}`);
   else fail(`catalogue markers drifted: ${n}/${nsw}/${r2}`);
 
   for (const f of ["sw.js", "manifest.webmanifest", "og-card.png", "robots.txt", "sitemap.xml", "icon-192.png", "coverage"]) {
