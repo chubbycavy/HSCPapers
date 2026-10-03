@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "hscpapes"
 version = "1.0.10"
 edition = "2021"
