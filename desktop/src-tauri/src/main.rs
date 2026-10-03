@@ -1480,13 +1480,32 @@ async fn update_install(
         "update-progress",
         UpdateProgress { downloaded: pos, total: Some(pos), done: true },
     );
-    // Launch the NSIS installer (silent + restart) and exit so files unlock.
-    // Tauri NSIS handles the running-app case; /R relaunches after install.
+    // Launch the NSIS installer (silent, official update-mode) and exit so
+    // files unlock. The launcher is detached and outlives this process: the
+    // waiting happens INSIDE it, after the app is gone and the exe is
+    // unlocked. The old shape spawned from a thread that app.exit() killed
+    // mid-sleep — the installer never ran (v1.0.10/11 "closes and nothing
+    // happens"). Tauri NSIS has no /R flag (verified against the
+    // tauri-bundler installer.nsi template) and never relaunches in silent
+    // mode, so the launcher relaunches the replaced exe itself.
+    let exe = std::env::current_exe().unwrap_or_default();
     let installer = tmp.clone();
-    std::thread::spawn(move || {
-        std::thread::sleep(std::time::Duration::from_millis(600));
-        let _ = std::process::Command::new(&installer).args(["/S", "/R"]).spawn();
-    });
+    #[cfg(windows)]
+    {
+        use std::os::windows::process::CommandExt;
+        const CREATE_NO_WINDOW: u32 = 0x0800_0000;
+        let script = format!(
+            "timeout /t 2 /nobreak >nul & start /wait \"\" \"{}\" /S /UPDATE & start \"\" \"{}\"",
+            installer.display(),
+            exe.display()
+        );
+        let _ = std::process::Command::new("cmd")
+            .args(["/C", &script])
+            .creation_flags(CREATE_NO_WINDOW)
+            .spawn();
+    }
+    #[cfg(not(windows))]
+    let _ = installer; // non-Windows: no NSIS update path
     app.exit(0);
     Ok(())
 }
