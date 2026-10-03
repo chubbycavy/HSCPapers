@@ -198,7 +198,7 @@ async function main() {
     const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
     const fastFiles = papers.reduce((n, p) => n + (p.url && fastRe.test(p.url) ? 1 : 0) + (p.solutionUrl && fastRe.test(p.solutionUrl) ? 1 : 0), 0);
     const subjects = new Set(papers.map((p) => p.subject)).size;
-    for (const [claim, actual, min] of [["7,000+", papers.length, 6750], ["8,800+", totalFiles, 8650], ["6,400+", fastFiles, 6250]]) {
+    for (const [claim, actual, min] of [["7,000+", papers.length, 6750], ["7,700+", totalFiles, 7550], ["6,400+", fastFiles, 6250]]) {
       if (html.includes(claim)) { if (actual >= min) pass(`claim "${claim}" holds (actual ${actual})`); else fail(`claim "${claim}" DRIFTED`, `actual ${actual} < floor ${min}`); }
       else warn(`claim "${claim}" not found in index.html`);
     }

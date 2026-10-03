@@ -836,6 +836,25 @@ if (require.main === module) {
     }
     console.log(`nesa-recovery: rewrote ${nesaN} papers + ${nesaSolN} solutions -> nsw.gov.au`);
   }
+  // Broken-solution blacklist (dead-solutions.json, live-probed by
+  // sol-audit.cjs): solution urls with no working source anywhere — clear
+  // the solution fields so the UI stops advertising solutions that fail at
+  // the source. A later audit removes urls that probe live again; the next
+  // rebuild restores them automatically.
+  let DEADREG = null;
+  try { DEADREG = JSON.parse(fs.readFileSync(path.join(__dirname, "dead-solutions.json"), "utf8")); } catch { /* none yet */ }
+  if (DEADREG && DEADREG.urls) {
+    let clearedN = 0;
+    for (const p of papers) {
+      if (p.solutionUrl && DEADREG.urls[p.solutionUrl]) {
+        p.solutionUrl = "";
+        p.solFallbackUrl = "";
+        p.hasSolutions = false;
+        clearedN++;
+      }
+    }
+    console.log(`dead-solutions: cleared ${clearedN} entries (blacklist: ${Object.keys(DEADREG.urls).length} urls)`);
+  }
   // Self-host remirror (selfhost.json): papers whose bytes we host on our
   // own R2 bucket. Matched by (subject, year, school, type) — NOT by mirror
   // URL — so entries are restored even when third-party mirrors are disabled

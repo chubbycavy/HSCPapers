@@ -91,7 +91,7 @@ Every number shown on the site/app traces to a source — update them together:
   `MAX_ZIP_FILES` (200) + `MAX_ZIP_BUDGET_MB` (500). When these change, update
   in the same commit: hero sub ("up to 200 papers…"), the meta description,
   feature card 4, the features stats band, and the desktop ZIP notes.
-- Catalogue-scale claims ("7,000+ papers", "8,800+ files", "6,400+
+- Catalogue-scale claims ("7,000+ papers", "7,700+ files", "6,400+
   one-click", "1967–2026") are durable round numbers — re-derive from the
   current catalogue when they drift by more than ~5%.
 - Download/traffic counters: intentionally absent until real analytics exist
