@@ -718,7 +718,7 @@
     const readBtn = el.querySelector("[data-read]");
     if (readBtn) readBtn.addEventListener("click", (e) => {
       e.preventDefault(); e.stopPropagation();
-      openReader(paperHref, p.title, p.id, solHref || null); // auto-split when solutions exist
+      openReader(paperHref, p.title, p.id, solHref || null, p.solFallbackUrl || null); // auto-split when solutions exist
     });
     const starBtn = el.querySelector("[data-star]");
     starBtn.addEventListener("click", (e) => {
@@ -1616,17 +1616,22 @@
   let readerFocus = "paper"; // keyboard + global bar + print target
   let readerSync = false;    // page-follow toggle (persisted, default off)
   try { readerSync = localStorage.getItem("hsc-reader-sync") === "1"; } catch {}
-  let readerPaperUrl = null, readerSolUrl = null;
+  let readerPaperUrl = null, readerSolUrl = null, readerSolFallbackUrl = null;
   let pendingPaperId = null; // B8: recently-viewed logs only on a successful load
 
   function paneNumEl(key) { return $(key === "paper" ? "#numPaper" : "#numSol"); }
   function paneScrollEl(key) { return $(key === "paper" ? "#scrollPaper" : "#scrollSol"); }
 
-  function openReader(path, title, id, solPath) {
+  function openReader(path, title, id, solPath, solFallbackPath) {
     if (!path) return;
     pendingPaperId = id || null;
     readerPaperUrl = IS_TAURI ? path : proxied(path);
     readerSolUrl = solPath ? (IS_TAURI ? solPath : proxied(solPath)) : null;
+    // Live fallback for dead-primary solutions (Bug 1 residue): the catalogue
+    // keeps a working URL beside some soft-dead ones. Same-URL guard avoids
+    // retrying an identical address pointlessly.
+    readerSolFallbackUrl = solFallbackPath && solFallbackPath !== solPath
+      ? (IS_TAURI ? solFallbackPath : proxied(solFallbackPath)) : null;
     readerPanes.paper = mkPane();
     readerPanes.sol = mkPane();
     readerPanes.paper.sysPath = IS_TAURI ? path : null;
@@ -1690,11 +1695,12 @@
     readerMode = "single"; readerFocus = "paper"; pendingPaperId = null;
     $("#readerErr").hidden = true; $("#readerErr").textContent = "";
   }
-  async function loadPane(key) {
+  async function loadPane(key, urlOverride) {
     const pane = readerPanes[key];
     try {
-      const url = (IS_TAURI && pane.sysPath) ? window.__TAURI__.core.convertFileSrc(pane.sysPath)
-        : (key === "paper" ? readerPaperUrl : readerSolUrl);
+      const url = urlOverride
+        || ((IS_TAURI && pane.sysPath) ? window.__TAURI__.core.convertFileSrc(pane.sysPath)
+          : (key === "paper" ? readerPaperUrl : readerSolUrl));
       const doc = await window.pdfjsLib.getDocument({ url }).promise;
       pane.doc = doc;
       pane.numPages = doc.numPages;
@@ -1725,6 +1731,15 @@
       queueRender(key, 1); // eager first page
     } catch (e) {
       if (key === "sol") {
+        // One fallback attempt before giving up: the catalogue keeps a live
+        // solFallbackUrl beside some dead-primary solutions — try it once.
+        const alt = (!pane.solFallbackTried && readerSolFallbackUrl) ? readerSolFallbackUrl : null;
+        if (alt) {
+          try { pane.doc?.destroy(); } catch {}
+          readerPanes.sol = mkPane();
+          readerPanes.sol.solFallbackTried = true;
+          return loadPane(key, alt); // recursion happens at most once
+        }
         // Solutions failed to load → graceful fallback to single-pane paper.
         try { pane.doc?.destroy(); } catch {}
         readerPanes.sol = mkPane();

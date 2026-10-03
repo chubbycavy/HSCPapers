@@ -711,17 +711,22 @@ if (require.main === module) {
   }
   console.log(`mirror-hscportal(nesa twins): ${portalNesa} NESA entries -> direct CDN URLs`);
 
-  // (ix) BOS for still-mirrorless NESA entries — dead wcm primaries swap to
-  // direct BOS URLs (2000-2015). The router fallback (if dedupe attached one)
-  // is preserved; no wcm links are kept as fallbacks (they're all dead).
+  // (ix) BOS for NESA entries — dead wcm primaries swap to direct BOS URLs
+  // (2000-2015). The router fallback (if dedupe attached one) is preserved;
+  // no wcm links are kept as fallbacks (they're all dead). The SOLUTION swap
+  // also runs for PRE-MIRRORED entries: the dedupe twin-transfer attaches a
+  // paper mirror but can leave the dead educationstandards solutionUrl behind
+  // — gated on the dead pattern so live solution URLs are never clobbered.
   let bosNesaPapers = 0, bosNesaSol = 0;
   for (const p of papers) {
-    if (p.mirror || p.source !== "nesa" || !p.year || p.type !== "hsc") continue;
-    for (const cand of subjectCands(p.subject)) {
-      const hit = bosMap.get(`${cand}|${p.year}|paper`);
-      if (hit) { p.url = hit.url; p.mirror = "boardofstudies"; bosNesaPapers++; break; }
+    if (p.source !== "nesa" || !p.year || p.type !== "hsc") continue;
+    if (!p.mirror) {
+      for (const cand of subjectCands(p.subject)) {
+        const hit = bosMap.get(`${cand}|${p.year}|paper`);
+        if (hit) { p.url = hit.url; p.mirror = "boardofstudies"; bosNesaPapers++; break; }
+      }
     }
-    if (p.solutionUrl) {
+    if (p.solutionUrl && /educationstandards|wcm\/connect/.test(p.solutionUrl)) {
       for (const cand of subjectCands(p.subject)) {
         let replaced = false;
         for (const kind of ["mg", "sa", "nfc"]) {
