@@ -1,6 +1,6 @@
 {
- "_doc": "NESA dead-link recovery registry (C2): dead wcm URLs AND slow-route router URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
- "generated": "2026-10-03T09:22:49.279Z",
+ "_doc": "NESA dead-link recovery registry (C2): dead wcm URLs, slow-route router URLs AND dead BOS deep-links -> verified live documents (nsw.gov.au course pages + archive + Wayback raw-byte snapshots). The builder applies this at every rebuild — no hosting on our side. Re-verify periodically: the recovery pass is idempotent.",
+ "generated": "2026-10-03T10:48:42.364Z",
  "entries": {
   "https://educationstandards.nsw.edu.au/wps/wcm/connect/ca56906c-cf90-48ea-9804-5b29407fcdb9/2018-hsc-chinese-and-literature.pdf?MOD=AJPERES": {
    "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-06/2018-hsc-chinese-and-literature.pdf",

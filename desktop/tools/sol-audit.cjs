@@ -96,6 +96,10 @@ function mineNesaPages() {
   for (const f of fs.readdirSync(NESACACHE)) {
     let m = f.match(/^page-(.+)-(\d{4})-\d+\.html$/);
     if (m) { mineFile(path.join(NESACACHE, f), m[1], m[2], add); continue; }
+    m = f.match(/^page-(.+)-(\d{4})-([a-z0-9-]+)\.html$/);
+    // non-numeric tails = the URL-derived wayback-rescue keys (counter files
+    // matched the pure-digit pattern above)
+    if (m && !/^\d+$/.test(m[3])) { mineFile(path.join(NESACACHE, f), m[1], m[2], add); continue; }
     m = f.match(/^(?:sol|slow)-(.+)-(\d{4})\.html$/);
     if (m) mineFile(path.join(NESACACHE, f), m[1], m[2], add);
   }

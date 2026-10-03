@@ -204,12 +204,24 @@ function extractPdfLinks(html) {
         }
       };
       for (const yp of [...yearPages, ...archiveYearPages]) {
+        // URL-derived deterministic key: main and archive pages can share a
+        // year (a plain year key would collide), and it must survive counter
+        // drift so the Wayback fetches cache once and stay cached.
+        const wbKey = `page-${nk}-${yp.year}-${yp.u.replace(/^https?:\/\//, "").replace(/[^a-z0-9]+/gi, "-").slice(-60)}.html`;
+        let yHtml = null;
         try {
-          const yHtml = await cachedFetch(yp.u, `page-${nk}-${yp.year}-${crawled}.html`, yp.u);
-          crawled++;
-          collect(yHtml, yp.u);
-          yearCollect(yHtml, yp.u, yp.year);
-        } catch { /* per-year page may not exist */ }
+          yHtml = await cachedFetch(yp.u, `page-${nk}-${yp.year}-${crawled}.html`, yp.u);
+        } catch {
+          // the year page moved/404s live — Wayback's nearest capture holds it
+          try { yHtml = await cachedFetch(`https://web.archive.org/web/2024/${yp.u}`, wbKey); } catch { continue; }
+        }
+        if (!/\.pdf/.test(yHtml)) {
+          // NESA's migration 301s year pages to JS-only shells — Wayback again
+          try { yHtml = await cachedFetch(`https://web.archive.org/web/2024/${yp.u}`, wbKey); } catch { /* keep what we have */ }
+        }
+        crawled++;
+        collect(yHtml, yp.u);
+        yearCollect(yHtml, yp.u, yp.year);
       }
       pdfLinksByCourse.set(nk, pdfs);
     } catch (e) {
@@ -377,9 +389,51 @@ function extractPdfLinks(html) {
   }
   console.log(`solution recovery: ${solMatched} (subject,year) pairs matched, ${solVerified} solution URLs mapped -> nsw.gov.au`);
 
+  // 8. BOS deep-link liveness + Wayback-file rescue: the builder's mirror
+  // passes swap BOS archive urls in WITHOUT verifying (nightly cost) — some
+  // deep-links died when BOS reorganized its archive. Probe every distinct
+  // BOS primary/solution url in the catalogue; dead ones get the Wayback
+  // file snapshot (id_ raw-bytes form — archive.org sends ACAO:* so the
+  // reader fetches it directly: another fast-lane host). Registry keys =
+  // the dead urls, so the rebuild rewrites them like any other recovery.
+  const wbProbe = async (url) => {
+    try {
+      const res = await fetch(`https://archive.org/wayback/available?url=${encodeURIComponent(url)}`, { headers: UA });
+      if (res.status === 429) { await sleep(15000); return wbProbe(url); }
+      if (!res.ok) return null;
+      const j = await res.json();
+      const c = j?.archived_snapshots?.closest;
+      return c && c.status === "200" && /\.pdf/i.test(c.url) ? c.url : null;
+    } catch { return null; }
+  };
+  const bosUrls = new Set();
+  for (const p of catalogue) {
+    if (/boardofstudies\.nsw\.edu\.au/.test(p.url || "")) bosUrls.add(p.url);
+    if (/boardofstudies\.nsw\.edu\.au/.test(p.solutionUrl || "")) bosUrls.add(p.solutionUrl);
+  }
+  // urls already mapped in the registry are known-live (they were verified
+  // when mapped) — skip re-probing them
+  const toProbe = [...bosUrls].filter((u) => !recovery[u]);
+  console.log(`\nbos liveness: ${toProbe.length} distinct BOS urls to probe (registry covers the rest)`);
+  let bosDead = 0, bosRescued = 0, bosDone = 0;
+  for (const u of toProbe) {
+    if (++bosDone % 100 === 0) console.log(`  bos probe ${bosDone}/${toProbe.length} · dead ${bosDead} · rescued ${bosRescued}`);
+    if (await magicOk(u)) continue;
+    bosDead++;
+    const snap = await wbProbe(u);
+    if (!snap) continue;
+    const snapId = snap.replace(/\/web\//, "/web/").replace(/(\/web\/\d+)(?:im_|if_|js_)?\//, "$1id_/"); // raw bytes form
+    if (await magicOk(snapId)) {
+      recovery[u] = { url: snapId, title: "BOS archive deep-link (wayback-rescued)" };
+      bosRescued++;
+    }
+    await sleep(DELAY_MS);
+  }
+  console.log(`bos liveness: ${toProbe.length} probed · ${bosDead} dead · ${bosRescued} wayback-rescued -> registry`);
+
   if (REPORT_ONLY) { console.log("[report-only — registry not written]"); return; }
   fs.writeFileSync(OUT, JSON.stringify({
-    _doc: "NESA dead-link recovery registry (C2): dead wcm URLs AND slow-route router URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",
+    _doc: "NESA dead-link recovery registry (C2): dead wcm URLs, slow-route router URLs AND dead BOS deep-links -> verified live documents (nsw.gov.au course pages + archive + Wayback raw-byte snapshots). The builder applies this at every rebuild — no hosting on our side. Re-verify periodically: the recovery pass is idempotent.",
     generated: new Date().toISOString(),
     entries: recovery,
   }, null, 1) + "\n");
