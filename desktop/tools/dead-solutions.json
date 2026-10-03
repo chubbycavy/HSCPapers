@@ -1,6 +1,6 @@
 {
  "_doc": "Broken solution urls (live-probed by sol-audit.cjs). The builder clears solutionUrl/hasSolutions for listed urls. Entries are REMOVED when a later audit probes the url live again — never hand-edit; re-run the audit.",
- "generated": "2026-10-03T07:56:21.540Z",
+ "generated": "2026-10-03T11:03:30.874Z",
  "urls": {
   "https://educationstandards.nsw.edu.au/wps/wcm/connect/f2fa8b1d-0adb-4747-acd1-72463b307ab3/2018-hsc-aboriginal-studies-mg.pdf?MOD=AJPERES": {
    "cls": "html",
