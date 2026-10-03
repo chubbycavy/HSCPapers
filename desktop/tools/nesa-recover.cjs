@@ -296,6 +296,45 @@ function extractPdfLinks(html) {
   }
   console.log(`slow-route recovery: ${slowMatched} matched, ${slowVerified} verified -> nsw.gov.au`);
 
+  // 7. SOLUTION recovery: dead/soft-dead educationstandards solution URLs
+  // (the 301-to-NESA-homepage class) -> the course year-page's marking-
+  // guidelines/marking-feedback PDF (NESA's marking guidelines ARE the
+  // official solutions). Grouped by (subject, year) — one year-page fetch
+  // covers every dead solution in that pair. Registry keys = the dead
+  // SOLUTION urls; the builder matches them via p.solutionUrl.
+  const deadSols = catalogue.filter((p) =>
+    p.solutionUrl && /educationstandards\.nsw\.edu\.au/.test(p.solutionUrl));
+  console.log(`\nsolution recovery: ${deadSols.length} educationstandards solution URLs (soft-dead candidates)`);
+  const solPairs = new Map(); // "subject|year" -> papers
+  for (const p of deadSols) {
+    if (!p.year) continue;
+    const k = `${p.subject}|${p.year}`;
+    if (!solPairs.has(k)) solPairs.set(k, []);
+    solPairs.get(k).push(p);
+  }
+  let solMatched = 0, solVerified = 0;
+  for (const [k, list] of solPairs) {
+    const subject = k.split("|")[0], yearStr = k.split("|")[1];
+    const course = courseFor.get(subject) || neededCourses.get(normKey(subject));
+    if (!course) continue;
+    try {
+      const yHtml = await cachedFetch(`${course.url}/${yearStr}`, `sol-${normKey(subject)}-${yearStr}.html`);
+      crawled++;
+      const pdfs = extractPdfLinks(yHtml).map((u) => new URL(u, `${course.url}/${yearStr}`).href);
+      const mg = pdfs.find((x) => /-mg-|-marking|-feedback|guideline/i.test(x));
+      if (!mg) continue;
+      const ok = await verify(mg);
+      if (!ok) continue;
+      solMatched++;
+      for (const p of list) {
+        if (recovery[p.solutionUrl] && recovery[p.solutionUrl].url === mg) continue; // already mapped
+        recovery[p.solutionUrl] = { url: mg, title: p.title, solution: true };
+        solVerified++;
+      }
+    } catch { /* course/year page may not exist for this course */ }
+  }
+  console.log(`solution recovery: ${solMatched} (subject,year) pairs matched, ${solVerified} solution URLs mapped -> nsw.gov.au`);
+
   if (REPORT_ONLY) { console.log("[report-only — registry not written]"); return; }
   fs.writeFileSync(OUT, JSON.stringify({
     _doc: "NESA dead-link recovery registry (C2): dead wcm URLs AND slow-route router URLs -> verified public links on nsw.gov.au (course exam-paper pages + archive). The builder applies this at every rebuild — no hosting on our side; links point at the government archive. Re-verify periodically: the recovery pass is idempotent.",

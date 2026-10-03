@@ -52,6 +52,26 @@ test.describe("catalogue", () => {
     await expect(page.locator('#typePills [data-type="all"]')).not.toHaveClass(/on/);
   });
 
+  test("rapid filter toggling never desyncs state (Bug 2 race guard)", async ({ page }) => {
+    await ready(page);
+    await page.locator("#panelSubject summary").click();
+    const subjInput = page.locator("#subjectList .check input").first();
+    const label = page.locator("#subjectList .check").first();
+    const value = await label.getAttribute("data-value");
+    // rapid alternating toggles — clicks must always land on live elements
+    for (let i = 0; i < 6; i++) {
+      await subjInput.click();
+      await page.locator('#typePills [data-type="mine"]').click();
+      await page.locator('#typePills [data-type="all"]').click();
+    }
+    // after the storm: the last toggle ON must be reflected in state
+    await subjInput.click();
+    const chip = await page.locator("#chipsRow .chip span").first().textContent();
+    expect(chip).toBe(value); // the exact subject is selected, once, correctly
+    // the checkbox visual agrees with state
+    await expect(subjInput).toBeChecked();
+  });
+
   test("star/tag bounding boxes never overlap (B5 regression guard)", async ({ page }) => {
     await ready(page);
     const idx = await page.evaluate(() => {

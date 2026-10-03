@@ -377,13 +377,10 @@
     lab.dataset.value = String(value);
     lab.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}> <span></span> <span class="count">${count}</span>`;
     lab.querySelector("span").textContent = label;
-    lab.querySelector("span").textContent = label;
-    lab.querySelector("input").addEventListener("change", (e) => {
-      if (e.target.checked) state[list].add(value);
-      else state[list].delete(value);
-      writeURL();
-      applyFilterChange();
-    });
+    // No per-label listener: buildFilters() replaces these labels on every
+    // filter change, and a rapid click landing on a just-replaced input
+    // fired against a detached element (stale value → desynced counts).
+    // Change events are delegated on the containers instead.
     return lab;
   }
   function buildFilters() {
@@ -435,6 +432,24 @@
       schSearch.addEventListener("input", (e) => {
         const v = e.target.value.toLowerCase();
         [...schList.children].forEach(row => row.style.display = row.textContent.toLowerCase().includes(v) ? "" : "none");
+      });
+    }
+    // Delegated change handling (wired once): the containers persist across
+    // rebuilds, so events always read the CURRENT DOM's data-value — the
+    // detached-click race class is structurally gone.
+    for (const [cont, list] of [["#subjectList", "subjects"], ["#yearList", "years"], ["#schoolList", "schools"]]) {
+      const c = $(cont);
+      if (!c || c.dataset.changeWired) continue;
+      c.dataset.changeWired = "1";
+      c.addEventListener("change", (e) => {
+        const row = e.target.closest?.(".check");
+        if (!row || row.dataset.list !== list) return;
+        const value = row.dataset.value;
+        const v = list === "years" ? Number(value) : value;
+        if (e.target.checked) state[list].add(v);
+        else state[list].delete(v);
+        writeURL();
+        applyFilterChange();
       });
     }
     // resets (also guarded — same stacking issue as above). The buttons live
@@ -1716,7 +1731,13 @@
         readerMode = "single";
         applyReaderChrome();
         $("#readerErr").hidden = false;
-        $("#readerErr").textContent = "Solutions couldn't open in the reader (the source may not allow cross-site reading) — the ⭳ download still works.";
+        // Distinguish the two failure classes: a pdf.js parse error usually
+        // means the source now serves an HTML page (the soft-dead redirect
+        // class) — say that honestly instead of guessing about CORS.
+        const parseFail = /invalid pdf|structure|parse|unexpected/i.test(String(e?.message || e));
+        $("#readerErr").textContent = parseFail
+          ? "These solutions are no longer available at the source (the link no longer points at a document) — the ⭳ download still works."
+          : "Solutions couldn't open in the reader (the source may not allow cross-site reading) — the ⭳ download still works.";
       } else {
         $("#readerErr").hidden = false;
         $("#readerErr").textContent = IS_TAURI

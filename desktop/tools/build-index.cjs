@@ -289,6 +289,7 @@ if (require.main === module) {
         year: e.year, school: e.school, type: e.type,
         title: e.title, url: e.url, solutionPath: "", size: "",
         hasSolutions: e.hasSolutions, source: e.source,
+        viewno: e.viewno, linkText: e.linkText, // THSC id-routing metadata (index-resolution)
       });
     }
     if (++done % 25 === 0) console.log(`  parsed ${done}/${targets.length} pages...`);
@@ -296,6 +297,7 @@ if (require.main === module) {
 
   // 3. HSCpapers.json (direct NESA links)
   phase("phase 2: NESA direct links + mirror matching");
+  // (index-resolution for THSC entries happens in step 3b, after parsing)
   const hscRaw = await cached("HSCpapers.json", SOURCES.hscIndex.raw);
   const hsc = JSON.parse(hscRaw);
   const nesaKeys = new Set();
@@ -757,22 +759,77 @@ if (require.main === module) {
     papers.length = 0;
     papers.push(...kept);
   }
+
+  // 3b. THSC index-resolution: dan's migration added an id-indexed resource
+  // map (repo path: index/<viewno>.json, keyed by anchor text) — the direct
+  // official file URLs behind every pdf(this, viewno) anchor. Resolve each
+  // THSC-listing entry's primary URL through it; the old s/d endpoint (now
+  // 404-dead) stays as the fallback. Graceful: pages without an index yet
+  // keep the legacy route until dan's migration covers them.
+  {
+    const viewnos = new Set(papers.filter(p => p.source === "thsc-listing").map(p => p.viewno));
+    phase(`phase 2a: resolving ${viewnos.size} THSC id-indexes (dan's new file routing)`);
+    const indexMap = new Map(); // viewno -> {linkText -> directUrl}
+    let resolved = 0, idxMissing = 0;
+    for (const vn of viewnos) {
+      try {
+        const raw = await cached(`thsc-index-${vn}.json`, `${SOURCES.github.rawBase}/index/${vn}.json`);
+        const j = JSON.parse(raw.replace(/^\uFEFF/, ""));
+        const map = {};
+        for (const [key, res] of Object.entries(j)) {
+          const item = Array.isArray(res) ? res.find(x => x.default) || res[0] : res;
+          if (item && item.url) map[key.trim().toLowerCase()] = item.url;
+        }
+        indexMap.set(vn, map);
+      } catch { idxMissing++; }
+    }
+    let idxN = 0;
+    for (const p of papers) {
+      if (p.source !== "thsc-listing") continue;
+      const map = indexMap.get(p.viewno);
+      if (!map) continue;
+      const hit = map[String(p.linkText || "").trim().toLowerCase()];
+      if (!hit) continue;
+      p.fallbackUrl = p.fallbackUrl || p.url; // the dead/legacy endpoint kept as fallback
+      p.url = hit;
+      p.mirror = "thsc-index";
+      idxN++;
+    }
+    console.log(`thsc-index: resolved ${idxN} entries to direct official URLs (${idxMissing} pages not indexed yet)`);
+  }
+
   // NESA dead-link recovery (nesa-recovery.json): dead wcm URLs -> verified
   // public links on nsw.gov.au (the exam-paper pages + archive NESA rebuilt).
   // Applied like the removals registry — matched by the dead URL exactly.
   let NESAREC = null;
   try { NESAREC = JSON.parse(fs.readFileSync(path.join(__dirname, "nesa-recovery.json"), "utf8")); } catch { /* none yet */ }
   if (NESAREC && NESAREC.entries) {
-    let nesaN = 0;
+    let nesaN = 0, nesaSolN = 0;
     for (const p of papers) {
       const hit = NESAREC.entries[p.url];
-      if (!hit) continue;
-      p.fallbackUrl = p.fallbackUrl || p.url; // keep the dead URL trail for reference
-      p.url = hit.url;
-      p.mirror = "nesa-archive";
-      nesaN++;
+      if (hit) {
+        p.fallbackUrl = p.fallbackUrl || p.url; // keep the dead URL trail for reference
+        p.url = hit.url;
+        p.mirror = "nesa-archive";
+        nesaN++;
+      }
+      // Solutions too: dead wcm/educationstandards solution URLs recover via
+      // an exact solution-key hit, else the paper entry's markingGuidelines
+      // companion (NESA's marking guidelines ARE the official solutions).
+      if (p.solutionUrl && /educationstandards|wcm\/connect/.test(p.solutionUrl)) {
+        const solHit = NESAREC.entries[p.solutionUrl];
+        const mg = hit ? hit.markingGuidelines : null;
+        const target = (solHit && solHit.url) || mg;
+        if (target) {
+          p.solFallbackUrl = p.solFallbackUrl || p.solutionUrl; // dead trail kept
+          p.solutionUrl = target;
+          p.hasSolutions = true;
+          if (!p.mirror) p.mirror = "nesa-archive";
+          nesaSolN++;
+        }
+      }
     }
-    console.log(`nesa-recovery: rewrote ${nesaN} dead wcm URLs -> nsw.gov.au`);
+    console.log(`nesa-recovery: rewrote ${nesaN} papers + ${nesaSolN} solutions -> nsw.gov.au`);
   }
   // Self-host remirror (selfhost.json): papers whose bytes we host on our
   // own R2 bucket. Matched by (subject, year, school, type) — NOT by mirror
