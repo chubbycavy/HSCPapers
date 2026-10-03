@@ -4,4 +4,12 @@
     <loc>https://hscpapers.pages.dev/</loc>
     <changefreq>daily</changefreq>
   </url>
+  <url>
+    <loc>https://hscpapers.pages.dev/coverage</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://hscpapers.pages.dev/demo-scroll</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
