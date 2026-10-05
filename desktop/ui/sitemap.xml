@@ -2,502 +2,627 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hscpapers.pages.dev/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/coverage</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/demo-scroll</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/aboriginal-studies/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/agriculture/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/ancient-history/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/arabic-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/arabic-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/arabic-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/armenian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/automotive/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/biology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/business-services/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/business-studies/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/chemistry/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/chinese-and-literature-chinese-background-speakers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/chinese-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/chinese-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/chinese-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/chinese-in-context-heritage-chinese-mandarin/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/classical-greek-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/classical-greek-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/classical-hebrew-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/classical-hebrew-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/community-and-family-studies/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/construction/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/croatian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/czech-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/dance/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/design-and-technology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/drama/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/earth-environmental-science/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/earth-and-environmental-science/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/economics/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/electrotechnology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/engineering-studies/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/english/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/english-advanced/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/english-extension-1/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/english-extension-2/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/english-paper-1/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/english-standard/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/entertainment-industry/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/esl/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/filipino-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/financial-services/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/food-technology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/french-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/french-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/french-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/geography/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/german-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/german-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/german-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/history-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/hospitality/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/human-services/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/indonesian-and-literature-indonesian-background-speakers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/indonesian-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/indonesian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/indonesian-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/indonesian-in-context-heritage-indonesian/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/industrial-technology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/information-and-digital-technology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/information-processes-technology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/information-processes-and-technology/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/investigating-science/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/italian-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/italian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/italian-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/japanese-and-literature-japanese-background-speakers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/japanese-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/japanese-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/japanese-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/japanese-in-context-heritage-japanese/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/korean-and-literature-korean-background-speakers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/korean-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/korean-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/korean-in-context-heritage-korean/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/latin-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/latin-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/legal-studies/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/lithuanian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/maltese-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/mathematics/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/mathematics-advanced/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/mathematics-extension-1/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/mathematics-extension-2/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/mathematics-general/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/mathematics-standard/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/metal-and-engineering/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/modern-greek-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/modern-greek-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/modern-greek-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/modern-hebrew-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/modern-history/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/music-1/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/music-2/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/pdhpe/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/persian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/personal-development-health-and-physical-education/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/physics/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/primary-industries/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/retail-services/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/russian-background-speakers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/senior-science/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/serbian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/slovenian/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/society-culture/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/society-and-culture/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/software-design-development/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/software-design-and-development/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/spanish-beginners/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/spanish-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/spanish-extension/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/studies-of-religion/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/studies-of-religion-i/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/swedish-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/textiles-and-design/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/tourism-travel-and-events/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/turkish-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/ukrainian-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/vietnamese-continuers/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://hscpapers.pages.dev/subjects/visual-arts/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
