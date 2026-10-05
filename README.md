@@ -4,7 +4,11 @@ Fast, searchable index of NSW HSC **trial papers, past HSC papers and school
 assessment tasks** — organised `Subject → Year → School`, split HSC (NESA past
 papers) vs Trial (school-written). This repo ships two products from one codebase:
 
-1. **Website** — `desktop/ui/` (deployed via Cloudflare Pages). Pure static:
+**Live site: [hscpapers.pages.dev](https://hscpapers.pages.dev)** ·
+[Coverage dashboard](https://hscpapers.pages.dev/coverage) ·
+[Browse by subject](https://hscpapers.pages.dev/subjects/)
+
+1. **Website** — `desktop/ui/` (live at [hscpapers.pages.dev](https://hscpapers.pages.dev), deployed via Cloudflare Pages). Pure static:
    search, faceted filters, embedded PDF reader + study timer, bulk download
    (structured ZIP, copy links). Mostly an index — downloads resolve to
    their source: the HSC Portal mirror, the Board of Studies archive, or
@@ -21,7 +25,7 @@ papers) vs Trial (school-written). This repo ships two products from one codebas
 desktop/
   sources.json          frozen source config (THSC, mirrors, polite-fetch policy)
   ui/                   ★ CANONICAL WEB UI — index.html, css/, js/, data/, pdfjs/
-    data/papers.json    GENERATED catalogue (7,015 papers / 8,892 files) — do not hand-edit
+    data/papers.json    GENERATED catalogue (7,000+ papers / 7,700+ files) — do not hand-edit
   tools/build-index.cjs catalogue builder (THSC listings + NESA + mirrors)
   tools/.cache/         builder HTTP cache (git-ignored)
   src-tauri/            Tauri app (Rust backend + NSIS installer config)
@@ -107,9 +111,9 @@ node desktop/tools/build-index.cjs --no-cache # refetch everything
 node desktop/tools/build-index.cjs --limit=6  # quick parser test (partial output)
 ```
 
-Current catalogue: **7,015 papers / 8,892 files (6,079 fast)** — sources
+Current catalogue: **7,000+ papers / 7,700+ files** — sources
 `thsc-listing` + `nesa` + mirrors (HSC Portal, Board of Studies).
-Slow-route files (~640, THSC rate-limited resolver) are hidden by default
+Slow-route files (~400, THSC rate-limited resolver) are hidden by default
 (sidebar toggle 🐢). Papers belong to their schools/authors and NESA — see
 `desktop/sources.json` attribution.
 

@@ -161,7 +161,9 @@ module.exports = async function generate() {
   <div class="hub-list">${subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${bySubject.get(s).length} papers</small></a>`).join("")}</div>`;
   fs.writeFileSync(path.join(root, "index.html"), page(hubTitle, esc(hubDesc), hubCanonical, hubBody, breadcrumb("Subjects", hubCanonical)));
 
-  // the sitemap (the generator owns it now)
+  // the sitemap (the generator owns it now); lastmod = the build stamp —
+  // Google's scheduler reads it as the "re-look at these" freshness signal
+  const lastmod = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: `${SITE}/`, freq: "daily" },
     { loc: `${SITE}/coverage`, freq: "daily" },
@@ -173,6 +175,7 @@ module.exports = async function generate() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url>
     <loc>${u.loc}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${u.freq}</changefreq>
   </url>`).join("\n")}
 </urlset>

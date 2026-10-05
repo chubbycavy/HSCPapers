@@ -204,6 +204,13 @@ async function main() {
       else warn(`claim "${claim}" not found in index.html`);
     }
     if (html.includes("121 subjects")) { if (subjects >= 119) pass(`121 subjects holds (actual ${subjects})`); else fail("121 subjects drifted", `actual ${subjects}`); }
+    // the repo README = a crawled, indexed surface — it must link the live
+    // site and carry the evergreen counts (the discovery/trust path)
+    const readme = fs.readFileSync(path.join(__dirname, "..", "..", "README.md"), "utf8");
+    if (readme.includes("hscpapers.pages.dev")) pass("README links the live site");
+    else fail("README missing the live site link");
+    if (readme.includes("7,000+ papers") && readme.includes("7,700+ files")) pass("README carries the evergreen counts");
+    else fail("README counts stale or missing");
   }
 
   /* [6] engine logic tests */
