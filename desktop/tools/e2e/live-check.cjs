@@ -13,7 +13,7 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
 (async () => {
   // 1. plain HTTP checks
   const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
-  const live = await (await fetch(BASE + "data/papers.json?cb=" + Date.now(), { redirect: "follow" })).json();
+  const live = await (await fetch(BASE + "data/papers.json?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).json();
   const n = (live.papers || []).length;
   const nsw = (live.papers || []).filter((p) => (p.url || "").includes("www.nsw.gov.au")).length;
   const r2 = (live.papers || []).filter((p) => (p.url || "").includes("pub-ec23")).length;
@@ -24,11 +24,11 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   else fail(`catalogue markers drifted: ${n}/${nsw}/${r2}`);
 
   for (const f of ["sw.js", "manifest.webmanifest", "og-card.png", "robots.txt", "sitemap.xml", "icon-192.png", "coverage"]) {
-    const r = await fetch(BASE + f + "?cb=" + Date.now(), { redirect: "follow" });
+    const r = await fetch(BASE + f + "?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) });
     if (r.ok) pass(`${f} -> ${r.status}`);
     else fail(`${f} -> ${r.status}`);
   }
-  const swHead = await fetch(BASE + "sw.js", { redirect: "follow" });
+  const swHead = await fetch(BASE + "sw.js", { redirect: "follow", signal: AbortSignal.timeout(20000) });
   const cc = swHead.headers.get("cache-control") || "";
   if (cc.includes("no-cache")) pass("sw served with no-cache (updates always land)");
   else fail("sw cache-control missing no-cache");
@@ -49,28 +49,28 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   }
   if (cards > 0) pass(`live catalogue renders (${cards} cards on page 1)`);
   else fail("live catalogue renders no cards");
-  const ogHtml = await (await fetch(BASE + "?cb=" + Date.now(), { redirect: "follow" })).text();
+  const ogHtml = await (await fetch(BASE + "?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
   if (ogHtml.includes("og:title") && ogHtml.includes("canonical")) pass("og/canonical present");
   else fail("og/canonical missing");
 
   // coverage page (server-rendered content assertions; the hover journey
   // runs in the local suite — production 308s abort browser navigation)
-  const cov = await (await fetch(BASE + "coverage?cb=" + Date.now(), { redirect: "follow" })).text();
+  const cov = await (await fetch(BASE + "coverage?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
   if (cov.includes("data-label") && cov.includes("covtip") && cov.includes("Subjects")) pass("coverage page carries the live matrix + instant tooltip");
   else fail("coverage page markers missing");
 
   // landing pages (Phase C): the hub + one subject page, real content
   const papersLocal = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
   const sample = papersLocal.find((p) => p.subject === "Chemistry") ? "chemistry" : null;
-  const hub = await (await fetch(BASE + "subjects/?cb=" + Date.now(), { redirect: "follow" })).text();
+  const hub = await (await fetch(BASE + "subjects/?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
   if (hub.includes("Browse NSW HSC papers by subject") && hub.includes("/subjects/")) pass("subjects hub live");
   else fail("subjects hub missing");
-  const sitemapTxt = await (await fetch(BASE + "sitemap.xml?cb=" + Date.now(), { redirect: "follow" })).text();
+  const sitemapTxt = await (await fetch(BASE + "sitemap.xml?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
   const nUrls = (sitemapTxt.match(/<loc>/g) || []).length;
   if (nUrls >= 100 && sitemapTxt.includes("/subjects/")) pass(`sitemap live with subject pages (${nUrls} urls)`);
   else fail(`sitemap under-covers (${nUrls} urls)`);
   if (sample) {
-    const sp = await (await fetch(BASE + "subjects/" + sample + "/?cb=" + Date.now(), { redirect: "follow" })).text();
+    const sp = await (await fetch(BASE + "subjects/" + sample + "/?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
     if (sp.includes("past papers") && sp.includes("papers indexed") && sp.includes("Open")) pass("sample subject page live with the paper table");
     else fail("sample subject page missing/incomplete");
   }

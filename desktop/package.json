@@ -8,7 +8,8 @@
     "build": "tauri build",
     "test:sweep": "node tools/sweep-check.cjs",
     "test:e2e": "npx playwright test --config tools/e2e/playwright.config.cjs",
-    "test:live": "node tools/e2e/live-check.cjs"
+    "test:live": "node tools/e2e/live-check.cjs",
+    "test:nuclear": "node tools/nuclear.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

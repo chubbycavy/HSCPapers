@@ -364,6 +364,21 @@ async function main() {
       if (!missing.length) pass(`${label}: ${subjects.length}/${subjects.length} slugs present`);
       else fail(`${label} missing slugs`, `${missing.length} e.g. ${missing.slice(0, 5).join(", ")}`);
     }
+    // DISK != GIT blind spot: a landing page can exist on disk yet be
+    // git-ignored/excluded (the .gitignore "Physics/" case) — the deployed
+    // Pages tree would 404/SPA-fallback it. Every slug must be git-tracked.
+    const { spawnSync } = require("child_process");
+    const spawnGitSync = (args) => {
+      const r = spawnSync("git", args, { cwd: path.join(__dirname, "..", ".."), encoding: "utf8" }); // repo ROOT cwd
+      if (r.status !== 0) throw new Error("git " + args.join(" ") + " failed");
+      return r.stdout;
+    };
+    const tracked = new Set(
+      spawnGitSync(["ls-files", "desktop/ui/subjects/"]).toString().trim().split("\n").filter(Boolean)
+    );
+    const untrackedSlugs = subjects.filter((s) => !tracked.has(`desktop/ui/subjects/${slugOf(s)}/index.html`));
+    if (!untrackedSlugs.length) pass(`all ${subjects.length} landing pages git-tracked`);
+    else fail(`landing pages on disk but NOT in git: ${untrackedSlugs.length}`, untrackedSlugs.slice(0, 5).join(", "));
   }
 
   console.log("\n==== SWEEP SUMMARY ====");

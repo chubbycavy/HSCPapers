@@ -1,9 +1,13 @@
 # Paper libraries — third-party content; never published
-HSC Papers/
-HSCPapers2/
-HSCPapersDatabase/
-Maths Advanced/
-Physics/
+# (ANCHORED to the repo root: unanchored "Physics/" also matched the
+# generated landing page at desktop/ui/subjects/physics/ — git matches
+# ignores case-insensitively on Windows — and silently excluded it from
+# every add/commit since Phase C)
+/HSC Papers/
+/HSCPapers2/
+/HSCPapersDatabase/
+/Maths Advanced/
+/Physics/
 
 # Build artifacts & caches
 desktop/src-tauri/target/

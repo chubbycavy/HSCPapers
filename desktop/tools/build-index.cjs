@@ -47,6 +47,12 @@ try {
 } catch { /* no registry yet — nothing removed */ }
 
 const NO_CACHE = process.argv.includes("--no-cache");
+// --offline: the freeze-free canary mode — build STRICTLY from the cache,
+// zero network (no polite fetches, no politeness sleeps, no probes). A cache
+// miss is an instant hard error, never a hang. Fresh-source drift detection
+// stays the nightly's daily --no-cache job; the manual canary checks builder
+// determinism only.
+const OFFLINE = process.argv.includes("--offline");
 const LIMIT = (() => {
   const m = process.argv.find((a) => a.startsWith("--limit="));
   return m ? Number(m.split("=")[1]) : Infinity;
@@ -57,6 +63,7 @@ const UA = { "User-Agent": SOURCES.policy.userAgent };
 async function cached(key, url, { api = false } = {}) {
   const file = path.join(CACHE, key);
   if (!NO_CACHE && fs.existsSync(file)) return fs.readFileSync(file, "utf8");
+  if (OFFLINE) throw new Error(`--offline: cache miss for ${key} (${url}) — run a cached (network) build first`);
   await sleep(SOURCES.policy.metaDelayMs);
   // Hard per-request timeout — web.archive.org can hang otherwise.
   const signal = typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(30000) : undefined;
