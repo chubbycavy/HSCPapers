@@ -379,6 +379,42 @@ async function main() {
     const untrackedSlugs = subjects.filter((s) => !tracked.has(`desktop/ui/subjects/${slugOf(s)}/index.html`));
     if (!untrackedSlugs.length) pass(`all ${subjects.length} landing pages git-tracked`);
     else fail(`landing pages on disk but NOT in git: ${untrackedSlugs.length}`, untrackedSlugs.slice(0, 5).join(", "));
+    // lastmod freshness contract (independent re-verification of the
+    // generator's content-diff): a url whose normalized content differs
+    // from HEAD's blob must carry the sitemap's max (build-stamp) date;
+    // an unchanged url must retain a date <= max; all dates valid, none
+    // future. Normalization must MATCH the generator's (cov-note stamp
+    // strip + CRLF + trim) — duplicated here as the verifier's own logic.
+    const smUrls = [...sm.matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)];
+    const today = new Date().toISOString().slice(0, 10);
+    const dateRe = /^\d{4}-\d{2}-\d{2}$/;
+    const dates = smUrls.map((m) => m[2]);
+    const malformed = dates.filter((d) => !dateRe.test(d) || d > today);
+    const maxDate = dates.filter((d) => dateRe.test(d) && d <= today).sort().pop() || "";
+    const normLm = (t) => String(t).replace(/<p class="cov-note">Generated [^<]*<\/p>/, "").replace(/\r\n/g, "\n").trim();
+    const shaLm = (t) => require("crypto").createHash("sha256").update(normLm(t)).digest("hex");
+    const contentPathOf = (loc) => {
+      if (loc === "https://hscpapers.pages.dev/") return "index.html";
+      if (loc === "https://hscpapers.pages.dev/coverage") return "coverage.html";
+      if (loc === "https://hscpapers.pages.dev/demo-scroll") return "demo-scroll.html";
+      if (loc === "https://hscpapers.pages.dev/subjects/") return "subjects/index.html";
+      const m = loc.match(/\/subjects\/([^/]+)\/$/);
+      return m ? `subjects/${m[1]}/index.html` : null;
+    };
+    let lmBad = [];
+    for (const m of smUrls) {
+      const loc = m[1], lm = m[2];
+      const rel = contentPathOf(loc);
+      if (!rel) continue;
+      let headSha = null, newSha = null;
+      try { headSha = shaLm(spawnGitSync(["show", `HEAD:desktop/ui/${rel}`])); } catch { /* blob missing -> unverifiable */ }
+      try { newSha = shaLm(fs.readFileSync(path.join(UI, rel), "utf8")); } catch { /* unreadable */ }
+      if (headSha === null || newSha === null) continue;
+      if (headSha !== newSha && lm !== maxDate) lmBad.push(`${loc} changed but stamped ${lm} != ${maxDate}`);
+      else if (headSha === newSha && lm > maxDate) lmBad.push(`${loc} unchanged but stamped ${lm} > ${maxDate}`);
+    }
+    if (!malformed.length && !lmBad.length) pass(`lastmod contract: ${smUrls.length} urls, max ${maxDate}, changed stamped / unchanged retained`);
+    else fail("lastmod contract violated", `${malformed.length} malformed/future; ${lmBad.slice(0, 3).join(" | ")}`);
   }
 
   console.log("\n==== SWEEP SUMMARY ====");

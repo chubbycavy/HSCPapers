@@ -161,31 +161,13 @@ module.exports = async function generate() {
   <div class="hub-list">${subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${bySubject.get(s).length} papers</small></a>`).join("")}</div>`;
   fs.writeFileSync(path.join(root, "index.html"), page(hubTitle, esc(hubDesc), hubCanonical, hubBody, breadcrumb("Subjects", hubCanonical)));
 
-  // the sitemap (the generator owns it now); lastmod = the build stamp —
-  // Google's scheduler reads it as the "re-look at these" freshness signal
-  const lastmod = new Date().toISOString().slice(0, 10);
-  const urls = [
-    { loc: `${SITE}/`, freq: "daily" },
-    { loc: `${SITE}/coverage`, freq: "daily" },
-    { loc: `${SITE}/demo-scroll`, freq: "monthly" },
-    { loc: `${SITE}/subjects/`, freq: "weekly" },
-    ...subjects.map((s) => ({ loc: `${SITE}/subjects/${slugOf(s)}/`, freq: "weekly" })),
-  ];
-  fs.writeFileSync(path.join(UI, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${u.freq}</changefreq>
-  </url>`).join("\n")}
-</urlset>
-`);
-
   // the SPA shell's static subject directory (the HTML-sitemap pattern):
   // #subjectStrip is JS-rendered, so the RAW HTML Googlebot fetches carries
   // zero subject links — this block puts every subject (1 hop from the
   // hottest-crawled page) into the shell statically, between idempotent
   // markers, re-synced against the catalogue on every run.
+  // NOTE: this runs BEFORE the sitemap section — the sitemap's "/" url
+  // hashes index.html, so the post-injection content must be on disk.
   const S_START = "<!-- SUBJECTS:STATIC:START -->";
   const S_END = "<!-- SUBJECTS:STATIC:END -->";
   const gridLinks = subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${bySubject.get(s).length} papers</small></a>`).join("");
@@ -196,6 +178,67 @@ ${urls.map((u) => `  <url>
     ? shell.slice(0, shell.indexOf(S_START)) + gridBlock + shell.slice(shell.indexOf(S_END) + S_END.length)
     : shell.replace("</body>", `${gridBlock}\n</body>`);
   fs.writeFileSync(shellPath, shellOut);
+
+  // the sitemap (the generator owns it now). lastmod is a CONTENT-DIFF
+  // against the last COMMITTED version (HEAD's blob): urls whose content
+  // changed get the build stamp, unchanged urls RETAIN their previous
+  // lastmod — Google discounts uniformly-bumped stamps, so the freshness
+  // signal must stay truthful. Normalization strips volatile lines
+  // (coverage's "Generated <ts>" stamp) so only real content moves a date.
+  // If git/blob lookup fails, degrade to bump-all (the old uniform stamp).
+  // NOTE: runs AFTER the grid injection so the "/" url hashes the
+  // post-injection index.html.
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const urls = [
+    { loc: `${SITE}/`, freq: "daily" },
+    { loc: `${SITE}/coverage`, freq: "daily" },
+    { loc: `${SITE}/demo-scroll`, freq: "monthly" },
+    { loc: `${SITE}/subjects/`, freq: "weekly" },
+    ...subjects.map((s) => ({ loc: `${SITE}/subjects/${slugOf(s)}/`, freq: "weekly" })),
+  ];
+  const crypto = require("crypto");
+  const { spawnSync } = require("child_process");
+  const REPO = path.join(__dirname, "..", ".."); // desktop/tools -> repo root
+  const prevLastmod = new Map();
+  try {
+    for (const m of fs.readFileSync(path.join(UI, "sitemap.xml"), "utf8").matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)) prevLastmod.set(m[1], m[2]);
+  } catch { /* no previous sitemap — every url is new */ }
+  const norm = (t) => String(t).replace(/<p class="cov-note">Generated [^<]*<\/p>/, "").replace(/\r\n/g, "\n").trim();
+  const sha = (t) => crypto.createHash("sha256").update(norm(t)).digest("hex");
+  const contentPath = (loc) => {
+    if (loc === `${SITE}/`) return "index.html";
+    if (loc === `${SITE}/coverage`) return "coverage.html";
+    if (loc === `${SITE}/demo-scroll`) return "demo-scroll.html";
+    if (loc === `${SITE}/subjects/`) return "subjects/index.html";
+    const m = loc.match(/\/subjects\/([^/]+)\/$/);
+    return m ? `subjects/${m[1]}/index.html` : null;
+  };
+  let bumped = 0, retained = 0;
+  const urlXml = urls.map((u) => {
+    let lm = lastmod;
+    const rel = contentPath(u.loc);
+    const prev = prevLastmod.get(u.loc);
+    if (rel && prev) {
+      let headSha = null, newSha = null;
+      try {
+        const r = spawnSync("git", ["show", `HEAD:desktop/ui/${rel}`], { cwd: REPO, encoding: "utf8" });
+        if (r.status === 0 && !r.error) headSha = sha(r.stdout);
+      } catch { /* not a repo / blob missing -> bump */ }
+      try { newSha = sha(fs.readFileSync(path.join(UI, rel), "utf8")); } catch { /* unreadable -> bump */ }
+      if (headSha !== null && headSha === newSha) { lm = prev; retained++; } else bumped++;
+    }
+    return `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${lm}</lastmod>
+    <changefreq>${u.freq}</changefreq>
+  </url>`;
+  });
+  fs.writeFileSync(path.join(UI, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlXml.join("\n")}
+</urlset>
+`);
+  console.log(`sitemap: ${urls.length} urls — lastmod bumped ${bumped}, retained ${retained} (content-diff vs HEAD)`);
 
   return { subjects: subjects.length, pages: subjects.length + 1, sitemapUrls: urls.length };
 };
