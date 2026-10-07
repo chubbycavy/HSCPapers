@@ -45,7 +45,12 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   for (let attempt = 0; attempt < 2 && cards === 0; attempt++) {
     try { await page.waitForSelector("#cards .card", { timeout: 30_000 }); } catch { /* navigation raced */ }
     cards = await page.locator("#cards .card").count();
-    if (cards === 0 && attempt === 0) await page.reload({ waitUntil: "load", timeout: 60_000 });
+    if (cards === 0 && attempt === 0) {
+      // the SW takeover-reload (fresh profile -> clientsClaim -> one-time
+      // reload) can be IN FLIGHT while we reload — "Not attached to an
+      // active page" = it already navigated for us; tolerate and re-count
+      try { await page.reload({ waitUntil: "load", timeout: 60_000 }); } catch { /* takeover reload raced ours */ }
+    }
   }
   if (cards > 0) pass(`live catalogue renders (${cards} cards on page 1)`);
   else fail("live catalogue renders no cards");

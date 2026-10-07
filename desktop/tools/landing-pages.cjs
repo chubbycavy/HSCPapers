@@ -17,6 +17,7 @@ const UI = path.join(__dirname, "..", "ui");
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const slugOf = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const papersLabel = (n) => `${n} paper${n === 1 ? "" : "s"}`;
 const typeLabel = (t) => ({ hsc: "HSC exam", trial: "Trial paper", assessment: "Assessment task", internal: "Internal" }[t] || "Other");
 
 const ICON = `<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f46e5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>H</text></svg>">`;
@@ -132,11 +133,11 @@ module.exports = async function generate() {
     }).join("\n");
 
     const title = `HSC ${esc(subject)} Past Papers &amp; Trial Papers${range} | HSCPapers`;
-    const desc = `Browse ${list.length} HSC ${subject} papers${range}: every NSW HSC exam, trial paper and school assessment for ${subject}, free to read in-browser with year and school filters, plus bulk ZIP downloads.`;
+    const desc = `Browse ${list.length} HSC ${subject} paper${list.length === 1 ? "" : "s"}${range}: every NSW HSC exam, trial paper and school assessment for ${subject}, free to read in-browser with year and school filters, plus bulk ZIP downloads.`;
     const body = `
   <h1>NSW HSC ${esc(subject)} past papers</h1>
   <div class="l-stats">
-    <div class="stat"><b>${list.length}</b><span>papers indexed</span></div>
+    <div class="stat"><b>${list.length}</b><span>${list.length === 1 ? "paper" : "papers"} indexed</span></div>
     <div class="stat"><b>${yearsAll.length ? `${yMin}–${yMax}` : "—"}</b><span>years covered</span></div>
     <div class="stat"><b>${schools.length}</b><span>schools + NESA</span></div>
   </div>
@@ -158,7 +159,7 @@ module.exports = async function generate() {
   const hubBody = `
   <h1>Browse NSW HSC papers by subject</h1>
   <p>${subjects.length} subjects — every NSW HSC exam, trial paper and school assessment in one free index. Pick a subject to see its papers, or <a href="/">search the full catalogue</a>.</p>
-  <div class="hub-list">${subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${bySubject.get(s).length} papers</small></a>`).join("")}</div>`;
+  <div class="hub-list">${subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${papersLabel(bySubject.get(s).length)}</small></a>`).join("")}</div>`;
   fs.writeFileSync(path.join(root, "index.html"), page(hubTitle, esc(hubDesc), hubCanonical, hubBody, breadcrumb("Subjects", hubCanonical)));
 
   // the SPA shell's static subject directory (the HTML-sitemap pattern):
@@ -170,7 +171,7 @@ module.exports = async function generate() {
   // hashes index.html, so the post-injection content must be on disk.
   const S_START = "<!-- SUBJECTS:STATIC:START -->";
   const S_END = "<!-- SUBJECTS:STATIC:END -->";
-  const gridLinks = subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${bySubject.get(s).length} papers</small></a>`).join("");
+  const gridLinks = subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${papersLabel(bySubject.get(s).length)}</small></a>`).join("");
   const gridBlock = `${S_START}\n<div class="footer-subjects"><h2>All subjects · <a href="/subjects/">subjects hub</a></h2><div class="f-grid">${gridLinks}</div></div>\n${S_END}`;
   const shellPath = path.join(UI, "index.html");
   const shell = fs.readFileSync(shellPath, "utf8");

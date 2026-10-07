@@ -26,21 +26,42 @@ const npx = isWin ? "npx.cmd" : "npx";
 const stamp = () => new Date().toISOString().slice(11, 19);
 const step = (name) => console.log(`\n== [${stamp()}] ${name} ==`);
 
+// the canary regenerates these paths — the pre-canary worktree state is
+// SNAPSHOT byte-exact and restored after (git restore would wipe
+// UNCOMMITTED work, e.g. hand-edits sitting in the worktree)
+const CANARY_PATHS = ["ui/data/papers.json", "ui/sitemap.xml", "ui/coverage.html", "ui/index.html", "ui/subjects"];
+const os = require("os");
+const SNAPSHOT = fs.mkdtempSync(path.join(os.tmpdir(), "nuc-snap-"));
+for (const p of CANARY_PATHS) {
+  fs.mkdirSync(path.join(SNAPSHOT, path.dirname(p)), { recursive: true });
+  fs.cpSync(path.join(DESKTOP, p), path.join(SNAPSHOT, p), { recursive: true });
+}
+
 function runStep(name, cmd, args) {
   return new Promise((resolve) => {
     step(name);
     const t0 = Date.now();
     const p = spawn(cmd, args, { cwd: DESKTOP, stdio: ["ignore", "pipe", "pipe"], shell: isWin });
     let tail = "";
+    let lastOut = Date.now();
+    // watchdog heartbeat: any child-silence longer than 10s prints a
+    // timestamped still-running line — a quiet window can never look frozen
+    const beat = setInterval(() => {
+      if (Date.now() - lastOut > 10_000) {
+        console.log(`  ⏳ still running (${Math.round((Date.now() - t0) / 1000)}s)…`);
+      }
+    }, 10_000);
     const fwd = (d) => {
+      lastOut = Date.now();
       const s = d.toString();
       tail += s; if (tail.length > 6000) tail = tail.slice(-6000);
       process.stdout.write(s);
     };
     p.stdout.on("data", fwd);
     p.stderr.on("data", fwd);
-    p.on("error", (e) => { console.error(`  spawn error: ${e}`); resolve(false); });
+    p.on("error", (e) => { clearInterval(beat); console.error(`  spawn error: ${e}`); resolve(false); });
     p.on("close", (code) => {
+      clearInterval(beat);
       const dt = ((Date.now() - t0) / 1000).toFixed(1);
       if (code !== 0) {
         console.error(`  RED in ${dt}s (exit ${code}) — output tail:\n${tail.slice(-1500)}`);
@@ -80,16 +101,11 @@ function fingerprint() {
   if (h1 !== h2) { console.error(`  RED: canary nondeterministic (${h1} != ${h2})`); process.exit(1); }
   console.log("  canary deterministic ✓");
 
-  step("Restore canary artifacts (the nightly bot owns catalogue commits)");
-  const RESTORE = ["ui/data/papers.json", "ui/sitemap.xml", "ui/coverage.html", "ui/index.html", "ui/subjects/"];
-  const rr = spawn("git", ["restore", ...RESTORE.map((p) => `desktop/${p}`)], { cwd: ROOT, stdio: ["ignore", "pipe", "pipe"], shell: isWin });
-  let rOut = "";
-  rr.stdout?.on("data", (d) => { rOut += d; });
-  rr.stderr?.on("data", (d) => { rOut += d; process.stdout.write(d); });
-  rr.on("close", (code) => {
-    if (code !== 0) console.error(`  restore failed (exit ${code}) — check git status manually`);
-    else console.log(`  restored ${RESTORE.length} paths`);
-    console.log("\n==== NUCLEAR SUMMARY ====");
-    console.log("ALL GREEN — sweep + e2e + live + canary (deterministic)");
-  });
-})();
+  step("Restore canary artifacts from the pre-canary snapshot");
+  for (const p of CANARY_PATHS) {
+    fs.cpSync(path.join(SNAPSHOT, p), path.join(DESKTOP, p), { recursive: true });
+  }
+  console.log(`  restored ${CANARY_PATHS.length} paths (byte-exact, uncommitted work preserved)`);
+  console.log("\n==== NUCLEAR SUMMARY ====");
+  console.log("ALL GREEN — sweep + e2e + live + canary (deterministic)");
+})().finally(() => { try { fs.rmSync(SNAPSHOT, { recursive: true, force: true }); } catch {} });

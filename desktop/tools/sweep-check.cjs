@@ -340,7 +340,7 @@ async function main() {
       landed++;
       const html = fs.readFileSync(f, "utf8");
       const n = bySubject.get(s);
-      if (!html.includes(`<b>${n}</b>`) || !html.includes("papers indexed")) { fail(`landing page count wrong for "${s}"`, `expected ${n}`); }
+      if (!html.includes(`<b>${n}</b>`) || (!html.includes("papers indexed") && !html.includes("paper indexed"))) { fail(`landing page count wrong for "${s}"`, `expected ${n}`); }
     }
     if (landed === subjects.length && subjects.length) pass(`landing pages: ${landed}/${subjects.length} present with correct counts`);
     const hub = path.join(UI, "subjects", "index.html");

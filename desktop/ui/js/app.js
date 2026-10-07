@@ -500,13 +500,13 @@
     const counts = countsBy("subject");
     const all = document.createElement("button");
     all.className = "subj-chip" + (state.subjects.size === 0 ? " on" : "");
-    all.innerHTML = `<b>All subjects</b><span>${effectivePapers().length} papers</span>`;
+    all.innerHTML = `<b>All subjects</b><span>${effectivePapers().length} paper${effectivePapers().length === 1 ? "" : "s"}</span>`;
     all.addEventListener("click", () => { state.subjects.clear(); applyFilterChange(); });
     strip.appendChild(all);
     [...counts.keys()].sort().forEach(s => {
       const b = document.createElement("button");
       b.className = "subj-chip" + (state.subjects.has(s) ? " on" : "");
-      b.innerHTML = `<b></b><span>${counts.get(s)} papers</span>`;
+      b.innerHTML = `<b></b><span>${counts.get(s)} paper${counts.get(s) === 1 ? "" : "s"}</span>`;
       b.querySelector("b").textContent = s;
       b.addEventListener("click", () => {
         if (state.subjects.has(s) && state.subjects.size === 1) state.subjects.clear();
@@ -848,7 +848,7 @@
     const base = (window.SITE_CONFIG?.SHARE_BASE_URL || "").replace(/\/+$/, "")
       || (location.origin + location.pathname).replace(/\/+$/, "");
     const url = `${base}/?sel=${enc}`;
-    const note = `🔗 Share link copied — ${ids.length} papers${capped ? ` (capped at ${cap} files)` : ""} open pre-selected on any device`;
+    const note = `🔗 Share link copied — ${ids.length} paper${ids.length === 1 ? "" : "s"}${capped ? ` (capped at ${cap} files)` : ""} open pre-selected on any device`;
     // Mobile: the native share sheet is the best UX there. Desktop: the OS
     // share flyout is confusing and often empty — copy straight to the
     // clipboard instead.

@@ -14,7 +14,12 @@ const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","
 
 module.exports = async function run() {
   const ui = path.join(__dirname, "..", "ui");
-  const papers = (JSON.parse(fs.readFileSync(path.join(ui, "data", "papers.json"), "utf8")).papers) || [];
+  const cat = JSON.parse(fs.readFileSync(path.join(ui, "data", "papers.json"), "utf8"));
+  const papers = cat.papers || [];
+  // cov-note carries the CATALOGUE's build stamp (not the render time) — the
+  // page's freshness = the data's freshness, so the committed artifact is
+  // byte-stable per catalogue version (no timestamp-churn commits nightly)
+  const generatedAt = String(cat.generated || "unknown").replace("T", " ").slice(0, 16);
   const isFast = (u) => FAST_HOSTS.test(u || "");
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   const fastFiles = papers.reduce((n, p) => n + (p.url && isFast(p.url) ? 1 : 0) + (p.solutionUrl && isFast(p.solutionUrl) ? 1 : 0), 0);
@@ -105,7 +110,7 @@ module.exports = async function run() {
   <div class="matrix-wrap"><table class="matrix">${matrixHead}${matrixBody}</table></div>
   <h2>Schools by paper count</h2>
   <table class="school-table"><thead><tr><th>#</th><th>School</th><th>Papers</th></tr></thead><tbody>${schoolRows}</tbody></table>
-  <p class="cov-note">Generated ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC by desktop/tools/coverage-report.cjs — rebuilt nightly with the catalogue. Papers belong to their schools/authors and NESA; HSCPapers is a free, non-commercial index.</p>
+  <p class="cov-note">Catalogue generated ${generatedAt} UTC by desktop/tools/build-index.cjs — rebuilt nightly. Papers belong to their schools/authors and NESA; HSCPapers is a free, non-commercial index.</p>
 </main>
 <footer>
   <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a>
