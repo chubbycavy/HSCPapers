@@ -9,7 +9,7 @@ const FAST = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.de
 module.exports = {
   papers,
   r2Paper: papers.find((p) => (p.url || "").startsWith("https://pub-ec23")),
-  solPaper: papers.find((p) => p.hasSolutions && /^https:\/\/(pub-ec23|hscportal\.pages\.dev)/.test(p.solutionUrl || "")),
+  solPaper: papers.find((p) => p.hasSolutions && FAST.test(p.url || "") && /^https:\/\/(pub-ec23|hscportal\.pages\.dev)/.test(p.solutionUrl || "")),
   noSolPaper: papers.find((p) => FAST.test(p.url || "") && !p.hasSolutions && !p.solutionUrl && !p.solutionPath),
-  manyTagsPaper: papers.find((p) => p.hasSolutions && p.year >= 2019 && (p.url || "").startsWith("https://pub-ec23")) || papers.find((p) => p.hasSolutions),
+  manyTagsPaper: papers.find((p) => p.hasSolutions && p.year >= 2019 && (p.url || "").startsWith("https://pub-ec23")) || papers.find((p) => p.hasSolutions && FAST.test(p.url || "")),
 };
