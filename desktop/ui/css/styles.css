@@ -911,3 +911,13 @@ body.drawer-lock { overflow: hidden; }
 /* ---------- downloaded-before badge (device-local, web) ---------- */
 .tag.got { color: #047857; background: #ecfdf5; border-color: #a7f3d0; }
 [data-theme="dark"] .tag.got { color: #6ee7b7; background: #06362a; border-color: #0e5c49; }
+
+/* Static subject directory (footer grid, injected by tools/landing-pages.cjs
+   and tools/coverage-report.cjs — the HTML-sitemap crawl lane) */
+.footer-subjects { max-width: 1200px; margin: 0 auto; padding: 1.1rem 1.2rem 2.4rem; border-top: 1px solid var(--border); }
+.footer-subjects h2 { font-size: .95rem; margin: 0 0 .7rem; }
+.footer-subjects h2 a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.footer-subjects .f-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: .3rem .7rem; font-size: .8rem; }
+.footer-subjects .f-grid a { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; padding: .32rem .6rem; border: 1px solid var(--border); border-radius: 9px; text-decoration: none; color: var(--text); }
+.footer-subjects .f-grid a:hover { border-color: var(--accent); }
+.footer-subjects .f-grid small { color: var(--muted); white-space: nowrap; }

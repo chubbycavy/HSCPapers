@@ -5,6 +5,9 @@
    runnable standalone: node desktop/tools/coverage-report.cjs */
 const fs = require("fs");
 const path = require("path");
+const { slugOf } = require("./landing-pages.cjs");
+
+const SITE = "https://hscpapers.pages.dev";
 
 const FAST_HOSTS = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au/;
 const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -49,6 +52,7 @@ module.exports = async function run() {
 <title>Coverage — HSCPapers</title>
 <meta name="description" content="What HSCPapers actually has: the live coverage matrix — subjects × years, schools, and file counts, generated straight from the catalogue.">
 <meta name="robots" content="index,follow">
+<link rel="canonical" href="${SITE}/coverage">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f46e5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>H</text></svg>">
 <style>
@@ -106,6 +110,9 @@ module.exports = async function run() {
 <footer>
   <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a>
 </footer>
+<!-- SUBJECTS:STATIC:START -->
+<div class="footer-subjects"><h2>All subjects · <a href="/subjects/">subjects hub</a></h2><div class="f-grid">${subjList.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${subjects.get(s)} papers</small></a>`).join("")}</div></div>
+<!-- SUBJECTS:STATIC:END -->
 <div id="covtip"></div>
 <script>
 (() => {

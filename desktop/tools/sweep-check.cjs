@@ -352,6 +352,18 @@ async function main() {
     else fail(`sitemap under-covers the landing pages (${nUrls} urls)`);
     if (sm.includes(`<loc>https://hscpapers.pages.dev/subjects/${slugOf(subjects[0])}/</loc>`) || !subjects.length) pass("sitemap url scheme matches the page paths");
     else fail("sitemap url scheme mismatch");
+    // the static subject grids: the SPA shell is JS-rendered, so the raw HTML
+    // Googlebot fetches must carry the subject links statically (the
+    // HTML-sitemap crawl lane) — the injector's markers scope the block
+    const gridRe = /<!-- SUBJECTS:STATIC:START -->([\s\S]*?)<!-- SUBJECTS:STATIC:END -->/;
+    for (const [label, file] of [["homepage footer grid", path.join(UI, "index.html")], ["coverage footer grid", path.join(UI, "coverage.html")]]) {
+      const src = fs.readFileSync(file, "utf8");
+      const block = (src.match(gridRe) || [])[1];
+      if (!block) { fail(`${label} missing (SUBJECTS:STATIC block)`); continue; }
+      const missing = subjects.filter((s) => !block.includes(`/subjects/${slugOf(s)}/`));
+      if (!missing.length) pass(`${label}: ${subjects.length}/${subjects.length} slugs present`);
+      else fail(`${label} missing slugs`, `${missing.length} e.g. ${missing.slice(0, 5).join(", ")}`);
+    }
   }
 
   console.log("\n==== SWEEP SUMMARY ====");

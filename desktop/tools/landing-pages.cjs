@@ -181,5 +181,23 @@ ${urls.map((u) => `  <url>
 </urlset>
 `);
 
+  // the SPA shell's static subject directory (the HTML-sitemap pattern):
+  // #subjectStrip is JS-rendered, so the RAW HTML Googlebot fetches carries
+  // zero subject links — this block puts every subject (1 hop from the
+  // hottest-crawled page) into the shell statically, between idempotent
+  // markers, re-synced against the catalogue on every run.
+  const S_START = "<!-- SUBJECTS:STATIC:START -->";
+  const S_END = "<!-- SUBJECTS:STATIC:END -->";
+  const gridLinks = subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${bySubject.get(s).length} papers</small></a>`).join("");
+  const gridBlock = `${S_START}\n<div class="footer-subjects"><h2>All subjects · <a href="/subjects/">subjects hub</a></h2><div class="f-grid">${gridLinks}</div></div>\n${S_END}`;
+  const shellPath = path.join(UI, "index.html");
+  const shell = fs.readFileSync(shellPath, "utf8");
+  const shellOut = shell.includes(S_START) && shell.includes(S_END)
+    ? shell.slice(0, shell.indexOf(S_START)) + gridBlock + shell.slice(shell.indexOf(S_END) + S_END.length)
+    : shell.replace("</body>", `${gridBlock}\n</body>`);
+  fs.writeFileSync(shellPath, shellOut);
+
   return { subjects: subjects.length, pages: subjects.length + 1, sitemapUrls: urls.length };
 };
+
+module.exports.slugOf = slugOf;
