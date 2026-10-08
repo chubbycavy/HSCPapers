@@ -481,6 +481,7 @@
       if (k === "subject") state.subjects.clear();
       if (k === "year") state.years.clear();
       if (k === "school") state.schools.clear();
+      if (k === "type") resetSlowRoute(); // the type panel IS the main clear
       // the canonical pipeline (NOT the old inline shape): the level-seg
       // counts + the strip counts live in updateStats/buildSubjectStrip —
       // bypassing them left the filtered numbers stale after every reset.
@@ -561,6 +562,20 @@
     return filterPapers({ includeSlow: ignoreSlow });
   }
 
+  /* A complete reset also drops the 🐢 slow-route override: users who
+     turned it on for one search expect "clear" to restore the DEFAULTS
+     (off), not leave saves polluted with slow files. Module-scope so both
+     the [data-clear] resets and the "Clear all ✕" chip share the lifecycle:
+     stale-confirm teardown + selection never references now-hidden papers
+     (identical semantics to the #slowRoute change-handler below). */
+  function resetSlowRoute() {
+    state.includeSlowRoute = false;
+    $("#slowRoute").checked = false;
+    if (tauriArmed) { tauriArmed = null; $("#zipBtn").textContent = "⭳ Save to library"; } // stale confirm
+    const hide = new Set(state.papers.filter(p => !isFastHostUrl(p.url)).map(p => p.id));
+    for (const id of [...state.selected]) if (hide.has(id)) state.selected.delete(id);
+  }
+
   /* ---------- render ---------- */
   function esc(s) { return (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
   function filterSig() {
@@ -611,6 +626,7 @@
           state.solutionsOnly = false; $("#solOnly").checked = false;
           state.mine = false; $("#mineOnly").checked = false;
           state.subjects.clear(); state.years.clear(); state.schools.clear();
+          resetSlowRoute();
           persistState(); applyFilterChange();
         });
         row.appendChild(all);

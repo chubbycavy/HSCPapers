@@ -251,6 +251,22 @@ async function main() {
     const r2 = parseList("Chemistry,Physics"); // the legacy format
     const r3 = parseList(enc(pdhpe)); // a lone comma-name (the landing CTA / the old shared link)
     if (JSON.stringify(r1) === JSON.stringify([pdhpe, "Chemistry"]) && JSON.stringify(r2) === JSON.stringify(["Chemistry", "Physics"]) && r3[0] === pdhpe) pass("filter-list URL round-trip (comma-safe raw-level split)"); else fail("filter-list URL round-trip");
+    // clear-all must restore the SLOW-ROUTE default too (the B1 bug class:
+    // a user enables 🐢 for one search, clears, and slow files silently
+    // stayed in saves). Mirrors app.js resetSlowRoute(): toggle off +
+    // selection pruned of now-hidden papers.
+    const isFast = (u) => u && !/\/s\/[dvfz]\//.test(u) && /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io/.test(u);
+    {
+      const st = { includeSlowRoute: true, selected: new Set(papers.slice(0, 30).map((p) => p.id)) };
+      const appResetSlowRoute = (st) => {
+        st.includeSlowRoute = false;
+        const hide = new Set(papers.filter((p) => !isFast(p.url)).map((p) => p.id));
+        for (const id of [...st.selected]) if (hide.has(id)) st.selected.delete(id);
+      };
+      appResetSlowRoute(st);
+      if (st.includeSlowRoute === false && st.selected.size === [...st.selected].filter((id) => { const p = papers.find((x) => x.id === id); return p && isFast(p.url); }).length && st.selected.size < 30) pass("clear-all resets includeSlowRoute + prunes 🐢-hidden from selection");
+      else fail("clear-all slow-route reset broken", `includeSlowRoute=${st.includeSlowRoute}, sel=${st.selected.size}/30`);
+    }
   }
 
   /* [7] share round-trip logic */

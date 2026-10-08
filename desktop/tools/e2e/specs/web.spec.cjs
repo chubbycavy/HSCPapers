@@ -111,6 +111,38 @@ test.describe("catalogue", () => {
     await expect(subjInput).toBeChecked();
   });
 
+  test("clear-all restores the slow-route default (B1: 🐢 toggle + selection pruned)", async ({ page }) => {
+    const { slowPaper } = require("../helpers.cjs");
+    test.skip(!slowPaper, "no slow-route papers in catalogue");
+    await ready(page);
+    // 1. 🐢 toggle FIRST: slow papers are hidden from the effective view,
+    //    so the search for one is empty until slow-route is included
+    await page.locator("#slowRoute").evaluate((el) => el.click());
+    await page.waitForSelector("#cards .card", { timeout: 20_000 });
+    // 2. bring the slow paper forward by search
+    await page.fill("#q", slowPaper.title.slice(0, 40));
+    await page.locator("#searchForm button[type=submit]").click();
+    await page.waitForSelector("#cards .card", { timeout: 20_000 });
+    const slowCard = page.locator(`#cards .card[data-id="${slowPaper.id}"]`);
+    if (await slowCard.count() === 0) test.skip(true, "slow paper not surfaced by this search");
+    await slowCard.locator('input[type="checkbox"]').check();
+    expect(await page.locator("#bulkbar").getAttribute("class")).toMatch(/show/);
+    // 2. chips >= 2 so the Clear-all chip renders
+    await page.locator("#panelSubject summary").click();
+    await page.locator("#subjectList .check input").first().check();
+    expect(await page.locator("#chipsRow .chip").count()).toBeGreaterThanOrEqual(2);
+    // 3. Clear all ✕
+    await page.locator("#chipsRow .chip-all").click();
+    // 4. 🐢 restored to default-off; the slow selection pruned (bulkbar
+    //    collapses); no chips remain; the view = full default set
+    const slowOff = await page.locator("#slowRoute").evaluate((el) => el.checked === false);
+    expect(slowOff).toBe(true);
+    await expect(page.locator("#bulkbar")).not.toHaveClass(/show/);
+    await expect(page.locator("#chipsRow .chip")).toHaveCount(0);
+    const results = parseInt((await page.locator("#resultsCount").textContent()).match(/^([\d,]+) papers/)[1].replace(/,/g, ""), 10);
+    expect(results).toBe(parseInt(await page.locator("#statPapers").textContent(), 10));
+  });
+
   test("star/tag bounding boxes never overlap (B5 regression guard)", async ({ page }) => {
     await ready(page);
     const idx = await page.evaluate(() => {

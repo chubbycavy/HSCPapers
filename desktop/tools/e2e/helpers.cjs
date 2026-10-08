@@ -12,4 +12,8 @@ module.exports = {
   solPaper: papers.find((p) => p.hasSolutions && FAST.test(p.url || "") && /^https:\/\/(pub-ec23|hscportal\.pages\.dev)/.test(p.solutionUrl || "")),
   noSolPaper: papers.find((p) => FAST.test(p.url || "") && !p.hasSolutions && !p.solutionUrl && !p.solutionPath),
   manyTagsPaper: papers.find((p) => p.hasSolutions && p.year >= 2019 && (p.url || "").startsWith("https://pub-ec23")) || papers.find((p) => p.hasSolutions && FAST.test(p.url || "")),
+  // a slow-route paper (paper url needs the 🐢 resolver/hidden lane) — the
+  // clear-all 🐢 journey's fixture; route endpoints (/s/d/) excluded (the
+  // helper contract: route endpoints can be slow OR fast-hosted)
+  slowPaper: papers.find((p) => p.url && !/\/s\/[dvfz]\//.test(p.url) && !FAST.test(p.url)),
 };
