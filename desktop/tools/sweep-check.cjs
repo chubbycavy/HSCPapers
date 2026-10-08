@@ -380,6 +380,15 @@ async function main() {
       if (!missing.length) pass(`${label}: ${subjects.length}/${subjects.length} slugs present`);
       else fail(`${label} missing slugs`, `${missing.length} e.g. ${missing.slice(0, 5).join(", ")}`);
     }
+    // brand assets: the logo generator's outputs must exist and the shell
+    // must reference the svg favicon (logo.cjs owns logo.svg + icons +
+    // og-card; the retired og-card.cjs must NOT come back as an orphan)
+    for (const f of ["logo.svg", "icon-192.png", "icon-512.png", "og-card.png"]) {
+      if (fs.existsSync(path.join(UI, f))) pass(`brand asset on disk: ${f}`);
+      else fail(`brand asset missing: ${f}`);
+    }
+    if (!html.includes("/logo.svg")) fail("index.html does not reference /logo.svg");
+    else pass("index.html references the svg favicon");
     // DISK != GIT blind spot: a landing page can exist on disk yet be
     // git-ignored/excluded (the .gitignore "Physics/" case) — the deployed
     // Pages tree would 404/SPA-fallback it. Every slug must be git-tracked.

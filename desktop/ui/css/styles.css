@@ -75,14 +75,11 @@ header {
 .logo-mark {
   width: 34px; height: 34px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed 60%, #06b6d4);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  font-size: 1rem;
+  overflow: hidden;
   box-shadow: var(--shadow);
+  flex: none;
 }
+.logo-mark svg { width: 100%; height: 100%; display: block; }
 .logo small {
   display: block;
   font-size: 0.68rem;
