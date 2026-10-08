@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { chromium } = require("@playwright/test");
 
-const BASE = "https://hscpapers.pages.dev/";
+  const BASE = "https://hscpapers.com/";
 let fails = 0, passes = 0;
 const pass = (s) => { passes++; console.log(`  PASS  ${s}`); };
 const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
@@ -83,17 +83,35 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   // 3. reader journey on OUR bucket only
   const r2Paper = (live.papers || []).find((p) => (p.url || "").startsWith("https://pub-ec23"));
   if (r2Paper) {
-    await page.goto(BASE, { waitUntil: "load" });
-    await page.fill("#q", r2Paper.title.slice(0, 40));
-    await page.locator("#searchForm button[type=submit]").click();
-    const card = page.locator("#cards .card").filter({ hasText: r2Paper.title.slice(0, 40) }).first();
-    await card.locator("[data-read]").click();
-    await page.waitForSelector("#reader:not([hidden])", { timeout: 30_000 });
     try {
-      await page.waitForSelector("#panePaper .rpage.done", { timeout: 30_000 });
-      pass("live reader renders an R2-hosted paper (real bytes, real browser)");
-    } catch { fail("live reader did not render an R2 paper"); }
-    await page.keyboard.press("Escape");
+      await page.goto(BASE, { waitUntil: "load" });
+      // SETTLE: a first-domain-visit SW takeover-reload can fire SECONDS late
+      // (after the homepage check passed — the probe proved it lands during
+      // the search submit and wipes the typed state). Wait out the one-time
+      // reload, then this journey runs in a stable app.
+      await page.waitForTimeout(6000);
+      const doSearch = async () => {
+        await page.fill("#q", r2Paper.title.slice(0, 40));
+        await page.locator("#searchForm button[type=submit]").click();
+      };
+      await doSearch();
+      let card = page.locator("#cards .card").filter({ hasText: r2Paper.title.slice(0, 40) }).first();
+      try { await card.locator("[data-read]").click({ timeout: 8000 }); }
+      catch {
+        await page.reload({ waitUntil: "load", timeout: 60_000 }).catch(() => {});
+        await page.waitForTimeout(4000);
+        await page.waitForSelector("#cards .card", { timeout: 30_000 });
+        await doSearch().catch(() => {});
+        card = page.locator("#cards .card").filter({ hasText: r2Paper.title.slice(0, 40) }).first();
+        await card.locator("[data-read]").click({ timeout: 30_000 });
+      }
+      await page.waitForSelector("#reader:not([hidden])", { timeout: 30_000 });
+      try {
+        await page.waitForSelector("#panePaper .rpage.done", { timeout: 30_000 });
+        pass("live reader renders an R2-hosted paper (real bytes, real browser)");
+      } catch { fail("live reader did not render an R2 paper"); }
+      await page.keyboard.press("Escape");
+    } catch (e) { fail(`live reader journey crashed/unrendered: ${String(e).slice(0, 90)}`); }
   }
   await browser.close();
 

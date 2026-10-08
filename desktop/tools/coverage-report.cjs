@@ -7,7 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const { slugOf } = require("./landing-pages.cjs");
 
-const SITE = "https://hscpapers.pages.dev";
+const SITE = "https://hscpapers.com";
 
 const FAST_HOSTS = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au/;
 const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));

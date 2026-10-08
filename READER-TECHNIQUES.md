@@ -3,7 +3,7 @@
 *Techniques from HSCPapers' embedded reader, written generically for any
 pdf.js-based web viewer. The working reference implementation lives at
 `demo-scroll.html` (MIT — free to reuse and adapt); the same engine runs
-in production on hscpapers.pages.dev. No HSCPapers-specific code is
+ in production on hscpapers.com. No HSCPapers-specific code is
 required to use any of this.*
 
 ---

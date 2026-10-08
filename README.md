@@ -4,11 +4,11 @@ Fast, searchable index of NSW HSC **trial papers, past HSC papers and school
 assessment tasks** — organised `Subject → Year → School`, split HSC (NESA past
 papers) vs Trial (school-written). This repo ships two products from one codebase:
 
-**Live site: [hscpapers.pages.dev](https://hscpapers.pages.dev)** ·
-[Coverage dashboard](https://hscpapers.pages.dev/coverage) ·
-[Browse by subject](https://hscpapers.pages.dev/subjects/)
+**Live site: [hscpapers.com](https://hscpapers.com)** ·
+[Coverage dashboard](https://hscpapers.com/coverage) ·
+[Browse by subject](https://hscpapers.com/subjects/)
 
-1. **Website** — `desktop/ui/` (live at [hscpapers.pages.dev](https://hscpapers.pages.dev), deployed via Cloudflare Pages). Pure static:
+1. **Website** — `desktop/ui/` (live at [hscpapers.com](https://hscpapers.com), deployed via Cloudflare Pages; the original `hscpapers.pages.dev` URL mirrors it). Pure static:
    search, faceted filters, embedded PDF reader + study timer, bulk download
    (structured ZIP, copy links). Mostly an index — downloads resolve to
    their source: the HSC Portal mirror, the Board of Studies archive, or

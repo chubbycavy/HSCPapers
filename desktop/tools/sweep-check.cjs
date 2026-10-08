@@ -207,7 +207,7 @@ async function main() {
     // the repo README = a crawled, indexed surface — it must link the live
     // site and carry the evergreen counts (the discovery/trust path)
     const readme = fs.readFileSync(path.join(__dirname, "..", "..", "README.md"), "utf8");
-    if (readme.includes("hscpapers.pages.dev")) pass("README links the live site");
+    if (readme.includes("hscpapers.com")) pass("README links the live site");
     else fail("README missing the live site link");
     if (readme.includes("7,000+ papers") && readme.includes("7,700+ files")) pass("README carries the evergreen counts");
     else fail("README counts stale or missing");
@@ -350,7 +350,7 @@ async function main() {
     const nUrls = (sm.match(/<loc>/g) || []).length;
     if (nUrls >= subjects.length + 4 && sm.includes("/subjects/")) pass(`sitemap covers the landing pages (${nUrls} urls)`);
     else fail(`sitemap under-covers the landing pages (${nUrls} urls)`);
-    if (sm.includes(`<loc>https://hscpapers.pages.dev/subjects/${slugOf(subjects[0])}/</loc>`) || !subjects.length) pass("sitemap url scheme matches the page paths");
+    if (sm.includes(`<loc>https://hscpapers.com/subjects/${slugOf(subjects[0])}/</loc>`) || !subjects.length) pass("sitemap url scheme matches the page paths");
     else fail("sitemap url scheme mismatch");
     // the static subject grids: the SPA shell is JS-rendered, so the raw HTML
     // Googlebot fetches must carry the subject links statically (the
@@ -394,10 +394,10 @@ async function main() {
     const normLm = (t) => String(t).replace(/<p class="cov-note">Generated [^<]*<\/p>/, "").replace(/\r\n/g, "\n").trim();
     const shaLm = (t) => require("crypto").createHash("sha256").update(normLm(t)).digest("hex");
     const contentPathOf = (loc) => {
-      if (loc === "https://hscpapers.pages.dev/") return "index.html";
-      if (loc === "https://hscpapers.pages.dev/coverage") return "coverage.html";
-      if (loc === "https://hscpapers.pages.dev/demo-scroll") return "demo-scroll.html";
-      if (loc === "https://hscpapers.pages.dev/subjects/") return "subjects/index.html";
+      if (loc === "https://hscpapers.com/") return "index.html";
+      if (loc === "https://hscpapers.com/coverage") return "coverage.html";
+      if (loc === "https://hscpapers.com/demo-scroll") return "demo-scroll.html";
+      if (loc === "https://hscpapers.com/subjects/") return "subjects/index.html";
       const m = loc.match(/\/subjects\/([^/]+)\/$/);
       return m ? `subjects/${m[1]}/index.html` : null;
     };

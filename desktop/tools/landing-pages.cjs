@@ -12,7 +12,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const SITE = "https://hscpapers.pages.dev";
+const SITE = "https://hscpapers.com";
 const UI = path.join(__dirname, "..", "ui");
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -227,6 +227,8 @@ module.exports = async function generate() {
       } catch { /* not a repo / blob missing -> bump */ }
       try { newSha = sha(fs.readFileSync(path.join(UI, rel), "utf8")); } catch { /* unreadable -> bump */ }
       if (headSha !== null && headSha === newSha) { lm = prev; retained++; } else bumped++;
+    } else {
+      bumped++; // no previous lastmod to retain (new url or new host era)
     }
     return `  <url>
     <loc>${u.loc}</loc>

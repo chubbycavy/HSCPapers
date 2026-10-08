@@ -39,7 +39,7 @@ const SITE_CONFIG = {
   // Canonical public URL used to build share links (?sel=…). The desktop
   // app must NEVER use its own origin (tauri://localhost — recipients
   // couldn't open it); the web uses the same value (equals its own origin).
-  SHARE_BASE_URL: "https://hscpapers.pages.dev",
+  SHARE_BASE_URL: "https://hscpapers.com",
 
   // Browser ZIP limits: each file is fetched into tab RAM, so the count
   // cap plus a running byte budget keep the build inside safe memory.
@@ -63,7 +63,7 @@ const SITE_CONFIG = {
   // Desktop only: the app prefers this live, nightly-rebuilt catalogue at
   // startup and falls back to the bundled copy when offline. The site itself
   // ignores this (same-origin asset already).
-  LIVE_CATALOGUE_URL: "https://hscpapers.pages.dev/data/papers.json",
+  LIVE_CATALOGUE_URL: "https://hscpapers.com/data/papers.json",
 };
 
 /**
