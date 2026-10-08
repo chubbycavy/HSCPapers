@@ -14,16 +14,18 @@ const zlib = require("zlib");
 
 const UI = path.join(__dirname, "..", "ui");
 
-/* ---------- the master SVG (the wired source of truth) ---------- */
+/* ---------- the master SVG (the wired source of truth) ----------
+ * L1 "vibrant field": brand-indigo field, light-indigo receding pages,
+ * white front sheet, deep-indigo-950 H — maximum contrast at 16px. */
 const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="22" fill="#0b1220"/>
-  <rect x="55" y="22" width="26" height="52" rx="5" fill="#31407a"/>
-  <rect x="47" y="28" width="26" height="52" rx="5" fill="#3e55a8"/>
+  <rect width="100" height="100" rx="22" fill="#4f46e5"/>
+  <rect x="55" y="22" width="26" height="52" rx="5" fill="#a5b4fc"/>
+  <rect x="47" y="28" width="26" height="52" rx="5" fill="#c7d2fe"/>
   <rect x="26" y="22" width="40" height="58" rx="5" fill="#f8fafc"/>
   <path d="M50 22 H66 V38 Z" fill="#e0e4f0"/>
-  <rect x="32" y="34" width="5" height="34" fill="#4f46e5"/>
-  <rect x="52" y="34" width="5" height="34" fill="#4f46e5"/>
-  <rect x="37" y="47" width="15" height="5" fill="#4f46e5"/>
+  <rect x="32" y="34" width="5" height="34" fill="#1e1b4b"/>
+  <rect x="52" y="34" width="5" height="34" fill="#1e1b4b"/>
+  <rect x="37" y="47" width="15" height="5" fill="#1e1b4b"/>
 </svg>`;
 
 /* ---------- PNG writer (no deps: zlib + CRC) ---------- */
@@ -113,17 +115,17 @@ function downsample2x(big) {
   return out;
 }
 
-/* ---------- the C1 mark, raster form (optional origin for compositing) ---------- */
+/* ---------- the L1 mark, raster form (optional origin for compositing) ---------- */
 function drawMark(c, S, ox = 0, oy = 0) {
   const u = S / 100;
-  fillRoundRect(c, ox, oy, S, S, 22 * u, "#0b1220");
-  fillRoundRect(c, ox + 55 * u, oy + 22 * u, 26 * u, 52 * u, 5 * u, "#31407a");
-  fillRoundRect(c, ox + 47 * u, oy + 28 * u, 26 * u, 52 * u, 5 * u, "#3e55a8");
+  fillRoundRect(c, ox, oy, S, S, 22 * u, "#4f46e5");
+  fillRoundRect(c, ox + 55 * u, oy + 22 * u, 26 * u, 52 * u, 5 * u, "#a5b4fc");
+  fillRoundRect(c, ox + 47 * u, oy + 28 * u, 26 * u, 52 * u, 5 * u, "#c7d2fe");
   fillRoundRect(c, ox + 26 * u, oy + 22 * u, 40 * u, 58 * u, 5 * u, "#f8fafc");
   fillTriangle(c, [ox + 50 * u, oy + 22 * u], [ox + 66 * u, oy + 22 * u], [ox + 66 * u, oy + 38 * u], "#e0e4f0");
-  fillRect(c, ox + 32 * u, oy + 34 * u, 5 * u, 34 * u, "#4f46e5");
-  fillRect(c, ox + 52 * u, oy + 34 * u, 5 * u, 34 * u, "#4f46e5");
-  fillRect(c, ox + 37 * u, oy + 47 * u, 15 * u, 5 * u, "#4f46e5");
+  fillRect(c, ox + 32 * u, oy + 34 * u, 5 * u, 34 * u, "#1e1b4b");
+  fillRect(c, ox + 52 * u, oy + 34 * u, 5 * u, 34 * u, "#1e1b4b");
+  fillRect(c, ox + 37 * u, oy + 47 * u, 15 * u, 5 * u, "#1e1b4b");
 }
 
 /* ---------- the other two candidates (kept for --previews) ---------- */
@@ -161,11 +163,14 @@ function build() {
     drawMark(big, size * 2);
     fs.writeFileSync(path.join(UI, name), encodePng(size, size, downsample2x(big).buf));
   }
-  // the og-card: brand-indigo field + the mark centred (320px)
+  // the og-card: brand-indigo field + a white tile + the mark inside —
+  // layered (echoes the app's card language); the mark-on-indigo edge
+  // would vanish without the tile
   const W = 1200, H = 630;
   const card = makeCanvas(W, H);
   fillRect(card, 0, 0, W, H, "#4f46e5");
-  drawMark(card, 320, (W - 320) / 2, (H - 320) / 2);
+  fillRoundRect(card, (W - 360) / 2, (H - 360) / 2, 360, 360, 36, "#f8fafc");
+  drawMark(card, 300, (W - 300) / 2, (H - 300) / 2);
   fs.writeFileSync(path.join(UI, "og-card.png"), encodePng(W, H, card.buf));
   console.log("brand assets rebuilt: logo.svg + icon-192.png + icon-512.png + og-card.png");
 }

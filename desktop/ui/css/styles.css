@@ -16,20 +16,22 @@
   --shadow: 0 1px 3px rgba(15, 23, 42, 0.07), 0 4px 14px rgba(15, 23, 42, 0.05);
   --shadow-lg: 0 10px 34px rgba(79, 70, 229, 0.16);
 }
+/* D1 "midnight slate": neutral charcoal base (no blue cast) so the brand
+   indigo pops — surfaces lift clearly from the bg, borders stay visible */
 [data-theme="dark"] {
-  --bg: #0b1220;
-  --surface: #111b30;
-  --surface-2: #1a2742;
-  --text: #e8eefc;
-  --muted: #9aa8c3;
-  --muted-2: #6b7a99;
-  --accent: #818cf8;
+  --bg: #0e1116;
+  --surface: #161b22;
+  --surface-2: #1c2128;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --muted-2: #6e7681;
+  --accent: #8b8ffb;
   --accent-hover: #a5b4fc;
-  --accent-soft: #1e2560;
-  --accent-border: #3b438f;
-  --border: #223052;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 34px rgba(0, 0, 0, 0.5);
+  --accent-soft: #1f2438;
+  --accent-border: #3a4166;
+  --border: #2d333b;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 34px rgba(0, 0, 0, 0.6);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
