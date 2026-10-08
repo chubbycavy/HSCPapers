@@ -383,12 +383,12 @@ async function main() {
     // brand assets: the logo generator's outputs must exist and the shell
     // must reference the svg favicon (logo.cjs owns logo.svg + icons +
     // og-card; the retired og-card.cjs must NOT come back as an orphan)
-    for (const f of ["logo.svg", "icon-192.png", "icon-512.png", "og-card.png"]) {
+    for (const f of ["logo.svg", "favicon.svg", "icon-192.png", "icon-512.png", "og-card.png"]) {
       if (fs.existsSync(path.join(UI, f))) pass(`brand asset on disk: ${f}`);
       else fail(`brand asset missing: ${f}`);
     }
-    if (!html.includes("/logo.svg")) fail("index.html does not reference /logo.svg");
-    else pass("index.html references the svg favicon");
+    if (html.includes("/favicon.svg")) pass("index.html favicon = the simplified-bold variant");
+    else fail("index.html favicon href missing /favicon.svg");
     // B3 follow-system dark: all three HTML surfaces must carry the pre-paint
     // theme script (system default, no light-lock), and nothing may hardcode
     // data-theme="light" as the default experience

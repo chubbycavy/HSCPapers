@@ -252,4 +252,56 @@ test.describe("chrome", () => {
     await expect(page.locator("#covtip")).toBeVisible();
     await expect(page.locator("#covtip")).not.toHaveText("");
   });
+
+  test("dark-mode text contrast: zero elements below AA (B3.1 guard)", async ({ browser }) => {
+    const ctx = await browser.newContext({ colorScheme: "dark" });
+    const page = await ctx.newPage();
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto("/");
+    await page.waitForSelector("#cards .card", { timeout: 30_000 });
+    await page.waitForTimeout(800);
+    const failures = await page.evaluate(() => {
+      const lum = (r, g, b) => {
+        const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+        return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+      };
+      const parse = (s) => {
+        const m = s.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/);
+        return m ? { r: +m[1], g: +m[2], b: +m[3], a: m[4] === undefined ? 1 : +m[4] } : null;
+      };
+      const bgOf = (el) => {
+        for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
+          const c = parse(getComputedStyle(n).backgroundColor);
+          if (c && c.a > 0.85) return c;
+        }
+        return { r: 14, g: 17, b: 22, a: 1 };
+      };
+      const relLum = (c) => lum(c.r, c.g, c.b);
+      const ratio = (a, b) => (Math.max(relLum(a), relLum(b)) + 0.05) / (Math.min(relLum(a), relLum(b)) + 0.05);
+      const out = [];
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const seen = new Set();
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        const text = node.textContent.trim();
+        if (!text) continue;
+        const el = node.parentElement;
+        if (!el || seen.has(el)) continue;
+        seen.add(el);
+        const st = getComputedStyle(el);
+        if (st.display === "none" || st.visibility === "hidden" || +st.opacity < 0.05) continue;
+        if (st.backgroundClip === "text" || (st.webkitBackgroundClip || "").includes("text")) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.width === 0 || rect.bottom < 0 || rect.top > innerHeight) continue;
+        const fg = parse(st.color);
+        if (!fg) continue;
+        const bg = bgOf(el);
+        const cr = ratio(fg, bg);
+        if (cr < 4.5) out.push({ cr: +cr.toFixed(2), text: text.slice(0, 40), cls: (el.className || "").toString().slice(0, 30) });
+      }
+      return out;
+    });
+    expect(failures, `sub-AA dark text: ${failures.map((f) => `${f.cr} "${f.text}"[${f.cls}]`).join(", ")}`).toHaveLength(0);
+    await ctx.close();
+  });
 });

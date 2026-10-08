@@ -32,6 +32,19 @@ const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect x="37" y="47" width="15" height="5" fill="#1e1b4b"/>
 </svg>`;
 
+/* ---------- the favicon variant (simplified bold: legible at 16px) ----------
+ * The full mark's depth cues die at favicon size — the favicon gets a
+ * dedicated variant: bigger sheet, thicker H (7-wide vs 5), no edge-tone
+ * sheets, no fold subtlety. Depth lives in logo.svg/nav/og-card; pure
+ * legibility lives here. */
+const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#4f46e5"/>
+  <rect x="24" y="18" width="46" height="64" rx="7" fill="#f8fafc"/>
+  <rect x="33" y="32" width="8" height="36" fill="#1e1b4b"/>
+  <rect x="53" y="32" width="8" height="36" fill="#1e1b4b"/>
+  <rect x="41" y="46" width="12" height="8" fill="#1e1b4b"/>
+</svg>`;
+
 /* ---------- PNG writer (no deps: zlib + CRC) ---------- */
 function crc32(buf) {
   if (!crc32.table) {
@@ -283,6 +296,7 @@ function drawShelf(c, S) {
 /* ---------- build ---------- */
 function build() {
   fs.writeFileSync(path.join(UI, "logo.svg"), MARK_SVG);
+  fs.writeFileSync(path.join(UI, "favicon.svg"), FAVICON_SVG);
   for (const [size, name] of [[192, "icon-192.png"], [512, "icon-512.png"]]) {
     const big = makeCanvas(size * 2, size * 2);
     drawMark(big, size * 2);
