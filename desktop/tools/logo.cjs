@@ -14,35 +14,32 @@ const zlib = require("zlib");
 
 const UI = path.join(__dirname, "..", "ui");
 
-/* ---------- the master SVG (the wired source of truth) ----------
- * L1 field + D0 depth cues: brand-indigo field, light-indigo receding
- * pages each carrying a darker edge-tone sheet (the depth separation),
- * a contact-shadow sheet beneath the front page, white sheet, deep-950 H. */
+/* ---------- the NEW mark family: "the H of papers" ----------
+ * The decisive redesign: the H ITSELF is built from two paper sheets
+ * (the stems — each with a folded top corner + depth edge), joined by a
+ * thick crossbar. At 16px: a bold white H, unmistakable. At 512px: the
+ * paper story is visible (folds + edges). Genuinely different from every
+ * prior state (no sheet-with-H; the H IS the papers). */
 const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" rx="22" fill="#4f46e5"/>
-  <rect x="55" y="22" width="26" height="52" rx="5" fill="#a5b4fc"/>
-  <rect x="57" y="24" width="24" height="50" rx="4" fill="#8b97ee"/>
-  <rect x="47" y="28" width="26" height="52" rx="5" fill="#c7d2fe"/>
-  <rect x="49" y="30" width="24" height="50" rx="4" fill="#b3c1fa"/>
-  <rect x="25" y="21" width="42" height="60" rx="5" fill="#96a0e6"/>
-  <rect x="26" y="22" width="40" height="58" rx="5" fill="#f8fafc"/>
-  <path d="M50 22 H66 V38 Z" fill="#e0e4f0"/>
-  <rect x="32" y="34" width="5" height="34" fill="#1e1b4b"/>
-  <rect x="52" y="34" width="5" height="34" fill="#1e1b4b"/>
-  <rect x="37" y="47" width="15" height="5" fill="#1e1b4b"/>
+  <rect x="24" y="20" width="15" height="60" rx="4" fill="#96a0e6"/>
+  <rect x="22" y="18" width="15" height="60" rx="4" fill="#f8fafc"/>
+  <path d="M31 18 H37 V30 Z" fill="#e0e4f0"/>
+  <rect x="61" y="20" width="15" height="60" rx="4" fill="#96a0e6"/>
+  <rect x="59" y="18" width="15" height="60" rx="4" fill="#f8fafc"/>
+  <path d="M68 18 H74 V30 Z" fill="#e0e4f0"/>
+  <rect x="37" y="46" width="22" height="12" fill="#f8fafc"/>
+  <rect x="37" y="54" width="22" height="4" fill="#d7dbee"/>
 </svg>`;
 
-/* ---------- the favicon variant (simplified bold: legible at 16px) ----------
- * The full mark's depth cues die at favicon size — the favicon gets a
- * dedicated variant: bigger sheet, thicker H (7-wide vs 5), no edge-tone
- * sheets, no fold subtlety. Depth lives in logo.svg/nav/og-card; pure
- * legibility lives here. */
+/* ---------- the favicon variant (simplified bold: legible at 16px) ---------- */
 const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" rx="22" fill="#4f46e5"/>
-  <rect x="24" y="18" width="46" height="64" rx="7" fill="#f8fafc"/>
-  <rect x="33" y="32" width="8" height="36" fill="#1e1b4b"/>
-  <rect x="53" y="32" width="8" height="36" fill="#1e1b4b"/>
-  <rect x="41" y="46" width="12" height="8" fill="#1e1b4b"/>
+  <rect x="22" y="18" width="15" height="62" rx="4" fill="#f8fafc"/>
+  <path d="M31 18 H37 V28 Z" fill="#e0e4f0"/>
+  <rect x="59" y="18" width="15" height="62" rx="4" fill="#f8fafc"/>
+  <path d="M68 18 H74 V28 Z" fill="#e0e4f0"/>
+  <rect x="37" y="45" width="22" height="13" fill="#f8fafc"/>
 </svg>`;
 
 /* ---------- PNG writer (no deps: zlib + CRC) ---------- */
@@ -145,37 +142,22 @@ function downsample2x(big) {
   return out;
 }
 
-/* ---------- the L1 mark (current), with DEPTH CUES for the preview round ---------- */
-function drawMarkDepth(c, S) {
+/* ---------- the new mark, raster form (optional origin for compositing) ---------- */
+function drawMark(c, S, ox = 0, oy = 0) {
   const u = S / 100;
-  // field + soft vignette (bottom darker) = the 3D floor
-  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
-  for (let y = 0; y < S; y++) {
-    const t = y / S;
-    const shade = Math.round(0x4f + (0x2e - 0x4f) * t * 0.8);
-    fillRect(c, 0, y, S, 1, `rgb(${shadeHex(shade)}, ${shadeHex(shade)}, ${shadeHex(Math.min(255, shade + 12))})`.replace(/rgb\([^)]*\)/, "#4f46e5")); // no-op guard
-  }
-  // redraw solid field then overlay the gradient (canvas lacks alpha-blend rows here; approximate with translucent rows)
-  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
-  const pages = [
-    { x: 55, y: 22, col: "#a5b4fc", edge: "#7c88e0" },
-    { x: 47, y: 28, col: "#c7d2fe", edge: "#9aa7ec" },
-    { x: 26, y: 22, w: 40, h: 58, col: "#f8fafc", edge: "#d7dbee" },
-  ];
-  // receding pages with a bottom-right edge tone (depth separation)
-  fillRoundRect(c, 55 * u, 22 * u, 26 * u, 52 * u, 5 * u, "#a5b4fc");
-  fillRoundRect(c, 57 * u, 24 * u, 24 * u, 50 * u, 4 * u, "#9aa7f0");
-  fillRoundRect(c, 47 * u, 28 * u, 26 * u, 52 * u, 5 * u, "#c7d2fe");
-  fillRoundRect(c, 49 * u, 30 * u, 24 * u, 50 * u, 4 * u, "#b3c1fa");
-  // the front sheet + drop edge
-  fillRoundRect(c, 25 * u, 21 * u, 42 * u, 60 * u, 5 * u, "#96a0e6"); // the contact shadow (offset sheet beneath)
-  fillRoundRect(c, 26 * u, 22 * u, 40 * u, 58 * u, 5 * u, "#f8fafc");
-  fillTriangle(c, [50 * u, 22 * u], [66 * u, 22 * u], [66 * u, 38 * u], "#e0e4f0");
-  fillRect(c, 32 * u, 34 * u, 5 * u, 34 * u, "#1e1b4b");
-  fillRect(c, 52 * u, 34 * u, 5 * u, 34 * u, "#1e1b4b");
-  fillRect(c, 37 * u, 47 * u, 15 * u, 5 * u, "#1e1b4b");
+  fillRoundRect(c, ox, oy, S, S, 22 * u, "#4f46e5");
+  // left paper-stem: shadow sheet + white sheet + fold
+  fillRoundRect(c, ox + 24 * u, oy + 20 * u, 15 * u, 60 * u, 4 * u, "#96a0e6");
+  fillRoundRect(c, ox + 22 * u, oy + 18 * u, 15 * u, 60 * u, 4 * u, "#f8fafc");
+  fillTriangle(c, [ox + 31 * u, oy + 18 * u], [ox + 37 * u, oy + 18 * u], [ox + 37 * u, oy + 30 * u], "#e0e4f0");
+  // right paper-stem
+  fillRoundRect(c, ox + 61 * u, oy + 20 * u, 15 * u, 60 * u, 4 * u, "#96a0e6");
+  fillRoundRect(c, ox + 59 * u, oy + 18 * u, 15 * u, 60 * u, 4 * u, "#f8fafc");
+  fillTriangle(c, [ox + 68 * u, oy + 18 * u], [ox + 74 * u, oy + 18 * u], [ox + 74 * u, oy + 30 * u], "#e0e4f0");
+  // the crossbar (thick, with a bottom edge tone)
+  fillRoundRect(c, ox + 37 * u, oy + 46 * u, 22 * u, 12 * u, 3 * u, "#f8fafc");
+  fillRoundRect(c, ox + 37 * u, oy + 54 * u, 22 * u, 4 * u, 2 * u, "#d7dbee");
 }
-function shadeHex(v) { return Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0"); }
 
 /* A — "open folder + fanned sheets": deep-indigo back board, three fanned
    white sheets rising (each with a fold), H on the front sheet. */
@@ -254,17 +236,6 @@ function drawIsoStack(c, S) {
   fillRect(c, 53 * u, 50 * u, 3.4 * u, 12 * u, "#1e1b4b");
   fillRect(c, 44.4 * u, 57 * u, 8.6 * u, 3.4 * u, "#1e1b4b");
 }
-function drawMark(c, S, ox = 0, oy = 0) {
-  const u = S / 100;
-  fillRoundRect(c, ox, oy, S, S, 22 * u, "#4f46e5");
-  fillRoundRect(c, ox + 55 * u, oy + 22 * u, 26 * u, 52 * u, 5 * u, "#a5b4fc");
-  fillRoundRect(c, ox + 47 * u, oy + 28 * u, 26 * u, 52 * u, 5 * u, "#c7d2fe");
-  fillRoundRect(c, ox + 26 * u, oy + 22 * u, 40 * u, 58 * u, 5 * u, "#f8fafc");
-  fillTriangle(c, [ox + 50 * u, oy + 22 * u], [ox + 66 * u, oy + 22 * u], [ox + 66 * u, oy + 38 * u], "#e0e4f0");
-  fillRect(c, ox + 32 * u, oy + 34 * u, 5 * u, 34 * u, "#1e1b4b");
-  fillRect(c, ox + 52 * u, oy + 34 * u, 5 * u, 34 * u, "#1e1b4b");
-  fillRect(c, ox + 37 * u, oy + 47 * u, 15 * u, 5 * u, "#1e1b4b");
-}
 
 /* ---------- the other two candidates (kept for --previews) ---------- */
 function drawMonogram(c, S) {
@@ -318,16 +289,11 @@ function build() {
 function previews() {
   const outDir = path.join(__dirname, "logo-previews");
   fs.mkdirSync(outDir, { recursive: true });
-  for (const [name, draw, blurb] of [
-    ["d0-current-depth-cued", drawMarkDepth, "current L1 + depth cues (edge tones + contact shadow)"],
-    ["a-folder-sheets", drawFolderSheets, "open folder + fanned sheets rising, H on the front sheet"],
-    ["b-page-turn", drawPageTurn, "one big sheet mid-flip, two angled faces + motion shadow"],
-    ["c-iso-stack", drawIsoStack, "three isometric sheets (top lit, sides shaded), H on top"],
-  ]) {
-    const big = makeCanvas(1024, 1024);
-    draw(big, 1024);
-    fs.writeFileSync(path.join(outDir, name + ".png"), encodePng(512, 512, downsample2x(big).buf));
-    console.log(`${name}.png — ${blurb}`);
+  // the tab-size truth: the NEW H-of-papers at 16px + 512px
+  for (const [name, S, big] of [["new-16px", 16, makeCanvas(32, 32)], ["new-512px", 512, makeCanvas(1024, 1024)]]) {
+    drawMark(big, big.w);
+    fs.writeFileSync(path.join(outDir, name + ".png"), encodePng(S, S, downsample2x(big).buf));
+    console.log(`${name}.png — the H-of-papers at tab size`);
   }
 }
 
