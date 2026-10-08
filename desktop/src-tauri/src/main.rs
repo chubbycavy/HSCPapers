@@ -27,6 +27,9 @@ use tauri::{AppHandle, Emitter, Manager, State};
 use tokio::io::AsyncWriteExt;
 use tokio::sync::Semaphore;
 
+#[cfg(windows)]
+mod update_launcher;
+
 const USER_AGENT: &str = "HSCPapers/1.0 (study use; cached index, on-demand downloads)";
 const MAX_WORKERS: usize = 10; // 5 CDN + 3 BOS + 2 script lanes; script calls also gate via `meta`
 const MIN_DELAY_MS: u64 = 1500; // floor gap between resolver calls (polite)
@@ -1471,6 +1474,7 @@ async fn update_install(
         }
     }
     file.flush().await.map_err(|e| format!("write: {e}"))?;
+    drop(file); // release the downloaded installer handle before the hand-off
     let got = hex::encode(hasher.finalize());
     if got != want {
         let _ = tokio::fs::remove_file(&tmp).await;
@@ -1480,34 +1484,20 @@ async fn update_install(
         "update-progress",
         UpdateProgress { downloaded: pos, total: Some(pos), done: true },
     );
-    // Launch the NSIS installer (silent, official update-mode) and exit so
-    // files unlock. The launcher is detached and outlives this process: the
-    // waiting happens INSIDE it, after the app is gone and the exe is
-    // unlocked. The old shape spawned from a thread that app.exit() killed
-    // mid-sleep — the installer never ran (v1.0.10/11 "closes and nothing
-    // happens"). Tauri NSIS has no /R flag (verified against the
-    // tauri-bundler installer.nsi template) and never relaunches in silent
-    // mode, so the launcher relaunches the replaced exe itself.
-    let exe = std::env::current_exe().unwrap_or_default();
-    let installer = tmp.clone();
+    // Start a detached launcher and await its ready signal BEFORE exiting.
+    // It waits for this process to end (not a fixed delay), runs the verified
+    // NSIS installer with /S /UPDATE, checks its exit code, then relaunches.
+    // An inline cmd.exe script passed through Command::args was CRT-escaped
+    // to \"; cmd treated the backslashes literally ("cannot find '\\'").
     #[cfg(windows)]
     {
-        use std::os::windows::process::CommandExt;
-        const CREATE_NO_WINDOW: u32 = 0x0800_0000;
-        let script = format!(
-            "timeout /t 2 /nobreak >nul & start /wait \"\" \"{}\" /S /UPDATE & start \"\" \"{}\"",
-            installer.display(),
-            exe.display()
-        );
-        let _ = std::process::Command::new("cmd")
-            .args(["/C", &script])
-            .creation_flags(CREATE_NO_WINDOW)
-            .spawn();
+        let exe = std::env::current_exe().map_err(|e| format!("locate installed app: {e}"))?;
+        update_launcher::launch(&tmp, &exe, std::process::id()).await?;
+        app.exit(0);
+        Ok(())
     }
     #[cfg(not(windows))]
-    let _ = installer; // non-Windows: no NSIS update path
-    app.exit(0);
-    Ok(())
+    Err("automatic NSIS installation is available on Windows only".into())
 }
 
 fn main() {
