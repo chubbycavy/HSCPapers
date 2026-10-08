@@ -23,8 +23,8 @@
   --surface: #161b22;
   --surface-2: #1c2128;
   --text: #e6edf3;
-  --muted: #8b949e;
-  --muted-2: #6e7681;
+  --muted: #98a2b3;
+  --muted-2: #9aa4ae;
   --accent: #8b8ffb;
   --accent-hover: #a5b4fc;
   --accent-soft: #1f2438;
@@ -596,7 +596,7 @@ body.compact .check { padding: 0.22rem 0.4rem; font-size: 0.82rem; }
 [data-theme="dark"] .tag.hsc { color: #6ee7b7; background: #06362a; border-color: #0e5c49; }
 .tag.trial { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-border); }
 .tag.sol { color: #b45309; background: #fffbeb; border-color: #fde68a; }
-[data-theme="dark"] .tag.sol { color: #fcd34d; background: #3a2a08; border-color: #6b5113; }
+[data-theme="dark"] .tag.sol { color: #fde68a; background: #3f2d06; border-color: #78591a; }
 .card h3 { font-size: 0.96rem; line-height: 1.4; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
 .card .meta { font-size: 0.83rem; color: var(--muted); font-weight: 550; margin-bottom: 0.65rem; }
 .card-actions { display: flex; gap: 0.45rem; flex-wrap: wrap; }
@@ -905,7 +905,7 @@ body.drawer-lock { overflow: hidden; }
 
 /* ---------- slow-route tag (v0.8.2) ---------- */
 .tag.slow { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
-[data-theme="dark"] .tag.slow { background: #451a03; color: #fcd34d; border-color: #92400e; }
+[data-theme="dark"] .tag.slow { background: #451a03; color: #fde68a; border-color: #78591a; }
 
 /* ---------- downloaded-before badge (device-local, web) ---------- */
 .tag.got { color: #047857; background: #ecfdf5; border-color: #a7f3d0; }

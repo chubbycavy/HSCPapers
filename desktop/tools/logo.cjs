@@ -15,12 +15,16 @@ const zlib = require("zlib");
 const UI = path.join(__dirname, "..", "ui");
 
 /* ---------- the master SVG (the wired source of truth) ----------
- * L1 "vibrant field": brand-indigo field, light-indigo receding pages,
- * white front sheet, deep-indigo-950 H — maximum contrast at 16px. */
+ * L1 field + D0 depth cues: brand-indigo field, light-indigo receding
+ * pages each carrying a darker edge-tone sheet (the depth separation),
+ * a contact-shadow sheet beneath the front page, white sheet, deep-950 H. */
 const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" rx="22" fill="#4f46e5"/>
   <rect x="55" y="22" width="26" height="52" rx="5" fill="#a5b4fc"/>
+  <rect x="57" y="24" width="24" height="50" rx="4" fill="#8b97ee"/>
   <rect x="47" y="28" width="26" height="52" rx="5" fill="#c7d2fe"/>
+  <rect x="49" y="30" width="24" height="50" rx="4" fill="#b3c1fa"/>
+  <rect x="25" y="21" width="42" height="60" rx="5" fill="#96a0e6"/>
   <rect x="26" y="22" width="40" height="58" rx="5" fill="#f8fafc"/>
   <path d="M50 22 H66 V38 Z" fill="#e0e4f0"/>
   <rect x="32" y="34" width="5" height="34" fill="#1e1b4b"/>
@@ -103,6 +107,19 @@ function fillTriangle(c, p1, p2, p3, col) {
     if (w1 >= 0 && w2 >= 0 && w3 >= 0) setPx(c, x, y, [r, g, b, a]);
   }
 }
+function strokeLine(c, x1, y1, x2, y2, width, col) {
+  const [r, g, b, a] = asRGBA(col);
+  const dx = x2 - x1, dy = y2 - y1;
+  const len = Math.hypot(dx, dy) || 1;
+  const steps = Math.ceil(len * 2);
+  const half = width / 2;
+  for (let s = 0; s <= steps; s++) {
+    const cx = x1 + dx * s / steps, cy = y1 + dy * s / steps;
+    for (let yy = Math.floor(cy - half); yy <= Math.ceil(cy + half); yy++)
+      for (let xx = Math.floor(cx - half); xx <= Math.ceil(cx + half); xx++)
+        if ((xx - cx) ** 2 + (yy - cy) ** 2 <= half * half) setPx(c, xx, yy, [r, g, b, a]);
+  }
+}
 function downsample2x(big) {
   const w = big.w / 2, h = big.h / 2;
   const out = makeCanvas(w, h);
@@ -115,7 +132,115 @@ function downsample2x(big) {
   return out;
 }
 
-/* ---------- the L1 mark, raster form (optional origin for compositing) ---------- */
+/* ---------- the L1 mark (current), with DEPTH CUES for the preview round ---------- */
+function drawMarkDepth(c, S) {
+  const u = S / 100;
+  // field + soft vignette (bottom darker) = the 3D floor
+  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
+  for (let y = 0; y < S; y++) {
+    const t = y / S;
+    const shade = Math.round(0x4f + (0x2e - 0x4f) * t * 0.8);
+    fillRect(c, 0, y, S, 1, `rgb(${shadeHex(shade)}, ${shadeHex(shade)}, ${shadeHex(Math.min(255, shade + 12))})`.replace(/rgb\([^)]*\)/, "#4f46e5")); // no-op guard
+  }
+  // redraw solid field then overlay the gradient (canvas lacks alpha-blend rows here; approximate with translucent rows)
+  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
+  const pages = [
+    { x: 55, y: 22, col: "#a5b4fc", edge: "#7c88e0" },
+    { x: 47, y: 28, col: "#c7d2fe", edge: "#9aa7ec" },
+    { x: 26, y: 22, w: 40, h: 58, col: "#f8fafc", edge: "#d7dbee" },
+  ];
+  // receding pages with a bottom-right edge tone (depth separation)
+  fillRoundRect(c, 55 * u, 22 * u, 26 * u, 52 * u, 5 * u, "#a5b4fc");
+  fillRoundRect(c, 57 * u, 24 * u, 24 * u, 50 * u, 4 * u, "#9aa7f0");
+  fillRoundRect(c, 47 * u, 28 * u, 26 * u, 52 * u, 5 * u, "#c7d2fe");
+  fillRoundRect(c, 49 * u, 30 * u, 24 * u, 50 * u, 4 * u, "#b3c1fa");
+  // the front sheet + drop edge
+  fillRoundRect(c, 25 * u, 21 * u, 42 * u, 60 * u, 5 * u, "#96a0e6"); // the contact shadow (offset sheet beneath)
+  fillRoundRect(c, 26 * u, 22 * u, 40 * u, 58 * u, 5 * u, "#f8fafc");
+  fillTriangle(c, [50 * u, 22 * u], [66 * u, 22 * u], [66 * u, 38 * u], "#e0e4f0");
+  fillRect(c, 32 * u, 34 * u, 5 * u, 34 * u, "#1e1b4b");
+  fillRect(c, 52 * u, 34 * u, 5 * u, 34 * u, "#1e1b4b");
+  fillRect(c, 37 * u, 47 * u, 15 * u, 5 * u, "#1e1b4b");
+}
+function shadeHex(v) { return Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0"); }
+
+/* A — "open folder + fanned sheets": deep-indigo back board, three fanned
+   white sheets rising (each with a fold), H on the front sheet. */
+function drawFolderSheets(c, S) {
+  const u = S / 100;
+  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
+  // the folder back + front lip
+  fillRoundRect(c, 22 * u, 30 * u, 56 * u, 42 * u, 6 * u, "#3730a3");
+  // fanned sheets (rotated approximations: two leaning + one front)
+  fillRoundRect(c, 44 * u, 20 * u, 26 * u, 44 * u, 4 * u, "#c7d2fe");
+  fillTriangle(c, [58 * u, 20 * u], [70 * u, 20 * u], [70 * u, 32 * u], "#a5b4fc");
+  fillRoundRect(c, 32 * u, 16 * u, 26 * u, 46 * u, 4 * u, "#f8fafc");
+  fillTriangle(c, [46 * u, 16 * u], [58 * u, 16 * u], [58 * u, 28 * u], "#e0e4f0");
+  // folder front (covers the lower third — the "pocket") + its lighter lip
+  fillRoundRect(c, 20 * u, 44 * u, 60 * u, 30 * u, 6 * u, "#6366f1");
+  fillRoundRect(c, 20 * u, 44 * u, 60 * u, 5 * u, 2 * u, "#818cf8");
+  // H on the front sheet
+  fillRect(c, 37 * u, 24 * u, 5 * u, 28 * u, "#1e1b4b");
+  fillRect(c, 50 * u, 24 * u, 5 * u, 28 * u, "#1e1b4b");
+  fillRect(c, 41 * u, 34 * u, 10 * u, 4 * u, "#1e1b4b");
+}
+
+/* B — "the tilted page-turn": one big sheet mid-flip, two faces at an
+   angle + a motion shadow — the most literally-3D composition. */
+function drawPageTurn(c, S) {
+  const u = S / 100;
+  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
+  // the motion shadow (soft dark parallelogram under the sheet)
+  fillTriangle(c, [24 * u, 78 * u], [70 * u, 78 * u], [80 * u, 86 * u], "#3730a3");
+  // the back face (turned away — darker, narrower via skew approximation)
+  fillTriangle(c, [30 * u, 20 * u], [62 * u, 12 * u], [66 * u, 70 * u], [34 * u, 76 * u], "#c7d2fe");
+  fillTriangle(c, [34 * u, 26 * u], [58 * u, 20 * u], [60 * u, 66 * u], [38 * u, 70 * u], "#eef1fd");
+  // the front face (bright white, smaller trapezoid overlapping the fold)
+  fillTriangle(c, [62 * u, 12 * u], [64 * u, 52 * u], [66 * u, 70 * u], [62 * u, 12 * u], "#f8fafc"); // no-op shape guard
+  fillRoundRect(c, 52 * u, 14 * u, 30 * u, 58 * u, 4 * u, "#f8fafc");
+  fillTriangle(c, [52 * u, 30 * u], [82 * u, 14 * u], [82 * u, 14 * u], "#f8fafc"); // fold hint top
+  // H on the front face (drawn slightly right-weighted to sit in the visible face)
+  fillRect(c, 58 * u, 26 * u, 4 * u, 30 * u, "#1e1b4b");
+  fillRect(c, 72 * u, 26 * u, 4 * u, 30 * u, "#1e1b4b");
+  fillRect(c, 62 * u, 37 * u, 10 * u, 4 * u, "#1e1b4b");
+  // the page-turn crease (the fold line highlight)
+  strokeLine(c, 60 * u, 14 * u, 66 * u, 72 * u, 2 * u, "#c7d2fe");
+}
+
+/* C — "isometric sheet stack": three sheets in iso (top faces lit,
+   sides shaded), H on the top sheet — the modern 3D-icon look. */
+function drawIsoStack(c, S) {
+  const u = S / 100;
+  fillRoundRect(c, 0, 0, S, S, 22 * u, "#4f46e5");
+  // iso helper: a sheet = diamond top + left/right faces
+  const iso = (cx, topY, w, d, h, top, left, right) => {
+    const hw = w / 2, hd = d / 2;
+    const cxw = hw * 0.9, cxh = hd * 0.45; // 2:1 iso
+    // top face (light)
+    fillTriangle(c, [cx, topY], [cx + cxw, topY + cxh], [cx, topY + 2 * cxh], top);
+    fillTriangle(c, [cx, topY], [cx - cxw, topY + cxh], [cx, topY + 2 * cxh], top);
+    // left face (mid)
+    fillTriangle(c, [cx - cxw, topY + cxh], [cx, topY + 2 * cxh], [cx, topY + 2 * cxh + h], top === "#f8fafc" ? "#e0e4f0" : left);
+    fillTriangle(c, [cx - cxw, topY + cxh], [cx, topY + 2 * cxh + h], [cx - cxw, topY + cxh + h], left);
+    // right face (shaded)
+    fillTriangle(c, [cx + cxw, topY + cxh], [cx, topY + 2 * cxh + h], [cx, topY + 2 * cxh + h], right);
+    fillTriangle(c, [cx + cxw, topY + cxh], [cx + cxw, topY + cxh + h], [cx, topY + 2 * cxh + h], right);
+  };
+  const ceny = undefined;
+  // two receding light-indigo sheets then the white top sheet
+  iso(50 * u, 24 * u, 40 * u, 20 * u, 6 * u, "#c7d2fe", "#9aa7f0", "#7c88e0");
+  iso(50 * u, 34 * u, 40 * u, 20 * u, 8 * u, "#e5e9fc", "#b3c1fa", "#8b9af0");
+  iso(50 * u, 46 * u, 40 * u, 20 * u, 16 * u, "#f8fafc", "#e0e4f0", "#b8c0e8");
+  // H on the TOP face (drawn as parallelogram bars in iso space)
+  const bx = 40 * u, by = 52 * u, bw = 3 * u, bh = 9 * u; // left stem
+  fillTriangle(c, [bx, by], [bx + bw, by + bw * 0.28], [bx + bw, by + bh + bw * 0.28], "#1e1b4b");
+  fillTriangle(c, [bx + bw * 0.6, by + bw * 0.17], [bx + bw * 1.6, by + bw * 0.17 + bw * 0.28], [bx + bw * 1.6, by + bh + bw * 0.45], "#1e1b4b");
+  fillTriangle(c, [bx + bw * 0.6, by + bw * 0.17], [bx + bw * 1.6, by + bw * 0.45], [bx + bw * 0.6, by + bw * 0.17], "#1e1b4b");
+  // keep it legible: plain flat bars as fallback (iso text is hard at 16px)
+  fillRect(c, 41 * u, 53 * u, 3.4 * u, 12 * u, "#1e1b4b");
+  fillRect(c, 53 * u, 50 * u, 3.4 * u, 12 * u, "#1e1b4b");
+  fillRect(c, 44.4 * u, 57 * u, 8.6 * u, 3.4 * u, "#1e1b4b");
+}
 function drawMark(c, S, ox = 0, oy = 0) {
   const u = S / 100;
   fillRoundRect(c, ox, oy, S, S, 22 * u, "#4f46e5");
@@ -180,9 +305,10 @@ function previews() {
   const outDir = path.join(__dirname, "logo-previews");
   fs.mkdirSync(outDir, { recursive: true });
   for (const [name, draw, blurb] of [
-    ["c1-page-stack", drawMark, "exam sheet + receding stack, dark field (THE WINNER)"],
-    ["c2-monogram", drawMonogram, "H+S ligature monogram, indigo field"],
-    ["c3-shelf", drawShelf, "abstract bookshelf + tilted trial paper, dark field"],
+    ["d0-current-depth-cued", drawMarkDepth, "current L1 + depth cues (edge tones + contact shadow)"],
+    ["a-folder-sheets", drawFolderSheets, "open folder + fanned sheets rising, H on the front sheet"],
+    ["b-page-turn", drawPageTurn, "one big sheet mid-flip, two angled faces + motion shadow"],
+    ["c-iso-stack", drawIsoStack, "three isometric sheets (top lit, sides shaded), H on top"],
   ]) {
     const big = makeCanvas(1024, 1024);
     draw(big, 1024);

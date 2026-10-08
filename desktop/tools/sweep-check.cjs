@@ -401,6 +401,37 @@ async function main() {
     const cov = fs.readFileSync(path.join(__dirname, "coverage-report.cjs"), "utf8");
     if (themeOk(cov)) pass("coverage generator: theme script present (follow-system)");
     else fail("coverage.html theme script missing (light-locked page)");
+    // B3.1 computed WCAG readability: every dark-mode text/background pair
+    // must pass AA (4.5:1) — the value that caught --muted-2 at 3.5:1. The
+    // color list is curated to the palette + the tag-chip rules.
+    const lum = (h) => { const n = parseInt(h.slice(1), 16); const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f((n >> 16) & 255) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255); };
+    const cr = (fg, bg) => (Math.max(lum(fg), lum(bg)) + 0.05) / (Math.min(lum(fg), lum(bg)) + 0.05);
+    const css = fs.readFileSync(path.join(UI, "css", "styles.css"), "utf8");
+    const darkBlock = (css.match(/\[data-theme="dark"\]\s*\{([^}]*)\}/) || [])[1] || "";
+    const vars = {};
+    for (const m of darkBlock.matchAll(/--([a-z0-9-]+):\s*(#[0-9a-fA-F]{6})/g)) vars[m[1]] = m[2];
+    const pairs = [
+      ["text/surface", vars.text, vars.surface],
+      ["text/bg", vars.text, vars.bg],
+      ["muted/surface", vars.muted, vars.surface],
+      ["muted/surface-2", vars.muted, vars["surface-2"]],
+      ["muted-2/surface", vars["muted-2"], vars.surface],
+      ["accent/surface", vars.accent, vars.surface],
+    ];
+    let lowContrast = pairs.filter(([, fg, bg]) => !fg || !bg || cr(fg, bg) < 4.5);
+    if (!lowContrast.length) pass(`dark palette WCAG AA: ${pairs.length} core pairs >= 4.5:1`);
+    else fail("dark-mode text below AA", lowContrast.map(([n, fg, bg]) => `${n} ${fg}/${bg}=${cr(fg, bg)}`).join("; "));
+    // the tag-chip families (dark rules with their own bg)
+    const tagRules = [...css.matchAll(/\[data-theme="dark"\]\s*(\.[a-z-]+(?:\.[a-z-]+)?)\s*\{([^}]*)\}/g)]
+      .filter((m) => /color|background/.test(m[2]) && /#/.test(m[2]));
+    const lowTags = [];
+    for (const m of tagRules) {
+      const fg = (m[2].match(/(?<!background[^;]*)color:\s*(#[0-9a-fA-F]{6})/) || [])[1];
+      const bg = (m[2].match(/background:\s*(#[0-9a-fA-F]{6})/) || [])[1];
+      if (fg && bg && cr(fg, bg) < 4.5) lowTags.push(`${m[1]} ${fg}/${bg}=${cr(fg, bg).toFixed(2)}`);
+    }
+    if (!lowTags.length) pass(`tag chips WCAG AA: ${tagRules.length} dark rules checked`);
+    else fail("dark tag chips below AA", lowTags.join("; "));
     // DISK != GIT blind spot: a landing page can exist on disk yet be
     // git-ignored/excluded (the .gitignore "Physics/" case) — the deployed
     // Pages tree would 404/SPA-fallback it. Every slug must be git-tracked.
