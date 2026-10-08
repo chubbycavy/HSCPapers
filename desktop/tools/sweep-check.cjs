@@ -415,6 +415,19 @@ async function main() {
     }
     if (!malformed.length && !lmBad.length) pass(`lastmod contract: ${smUrls.length} urls, max ${maxDate}, changed stamped / unchanged retained`);
     else fail("lastmod contract violated", `${malformed.length} malformed/future; ${lmBad.slice(0, 3).join(" | ")}`);
+    // hub + footer-grid COUNT cross-check (the a7bfc16 blind spot): the
+    // small-count labels on BOTH surfaces must match the catalogue per
+    // subject — a stale canary-era hub shipped once because only the
+    // per-subject PAGES were checked
+    const countRe = /href="\/subjects\/([a-z0-9-]+)\/"><span>[^<]+<\/span><small>(\d+) papers?<\/small>/g;
+    for (const [label, file] of [["hub", path.join(UI, "subjects", "index.html")], ["footer grid", path.join(UI, "index.html")]]) {
+      const src = fs.readFileSync(file, "utf8");
+      const block = label === "footer grid" ? ((src.match(gridRe) || [])[1] || "") : src;
+      const got = new Map([...block.matchAll(countRe)].map((m) => [m[1], Number(m[2])]));
+      const mism = subjects.filter((s) => got.get(slugOf(s)) !== bySubject.get(s));
+      if (!mism.length && got.size === subjects.length) pass(`${label} counts match the catalogue (${got.size}/${subjects.length})`);
+      else fail(`${label} counts drifted`, `${mism.length} mismatches e.g. ${mism.slice(0, 4).map((s) => `${slugOf(s)}:${got.get(slugOf(s))}!=${bySubject.get(s)}`).join(", ")}`);
+    }
   }
 
   console.log("\n==== SWEEP SUMMARY ====");
