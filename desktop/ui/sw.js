@@ -14,9 +14,13 @@ const PDF_CACHE_MAX = 60; // recently read papers stay offline (LRU by insertion
 const SHELL = [
   "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js",
   "/pdfjs/pdf.min.js", "/pdfjs/pdf.worker.min.js", "/vendor/jszip.min.js",
-  "/manifest.webmanifest", "/og-card.png",
-  "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png",
+  "/manifest.webmanifest", "/og-card.png?v=classic-h-1",
+  "/logo.svg?v=classic-h-1", "/favicon.svg?v=classic-h-1",
+  "/icon-192.png?v=classic-h-1", "/icon-512.png?v=classic-h-1", "/icon-maskable-512.png?v=classic-h-1",
 ];
+// Match shell assets by pathname; cache keys still include their revision
+// query so a newly selected mark cannot reuse an older cached icon.
+const SHELL_PATHS = new Set(SHELL.map((asset) => asset.split("?")[0]));
 
 self.addEventListener("install", (e) => {
   // Per-asset allSettled: one missing/redirecting asset must never stall
@@ -100,7 +104,7 @@ self.addEventListener("fetch", (e) => {
     return;
   }
   if (
-    SHELL.includes(p) || p.startsWith("/pdfjs/") || p.startsWith("/vendor/") ||
+    SHELL_PATHS.has(p) || p.startsWith("/pdfjs/") || p.startsWith("/vendor/") ||
     p === "/robots.txt" || p === "/sitemap.xml"
   ) {
     e.respondWith(cacheFirst(req, SHELL_CACHE));

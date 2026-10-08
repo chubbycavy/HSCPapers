@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const { slugOf } = require("./landing-pages.cjs");
+const { FAVICON_HREF, logoImage } = require("./logo.cjs");
 
 const SITE = "https://hscpapers.com";
 
@@ -58,10 +59,9 @@ module.exports = async function run() {
 <meta name="description" content="What HSCPapers actually has: the live coverage matrix — subjects × years, schools, and file counts, generated straight from the catalogue.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${SITE}/coverage">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="${FAVICON_HREF}" type="image/svg+xml">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("hsc-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
 <link rel="stylesheet" href="css/styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f46e5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>H</text></svg>">
 <style>
   main.coverage { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.2rem 3rem; }
   .cov-stats { display: flex; gap: 1.6rem; flex-wrap: wrap; margin: 1.2rem 0 1.6rem; }
@@ -89,7 +89,7 @@ module.exports = async function run() {
 <body>
 <header>
   <nav class="nav">
-    <a class="logo" href="/"><span class="logo-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#4f46e5"/><rect x="24" y="20" width="15" height="60" rx="4" fill="#96a0e6"/><rect x="22" y="18" width="15" height="60" rx="4" fill="#f8fafc"/><path d="M31 18 H37 V30 Z" fill="#e0e4f0"/><rect x="61" y="20" width="15" height="60" rx="4" fill="#96a0e6"/><rect x="59" y="18" width="15" height="60" rx="4" fill="#f8fafc"/><path d="M68 18 H74 V30 Z" fill="#e0e4f0"/><rect x="37" y="46" width="22" height="12" fill="#f8fafc"/><rect x="37" y="54" width="22" height="4" fill="#d7dbee"/></svg></span><span>HSCPapers<small>Trial · HSC · Internals</small></span></a>
+    <a class="logo" href="/"><span class="logo-mark">${logoImage()}</span><span>HSCPapers<small>Trial · HSC · Internals</small></span></a>
     <div class="nav-links">
       <a href="/">Browse</a><a href="/#subjects">Subjects</a><a href="/#about">About</a><a href="/" class="active">Coverage</a>
     </div>

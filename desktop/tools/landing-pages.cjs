@@ -11,6 +11,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const { FAVICON_HREF, logoImage } = require("./logo.cjs");
 
 const SITE = "https://hscpapers.com";
 const UI = path.join(__dirname, "..", "ui");
@@ -20,9 +21,9 @@ const slugOf = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replac
 const papersLabel = (n) => `${n} paper${n === 1 ? "" : "s"}`;
 const typeLabel = (t) => ({ hsc: "HSC exam", trial: "Trial paper", assessment: "Assessment task", internal: "Internal" }[t] || "Other");
 
-const ICON = `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`;
+const ICON = `<link rel="icon" href="${FAVICON_HREF}" type="image/svg+xml">`;
 const THEME = `<script>try{document.documentElement.dataset.theme=localStorage.getItem("hsc-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>`;
-const LOGO_MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#4f46e5"/><rect x="24" y="20" width="15" height="60" rx="4" fill="#96a0e6"/><rect x="22" y="18" width="15" height="60" rx="4" fill="#f8fafc"/><path d="M31 18 H37 V30 Z" fill="#e0e4f0"/><rect x="61" y="20" width="15" height="60" rx="4" fill="#96a0e6"/><rect x="59" y="18" width="15" height="60" rx="4" fill="#f8fafc"/><path d="M68 18 H74 V30 Z" fill="#e0e4f0"/><rect x="37" y="46" width="22" height="12" fill="#f8fafc"/><rect x="37" y="54" width="22" height="4" fill="#d7dbee"/></svg>`;
+const LOGO_MARK = logoImage();
 const NAV = `<header><nav class="nav"><a class="logo" href="/"><span class="logo-mark">${LOGO_MARK}</span><span>HSCPapers<small>Free NSW HSC paper index</small></span></a><div class="nav-links"><a href="/">Browse the index</a><a href="/coverage">Coverage</a></div></nav></header>`;
 const LEGAL = `<footer><b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>. Fast mirrors: <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>, Board of Studies archive, official NESA releases.</footer>`;
 

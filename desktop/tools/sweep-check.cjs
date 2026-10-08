@@ -337,7 +337,8 @@ async function main() {
     else fail("_headers missing /sw.js no-cache rule");
     let iconsOk = true;
     for (const ic of manifest.icons || []) {
-      if (!fs.existsSync(path.join(UI, ic.src))) { fail(`manifest icon missing on disk: ${ic.src}`); iconsOk = false; }
+      const assetPath = ic.src.split(/[?#]/)[0]; // revision query is not part of the filename
+      if (!fs.existsSync(path.join(UI, assetPath))) { fail(`manifest icon missing on disk: ${ic.src}`); iconsOk = false; }
     }
     if (iconsOk) pass(`manifest icons present (${(manifest.icons || []).length})`);
   }
@@ -383,12 +384,20 @@ async function main() {
     // brand assets: the logo generator's outputs must exist and the shell
     // must reference the svg favicon (logo.cjs owns logo.svg + icons +
     // og-card; the retired og-card.cjs must NOT come back as an orphan)
-    for (const f of ["logo.svg", "favicon.svg", "icon-192.png", "icon-512.png", "og-card.png"]) {
+    for (const f of ["logo.svg", "favicon.svg", "icon-192.png", "icon-512.png", "icon-maskable-512.png", "og-card.png"]) {
       if (fs.existsSync(path.join(UI, f))) pass(`brand asset on disk: ${f}`);
       else fail(`brand asset missing: ${f}`);
     }
-    if (html.includes("/favicon.svg")) pass("index.html favicon = the simplified-bold variant");
-    else fail("index.html favicon href missing /favicon.svg");
+    const { FAVICON_HREF, LOGO_HREF } = require("./logo.cjs");
+    const brandPages = [html, fs.readFileSync(path.join(UI, "coverage.html"), "utf8"), fs.readFileSync(hub, "utf8"),
+      ...subjects.map((s) => fs.readFileSync(path.join(UI, "subjects", slugOf(s), "index.html"), "utf8"))];
+    const consistentBrand = brandPages.every((page) => {
+      const favicons = [...page.matchAll(/<link\b[^>]*\brel="icon"[^>]*>/g)];
+      return favicons.length === 1 && favicons[0][0].includes(`href="${FAVICON_HREF}"`) &&
+        (page.includes(`src="${LOGO_HREF}"`) || page.includes(`src="${LOGO_HREF.slice(1)}"`));
+    });
+    if (consistentBrand) pass(`Classic H logo and favicon revision consistent (${brandPages.length} pages)`);
+    else fail("logo or favicon revision drifted (including duplicate favicon declarations)");
     // B3 follow-system dark: all three HTML surfaces must carry the pre-paint
     // theme script (system default, no light-lock), and nothing may hardcode
     // data-theme="light" as the default experience
