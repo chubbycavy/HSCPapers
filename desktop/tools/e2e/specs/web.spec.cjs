@@ -223,6 +223,28 @@ test.describe("chrome", () => {
     expect(t1).not.toBe(t0);
   });
 
+  test("first visit follows the system color scheme (B3, no light-lock)", async ({ page, browser }) => {
+    // dark system + clean storage → the pre-paint script resolves dark
+    const ctx = await browser.newContext({ colorScheme: "dark" });
+    const p = await ctx.newPage();
+    await p.goto("/");
+    await p.waitForSelector("#cards .card", { timeout: 30_000 });
+    expect(await p.locator("html").getAttribute("data-theme")).toBe("dark");
+    await ctx.close();
+    // light system + clean storage → light
+    const ctx2 = await browser.newContext({ colorScheme: "light" });
+    const p2 = await ctx2.newPage();
+    await p2.goto("/");
+    await p2.waitForSelector("#cards .card", { timeout: 30_000 });
+    expect(await p2.locator("html").getAttribute("data-theme")).toBe("light");
+    // manual override still persists over the system preference
+    await p2.locator("#themeBtn").click();
+    expect(await p2.locator("html").getAttribute("data-theme")).toBe("dark");
+    await p2.reload();
+    expect(await p2.locator("html").getAttribute("data-theme")).toBe("dark");
+    await ctx2.close();
+  });
+
   test("coverage tooltips appear instantly on hover", async ({ page }) => {
     await page.goto("/coverage.html");
     const cell = page.locator("table.matrix td[data-label]").first();

@@ -389,6 +389,18 @@ async function main() {
     }
     if (!html.includes("/logo.svg")) fail("index.html does not reference /logo.svg");
     else pass("index.html references the svg favicon");
+    // B3 follow-system dark: all three HTML surfaces must carry the pre-paint
+    // theme script (system default, no light-lock), and nothing may hardcode
+    // data-theme="light" as the default experience
+    const themeOk = (t) => t.includes('localStorage.getItem("hsc-theme")') && t.includes("prefers-color-scheme");
+    if (themeOk(html)) pass("index.html: pre-paint theme script (follow-system)");
+    else fail("index.html theme script missing/system-blind");
+    const theme = fs.readFileSync(path.join(__dirname, "landing-pages.cjs"), "utf8");
+    if (themeOk(theme)) pass("landing generator THEME: follow-system");
+    else fail("landing THEME const light-locked");
+    const cov = fs.readFileSync(path.join(__dirname, "coverage-report.cjs"), "utf8");
+    if (themeOk(cov)) pass("coverage generator: theme script present (follow-system)");
+    else fail("coverage.html theme script missing (light-locked page)");
     // DISK != GIT blind spot: a landing page can exist on disk yet be
     // git-ignored/excluded (the .gitignore "Physics/" case) — the deployed
     // Pages tree would 404/SPA-fallback it. Every slug must be git-tracked.
