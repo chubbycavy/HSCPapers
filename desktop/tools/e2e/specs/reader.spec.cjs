@@ -2,7 +2,7 @@
    keyboard — PDF bytes only from our own R2 bucket (politeness rule). */
 const { test, expect } = require("@playwright/test");
 const { r2Paper, solPaper, noSolPaper } = require("../helpers.cjs");
-const { freezeTimerClock, checkTimerToggleJourney, checkTimerIconAlignment } = require("../timer-check.cjs");
+const { freezeTimerClock, checkTimerToggleJourney, checkTimerReloadJourney, checkTimerIconAlignment } = require("../timer-check.cjs");
 
 async function openPaper(page, title) {
   await page.goto("/");
@@ -86,11 +86,23 @@ test.describe("reader (continuous scroll)", () => {
     await popup.close();
   });
 
-  test("timer: opening starts count-up; repeated dismissal resets presets and custom controls", async ({ page }) => {
+  test("timer: dismissal resets elapsed time and reopening restarts the saved preset", async ({ page }) => {
     test.setTimeout(90_000);
     await openPaper(page, r2Paper.title);
     await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
     await checkTimerToggleJourney(page);
+  });
+
+  test("timer: preset/custom/count-up preferences survive refresh and restart from their full duration", async ({ page }) => {
+    test.setTimeout(90_000);
+    const card = await openPaper(page, r2Paper.title);
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await freezeTimerClock(page);
+    await checkTimerReloadJourney(page, async () => {
+      await page.waitForSelector("#cards .card", { timeout: 30_000 });
+      await card.locator("[data-read]").click();
+      await expect(page.locator("#reader")).toBeVisible();
+    });
   });
 
   test("timer: repeated pauses preserve fractional seconds in both count-up and countdown", async ({ page }) => {
@@ -181,11 +193,11 @@ test.describe("reader (continuous scroll)", () => {
         await page.setViewportSize({ width, height: 900 });
         await page.evaluate((theme) => { document.documentElement.dataset.theme = theme; }, theme);
         await page.locator("#readerTimerBtn").click();
-        await checkTimerIconAlignment(page);
+        await checkTimerIconAlignment(page, "pause");
         await page.locator("#readerTimerPause").click();
-        await checkTimerIconAlignment(page);
+        await checkTimerIconAlignment(page, "resume");
         await page.locator("#readerTimerPause").click();
-        await checkTimerIconAlignment(page);
+        await checkTimerIconAlignment(page, "pause");
         await page.locator("#readerTimerBtn").click();
       }
     }

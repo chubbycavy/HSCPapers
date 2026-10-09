@@ -2021,6 +2021,19 @@
   });
 
   /* ----- study timer (presets + custom minutes; exam lengths aren't parseable reliably) ----- */
+  const timerPreference = { preset: "0", customMinutes: null };
+  try {
+    const saved = JSON.parse(localStorage.getItem("hsc-timer-settings") || "null");
+    if (saved && typeof saved === "object") {
+      if (Number.isInteger(saved.customMinutes) && saved.customMinutes >= 1 && saved.customMinutes <= 600) {
+        timerPreference.customMinutes = saved.customMinutes;
+      }
+      if (["0", "1800", "3600", "7200", "10800"].includes(saved.preset)
+        || (saved.preset === "custom" && timerPreference.customMinutes !== null)) {
+        timerPreference.preset = saved.preset;
+      }
+    }
+  } catch {}
   const studyTimer = {
     visible: false, preset: "0", mode: "up", status: "idle",
     durationMs: 0, elapsedMs: 0, startedAt: 0,
@@ -2057,7 +2070,7 @@
     el.classList.toggle("done", studyTimer.status === "finished");
     const toggle = $("#readerTimerBtn");
     toggle.setAttribute("aria-expanded", String(studyTimer.visible));
-    toggle.title = studyTimer.visible ? "Dismiss and reset study timer" : "Start study timer";
+    toggle.title = studyTimer.visible ? "Close timer and reset elapsed time" : "Start study timer";
     toggle.setAttribute("aria-label", toggle.title);
     $("#readerTimerPreset").hidden = !studyTimer.visible;
     $("#readerTimerPreset").value = studyTimer.preset;
@@ -2067,13 +2080,16 @@
     btn.title = paused ? "Resume timer" : "Pause timer";
     btn.setAttribute("aria-label", btn.title);
     btn.classList.toggle("on", paused);
-    $("#readerTimerPauseIcon").hidden = paused;
-    $("#readerTimerResumeIcon").hidden = !paused;
+    $("#readerTimerPauseIcon").toggleAttribute("hidden", paused);
+    $("#readerTimerResumeIcon").toggleAttribute("hidden", !paused);
     $("#readerTimerStart").textContent = studyTimer.preset === "custom" && active ? "Restart" : "Start";
   }
   function timerStop() { if (timerTick) { clearInterval(timerTick); timerTick = null; } }
   function timerRun(seconds, preset = studyTimer.preset) {
     timerStop();
+    timerPreference.preset = preset;
+    if (preset === "custom") timerPreference.customMinutes = seconds / 60;
+    try { localStorage.setItem("hsc-timer-settings", JSON.stringify(timerPreference)); } catch {}
     Object.assign(studyTimer, {
       visible: true, preset, mode: seconds ? "down" : "up", status: "running",
       durationMs: seconds * 1000, elapsedMs: 0, startedAt: performance.now(),
@@ -2100,15 +2116,18 @@
   function timerIdle() {
     timerStop();
     Object.assign(studyTimer, {
-      visible: false, preset: "0", mode: "up", status: "idle",
+      visible: false, preset: timerPreference.preset, mode: timerPreference.preset === "0" ? "up" : "down", status: "idle",
       durationMs: 0, elapsedMs: 0, startedAt: 0,
     });
-    $("#readerTimerCustom").value = "";
+    $("#readerTimerCustom").value = timerPreference.customMinutes === null ? "" : String(timerPreference.customMinutes);
     renderTimer();
   }
   on("#readerTimerBtn", "click", () => {
     if (studyTimer.visible) timerIdle();
-    else timerRun(0, "0");
+    else {
+      const { preset, customMinutes } = timerPreference;
+      timerRun(preset === "custom" ? customMinutes * 60 : Number(preset), preset);
+    }
   });
   on("#readerTimerPreset", "change", (e) => {
     if (e.target.value === "custom") {
@@ -2118,6 +2137,7 @@
         durationMs: 0, elapsedMs: 0, startedAt: 0,
       });
       renderTimer();
+      $("#readerTimerCustom").value = timerPreference.customMinutes === null ? "" : String(timerPreference.customMinutes);
       $("#readerTimerCustom").focus();
       return;
     }
@@ -2135,7 +2155,7 @@
     if (studyTimer.status === "paused") timerResume();
     else timerPause();
   });
-  renderTimer();
+  timerIdle();
 
   /* ---------- events ---------- */
   let debounce;
