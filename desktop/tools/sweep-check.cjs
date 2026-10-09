@@ -190,8 +190,7 @@ async function main() {
     const reg = path.join(ROOT, "desktop", "tools");
     const statePath = path.join(reg, ".cache", "sweep-state.json");
     let state = {};
-    try { state = JSON.parse(fs.readFileSync(statePath, "utf8")); } catch {}
-    const counts = {};
+    try { state = JSON.parse(fs.readFileSync(statePath, "utf8")); } catch {}    const counts = {};
     for (const f of ["nesa-recovery.json", "selfhost.json", "removals.json"]) {
       try {
         const j = JSON.parse(fs.readFileSync(path.join(reg, f), "utf8"));
@@ -210,6 +209,50 @@ async function main() {
       fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, at: new Date().toISOString() }, null, 1));
     } catch {}
     if (!regressed) pass(`registries intact (${Object.entries(counts).map(([f, n]) => `${f}=${n}`).join(" | ")})`);
+  }
+
+  /* [4b] phase-H gates: payload budget, slow-route KPI, anti-rot health */
+  console.log("\n[4b] phase-H gates");
+  {
+    // (a) payload budget: the catalogue is the app's biggest download —
+    // brotli-compressed it must stay under 0.75 MB (measured 0.21 at v1.0.22)
+    const raw = read(path.join(UI, "data", "papers.json"));
+    const brotli = require("zlib").brotliCompressSync(Buffer.from(raw, "utf8"));
+    const MB = brotli.length / (1024 * 1024);
+    if (MB <= 0.75) pass(`papers.json payload budget holds (brotli ${MB.toFixed(2)} MB of 0.75)`);
+    else fail(`papers.json payload budget BLOWN (brotli ${MB.toFixed(2)} MB > 0.75)`, "catalogue growth needs a structural fix, not a shrug");
+
+    // (b) slow-route KPI: the resolver-lane count never increases. Baseline
+    // 329 = the v1.0.21 population; re-points and v1.0.23 additions may only
+    // shrink it. Monotonic via the same .cache sweep-state.
+    const slowN = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
+    const SLOW_BASE = 329;
+    let prevSlow = null;
+    try { prevSlow = JSON.parse(fs.readFileSync(statePath, "utf8")).slowRoute; } catch {}
+    if (slowN > SLOW_BASE) fail(`slow-route KPI BROKE (${slowN} > baseline ${SLOW_BASE})`, "slow lane must never grow");
+    else if (typeof prevSlow === "number" && slowN > prevSlow) fail(`slow-route count regressed (${prevSlow} -> ${slowN})`, "a release moved papers BACK onto the slow lane");
+    else pass(`slow-route KPI holds (${slowN} <= ${typeof prevSlow === "number" && prevSlow !== slowN ? `previous ${prevSlow}, baseline ` : ""}${SLOW_BASE})`);
+
+    // (c) anti-rot health report: validate-registry.cjs must have run recently
+    // and nothing may be rotted. ERROR-class entries (throttle/network) do not
+    // block — they're transient; ROT never pardons.
+    const reportPath = path.join(ROOT, "desktop", "tools", "health-report.json");
+    let report = null;
+    try { report = JSON.parse(fs.readFileSync(reportPath, "utf8")); } catch {}
+    if (!report || !report.generated) {
+      warn("health-report.json missing — run tools/validate-registry.cjs (--sample nightly, --full pre-release)");
+    } else {
+      const ageH = (Date.now() - Date.parse(report.generated)) / 3600000;
+      const s = report.summary || {};
+      const rotted = s.rotted || 0;
+      if (ageH > 7 * 24) fail(`health report is ${(ageH / 24).toFixed(1)} days stale (> 7d)`, "run validate-registry.cjs");
+      else if (rotted > 0) fail(`anti-rot: ${rotted} rotted registry entries`, (report.checks || []).filter((c) => c.cls === "rot").slice(0, 5).map((c) => `${c.registry}:${String(c.id).slice(0, 40)} ${c.reason}`).join(" | "));
+      else pass(`anti-rot report clean (${s.ok || 0} verified, ${s.error || 0} transient, mode ${report.mode}, ${(ageH).toFixed(1)}h old)`);
+    }
+    try {
+      fs.mkdirSync(path.dirname(statePath), { recursive: true });
+      fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, slowRoute: slowN, at: new Date().toISOString() }, null, 1));
+    } catch {}
   }
 
   /* [5] claims/numbers contract */

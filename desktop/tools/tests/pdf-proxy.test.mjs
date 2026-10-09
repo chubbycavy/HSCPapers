@@ -60,6 +60,35 @@ test("rate limits create a cooldown and do not trigger retry storms", async () =
   assert.equal(second.status, 503);
   assert.equal(calls, 1);
 });
+const payloadWith = (fileref) => new Response(`downloadfile(${JSON.stringify({ fileref, data: Buffer.from(pdf).toString("base64") })});`);
+test("same fileref under one viewno for two titles = corrupted mapping, bytes withheld", async () => {
+  let calls = 0;
+  const serve = handler({ fetchImpl: async () => { calls++; return payloadWith("12TrRtJ9xfV4mo9O34MJ5_1YrHzjvirBR"); } });
+  const first = await serve(request(route)); // 5106/Sydney Boys 2004
+  assert.equal(first.status, 200);
+  const second = await serve(request("https://thsconline.github.io/s/d/5106/Riverside%20Girls%202004"));
+  assert.equal(second.status, 503);
+  assert.match(await second.text(), /corrupted|withheld/i);
+  // a different viewno may legitimately reference the same file: no refusal
+  const otherView = await serve(request("https://thsconline.github.io/s/d/9999/Sydney%20Boys%202004"));
+  assert.equal(otherView.status, 200);
+  assert.equal(calls, 3);
+});
+test("a resolver document whose sha is on the collapsed list is never served", async () => {
+  const realSha = Buffer.from(pdf).toString("base64"); // the pool serves this fixture for two titles below
+  const serve = handler({ fetchImpl: async () => new Response(`downloadfile(${JSON.stringify({ data: realSha })});`) });
+  const response = await serve(request(route));
+  assert.equal(response.status, 200); // the pristine document still passes the default empty-ban list
+  const banning = handler({ fetchImpl: async () => new Response(`downloadfile(${JSON.stringify({ data: realSha })});`), collapsedShas: new Set([await shaOf(pdf)]) });
+  const withheld = await banning(request(route));
+  assert.equal(withheld.status, 503);
+  assert.match(await withheld.text(), /withheld/);
+});
+async function shaOf(bytes) {
+  const hex = await (await import("node:crypto")).webcrypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(hex)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
 for (const [label, body] of [
   ["HTML error", "<html>Google login</html>"],
   ["bad JSON", "downloadfile({no});"],
