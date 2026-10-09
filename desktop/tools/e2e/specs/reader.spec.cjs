@@ -105,38 +105,50 @@ test.describe("reader (continuous scroll)", () => {
     await page.locator("#readerTimerBtn").click();
     await page.locator("#readerTimerPreset").selectOption("0"); // count up
     await expect.poll(async () => (await page.locator("#readerTimer").textContent()), { timeout: 10_000 }).not.toBe("00:00");
-    const frozen = await page.locator("#readerTimer").textContent();
-    const frozenSec = frozen.split(":").reduce((a, t) => a * 60 + Number(t), 0);
     await page.locator("#readerTimerPause").click();
     await expect(page.locator("#readerTimerPause")).toHaveClass(/on/);
+    // read AFTER pausing: while paused the display is genuinely stable — a
+    // pre-pause read races the 500ms tick and snapshots the wrong second
+    const frozen = await page.locator("#readerTimer").textContent();
+    const frozenSec = frozen.split(":").reduce((a, t) => a * 60 + Number(t), 0);
     await page.waitForTimeout(1_400);
     expect(await page.locator("#readerTimer").textContent()).toBe(frozen);
     await page.locator("#readerTimerPause").click();
     await expect(page.locator("#readerTimerPause")).toHaveText("⏸");
-    // one tick after resume the count must have MOVED FORWARD past the
-    // frozen value — a resume that restarts from zero dips and fails this
-    await page.waitForTimeout(600);
-    const resumed = (await page.locator("#readerTimer").textContent()).split(":").reduce((a, t) => a * 60 + Number(t), 0);
-    expect(resumed).toBeGreaterThan(frozenSec);
+    // the FIRST changed reading must sit one or two seconds past the
+    // frozen value — a resume that restarts from zero dips below and fails
+    let resumed = frozenSec;
+    for (let i = 0; i < 20 && resumed === frozenSec; i++) {
+      await page.waitForTimeout(300);
+      resumed = (await page.locator("#readerTimer").textContent()).split(":").reduce((a, t) => a * 60 + Number(t), 0);
+    }
+    expect([frozenSec + 1, frozenSec + 2]).toContain(resumed);
   });
 
   test("timer: closing the reader pauses the session; it survives reopening", async ({ page }) => {
     test.setTimeout(90_000);
-    await openPaper(page, r2Paper.title);
+    const card = await openPaper(page, r2Paper.title);
     await page.locator("#readerTimerBtn").click();
     await page.locator("#readerTimerPreset").selectOption("0"); // count up
     await expect.poll(async () => (await page.locator("#readerTimer").textContent()), { timeout: 10_000 }).not.toBe("00:00");
     await page.keyboard.press("Escape"); // close the whole reader — session pauses
     await expect(page.locator("#reader")).toBeHidden();
     await page.waitForTimeout(1_400); // nothing keeps ticking while hidden
-    await openPaper(page, r2Paper.title);
+    // reopen via the SAME card (no page.goto — a navigation would start a
+    // fresh app; the pause survives only within the page session)
+    await card.locator("[data-read]").click();
+    await expect(page.locator("#reader")).toBeVisible();
     await expect(page.locator("#readerTimer")).toBeVisible();
     const frozen = await page.locator("#readerTimer").textContent();
     const frozenSec = frozen.split(":").reduce((a, t) => a * 60 + Number(t), 0);
     await expect(page.locator("#readerTimerPause")).toHaveClass(/on/); // ▶ armed
     await page.locator("#readerTimerPause").click(); // resume
-    await page.waitForTimeout(600);
-    const resumed = (await page.locator("#readerTimer").textContent()).split(":").reduce((a, t) => a * 60 + Number(t), 0);
-    expect(resumed).toBeGreaterThan(frozenSec);
+    await expect(page.locator("#readerTimerPause")).toHaveText("⏸");
+    let resumed = frozenSec;
+    for (let i = 0; i < 20 && resumed === frozenSec; i++) {
+      await page.waitForTimeout(300);
+      resumed = (await page.locator("#readerTimer").textContent()).split(":").reduce((a, t) => a * 60 + Number(t), 0);
+    }
+    expect([frozenSec + 1, frozenSec + 2]).toContain(resumed);
   });
 });
