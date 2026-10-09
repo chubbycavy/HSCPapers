@@ -38,7 +38,7 @@ jobs:
           # the full regenerated surface: catalogue + the generators' artifacts
           # (sitemap lastmod, coverage dashboard, subject pages, the SPA shell's
           # static subject grid) — regenerating without committing discards them
-          git add desktop/ui/data/papers.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/
+          git add desktop/ui/data/papers.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/ desktop/tools/thsc-au-verified.json
           if git diff --cached --quiet; then
             echo "Catalogue unchanged — no commit"
           else

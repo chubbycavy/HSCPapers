@@ -85,12 +85,14 @@ function fingerprint() {
 }
 
 (async () => {
-  if (!(await runStep("L1 sweep-check", "node", ["tools/sweep-check.cjs"]))) process.exit(1);
-  if (!(await runStep("L2 e2e (21 journeys, local)", npx, ["playwright", "test", "--config", "tools/e2e/playwright.config.cjs"]))) process.exit(1);
-  if (!(await runStep("L3 live-check (production, bounded fetches)", "node", ["tools/e2e/live-check.cjs"]))) process.exit(1);
+  if (!(await runStep("L0 proxy + mirror regression tests", "node", ["--test", "tools/tests/pdf-proxy.test.mjs", "tools/tests/thsc-au.test.cjs"]))) throw new Error("Regression tests failed");
+  if (!(await runStep("L1 sweep-check", "node", ["tools/sweep-check.cjs"]))) throw new Error("Sweep failed");
+  if (!(await runStep("L2 e2e (local)", npx, ["playwright", "test", "--config", "tools/e2e/playwright.config.cjs"]))) throw new Error("E2E failed");
+  const skipLive = process.argv.includes("--skip-live");
+  if (!skipLive && !(await runStep("L3 live-check (production, bounded fetches)", "node", ["tools/e2e/live-check.cjs"]))) throw new Error("Live check failed");
 
   const canary = async (n) => {
-    if (!(await runStep(`L4 builder canary (--offline, run ${n}/2)`, "node", ["tools/build-index.cjs", "--offline"]))) process.exit(1);
+    if (!(await runStep(`L4 builder canary (--offline, run ${n}/2)`, "node", ["tools/build-index.cjs", "--offline"]))) throw new Error("Canary failed");
     const h = fingerprint();
     console.log(`  canary ${n}: ${h}`);
     return h;
@@ -98,14 +100,19 @@ function fingerprint() {
   const h1 = await canary(1);
   const h2 = await canary(2);
   step("Determinism gate");
-  if (h1 !== h2) { console.error(`  RED: canary nondeterministic (${h1} != ${h2})`); process.exit(1); }
+  if (h1 !== h2) throw new Error(`Canary nondeterministic (${h1} != ${h2})`);
   console.log("  canary deterministic ✓");
 
-  step("Restore canary artifacts from the pre-canary snapshot");
+  console.log("\n==== NUCLEAR SUMMARY ====");
+  console.log(skipLive ? "LOCAL GREEN — sweep + e2e + deterministic canary; live checks deferred" : "ALL GREEN — sweep + e2e + live + canary (deterministic)");
+})().catch(error => {
+  console.error(error.message);
+  process.exitCode = 1;
+}).finally(() => {
+  step("Restore canary artifacts from the pre-canary snapshot (success or failure)");
   for (const p of CANARY_PATHS) {
     fs.cpSync(path.join(SNAPSHOT, p), path.join(DESKTOP, p), { recursive: true });
   }
   console.log(`  restored ${CANARY_PATHS.length} paths (byte-exact, uncommitted work preserved)`);
-  console.log("\n==== NUCLEAR SUMMARY ====");
-  console.log("ALL GREEN — sweep + e2e + live + canary (deterministic)");
-})().finally(() => { try { fs.rmSync(SNAPSHOT, { recursive: true, force: true }); } catch {} });
+  try { fs.rmSync(SNAPSHOT, { recursive: true, force: true }); } catch {}
+});

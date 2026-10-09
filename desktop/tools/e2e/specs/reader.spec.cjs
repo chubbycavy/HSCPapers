@@ -1,12 +1,15 @@
 /* Nuclear reader tier: continuous scroll, solutions gating, sync, print,
    keyboard — PDF bytes only from our own R2 bucket (politeness rule). */
 const { test, expect } = require("@playwright/test");
-const { r2Paper, solPaper, noSolPaper } = require("../helpers.cjs");
+const fs = require("fs");
+const { r2Paper, solPaper, noSolPaper, routerPaper } = require("../helpers.cjs");
 const { freezeTimerClock, checkTimerToggleJourney, checkTimerReloadJourney, checkTimerIconAlignment } = require("../timer-check.cjs");
 
-async function openPaper(page, title) {
+async function openPaper(page, title, includeSlow = false) {
   await page.goto("/");
   await page.waitForSelector("#cards .card", { timeout: 30_000 });
+  // The switch input is visually hidden (custom .slider) — click via JS like web.spec does.
+  if (includeSlow) await page.locator("#slowRoute").evaluate((el) => el.click());
   await page.fill("#q", title.slice(0, 60));
   await page.locator("#searchForm button[type=submit]").click();
   const card = page.locator("#cards .card").filter({ hasText: title.slice(0, 60) }).first();
@@ -201,5 +204,44 @@ test.describe("reader (continuous scroll)", () => {
         await page.locator("#readerTimerBtn").click();
       }
     }
+  });
+
+  test("router delivery: production proxy handler renders, downloads and ZIPs valid PDF bytes", async ({ page }) => {
+    test.setTimeout(90_000);
+    expect(routerPaper).toBeTruthy();
+    const fixture = await (await page.request.get(r2Paper.url)).body();
+    const { createProxyHandler } = await import("../../../ui/_lib/pdf-proxy.mjs");
+    let upstreamCalls = 0;
+    const handle = createProxyHandler({ cache: null, gapMs: 0, fetchImpl: async () => {
+      upstreamCalls++;
+      return new Response(`downloadfile(${JSON.stringify({ data: fixture.toString("base64") })});`);
+    } });
+    await page.route("**/proxy?**", async route => {
+      const response = await handle({ request: new Request(route.request().url(), { method: route.request().method(), headers: route.request().headers() }) });
+      await route.fulfill({ status: response.status, headers: Object.fromEntries(response.headers), body: Buffer.from(await response.arrayBuffer()) });
+    });
+    const card = await openPaper(page, routerPaper.title, true);
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#reader")).toBeHidden();
+    expect(new URL(await card.locator("[data-dl]").first().getAttribute("href"), "http://localhost:8000").pathname).toBe("/proxy");
+    const downloaded = page.waitForEvent("download");
+    await card.locator("[data-dl]").first().click();
+    const file = await downloaded;
+    expect(fs.readFileSync(await file.path()).equals(fixture)).toBe(true);
+    await page.locator("#slowRoute").check();
+    await card.locator("input[type=checkbox]").check();
+    const zipped = page.waitForEvent("download");
+    await page.locator("#zipBtn").click();
+    const archive = await zipped;
+    const JSZip = require("../../../ui/vendor/jszip.min.js");
+    const zip = await JSZip.loadAsync(fs.readFileSync(await archive.path()));
+    const pdfs = Object.values(zip.files).filter(file => !file.dir && file.name.endsWith(".pdf"));
+    expect(pdfs.length).toBeGreaterThan(0);
+    expect((await pdfs[0].async("nodebuffer")).equals(fixture)).toBe(true);
+    // Dedupe proof: sequential flows reuse ONE upstream resolve — but the
+    // in-memory cache skips files above its 8MB budget by design (unit tests
+    // prove dedupe under budget; this R2 fixture is 12.8MB).
+    expect(upstreamCalls).toBe(fixture.length <= 8 * 1024 * 1024 ? 1 : 3);
   });
 });

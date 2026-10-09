@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
-const FAST = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au/;
+const FAST = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.com\.au/;
 
 module.exports = {
   papers,
@@ -16,4 +16,7 @@ module.exports = {
   // clear-all 🐢 journey's fixture; route endpoints (/s/d/) excluded (the
   // helper contract: route endpoints can be slow OR fast-hosted)
   slowPaper: papers.find((p) => p.url && !/\/s\/[dvfz]\//.test(p.url) && !FAST.test(p.url)),
+  // Legacy identity; local delivery tests use an R2 PDF fixture through the
+  // production handler, avoiding repeated calls to THSC's congested backend.
+  routerPaper: papers.find((p) => /\/s\/[dvfz]\//.test(p.url || "")),
 };

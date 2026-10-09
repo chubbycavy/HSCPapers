@@ -1113,6 +1113,8 @@ fn source_of(url: &str) -> &'static str {
         "nesa-archive"
     } else if url.contains("boardofstudies.nsw.edu.au") {
         "bos"
+    } else if url.contains("thsconline.com.au") {
+        "thsc-au"
     } else if url.contains("/s/d/") || url.contains("/s/v/") || url.contains("/s/fz/") {
         "script"
     } else if url.contains("thsconline.github.io") {

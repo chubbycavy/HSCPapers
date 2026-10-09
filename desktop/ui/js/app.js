@@ -738,8 +738,8 @@
         <h3></h3>
         <div class="meta"></div>
         <div class="card-actions">
-          <a class="mini-btn go" href="${esc(paperHref)}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}" ${!IS_TAURI ? `data-dl data-name="${esc(safeName(p, "paper"))}"` : ""}>⭳ Paper</a>
-          ${solHref ? `<a class="mini-btn" href="${esc(solHref)}" target="_blank" rel="noopener" download data-rel="${esc(srel || "")}" ${!IS_TAURI ? `data-dl data-name="${esc(safeName(p, "solutions"))}"` : ""}>Solutions</a>` : ""}
+          <a class="mini-btn go" href="${esc(IS_TAURI ? paperHref : downloadHref(paperHref))}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}" ${!IS_TAURI ? `data-dl data-source="${esc(paperHref)}" data-fallback="${esc(p.fallbackUrl || "")}" data-name="${esc(safeName(p, "paper"))}"` : ""}>⭳ Paper</a>
+          ${solHref ? `<a class="mini-btn" href="${esc(IS_TAURI ? solHref : downloadHref(solHref))}" target="_blank" rel="noopener" download data-rel="${esc(srel || "")}" ${!IS_TAURI ? `data-dl data-source="${esc(solHref)}" data-fallback="${esc(p.solFallbackUrl || "")}" data-name="${esc(safeName(p, "solutions"))}"` : ""}>Solutions</a>` : ""}
           ${!IS_TAURI && paperHref && paperHref !== "#" ? `<button class="mini-btn" data-read>📖 Read</button>` : ""}
         </div>
       </div>`;
@@ -763,7 +763,7 @@
       el.querySelectorAll("a[data-dl]").forEach(a => a.addEventListener("click", (e) => {
         if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return; // browser opens in new tab
         e.preventDefault();
-        instantDownload(a.href, a.dataset.name, p.id);
+        instantDownload(a.dataset.source || a.href, a.dataset.name, p.id, a.dataset.fallback);
       }));
     }
     const box = el.querySelector("input");
@@ -960,11 +960,22 @@
   function shelfHas(id) {
     return bkState.has(id) || downloadedSet().has(id) || rvState.includes(id);
   }
-  async function instantDownload(url, filename, paperId) {
+  async function fetchPdfBlob(url, fallback) {
+    let lastError;
+    for (const source of [...new Set([url, fallback].filter(Boolean))]) {
+      try {
+        const res = await fetch(proxied(source), { signal: AbortSignal.timeout(120000) });
+        if (!res.ok) throw new Error(res.status === 503 ? "Source busy — try again shortly" : `HTTP ${res.status}`);
+        const blob = await res.blob();
+        if (!(await blob.slice(0, 5).text()).startsWith("%PDF-")) throw new Error("Source did not return a valid PDF");
+        return blob;
+      } catch (e) { lastError = e; }
+    }
+    throw lastError || new Error("No PDF source available");
+  }
+  async function instantDownload(url, filename, paperId, fallback) {
     try {
-      const res = await fetch(proxied(url));
-      if (!res.ok) throw new Error(res.status);
-      const blob = await res.blob();
+      const blob = await fetchPdfBlob(url, fallback);
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = filename || "paper.pdf";
@@ -1001,9 +1012,7 @@
       const f = files[i];
       $("#zipProgress").textContent = `Fetching ${i + 1}/${files.length} · ${fmtMB(bytes)} so far…`;
       try {
-        const res = await fetch(proxied(f.url));
-        if (!res.ok) throw new Error(res.status);
-        const blob = await res.blob();
+        const blob = await fetchPdfBlob(f.url, state.includeSlowRoute ? f.fallback : null);
         if (bytes + blob.size > budget) {
           // Budget enforced DURING the build with real sizes: emit what we
           // have instead of risking a tab crash on oversized selections.
@@ -1018,7 +1027,7 @@
       }
     }
     if (!ok) {
-      $("#zipProgress").textContent = "ZIP blocked by the source (needs CORS). Use the ⭳ buttons on each card.";
+      $("#zipProgress").textContent = "No selected files returned valid PDF data. Try the ⭳ buttons on each card.";
       return;
     }
     $("#zipProgress").textContent = `Packing ${fmtMB(bytes)}…`;
@@ -1144,7 +1153,7 @@
   // dead NESA wcm) is a "slow route" resolved via the throttled resolver.
   // (A third-party mirror was delisted 2026-09-25; its papers are
   // self-hosted now — desktop/tools/selfhost.json.)
-  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.github.io"]);
+  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.github.io", "thsconline.com.au"]);
   function isFastHostUrl(u) {
     try { const url = new URL(u); if (/^\/s\/[dvfz]\//.test(url.pathname)) return false; return FAST_SAVE_HOSTS.has(url.host); } catch { return false; }
   }
@@ -1158,9 +1167,15 @@
     const p = window.SITE_CONFIG?.PROXY_BASE;
     if (!p || !u) return u;
     try {
-      if (CORS_OK_HOSTS.has(new URL(u).host)) return u;
+      const url = new URL(u);
+      if (/^\/s\/(?:d|v|fz|f|z)\//.test(url.pathname)) return p + "?url=" + encodeURIComponent(u);
+      if (CORS_OK_HOSTS.has(url.host)) return u;
       return p + "?url=" + encodeURIComponent(u);
     } catch { return u; }
+  }
+  function downloadHref(u) {
+    const resolved = proxied(u);
+    return resolved === u ? u : resolved + "&dl=1";
   }
   let lastSlowSkipped = 0; // slow-route files excluded from the last filesForPapers() call
 

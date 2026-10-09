@@ -24,7 +24,7 @@ const appJs = read(path.join(UI, "js", "app.js"));
 const html = read(path.join(UI, "index.html"));
 const mainRs = read(path.join(ROOT, "desktop", "src-tauri", "src", "main.rs"));
 const builder = read(path.join(ROOT, "desktop", "tools", "build-index.cjs"));
-const proxyJs = read(path.join(UI, "functions", "proxy.js"));
+const proxyJs = read(path.join(UI, "functions", "proxy.js")) + "\n" + read(path.join(UI, "_lib", "pdf-proxy.mjs"));
 const headers = read(path.join(UI, "_headers"));
 const swJs = read(path.join(UI, "sw.js"));
 const manifest = JSON.parse(read(path.join(UI, "manifest.webmanifest")));
@@ -159,10 +159,29 @@ async function main() {
       for (const h of fast) if (!biHosts.has(stripWww(h)) && !biHosts.has(h)) { fail(`app.js FAST_SAVE_HOSTS host "${h}" missing from build-index isFastHost`); ok = false; }
     } else { warn("host sets not parseable (regex drift)"); ok = false; }
     if (fast && cors) for (const h of cors) if (!fast.has(h)) { fail(`CORS_OK_HOSTS host "${h}" not in FAST_SAVE_HOSTS`); ok = false; }
-    if (allowed) for (const h of ["www.nsw.gov.au", "www.boardofstudies.nsw.edu.au"]) if (!allowed.has(h)) { fail(`proxy ALLOWED_HOSTS missing "${h}"`); ok = false; }
-    const mainRsHosts = new Set([...mainRs.matchAll(/"(hscportal\.pages\.dev|pub-ec23[a-f0-9]*\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io)"/g)].map((m) => m[1]));
+    if (allowed) for (const h of ["www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.com.au", "thsconline.pages.dev"]) if (!allowed.has(h)) { fail(`proxy ALLOWED_HOSTS missing "${h}"`); ok = false; }
+    const mainRsHosts = new Set([...mainRs.matchAll(/"(hscportal\.pages\.dev|pub-ec23[a-f0-9]*\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au|thsconline\.pages\.dev)"/g)].map((m) => m[1]));
     if (fast) for (const h of fast) { const s = stripWww(h); if (!mainRsHosts.has(h) && !mainRsHosts.has(s)) warn(`main.rs does not literally mention fast host "${h}"`); }
+    // Resolver lane contract: proxy.js must carry the Apps Script resolution
+    // branch, and its 16 quota pools must EXACTLY match the Rust WORKERS
+    // array (round-robin spreads load across the same deployments).
+    for (const marker of ["THSC_ROUTER_RE", "export=data", "resolveRouter"]) {
+      if (!proxyJs.includes(marker)) { fail(`proxy resolver lane missing "${marker}"`); ok = false; }
+    }
+    const ep = (text) => [...text.matchAll(/"(https:\/\/script\.google\.com\/macros\/s\/[^"]+)"/g)].map((m) => m[1]);
+    const epProxy = ep(proxyJs), epRust = ep(mainRs);
+    if (epProxy.length === epRust.length && epProxy.every((u, i) => u === epRust[i])) {
+      if (epProxy.length === 16) pass(`resolver endpoints in sync across proxy.js + main.rs (${epProxy.length} quota pools)`);
+      else { fail(`resolver endpoint count unexpected`, `${epProxy.length} pools (expected 16)`); ok = false; }
+    } else { fail(`resolver endpoints drifted`, `proxy ${epProxy.length} vs rust ${epRust.length}`); ok = false; }
     if (ok) pass(`host layers in sync: ${fast ? fast.size : "?"} fast hosts, ${allowed ? allowed.size : "?"} proxy-allowed`);
+    const registry = JSON.parse(read(path.join(ROOT, "desktop", "tools", "thsc-au-verified.json")));
+    const proofs = new Map((registry.entries || []).map(entry => [entry.url, entry]));
+    const mirrors = papers.filter(p => p.mirror === "thsc-au");
+    if (mirrors.every(p => proofs.has(p.url) && proofs.get(p.url).sha256 === p.sha256 && proofs.get(p.url).bytes === p.bytes)) pass(`independent mirror: ${mirrors.length} mappings backed by PDF validation and SHA-256`);
+    else fail("independent mirror contains an unverified replacement");
+    if (new Set(papers.map(p => p.id)).size === papers.length) pass(`catalogue IDs unique (${papers.length})`);
+    else fail("duplicate catalogue IDs");
   }
 
   /* [4] registry integrity */
@@ -196,7 +215,7 @@ async function main() {
   /* [5] claims/numbers contract */
   console.log("\n[5] claims/numbers contract");
   {
-    const fastRe = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io/;
+    const fastRe = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au/;
     const isFast = (u) => u && !/\/s\/[dvfz]\//.test(u) && fastRe.test(u); // THSC route endpoints excluded
     const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
     const fastFiles = papers.reduce((n, p) => n + (isFast(p.url) ? 1 : 0) + (isFast(p.solutionUrl) ? 1 : 0), 0);
@@ -257,17 +276,24 @@ async function main() {
     // a user enables 🐢 for one search, clears, and slow files silently
     // stayed in saves). Mirrors app.js resetSlowRoute(): toggle off +
     // selection pruned of now-hidden papers.
-    const isFast = (u) => u && !/\/s\/[dvfz]\//.test(u) && /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io/.test(u);
+    const isFast = (u) => u && !/\/s\/[dvfz]\//.test(u) && /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au/.test(u);
     {
-      const st = { includeSlowRoute: true, selected: new Set(papers.slice(0, 30).map((p) => p.id)) };
+      // Data-independent fixture: explicitly mix fast + slow-route papers so
+      // the assertion tests the reset logic, not the catalogue's array order
+      // (the .com.au re-points made the old first-30 slice all-fast).
+      const slowIds = papers.filter((p) => !isFast(p.url)).slice(0, 15).map((p) => p.id);
+      const fastIds = papers.filter((p) => isFast(p.url)).slice(0, 15).map((p) => p.id);
+      const initial = fastIds.length + slowIds.length;
+      const st = { includeSlowRoute: true, selected: new Set([...fastIds, ...slowIds]) };
       const appResetSlowRoute = (st) => {
         st.includeSlowRoute = false;
         const hide = new Set(papers.filter((p) => !isFast(p.url)).map((p) => p.id));
         for (const id of [...st.selected]) if (hide.has(id)) st.selected.delete(id);
       };
       appResetSlowRoute(st);
-      if (st.includeSlowRoute === false && st.selected.size === [...st.selected].filter((id) => { const p = papers.find((x) => x.id === id); return p && isFast(p.url); }).length && st.selected.size < 30) pass("clear-all resets includeSlowRoute + prunes 🐢-hidden from selection");
-      else fail("clear-all slow-route reset broken", `includeSlowRoute=${st.includeSlowRoute}, sel=${st.selected.size}/30`);
+      const fastSelected = [...st.selected].filter((id) => { const p = papers.find((x) => x.id === id); return p && isFast(p.url); }).length;
+      if (st.includeSlowRoute === false && st.selected.size === fastSelected && st.selected.size < initial) pass("clear-all resets includeSlowRoute + prunes 🐢-hidden from selection");
+      else fail("clear-all slow-route reset broken", `includeSlowRoute=${st.includeSlowRoute}, sel=${st.selected.size}/${initial} fast=${fastSelected}`);
     }
   }
 

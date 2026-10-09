@@ -10,6 +10,7 @@ const { checkTimerToggleJourney, checkTimerReloadJourney, checkTimerIconAlignmen
 let fails = 0, passes = 0;
 const pass = (s) => { passes++; console.log(`  PASS  ${s}`); };
 const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
+const warn = (s) => console.log(`  WARN  ${s}`);
 
 (async () => {
   // 1. plain HTTP checks
@@ -44,6 +45,39 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   const liveTokens = ["--surface", "--surface-2", "--accent"].filter((t) => liveCss.includes(`${t}:`));
   if (!deadNames.length && liveTokens.length === 3) pass(`live styles.css: token contract holds (${liveTokens.join(" / ")} defined, dead names gone)`);
   else fail(`live styles.css token contract broken (dead=[${deadNames.join(",")}] tokens=${liveTokens.length}/3)`);
+
+  // slow-route remediation (v1.0.21): the discontinued /s/d + /s/v pages are
+  // resolved server-side by the /proxy Pages Function's Apps Script lane.
+  // Production must return a REAL pdf through the same-origin proxy.
+  {
+    const routerUrl = "https://thsconline.github.io/s/d/5106/Sydney%20Boys%202004";
+    if (routerUrl) {
+      try {
+        const proxied = BASE + "proxy?url=" + encodeURIComponent(routerUrl);
+        const r = await fetch(proxied, { redirect: "follow", signal: AbortSignal.timeout(120000) });
+        const buf = Buffer.from(await r.arrayBuffer());
+        const magic = buf.length > 4 && buf[0] === 0x25 && buf[1] === 0x50 && buf[2] === 0x44 && buf[3] === 0x46;
+        if (r.status === 200 && magic && /application\/pdf/.test(r.headers.get("content-type") || "")) pass(`slow-route resolved through /proxy (${buf.length} B, %PDF magic)`);
+        else fail(`slow-route /proxy broken (status ${r.status}, magic ${magic}, ${buf.length} B)`);
+      } catch (e) { fail(`slow-route /proxy journey failed: ${String(e).slice(0, 90)}`); }
+    } else warn("no router-primary paper in the live catalogue (all migrated?)");
+  }
+  // the approved independent mirror (.com.au) file lane: bounded sample
+  {
+    const au = (live.papers || []).filter((p) => (p.url || "").startsWith("https://thsconline.com.au/")).slice(0, 3);
+    if (au.length) {
+      let okN = 0;
+      for (const p of au) {
+        try {
+          const r = await fetch(p.url, { redirect: "follow", signal: AbortSignal.timeout(30000) });
+          const buf = Buffer.from(await r.arrayBuffer());
+          if (r.status === 200 && buf.subarray(0, 5).toString() === "%PDF-" && require("crypto").createHash("sha256").update(buf).digest("hex") === p.sha256) okN++;
+        } catch { /* counted as failure below */ }
+      }
+      if (okN === au.length) pass(`thsconline.com.au mirror files probe clean (${okN}/${au.length})`);
+      else fail(`thsconline.com.au mirror files broken (${okN}/${au.length})`);
+    } else warn("no thsc-au re-points visible in the live catalogue yet (migration pending)");
+  }
 
   // 2. browser checks (rendering-level — the classes our static tests miss)
   const browser = await chromium.launch({ headless: true });
