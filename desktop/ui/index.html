@@ -245,9 +245,12 @@
     <span id="readerTitle" class="reader-title"></span>
     <button class="bar-btn" id="readerSyncBtn" hidden title="Turn pages together — solutions follows the paper and vice versa">🔗</button>
     <button class="bar-btn" id="readerAddSol" hidden title="Open the solutions alongside the paper">＋ Solutions</button>
-    <button class="bar-btn" id="readerTimerBtn" title="Study timer">⏱</button>
+    <button class="bar-btn" id="readerTimerBtn" title="Start study timer" aria-label="Start study timer" aria-expanded="false">⏱</button>
     <span id="readerTimer" class="reader-timer" hidden>00:00</span>
-    <button class="bar-btn" id="readerTimerPause" hidden title="Pause the timer">⏸</button>
+    <button class="bar-btn reader-timer-control" id="readerTimerPause" hidden title="Pause timer" aria-label="Pause timer">
+      <svg id="readerTimerPauseIcon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      <svg id="readerTimerResumeIcon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="currentColor" hidden><path d="m8 5 10 7-10 7z"/></svg>
+    </button>
     <select id="readerTimerPreset" class="bar-select" hidden>
       <option value="0">Count up</option>
       <option value="1800">30 min</option>
@@ -257,7 +260,7 @@
       <option value="custom">Custom…</option>
     </select>
     <span id="readerTimerCustomWrap" hidden>
-      <input id="readerTimerCustom" class="bar-select" type="number" min="1" max="600" placeholder="min" style="width:5.2rem" aria-label="Timer minutes">
+      <input id="readerTimerCustom" class="bar-select" type="number" min="1" max="600" required placeholder="min" style="width:5.2rem" aria-label="Timer minutes">
       <button class="bar-btn" id="readerTimerStart">Start</button>
     </span>
     <button class="bar-btn" id="readerOpenSys" title="Open in system PDF app">📂</button>

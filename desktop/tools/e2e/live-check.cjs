@@ -4,6 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("@playwright/test");
+const { checkTimerToggleJourney, checkTimerIconAlignment } = require("./timer-check.cjs");
 
   const BASE = "https://hscpapers.com/";
 let fails = 0, passes = 0;
@@ -121,6 +122,27 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
         await page.waitForSelector("#panePaper .rpage.done", { timeout: 30_000 });
         pass("live reader renders an R2-hosted paper (real bytes, real browser)");
       } catch { fail("live reader did not render an R2 paper"); }
+      await page.evaluate(() => { document.documentElement.dataset.theme = "dark"; });
+      try {
+        await checkTimerToggleJourney(page);
+        pass("live timer starts on open and resets across repeated countdown/custom/dismiss cycles");
+      } catch (e) { fail(`live timer toggle journey: ${String(e).slice(0, 180)}`); }
+      try {
+        await page.locator("#readerTimerBtn").click();
+        await checkTimerIconAlignment(page);
+        await page.clock.runFor(1250);
+        await page.locator("#readerTimerPause").click();
+        await checkTimerIconAlignment(page);
+        const frozen = await page.locator("#readerTimer").textContent();
+        await page.clock.runFor(5000);
+        if (await page.locator("#readerTimer").textContent() !== frozen) throw new Error("paused timer kept ticking");
+        await page.locator("#readerTimerPause").click();
+        await checkTimerIconAlignment(page);
+        await page.clock.runFor(1000);
+        if (await page.locator("#readerTimer").textContent() !== "00:02") throw new Error("resume did not preserve the elapsed time");
+        await page.locator("#readerTimerBtn").click();
+        pass("live timer icons centered in both states; pause freezes and resume continues");
+      } catch (e) { fail(`live timer icon/pause journey: ${String(e).slice(0, 180)}`); }
       await page.keyboard.press("Escape");
     } catch (e) { fail(`live reader journey crashed/unrendered: ${String(e).slice(0, 90)}`); }
   }

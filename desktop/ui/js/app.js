@@ -1677,6 +1677,7 @@
     readerMode = "single";
     readerFocus = "paper";
     applyReaderChrome();
+    renderTimer();
     const sysBtn = $("#readerOpenSys");
     if (sysBtn) sysBtn.hidden = !IS_TAURI;
     if (window.pdfjsLib) {
@@ -2020,113 +2021,121 @@
   });
 
   /* ----- study timer (presets + custom minutes; exam lengths aren't parseable reliably) ----- */
-  let timerMode = null;   // "down" | "up" (null = idle)
-  let timerTotal = 0;     // seconds (countdown)
-  let timerStart = 0;
+  const studyTimer = {
+    visible: false, preset: "0", mode: "up", status: "idle",
+    durationMs: 0, elapsedMs: 0, startedAt: 0,
+  };
   let timerTick = null;
-  let timerPaused = false;
-  let timerFrozen = 0;    // seconds shown at pause
   function fmtClock(s) {
     const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
     const mm = String(m).padStart(2, "0"), ss = String(sec).padStart(2, "0");
     return h ? `${h}:${mm}:${ss}` : `${mm}:${ss}`;
   }
-  function timerShown() {
-    if (timerMode === "down") return timerPaused ? timerFrozen : Math.max(0, Math.ceil((timerTotal * 1000 - (Date.now() - timerStart)) / 1000));
-    if (timerMode === "up") return timerPaused ? timerFrozen : Math.floor((Date.now() - timerStart) / 1000);
-    return 0;
+  function timerElapsed() {
+    return studyTimer.elapsedMs + (studyTimer.status === "running" ? Math.max(0, performance.now() - studyTimer.startedAt) : 0);
   }
-  function timerDisplay() {
+  function renderTimer() {
+    const elapsed = timerElapsed();
+    if (studyTimer.mode === "down" && ["running", "paused"].includes(studyTimer.status) && elapsed >= studyTimer.durationMs) {
+      timerStop();
+      studyTimer.elapsedMs = studyTimer.durationMs;
+      studyTimer.startedAt = 0;
+      studyTimer.status = "finished";
+    }
+    const active = ["running", "paused", "finished"].includes(studyTimer.status);
+    const shown = !active ? 0 : studyTimer.mode === "down"
+      ? Math.max(0, Math.ceil((studyTimer.durationMs - elapsed) / 1000))
+      : Math.floor(elapsed / 1000);
+    const paused = studyTimer.status === "paused";
     const el = $("#readerTimer");
-    const shown = timerShown();
+    el.hidden = !studyTimer.visible;
     el.textContent = fmtClock(shown);
-    el.classList.toggle("warn", timerMode === "down" && shown <= 300 && shown > 0);
-    el.classList.toggle("done", timerMode === "down" && shown === 0);
+    el.dataset.state = studyTimer.status;
+    el.title = studyTimer.status === "setup" ? "Set a custom countdown duration"
+      : `${studyTimer.mode === "down" ? "Countdown" : "Count up"} — ${studyTimer.status}`;
+    el.classList.toggle("warn", studyTimer.mode === "down" && active && shown <= 300 && shown > 0);
+    el.classList.toggle("done", studyTimer.status === "finished");
+    const toggle = $("#readerTimerBtn");
+    toggle.setAttribute("aria-expanded", String(studyTimer.visible));
+    toggle.title = studyTimer.visible ? "Dismiss and reset study timer" : "Start study timer";
+    toggle.setAttribute("aria-label", toggle.title);
+    $("#readerTimerPreset").hidden = !studyTimer.visible;
+    $("#readerTimerPreset").value = studyTimer.preset;
+    $("#readerTimerCustomWrap").hidden = !studyTimer.visible || studyTimer.preset !== "custom";
+    const btn = $("#readerTimerPause");
+    btn.hidden = !studyTimer.visible || !["running", "paused"].includes(studyTimer.status);
+    btn.title = paused ? "Resume timer" : "Pause timer";
+    btn.setAttribute("aria-label", btn.title);
+    btn.classList.toggle("on", paused);
+    $("#readerTimerPauseIcon").hidden = paused;
+    $("#readerTimerResumeIcon").hidden = !paused;
+    $("#readerTimerStart").textContent = studyTimer.preset === "custom" && active ? "Restart" : "Start";
   }
   function timerStop() { if (timerTick) { clearInterval(timerTick); timerTick = null; } }
-  function timerRun(seconds) {
-    timerStart = Date.now();
-    timerTotal = seconds;
-    timerMode = seconds ? "down" : "up";
-    timerPaused = false;
-    timerDisplay();
+  function timerRun(seconds, preset = studyTimer.preset) {
     timerStop();
-    timerTick = setInterval(timerDisplay, 500);
-    $("#readerTimer").hidden = false;
-    $("#readerTimerCustomWrap").hidden = true;
-    const btn = $("#readerTimerPause");
-    btn.hidden = false;
-    btn.textContent = "⏸";
-    btn.title = "Pause the timer";
-    btn.classList.remove("on");
-    btn.disabled = false;
+    Object.assign(studyTimer, {
+      visible: true, preset, mode: seconds ? "down" : "up", status: "running",
+      durationMs: seconds * 1000, elapsedMs: 0, startedAt: performance.now(),
+    });
+    renderTimer();
+    timerTick = setInterval(renderTimer, 250);
   }
   function timerPause() {
-    if (timerMode === null || timerPaused) return;
-    timerFrozen = timerShown();
+    if (studyTimer.status !== "running") return;
+    studyTimer.elapsedMs = timerElapsed();
     timerStop();
-    timerPaused = true;
-    timerDisplay();
-    const btn = $("#readerTimerPause");
-    btn.textContent = "▶";
-    btn.title = "Resume the timer";
-    btn.classList.add("on");
-    btn.disabled = timerMode === "down" && timerFrozen === 0;
-    if (btn.disabled) btn.classList.remove("on");
+    studyTimer.startedAt = 0;
+    studyTimer.status = "paused";
+    renderTimer();
   }
   function timerResume() {
-    if (timerMode === null || !timerPaused) return;
-    timerPaused = false;
-    // shift the epoch so the count continues exactly where it froze
-    const elapsedAtPause = timerMode === "down" ? timerTotal - timerFrozen : timerFrozen;
-    timerStart = Date.now() - elapsedAtPause * 1000;
-    const btn = $("#readerTimerPause");
-    btn.textContent = "⏸";
-    btn.title = "Pause the timer";
-    btn.classList.remove("on");
-    btn.disabled = false;
-    timerDisplay();
+    if (studyTimer.status !== "paused") return;
     timerStop();
-    timerTick = setInterval(timerDisplay, 500);
+    studyTimer.startedAt = performance.now();
+    studyTimer.status = "running";
+    renderTimer();
+    timerTick = setInterval(renderTimer, 250);
   }
   function timerIdle() {
     timerStop();
-    timerMode = null; timerTotal = 0; timerStart = 0; timerPaused = false; timerFrozen = 0;
-    $("#readerTimerPause").hidden = true;
-    $("#readerTimerPause").classList.remove("on");
-    $("#readerTimer").classList.remove("warn", "done");
-    timerDisplay();
+    Object.assign(studyTimer, {
+      visible: false, preset: "0", mode: "up", status: "idle",
+      durationMs: 0, elapsedMs: 0, startedAt: 0,
+    });
+    $("#readerTimerCustom").value = "";
+    renderTimer();
   }
   on("#readerTimerBtn", "click", () => {
-    const on = $("#readerTimer").hidden;
-    $("#readerTimer").hidden = !on;
-    $("#readerTimerPreset").hidden = !on;
-    if (on) {
-      timerDisplay(); // reopen: paused session renders frozen; idle renders 00:00
-    } else {
-      timerIdle(); // dismiss = full reset (the stale-start bug lived here)
-    }
+    if (studyTimer.visible) timerIdle();
+    else timerRun(0, "0");
   });
   on("#readerTimerPreset", "change", (e) => {
     if (e.target.value === "custom") {
-      $("#readerTimerCustomWrap").hidden = false;
+      timerStop();
+      Object.assign(studyTimer, {
+        preset: "custom", mode: "down", status: "setup",
+        durationMs: 0, elapsedMs: 0, startedAt: 0,
+      });
+      renderTimer();
       $("#readerTimerCustom").focus();
       return;
     }
-    $("#readerTimerCustomWrap").hidden = true;
-    timerRun(Number(e.target.value));
+    timerRun(Number(e.target.value), e.target.value);
   });
   on("#readerTimerStart", "click", () => {
-    const mins = Math.max(1, Math.min(600, Number($("#readerTimerCustom").value) || 0));
-    if (mins) timerRun(mins * 60);
+    const input = $("#readerTimerCustom");
+    if (!input.reportValidity()) return;
+    timerRun(Number(input.value) * 60, "custom");
   });
   on("#readerTimerCustom", "keydown", (e) => {
     if (e.key === "Enter") { e.preventDefault(); $("#readerTimerStart").click(); }
   });
   on("#readerTimerPause", "click", () => {
-    if (timerPaused) timerResume();
+    if (studyTimer.status === "paused") timerResume();
     else timerPause();
   });
+  renderTimer();
 
   /* ---------- events ---------- */
   let debounce;

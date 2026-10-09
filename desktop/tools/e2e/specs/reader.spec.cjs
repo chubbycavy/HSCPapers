@@ -2,6 +2,7 @@
    keyboard — PDF bytes only from our own R2 bucket (politeness rule). */
 const { test, expect } = require("@playwright/test");
 const { r2Paper, solPaper, noSolPaper } = require("../helpers.cjs");
+const { freezeTimerClock, checkTimerToggleJourney, checkTimerIconAlignment } = require("../timer-check.cjs");
 
 async function openPaper(page, title) {
   await page.goto("/");
@@ -85,70 +86,108 @@ test.describe("reader (continuous scroll)", () => {
     await popup.close();
   });
 
-  test("timer: ⏱ dismiss then reopen shows a clean 00:00 (stale-start guard)", async ({ page }) => {
+  test("timer: opening starts count-up; repeated dismissal resets presets and custom controls", async ({ page }) => {
     test.setTimeout(90_000);
     await openPaper(page, r2Paper.title);
-    await page.locator("#readerTimerBtn").click();
-    await page.locator("#readerTimerPreset").selectOption("0"); // count up
-    await expect(page.locator("#readerTimer")).toBeVisible();
-    await expect.poll(async () => (await page.locator("#readerTimer").textContent()), { timeout: 10_000 }).not.toBe("00:00");
-    await page.locator("#readerTimerBtn").click(); // dismiss
-    await expect(page.locator("#readerTimerPause")).toBeHidden();
-    await page.locator("#readerTimerBtn").click(); // reopen
-    await expect(page.locator("#readerTimer")).toBeVisible();
-    await expect(page.locator("#readerTimer")).toHaveText("00:00");
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await checkTimerToggleJourney(page);
   });
 
-  test("timer: pause freezes the count; resume continues from where it froze", async ({ page }) => {
+  test("timer: repeated pauses preserve fractional seconds in both count-up and countdown", async ({ page }) => {
     test.setTimeout(90_000);
     await openPaper(page, r2Paper.title);
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await freezeTimerClock(page);
     await page.locator("#readerTimerBtn").click();
-    await page.locator("#readerTimerPreset").selectOption("0"); // count up
-    await expect.poll(async () => (await page.locator("#readerTimer").textContent()), { timeout: 10_000 }).not.toBe("00:00");
-    await page.locator("#readerTimerPause").click();
-    await expect(page.locator("#readerTimerPause")).toHaveClass(/on/);
-    // read AFTER pausing: while paused the display is genuinely stable — a
-    // pre-pause read races the 500ms tick and snapshots the wrong second
-    const frozen = await page.locator("#readerTimer").textContent();
-    const frozenSec = frozen.split(":").reduce((a, t) => a * 60 + Number(t), 0);
-    await page.waitForTimeout(1_400);
-    expect(await page.locator("#readerTimer").textContent()).toBe(frozen);
-    await page.locator("#readerTimerPause").click();
-    await expect(page.locator("#readerTimerPause")).toHaveText("⏸");
-    // the FIRST changed reading must sit one or two seconds past the
-    // frozen value — a resume that restarts from zero dips below and fails
-    let resumed = frozenSec;
-    for (let i = 0; i < 20 && resumed === frozenSec; i++) {
-      await page.waitForTimeout(300);
-      resumed = (await page.locator("#readerTimer").textContent()).split(":").reduce((a, t) => a * 60 + Number(t), 0);
+    for (const [preset, first, second, third] of [["0", "00:01", "00:02", "00:03"], ["1800", "29:59", "29:58", "29:57"]]) {
+      if (preset !== "0") await page.locator("#readerTimerPreset").selectOption(preset);
+      await page.clock.runFor(1250);
+      await page.locator("#readerTimerPause").click();
+      await expect(page.locator("#readerTimer")).toHaveText(first);
+      await page.clock.runFor(10_000);
+      await expect(page.locator("#readerTimer")).toHaveText(first);
+      for (let cycle = 0; cycle < 6; cycle++) {
+        await page.locator("#readerTimerPause").click();
+        await page.clock.runFor(125);
+        await page.locator("#readerTimerPause").click();
+        await page.clock.runFor(1000);
+      }
+      await expect(page.locator("#readerTimer")).toHaveText(second);
+      await expect(page.locator("#readerTimerPause")).toHaveAttribute("aria-label", "Resume timer");
+      await page.locator("#readerTimerPause").click();
+      await page.clock.runFor(1000);
+      await expect(page.locator("#readerTimer")).toHaveText(third);
+      await expect(page.locator("#readerTimer")).toHaveAttribute("data-state", "running");
     }
-    expect([frozenSec + 1, frozenSec + 2]).toContain(resumed);
   });
 
   test("timer: closing the reader pauses the session; it survives reopening", async ({ page }) => {
     test.setTimeout(90_000);
     const card = await openPaper(page, r2Paper.title);
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await freezeTimerClock(page);
     await page.locator("#readerTimerBtn").click();
-    await page.locator("#readerTimerPreset").selectOption("0"); // count up
-    await expect.poll(async () => (await page.locator("#readerTimer").textContent()), { timeout: 10_000 }).not.toBe("00:00");
-    await page.keyboard.press("Escape"); // close the whole reader — session pauses
+    await page.clock.runFor(2500);
+    await page.keyboard.press("Escape");
     await expect(page.locator("#reader")).toBeHidden();
-    await page.waitForTimeout(1_400); // nothing keeps ticking while hidden
-    // reopen via the SAME card (no page.goto — a navigation would start a
-    // fresh app; the pause survives only within the page session)
+    await page.clock.runFor(10_000);
+    await expect(page.locator("#readerTimer")).toHaveText("00:02");
     await card.locator("[data-read]").click();
     await expect(page.locator("#reader")).toBeVisible();
     await expect(page.locator("#readerTimer")).toBeVisible();
-    const frozen = await page.locator("#readerTimer").textContent();
-    const frozenSec = frozen.split(":").reduce((a, t) => a * 60 + Number(t), 0);
-    await expect(page.locator("#readerTimerPause")).toHaveClass(/on/); // ▶ armed
-    await page.locator("#readerTimerPause").click(); // resume
-    await expect(page.locator("#readerTimerPause")).toHaveText("⏸");
-    let resumed = frozenSec;
-    for (let i = 0; i < 20 && resumed === frozenSec; i++) {
-      await page.waitForTimeout(300);
-      resumed = (await page.locator("#readerTimer").textContent()).split(":").reduce((a, t) => a * 60 + Number(t), 0);
+    await expect(page.locator("#readerTimer")).toHaveAttribute("data-state", "paused");
+    await expect(page.locator("#readerTimerPause")).toHaveAttribute("aria-label", "Resume timer");
+    await page.clock.runFor(10_000);
+    await expect(page.locator("#readerTimer")).toHaveText("00:02");
+    await page.locator("#readerTimerPause").click();
+    await page.clock.runFor(500);
+    await expect(page.locator("#readerTimer")).toHaveText("00:03");
+  });
+
+  test("timer: custom countdown finishes once, stays at zero and can restart", async ({ page }) => {
+    test.setTimeout(90_000);
+    await openPaper(page, r2Paper.title);
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await freezeTimerClock(page);
+    await page.locator("#readerTimerBtn").click();
+    await page.locator("#readerTimerPreset").selectOption("custom");
+    await page.locator("#readerTimerCustom").fill("1");
+    await page.locator("#readerTimerStart").click();
+    await page.clock.runFor(1250);
+    await page.locator("#readerTimerPause").click();
+    await page.clock.runFor(10_000);
+    await expect(page.locator("#readerTimer")).toHaveText("00:59");
+    await page.locator("#readerTimerPause").click();
+    await page.clock.runFor(58_750);
+    await expect(page.locator("#readerTimer")).toHaveText("00:00");
+    await expect(page.locator("#readerTimer")).toHaveAttribute("data-state", "finished");
+    await expect(page.locator("#readerTimer")).toHaveClass(/done/);
+    await expect(page.locator("#readerTimerPause")).toBeHidden();
+    await page.clock.runFor(60_000);
+    await expect(page.locator("#readerTimer")).toHaveText("00:00");
+    await page.locator("#readerTimerStart").click();
+    await expect(page.locator("#readerTimer")).toHaveText("01:00");
+    await expect(page.locator("#readerTimer")).toHaveAttribute("data-state", "running");
+    await expect(page.locator("#readerTimerPause")).toBeVisible();
+  });
+
+  test("timer: pause and resume icons stay centered in light/dark and narrow toolbars", async ({ page }) => {
+    test.setTimeout(90_000);
+    await openPaper(page, r2Paper.title);
+    await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
+    await freezeTimerClock(page);
+    for (const theme of ["light", "dark"]) {
+      for (const width of [1280, 390]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.evaluate((theme) => { document.documentElement.dataset.theme = theme; }, theme);
+        await page.locator("#readerTimerBtn").click();
+        await checkTimerIconAlignment(page);
+        await page.locator("#readerTimerPause").click();
+        await checkTimerIconAlignment(page);
+        await page.locator("#readerTimerPause").click();
+        await checkTimerIconAlignment(page);
+        await page.locator("#readerTimerBtn").click();
+      }
     }
-    expect([frozenSec + 1, frozenSec + 2]).toContain(resumed);
   });
 });

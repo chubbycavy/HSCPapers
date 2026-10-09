@@ -867,6 +867,9 @@ body.drawer-lock { overflow: hidden; }
 .reader-timer { font-variant-numeric: tabular-nums; font-weight: 800; font-size: .9rem; color: var(--accent, #4f46e5); min-width: 4.6rem; text-align: center; }
 .reader-timer.warn { color: #d97706; }
 .reader-timer.done { color: #dc2626; }
+.reader-timer-control { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 2rem; height: 2rem; padding: 0; line-height: 1; }
+.reader-timer-control svg { display: block; width: 1rem; height: 1rem; }
+#readerTimerCustomWrap { display: inline-flex; align-items: center; gap: .4rem; }
 .reader-scroll { flex: 1; overflow: auto; text-align: center; background: var(--surface-2, #f1f5f9); }
 /* Continuous scroll: one placeholder per page, rendered lazily in a window
    around the viewport. aspect-ratio keeps scroll height stable before a
