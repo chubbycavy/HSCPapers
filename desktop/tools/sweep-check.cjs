@@ -10,7 +10,9 @@
    [6] engine logic tests (reader page detection, unload, queue, sync clamp)
    [7] share round-trip logic (gzip+base64url, corrupt-link graceful)
    [8] updater API simulation (live parse exactly like update_check)
-   [9] SW/headers sanity (version marker, no-cache rule, manifest icons) */
+   [9] SW/headers sanity (version marker, no-cache rule, manifest icons)
+   [10] landing pages cross-check (Phase C)
+   [11] theme-token integrity (every var() defined or JS-set) */
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
@@ -505,6 +507,38 @@ async function main() {
       if (!mism.length && got.size === subjects.length) pass(`${label} counts match the catalogue (${got.size}/${subjects.length})`);
       else fail(`${label} counts drifted`, `${mism.length} mismatches e.g. ${mism.slice(0, 4).map((s) => `${slugOf(s)}:${got.get(slugOf(s))}!=${bySubject.get(s)}`).join(", ")}`);
     }
+  }
+
+  /* [11] theme-token integrity */
+  console.log("\n[11] theme-token integrity");
+  {
+    // Every var(--token) the ui references must be either declared in a
+    // stylesheet/style block or set at runtime via setProperty. The
+    // reader once styled itself against --card/--soft/--primary — names
+    // the dark-mode token migration renamed — so every rule fell back to
+    // its hardcoded LIGHT value while the text color went dark-token:
+    // near-white title on a permanent white bar. Regression guard for
+    // that whole failure class.
+    const styles = read(path.join(UI, "css", "styles.css"));
+    const files = [styles, html, appJs];
+    const subjDir = path.join(UI, "subjects");
+    for (const d of fs.readdirSync(subjDir, { withFileTypes: true })) {
+      if (!d.isDirectory()) continue;
+      const f = path.join(subjDir, d.name, "index.html");
+      if (fs.existsSync(f)) files.push(read(f));
+    }
+    for (const f of ["coverage.html", "demo-scroll.html"]) {
+      const p = path.join(UI, f);
+      if (fs.existsSync(p)) files.push(read(p));
+    }
+    const defined = new Set();
+    for (const src of files) for (const m of src.matchAll(/(^|[{;])(\s*)(--[A-Za-z0-9-]+)\s*:/g)) defined.add(m[3]);
+    for (const m of appJs.matchAll(/setProperty\(\s*"(--[A-Za-z0-9-]+)"/g)) defined.add(m[1]);
+    const used = new Set();
+    for (const src of files) for (const m of src.matchAll(/var\((--[A-Za-z0-9-]+)/g)) used.add(m[1]);
+    const dead = [...used].filter((t) => !defined.has(t));
+    if (!dead.length) pass(`theme tokens: all ${used.size} var() references defined or JS-set`);
+    else fail(`dead theme tokens referenced: ${dead.length}`, dead.slice(0, 8).join(", "));
   }
 
   console.log("\n==== SWEEP SUMMARY ====");

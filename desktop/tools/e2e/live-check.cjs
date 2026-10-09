@@ -33,6 +33,17 @@ const fail = (s) => { fails++; console.log(`  FAIL  ${s}`); };
   if (cc.includes("no-cache")) pass("sw served with no-cache (updates always land)");
   else fail("sw cache-control missing no-cache");
 
+  // theme-token contract on the DEPLOYED bytes: the reader once styled
+  // itself against dead token names (--card/--soft/--primary — renamed in
+  // the dark-mode migration), which rendered unreadable bars in dark mode
+  // on BOTH web and desktop (the ui is shared). The deployed stylesheet
+  // must carry the real tokens and none of the dead ones.
+  const liveCss = await (await fetch(BASE + "css/styles.css?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
+  const deadNames = ["--card", "--soft", "--primary"].filter((t) => liveCss.includes(`var(${t}`));
+  const liveTokens = ["--surface", "--surface-2", "--accent"].filter((t) => liveCss.includes(`${t}:`));
+  if (!deadNames.length && liveTokens.length === 3) pass(`live styles.css: token contract holds (${liveTokens.join(" / ")} defined, dead names gone)`);
+  else fail(`live styles.css token contract broken (dead=[${deadNames.join(",")}] tokens=${liveTokens.length}/3)`);
+
   // 2. browser checks (rendering-level — the classes our static tests miss)
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });

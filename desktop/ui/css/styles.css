@@ -857,17 +857,17 @@ body.drawer-lock { overflow: hidden; }
 /* ---------- embedded reader overlay (in-page; v0.7.0) ---------- */
 .reader-overlay { position: fixed; inset: 0; z-index: 200; background: var(--bg, #f7f8fb); display: flex; flex-direction: column; }
 .reader-overlay[hidden] { display: none; }
-.reader-bar { display: flex; align-items: center; gap: .55rem; padding: .5rem .9rem; background: var(--card, #fff); border-bottom: 1px solid rgba(125,125,155,.25); flex-wrap: wrap; }
-.bar-btn { background: var(--soft, #eef0f6); color: var(--text, #1c2333); border: 1px solid rgba(125,125,155,.25); border-radius: 8px; padding: .38rem .7rem; font-weight: 700; font-size: .8rem; cursor: pointer; text-decoration: none; }
-.bar-btn:hover { background: var(--primary, #4f46e5); color: #fff; }
-.bar-select { border: 1px solid rgba(125,125,155,.35); border-radius: 8px; padding: .3rem .45rem; font-size: .8rem; background: var(--card, #fff); color: var(--text, #1c2333); }
+.reader-bar { display: flex; align-items: center; gap: .55rem; padding: .5rem .9rem; background: var(--surface, #ffffff); border-bottom: 1px solid var(--border, #e2e8f0); flex-wrap: wrap; }
+.bar-btn { background: var(--surface-2, #f1f5f9); color: var(--text, #1c2333); border: 1px solid var(--border, #e2e8f0); border-radius: 8px; padding: .38rem .7rem; font-weight: 700; font-size: .8rem; cursor: pointer; text-decoration: none; }
+.bar-btn:hover { background: var(--accent, #4f46e5); color: var(--surface, #ffffff); }
+.bar-select { border: 1px solid var(--border, #e2e8f0); border-radius: 8px; padding: .3rem .45rem; font-size: .8rem; background: var(--surface-2, #f1f5f9); color: var(--text, #1c2333); }
 .reader-title { font-weight: 800; font-size: .9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 40%; }
 .reader-pageinfo { color: var(--muted, #6b7280); font-size: .78rem; }
 .reader-pagenum { font-variant-numeric: tabular-nums; font-size: .8rem; font-weight: 700; color: var(--muted, #64748b); min-width: 4.2rem; text-align: center; }
-.reader-timer { font-variant-numeric: tabular-nums; font-weight: 800; font-size: .9rem; color: var(--primary, #4f46e5); min-width: 4.6rem; text-align: center; }
+.reader-timer { font-variant-numeric: tabular-nums; font-weight: 800; font-size: .9rem; color: var(--accent, #4f46e5); min-width: 4.6rem; text-align: center; }
 .reader-timer.warn { color: #d97706; }
 .reader-timer.done { color: #dc2626; }
-.reader-scroll { flex: 1; overflow: auto; text-align: center; background: var(--soft, #e9ecf3); }
+.reader-scroll { flex: 1; overflow: auto; text-align: center; background: var(--surface-2, #f1f5f9); }
 /* Continuous scroll: one placeholder per page, rendered lazily in a window
    around the viewport. aspect-ratio keeps scroll height stable before a
    page renders; the placeholder shows its page number while empty. */
@@ -881,23 +881,23 @@ body.drawer-lock { overflow: hidden; }
 .bar-btn:disabled { opacity: .45; cursor: not-allowed; }
 /* F5 split-view: paper + solutions side by side */
 .reader-split { flex: 1; display: flex; min-height: 0; }
-.reader-pane { flex: 1; min-width: 0; display: flex; flex-direction: column; border-right: 1px solid rgba(125,125,155,.25); position: relative; }
+.reader-pane { flex: 1; min-width: 0; display: flex; flex-direction: column; border-right: 1px solid var(--border, #e2e8f0); position: relative; }
 .reader-pane:last-child { border-right: none; }
 .reader-pane .pane-scroll { flex: 1; }
 .reader-pane.focus::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  box-shadow: inset 0 0 0 2px var(--primary, #4f46e5); z-index: 2;
+  box-shadow: inset 0 0 0 2px var(--accent, #4f46e5); z-index: 2;
 }
 .pane-bar {
   display: flex; align-items: center; gap: .5rem;
   padding: .3rem .7rem; font-size: .78rem; font-weight: 700;
-  background: var(--card, #fff); border-bottom: 1px solid rgba(125,125,155,.25);
+  background: var(--surface, #ffffff); border-bottom: 1px solid var(--border, #e2e8f0);
 }
 .pane-label { color: var(--muted, #6b7280); text-transform: uppercase; letter-spacing: .06em; font-size: .7rem; }
 .pane-num { font-variant-numeric: tabular-nums; color: var(--muted, #64748b); min-width: 3.6rem; text-align: center; }
 .pane-label + .bar-btn { margin-left: auto; }
 .pane-close { opacity: .85; }
-.bar-btn.on { background: var(--primary, #4f46e5); color: #fff; }
+.bar-btn.on { background: var(--accent, #4f46e5); color: var(--surface, #ffffff); }
 /* Class-kill: an author display rule (e.g. .reader-pane { display:flex })
    overrides the UA's [hidden] → display:none, which kept the empty
    solutions pane permanently visible. This one rule makes [hidden]
@@ -905,7 +905,7 @@ body.drawer-lock { overflow: hidden; }
 [hidden] { display: none !important; }
 @media (max-width: 860px) {
   .reader-split { flex-direction: column; }
-  .reader-pane { border-right: none; border-bottom: 1px solid rgba(125,125,155,.25); }
+  .reader-pane { border-right: none; border-bottom: 1px solid var(--border, #e2e8f0); }
   .reader-pane:last-child { border-bottom: none; }
   .reader-title { max-width: 100%; }
 }
@@ -915,7 +915,7 @@ body.drawer-lock { overflow: hidden; }
 .menu-summary { list-style: none; cursor: pointer; user-select: none; }
 .menu-summary::-webkit-details-marker { display: none; }
 .menu[open] .menu-summary { background: var(--accent, #4f46e5); color: #fff; }
-.menu-list { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card, #fff); border: 1px solid var(--border, #e2e5ee); border-radius: var(--radius, 12px); box-shadow: var(--shadow-lg, 0 12px 32px rgba(10,15,40,.18)); min-width: 11rem; padding: .3rem; z-index: 60; }
+.menu-list { position: absolute; right: 0; top: calc(100% + 6px); background: var(--surface, #ffffff); border: 1px solid var(--border, #e2e5ee); border-radius: var(--radius, 12px); box-shadow: var(--shadow-lg, 0 12px 32px rgba(10,15,40,.18)); min-width: 11rem; padding: .3rem; z-index: 60; }
 .menu-list button { display: block; width: 100%; text-align: left; background: none; border: none; border-radius: var(--radius-sm, 8px); padding: .5rem .7rem; font-weight: 700; font-size: .82rem; color: var(--text, #1c2333); cursor: pointer; }
 .menu-list button:hover { background: var(--accent-soft, #eef0ff); color: var(--accent, #4f46e5); }
 
