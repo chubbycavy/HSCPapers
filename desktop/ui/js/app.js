@@ -1689,6 +1689,8 @@
   }
   function applyReaderChrome() {
     const split = readerMode === "split";
+    // the container exists in both modes — mode styling keys off this class
+    $("#readerSplit").classList.toggle("split", split);
     $("#paneSol").hidden = !split;
     $("#readerSyncBtn").hidden = !split;
     $("#readerSyncBtn").classList.toggle("on", readerSync);
@@ -1713,6 +1715,7 @@
   function closeReader() {
     $("#reader").hidden = true;
     document.body.style.overflow = "";
+    timerPause(); // the study session freezes; it resumes on reopen
     for (const key of ["paper", "sol"]) {
       const pane = readerPanes[key];
       pane.observer?.disconnect();
@@ -2017,18 +2020,25 @@
   });
 
   /* ----- study timer (presets + custom minutes; exam lengths aren't parseable reliably) ----- */
-  let timerMode = null;   // "down" | "up"
+  let timerMode = null;   // "down" | "up" (null = idle)
   let timerTotal = 0;     // seconds (countdown)
   let timerStart = 0;
   let timerTick = null;
+  let timerPaused = false;
+  let timerFrozen = 0;    // seconds shown at pause
   function fmtClock(s) {
     const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
     const mm = String(m).padStart(2, "0"), ss = String(sec).padStart(2, "0");
     return h ? `${h}:${mm}:${ss}` : `${mm}:${ss}`;
   }
+  function timerShown() {
+    if (timerMode === "down") return timerPaused ? timerFrozen : Math.max(0, Math.ceil((timerTotal * 1000 - (Date.now() - timerStart)) / 1000));
+    if (timerMode === "up") return timerPaused ? timerFrozen : Math.floor((Date.now() - timerStart) / 1000);
+    return 0;
+  }
   function timerDisplay() {
     const el = $("#readerTimer");
-    const shown = timerMode === "down" ? Math.max(0, Math.ceil((timerTotal * 1000 - (Date.now() - timerStart)) / 1000)) : Math.floor((Date.now() - timerStart) / 1000);
+    const shown = timerShown();
     el.textContent = fmtClock(shown);
     el.classList.toggle("warn", timerMode === "down" && shown <= 300 && shown > 0);
     el.classList.toggle("done", timerMode === "down" && shown === 0);
@@ -2038,22 +2048,63 @@
     timerStart = Date.now();
     timerTotal = seconds;
     timerMode = seconds ? "down" : "up";
+    timerPaused = false;
     timerDisplay();
     timerStop();
     timerTick = setInterval(timerDisplay, 500);
     $("#readerTimer").hidden = false;
     $("#readerTimerCustomWrap").hidden = true;
+    const btn = $("#readerTimerPause");
+    btn.hidden = false;
+    btn.textContent = "⏸";
+    btn.title = "Pause the timer";
+    btn.classList.remove("on");
+    btn.disabled = false;
+  }
+  function timerPause() {
+    if (timerMode === null || timerPaused) return;
+    timerFrozen = timerShown();
+    timerStop();
+    timerPaused = true;
+    timerDisplay();
+    const btn = $("#readerTimerPause");
+    btn.textContent = "▶";
+    btn.title = "Resume the timer";
+    btn.classList.add("on");
+    btn.disabled = timerMode === "down" && timerFrozen === 0;
+    if (btn.disabled) btn.classList.remove("on");
+  }
+  function timerResume() {
+    if (timerMode === null || !timerPaused) return;
+    timerPaused = false;
+    // shift the epoch so the count continues exactly where it froze
+    const elapsedAtPause = timerMode === "down" ? timerTotal - timerFrozen : timerFrozen;
+    timerStart = Date.now() - elapsedAtPause * 1000;
+    const btn = $("#readerTimerPause");
+    btn.textContent = "⏸";
+    btn.title = "Pause the timer";
+    btn.classList.remove("on");
+    btn.disabled = false;
+    timerDisplay();
+    timerStop();
+    timerTick = setInterval(timerDisplay, 500);
+  }
+  function timerIdle() {
+    timerStop();
+    timerMode = null; timerTotal = 0; timerStart = 0; timerPaused = false; timerFrozen = 0;
+    $("#readerTimerPause").hidden = true;
+    $("#readerTimerPause").classList.remove("on");
+    $("#readerTimer").classList.remove("warn", "done");
+    timerDisplay();
   }
   on("#readerTimerBtn", "click", () => {
     const on = $("#readerTimer").hidden;
     $("#readerTimer").hidden = !on;
     $("#readerTimerPreset").hidden = !on;
-    if (!on) {
-      timerStop();
-      timerMode = null; timerTotal = 0;
-      $("#readerTimerCustomWrap").hidden = true;
-      $("#readerTimer").classList.remove("warn", "done");
-      timerDisplay();
+    if (on) {
+      timerDisplay(); // reopen: paused session renders frozen; idle renders 00:00
+    } else {
+      timerIdle(); // dismiss = full reset (the stale-start bug lived here)
     }
   });
   on("#readerTimerPreset", "change", (e) => {
@@ -2071,6 +2122,10 @@
   });
   on("#readerTimerCustom", "keydown", (e) => {
     if (e.key === "Enter") { e.preventDefault(); $("#readerTimerStart").click(); }
+  });
+  on("#readerTimerPause", "click", () => {
+    if (timerPaused) timerResume();
+    else timerPause();
   });
 
   /* ---------- events ---------- */

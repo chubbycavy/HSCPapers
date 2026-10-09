@@ -885,9 +885,11 @@ body.drawer-lock { overflow: hidden; }
 .reader-pane:last-child { border-right: none; }
 .reader-pane .pane-scroll { flex: 1; }
 /* Pane focus ring only means something in split view (which pane owns
-   page-nav/print/sync); in single mode it wrapped the only pane in a
-   glaring outline. Softer too: 1px at 55% accent. */
-.reader-split .reader-pane.focus::before {
+   page-nav/print/sync) — the container exists in both modes, so the
+   ring keys off the JS-toggled .split class (the old unscoped rule
+   wrapped the only pane in a glaring outline). Softer too: 1px at 55%
+   accent. */
+.reader-split.split .reader-pane.focus::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #4f46e5) 55%, transparent); z-index: 2;
 }
