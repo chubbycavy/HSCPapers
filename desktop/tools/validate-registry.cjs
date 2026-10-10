@@ -20,6 +20,7 @@ const TOOLS = __dirname;
 const OUT = path.join(TOOLS, "health-report.json");
 const REGISTRIES = [
   { name: "thsc-au", file: path.join(TOOLS, "thsc-au-verified.json") },
+  { name: "nesa-archive", file: path.join(TOOLS, "nesa-archive-verified.json") },
   { name: "nesa-recovery", file: path.join(TOOLS, "nesa-recovery.json") },
 ];
 const UA = { "User-Agent": "HSCPapers/1.0 (registry anti-rot validation)", "Accept-Encoding": "identity" };
@@ -39,7 +40,7 @@ const LIMIT = Number(argValue("--limit") || 0);
 const REPORT_ONLY = process.argv.includes("--report-only");
 
 if (!MODE) {
-  console.error("usage: node tools/validate-registry.cjs --sample | --full [--registry=thsc-au|nesa-recovery] [--limit=N] [--report-only]");
+  console.error("usage: node tools/validate-registry.cjs --sample | --full [--registry=thsc-au|nesa-archive|nesa-recovery] [--limit=N] [--report-only]");
   process.exit(2);
 }
 
@@ -50,12 +51,16 @@ function loadEntries(reg) {
     throw e;
   }
   const rows = [];
-  if (reg.name === "thsc-au") {
-    for (const e of json.entries || []) rows.push({ id: e.key, url: e.url, sha256: e.sha256, bytes: e.bytes, pages: e.pages, kind: "mirror" });
-  } else {
+  if (reg.name === "nesa-recovery") {
     for (const [deadUrl, hit] of Object.entries(json.entries || {})) {
       if (!hit || !hit.url) continue;
       rows.push({ id: hit.url, url: hit.url, sha256: hit.lastSha256 || null, deadUrl, solution: !!hit.solution });
+    }
+  } else {
+    const list = Array.isArray(json.entries) ? json.entries.map((e, i) => [e.key || e.url || String(i), e]) : Object.entries(json.entries || {});
+    for (const [, e] of list) {
+      if (!e || !e.url) continue;
+      rows.push({ id: e.key || e.url, url: e.url, sha256: e.sha256 || null, bytes: e.bytes || null, pages: e.pages || null });
     }
   }
   return { rows, json };

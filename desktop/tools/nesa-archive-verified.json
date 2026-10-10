@@ -1,0 +1,942 @@
+{
+ "_doc": "Official archive lane (H1): slow-route router URLs -> verified OFFICIAL documents (nsw.gov.au NESA course-year pack pages + boardofstudies.nsw.edu.au self-describing pdf_doc files). Byte proof: HTTP 200 + application/pdf + %PDF- + SHA-256 + PDF.js pages. exact=true = elected bytes hash-equal the ground truth from tools/slow-route-truth.json; for withheld viewnos the (course, year, kind) match is the identity. Builder applies exact-URL only; the router URL remains fallbackUrl.",
+ "version": 1,
+ "entries": {
+  "thsc-2420-2016-hsc": {
+   "key": "thsc-2420-2016-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-earth-and-enviro-sci-archive.pdf",
+   "sha256": "d902099a21d7910d45d0502a1f30a92ec27a7aa99f35a29b2157dd9cb19abb8b",
+   "bytes": 400515,
+   "pages": 40,
+   "lane": "nesa-archive",
+   "packText": "Earth and Environmental Science HSC exam 2016 (PDF 391.13KB)",
+   "kind": "paper",
+   "subject": "Earth & Environmental Science",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.453Z"
+  },
+  "thsc-2420-2016-marking-guidelines": {
+   "key": "thsc-2420-2016-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-earth-and-environmental-sci-archive.pdf",
+   "sha256": "e2df91aa98ce82f4b1cf2b7bc79c0d4c4e576672668a94ce24c5f603383627a6",
+   "bytes": 1019369,
+   "pages": 33,
+   "lane": "nesa-archive",
+   "packText": "Earth and Environmental Science HSC marking guidelines 2016 (PDF 995.48KB)",
+   "kind": "mg",
+   "subject": "Earth & Environmental Science",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.454Z"
+  },
+  "thsc-2420-2017-hsc": {
+   "key": "thsc-2420-2017-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-earth-and-enviro-science-archive.pdf",
+   "sha256": "4a5b63ecca0cc47a61df11e3b1ded50db3b67ee8f56920bd1018a9feb7b4ee68",
+   "bytes": 501156,
+   "pages": 36,
+   "lane": "nesa-archive",
+   "packText": "Earth and Environmental Science HSC exam 2017 (PDF 489.41KB)",
+   "kind": "paper",
+   "subject": "Earth & Environmental Science",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.454Z"
+  },
+  "thsc-2420-2017-marking-guidelines": {
+   "key": "thsc-2420-2017-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-earth-and-environ.pdf",
+   "sha256": "fddb21299f06f1bb225046edac4e0e8fe5094b9a878a283e45490f1641d8bddf",
+   "bytes": 1080411,
+   "pages": 29,
+   "lane": "nesa-archive",
+   "packText": "Earth and Environmental Science HSC marking guidelines 2017 (PDF 1.03MB)",
+   "kind": "mg",
+   "subject": "Earth & Environmental Science",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.454Z"
+  },
+  "thsc-2420-2018-hsc": {
+   "key": "thsc-2420-2018-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-earth-and-environmental-science-archive.pdf",
+   "sha256": "2ac65cadfc44828b2bb31e5a8176da76030ce7876bfa8c0c62219aaaa6163646",
+   "bytes": 334394,
+   "pages": 36,
+   "lane": "nesa-archive",
+   "packText": "Earth and Environmental Science HSC exam 2018 (PDF 326.56KB)",
+   "kind": "paper",
+   "subject": "Earth & Environmental Science",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.454Z"
+  },
+  "thsc-2420-2018-marking-guidelines": {
+   "key": "thsc-2420-2018-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-earth-and-environmental-science-mg-archive.pdf",
+   "sha256": "71933fc9e399803f0c2e58e8806fbed72a864f756af92d08ac140acc70cfe808",
+   "bytes": 2201959,
+   "pages": 29,
+   "lane": "nesa-archive",
+   "packText": "Earth and Environmental Science HSC marking guidelines 2018 (PDF 2.1MB)",
+   "kind": "mg",
+   "subject": "Earth & Environmental Science",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.454Z"
+  },
+  "thsc-2720-2016-hsc-paper-1": {
+   "key": "thsc-2720-2016-hsc-paper-1",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-english-p1-std-and-adv.pdf",
+   "sha256": "3e5564468d10c14dc2904e50914e02a89e19294d7e94877b21bc110a2a8ac1da",
+   "bytes": 467095,
+   "pages": 16,
+   "lane": "nesa-archive",
+   "packText": "English Standard/Advanced HSC exam 2016 – Paper 1 (PDF 456.15KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.455Z"
+  },
+  "thsc-2720-2016-hsc-paper-2-advanced": {
+   "key": "thsc-2720-2016-hsc-paper-2-advanced",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-english-adv-p2.pdf",
+   "sha256": "e4767c151911b828e1c79782e3f92efb1863f047e0ac1b3122d22593466a95fc",
+   "bytes": 491540,
+   "pages": 16,
+   "lane": "nesa-archive",
+   "packText": "English Advanced HSC exam 2016 – Paper 2 (PDF 480.02KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.455Z"
+  },
+  "thsc-2720-2016-hsc-paper-2-standard": {
+   "key": "thsc-2720-2016-hsc-paper-2-standard",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-english-std-p2.pdf",
+   "sha256": "cf158118ffb8371320b1c229d1a5029f52b8e13f9d00715db17407ba1caebd63",
+   "bytes": 321722,
+   "pages": 21,
+   "lane": "nesa-archive",
+   "packText": "English Standard HSC exam 2016 – Paper 2 (PDF 314.18KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.455Z"
+  },
+  "thsc-2720-2016-marking-guidelines-paper-1": {
+   "key": "thsc-2720-2016-marking-guidelines-paper-1",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-english-paper-1-std-and-adv.pdf",
+   "sha256": "16def7247e23ae1fd53f0a13468fac05a200471a014dff2a58125ff2a9a63535",
+   "bytes": 187332,
+   "pages": 7,
+   "lane": "nesa-archive",
+   "packText": "English Standard/Advanced HSC marking guidelines 2016 – Paper 1 (PDF 182.94KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.455Z"
+  },
+  "thsc-2720-2016-marking-guidelines-paper-2-advanced": {
+   "key": "thsc-2720-2016-marking-guidelines-paper-2-advanced",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-english-paper-2-adv.pdf",
+   "sha256": "ee59088764d043751f121b4219b5582c51ca315dbb09386cafe38ca3280dbaec",
+   "bytes": 160568,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Advanced HSC marking guidelines 2016 – Paper 2 (PDF 156.8KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2016-marking-guidelines-paper-2-standard": {
+   "key": "thsc-2720-2016-marking-guidelines-paper-2-standard",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-english-std-paper-2.pdf",
+   "sha256": "8dc8d1ed555dedbd9f41b10b3d928e65074484f8fc5d4426eb0644efa8b75620",
+   "bytes": 157025,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Standard HSC marking guidelines 2016 – Paper 2 (PDF 153.34KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2017-hsc-paper-1": {
+   "key": "thsc-2720-2017-hsc-paper-1",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-p1-std-and-adv.pdf",
+   "sha256": "d2832f1954286cdf6fa5df5fb2943714db2b24df603c6655a7bf17490fa973ab",
+   "bytes": 341533,
+   "pages": 12,
+   "lane": "nesa-archive",
+   "packText": "English Standard/Advanced HSC exam 2017 – Paper 1 (PDF 333.53KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2017-hsc-paper-2-advanced": {
+   "key": "thsc-2720-2017-hsc-paper-2-advanced",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-advanced-p2.pdf",
+   "sha256": "037ccc3ac20d1cd7e9ac418df9785c60751a6e4d11867f9bf990b06b819fda9f",
+   "bytes": 217513,
+   "pages": 12,
+   "lane": "nesa-archive",
+   "packText": "English Advanced HSC exam 2017 – Paper 2 (PDF 212.42KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2017-hsc-paper-2-standard": {
+   "key": "thsc-2720-2017-hsc-paper-2-standard",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-standard-p2.pdf",
+   "sha256": "2aed4f681d32b6558c1331d1ef56537125fde6787ea4fb1d895e130519073558",
+   "bytes": 214104,
+   "pages": 12,
+   "lane": "nesa-archive",
+   "packText": "English Standard HSC exam 2017 – Paper 2 (PDF 209.09KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2017-marking-guidelines-paper-1": {
+   "key": "thsc-2720-2017-marking-guidelines-paper-1",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-english-p1-std-and-adv.pdf",
+   "sha256": "20b6525904d7953bc8464ef7d370d4fa9445845000c4cdd674d1a144ebfe0ba2",
+   "bytes": 191422,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Standard/Advanced HSC marking guidelines 2017 – Paper 1 (PDF 186.94KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2017-marking-guidelines-paper-2-advanced": {
+   "key": "thsc-2720-2017-marking-guidelines-paper-2-advanced",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-english-p2-adv.pdf",
+   "sha256": "f0f3e246d2089ca847bee785e8ef54c2906324f59869bea15df06139c85acaf7",
+   "bytes": 166356,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Advanced HSC marking guidelines 2017 – Paper 2 (PDF 162.46KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2017-marking-guidelines-paper-2-standard": {
+   "key": "thsc-2720-2017-marking-guidelines-paper-2-standard",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-english-p2-std.pdf",
+   "sha256": "14256692d8d6aabee67be71879490262efc0b0daaec40088f6cc3427027a76bd",
+   "bytes": 156825,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Standard HSC marking guidelines 2017 – Paper 2 (PDF 153.15KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2018-hsc-paper-1": {
+   "key": "thsc-2720-2018-hsc-paper-1",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-std-adv-p1.pdf",
+   "sha256": "0c5905ba07ddc185a3fd6fbd639005e5e21aa1102dee0861e84f09d3099ed118",
+   "bytes": 147731,
+   "pages": 12,
+   "lane": "nesa-archive",
+   "packText": "English Standard/Advanced HSC exam 2018 – Paper 1 (PDF 144.27KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2018-hsc-paper-2-advanced": {
+   "key": "thsc-2720-2018-hsc-paper-2-advanced",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-advanced-paper-2.pdf",
+   "sha256": "d0659623652b20c4668901077dd02109002b8ae008905293398985392ef67a1a",
+   "bytes": 758692,
+   "pages": 16,
+   "lane": "nesa-archive",
+   "packText": "English Advanced HSC exam 2018 – Paper 2 (PDF 740.91KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.456Z"
+  },
+  "thsc-2720-2018-hsc-paper-2-standard": {
+   "key": "thsc-2720-2018-hsc-paper-2-standard",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-standard-paper-2.pdf",
+   "sha256": "afd5bb3c0572642817faf7d2f214514103b7791e1515781f03b2be93ac840144",
+   "bytes": 146285,
+   "pages": 16,
+   "lane": "nesa-archive",
+   "packText": "English Standard HSC exam 2018 – Paper 2 (PDF 142.86KB)",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-2720-2018-marking-guidelines-paper-1": {
+   "key": "thsc-2720-2018-marking-guidelines-paper-1",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-eng-std-and-adv-p1-mg.pdf",
+   "sha256": "b956d62441c3e88f0bbdc5a91538bb47d16c461e97959317772aa181d2ec4d2b",
+   "bytes": 290617,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Standard/Advanced HSC marking guidelines 2018 – Paper 1 (PDF 283.81KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-2720-2018-marking-guidelines-paper-2-advanced": {
+   "key": "thsc-2720-2018-marking-guidelines-paper-2-advanced",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-eng-adv-p2-mg.pdf",
+   "sha256": "5897bf931cc644e64135da596d72050c277692a4c9a3ef1aa80801e39c511349",
+   "bytes": 343821,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Advanced HSC marking guidelines 2018 – Paper 2 (PDF 335.76KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-2720-2018-marking-guidelines-paper-2-standard": {
+   "key": "thsc-2720-2018-marking-guidelines-paper-2-standard",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-eng-std-p2-mg.pdf",
+   "sha256": "6683ace2913095dacf63641d49a6457ca5832dfbc2b164b4ac1a8c2ae9044f3c",
+   "bytes": 332857,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "English Standard HSC marking guidelines 2018 – Paper 2 (PDF 325.06KB)",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-4627-2010-japanese-beginners-trials": {
+   "key": "thsc-4627-2010-japanese-beginners-trials",
+   "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2010exams/pdf_doc/2010-hsc-exam-japanese-beginners.pdf",
+   "sha256": "14066ac38d25d59fe8a67dcf11f657d52300cbd8efdd72dec2133eee2aed89a6",
+   "bytes": 253804,
+   "pages": 20,
+   "lane": "nesa-archive-bos",
+   "packText": "bos pdf_doc (filename-classified)",
+   "kind": "paper",
+   "subject": "Japanese Beginners",
+   "year": 2010,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "943c7178a5989aecc8a2ac280a460ae167ec02b838edc37f9c131627eb12a4d8",
+    "bytes": 257728
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-4627-2013-japanese-beginners-trials": {
+   "key": "thsc-4627-2013-japanese-beginners-trials",
+   "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/2013/pdf_doc/2013-hsc-japanese-beg.pdf",
+   "sha256": "997918bcdafb609f205dcb83c3b37f3ab885ae92b6d96831b532881df5f1e942",
+   "bytes": 190709,
+   "pages": 24,
+   "lane": "nesa-archive-bos",
+   "packText": "bos pdf_doc (filename-classified)",
+   "kind": "paper",
+   "subject": "Japanese Beginners",
+   "year": 2013,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "c0034894db86dab307afb4f456b87797e3f7eacf6d79c032117eb4d8740a66b4",
+    "bytes": 311590
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-4627-2014-japanese-beginners-trials": {
+   "key": "thsc-4627-2014-japanese-beginners-trials",
+   "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/2014/pdf_doc/2014-hsc-japanese-beg.pdf",
+   "sha256": "2f3ec09c1008317b61e0284139b8a322a86ed127a9a5af6e101edfec7ccd5aaa",
+   "bytes": 1312633,
+   "pages": 22,
+   "lane": "nesa-archive-bos",
+   "packText": "bos pdf_doc (filename-classified)",
+   "kind": "paper",
+   "subject": "Japanese Beginners",
+   "year": 2014,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "9224f2dfb409ef2538014fc5a82aa531985db7cbcdf51ba393ba0db878baa164",
+    "bytes": 308036
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-4628-2011-japanese-continuers-trials": {
+   "key": "thsc-4628-2011-japanese-continuers-trials",
+   "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2011exams/pdf_doc/2011-hsc-exam-japanese-continuers.pdf",
+   "sha256": "4033f3b82ec21fbe735f9aeb6ec94d79aac96b6fb833cf8a9ad10db80f39863f",
+   "bytes": 366453,
+   "pages": 18,
+   "lane": "nesa-archive-bos",
+   "packText": "bos pdf_doc (filename-classified)",
+   "kind": "paper",
+   "subject": "Japanese Continuers",
+   "year": 2011,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "73d43885f62d953dcac925d5bbfb8d48795bb9d3d5e60610771f348fcf9ef655",
+    "bytes": 546838
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-4628-2013-japanese-continuers-trials": {
+   "key": "thsc-4628-2013-japanese-continuers-trials",
+   "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/2013/pdf_doc/2013-hsc-japanese-cont.pdf",
+   "sha256": "61d842cf0b6dbf07eda13cb371b9c743b1eb1462307345d9b300b858bda90c46",
+   "bytes": 238696,
+   "pages": 20,
+   "lane": "nesa-archive-bos",
+   "packText": "bos pdf_doc (filename-classified)",
+   "kind": "paper",
+   "subject": "Japanese Continuers",
+   "year": 2013,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "9d8dd9ac2562baf24205d696aefab5982806d2afa38a84aa0804aab4e24fcdd6",
+    "bytes": 379891
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-5020-2018-marking-guidelines": {
+   "key": "thsc-5020-2018-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-legal-studies-mg.pdf",
+   "sha256": "4a8c9644e70e5713c32750c984baf635f236018dd47d287125482cccb19a58e4",
+   "bytes": 1178055,
+   "pages": 22,
+   "lane": "nesa-archive",
+   "packText": "Legal Studies HSC marking guidelines 2018 (PDF 1.12MB)",
+   "kind": "mg",
+   "subject": "Legal Studies",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.457Z"
+  },
+  "thsc-5320-2016-hsc": {
+   "key": "thsc-5320-2016-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths.pdf",
+   "sha256": "b6319e8e152c4abafa7db3e176389af273d2812d87d0114f730ec043a8a439ee",
+   "bytes": 656137,
+   "pages": 20,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC exam 2016 (PDF 640.76KB)",
+   "kind": "paper",
+   "subject": "Mathematics Advanced",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "6f0a70684fd3d03bfc908f435a7fadfde1d3443b605ada23db13657b56e83702",
+    "bytes": 654522
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2016-marking-guidelines": {
+   "key": "thsc-5320-2016-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-maths.pdf",
+   "sha256": "375093cdb86a9b8831d8194f9f431e74bfad3afe5f39aa752f705a4e4ca3009e",
+   "bytes": 1237058,
+   "pages": 28,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC marking guidelines 2016 (PDF 1.18MB)",
+   "kind": "mg",
+   "subject": "Mathematics Advanced",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2016-marking-feedback": {
+   "key": "thsc-5320-2016-marking-feedback",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths-notes.pdf",
+   "sha256": "8b857f3e46acfa4b929e3edb844fe951b865ff87a806e29e93f04e7f452057d6",
+   "bytes": 146007,
+   "pages": 6,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC marking feedback 2016 – Section II (PDF 142.58KB)",
+   "kind": "mg",
+   "subject": "Mathematics Advanced",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2017-hsc": {
+   "key": "thsc-5320-2017-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-maths.pdf",
+   "sha256": "24e462aa59ba6a6c86f8549c1e27dc5a282937b33cdc36fb2675d6127f5dd93d",
+   "bytes": 873326,
+   "pages": 20,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC exam 2017 (PDF 852.86KB)",
+   "kind": "paper",
+   "subject": "Mathematics Advanced",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "a765dff8545ae31b6f185e4cc219f4927904db3631106c07692738ebb2eb682c",
+    "bytes": 871727
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2017-marking-guidelines": {
+   "key": "thsc-5320-2017-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-mathematics.pdf",
+   "sha256": "cdbb4932b21367a4757271d7556caffb27b85be0280b9b91f6b9a61fada4cba4",
+   "bytes": 1509788,
+   "pages": 30,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC marking guidelines 2017 (PDF 1.44MB)",
+   "kind": "mg",
+   "subject": "Mathematics Advanced",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2017-marking-feedback": {
+   "key": "thsc-5320-2017-marking-feedback",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-marking-feedback-maths.pdf",
+   "sha256": "3c37c83da224cced86547c3cd71ba6db3a167c6b28f07391e087640595d012f2",
+   "bytes": 418373,
+   "pages": 9,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC marking feedback 2017 – Section II (PDF 408.57KB)",
+   "kind": "mg",
+   "subject": "Mathematics Advanced",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2018-hsc": {
+   "key": "thsc-5320-2018-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-mathematics.pdf",
+   "sha256": "4fcf4c99c3236821a94abcb0a889b5244cec761063c04a64bd1c625493ff26a9",
+   "bytes": 845157,
+   "pages": 20,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC exam 2018 (PDF 825.35KB)",
+   "kind": "paper",
+   "subject": "Mathematics Advanced",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "4f56394a13671504ba409a4aaaced6f1052a48e981516d9374db936eec0ef65d",
+    "bytes": 843589
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2018-marking-guidelines": {
+   "key": "thsc-5320-2018-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-maths-mg.pdf",
+   "sha256": "7f34c93969eaaaab89e4bfa005636c5b6ab85cc5a4a368a7745c8761c1a7a792",
+   "bytes": 2739663,
+   "pages": 31,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC marking guidelines 2018 (PDF 2.61MB)",
+   "kind": "mg",
+   "subject": "Mathematics Advanced",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5320-2018-marking-feedback": {
+   "key": "thsc-5320-2018-marking-feedback",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-marking-feedback-maths.pdf",
+   "sha256": "07bad0a47d3f2caaf5d83ca732d3c2750818e66a751901cb6079577e73b073c0",
+   "bytes": 215655,
+   "pages": 8,
+   "lane": "nesa-archive",
+   "packText": "Mathematics HSC marking feedback 2018 – Section II (PDF 210.6KB)",
+   "kind": "mg",
+   "subject": "Mathematics Advanced",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5310-2014-hsc": {
+   "key": "thsc-5310-2014-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-maths-general-hsc-exam.pdf",
+   "sha256": "05b1b4625c2a0747f609ecf37916fe6c4cf3b634a388b2d97eb58882cb042937",
+   "bytes": 403190,
+   "pages": 40,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC exam 2014 (PDF 393.74KB)",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2014,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "5f318d60477835f4d2859c762c16b32d16f89f8766cd2b0c345cd9eeb5bfca78",
+    "bytes": 224903
+   },
+   "verifiedAt": "2026-10-10T07:33:38.458Z"
+  },
+  "thsc-5310-2014-marking-guidelines": {
+   "key": "thsc-5310-2014-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-maths-general-hsc-mg.pdf",
+   "sha256": "31f9b52793c5d7837516138a70fac87350309d52b7df15604d3b65a4d4e812a7",
+   "bytes": 316754,
+   "pages": 23,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking guidelines 2014 (PDF 309.33KB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2014,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2014-marking-feedback": {
+   "key": "thsc-5310-2014-marking-feedback",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/maths-general-hsc-notes-2014.pdf",
+   "sha256": "662dd607ba67fb7676b26702be3b10c1f072c5c08eed9dec38d21e939b1bb503",
+   "bytes": 317122,
+   "pages": 2,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking feedback 2014 – Section II (PDF 309.69KB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2014,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2015-hsc": {
+   "key": "thsc-5310-2015-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-maths-general-hsc-exam.pdf",
+   "sha256": "2e93f98daab4ea3b9c7625a670376169c924e80ee1594466725b29073faa92e3",
+   "bytes": 1940390,
+   "pages": 40,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC exam 2015 (PDF 1.85MB)",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2015,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "c664c6e35fcbd5fb4617d77413f15600460a00d5668bf0193b538f6c856e0e75",
+    "bytes": 853500
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2015-marking-guidelines": {
+   "key": "thsc-5310-2015-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-maths-general-hsc-mg.pdf",
+   "sha256": "25afa3b5aaf42a1c7d66870b32a46e863a3128efa74ed00f313b569ea66f10d1",
+   "bytes": 1382701,
+   "pages": 20,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking guidelines 2015 (PDF 1.32MB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2015,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2016-hsc": {
+   "key": "thsc-5310-2016-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-maths-general-2.pdf",
+   "sha256": "a008b55a96c16502e1c5bf627ff32d8cc94b6df467355bd8689c323f8a303dee",
+   "bytes": 786275,
+   "pages": 40,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC exam 2016 (PDF 767.85KB)",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "2a7df23d4a3352b0b283ef43a3dc579871977987ca1445983a7eb557dbc8ae4e",
+    "bytes": 754352
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2016-marking-guidelines": {
+   "key": "thsc-5310-2016-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-maths-general-2.pdf",
+   "sha256": "3c84b5cb0c1c7fd993d6afeefc79edd9edebfcfed0334df1fa1836018dc89aa0",
+   "bytes": 832048,
+   "pages": 20,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking guidelines 2016 (PDF 812.55KB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2016-marking-feedback": {
+   "key": "thsc-5310-2016-marking-feedback",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-math-general-notes.pdf",
+   "sha256": "009fb1788adbb47f05ea0da2a84f4f19b6adad81fd0d9ae69110ef1a2280dd58",
+   "bytes": 76490,
+   "pages": 2,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking feedback 2016 – Section II (PDF 74.7KB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2016,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2017-hsc": {
+   "key": "thsc-5310-2017-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-maths-general-2.pdf",
+   "sha256": "c759ad12284f40d3d00012bea1d0a87046e903b9819ad0e57689d8d5fb9d0f05",
+   "bytes": 1396253,
+   "pages": 40,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC exam 2017 (PDF 1.33MB)",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2017-marking-guidelines": {
+   "key": "thsc-5310-2017-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-mg-maths-general-2.pdf",
+   "sha256": "0c1eaaa8a9c86af80eb85a66fe07a458ce0a58d82230a4b3938ecfdc00451911",
+   "bytes": 1002953,
+   "pages": 20,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking guidelines 2017 (PDF 979.45KB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2017-marking-feedback": {
+   "key": "thsc-5310-2017-marking-feedback",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-marking-feedback-maths-general-2.pdf",
+   "sha256": "b2a57fc660a7e61703ba37ffefffaa8a1deb23460401aef5bf653e08b87d03fd",
+   "bytes": 359881,
+   "pages": 3,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking feedback 2017 – Section II (PDF 351.45KB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2017,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.459Z"
+  },
+  "thsc-5310-2018-hsc": {
+   "key": "thsc-5310-2018-hsc",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-maths-general-2.pdf",
+   "sha256": "eb69a9e56574b04c59b02d09ef46cd6d92f9ede0d45c4d171ba9b264a5d68205",
+   "bytes": 1377443,
+   "pages": 40,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC exam 2018 (PDF 1.31MB)",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.460Z"
+  },
+  "thsc-5310-2018-marking-guidelines": {
+   "key": "thsc-5310-2018-marking-guidelines",
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-maths-general-2-mg.pdf",
+   "sha256": "1a91db4005614fcb631189959268d43871ec6f13a1dbadd4cd3b7f63724fd6fa",
+   "bytes": 1386779,
+   "pages": 21,
+   "lane": "nesa-archive",
+   "packText": "Mathematics General HSC marking guidelines 2018 (PDF 1.32MB)",
+   "kind": "mg",
+   "subject": "Mathematics Standard",
+   "year": 2018,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T07:33:38.460Z"
+  }
+ }
+}

@@ -191,10 +191,11 @@ async function main() {
     const statePath = path.join(reg, ".cache", "sweep-state.json");
     let state = {};
     try { state = JSON.parse(fs.readFileSync(statePath, "utf8")); } catch {}    const counts = {};
-    for (const f of ["nesa-recovery.json", "selfhost.json", "removals.json"]) {
+    for (const f of ["nesa-recovery.json", "nesa-archive-verified.json", "selfhost.json", "removals.json"]) {
       try {
         const j = JSON.parse(fs.readFileSync(path.join(reg, f), "utf8"));
-        const n = (j.entries ? Object.keys(j.entries).length : Array.isArray(j) ? j.length : Object.keys(j).filter((k) => !k.startsWith("_")).length);
+        const entries = j.entries || {};
+        const n = (j.entries ? (Array.isArray(j.entries) ? j.entries.length : Object.keys(entries).length) : Array.isArray(j) ? j.length : Object.keys(j).filter((k) => !k.startsWith("_")).length);
         counts[f] = n;
         if (!n && f !== "removals.json") fail(`${f} is empty`);
       } catch (e) { fail(`${f} unparseable`, String(e).slice(0, 60)); }

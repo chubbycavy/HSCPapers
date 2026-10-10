@@ -1,0 +1,32 @@
+# Nightly anti-rot sweep (H4, v1.0.23): re-proofs a deterministic 5% of our
+# registries (thsc-au mirror + nesa-archive lane + nesa-recovery), writing
+# health-report.json. Any ROTTED entry (sha/byte/page drift, dead url, not-PDF)
+# fails the run — a red job IS the alarm. Throttling and network errors class
+# as ERROR (visible, never a false rot alarm).
+# Runs at 16:20 UTC (03:20 AEDT) daily. First workflow in this repo.
+name: nightly-anti-rot
+
+on:
+  schedule:
+    - cron: "20 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  anti-rot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: re-proof a rotating 5% of the registries
+        working-directory: desktop
+        run: node tools/validate-registry.cjs --sample
+      - name: publish health report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report
+          path: desktop/tools/health-report.json
+          if-no-files-found: warn

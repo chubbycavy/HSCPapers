@@ -949,6 +949,13 @@ if (require.main === module) {
   const auRegistry = OFFLINE ? auMirror.readRegistry() : await auMirror.refresh(papers, { cached, slug });
   const repointed = auMirror.applyVerified(papers, auRegistry);
   console.log(`thsc-au mirror: ${repointed}/${slowBefore} slow-route papers re-pointed`);
+  // Official-archive lane (H1, v1.0.23): verified NESA/BOS documents keyed by
+  // paper id; registry built by tools/nesa-archive.cjs with full byte proofs.
+  const naMirror = require("./nesa-archive.cjs");
+  let naRegistry = null;
+  try { naRegistry = JSON.parse(fs.readFileSync(naMirror.verifiedRegistryPath, "utf8")); } catch { naRegistry = { entries: {} }; }
+  const naRepointed = naMirror.applyVerified(papers, naRegistry);
+  console.log(`nesa-archive lane: ${naRepointed}/${slowBefore} slow-route papers re-pointed (official producers)`);
   const fastN = papers.filter((p) => p.mirror).length;
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
