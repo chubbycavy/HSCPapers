@@ -329,6 +329,7 @@ function applyVerified(papers, registry) {
   for (const p of papers) {
     const hit = verified.get(p.id);
     if (!hit) continue;
+    if (!require("./catalogue-identity.cjs").officialReplacementAllowed(p, hit)) continue;
     p.fallbackUrl = p.fallbackUrl || p.url;
     p.url = hit.url;
     p.mirror = "wayback";

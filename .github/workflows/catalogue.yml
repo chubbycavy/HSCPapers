@@ -25,11 +25,19 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Identity and reconciliation regression checks
+        working-directory: desktop
+        run: node --test tools/tests/catalogue-reconcile.test.cjs
+
       - name: Rebuild catalogue
         working-directory: desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # authenticated API: 1,000/hr vs 60/hr on shared runner IPs
-        run: node tools/build-index.cjs --no-cache
+        run: node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --no-cache
+
+      - name: Verify canonical catalogue before publishing
+        working-directory: desktop
+        run: node tools/verify-catalogue.cjs
 
       - name: Commit (if changed)
         run: |
@@ -38,7 +46,7 @@ jobs:
           # the full regenerated surface: catalogue + the generators' artifacts
           # (sitemap lastmod, coverage dashboard, subject pages, the SPA shell's
           # static subject grid) — regenerating without committing discards them
-          git add desktop/ui/data/papers.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/ desktop/tools/thsc-au-verified.json
+          git add desktop/ui/data/papers.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/ desktop/tools/thsc-au-verified.json desktop/tools/reconciliation-report.json
           if git diff --cached --quiet; then
             echo "Catalogue unchanged — no commit"
           else

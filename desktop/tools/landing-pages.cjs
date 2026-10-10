@@ -89,12 +89,27 @@ module.exports = async function generate() {
   const { papers } = JSON.parse(fs.readFileSync(path.join(UI, "data", "papers.json"), "utf8"));
   const bySubject = new Map();
   for (const p of papers) {
-    if (!bySubject.has(p.subject)) bySubject.set(p.subject, []);
-    bySubject.get(p.subject).push(p);
+    for (const subject of require("./catalogue-identity.cjs").subjectsOf(p)) {
+      if (!bySubject.has(subject)) bySubject.set(subject, []);
+      bySubject.get(subject).push(p);
+    }
   }
   const subjects = [...bySubject.keys()].sort((a, b) => a.localeCompare(b));
   const root = path.join(UI, "subjects");
   fs.mkdirSync(root, { recursive: true });
+  const currentSlugs = new Set(subjects.map(slugOf));
+  // Remove only our generated index pages for retired subjects. Leave any
+  // unrelated files or user-authored directories untouched.
+  for (const d of fs.readdirSync(root, { withFileTypes: true })) {
+    if (!d.isDirectory() || currentSlugs.has(d.name)) continue;
+    const f = path.join(root, d.name, "index.html");
+    if (!fs.existsSync(f)) continue;
+    const old = fs.readFileSync(f, "utf8");
+    if (old.includes('<main class="landing">') && old.includes(`https://hscpapers.com/subjects/${d.name}/`) && old.includes("Independent paper index")) {
+      fs.unlinkSync(f);
+      if (!fs.readdirSync(path.join(root, d.name)).length) fs.rmdirSync(path.join(root, d.name));
+    }
+  }
 
   const breadcrumb = (name, canonical) => JSON.stringify({
     "@context": "https://schema.org",

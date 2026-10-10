@@ -14,17 +14,24 @@ const warn = (s) => console.log(`  WARN  ${s}`);
 
 (async () => {
   // 1. plain HTTP checks
-  const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
+  const expected = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8"));
+  const papers = expected.papers;
   const live = await (await fetch(BASE + "data/papers.json?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).json();
   const n = (live.papers || []).length;
   const nsw = (live.papers || []).filter((p) => (p.url || "").includes("www.nsw.gov.au")).length;
   const r2 = (live.papers || []).filter((p) => (p.url || "").includes("pub-ec23")).length;
-  // floors track the current baseline: 10,368 papers after the adds machinery;
-  // the nsw.gov.au primaries dropped to ~298 after the v1.0.25 collapse demoted
-  // the second-row duplicates back to their fallback chains (the survivors
-  // keep one fast primary per file, all listings preserved).
-  if (n >= 10100 && nsw >= 280 && r2 >= 70) pass(`catalogue: ${n} papers | nsw ${nsw} | r2 ${r2}`);
-  else fail(`catalogue markers drifted: ${n}/${nsw}/${r2}`);
+  const aliasCount = Object.keys(live.idAliases || {}).length;
+  if (n === papers.length && aliasCount === Object.keys(expected.idAliases || {}).length && r2 >= 70)
+    pass(`deployed canonical catalogue matches build: ${n} active entries / ${aliasCount} aliases | nsw ${nsw} | r2 ${r2}`);
+  else fail(`deployment differs from build: ${n}/${papers.length} active entries, ${aliasCount} aliases`);
+  const identity = require("../catalogue-identity.cjs");
+  const listingIds = new Map(); let duplicateIdentities = 0;
+  for (const p of live.papers || []) for (const key of identity.listingKeys(p)) {
+    if (listingIds.has(key) && listingIds.get(key) !== p.id) duplicateIdentities++;
+    listingIds.set(key, p.id);
+  }
+  if (!duplicateIdentities) pass("production has no duplicate source-listing cards");
+  else fail(`production repeats ${duplicateIdentities} source-listing identities`);
 
   for (const f of ["sw.js", "manifest.webmanifest", "og-card.png", "robots.txt", "sitemap.xml", "icon-192.png", "coverage"]) {
     const r = await fetch(BASE + f + "?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) });
@@ -188,6 +195,20 @@ const warn = (s) => console.log(`  WARN  ${s}`);
       } catch (e) { fail(`live timer saved-preference journey: ${String(e).slice(0, 180)}`); }
       await page.keyboard.press("Escape");
     } catch (e) { fail(`live reader journey crashed/unrendered: ${String(e).slice(0, 90)}`); }
+  }
+  const historical = Object.entries(live.idAliases || {}).find(([from]) => from.startsWith("add-thsc-au-growth-"));
+  if (historical) {
+    const [oldId, target] = historical, canonical = live.papers.find(p => p.id === target);
+    try {
+      const q = encodeURIComponent(`${canonical.school} ${canonical.subject} ${canonical.year}`);
+      await page.goto(BASE + `?q=${q}&sel=${encodeURIComponent(oldId + "," + target)}`, { waitUntil: "load" });
+      await page.waitForSelector(`.card[data-id="${target}"]`, { timeout: 30000 });
+      const copies = await page.locator(`.card[data-id="${target}"]`).count();
+      const retired = await page.locator(`.card[data-id="${oldId}"]`).count();
+      const bulk = await page.locator("#bulkbar").textContent();
+      if (copies === 1 && retired === 0 && /1 paper/.test(bulk)) pass("production old mirror ID resolves to one canonical card and one selection");
+      else fail("production alias/card reconciliation is inconsistent");
+    } catch (e) { fail("production alias journey: " + String(e.message).slice(0, 120)); }
   }
   await browser.close();
 

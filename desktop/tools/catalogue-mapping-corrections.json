@@ -1,0 +1,78 @@
+{
+ "version": 1,
+ "entries": {
+  "hsc-2018-esl-hsc-exam-paper-1": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-english-esl-p1-archive.pdf",
+   "sha256": "66ef0926c02bb769611b7672dd372cbf94925621d31ef747b42da129a38c6460",
+   "bytes": 225142,
+   "packText": "ESL HSC exam 2018 – Paper 1 (PDF 219.87KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2018-hsc-eng-esl-paper-2-archive.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2017-esl-hsc-exam-paper-2": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-esl-p2-archive.pdf",
+   "sha256": "8f59941b7679ca868c884686299eace473394857a397a25a566d2bc8e418c03f",
+   "bytes": 178628,
+   "packText": "ESL HSC exam 2017 – Paper 2 (PDF 174.44KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-07/2017-hsc-esl-p1-archive.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2016-esl-hsc-exam-paper-2": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-english-esl-p2-archive.pdf",
+   "sha256": "3fa165ce9301b1c920fbd817514000d877ebf13a24c09c6edcd5f5ca2b3a2216",
+   "bytes": 116565,
+   "packText": "ESL HSC exam 2016 – Paper 2 (PDF 113.83KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-mg-esl-paper-1-archive.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2018-english-advanced-hsc-exam-paper-1": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-std-adv-p1.pdf",
+   "sha256": "0c5905ba07ddc185a3fd6fbd639005e5e21aa1102dee0861e84f09d3099ed118",
+   "bytes": 147731,
+   "packText": "English Standard/Advanced HSC exam 2018 – Paper 1 (PDF 144.27KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-advanced-paper-2.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2017-english-advanced-hsc-exam-paper-1": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-p1-std-and-adv.pdf",
+   "sha256": "d2832f1954286cdf6fa5df5fb2943714db2b24df603c6655a7bf17490fa973ab",
+   "bytes": 341533,
+   "packText": "English Standard/Advanced HSC exam 2017 – Paper 1 (PDF 333.53KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/english-advanced-hsc-paper-2-sample-writing-booklet-2017.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2014-english-advanced-hsc-exam-paper-2": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-adv-hsc-exam-paper-2.pdf",
+   "sha256": "03b3ffd34105cccd03c3e640ba7ba88353aae5b888796007f80a939c36b84a29",
+   "bytes": 1032822,
+   "packText": "English Advanced HSC exam 2014 – Paper 2 (PDF 1008.62KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-1.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2018-english-standard-hsc-exam-paper-1": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-std-adv-p1.pdf",
+   "sha256": "0c5905ba07ddc185a3fd6fbd639005e5e21aa1102dee0861e84f09d3099ed118",
+   "bytes": 147731,
+   "packText": "English Standard/Advanced HSC exam 2018 – Paper 1 (PDF 144.27KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-english-standard-paper-2.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2017-english-standard-hsc-exam-paper-2": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-standard-p2.pdf",
+   "sha256": "2aed4f681d32b6558c1331d1ef56537125fde6787ea4fb1d895e130519073558",
+   "bytes": 214104,
+   "packText": "English Standard HSC exam 2017 – Paper 2 (PDF 209.09KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-english-p1-std-and-adv.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  },
+  "hsc-2014-english-standard-hsc-exam-paper-2": {
+   "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-2.pdf",
+   "sha256": "d78d3653a81247c71bb19f6ee8bc5a12780d783aa3f1eb39432b67ea3df6510d",
+   "bytes": 594992,
+   "packText": "English Standard HSC exam 2014 – Paper 2 (PDF 581.05KB)",
+   "replaced": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2014-english-std-hsc-exam-paper-1.pdf",
+   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
+  }
+ },
+ "unresolved": []
+}

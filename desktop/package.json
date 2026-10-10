@@ -1,13 +1,13 @@
 {
   "name": "hscpapers-desktop",
   "private": true,
-  "version": "1.0.25",
+  "version": "1.0.26",
   "scripts": {
     "tauri": "tauri",
     "dev": "tauri dev",
     "build": "tauri build",
     "test:sweep": "node tools/sweep-check.cjs",
-    "test:unit": "node --test tools/tests/pdf-proxy.test.mjs tools/tests/thsc-au.test.cjs",
+    "test:unit": "node --test tools/tests/pdf-proxy.test.mjs tools/tests/thsc-au.test.cjs tools/tests/catalogue-reconcile.test.cjs",
     "test:e2e": "npx playwright test --config tools/e2e/playwright.config.cjs",
     "test:live": "node tools/e2e/live-check.cjs",
     "test:nuclear": "node tools/nuclear.cjs"

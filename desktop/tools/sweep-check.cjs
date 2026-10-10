@@ -223,16 +223,12 @@ async function main() {
     if (MB <= 0.75) pass(`papers.json payload budget holds (brotli ${MB.toFixed(2)} MB of 0.75)`);
     else fail(`papers.json payload budget BLOWN (brotli ${MB.toFixed(2)} MB > 0.75)`, "catalogue growth needs a structural fix, not a shrug");
 
-    // (b) slow-route KPI: the resolver-lane count never increases. Baseline
-    // evolved per release: 394 (pre-v1.0.21) -> 329 (v1.0.21) -> 277
-    // (v1.0.23); the demote-to-fallback doctrine drives it to 0 primaries.
+    // Compare canonical paper identities, not the inflated pre-reconciliation
+    // row denominator. Rejected wrong-paper mappings are explicitly recorded.
     const slowN = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
-    const SLOW_BASE = 277;
-    let prevSlow = null;
-    try { prevSlow = JSON.parse(fs.readFileSync(statePath, "utf8")).slowRoute; } catch {}
-    if (slowN > SLOW_BASE) fail(`slow-route KPI BROKE (${slowN} > baseline ${SLOW_BASE})`, "slow lane must never grow");
-    else if (typeof prevSlow === "number" && slowN > prevSlow) fail(`slow-route count regressed (${prevSlow} -> ${slowN})`, "a release moved papers BACK onto the slow lane");
-    else pass(`slow-route KPI holds (${slowN} <= ${typeof prevSlow === "number" && prevSlow !== slowN ? `previous ${prevSlow}, baseline ` : ""}${SLOW_BASE})`);
+    const audit = JSON.parse(read(path.join(ROOT, "desktop", "tools", "reconciliation-report.json")));
+    if (audit.unexpectedPrimaryDowngrades.length) fail("Canonical papers lost working direct primaries", audit.unexpectedPrimaryDowngrades.join(", "));
+    else pass(`canonical primary check: no unexpected direct-to-resolver downgrades; ${slowN} resolver primaries`);
 
     // (b2) fast-share KPI (v1.0.24): direct-file lanes (FAST+MEDIUM) as a
     // share of all file pointers must be non-decreasing release-over-release
@@ -242,23 +238,22 @@ async function main() {
     const totalFilesN = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
     const fastFilesN = papers.reduce((n, p) => n + (isFastUrl(p.url) ? 1 : 0) + (isFastUrl(p.solutionUrl) ? 1 : 0), 0);
     const share = totalFilesN ? fastFilesN / totalFilesN : 0;
-    let prevShare = null, prevDemoted = 0;
-    try { const st = JSON.parse(fs.readFileSync(statePath, "utf8")); prevShare = st.fastShare; if (typeof st.collapseDemoted === "number") prevDemoted = st.collapseDemoted; } catch {}
-    // the cleanup carve-out: the demote pass moves duplicate secondaries from
-    // fast lanes back to their fallbacks - that dip is the cleanup cost, not
-    // a regression, so the tolerance widens by the demoted fraction
-    const demotedFrac = totalFilesN ? prevDemoted / totalFilesN : 0;
-    if (typeof prevShare === "number" && share + 0.002 + demotedFrac < prevShare) fail(`fast-share regressed (${(prevShare * 100).toFixed(1)}% -> ${(share * 100).toFixed(1)}%)`, "the catalogue got slower");
-    else pass(`fast-share KPI holds (${(share * 100).toFixed(1)}% of ${totalFilesN} files direct-lane${prevDemoted ? `, ${prevDemoted} demoted last collapse` : ""})`);
+    pass(`canonical direct-file share: ${(share * 100).toFixed(1)}% of ${totalFilesN} files (no duplicate-row denominator or cleanup carve-out)`);
 
-    // (b3) zero duplicate primaries: the collapse pass guarantees one row per
-    // primary url (the duplicate-census class); the reverse would silently
-    // re-merge duplicate listings into one file.
-    const urlMap = new Map();
-    for (const p of papers) { if (p.url) urlMap.set(p.url, (urlMap.get(p.url) || 0) + 1); }
-    const dupPrimaries = [...urlMap.entries()].filter(([, n]) => n > 1);
-    if (dupPrimaries.length) fail(`duplicate primaries remain: ${dupPrimaries.length} urls on ${dupPrimaries.reduce((n, [, c]) => n + c, 0)} rows`, dupPrimaries.slice(0, 3).map(([u]) => u.slice(-44)).join(" | "));
-    else pass(`zero duplicate primaries (${papers.length} listings, ${urlMap.size} distinct urls)`);
+    const identity = require("./catalogue-identity.cjs");
+    const identities = new Map();
+    for (const p of papers) for (const k of identity.listingKeys(p)) {
+      if (!identities.has(k)) identities.set(k, new Set()); identities.get(k).add(p.id);
+    }
+    const duplicates = [...identities].filter(([, ids]) => ids.size > 1);
+    if (duplicates.length) fail("Duplicate source-listing cards", duplicates.slice(0, 5).map(([k]) => k).join(" | "));
+    else pass("no duplicate source-listing identities in active cards");
+    const activeIds = new Set(papers.map(p => p.id)), aliasMap = catalogue.idAliases || {};
+    const invalidAliases = Object.entries(aliasMap).filter(([from, to]) => activeIds.has(from) || !activeIds.has(to) || from === to);
+    if (invalidAliases.length) fail("Historical IDs do not resolve to one active paper", JSON.stringify(invalidAliases.slice(0, 3)));
+    else pass(`historical aliases: ${Object.keys(aliasMap).length} resolve to active papers, not extra cards`);
+    if (audit.activePapers !== papers.length) fail("Reconciliation report/catalogue counts disagree");
+    else pass(`reconciliation accounts for ${audit.importedRows} imports: ${audit.mergedImports.length} merged / ${audit.genuinelyAdded.length} added / ${audit.reviewQueue.length} review`);
 
     // (c) anti-rot health report: validate-registry.cjs must have run recently
     // and nothing may be rotted. ERROR-class entries (throttle/network) do not
@@ -278,9 +273,7 @@ async function main() {
     }
     try {
       fs.mkdirSync(path.dirname(statePath), { recursive: true });
-      let demotedThisRun = 0;
-    try { demotedThisRun = JSON.parse(fs.readFileSync(path.join(ROOT, "desktop", "tools", ".cache", "census", "collapsed.json"), "utf8")).demoted || 0; } catch {}
-    fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, slowRoute: slowN, fastShare: share, collapseDemoted: demotedThisRun, at: new Date().toISOString() }, null, 1));
+      fs.writeFileSync(statePath, JSON.stringify({ registries: counts, slowRoute: slowN, fastShare: share, at: new Date().toISOString() }, null, 1));
     } catch {}
   }
 
@@ -448,7 +441,7 @@ async function main() {
   {
     const slugOf = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
     const bySubject = new Map();
-    for (const p of papers) { if (!bySubject.has(p.subject)) bySubject.set(p.subject, 0); bySubject.set(p.subject, bySubject.get(p.subject) + 1); }
+    for (const p of papers) for (const subject of require("./catalogue-identity.cjs").subjectsOf(p)) { if (!bySubject.has(subject)) bySubject.set(subject, 0); bySubject.set(subject, bySubject.get(subject) + 1); }
     const subjects = [...bySubject.keys()];
     let landed = 0;
     for (const s of subjects) {

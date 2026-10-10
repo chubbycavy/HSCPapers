@@ -14,6 +14,9 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const identity = require("./catalogue-identity.cjs");
+const reconciliation = require("./catalogue-reconcile.cjs");
+const correctedMappings = [];
 
 const ROOT = path.resolve(__dirname, "..", "..");          // repo root (HSCPapers/)
 const DESKTOP = path.resolve(__dirname, "..");             // desktop/
@@ -725,13 +728,14 @@ if (require.main === module) {
     const kinds = isSolDoc ? ["mg", "sa", "nfc"] : ["paper"];
     for (const kind of kinds) {
       const hit = bosLookup(subjectCands(p.subject), p.year, kind, p.title);
-      if (hit) {
+      if (hit && (!identity.routerKey(p.url) || identity.officialReplacementAllowed(p, hit))) {
         p.fallbackUrl = p.fallbackUrl || p.url;
         p.url = hit.url;
         p.mirror = "boardofstudies";
         bosMatched++;
         break;
       }
+      if (hit) correctedMappings.push({ id: p.id, reason: "An official exam does not establish this listing's document identity" });
     }
   }
   console.log(`mirror-boardofstudies: ${bosMatched} listing papers -> direct BOS URLs`);
@@ -863,12 +867,13 @@ if (require.main === module) {
     let nesaN = 0, nesaSolN = 0;
     for (const p of papers) {
       const hit = NESAREC.entries[p.url];
-      if (hit) {
+      if (hit && (!identity.routerKey(p.url) || identity.officialReplacementAllowed(p, hit))) {
         p.fallbackUrl = p.fallbackUrl || p.url; // keep the dead URL trail for reference
         p.url = hit.url;
         p.mirror = "nesa-archive";
         nesaN++;
       }
+      else if (hit) correctedMappings.push({ id: p.id, reason: "Rejected official exam substituted for a trial/assessment" });
       // Solutions too: dead wcm/educationstandards solution URLs recover via
       // an exact solution-key hit, else the paper entry's markingGuidelines
       // companion (NESA's marking guidelines ARE the official solutions).
@@ -942,72 +947,9 @@ if (require.main === module) {
     }
     console.log(`self-host: ${rewritten} rewritten, +${added} added -> ${SELFHOST.base}`);
   }
-  // Catalogue adds (v1.0.24): dedupe-gated, byte-proofed candidates from the
-  // discover lanes (tools/.cache/dedupe/accepted.json). Every row carries
-  // sha proof; drive rows wait for the operator's R2 upload (--flip) and
-  // appear only with uploaded:true in drive-verified.json. Crest-authored
-  // practice papers class as "other" (the existing practice-paper bucket).
-  let addsN = 0;
-  try {
-    const acc = JSON.parse(fs.readFileSync(path.join(__dirname, ".cache", "dedupe", "accepted.json"), "utf8")).accepted || [];
-    // third-party subject page names -> our canonical subject vocabulary
-    const SUBJECT_CANON = {
-      "mathematics 2 unit advanced": "Mathematics Advanced",
-      "mathematics 2 unit": "Mathematics Advanced",
-      "maths 2 unit": "Mathematics Advanced",
-      "mathematics 2u": "Mathematics Advanced",
-      "mathematics standard": "Mathematics Standard",
-      "maths standard": "Mathematics Standard",
-      "mathematics general": "Mathematics Standard",
-      "maths general": "Mathematics Standard",
-      "maths general ": "Mathematics Standard",
-      "standard maths": "Mathematics Standard",
-      "maths general ": "Mathematics Standard",
-      "maths advanced 2u": "Mathematics Advanced",
-      "maths extension 1": "Mathematics Extension 1",
-      "maths extension 2": "Mathematics Extension 2",
-      "mathematics ext 1": "Mathematics Extension 1",
-      "mathematics ext2": "Mathematics Extension 2",
-      "english advanced paper 2": "English Advanced",
-      "english standard paper 2": "English Standard",
-      "english general": "English",
-      "english (general)": "English",
-      "ipt": "Information Processes & Technology",
-      "software": "Software Design & Development",
-      // build-index normKey keeps parentheses - paren-preserved mirror forms:
-      "maths advanced (2u)": "Mathematics Advanced",
-      "maths (general)": "Mathematics Standard",
-      "mathematics 2 unit (advanced)": "Mathematics Advanced",
-    };
-    const canonSubject = (s) => SUBJECT_CANON[normKey(s)] || s;
-    const driveRegPath = path.join(__dirname, "drive-verified.json");
-    let driveReg = null;
-    try { driveReg = JSON.parse(fs.readFileSync(driveRegPath, "utf8")); } catch { driveReg = { entries: {} }; }
-    const knownIds = new Set(papers.map((p) => p.id));
-    const knownUrls = new Set(papers.map((p) => p.url + "|" + p.solutionUrl));
-    for (const c of acc) {
-      if (!c.url) continue;
-      const driveRow = c.source === "drive" ? driveReg.entries[c.url] : null;
-      if (c.source === "drive" && (!driveRow || !driveRow.uploaded)) continue; // staged, upload pending
-      const finalUrl = c.source === "drive" ? driveRow.r2Url : c.url;
-      if (knownUrls.has(finalUrl)) continue;
-      const id = `add-${c.source}-${String(c.sha256 || "x").slice(0, 10)}`;
-      if (knownIds.has(id)) continue;
-      const mappedType = c.type === "practice" ? "other" : c.type;
-      const title = (c.title || `${c.subject || ""} ${c.year || ""}`.trim()) || "Untitled";
-      papers.push({
-        id, subject: canonSubject(c.subject) || "General", level: null, year: c.year || null,
-        school: c.school || null, type: mappedType, title,
-        url: finalUrl, solutionPath: "", size: "", hasSolutions: /w\.?\s*sol|solutions/i.test(c.title || ""),
-        source: c.source, mirror: c.source === "drive" ? "selfhost" : c.source,
-        sha256: c.sha256, bytes: c.bytes,
-      });
-      knownIds.add(id);
-      knownUrls.add(finalUrl);
-      addsN++;
-    }
-  } catch { /* adds optional offline */ }
-  console.log(`adds: +${addsN} papers ingested (dedupe-gated, byte-proofed)`);
+  // Durable, reviewed imports. Missing inputs are fatal, including in CI:
+  // a local .cache/accepted.json must never determine the published catalogue.
+  const imports = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-imports.json"), "utf8"));
   // Independent mirror: exact route identity and verified PDF bytes only.
   // Persisted proofs make offline rebuilds identical to the network build.
   const slowBefore = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
@@ -1020,6 +962,7 @@ if (require.main === module) {
   const naMirror = require("./nesa-archive.cjs");
   let naRegistry = null;
   try { naRegistry = JSON.parse(fs.readFileSync(naMirror.verifiedRegistryPath, "utf8")); } catch { naRegistry = { entries: {} }; }
+  for (const p of papers) if (naRegistry.entries[p.id] && !identity.officialReplacementAllowed(p, naRegistry.entries[p.id])) correctedMappings.push({ id: p.id, reason: "Rejected archive replacement: type/provider/paper-part mismatch" });
   const naRepointed = naMirror.applyVerified(papers, naRegistry);
   console.log(`nesa-archive lane: ${naRepointed}/${slowBefore} slow-route papers re-pointed (official producers)`);
   // Wayback lane (H2, v1.0.24): dead-pack-page residue via the Internet
@@ -1027,8 +970,17 @@ if (require.main === module) {
   const wbMirror = require("./wayback.cjs");
   let wbRegistry = null;
   try { wbRegistry = JSON.parse(fs.readFileSync(wbMirror.verifiedRegistryPath, "utf8")); } catch { wbRegistry = { entries: {} }; }
+  for (const p of papers) if (wbRegistry.entries[p.id] && !identity.officialReplacementAllowed(p, wbRegistry.entries[p.id])) correctedMappings.push({ id: p.id, reason: "Rejected unestablished Wayback paper part or document role" });
   const wbRepointed = wbMirror.applyVerified(papers, wbRegistry);
   console.log(`wayback lane: ${wbRepointed} slow-route papers re-pointed (id_ captures)`);
+  const partCorrections = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-mapping-corrections.json"), "utf8"));
+  for (const p of papers) {
+    const entry = partCorrections.entries[p.id];
+    if (!entry) continue;
+    if (!identity.validProof(entry) || !identity.officialReplacementAllowed(p, entry)) throw new Error("Invalid reviewed paper-part correction: " + p.id);
+    p.url = entry.url; p.sha256 = entry.sha256; p.bytes = entry.bytes; p.mirror = "nesa-archive";
+    correctedMappings.push({ id: p.id, reason: entry.reason });
+  }
   const fastN = papers.filter((p) => p.mirror).length;
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
@@ -1039,75 +991,41 @@ if (require.main === module) {
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);
 
-  // Duplicate collapse (v1.0.25): the census manifest's proven pairs + any
-  // url-level duplicates. The survivor keeps the fast/medium primary; every
-  // secondary row DEMOTES to its original fallback chain (nothing deleted;
-  // all listings preserved; the demoted fields revert honestly).
-  let demoted = 0;
-  const collapseLog = [];
-  {
-    const byUrl = new Map();
-    for (const p of papers) { if (p.url) { byUrl.set(p.url, (byUrl.get(p.url) || 0) + 1); } }
-    const dupUrls = [...byUrl.entries()].filter(([, n]) => n > 1).map(([u]) => u);
-    const proven = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, ".cache", "census", "dupes.json"), "utf8")); } catch { return { pairs: [] }; } })();
-    const rowWins = (r) => {
-      const priority = { selfhost: 5, wayback: 4, "nesa-archive": 4, "thsc-au": 3, "thsc-au-growth": 3, "add": 3, "hscportal": 2, "thsc-listing": 1, "nesa": 1 };
-      return priority[r.mirror || r.source || ""] || 0;
-    };
-    // proven content-dupes: the non-survivor row demotes even if its url is unique
-    for (const g of (proven.pairs || [])) {
-      const survivors = papers.filter((p) => p.id === g.survivor);
-      if (!survivors.length) continue;
-      for (const otherId of [g.rows && g.rows.a && g.rows.a.id, g.rows && g.rows.b && g.rows.b.id]) {
-        if (!otherId || otherId === g.survivor) continue;
-        const ro = papers.find((p) => p.id === otherId);
-        if (ro && ro.url) {
-          const fallback = ro.fallbackUrl || null;
-          if (fallback && fallback !== ro.url && fallback.length > 4) {
-            if (ro.url !== fallback) { ro.url = fallback; ro.mirror = null; delete ro.sha256; delete ro.bytes; demoted++; collapseLog.push({ id: ro.id, demotedFrom: ro.url, to: fallback, reason: "sha-duplicate of " + g.survivor }); }
-          }
-        }
-      }
-    }
-    // url-level dupes: the first (best-priority) row survives on the url;
-    // the other rows demote to their fallback chains. Rows WITHOUT any
-    // fallback cannot demote - they win the url so the demotable rows stand
-    // down (the census's honest handling of legacy no-fallback rows).
-    const canDemote = (p) => (p.fallbackUrl && p.fallbackUrl !== p.url) || !!p.viewno;
-    const demoteScore = (p) => (canDemote(p) ? 0 : 100); // no-fallback rows win: they cannot stand down
-    for (const url of dupUrls) {
-      const members = papers.filter((p) => p.url === url);
-      if (members.length < 2) continue;
-      const sorted = [...members].sort((a, b) => (rowWins(b) + demoteScore(b)) - (rowWins(a) + demoteScore(a)));
-      const winner = sorted[0];
-      for (const loser of sorted.slice(1)) {
-        if (!canDemote(loser)) continue;
-        const fallback = loser.fallbackUrl || null;
-        if (fallback && fallback !== url && fallback.length > 4) {
-          loser.url = fallback; loser.mirror = null; delete loser.sha256; delete loser.bytes; demoted++;
-          collapseLog.push({ id: loser.id, demotedFrom: url, to: fallback, reason: "duplicate url of " + winner.id });
-          continue;
-        }
-        // no fallback chain: derive the router url from the listing fields
-        if (loser.viewno && !/\/s\/[dvfz]\//.test(String(loser.url || ""))) {
-          const routerUrl = "https://thsconline.github.io/s/d/" + encodeURIComponent(loser.viewno) + "/" + encodeURIComponent(loser.linkText || loser.title || "");
-          if (routerUrl !== loser.url) { loser.url = routerUrl; loser.mirror = null; delete loser.sha256; delete loser.bytes; demoted++; collapseLog.push({ id: loser.id, demotedFrom: url, to: routerUrl, reason: "duplicate url of " + winner.id + " (derived router)" }); }
-        }
-      }
-    }
-    fs.mkdirSync(path.join(__dirname, ".cache", "census"), { recursive: true });
-    fs.writeFileSync(path.join(__dirname, ".cache", "census", "collapsed.json"), JSON.stringify({ at: new Date().toISOString(), demoted, log: collapseLog }, null, 1) + "\n");
-    console.log(`collapse: ${demoted} duplicate rows demoted to fallback (${dupUrls.length} url groups + ${(proven.pairs || []).length} content pairs)`);
+  for (const p of papers) {
+    const proof = imports.proofs[p.url];
+    if (proof) Object.assign(p, proof);
+    if (imports.legacyRows[p.id]) p.libraryAliases = imports.legacyRows[p.id].filter(r => {
+      const official = /(?:nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|web\.archive\.org)/.test(r.url || "");
+      return r.url === p.url || !official || identity.officialReplacementAllowed(p, { url: r.url });
+    });
   }
-  const fastN2 = papers.filter((p) => p.mirror).length;
-  console.log(`routes post-collapse: fast ${fastN2} · total ${papers.length}`);
+  const originals = reconciliation.coalesceExisting(papers);
+  const eligibleImports = { ...imports, entries: imports.entries.filter(r => !REMOVALS.ids.has(r.id) && !REMOVALS.urls.has(r.url)) };
+  const reconciled = reconciliation.applyImports(papers, eligibleImports);
+  const idAliases = { ...originals.aliases, ...reconciled.aliases };
+  const correctionIds = new Set(correctedMappings.map(r => r.id));
+  const unexpectedPrimaryDowngrades = papers.filter(p => imports.previousPrimaries[p.id] && identity.isDirect(imports.previousPrimaries[p.id]) && !identity.isDirect(p.url) && !correctionIds.has(p.id)).map(p => p.id);
+  const reconciliationReport = { version: 1, previousPublishedListings: 10368,
+    activePapers: papers.length, importedRows: imports.entries.length,
+    mergedImports: reconciled.report.merged, genuinelyAdded: reconciled.report.added,
+    reviewQueue: reconciled.report.review, existingMerges: originals.report.merged,
+    sharedUrlMappingReview: originals.report.sharedUrls,
+    correctedMappings, unexpectedPrimaryDowngrades,
+    limitations: "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count." };
+  const finalFileCount = papers.reduce((n, p) => n + Number(!!p.url) + Number(!!p.solutionUrl), 0);
+  const finalDirectCount = papers.reduce((n, p) => n + Number(isFastHost(p.url)) + Number(isFastHost(p.solutionUrl)), 0);
+  reconciliationReport.filePointers = finalFileCount;
+  reconciliationReport.directFilePointers = finalDirectCount;
+  reconciliationReport.resolverPrimaries = papers.filter(p => identity.routerKey(p.url)).length;
+  fs.writeFileSync(path.join(__dirname, "reconciliation-report.json"), JSON.stringify(reconciliationReport, null, 1) + "\n");
+  console.log(`reconciliation: ${reconciled.report.merged.length} imports merged; ${reconciled.report.added.length} additions; ${reconciled.report.review.length} review; ${papers.length} active papers`);
 
   // 4. write catalogue
   phase("phase 3: writing catalogue + coverage page");
   const generated = new Date().toISOString();
   fs.writeFileSync(OUT, JSON.stringify({
     _comment: "Generated by desktop/tools/build-index.cjs. Sources: THSCOnline listings (legacy route identities resolved server-side) + NESA direct + HSC Portal + PDF-validated exact-ID mappings from the independent thsconline.com.au mirror (not operated by Dan). A small self-hosted set is served from our own R2 bucket (desktop/tools/selfhost.json). Papers belong to their schools/authors and NESA; mirrors are credited in-app.",
-    generated, sources: "desktop/sources.json",
+    generated, sources: "desktop/sources.json", idAliases,
     papers,
   }, null, 1) + "\n");
 

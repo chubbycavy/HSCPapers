@@ -6,13 +6,13 @@
      → recently read papers re-open offline
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
-const VERSION = "v3"; // v3: cache writes are best-effort (can never break a good fetch)
+const VERSION = "v4"; // refresh the shell for canonical IDs and alias compatibility
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
 const PAGES_CACHE = `hsc-pages-${VERSION}`;
 const PDF_CACHE = `hsc-pdfs-${VERSION}`;
 const PDF_CACHE_MAX = 60; // recently read papers stay offline (LRU by insertion)
 const SHELL = [
-  "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js",
+  "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js", "/js/catalogue-aliases.js",
   "/pdfjs/pdf.min.js", "/pdfjs/pdf.worker.min.js", "/vendor/jszip.min.js",
   "/manifest.webmanifest", "/og-card.png?v=classic-h-1",
   "/logo.svg?v=classic-h-1", "/favicon.svg?v=classic-h-1",

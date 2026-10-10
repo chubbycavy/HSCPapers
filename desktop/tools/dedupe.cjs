@@ -20,6 +20,8 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const identity = require("./catalogue-identity.cjs");
+const { indexRows } = require("./catalogue-reconcile.cjs");
 
 const TOOLS = __dirname;
 const DISCOVER = path.join(TOOLS, ".cache", "discover");
@@ -41,7 +43,7 @@ const LIMIT = Number(argValue("--limit") || 0);
 const REPORT_ONLY = process.argv.includes("--report-only");
 
 const normKey = (s) => String(s || "").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ").trim();
-const tupleOf = (c) => `${normKey(c.subject)}|${normKey(c.school)}|${c.year}|${c.type}`;
+const tupleOf = identity.reviewKey;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 let pdfjsReady = null;
@@ -89,7 +91,7 @@ async function probeUrl(url) {
     if (!/\.candidates\.json$/.test(f)) continue;
     try {
       const j = JSON.parse(fs.readFileSync(path.join(DISCOVER, f), "utf8"));
-      for (const c of j.candidates || []) cands.push({ source: j.source || f.replace(/\.candidates\.json$/, ""), ...c });
+      for (const c of j.candidates || []) cands.push(identity.candidateMetadata({ source: j.source || f.replace(/\.candidates\.json$/, ""), ...c }));
     } catch { /* skip unreadable */ }
   }
   const work = LIMIT ? cands.slice(0, LIMIT) : cands;
@@ -98,12 +100,13 @@ async function probeUrl(url) {
 
   // catalogue reference sets
   const catalogue = require("../ui/data/papers.json").papers;
+  const sourceIndex = indexRows(catalogue);
   const knownUrls = new Set(), knownShas = new Set(), tuples = new Map();
   for (const p of catalogue) {
     if (p.url) knownUrls.add(p.url);
     if (p.solutionUrl) knownUrls.add(p.solutionUrl);
     if (p.sha256) knownShas.add(p.sha256);
-    const t = `${normKey(p.subject)}|${normKey(p.school)}|${p.year}|${p.type}`;
+    const t = tupleOf(p);
     tuples.set(t, (tuples.get(t) || 0) + 1);
   }
   // duplicate-primary baseline report (side quest)
@@ -129,6 +132,7 @@ async function probeUrl(url) {
         rejected.push({ source: c.source, reason, candidate: c });
       };
       if (!c.url || !ALLOWED_HOSTS.test(c.url)) { deny("host not on the approved lane list"); continue; }
+      if (identity.listingKeys(c).some(k => sourceIndex.keys.has(k))) { deny("Existing source listing: retain as a mirror, not a new paper"); continue; }
       if (knownUrls.has(c.url)) { deny("url duplicate in catalogue"); continue; }
       let probe = probes[c.url];
       // transient classes are never trusted from the cache - re-probe them

@@ -28,11 +28,13 @@ module.exports = async function run() {
   const subjects = new Map(), years = new Map(), schools = new Map();
   const grid = new Map(); // "subject|year" -> count
   for (const p of papers) {
-    subjects.set(p.subject, (subjects.get(p.subject) || 0) + 1);
+    for (const subject of require("./catalogue-identity.cjs").subjectsOf(p)) {
+      subjects.set(subject, (subjects.get(subject) || 0) + 1);
+      const k = `${subject}|${p.year}`;
+      grid.set(k, (grid.get(k) || 0) + 1);
+    }
     if (p.year) years.set(p.year, (years.get(p.year) || 0) + 1);
     schools.set(p.school, (schools.get(p.school) || 0) + 1);
-    const k = `${p.subject}|${p.year}`;
-    grid.set(k, (grid.get(k) || 0) + 1);
   }
   const yearList = [...years.keys()].sort((a, b) => a - b);
   const subjList = [...subjects.keys()].sort((a, b) => a.localeCompare(b));

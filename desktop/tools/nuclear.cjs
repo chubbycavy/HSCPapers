@@ -85,14 +85,14 @@ function fingerprint() {
 }
 
 (async () => {
-  if (!(await runStep("L0 proxy + mirror regression tests", "node", ["--test", "tools/tests/pdf-proxy.test.mjs", "tools/tests/thsc-au.test.cjs"]))) throw new Error("Regression tests failed");
+  if (!(await runStep("L0 proxy + mirror regression tests", "node", ["--test", "tools/tests/pdf-proxy.test.mjs", "tools/tests/thsc-au.test.cjs", "tools/tests/catalogue-reconcile.test.cjs"]))) throw new Error("Regression tests failed");
   if (!(await runStep("L1 sweep-check", "node", ["tools/sweep-check.cjs"]))) throw new Error("Sweep failed");
   if (!(await runStep("L2 e2e (local)", npx, ["playwright", "test", "--config", "tools/e2e/playwright.config.cjs"]))) throw new Error("E2E failed");
   const skipLive = process.argv.includes("--skip-live");
   if (!skipLive && !(await runStep("L3 live-check (production, bounded fetches)", "node", ["tools/e2e/live-check.cjs"]))) throw new Error("Live check failed");
 
   const canary = async (n) => {
-    if (!(await runStep(`L4 builder canary (--offline, run ${n}/2)`, "node", ["tools/build-index.cjs", "--offline"]))) throw new Error("Canary failed");
+    if (!(await runStep(`L4 builder canary (--offline, run ${n}/2)`, "node", ["--require", "./tools/tests/no-local-ingest.cjs", "tools/build-index.cjs", "--offline"]))) throw new Error("Canary failed");
     const h = fingerprint();
     console.log(`  canary ${n}: ${h}`);
     return h;

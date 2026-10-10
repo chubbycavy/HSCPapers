@@ -64,6 +64,9 @@
      still restore filters explicitly via ?q=…). Theme + density persist on
      both (device preferences, not filters). */
   const STATE_KEY = "hsc-state-v1";
+  let catalogueAliases = {}, activePaperIds = new Set();
+  const canonicalId = id => window.CatalogueAliases.resolve(id, catalogueAliases, activePaperIds);
+  const paperSubjects = p => [...new Set([p.subject, ...(p.relatedSubjects || [])])];
   function persistState() {
     if (!IS_TAURI) return;
     try {
@@ -123,6 +126,9 @@
     const url = paperUrlOf(p, kind);
     if (!url) return null;
     return baseRel(p, kind).replace(/\.pdf$/, `-${hash6(url)}.pdf`);
+  }
+  function libraryCandidates(p, kind) {
+    return [...new Set([p, ...(p.libraryAliases || [])].map(row => libraryRel(row, kind)).filter(Boolean))];
   }
 
   /* ---------- theme ---------- */
@@ -295,7 +301,8 @@
     const known = new Set(state.papers.map(p => p.id));
     let restored = 0, dropped = 0;
     for (const id of ids) {
-      if (known.has(id)) { state.selected.add(id); restored++; }
+      const active = canonicalId(id);
+      if (active && known.has(active)) { state.selected.add(active); restored++; }
       else dropped++; // removed/expired ids (e.g. takedown removals)
     }
     if (restored) sharedSelNote = { restored, dropped };
@@ -323,7 +330,18 @@
       }
     }
     state.papers = json.papers || [];
+    catalogueAliases = json.idAliases || {};
+    activePaperIds = new Set(state.papers.map(p => p.id));
     restoreState(); // saved filters/selection first…
+    state.selected = new Set(window.CatalogueAliases.remap([...state.selected], catalogueAliases, activePaperIds));
+    bkState = new Set(window.CatalogueAliases.remap([...bkState], catalogueAliases, activePaperIds));
+    rvState = window.CatalogueAliases.remap(rvState, catalogueAliases, activePaperIds).slice(0, 50);
+    dlState = new Set(window.CatalogueAliases.remap([...downloadedSet()], catalogueAliases, activePaperIds));
+    saveBookmarks();
+    try {
+      localStorage.setItem("hsc-recent", JSON.stringify(rvState));
+      localStorage.setItem("hsc-downloaded", JSON.stringify([...dlState]));
+    } catch {}
     await readURL(); // …URL deep-link overrides on top (incl. ?sel= restores)
     if (sharedSelNote?.dead) { // B6: whole link expired — honest notice, not silence
       showSelNotice(`Shared selection — ${sharedSelNote.dropped} paper${sharedSelNote.dropped === 1 ? "" : "s"} from this link ${sharedSelNote.dropped === 1 ? "is" : "are"} no longer available`);
@@ -342,7 +360,7 @@
     // paper number on screen agrees.
     const eff = effectivePapers();
     $("#statPapers").textContent = eff.length;
-    $("#statSubjects").textContent = new Set(eff.map(p => p.subject)).size;
+    $("#statSubjects").textContent = new Set(eff.flatMap(paperSubjects)).size;
     $("#statSchools").textContent = new Set(eff.map(p => p.school)).size;
     $("#statSolutions").textContent = eff.filter(p => p.hasSolutions).length;
     // Level pill counts — faceted like the sidebar lists (every OTHER filter
@@ -378,7 +396,7 @@
     const FACETS = new Set(["subject", "year", "school"]);
     const src = FACETS.has(key) ? filterPapers({ exclude: key, noSort: true }) : effectivePapers();
     const m = new Map();
-    for (const p of src) m.set(p[key], (m.get(p[key]) || 0) + 1);
+    for (const p of src) for (const value of (key === "subject" ? paperSubjects(p) : [p[key]])) m.set(value, (m.get(value) || 0) + 1);
     return m;
   }
   function checkRow(list, value, label, count, checked) {
@@ -522,7 +540,7 @@
   /* ---------- search + filter ---------- */
   function norm(s) { return (s ?? "").toString().toLowerCase(); }
   function matches(p, tokens) {
-    const hay = `${p.subject} ${p.school} ${p.year} ${p.title} ${p.type}`.toLowerCase();
+    const hay = `${paperSubjects(p).join(" ")} ${p.school} ${p.year} ${p.title} ${p.type}`.toLowerCase();
     return tokens.every(t => hay.includes(t));
   }
   // Core filter. opts.exclude skips ONE facet — used for faceted counting
@@ -544,7 +562,7 @@
       }
       if (!no("solutions") && state.solutionsOnly && !p.hasSolutions) return false;
       if (!no("mine") && state.mine && !shelfHas(p.id)) return false;
-      if (!no("subject") && state.subjects.size && !state.subjects.has(p.subject)) return false;
+      if (!no("subject") && state.subjects.size && !paperSubjects(p).some(s => state.subjects.has(s))) return false;
       if (!no("year") && state.years.size && !state.years.has(p.year)) return false;
       if (!no("school") && state.schools.size && !state.schools.has(p.school)) return false;
       if (tokens.length && !matches(p, tokens)) return false;
@@ -962,7 +980,9 @@
   }
   async function fetchPdfBlob(url, fallback) {
     let lastError;
-    for (const source of [...new Set([url, fallback].filter(Boolean))]) {
+    const paper = state.papers.find(p => p.url === url);
+    const alternatives = (paper?.alternateSources || []).map(s => s.url);
+    for (const source of [...new Set([url, ...alternatives, fallback].filter(Boolean))]) {
       try {
         const res = await fetch(proxied(source), { signal: AbortSignal.timeout(120000) });
         if (!res.ok) throw new Error(res.status === 503 ? "Source busy — try again shortly" : `HTTP ${res.status}`);
@@ -1193,7 +1213,7 @@
       const paperUrl = paperUrlOf(p, "paper");
       const prel = libraryRel(p, "paper");
       if (prel) {
-        const f = { id: p.id, url: paperUrl, name: safeName(p, "paper"), relpath: prel, fallback: p.fallbackUrl || "", kind: "paper" };
+        const f = { id: p.id, url: paperUrl, name: safeName(p, "paper"), relpath: prel, fallback: p.alternateSources?.[0]?.url || p.fallbackUrl || "", kind: "paper" };
         if (allowSlow || isFastHostUrl(f.url)) files.push(f);
         else skipped++;
       }
@@ -1310,7 +1330,11 @@
     const pending = queueLoad();
     if (pending && Array.isArray(pending.files) && pending.files.length) {
       const have = new Set(files.map((f) => f.id));
-      const add = pending.files.filter((f) => !have.has(f.id) && (state.includeSlowRoute || isFastHostUrl(f.url)));
+      const add = pending.files.map(f => {
+        const sol = f.id.endsWith("-sol"), base = sol ? f.id.slice(0, -4) : f.id;
+        const id = canonicalId(base);
+        return id ? { ...f, id: id + (sol ? "-sol" : "") } : f;
+      }).filter((f) => !have.has(f.id) && (state.includeSlowRoute || isFastHostUrl(f.url)));
       if (add.length) {
         // The size estimate was computed for the armed selection only —
         // extend it (flat per-file guess) so progress can't exceed 100%.
@@ -1396,6 +1420,16 @@
     if (!tauriArmed) {
       tauriStatus("Checking library…");
       try {
+        // A previously downloaded mirror copy remains a usable library file.
+        const choices = files.map(f => {
+          const id = f.kind === "solutions" ? f.id.slice(0, -4) : f.id;
+          const p = state.papers.find(p => p.id === id);
+          return p ? libraryCandidates(p, f.kind === "solutions" ? "solutions" : "paper") : [f.relpath];
+        });
+        const paths = [...new Set(choices.flat())];
+        const existing = await window.__TAURI__.core.invoke("saved_paths", { relpaths: paths });
+        const saved = new Set(paths.filter((_, i) => existing[i]));
+        files.forEach((f, i) => { const found = choices[i].find(p => saved.has(p)); if (found) f.relpath = found; });
         const pre = await window.__TAURI__.core.invoke("preflight", { files: files.map((f) => ({ relpath: f.relpath, url: f.url })) });
         tauriArmed = { files, toFetch: pre.to_fetch, estBytes: pre.est_bytes };
         if (!pre.to_fetch) {
@@ -1501,16 +1535,16 @@
           } else if (act === "verify") {
             if (tauriRun) return;
             tauriStatus("Verifying library…");
-            const rels = [];
+            const choices = [];
             for (const p of state.papers) {
-              const pr = libraryRel(p, "paper");
-              if (pr) rels.push(pr);
-              const sr = libraryRel(p, "solutions");
-              if (sr) rels.push(sr);
+              const pr = libraryCandidates(p, "paper"); if (pr.length) choices.push(pr);
+              const sr = libraryCandidates(p, "solutions"); if (sr.length) choices.push(sr);
             }
+            const rels = [...new Set(choices.flat())];
             const res = await window.__TAURI__.core.invoke("saved_paths", { relpaths: rels });
-            const have = res.filter(Boolean).length;
-            tauriStatus(`Library: ${have}/${rels.length} catalogue files on disk (${rels.length - have} missing) ✓`);
+            const saved = new Set(rels.filter((_, i) => res[i]));
+            const have = choices.filter(paths => paths.some(p => saved.has(p))).length;
+            tauriStatus(`Library: ${have}/${choices.length} catalogue files on disk (${choices.length - have} missing) ✓`);
           } else if (act === "check-update") {
             const btn = item;
             btn.disabled = true;
@@ -1600,12 +1634,20 @@
     requestAnimationFrame(async () => {
       const btns = [...cardsEl.querySelectorAll("a[data-rel]:not([data-checked])")];
       if (!btns.length) return;
-      const rels = btns.map((b) => { b.dataset.checked = "1"; return b.dataset.rel; });
+      const choices = btns.map(b => {
+        b.dataset.checked = "1";
+        const p = state.papers.find(p => p.id === b.closest(".card")?.dataset.id);
+        const kind = p && libraryRel(p, "solutions") === b.dataset.rel ? "solutions" : "paper";
+        return p ? libraryCandidates(p, kind) : [b.dataset.rel];
+      });
+      const rels = [...new Set(choices.flat())];
       try {
         const res = await window.__TAURI__.core.invoke("saved_paths", { relpaths: rels });
+        const byRel = new Map(rels.map((r, i) => [r, res[i]]));
         btns.forEach((b, i) => {
-          if (!res[i]) return;
-          const path = res[i];
+          const found = choices[i].find(r => byRel.get(r));
+          if (!found) return;
+          const path = byRel.get(found);
           const title = b.closest(".card")?.querySelector("h3")?.textContent || "Paper";
           b.setAttribute("data-checked", "saved");
           b.removeAttribute("href");
@@ -1619,11 +1661,11 @@
             let solLocal = null;
             const p = state.papers.find(x => x.id === card?.dataset.id);
             if (p) {
-              const srel = libraryRel(p, "solutions");
+              const srel = libraryCandidates(p, "solutions").find(r => byRel.get(r));
               // v1.0.0 bug: the solutions button IS the solutions file —
               // opening it must not split with itself. Only the PAPER
               // button brings its solutions along.
-              if (srel && srel !== b.dataset.rel) {
+              if (srel && srel !== found) {
                 const idx = rels.indexOf(srel);
                 if (idx >= 0 && res[idx]) solLocal = res[idx];
               }
@@ -1669,6 +1711,7 @@
 
   function openReader(path, title, id, solPath, solFallbackPath, paperFallbackPath) {
     if (!path) return;
+    if (!IS_TAURI) paperFallbackPath = state.papers.find(p => p.id === id)?.alternateSources?.[0]?.url || paperFallbackPath;
     pendingPaperId = id || null;
     readerPaperUrl = IS_TAURI ? path : proxied(path);
     readerSolUrl = solPath ? (IS_TAURI ? solPath : proxied(solPath)) : null;

@@ -22,6 +22,7 @@
    Usage: node tools/discover.cjs --source=acehsc|4unitmaths|crest|mirror|drive|all [--limit=N] */
 const fs = require("fs");
 const path = require("path");
+const identity = require("./catalogue-identity.cjs");
 
 const TOOLS = __dirname;
 const DISCOVER = path.join(TOOLS, ".cache", "discover");
@@ -89,7 +90,7 @@ async function runAcehsc() {
     let html;
     try { html = await fetchDoc(page, "aceh-" + normKey(page.replace(/https:\/\/www\.acehsc\.net\//, ""))); }
     catch (e) { console.log(`  subject page fail: ${page.slice(-40)} (${e.message})`); continue; }
-    const subject = acehSubjectName(html, page);
+    const subject = identity.canonicalSubject(acehSubjectName(html, page));
     const resLinks = [...html.matchAll(/href="(https:\/\/www\.acehsc\.net\/resource\/[^"]+)"/gi)].map((m) => m[1]);
     for (const rl of resLinks) {
       if (LIMIT && cands.length >= LIMIT) break;
@@ -166,22 +167,22 @@ async function runMirror() {
   const index = JSON.parse(await fetchDoc(auBase + "/api/index", "au-index"));
   const cands = [];
   const catalogue = require("../ui/data/papers.json").papers;
-  const known = new Set(catalogue.map((p) => `${normKey(p.subject)}|${normKey(p.school)}|${p.year}|${p.type}`));
+  const known = new Set(catalogue.flatMap(identity.listingKeys));
   for (const level of index.levels || []) for (const course of level.courses || []) {
     const slug = course.course.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
     let lists;
     try { lists = JSON.parse(await fetchDoc(auBase + `/api/papers?level=${encodeURIComponent(level.level)}&course=${encodeURIComponent(course.course)}`, `au-${slug}-${normKey(level.level)}`)); }
     catch (e) { console.log(`  mirror fetch fail: ${course.course} (${String(e && e.message).slice(0, 36)})`); continue; }
     for (const row of lists.papers || []) {
-      const year = Number(String(row.id || "").match(/\b(19\d{2}|20\d{2})\b/) || 0) || row.year || null;
+      const year = Number((String(row.id || "").match(/\b(19\d{2}|20\d{2})\b/) || [])[0]) || row.year || null;
       const title = String(row.id || "").replace(/^\d+\//, "");
       const school = title.replace(new RegExp(`\\s*${year ? year : ""}.*$`), "").trim() || null;
       const type = /hsc|exam/i.test(title) ? "hsc" : "trial";
-      const t = `${normKey(course.course)}|${normKey(school || "")}|${year}|${type}`;
+      const t = identity.mirrorKey(row.id);
       if (known.has(t)) continue;
       if (!row.r2_key) continue;
       const url = auBase + "/pdf/" + String(row.r2_key).split("/").map(encodeURIComponent).join("/");
-      cands.push({ source: "thsc-au-growth", subject: course.course, school, year, type, title, url, hints: { mirrorRow: row.id, bytes: row.bytes, pages: row.pages } });
+      cands.push(identity.candidateMetadata({ source: "thsc-au-growth", subject: course.course, school, year, type, title, url, hints: { mirrorRow: row.id, bytes: row.bytes, pages: row.pages } }));
     }
     console.log(`  mirror ${course.course}: +${cands.length} total`);
     fs.mkdirSync(DISCOVER, { recursive: true });
