@@ -1022,6 +1022,13 @@ if (require.main === module) {
   try { naRegistry = JSON.parse(fs.readFileSync(naMirror.verifiedRegistryPath, "utf8")); } catch { naRegistry = { entries: {} }; }
   const naRepointed = naMirror.applyVerified(papers, naRegistry);
   console.log(`nesa-archive lane: ${naRepointed}/${slowBefore} slow-route papers re-pointed (official producers)`);
+  // Wayback lane (H2, v1.0.24): dead-pack-page residue via the Internet
+  // Archive's raw-byte captures (registry built by tools/wayback.cjs).
+  const wbMirror = require("./wayback.cjs");
+  let wbRegistry = null;
+  try { wbRegistry = JSON.parse(fs.readFileSync(wbMirror.verifiedRegistryPath, "utf8")); } catch { wbRegistry = { entries: {} }; }
+  const wbRepointed = wbMirror.applyVerified(papers, wbRegistry);
+  console.log(`wayback lane: ${wbRepointed} slow-route papers re-pointed (id_ captures)`);
   const fastN = papers.filter((p) => p.mirror).length;
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
