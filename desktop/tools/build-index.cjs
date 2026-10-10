@@ -1039,6 +1039,69 @@ if (require.main === module) {
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);
 
+  // Duplicate collapse (v1.0.25): the census manifest's proven pairs + any
+  // url-level duplicates. The survivor keeps the fast/medium primary; every
+  // secondary row DEMOTES to its original fallback chain (nothing deleted;
+  // all listings preserved; the demoted fields revert honestly).
+  let demoted = 0;
+  const collapseLog = [];
+  {
+    const byUrl = new Map();
+    for (const p of papers) { if (p.url) { byUrl.set(p.url, (byUrl.get(p.url) || 0) + 1); } }
+    const dupUrls = [...byUrl.entries()].filter(([, n]) => n > 1).map(([u]) => u);
+    const proven = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, ".cache", "census", "dupes.json"), "utf8")); } catch { return { pairs: [] }; } })();
+    const rowWins = (r) => {
+      const priority = { selfhost: 5, wayback: 4, "nesa-archive": 4, "thsc-au": 3, "thsc-au-growth": 3, "add": 3, "hscportal": 2, "thsc-listing": 1, "nesa": 1 };
+      return priority[r.mirror || r.source || ""] || 0;
+    };
+    // proven content-dupes: the non-survivor row demotes even if its url is unique
+    for (const g of (proven.pairs || [])) {
+      const survivors = papers.filter((p) => p.id === g.survivor);
+      if (!survivors.length) continue;
+      for (const otherId of [g.rows && g.rows.a && g.rows.a.id, g.rows && g.rows.b && g.rows.b.id]) {
+        if (!otherId || otherId === g.survivor) continue;
+        const ro = papers.find((p) => p.id === otherId);
+        if (ro && ro.url) {
+          const fallback = ro.fallbackUrl || null;
+          if (fallback && fallback !== ro.url && fallback.length > 4) {
+            if (ro.url !== fallback) { ro.url = fallback; ro.mirror = null; delete ro.sha256; delete ro.bytes; demoted++; collapseLog.push({ id: ro.id, demotedFrom: ro.url, to: fallback, reason: "sha-duplicate of " + g.survivor }); }
+          }
+        }
+      }
+    }
+    // url-level dupes: the first (best-priority) row survives on the url;
+    // the other rows demote to their fallback chains. Rows WITHOUT any
+    // fallback cannot demote - they win the url so the demotable rows stand
+    // down (the census's honest handling of legacy no-fallback rows).
+    const canDemote = (p) => (p.fallbackUrl && p.fallbackUrl !== p.url) || !!p.viewno;
+    const demoteScore = (p) => (canDemote(p) ? 0 : 100); // no-fallback rows win: they cannot stand down
+    for (const url of dupUrls) {
+      const members = papers.filter((p) => p.url === url);
+      if (members.length < 2) continue;
+      const sorted = [...members].sort((a, b) => (rowWins(b) + demoteScore(b)) - (rowWins(a) + demoteScore(a)));
+      const winner = sorted[0];
+      for (const loser of sorted.slice(1)) {
+        if (!canDemote(loser)) continue;
+        const fallback = loser.fallbackUrl || null;
+        if (fallback && fallback !== url && fallback.length > 4) {
+          loser.url = fallback; loser.mirror = null; delete loser.sha256; delete loser.bytes; demoted++;
+          collapseLog.push({ id: loser.id, demotedFrom: url, to: fallback, reason: "duplicate url of " + winner.id });
+          continue;
+        }
+        // no fallback chain: derive the router url from the listing fields
+        if (loser.viewno && !/\/s\/[dvfz]\//.test(String(loser.url || ""))) {
+          const routerUrl = "https://thsconline.github.io/s/d/" + encodeURIComponent(loser.viewno) + "/" + encodeURIComponent(loser.linkText || loser.title || "");
+          if (routerUrl !== loser.url) { loser.url = routerUrl; loser.mirror = null; delete loser.sha256; delete loser.bytes; demoted++; collapseLog.push({ id: loser.id, demotedFrom: url, to: routerUrl, reason: "duplicate url of " + winner.id + " (derived router)" }); }
+        }
+      }
+    }
+    fs.mkdirSync(path.join(__dirname, ".cache", "census"), { recursive: true });
+    fs.writeFileSync(path.join(__dirname, ".cache", "census", "collapsed.json"), JSON.stringify({ at: new Date().toISOString(), demoted, log: collapseLog }, null, 1) + "\n");
+    console.log(`collapse: ${demoted} duplicate rows demoted to fallback (${dupUrls.length} url groups + ${(proven.pairs || []).length} content pairs)`);
+  }
+  const fastN2 = papers.filter((p) => p.mirror).length;
+  console.log(`routes post-collapse: fast ${fastN2} · total ${papers.length}`);
+
   // 4. write catalogue
   phase("phase 3: writing catalogue + coverage page");
   const generated = new Date().toISOString();

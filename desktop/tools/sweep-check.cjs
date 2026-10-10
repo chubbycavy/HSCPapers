@@ -242,10 +242,23 @@ async function main() {
     const totalFilesN = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
     const fastFilesN = papers.reduce((n, p) => n + (isFastUrl(p.url) ? 1 : 0) + (isFastUrl(p.solutionUrl) ? 1 : 0), 0);
     const share = totalFilesN ? fastFilesN / totalFilesN : 0;
-    let prevShare = null;
-    try { prevShare = JSON.parse(fs.readFileSync(statePath, "utf8")).fastShare; } catch {}
-    if (typeof prevShare === "number" && share + 0.002 < prevShare) fail(`fast-share regressed (${(prevShare * 100).toFixed(1)}% -> ${(share * 100).toFixed(1)}%)`, "the catalogue got slower");
-    else pass(`fast-share KPI holds (${(share * 100).toFixed(1)}% of ${totalFilesN} files direct-lane${typeof prevShare === "number" ? `, prev ${(prevShare * 100).toFixed(1)}%` : ""})`);
+    let prevShare = null, prevDemoted = 0;
+    try { const st = JSON.parse(fs.readFileSync(statePath, "utf8")); prevShare = st.fastShare; if (typeof st.collapseDemoted === "number") prevDemoted = st.collapseDemoted; } catch {}
+    // the cleanup carve-out: the demote pass moves duplicate secondaries from
+    // fast lanes back to their fallbacks - that dip is the cleanup cost, not
+    // a regression, so the tolerance widens by the demoted fraction
+    const demotedFrac = totalFilesN ? prevDemoted / totalFilesN : 0;
+    if (typeof prevShare === "number" && share + 0.002 + demotedFrac < prevShare) fail(`fast-share regressed (${(prevShare * 100).toFixed(1)}% -> ${(share * 100).toFixed(1)}%)`, "the catalogue got slower");
+    else pass(`fast-share KPI holds (${(share * 100).toFixed(1)}% of ${totalFilesN} files direct-lane${prevDemoted ? `, ${prevDemoted} demoted last collapse` : ""})`);
+
+    // (b3) zero duplicate primaries: the collapse pass guarantees one row per
+    // primary url (the duplicate-census class); the reverse would silently
+    // re-merge duplicate listings into one file.
+    const urlMap = new Map();
+    for (const p of papers) { if (p.url) urlMap.set(p.url, (urlMap.get(p.url) || 0) + 1); }
+    const dupPrimaries = [...urlMap.entries()].filter(([, n]) => n > 1);
+    if (dupPrimaries.length) fail(`duplicate primaries remain: ${dupPrimaries.length} urls on ${dupPrimaries.reduce((n, [, c]) => n + c, 0)} rows`, dupPrimaries.slice(0, 3).map(([u]) => u.slice(-44)).join(" | "));
+    else pass(`zero duplicate primaries (${papers.length} listings, ${urlMap.size} distinct urls)`);
 
     // (c) anti-rot health report: validate-registry.cjs must have run recently
     // and nothing may be rotted. ERROR-class entries (throttle/network) do not
@@ -265,7 +278,9 @@ async function main() {
     }
     try {
       fs.mkdirSync(path.dirname(statePath), { recursive: true });
-      fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, slowRoute: slowN, fastShare: share, at: new Date().toISOString() }, null, 1));
+      let demotedThisRun = 0;
+    try { demotedThisRun = JSON.parse(fs.readFileSync(path.join(ROOT, "desktop", "tools", ".cache", "census", "collapsed.json"), "utf8")).demoted || 0; } catch {}
+    fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, slowRoute: slowN, fastShare: share, collapseDemoted: demotedThisRun, at: new Date().toISOString() }, null, 1));
     } catch {}
   }
 
