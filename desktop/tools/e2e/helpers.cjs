@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
-const FAST = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.com\.au/;
+const FAST = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.com\.au|web\.archive\.org|aceh\.b-cdn\.net|4unitmaths\.com|cresteconomics\.com/;
 
 module.exports = {
   papers,

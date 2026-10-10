@@ -942,6 +942,72 @@ if (require.main === module) {
     }
     console.log(`self-host: ${rewritten} rewritten, +${added} added -> ${SELFHOST.base}`);
   }
+  // Catalogue adds (v1.0.24): dedupe-gated, byte-proofed candidates from the
+  // discover lanes (tools/.cache/dedupe/accepted.json). Every row carries
+  // sha proof; drive rows wait for the operator's R2 upload (--flip) and
+  // appear only with uploaded:true in drive-verified.json. Crest-authored
+  // practice papers class as "other" (the existing practice-paper bucket).
+  let addsN = 0;
+  try {
+    const acc = JSON.parse(fs.readFileSync(path.join(__dirname, ".cache", "dedupe", "accepted.json"), "utf8")).accepted || [];
+    // third-party subject page names -> our canonical subject vocabulary
+    const SUBJECT_CANON = {
+      "mathematics 2 unit advanced": "Mathematics Advanced",
+      "mathematics 2 unit": "Mathematics Advanced",
+      "maths 2 unit": "Mathematics Advanced",
+      "mathematics 2u": "Mathematics Advanced",
+      "mathematics standard": "Mathematics Standard",
+      "maths standard": "Mathematics Standard",
+      "mathematics general": "Mathematics Standard",
+      "maths general": "Mathematics Standard",
+      "maths general ": "Mathematics Standard",
+      "standard maths": "Mathematics Standard",
+      "maths general ": "Mathematics Standard",
+      "maths advanced 2u": "Mathematics Advanced",
+      "maths extension 1": "Mathematics Extension 1",
+      "maths extension 2": "Mathematics Extension 2",
+      "mathematics ext 1": "Mathematics Extension 1",
+      "mathematics ext2": "Mathematics Extension 2",
+      "english advanced paper 2": "English Advanced",
+      "english standard paper 2": "English Standard",
+      "english general": "English",
+      "english (general)": "English",
+      "ipt": "Information Processes & Technology",
+      "software": "Software Design & Development",
+      // build-index normKey keeps parentheses - paren-preserved mirror forms:
+      "maths advanced (2u)": "Mathematics Advanced",
+      "maths (general)": "Mathematics Standard",
+      "mathematics 2 unit (advanced)": "Mathematics Advanced",
+    };
+    const canonSubject = (s) => SUBJECT_CANON[normKey(s)] || s;
+    const driveRegPath = path.join(__dirname, "drive-verified.json");
+    let driveReg = null;
+    try { driveReg = JSON.parse(fs.readFileSync(driveRegPath, "utf8")); } catch { driveReg = { entries: {} }; }
+    const knownIds = new Set(papers.map((p) => p.id));
+    const knownUrls = new Set(papers.map((p) => p.url + "|" + p.solutionUrl));
+    for (const c of acc) {
+      if (!c.url) continue;
+      const driveRow = c.source === "drive" ? driveReg.entries[c.url] : null;
+      if (c.source === "drive" && (!driveRow || !driveRow.uploaded)) continue; // staged, upload pending
+      const finalUrl = c.source === "drive" ? driveRow.r2Url : c.url;
+      if (knownUrls.has(finalUrl)) continue;
+      const id = `add-${c.source}-${String(c.sha256 || "x").slice(0, 10)}`;
+      if (knownIds.has(id)) continue;
+      const mappedType = c.type === "practice" ? "other" : c.type;
+      const title = (c.title || `${c.subject || ""} ${c.year || ""}`.trim()) || "Untitled";
+      papers.push({
+        id, subject: canonSubject(c.subject) || "General", level: null, year: c.year || null,
+        school: c.school || null, type: mappedType, title,
+        url: finalUrl, solutionPath: "", size: "", hasSolutions: /w\.?\s*sol|solutions/i.test(c.title || ""),
+        source: c.source, mirror: c.source === "drive" ? "selfhost" : c.source,
+        sha256: c.sha256, bytes: c.bytes,
+      });
+      knownIds.add(id);
+      knownUrls.add(finalUrl);
+      addsN++;
+    }
+  } catch { /* adds optional offline */ }
+  console.log(`adds: +${addsN} papers ingested (dedupe-gated, byte-proofed)`);
   // Independent mirror: exact route identity and verified PDF bytes only.
   // Persisted proofs make offline rebuilds identical to the network build.
   const slowBefore = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
@@ -960,7 +1026,7 @@ if (require.main === module) {
   const scriptN = papers.filter((p) => !p.mirror && /\/s\/d\//.test(p.url || "")).length;
   const deadN = papers.filter((p) => !p.mirror && /educationstandards\.nsw\.edu\.au/.test(p.url || "")).length;
   console.log(`routes: fast ${fastN} · script ${scriptN} · dead wcm ${deadN} · total ${papers.length}`);
-  const FAST_HOST_RE = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au/;
+  const FAST_HOST_RE = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au|web\.archive\.org|aceh\.b-cdn\.net|4unitmaths\.com|cresteconomics\.com/;
   const isFastHost = (u) => !!u && !/\/s\/[dvfz]\//.test(u) && FAST_HOST_RE.test(u); // THSC route endpoints (router/viewer) excluded
   const fastFiles = papers.reduce((n, p) => n + (p.url && isFastHost(p.url) ? 1 : 0) + (p.solutionUrl && isFastHost(p.solutionUrl) ? 1 : 0), 0);
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);

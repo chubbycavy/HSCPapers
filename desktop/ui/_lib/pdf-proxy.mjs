@@ -1,6 +1,7 @@
 export const ALLOWED_HOSTS = new Set([
   "hscportal.pages.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au",
   "thsconline.github.io", "thsconline.pages.dev", "thsconline.com.au",
+  "web.archive.org", "aceh.b-cdn.net", "4unitmaths.com", "cresteconomics.com",
 ]);
 export const EXPORT_APIS = [
   "https://script.google.com/macros/s/AKfycbzwc57zmEK1Vm9Q5L1n1my3dxRafZRfNhCZ24zSLIa9H7MhySFhNahvPfW4R3uq753_/exec",

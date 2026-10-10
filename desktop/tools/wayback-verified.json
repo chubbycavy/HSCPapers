@@ -1,0 +1,461 @@
+{
+ "_doc": "Wayback rescue lane (H2): slow-route router URLs -> verified raw-byte captures (/web/<ts>id_/<url>) of their OFFICIAL documents from the Internet Archive. Byte proof: 200 + application/pdf + %PDF- + SHA-256 (+ PDF.js pages). exact=true = bytes hash-equal the ground truth from tools/slow-route-truth.json; withheld rows elect by (course, year, kind). Builder applies exact-URL only; the router stays fallbackUrl. Registration rows carry capture timestamps for deterministic nightly re-verification.",
+ "version": 1,
+ "entries": {
+  "thsc-2720-2001-hsc-paper-1": {
+   "key": "thsc-2720-2001-hsc-paper-1",
+   "url": "https://web.archive.org/web/20250731131927id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/6c6a6a89-66c6-4f06-9392-5401d00cdb3e/english-std-hsc-exam-paper-2-2001.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/6c6a6a89-66c6-4f06-9392-5401d00cdb3e/english-std-hsc-exam-paper-2-2001.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper 2",
+   "sha256": "cdc43e8998f0bb4b371e35fce0b2f0e067ba713cbd5b2f6da24613dd9bb07208",
+   "bytes": 50731,
+   "pages": 8,
+   "lane": "wayback",
+   "captureTs": "20250731131927",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2001,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:09:26.847Z"
+  },
+  "thsc-2720-2004-hsc-paper-1": {
+   "key": "thsc-2720-2004-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240722043835id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/dc9d2a98-93b2-43ef-9d14-99ff2f6c34d3/english-adv-hsc-exam-paper-2-2004.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/dc9d2a98-93b2-43ef-9d14-99ff2f6c34d3/english-adv-hsc-exam-paper-2-2004.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper 2",
+   "sha256": "71ef17493485ffa01ddb34b3fd44fbe1b23ee4f7709184940e7570226cf5ee9c",
+   "bytes": 58947,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240722043835",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2004,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:13:01.102Z"
+  },
+  "thsc-2720-2005-hsc-paper-1": {
+   "key": "thsc-2720-2005-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240720092304id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/e06ff8f5-8ca0-40fb-9aaa-58029627f0a2/english-adv-hsc-exam-paper-2-2005.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e06ff8f5-8ca0-40fb-9aaa-58029627f0a2/english-adv-hsc-exam-paper-2-2005.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper 2",
+   "sha256": "57d49b088411751a29da6b2e66a2b5b12967fb24bc2b6a43f25dfe6e8405fcfd",
+   "bytes": 64338,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240720092304",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2005,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:22:01.476Z"
+  },
+  "thsc-2720-2006-hsc-paper-1": {
+   "key": "thsc-2720-2006-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240720162822id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/1a185e60-7e18-47f8-ba9e-037083bff26e/english-adv-hsc-exam-2006.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/1a185e60-7e18-47f8-ba9e-037083bff26e/english-adv-hsc-exam-2006.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "e7d4f03b7e50cb60c7e27b197326d723604367c67672e389e93669453ed91e84",
+   "bytes": 561165,
+   "pages": 24,
+   "lane": "wayback",
+   "captureTs": "20240720162822",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2006,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:23:10.443Z"
+  },
+  "thsc-2720-2006-hsc-paper-2-advanced": {
+   "key": "thsc-2720-2006-hsc-paper-2-advanced",
+   "url": "https://web.archive.org/web/20240720162822id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/1a185e60-7e18-47f8-ba9e-037083bff26e/english-adv-hsc-exam-2006.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/1a185e60-7e18-47f8-ba9e-037083bff26e/english-adv-hsc-exam-2006.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "e7d4f03b7e50cb60c7e27b197326d723604367c67672e389e93669453ed91e84",
+   "bytes": 561165,
+   "pages": 24,
+   "lane": "wayback",
+   "captureTs": "20240720162822",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2006,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:23:14.198Z"
+  },
+  "thsc-2720-2007-hsc-paper-1": {
+   "key": "thsc-2720-2007-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240720214631id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/5b5edec1-3f6d-42c0-88db-56b1b4ba37de/english-adv-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/5b5edec1-3f6d-42c0-88db-56b1b4ba37de/english-adv-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "0e1329cf87b2c04a0e26ac672af0d03c8023ce8fcae0a5195fec9ea009ac7235",
+   "bytes": 350564,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240720214631",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2007,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:24:32.884Z"
+  },
+  "thsc-2720-2007-hsc-paper-2-advanced": {
+   "key": "thsc-2720-2007-hsc-paper-2-advanced",
+   "url": "https://web.archive.org/web/20240720214631id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/5b5edec1-3f6d-42c0-88db-56b1b4ba37de/english-adv-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/5b5edec1-3f6d-42c0-88db-56b1b4ba37de/english-adv-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "0e1329cf87b2c04a0e26ac672af0d03c8023ce8fcae0a5195fec9ea009ac7235",
+   "bytes": 350564,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240720214631",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2007,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:24:36.629Z"
+  },
+  "thsc-2720-2008-hsc-paper-1": {
+   "key": "thsc-2720-2008-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240720230652id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/5c7672d0-080e-4fb5-b246-8a87bca4b580/english-adv-hsc-exam-paper-2-2008.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/5c7672d0-080e-4fb5-b246-8a87bca4b580/english-adv-hsc-exam-paper-2-2008.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper 2",
+   "sha256": "98b109b86d06ca971d177d5cb34e56bd30342f9bbbaab5830d9a2b988d422afc",
+   "bytes": 197256,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240720230652",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2008,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:26:45.832Z"
+  },
+  "thsc-2720-2009-hsc-paper-1": {
+   "key": "thsc-2720-2009-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240720013239id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/a1bcdf4c-0dab-449b-9b7a-ea426734a89b/english-adv-hsc-exam-paper-2-2009.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/a1bcdf4c-0dab-449b-9b7a-ea426734a89b/english-adv-hsc-exam-paper-2-2009.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper 2",
+   "sha256": "f999348d0bd213a007b779f9bdacb04be7a27503429ea3637bb602b5eb7836ce",
+   "bytes": 88272,
+   "pages": 16,
+   "lane": "wayback",
+   "captureTs": "20240720013239",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2009,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:28:02.865Z"
+  },
+  "thsc-2720-2009-marking-guidelines-paper-1": {
+   "key": "thsc-2720-2009-marking-guidelines-paper-1",
+   "url": "https://web.archive.org/web/20240719145844id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/73998430-7458-4c50-8502-595c4fc09879/english-adv-hsc-mg-paper-2-2009.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/73998430-7458-4c50-8502-595c4fc09879/english-adv-hsc-mg-paper-2-2009.pdf?MOD=AJPERES",
+   "docName": "Marking Guidelines - Paper 2",
+   "sha256": "40d522c501f24d8646a4c3746334e819a310967b220a2a99801bacebf0c119de",
+   "bytes": 74567,
+   "pages": 6,
+   "lane": "wayback",
+   "captureTs": "20240719145844",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2009,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:29:05.073Z"
+  },
+  "thsc-2720-2009-sample-answers-paper-1": {
+   "key": "thsc-2720-2009-sample-answers-paper-1",
+   "url": "https://web.archive.org/web/20240719145844id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/73998430-7458-4c50-8502-595c4fc09879/english-adv-hsc-mg-paper-2-2009.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/73998430-7458-4c50-8502-595c4fc09879/english-adv-hsc-mg-paper-2-2009.pdf?MOD=AJPERES",
+   "docName": "Marking Guidelines - Paper 2",
+   "sha256": "40d522c501f24d8646a4c3746334e819a310967b220a2a99801bacebf0c119de",
+   "bytes": 74567,
+   "pages": 6,
+   "lane": "wayback",
+   "captureTs": "20240719145844",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2009,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:29:13.029Z"
+  },
+  "thsc-2720-2010-hsc-paper-1": {
+   "key": "thsc-2720-2010-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240720190322id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/cb8cb138-a9e2-4f46-b57a-92247d14a3cf/english-adv-hsc-exam-paper-2-2010.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/cb8cb138-a9e2-4f46-b57a-92247d14a3cf/english-adv-hsc-exam-paper-2-2010.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper 2",
+   "sha256": "ab57197909ed625b1b02b007b6056b23bd1bbfefa7e0aa68df2234c64ae181ec",
+   "bytes": 200238,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240720190322",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2010,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:32:11.632Z"
+  },
+  "thsc-2720-2010-marking-guidelines-paper-1": {
+   "key": "thsc-2720-2010-marking-guidelines-paper-1",
+   "url": "https://web.archive.org/web/20240720063154id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/6faae387-3ddf-4b88-8515-077ac5a933dd/english-adv-hsc-mg-2010.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/6faae387-3ddf-4b88-8515-077ac5a933dd/english-adv-hsc-mg-2010.pdf?MOD=AJPERES",
+   "docName": "Marking Guidelines - Paper 2",
+   "sha256": "c94265abd57fb4854b0aee3b88185a529b4da65e1a1fced4c83f76da116837e6",
+   "bytes": 75834,
+   "pages": 7,
+   "lane": "wayback",
+   "captureTs": "20240720063154",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2010,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:33:44.513Z"
+  },
+  "thsc-2720-2010-sample-answers-paper-1": {
+   "key": "thsc-2720-2010-sample-answers-paper-1",
+   "url": "https://web.archive.org/web/20240720063154id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/6faae387-3ddf-4b88-8515-077ac5a933dd/english-adv-hsc-mg-2010.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/6faae387-3ddf-4b88-8515-077ac5a933dd/english-adv-hsc-mg-2010.pdf?MOD=AJPERES",
+   "docName": "Marking Guidelines - Paper 2",
+   "sha256": "c94265abd57fb4854b0aee3b88185a529b4da65e1a1fced4c83f76da116837e6",
+   "bytes": 75834,
+   "pages": 7,
+   "lane": "wayback",
+   "captureTs": "20240720063154",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2010,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:33:52.372Z"
+  },
+  "thsc-2720-2011-hsc-paper-1": {
+   "key": "thsc-2720-2011-hsc-paper-1",
+   "url": "https://web.archive.org/web/20240719112041id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/9347de39-145e-4154-8122-c9c9473ba7c5/english-adv-hsc-exam-2011.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/9347de39-145e-4154-8122-c9c9473ba7c5/english-adv-hsc-exam-2011.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "4a32456f498757c22df897dd9616c685b12d26198c7a18f21c80f5591a9797e7",
+   "bytes": 1321679,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240719112041",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2011,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:35:12.115Z"
+  },
+  "thsc-2720-2011-hsc-paper-2-advanced": {
+   "key": "thsc-2720-2011-hsc-paper-2-advanced",
+   "url": "https://web.archive.org/web/20240719112041id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/9347de39-145e-4154-8122-c9c9473ba7c5/english-adv-hsc-exam-2011.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/9347de39-145e-4154-8122-c9c9473ba7c5/english-adv-hsc-exam-2011.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "4a32456f498757c22df897dd9616c685b12d26198c7a18f21c80f5591a9797e7",
+   "bytes": 1321679,
+   "pages": 12,
+   "lane": "wayback",
+   "captureTs": "20240719112041",
+   "kind": "paper",
+   "subject": "English",
+   "year": 2011,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:35:16.481Z"
+  },
+  "thsc-2720-2011-marking-guidelines-paper-1": {
+   "key": "thsc-2720-2011-marking-guidelines-paper-1",
+   "url": "https://web.archive.org/web/20240719102719id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/7527dc2f-6e92-47b2-8470-2bafdf028b36/english-adv-hsc-mg-paper-2-2011.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/7527dc2f-6e92-47b2-8470-2bafdf028b36/english-adv-hsc-mg-paper-2-2011.pdf?MOD=AJPERES",
+   "docName": "Marking Guidelines - Paper 2",
+   "sha256": "0f422d32d55af583e4b6ff6cb320bb7de9a607a83c9d5fa7e350e0a3b7a76a65",
+   "bytes": 128906,
+   "pages": 6,
+   "lane": "wayback",
+   "captureTs": "20240719102719",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2011,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:37:04.474Z"
+  },
+  "thsc-2720-2011-sample-answers-paper-1": {
+   "key": "thsc-2720-2011-sample-answers-paper-1",
+   "url": "https://web.archive.org/web/20240719102719id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/7527dc2f-6e92-47b2-8470-2bafdf028b36/english-adv-hsc-mg-paper-2-2011.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/7527dc2f-6e92-47b2-8470-2bafdf028b36/english-adv-hsc-mg-paper-2-2011.pdf?MOD=AJPERES",
+   "docName": "Marking Guidelines - Paper 2",
+   "sha256": "0f422d32d55af583e4b6ff6cb320bb7de9a607a83c9d5fa7e350e0a3b7a76a65",
+   "bytes": 128906,
+   "pages": 6,
+   "lane": "wayback",
+   "captureTs": "20240719102719",
+   "kind": "mg",
+   "subject": "English",
+   "year": 2011,
+   "exact": false,
+   "groundTruth": {
+    "withheld": true,
+    "guardKind": "collapsed"
+   },
+   "verifiedAt": "2026-10-10T09:37:10.822Z"
+  },
+  "thsc-5320-2007-hsc": {
+   "key": "thsc-5320-2007-hsc",
+   "url": "https://web.archive.org/web/20230722182608id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/b62b1306-2635-4b96-a0fc-12b73fda87f3/maths-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/b62b1306-2635-4b96-a0fc-12b73fda87f3/maths-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "c78806ebaa9c7a5a8971d7e95c13093eb686accd156e6d78ff95a2f099d6f127",
+   "bytes": 136040,
+   "pages": 16,
+   "lane": "wayback",
+   "captureTs": "20230722182608",
+   "kind": "paper",
+   "subject": "Mathematics Advanced",
+   "year": 2007,
+   "exact": true,
+   "groundTruth": {
+    "sha256": "c78806ebaa9c7a5a8971d7e95c13093eb686accd156e6d78ff95a2f099d6f127"
+   },
+   "verifiedAt": "2026-10-10T09:39:34.970Z"
+  },
+  "thsc-5320-2012-hsc": {
+   "key": "thsc-5320-2012-hsc",
+   "url": "https://web.archive.org/web/20250415014200id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/41e874c4-e708-4d80-b519-4632b4cc9608/maths-hsc-exam-2012.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/41e874c4-e708-4d80-b519-4632b4cc9608/maths-hsc-exam-2012.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "5d439d70c13f9ad99a06baf233f8ce638a305265612d99c7bbf940ce619342b5",
+   "bytes": 153177,
+   "pages": 20,
+   "lane": "wayback",
+   "captureTs": "20250415014200",
+   "kind": "paper",
+   "subject": "Mathematics Advanced",
+   "year": 2012,
+   "exact": true,
+   "groundTruth": {
+    "sha256": "5d439d70c13f9ad99a06baf233f8ce638a305265612d99c7bbf940ce619342b5"
+   },
+   "verifiedAt": "2026-10-10T09:40:36.996Z"
+  },
+  "thsc-5310-2001-hsc": {
+   "key": "thsc-5310-2001-hsc",
+   "url": "https://web.archive.org/web/20230722182534id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/32a971b4-9f76-4bcb-b83c-bee29796b035/maths-general-hsc-exam-2001.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/32a971b4-9f76-4bcb-b83c-bee29796b035/maths-general-hsc-exam-2001.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "42aaa0f0bd75642e03264c7fd166e23afd8d83be2c0019f95bd013e112c316c2",
+   "bytes": 158004,
+   "pages": 32,
+   "lane": "wayback",
+   "captureTs": "20230722182534",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2001,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "2803cf22a26b1007a6f0a90b3d2b05ac65e904de926705d60a972a26e0ddf4c3"
+   },
+   "verifiedAt": "2026-10-10T09:40:54.423Z"
+  },
+  "thsc-5310-2007-hsc": {
+   "key": "thsc-5310-2007-hsc",
+   "url": "https://web.archive.org/web/20230722182644id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/f50877dc-70c2-4f36-bfa1-88f849cfb1bf/maths-general-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/f50877dc-70c2-4f36-bfa1-88f849cfb1bf/maths-general-hsc-exam-2007.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "15b0e29b7ec076bbd52f2717c13ce3415b74368e3ca38c17893efe141d035999",
+   "bytes": 250291,
+   "pages": 26,
+   "lane": "wayback",
+   "captureTs": "20230722182644",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2007,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "b5917091ac476734c72d70a547e42414a8bac2ac289ac15e512fc9b1602c4127"
+   },
+   "verifiedAt": "2026-10-10T09:41:40.925Z"
+  },
+  "thsc-5310-2012-hsc": {
+   "key": "thsc-5310-2012-hsc",
+   "url": "https://web.archive.org/web/20230722182555id_/https://educationstandards.nsw.edu.au/wps/wcm/connect/272b0fb4-6acc-45a8-8e12-54e00bd89f78/maths-general-hsc-exam-2012.pdf?MOD=AJPERES",
+   "docUrl": "https://educationstandards.nsw.edu.au/wps/wcm/connect/272b0fb4-6acc-45a8-8e12-54e00bd89f78/maths-general-hsc-exam-2012.pdf?MOD=AJPERES",
+   "docName": "HSC Exam Paper",
+   "sha256": "1cee1593e6754b0a9ca1edc4cfad3fea79a0f6a4f8e0739655564b2c7c7130d0",
+   "bytes": 575369,
+   "pages": 34,
+   "lane": "wayback",
+   "captureTs": "20230722182555",
+   "kind": "paper",
+   "subject": "Mathematics Standard",
+   "year": 2012,
+   "exact": false,
+   "groundTruth": {
+    "sha256": "8cf9c3d07ea0ffd6a45cfa6b96f48c98f1d66fa5e48732977350c4651cdee312"
+   },
+   "verifiedAt": "2026-10-10T09:42:00.526Z"
+  }
+ }
+}

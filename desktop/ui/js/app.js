@@ -1153,7 +1153,7 @@
   // dead NESA wcm) is a "slow route" resolved via the throttled resolver.
   // (A third-party mirror was delisted 2026-09-25; its papers are
   // self-hosted now — desktop/tools/selfhost.json.)
-  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.github.io", "thsconline.com.au"]);
+  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.github.io", "thsconline.com.au", "web.archive.org", "aceh.b-cdn.net", "4unitmaths.com", "cresteconomics.com"]);
   function isFastHostUrl(u) {
     try { const url = new URL(u); if (/^\/s\/[dvfz]\//.test(url.pathname)) return false; return FAST_SAVE_HOSTS.has(url.host); } catch { return false; }
   }
@@ -1162,7 +1162,7 @@
   // same-origin /proxy Pages Function (allowlisted, Range passthrough)
   // when SITE_CONFIG.PROXY_BASE is set; with no proxy, the CORS hint fires.
   // Our own R2 bucket (self-hosted papers) sends ACAO:* too.
-  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "thsconline.github.io"]);
+  const CORS_OK_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "thsconline.github.io", "web.archive.org"]);
   function proxied(u) {
     const p = window.SITE_CONFIG?.PROXY_BASE;
     if (!p || !u) return u;

@@ -1119,6 +1119,14 @@ fn source_of(url: &str) -> &'static str {
         "script"
     } else if url.contains("thsconline.github.io") {
         "thsc-index"
+    } else if url.contains("web.archive.org") {
+        "wayback"
+    } else if url.contains("aceh.b-cdn.net") {
+        "acehsc"
+    } else if url.contains("4unitmaths.com") {
+        "4unit-maths"
+    } else if url.contains("cresteconomics.com") {
+        "crest"
     } else if url.contains("educationstandards.nsw.edu.au") {
         "nesa"
     } else {

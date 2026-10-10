@@ -1,0 +1,258 @@
+{
+ "generated": "2026-10-10T11:40:11.306Z",
+ "uploads": [
+  {
+   "stagedPath": "133f965389.pdf",
+   "r2Key": "papers/drive/133f965389ef3ce9cd93beac93db9876272bba538773db80ceabc721c99667de.pdf",
+   "sha256": "133f965389ef3ce9cd93beac93db9876272bba538773db80ceabc721c99667de",
+   "bytes": 90768,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2017 (practical).pdf",
+    "driveFileId": "1gZMBUJGy1_jx6Vmvo8M8ZFLpXl-nZgOD",
+    "sourceUrl": "https://drive.google.com/file/d/1gZMBUJGy1_jx6Vmvo8M8ZFLpXl-nZgOD/view"
+   }
+  },
+  {
+   "stagedPath": "9076e847e9.pdf",
+   "r2Key": "papers/drive/9076e847e9ce24d7833f37181f2a038bf5bacade82f37984b1a3d8c3ea64fc12.pdf",
+   "sha256": "9076e847e9ce24d7833f37181f2a038bf5bacade82f37984b1a3d8c3ea64fc12",
+   "bytes": 132402,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2017.pdf",
+    "driveFileId": "1Lepox-7ZvX4C34kA0KV1X1964mRf_9bx",
+    "sourceUrl": "https://drive.google.com/file/d/1Lepox-7ZvX4C34kA0KV1X1964mRf_9bx/view"
+   }
+  },
+  {
+   "stagedPath": "dbdd8778a5.pdf",
+   "r2Key": "papers/drive/dbdd8778a534eb27d05a9f6f2be2b2938edf0c765e4a9b6a52c68389b0cce3b0.pdf",
+   "sha256": "dbdd8778a534eb27d05a9f6f2be2b2938edf0c765e4a9b6a52c68389b0cce3b0",
+   "bytes": 85400,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2018 (practical).pdf",
+    "driveFileId": "1Z3gqbyl95r4Gq3L0ywRc_ostxRSD2jIv",
+    "sourceUrl": "https://drive.google.com/file/d/1Z3gqbyl95r4Gq3L0ywRc_ostxRSD2jIv/view"
+   }
+  },
+  {
+   "stagedPath": "b246f0e80e.pdf",
+   "r2Key": "papers/drive/b246f0e80e28c5d1ffc85362ca426cbc2a0e4d174f30fdd8347189aad9523cb6.pdf",
+   "sha256": "b246f0e80e28c5d1ffc85362ca426cbc2a0e4d174f30fdd8347189aad9523cb6",
+   "bytes": 390199,
+   "sourceRow": {
+    "title": "2019Theory.pdf",
+    "driveFileId": "1p09uUsHzhB8WhCUeyRROz9u2blcmRtst",
+    "sourceUrl": "https://drive.google.com/file/d/1p09uUsHzhB8WhCUeyRROz9u2blcmRtst/view"
+   }
+  },
+  {
+   "stagedPath": "320b49915b.pdf",
+   "r2Key": "papers/drive/320b49915b3a18c420b5c47980e83d782b8d6570b558db35215da248bff12626.pdf",
+   "sha256": "320b49915b3a18c420b5c47980e83d782b8d6570b558db35215da248bff12626",
+   "bytes": 151687,
+   "sourceRow": {
+    "title": "2019TheoryAnswers.pdf",
+    "driveFileId": "1V0y5B-HXbziLDg9tZT1vCVrT3rt21eRb",
+    "sourceUrl": "https://drive.google.com/file/d/1V0y5B-HXbziLDg9tZT1vCVrT3rt21eRb/view"
+   }
+  },
+  {
+   "stagedPath": "931a2210d0.pdf",
+   "r2Key": "papers/drive/931a2210d0d7195323ad40a8066d6931cb5bf313540494fb1f2e6d6dd5ca5bd0.pdf",
+   "sha256": "931a2210d0d7195323ad40a8066d6931cb5bf313540494fb1f2e6d6dd5ca5bd0",
+   "bytes": 130724,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2019 (practical).pdf",
+    "driveFileId": "1WGtMCWq9KaE8_QUfyf5W_pDHxMQ1QHxQ",
+    "sourceUrl": "https://drive.google.com/file/d/1WGtMCWq9KaE8_QUfyf5W_pDHxMQ1QHxQ/view"
+   }
+  },
+  {
+   "stagedPath": "70465285de.pdf",
+   "r2Key": "papers/drive/70465285dee8ea74a18c013821a53749ec0596c16d73a8efd0bdeeb8cb1885dc.pdf",
+   "sha256": "70465285dee8ea74a18c013821a53749ec0596c16d73a8efd0bdeeb8cb1885dc",
+   "bytes": 390203,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2019.pdf",
+    "driveFileId": "13VGLq9GYDK_LcVK1J32g4mMOtIyGqWKv",
+    "sourceUrl": "https://drive.google.com/file/d/13VGLq9GYDK_LcVK1J32g4mMOtIyGqWKv/view"
+   }
+  },
+  {
+   "stagedPath": "e6bc3ded2d.pdf",
+   "r2Key": "papers/drive/e6bc3ded2d56dbb5ca7edc9c6d569ebfb63163839510f66b9a392ebee418b578.pdf",
+   "sha256": "e6bc3ded2d56dbb5ca7edc9c6d569ebfb63163839510f66b9a392ebee418b578",
+   "bytes": 127112,
+   "sourceRow": {
+    "title": "MATH3202_PracticalExam_2019.pdf",
+    "driveFileId": "14-PXFRUKWcb1a4r9R2ss6jiQX51_K40y",
+    "sourceUrl": "https://drive.google.com/file/d/14-PXFRUKWcb1a4r9R2ss6jiQX51_K40y/view"
+   }
+  },
+  {
+   "stagedPath": "bb88770bab.pdf",
+   "r2Key": "papers/drive/bb88770bab37d1447102904a5f9bdd7323a7ac190551ac42c4e9d90efdcabc76.pdf",
+   "sha256": "bb88770bab37d1447102904a5f9bdd7323a7ac190551ac42c4e9d90efdcabc76",
+   "bytes": 390197,
+   "sourceRow": {
+    "title": "Semester_One_Final_Examinations__2019_MATH3202.pdf",
+    "driveFileId": "1eXoVaUP9UB_0oODChcGyFGfkuCdN1dfM",
+    "sourceUrl": "https://drive.google.com/file/d/1eXoVaUP9UB_0oODChcGyFGfkuCdN1dfM/view"
+   }
+  },
+  {
+   "stagedPath": "2bc32dcc7b.pdf",
+   "r2Key": "papers/drive/2bc32dcc7b9d8a61f030512dfcc17c6083e13a02ace8412674b364209190b65e.pdf",
+   "sha256": "2bc32dcc7b9d8a61f030512dfcc17c6083e13a02ace8412674b364209190b65e",
+   "bytes": 128539,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2020.pdf",
+    "driveFileId": "1khZIORrVhlsaVTnEnGqPJxRtoCHbA4sq",
+    "sourceUrl": "https://drive.google.com/file/d/1khZIORrVhlsaVTnEnGqPJxRtoCHbA4sq/view"
+   }
+  },
+  {
+   "stagedPath": "20e76d9b23.pdf",
+   "r2Key": "papers/drive/20e76d9b23c2f141bffcc5e84481ebb7dbebfc0619bff4efef571db085d95685.pdf",
+   "sha256": "20e76d9b23c2f141bffcc5e84481ebb7dbebfc0619bff4efef571db085d95685",
+   "bytes": 135588,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2021.pdf",
+    "driveFileId": "12UA1oFw1qdFD_EJ_2DHhQ9os_D5EZ2OA",
+    "sourceUrl": "https://drive.google.com/file/d/12UA1oFw1qdFD_EJ_2DHhQ9os_D5EZ2OA/view"
+   }
+  },
+  {
+   "stagedPath": "6a5f297d2a.pdf",
+   "r2Key": "papers/drive/6a5f297d2a9137af4db77500feae71765b2a928af982fc02167c7b415503926e.pdf",
+   "sha256": "6a5f297d2a9137af4db77500feae71765b2a928af982fc02167c7b415503926e",
+   "bytes": 38705,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2022 (practical).pdf",
+    "driveFileId": "17jqsUogt2fqWOV3NCpzYTAXNMxTomkS1",
+    "sourceUrl": "https://drive.google.com/file/d/17jqsUogt2fqWOV3NCpzYTAXNMxTomkS1/view"
+   }
+  },
+  {
+   "stagedPath": "55f8351d27.pdf",
+   "r2Key": "papers/drive/55f8351d2790de024e47d17d6b9f23bc36223eb3dcc3d6681e9a39edf55df551.pdf",
+   "sha256": "55f8351d2790de024e47d17d6b9f23bc36223eb3dcc3d6681e9a39edf55df551",
+   "bytes": 178948,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2022.pdf",
+    "driveFileId": "1qLAP2x6So0XnF6brytFv9DU41a2Fm08Q",
+    "sourceUrl": "https://drive.google.com/file/d/1qLAP2x6So0XnF6brytFv9DU41a2Fm08Q/view"
+   }
+  },
+  {
+   "stagedPath": "2d268f52b7.pdf",
+   "r2Key": "papers/drive/2d268f52b7e4c1cb44a6eb2fa94938b161d87506d51c11ce4843d2f1adb93ff2.pdf",
+   "sha256": "2d268f52b7e4c1cb44a6eb2fa94938b161d87506d51c11ce4843d2f1adb93ff2",
+   "bytes": 34365,
+   "sourceRow": {
+    "title": "MATH3202-PracticalExam-2022.pdf",
+    "driveFileId": "1ZMpnFxerSOwUxCHDUchk69CQ_T2Ogj4g",
+    "sourceUrl": "https://drive.google.com/file/d/1ZMpnFxerSOwUxCHDUchk69CQ_T2Ogj4g/view"
+   }
+  },
+  {
+   "stagedPath": "caac1c7d79.pdf",
+   "r2Key": "papers/drive/caac1c7d7929488bb3d84842be25d8f6b451f758fd438103da5ba50beb5b54cf.pdf",
+   "sha256": "caac1c7d7929488bb3d84842be25d8f6b451f758fd438103da5ba50beb5b54cf",
+   "bytes": 151963,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2023 (practical).pdf",
+    "driveFileId": "1iGqkp27JFmYwSWEj0Zg5mDS1yGAl-_ih",
+    "sourceUrl": "https://drive.google.com/file/d/1iGqkp27JFmYwSWEj0Zg5mDS1yGAl-_ih/view"
+   }
+  },
+  {
+   "stagedPath": "458f8baf23.pdf",
+   "r2Key": "papers/drive/458f8baf23cdc4c523b17aa009225a25d77d78f80ca09fcdf4acecc3b2f4c5bf.pdf",
+   "sha256": "458f8baf23cdc4c523b17aa009225a25d77d78f80ca09fcdf4acecc3b2f4c5bf",
+   "bytes": 197932,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2023.pdf",
+    "driveFileId": "16vu20_r2mb0omlvDOXjWd0YRdCh0iP1D",
+    "sourceUrl": "https://drive.google.com/file/d/16vu20_r2mb0omlvDOXjWd0YRdCh0iP1D/view"
+   }
+  },
+  {
+   "stagedPath": "d2173c98d3.pdf",
+   "r2Key": "papers/drive/d2173c98d3feb936dea9678090f72b68a27a3f0df2033743dd49438610e76a71.pdf",
+   "sha256": "d2173c98d3feb936dea9678090f72b68a27a3f0df2033743dd49438610e76a71",
+   "bytes": 148872,
+   "sourceRow": {
+    "title": "MATH3202-PracticalExam-2023.pdf",
+    "driveFileId": "1BTntnjdGFE04Dm8lHta1CpdNi_NHutWw",
+    "sourceUrl": "https://drive.google.com/file/d/1BTntnjdGFE04Dm8lHta1CpdNi_NHutWw/view"
+   }
+  },
+  {
+   "stagedPath": "4883144137.pdf",
+   "r2Key": "papers/drive/488314413723ade666f54463ddabfd20391abb046a9e5feed8ea83e98d98aadc.pdf",
+   "sha256": "488314413723ade666f54463ddabfd20391abb046a9e5feed8ea83e98d98aadc",
+   "bytes": 162182,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2024 (practical).pdf",
+    "driveFileId": "10HfADqq1oFkcw_II38fp-4QiBcABLLap",
+    "sourceUrl": "https://drive.google.com/file/d/10HfADqq1oFkcw_II38fp-4QiBcABLLap/view"
+   }
+  },
+  {
+   "stagedPath": "0ae525f99d.pdf",
+   "r2Key": "papers/drive/0ae525f99dce8b094871919d1d9d40d185abd6540a6b04a6ca264a699da8b122.pdf",
+   "sha256": "0ae525f99dce8b094871919d1d9d40d185abd6540a6b04a6ca264a699da8b122",
+   "bytes": 215614,
+   "sourceRow": {
+    "title": "MATH3202 Final exam - 2024.pdf",
+    "driveFileId": "1xZcNR-kSiEy0gZtc3sr5eICBUvZExUC_",
+    "sourceUrl": "https://drive.google.com/file/d/1xZcNR-kSiEy0gZtc3sr5eICBUvZExUC_/view"
+   }
+  },
+  {
+   "stagedPath": "8f77be7b60.pdf",
+   "r2Key": "papers/drive/8f77be7b60465f9d476e4721f0d5b5edc58bdeea3562bab13163acd93fb401a4.pdf",
+   "sha256": "8f77be7b60465f9d476e4721f0d5b5edc58bdeea3562bab13163acd93fb401a4",
+   "bytes": 127346,
+   "sourceRow": {
+    "title": "Practical Exam 2013.pdf",
+    "driveFileId": "1mS0VCQr0Onnr3EyFqXDJGUusMm6zmse8",
+    "sourceUrl": "https://drive.google.com/file/d/1mS0VCQr0Onnr3EyFqXDJGUusMm6zmse8/view"
+   }
+  },
+  {
+   "stagedPath": "c478caa119.pdf",
+   "r2Key": "papers/drive/c478caa1194b09f946ef2669165019d3caef0d5c7dc55a2d334dafd1aca5e9d5.pdf",
+   "sha256": "c478caa1194b09f946ef2669165019d3caef0d5c7dc55a2d334dafd1aca5e9d5",
+   "bytes": 55329,
+   "sourceRow": {
+    "title": "Practical Exam 2014.pdf",
+    "driveFileId": "10mKLDy_EaaohEvf-eQXHHaHGqTxIXzqW",
+    "sourceUrl": "https://drive.google.com/file/d/10mKLDy_EaaohEvf-eQXHHaHGqTxIXzqW/view"
+   }
+  },
+  {
+   "stagedPath": "0550b45d61.pdf",
+   "r2Key": "papers/drive/0550b45d6160b40babe9997016e0f7b07cac89abb09ed638e9d81476af48bdcb.pdf",
+   "sha256": "0550b45d6160b40babe9997016e0f7b07cac89abb09ed638e9d81476af48bdcb",
+   "bytes": 84275,
+   "sourceRow": {
+    "title": "Practical Exam 2015.pdf",
+    "driveFileId": "1RIbl3dUMtA_twiJDIqfALKj7YgwlOqsz",
+    "sourceUrl": "https://drive.google.com/file/d/1RIbl3dUMtA_twiJDIqfALKj7YgwlOqsz/view"
+   }
+  },
+  {
+   "stagedPath": "3d2e52649c.pdf",
+   "r2Key": "papers/drive/3d2e52649c3f0382a82eebaa56ed40d9dbbceec715eef064daaa2cc767ff566c.pdf",
+   "sha256": "3d2e52649c3f0382a82eebaa56ed40d9dbbceec715eef064daaa2cc767ff566c",
+   "bytes": 50855,
+   "sourceRow": {
+    "title": "Practical Exam 2016.pdf",
+    "driveFileId": "1J3QF_pwsgO8hDNVrmfO7bTBSCIjGsvdv",
+    "sourceUrl": "https://drive.google.com/file/d/1J3QF_pwsgO8hDNVrmfO7bTBSCIjGsvdv/view"
+   }
+  }
+ ]
+}

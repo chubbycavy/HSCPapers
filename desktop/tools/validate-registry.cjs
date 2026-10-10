@@ -21,6 +21,8 @@ const OUT = path.join(TOOLS, "health-report.json");
 const REGISTRIES = [
   { name: "thsc-au", file: path.join(TOOLS, "thsc-au-verified.json") },
   { name: "nesa-archive", file: path.join(TOOLS, "nesa-archive-verified.json") },
+  { name: "wayback", file: path.join(TOOLS, "wayback-verified.json") },
+  { name: "drive-upload", file: path.join(TOOLS, "drive-verified.json") },
   { name: "nesa-recovery", file: path.join(TOOLS, "nesa-recovery.json") },
 ];
 const UA = { "User-Agent": "HSCPapers/1.0 (registry anti-rot validation)", "Accept-Encoding": "identity" };
@@ -60,6 +62,7 @@ function loadEntries(reg) {
     const list = Array.isArray(json.entries) ? json.entries.map((e, i) => [e.key || e.url || String(i), e]) : Object.entries(json.entries || {});
     for (const [, e] of list) {
       if (!e || !e.url) continue;
+      if (reg.name === "drive-upload" && !e.uploaded) continue; // staged-but-unuploaded rows wait for the operator's R2 pass
       rows.push({ id: e.key || e.url, url: e.url, sha256: e.sha256 || null, bytes: e.bytes || null, pages: e.pages || null });
     }
   }

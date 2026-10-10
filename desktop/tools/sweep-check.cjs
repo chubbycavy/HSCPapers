@@ -160,7 +160,7 @@ async function main() {
     } else { warn("host sets not parseable (regex drift)"); ok = false; }
     if (fast && cors) for (const h of cors) if (!fast.has(h)) { fail(`CORS_OK_HOSTS host "${h}" not in FAST_SAVE_HOSTS`); ok = false; }
     if (allowed) for (const h of ["www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.com.au", "thsconline.pages.dev"]) if (!allowed.has(h)) { fail(`proxy ALLOWED_HOSTS missing "${h}"`); ok = false; }
-    const mainRsHosts = new Set([...mainRs.matchAll(/"(hscportal\.pages\.dev|pub-ec23[a-f0-9]*\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au|thsconline\.pages\.dev)"/g)].map((m) => m[1]));
+    const mainRsHosts = new Set([...mainRs.matchAll(/"(hscportal\.pages\.dev|pub-ec23[a-f0-9]*\.r2\.dev|www\.nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au|thsconline\.pages\.dev|web\.archive\.org|aceh\.b-cdn\.net|4unitmaths\.com|cresteconomics\.com)"/g)].map((m) => m[1]));
     if (fast) for (const h of fast) { const s = stripWww(h); if (!mainRsHosts.has(h) && !mainRsHosts.has(s)) warn(`main.rs does not literally mention fast host "${h}"`); }
     // Resolver lane contract: proxy.js must carry the Apps Script resolution
     // branch, and its 16 quota pools must EXACTLY match the Rust WORKERS
@@ -224,15 +224,28 @@ async function main() {
     else fail(`papers.json payload budget BLOWN (brotli ${MB.toFixed(2)} MB > 0.75)`, "catalogue growth needs a structural fix, not a shrug");
 
     // (b) slow-route KPI: the resolver-lane count never increases. Baseline
-    // 329 = the v1.0.21 population; re-points and v1.0.23 additions may only
-    // shrink it. Monotonic via the same .cache sweep-state.
+    // evolved per release: 394 (pre-v1.0.21) -> 329 (v1.0.21) -> 277
+    // (v1.0.23); the demote-to-fallback doctrine drives it to 0 primaries.
     const slowN = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
-    const SLOW_BASE = 329;
+    const SLOW_BASE = 277;
     let prevSlow = null;
     try { prevSlow = JSON.parse(fs.readFileSync(statePath, "utf8")).slowRoute; } catch {}
     if (slowN > SLOW_BASE) fail(`slow-route KPI BROKE (${slowN} > baseline ${SLOW_BASE})`, "slow lane must never grow");
     else if (typeof prevSlow === "number" && slowN > prevSlow) fail(`slow-route count regressed (${prevSlow} -> ${slowN})`, "a release moved papers BACK onto the slow lane");
     else pass(`slow-route KPI holds (${slowN} <= ${typeof prevSlow === "number" && prevSlow !== slowN ? `previous ${prevSlow}, baseline ` : ""}${SLOW_BASE})`);
+
+    // (b2) fast-share KPI (v1.0.24): direct-file lanes (FAST+MEDIUM) as a
+    // share of all file pointers must be non-decreasing release-over-release
+    // — the catalogue can only get faster, never slower.
+    const fastRe = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au|thsconline\.github\.io|thsconline\.com\.au|web\.archive\.org|aceh\.b-cdn\.net|4unitmaths\.com|cresteconomics\.com/;
+    const isFastUrl = (u) => u && !/\/s\/[dvfz]\//.test(u) && fastRe.test(u);
+    const totalFilesN = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
+    const fastFilesN = papers.reduce((n, p) => n + (isFastUrl(p.url) ? 1 : 0) + (isFastUrl(p.solutionUrl) ? 1 : 0), 0);
+    const share = totalFilesN ? fastFilesN / totalFilesN : 0;
+    let prevShare = null;
+    try { prevShare = JSON.parse(fs.readFileSync(statePath, "utf8")).fastShare; } catch {}
+    if (typeof prevShare === "number" && share + 0.002 < prevShare) fail(`fast-share regressed (${(prevShare * 100).toFixed(1)}% -> ${(share * 100).toFixed(1)}%)`, "the catalogue got slower");
+    else pass(`fast-share KPI holds (${(share * 100).toFixed(1)}% of ${totalFilesN} files direct-lane${typeof prevShare === "number" ? `, prev ${(prevShare * 100).toFixed(1)}%` : ""})`);
 
     // (c) anti-rot health report: validate-registry.cjs must have run recently
     // and nothing may be rotted. ERROR-class entries (throttle/network) do not
@@ -252,7 +265,7 @@ async function main() {
     }
     try {
       fs.mkdirSync(path.dirname(statePath), { recursive: true });
-      fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, slowRoute: slowN, at: new Date().toISOString() }, null, 1));
+      fs.writeFileSync(statePath, JSON.stringify({ ...state, registries: counts, slowRoute: slowN, fastShare: share, at: new Date().toISOString() }, null, 1));
     } catch {}
   }
 
