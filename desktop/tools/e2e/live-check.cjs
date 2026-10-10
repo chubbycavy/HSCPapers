@@ -19,10 +19,11 @@ const warn = (s) => console.log(`  WARN  ${s}`);
   const n = (live.papers || []).length;
   const nsw = (live.papers || []).filter((p) => (p.url || "").includes("www.nsw.gov.au")).length;
   const r2 = (live.papers || []).filter((p) => (p.url || "").includes("pub-ec23")).length;
-  // floors track the current baseline: 6,975 papers after the same-file
-  // dedupe collapse; 319 nsw.gov.au primaries after dan's index transfers
-  // moved some to his GitHub hosting
-  if (n >= 6900 && nsw >= 310 && r2 >= 70) pass(`catalogue: ${n} papers | nsw ${nsw} | r2 ${r2}`);
+  // floors track the current baseline: 10,368 papers after the adds machinery;
+  // the nsw.gov.au primaries dropped to ~298 after the v1.0.25 collapse demoted
+  // the second-row duplicates back to their fallback chains (the survivors
+  // keep one fast primary per file, all listings preserved).
+  if (n >= 10100 && nsw >= 280 && r2 >= 70) pass(`catalogue: ${n} papers | nsw ${nsw} | r2 ${r2}`);
   else fail(`catalogue markers drifted: ${n}/${nsw}/${r2}`);
 
   for (const f of ["sw.js", "manifest.webmanifest", "og-card.png", "robots.txt", "sitemap.xml", "icon-192.png", "coverage"]) {
