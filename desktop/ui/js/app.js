@@ -316,13 +316,15 @@
     // reinstalling), fall back to the bundled copy when offline/blocked.
     if (IS_TAURI && window.SITE_CONFIG?.LIVE_CATALOGUE_URL) {
       try {
-        const res = await fetch(window.SITE_CONFIG.LIVE_CATALOGUE_URL, { cache: "no-store" });
+        const liveUrl = new URL(window.SITE_CONFIG.LIVE_CATALOGUE_URL);
+        liveUrl.searchParams.set("v", "canonical-1"); // bypass the old inflated catalogue's CDN cache key
+        const res = await fetch(liveUrl.href, { cache: "no-store" });
         if (res.ok) json = await res.json();
       } catch {}
     }
     if (!json) {
       try {
-        const res = await fetch("data/papers.json", { cache: "no-store" });
+        const res = await fetch("data/papers.json?v=canonical-1", { cache: "no-store" });
         json = await res.json();
       } catch (e) {
         cardsEl.innerHTML = `<div class="empty"><b>Couldn't load data/papers.json</b>Run via a local server (e.g. <code>npx serve .</code>) — fetch() is blocked on file://.</div>`;
