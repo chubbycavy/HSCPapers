@@ -1,7 +1,7 @@
 {
  "version": 1,
  "previousPublishedListings": 10368,
- "activePapers": 7247,
+ "activePapers": 7255,
  "importedRows": 3393,
  "mergedImports": [
   {
@@ -477,11 +477,6 @@
   {
    "id": "add-thsc-au-growth-c43cedeea8",
    "canonicalId": "thsc-5338-trinity-grammar-2023-w-sol",
-   "reason": "exact-source-listing"
-  },
-  {
-   "id": "add-thsc-au-growth-db836e142c",
-   "canonicalId": "thsc-5338-abbotsleigh-2022-w-sol",
    "reason": "exact-source-listing"
   },
   {
@@ -15866,6 +15861,13 @@
    "reason": "Free-resource PDFs need paper-vs-essay classification"
   },
   {
+   "id": "add-thsc-au-growth-db836e142c",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5338-abbotsleigh-2022"
+   ]
+  },
+  {
    "id": "add-thsc-au-growth-3e73b688ad",
    "reason": "Same metadata, unconfirmed file identity",
    "candidates": [
@@ -16784,7 +16786,7 @@
  ],
  "unexpectedPrimaryDowngrades": [],
  "limitations": "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count.",
- "filePointers": 7976,
- "directFilePointers": 7209,
- "resolverPrimaries": 308
+ "filePointers": 7985,
+ "directFilePointers": 7215,
+ "resolverPrimaries": 311
 }
