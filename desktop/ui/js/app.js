@@ -336,9 +336,11 @@
     activePaperIds = new Set(state.papers.map(p => p.id));
     restoreState(); // saved filters/selection first…
     state.selected = new Set(window.CatalogueAliases.remap([...state.selected], catalogueAliases, activePaperIds));
-    bkState = new Set(window.CatalogueAliases.remap([...bkState], catalogueAliases, activePaperIds));
-    rvState = window.CatalogueAliases.remap(rvState, catalogueAliases, activePaperIds).slice(0, 50);
-    dlState = new Set(window.CatalogueAliases.remap([...downloadedSet()], catalogueAliases, activePaperIds));
+    // Pending/review IDs remain stored so their bookmarks can return when
+    // resolved. Only active canonical IDs participate in selections/cards.
+    bkState = new Set(window.CatalogueAliases.remap([...bkState], catalogueAliases, activePaperIds, true));
+    rvState = window.CatalogueAliases.remap(rvState, catalogueAliases, activePaperIds, true).slice(0, 50);
+    dlState = new Set(window.CatalogueAliases.remap([...downloadedSet()], catalogueAliases, activePaperIds, true));
     saveBookmarks();
     try {
       localStorage.setItem("hsc-recent", JSON.stringify(rvState));

@@ -78,3 +78,8 @@ test("aliases deduplicate saved/shared IDs; missing targets and cycles fail clos
   const active = new Set(["paper"]), aliases = { old: "paper", cycle1: "cycle2", cycle2: "cycle1", gone: "missing" };
   assert.deepEqual(A.remap(["old", "paper", "gone", "cycle1"], aliases, active), ["paper"]);
 });
+test("review bookmarks remain stored without becoming active selections", () => {
+  const active = new Set(["paper"]), aliases = { old: "paper" };
+  assert.deepEqual(A.remap(["old", "pending"], aliases, active, true), ["paper", "pending"]);
+  assert.deepEqual(A.remap(["old", "pending"], aliases, active), ["paper"]);
+});

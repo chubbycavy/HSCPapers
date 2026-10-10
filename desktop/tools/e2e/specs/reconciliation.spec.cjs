@@ -27,6 +27,13 @@ test("bookmarks on duplicate IDs migrate to one shelf entry", async ({ page }) =
   await expect(page.locator(`.card[data-id="${canonicalId}"]`)).toBeVisible();
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("hsc-bookmarked")))).toEqual([canonicalId]);
 });
+test("unresolved bookmarks are preserved but do not create ghost cards", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("hsc-bookmarked", JSON.stringify(["pending-review-id"])));
+  await page.goto("/"); await page.waitForSelector("#cards .card");
+  await page.locator('#typePills [data-type="mine"]').click();
+  await expect(page.locator("#cards .card")).toHaveCount(0);
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem("hsc-bookmarked")))).toEqual(["pending-review-id"]);
+});
 test("the shared English Paper 1 has one card under either course filter", async ({ page }) => {
   const common = catalogue.papers.find(p => p.relatedSubjects?.includes("English Standard") && p.relatedSubjects.includes("English Advanced"));
   if (!common) throw new Error("A shared Paper-1 regression fixture is required");

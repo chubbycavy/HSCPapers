@@ -6,8 +6,8 @@
     while (aliases[id]) { if (seen.has(id)) return null; seen.add(id); id = aliases[id]; }
     return active.has(id) ? id : null;
   }
-  function remap(ids, aliases, active) {
-    return [...new Set((ids || []).map(id => resolve(id, aliases, active)).filter(Boolean))];
+  function remap(ids, aliases, active, preserveUnknown = false) {
+    return [...new Set((ids || []).map(id => resolve(id, aliases, active) || (preserveUnknown ? id : null)).filter(Boolean))];
   }
   const api = { resolve, remap };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
