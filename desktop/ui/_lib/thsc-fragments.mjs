@@ -57,6 +57,29 @@ export async function pdfProof(bytes, placeholderShas = new Set([PLACEHOLDER_SHA
   if (placeholderShas.has(sha256)) throw new SourceError("THSC returned its 404 placeholder; requested file unavailable", 404, "placeholder");
   return { sha256, bytes: bytes.length };
 }
+async function decompressGzip(pieces) {
+  const total = pieces.reduce((s, p) => s + p.length, 0);
+  const combined = new Uint8Array(total);
+  let off = 0;
+  for (const p of pieces) { combined.set(p, off); off += p.length; }
+  if (typeof DecompressionStream !== "undefined") {
+    try {
+      const stream = new ReadableStream({
+        start(c) { c.enqueue(combined); c.close(); }
+      }).pipeThrough(new DecompressionStream("gzip"));
+      return await readBounded(new Response(stream), MAX_PDF_BYTES);
+    } catch {}
+  }
+  return await inflateGzip(combined);
+}
+
+async function inflateGzip(data) {
+  const { gunzipSync } = await import("fflate");
+  const buf = gunzipSync(data);
+  if (buf.length > MAX_PDF_BYTES) throw new SourceError("Source exceeds transport byte limit", 413, "size-limit");
+  return buf;
+}
+
 export async function resolveFragments({ viewno, title }, { fetchImpl = fetch, signal = AbortSignal.timeout(30000), placeholderShas, onProgress = () => {} } = {}) {
   const key = `${encodeURIComponent(viewno)}/${encodeURIComponent(title)}`;
   async function request(path) {
@@ -91,8 +114,7 @@ export async function resolveFragments({ viewno, title }, { fetchImpl = fetch, s
   if (signal.aborted) throw signal.reason;
   let bytes;
   try {
-    const stream = new Blob(pieces).stream().pipeThrough(new DecompressionStream("gzip"));
-    bytes = await readBounded(new Response(stream), MAX_PDF_BYTES);
+    bytes = await decompressGzip(pieces);
   } catch (e) { if (e instanceof SourceError) throw e; throw new SourceError("THSC returned incomplete or invalid gzip fragments"); }
   const proof = await pdfProof(bytes, placeholderShas);
   return { ...proof, bytes, byteLength: proof.bytes, metadata };
