@@ -91,7 +91,8 @@ export async function resolveFragments({ viewno, title }, { fetchImpl = fetch, s
   async function worker() {
     while (next < count) {
       const i = next++;
-      const response = await fetchImpl(`${THSC_API_ORIGIN}/api/v1/getfragment/${key}/${i}`, { signal, redirect: "error", headers: { "User-Agent": "HSCPapers/1.0 (verified THSC delivery)" } });
+      const response = await fetchImpl(`${THSC_API_ORIGIN}/api/v1/getfragment/${key}/${i}`, { signal, redirect: "manual", headers: { "User-Agent": "HSCPapers/1.0 (verified THSC delivery)" } });
+      if (response.status >= 300 && response.status < 400) { await response.body?.cancel(); throw new SourceError(`THSC fragment ${i} returned a redirect`, 502, "upstream-http"); }
       if (!response.ok) { await response.body?.cancel(); throw new SourceError(`THSC fragment ${i} HTTP ${response.status}`, [429, 503].includes(response.status) ? 503 : 502); }
       pieces[i] = await readBounded(response, MAX_COMPRESSED_BYTES);
       compressedSize += pieces[i].length;
