@@ -221,4 +221,8 @@ function present(response, request, target) {
   }
   return new Response(request.method === "HEAD" ? null : response.body, { status: response.status, headers });
 }
-export const onRequest = createProxyHandler();
+const handler = createProxyHandler();
+export const onRequest = async (args) => {
+  try { return await handler(args); }
+  catch (e) { return new Response("Proxy error: " + (e?.stack || e?.message || e), { status: 500 }); }
+};
