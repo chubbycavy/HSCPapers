@@ -71,7 +71,8 @@ async function decompressGzip(pieces) {
 export async function resolveFragments({ viewno, title }, { fetchImpl = fetch, signal = AbortSignal.timeout(30000), placeholderShas, onProgress = () => {} } = {}) {
   const key = `${encodeURIComponent(viewno)}/${encodeURIComponent(title)}`;
   async function request(path) {
-    const response = await fetchImpl(`${THSC_API_ORIGIN}/api/v1/${path}/${key}`, { signal, redirect: "error", headers: { "User-Agent": "HSCPapers/1.0 (verified THSC delivery)" } });
+    const response = await fetchImpl(`${THSC_API_ORIGIN}/api/v1/${path}/${key}`, { signal, redirect: "manual", headers: { "User-Agent": "HSCPapers/1.0 (verified THSC delivery)" } });
+    if (response.status >= 300 && response.status < 400) { await response.body?.cancel(); throw new SourceError(`THSC ${path} returned a redirect`, 502, "upstream-http"); }
     if (!response.ok) {
       await response.body?.cancel();
       const transient = [429, 503, 504].includes(response.status);
