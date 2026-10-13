@@ -6,13 +6,14 @@
      → recently read papers re-open offline
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
-const VERSION = "v4"; // refresh the shell for canonical IDs and alias compatibility
+importScripts("/js/pdf-validation.js");
+const VERSION = "v6"; // split catalogue feeds and shared source/state policy
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
 const PAGES_CACHE = `hsc-pages-${VERSION}`;
 const PDF_CACHE = `hsc-pdfs-${VERSION}`;
 const PDF_CACHE_MAX = 60; // recently read papers stay offline (LRU by insertion)
 const SHELL = [
-  "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js", "/js/catalogue-aliases.js",
+  "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js", "/js/catalogue-aliases.js", "/js/pdf-validation.js", "/js/source-policy.js", "/js/migration-state.js",
   "/pdfjs/pdf.min.js", "/pdfjs/pdf.worker.min.js", "/vendor/jszip.min.js",
   "/manifest.webmanifest", "/og-card.png?v=classic-h-1",
   "/logo.svg?v=classic-h-1", "/favicon.svg?v=classic-h-1",
@@ -66,8 +67,10 @@ async function pdfFetch(req) {
   if (hit) return hit;
   const res = await fetch(req);
   if (res.status === 200 && res.type !== "opaque") {
-    await putBestEffort(cache, req, res);
-    await trimPdfs(cache);
+    try {
+      await PdfValidation.validateBlob(await res.clone().blob());
+      await putBestEffort(cache, req, res); await trimPdfs(cache);
+    } catch { /* Do not persist HTML, partial documents or THSC error PDFs. */ }
   }
   return res;
 }
@@ -95,7 +98,7 @@ self.addEventListener("fetch", (e) => {
   try { url = new URL(req.url); } catch { return; }
   const p = url.pathname;
   if (req.mode === "navigate") { e.respondWith(networkFirst(req, SHELL_CACHE)); return; }
-  if (p === "/data/papers.json") { e.respondWith(networkFirst(req, PAGES_CACHE)); return; }
+   if (p === "/data/papers.json" || p === "/data/papers-v2.json") { e.respondWith(networkFirst(req, PAGES_CACHE)); return; }
   if (p === "/proxy" || /\.pdf$/i.test(p)) { e.respondWith(pdfFetch(req)); return; }
   // App code: network-first so deploys always reach clients (cache fallback
   // keeps offline sessions working). pdfjs/vendor are immutable binaries.

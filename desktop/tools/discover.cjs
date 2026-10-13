@@ -166,7 +166,7 @@ async function runMirror() {
   const auBase = "https://thsconline.com.au";
   const index = JSON.parse(await fetchDoc(auBase + "/api/index", "au-index"));
   const cands = [];
-  const catalogue = require("../ui/data/papers.json").papers;
+  const catalogue = require("../ui/data/papers-v2.json").papers;
   const known = new Set(catalogue.flatMap(identity.listingKeys));
   for (const level of index.levels || []) for (const course of level.courses || []) {
     const slug = course.course.replace(/[^a-z0-9]+/gi, "-").toLowerCase();

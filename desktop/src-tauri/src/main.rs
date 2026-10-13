@@ -1,17 +1,9 @@
 // HSCPapers backend — download queue, local library, catalogue info.
 //
-// Download model (verified against THSC's live behaviour):
-// - THSC `/s/d/<viewno>/<title>` router URLs are NOT files (they 404). They
-//   resolve through the site's own public resolver (per-page index JSON, else
-//   the Apps Script `export=data` endpoint behind their download button),
-//   which returns the whole file as base64. That endpoint is shared by every
-//   THSCOnline user worldwide and throttles in a sliding window (bursts ->
-//   HTTP 404s, recovery after ~10 min), so:
-//   - resolver calls are sequential with ADAPTIVE pacing: response-time EMA
-//     stretches the gap BEFORE 404s appear (proactive, not reactive), and
-//     resets after long idle (auto-pause / overnight start / relaunch);
-//   - HTTP 404 from the resolver means SLOW DOWN (backoff + retry), and
-//     3 consecutive 404s trigger a 10-minute auto-pause, then resume.
+// Direct files and migrated THSC fragments are validated before finalization.
+// The approved legacy transition uses the currently published export=view API;
+// only real 429/503 responses trigger backoff. Ordinary HTTP 404 and THSC's
+// one-page error PDF are availability failures, not evidence of corruption.
 // - Skip-if-exists makes every batch resumable; temp .part files rename only
 //   on success. All file work happens here (no JS fs access).
 use std::path::{Path, PathBuf};
@@ -70,9 +62,9 @@ fn export_api_at(idx: usize) -> &'static str {
 
 struct AppState {
     client: reqwest::Client,
+    fragment_client: reqwest::Client,
     meta: Arc<Semaphore>, // 1 permit: script-resolver calls stay sequential
     dl: Arc<Semaphore>,   // parallel direct downloads (mirrors/NESA)
-    worker_idx: AtomicUsize, // round-robin over WORKER_IDS
     consec_404: AtomicUsize,
     ema_ms: AtomicU64,   // EMA of resolver response latency (congestion signal)
     last_call: AtomicU64, // unix ms of last resolver response (idle detection)
@@ -355,7 +347,7 @@ fn js_safe_name(year: Option<u64>, subject: &str, school: &str, kind: &str) -> S
 /// Registry of every downloadable catalogue file grouped by base path:
 /// base (old no-hash name) -> [(canonical relpath, hash, url)]
 fn catalogue_registry() -> Vec<(String, Vec<(String, String, String)>)> {
-    let raw = include_str!("../../ui/data/papers.json");
+    let raw = include_str!("../../ui/data/papers-v2.json");
     let v: serde_json::Value = match serde_json::from_str(raw) {
         Ok(v) => v,
         Err(_) => return Vec::new(),
@@ -533,10 +525,10 @@ async fn copy_in(dest: &Path, src: &Path) -> Result<(), String> {
         .map_err(|e| format!("copy: {e}"))
 }
 
-/// Catalogue snapshot baked in at build time (desktop/ui/data/papers.json).
+/// Modern catalogue snapshot baked in at build time.
 #[tauri::command]
 fn catalogue_info() -> Result<serde_json::Value, String> {
-    let raw = include_str!("../../ui/data/papers.json");
+    let raw = include_str!("../../ui/data/papers-v2.json");
     let v: serde_json::Value =
         serde_json::from_str(raw).map_err(|e| format!("catalogue parse: {e}"))?;
     Ok(serde_json::json!({
@@ -546,6 +538,8 @@ fn catalogue_info() -> Result<serde_json::Value, String> {
 }
 
 /* ---------------- URL helpers ---------------- */
+
+mod thsc_fragments;
 
 fn hexval(c: u8) -> Option<u8> {
     match c {
@@ -691,8 +685,8 @@ async fn resolve_attempt(
     // Round-robin across the 16 official deployments (same as THSC's own v2
     // site) — each is a separate quota pool.
     let api = format!(
-        "{}?export=data&field={}&base={}&hash={}",
-        export_api_at(state.worker_idx.fetch_add(1, Ordering::Relaxed)),
+        "{}?export=view&field={}&base={}&hash={}",
+        EXPORT_APIS[EXPORT_APIS.len() - 1],
         enc_q(title),
         enc_q(viewno),
         hash
@@ -727,8 +721,8 @@ async fn resolve_attempt(
     state.ema_ms.store(next, Ordering::Relaxed);
     state.last_call.store(now_ms(), Ordering::Relaxed);
     let status = resp.status();
-    if status == reqwest::StatusCode::NOT_FOUND {
-        return Err("THROTTLED".to_string()); // verified: 404 here means back off, not missing
+    if status == reqwest::StatusCode::TOO_MANY_REQUESTS || status == reqwest::StatusCode::SERVICE_UNAVAILABLE {
+        return Err("THROTTLED".to_string());
     }
     if !status.is_success() {
         return Err(format!("resolver HTTP {status}"));
@@ -757,8 +751,8 @@ async fn resolve_attempt(
         }
     }
     let body = String::from_utf8_lossy(&buf);
-    let rec: ThscRecord =
-        serde_json::from_str(strip_jsonp(&body)?).map_err(|e| format!("resolver parse: {e}"))?;
+    let rec: ThscRecord = serde_json::from_str(if body.trim().starts_with("downloadfile(") { strip_jsonp(&body)? } else { &body })
+        .map_err(|e| format!("resolver parse: {e}"))?;
     let b64 = rec
         .data
         .ok_or_else(|| "resolver returned no file data (paper may be missing on THSC)".to_string())?;
@@ -766,9 +760,7 @@ async fn resolve_attempt(
     let bytes = B64
         .decode(clean)
         .map_err(|e| format!("resolver decode: {e}"))?;
-    if bytes.first() == Some(&b'<') {
-        return Err("resolver returned a web page, not a PDF".to_string());
-    }
+    thsc_fragments::validate_pdf(&bytes)?;
     Ok(bytes)
 }
 
@@ -790,8 +782,10 @@ async fn resolve_throttled(
     // Rare free fast path first (CDN, no quota cost).
     if let Some(u) = try_index_url(&state.client, viewno, title).await {
         if let Ok(b) = fetch_bytes(&state.client, &u).await {
-            state.consec_404.store(0, Ordering::Relaxed);
-            return Ok(b);
+            if thsc_fragments::validate_pdf(&b).is_ok() {
+                state.consec_404.store(0, Ordering::Relaxed);
+                return Ok(b);
+            }
         }
     }
     let delays = [15_000u64, 60_000];
@@ -954,6 +948,7 @@ async fn resolve_and_save(
     } else {
         resolve_throttled(state, &state.cancel, app, id, &viewno, &title).await?
     };
+    thsc_fragments::validate_pdf(&bytes)?;
     tokio::fs::write(tmp, &bytes)
         .await
         .map_err(|e| format!("write: {e}"))?;
@@ -972,10 +967,49 @@ async fn pdf_magic_ok(tmp: &Path) -> bool {
         Err(_) => return false,
     };
     let mut head = [0u8; 5];
-    match f.read_exact(&mut head).await {
-        Ok(_) => &head[..5] == b"%PDF-",
-        Err(_) => false,
+    if f.read_exact(&mut head).await.is_err() || &head != b"%PDF-" { return false; }
+    let mut hasher = Sha256::new(); hasher.update(head);
+    let mut tail = head.to_vec(); let mut chunk = vec![0u8; 65536];
+    loop {
+        let n = match f.read(&mut chunk).await { Ok(n) => n, Err(_) => return false };
+        if n == 0 { break; }
+        hasher.update(&chunk[..n]); tail.extend_from_slice(&chunk[..n]);
+        if tail.len() > 4096 { tail.drain(..tail.len() - 4096); }
     }
+    tail.windows(5).any(|x| x == b"%%EOF") && hex::encode(hasher.finalize()) != thsc_fragments::PLACEHOLDER_SHA
+}
+
+async fn download_direct(app: &AppHandle, state: &State<'_, AppState>, id: &str, url: &str, tmp: &Path) -> Result<(), String> {
+    let resume_from = tokio::fs::metadata(tmp).await.map(|m| m.len()).unwrap_or(0);
+    let mut req = state.client.get(url).header(reqwest::header::USER_AGENT, USER_AGENT);
+    if resume_from > 0 { req = req.header(reqwest::header::RANGE, format!("bytes={resume_from}-")); }
+    let resp = send_interruptible(req, &state.cancel, "request").await?;
+    if !resp.status().is_success() { return Err(format!("HTTP {}", resp.status())); }
+    let from = if resp.status() == reqwest::StatusCode::PARTIAL_CONTENT {
+        let range = resp.headers().get(reqwest::header::CONTENT_RANGE).and_then(|x| x.to_str().ok()).unwrap_or("");
+        if !range.starts_with(&format!("bytes {resume_from}-")) { return Err("Source returned a mismatched resume range".into()); }
+        resume_from
+    } else { 0 };
+    stream_to_file(app, &state.cancel, id, resp, tmp, from).await?;
+    if !pdf_magic_ok(tmp).await { let _ = tokio::fs::remove_file(tmp).await; return Err("Source returned HTML, a placeholder or an incomplete PDF".into()); }
+    Ok(())
+}
+async fn save_source(app: &AppHandle, state: &State<'_, AppState>, id: &str, url: &str, tmp: &Path, dest: &Path, fallback_attempt: bool) -> Result<(), String> {
+    if let Some((viewno, title)) = thsc_fragments::descriptor(url)? {
+        let bytes = thsc_fragments::resolve(&state.fragment_client, &viewno, &title, &state.cancel).await?;
+        tokio::fs::write(tmp, bytes).await.map_err(|e| format!("write: {e}"))?;
+    } else if split_router_url(url).is_some() {
+        resolve_and_save(app, state, id, url, tmp, dest, fallback_attempt).await?;
+        return Ok(());
+    } else { download_direct(app, state, id, url, tmp).await?; }
+    tokio::fs::rename(tmp, dest).await.map_err(|e| format!("finalize: {e}"))?;
+    Ok(())
+}
+
+fn fallback_allowed(primary: &str, candidate: &str) -> Result<bool, String> {
+    if candidate.is_empty() || candidate == primary { return Ok(false); }
+    let fragment_primary = thsc_fragments::descriptor(primary)?.is_some();
+    Ok(!(fragment_primary && split_router_url(candidate).is_some()))
 }
 
 /// Download one paper into the library at `relpath` (e.g. "Physics/2024/...pdf").
@@ -1006,6 +1040,7 @@ async fn download_paper(
             .map_err(|e| format!("mkdir: {e}"))?;
     }
     if dest.exists() {
+        if !pdf_magic_ok(&dest).await { return Err("Existing file is invalid; it has been preserved in your library. Move it aside before downloading its replacement.".into()); }
         let _ = app.emit(
             "dl-progress",
             DlProgress { id: id.clone(), downloaded: 0, total: None, done: true },
@@ -1020,40 +1055,7 @@ async fn download_paper(
         );
     };
 
-    if split_router_url(&url).is_some() {
-        let n = resolve_and_save(&app, &state, &id, &url, &tmp, &dest, false).await?;
-        finish(&app, n);
-        return Ok(dest.to_string_lossy().into_owned());
-    }
-
-    // Direct URL (NESA / mirrors): stream with resume support + PDF check.
-    let direct = async {
-        if state.cancel.load(Ordering::Relaxed) {
-            return Err(CANCELLED.to_string());
-        }
-        let resume_from = tokio::fs::metadata(&tmp).await.map(|m| m.len()).unwrap_or(0);
-        let mut req = state
-            .client
-            .get(&url)
-            .header(reqwest::header::USER_AGENT, USER_AGENT);
-        if resume_from > 0 {
-            req = req.header(reqwest::header::RANGE, format!("bytes={resume_from}-"));
-        }
-        let resp = send_interruptible(req, &state.cancel, "request").await?;
-        if !resp.status().is_success() && resp.status() != reqwest::StatusCode::PARTIAL_CONTENT {
-            return Err(format!("HTTP {}", resp.status()));
-        }
-        let from = if resp.status() == reqwest::StatusCode::PARTIAL_CONTENT { resume_from } else { 0 };
-        stream_to_file(&app, &state.cancel, &id, resp, &tmp, from).await?;
-        // A 200-status HTML error page (rate-limited mirror, CF block) must
-        // not land in the library as a "PDF".
-        if !pdf_magic_ok(&tmp).await {
-            let _ = tokio::fs::remove_file(&tmp).await;
-            return Err("not a PDF (source unavailable)".to_string());
-        }
-        Ok(())
-    };
-    if let Err(direct_err) = direct.await {
+    if let Err(direct_err) = save_source(&app, &state, &id, &url, &tmp, &dest, false).await {
         if direct_err == CANCELLED {
             return Err(direct_err);
         }
@@ -1062,20 +1064,20 @@ async fn download_paper(
         // immediately instead of parking this CDN slot (and a meta permit)
         // through the whole ladder / auto-pause.
         let fb = fallback.unwrap_or_default();
-        if split_router_url(&fb).is_some() {
+        // A fragment descriptor cannot implicitly enter Apps Script on failure.
+        if fallback_allowed(&url, &fb)? {
+            let _ = tokio::fs::remove_file(&tmp).await; // never splice different sources' partial files
             let _ = app.emit(
                 "dl-notice",
-                DlNotice { message: "Mirror unavailable for this paper — using THSC resolver…".to_string() },
+                DlNotice { message: "Primary source unavailable — trying a verified alternative…".to_string() },
             );
-            let n = resolve_and_save(&app, &state, &id, &fb, &tmp, &dest, true).await?;
+            save_source(&app, &state, &id, &fb, &tmp, &dest, true).await?;
+            let n = tokio::fs::metadata(&dest).await.map(|m| m.len()).unwrap_or(0);
             finish(&app, n);
             return Ok(dest.to_string_lossy().into_owned());
         }
         return Err(direct_err);
     }
-    tokio::fs::rename(&tmp, &dest)
-        .await
-        .map_err(|e| format!("finalize: {e}"))?;
     let n = tokio::fs::metadata(&dest).await.map(|m| m.len()).unwrap_or(0);
     finish(&app, n);
     Ok(dest.to_string_lossy().into_owned())
@@ -1107,7 +1109,8 @@ struct PreflightOut {
 
 /// Source classification for size-sampling (URL prefix).
 fn source_of(url: &str) -> &'static str {
-    if url.contains("hscportal.pages.dev") {
+    if matches!(thsc_fragments::descriptor(url), Ok(Some(_))) { "thsc-fragments" }
+    else if url.contains("hscportal.pages.dev") {
         "portal"
     } else if url.contains("www.nsw.gov.au") {
         "nesa-archive"
@@ -1155,6 +1158,7 @@ async fn head_len(client: &reqwest::Client, url: &str) -> Option<u64> {
 /// real total. HTML responses (redirect targets, error pages) are ignored —
 /// they aren't sizeable papers.
 async fn sample_len(client: &reqwest::Client, url: &str) -> Option<u64> {
+    if thsc_fragments::descriptor(url).ok().flatten().is_some() { return None; }
     if let Some(len) = head_len(client, url).await {
         if len > 0 {
             return Some(len);
@@ -1527,9 +1531,11 @@ fn main() {
                 .expect("http client");
             app.manage(AppState {
                 client,
+                fragment_client: reqwest::Client::builder().user_agent(USER_AGENT)
+                    .redirect(reqwest::redirect::Policy::none()).timeout(std::time::Duration::from_secs(30))
+                    .build().expect("THSC fragment client"),
                 meta: Arc::new(Semaphore::new(2)), // 2 concurrent script calls across 16 pools
                 dl: Arc::new(Semaphore::new(MAX_WORKERS)),
-                worker_idx: AtomicUsize::new(0),
                 consec_404: AtomicUsize::new(0),
                 ema_ms: AtomicU64::new(0),
                 last_call: AtomicU64::new(0),
@@ -1584,6 +1590,24 @@ fn main() {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn migrated_primary_never_falls_back_to_legacy_script() {
+        let fragment = "https://www.thsconline.net/s/v/5338/Example%202025";
+        let legacy = "https://thsconline.github.io/s/d/5338/Example%202025";
+        assert!(!fallback_allowed(fragment, legacy).unwrap());
+        assert!(fallback_allowed(fragment, "https://hscportal.pages.dev/file.pdf").unwrap());
+        assert!(fallback_allowed("https://hscportal.pages.dev/file.pdf", legacy).unwrap());
+        assert!(!fallback_allowed(fragment, fragment).unwrap());
+        assert!(!fallback_allowed(fragment, "").unwrap());
+    }
+
+    #[test]
+    fn compatibility_bridge_is_an_ordinary_pdf_download() {
+        let bridge = "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F5338%2FExample&dl=1";
+        assert!(split_router_url(bridge).is_none());
+        assert!(thsc_fragments::descriptor(bridge).unwrap().is_none());
+    }
 
     #[test]
     fn router_url_split() {

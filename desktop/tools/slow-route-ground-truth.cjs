@@ -26,7 +26,7 @@ const crypto = require("crypto");
 const { createProxyHandler, KNOWN_COLLAPSED_SHAS } = require("../ui/_lib/pdf-proxy.mjs");
 
 const OUT = path.join(__dirname, "slow-route-truth.json");
-const papers = require("../ui/data/papers.json").papers;
+const papers = require("../ui/data/papers-v2.json").papers;
 const argValue = (name) => {
   const i = process.argv.indexOf(name);
   if (i !== -1 && i + 1 < process.argv.length) return process.argv[i + 1];

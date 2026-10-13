@@ -27,7 +27,10 @@ jobs:
 
       - name: Identity and reconciliation regression checks
         working-directory: desktop
-        run: node --test tools/tests/catalogue-reconcile.test.cjs
+        run: npm run test:unit
+
+      - name: Preserve previous publication for continuity checks
+        run: cp desktop/ui/data/papers-v2.json "$RUNNER_TEMP/previous-catalogue.json"
 
       - name: Rebuild catalogue
         working-directory: desktop
@@ -37,7 +40,11 @@ jobs:
 
       - name: Verify canonical catalogue before publishing
         working-directory: desktop
-        run: node tools/verify-catalogue.cjs
+        run: |
+          node tools/refresh-catalogue-proof.cjs
+          node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --quiet
+          node tools/verify-catalogue.cjs --previous="$RUNNER_TEMP/previous-catalogue.json"
+          node tools/write-reconciliation-summary.cjs
 
       - name: Commit (if changed)
         run: |
@@ -46,7 +53,7 @@ jobs:
           # the full regenerated surface: catalogue + the generators' artifacts
           # (sitemap lastmod, coverage dashboard, subject pages, the SPA shell's
           # static subject grid) — regenerating without committing discards them
-          git add desktop/ui/data/papers.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/ desktop/tools/thsc-au-verified.json desktop/tools/reconciliation-report.json
+          git add desktop/ui/data/papers.json desktop/ui/data/papers-v2.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/ desktop/tools/thsc-au-verified.json desktop/tools/reconciliation-report.json desktop/tools/reconciliation-report.md desktop/tools/catalogue-validation.json README.md
           if git diff --cached --quiet; then
             echo "Catalogue unchanged — no commit"
           else

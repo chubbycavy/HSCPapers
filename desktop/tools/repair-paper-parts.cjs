@@ -3,7 +3,7 @@
 "use strict";
 const fs = require("fs"), path = require("path"), crypto = require("crypto"), I = require("./catalogue-identity.cjs");
 const tools = __dirname, load = f => JSON.parse(fs.readFileSync(f, "utf8"));
-const catalogue = load(path.join(tools, "../ui/data/papers.json"));
+const catalogue = load(path.join(tools, "../ui/data/papers-v2.json"));
 const proofs = load(path.join(tools, "catalogue-imports.json")).proofs;
 const wrong = catalogue.papers.filter(p => {
   const wanted = I.paperPart(I.routeText(p)); let file; try { file = decodeURIComponent(new URL(p.url).pathname.split("/").pop()); } catch { return false; }

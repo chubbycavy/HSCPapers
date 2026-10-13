@@ -1,0 +1,19 @@
+{
+  "version": "1.0.27",
+  "generated": "2026-10-13T09:05:18.517Z",
+  "installer": "desktop/src-tauri/target/release/bundle/nsis/HSCPapers_1.0.27_x64-setup.exe",
+  "bytes": 7082960,
+  "sha256": "ac338eb4cbb811bf187d98edd4d108f21b9a91e6d1e5175c798e040a675e45aa",
+  "payloadMachine": "x64",
+  "installerMachine": "0x14c",
+  "published": false,
+  "inputs": {
+    "desktop/ui/index.html": "a14e347938f34564411c74f706f243f2290a7eca02458927a5274b4de1d1ff51",
+    "desktop/ui/js/app.js": "17814200e0b350b6ee25a3440f3a805c0ba89602c13aece156c51f0f1f3f1176",
+    "desktop/ui/js/config.js": "3bf45db8a0bb20e7c9bc2a09841038ad39944745103efa8f22cdac6debb45edf",
+    "desktop/ui/js/source-policy.js": "f56fa3f86a7aa047c1543a20c98428a6ad5c607eb136680fded6e59924847cad",
+    "desktop/ui/js/migration-state.js": "95b2540f810b9c57c7c165faa7ef2be43839fef2f4f65f4ac7384ae4bb969278",
+    "desktop/ui/data/papers-v2.json": "ad62c4da2f38297e200c96736d5e9d6195745ba5e26458e553d015f7b716a9b8",
+    "desktop/ui/data/papers.json": "e03a35a2306cb3a1a88781b6d0f65c42f4c4921442752bddaf988ce65fb10df4"
+  }
+}

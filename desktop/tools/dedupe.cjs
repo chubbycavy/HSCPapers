@@ -99,7 +99,7 @@ async function probeUrl(url) {
   if (!work.length) return;
 
   // catalogue reference sets
-  const catalogue = require("../ui/data/papers.json").papers;
+  const catalogue = require("../ui/data/papers-v2.json").papers;
   const sourceIndex = indexRows(catalogue);
   const knownUrls = new Set(), knownShas = new Set(), tuples = new Map();
   for (const p of catalogue) {

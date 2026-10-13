@@ -14,9 +14,13 @@ const warn = (s) => console.log(`  WARN  ${s}`);
 
 (async () => {
   // 1. plain HTTP checks
-  const expected = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8"));
+  const expected = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers-v2.json"), "utf8"));
   const papers = expected.papers;
-  const live = await (await fetch(BASE + "data/papers.json?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).json();
+  const live = await (await fetch(BASE + "data/papers-v2.json?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).json();
+  const compatibility = await (await fetch(BASE + "data/papers.json?cb=" + Date.now(), { signal: AbortSignal.timeout(20000) })).json();
+  const compatibilityErrors = require("../catalogue-feeds.cjs").verify(live, compatibility);
+  if (!compatibilityErrors.length) pass("production modern and old-client feeds agree on supported delivery");
+  else fail(compatibilityErrors.join("; "));
   const n = (live.papers || []).length;
   const nsw = (live.papers || []).filter((p) => (p.url || "").includes("www.nsw.gov.au")).length;
   const r2 = (live.papers || []).filter((p) => (p.url || "").includes("pub-ec23")).length;
@@ -54,21 +58,21 @@ const warn = (s) => console.log(`  WARN  ${s}`);
   if (!deadNames.length && liveTokens.length === 3) pass(`live styles.css: token contract holds (${liveTokens.join(" / ")} defined, dead names gone)`);
   else fail(`live styles.css token contract broken (dead=[${deadNames.join(",")}] tokens=${liveTokens.length}/3)`);
 
-  // slow-route remediation (v1.0.21): the discontinued /s/d + /s/v pages are
-  // resolved server-side by the /proxy Pages Function's Apps Script lane.
-  // Production must return a REAL pdf through the same-origin proxy.
+  // Both current transport families must return their reviewed full PDF bytes.
   {
-    const routerUrl = "https://thsconline.github.io/s/d/5106/Sydney%20Boys%202004";
-    if (routerUrl) {
+    const policy = require("../../ui/js/source-policy.js");
+    for (const [label, predicate] of [["legacy", policy.isLegacy], ["migrated", policy.isFragment]]) {
+      const sample = (live.papers || []).find(p => predicate(p.url));
+      if (!sample) { warn(`no ${label} primary in the live modern catalogue`); continue; }
       try {
-        const proxied = BASE + "proxy?url=" + encodeURIComponent(routerUrl);
+        const proxied = BASE + "proxy?url=" + encodeURIComponent(sample.url);
         const r = await fetch(proxied, { redirect: "follow", signal: AbortSignal.timeout(120000) });
         const buf = Buffer.from(await r.arrayBuffer());
-        const magic = buf.length > 4 && buf[0] === 0x25 && buf[1] === 0x50 && buf[2] === 0x44 && buf[3] === 0x46;
-        if (r.status === 200 && magic && /application\/pdf/.test(r.headers.get("content-type") || "")) pass(`slow-route resolved through /proxy (${buf.length} B, %PDF magic)`);
-        else fail(`slow-route /proxy broken (status ${r.status}, magic ${magic}, ${buf.length} B)`);
-      } catch (e) { fail(`slow-route /proxy journey failed: ${String(e).slice(0, 90)}`); }
-    } else warn("no router-primary paper in the live catalogue (all migrated?)");
+        const sha = require("crypto").createHash("sha256").update(buf).digest("hex");
+        if (r.status === 200 && sha === sample.sha256 && /application\/pdf/.test(r.headers.get("content-type") || "")) pass(`${label} delivery matches reviewed PDF through /proxy (${buf.length} B)`);
+        else fail(`${label} /proxy mismatch (status ${r.status}, expected SHA ${sample.sha256}, actual ${sha})`);
+      } catch (e) { fail(`${label} /proxy journey failed: ${String(e).slice(0, 90)}`); }
+    }
   }
   // the approved independent mirror (.com.au) file lane: bounded sample
   {
@@ -119,7 +123,7 @@ const warn = (s) => console.log(`  WARN  ${s}`);
   else fail("coverage page markers missing");
 
   // landing pages (Phase C): the hub + one subject page, real content
-  const papersLocal = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "ui", "data", "papers.json"), "utf8")).papers;
+  const papersLocal = expected.papers;
   const sample = papersLocal.find((p) => p.subject === "Chemistry") ? "chemistry" : null;
   const hub = await (await fetch(BASE + "subjects/?cb=" + Date.now(), { redirect: "follow", signal: AbortSignal.timeout(20000) })).text();
   if (hub.includes("Browse NSW HSC papers by subject") && hub.includes("/subjects/")) pass("subjects hub live");

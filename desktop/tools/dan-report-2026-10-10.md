@@ -1,4 +1,14 @@
-# THSC resolver damage report - 2026-10-10
+# THSC historical resolver availability report - 2026-10-10
+
+## Correction following the migration investigation
+
+The repeated SHA-256 below is THSC's official one-page `404_html.pdf`, verified
+against `https://www.thsconline.net/s/index/404_html.pdf`. It is an error placeholder,
+not another exam. The historical measurements are retained, but the original
+directory-mapping-corruption diagnosis is withdrawn. Shared filerefs alone do not
+prove corruption, and successful PDF checks alone did not establish global
+uniqueness or correct document semantics. Historical `collapsed` labels below mean
+the known placeholder was returned; they are not fresh migration-health results.
 
 Measured with the production proxy handler code (v1.0.21-era + the wrong-bytes guards), one listing at a time, honoring your pool's own cooldowns. All 329 slow-route listings on our side resolved (0 unresolved).
 
@@ -95,4 +105,3 @@ These viewnos are healthy or partially healthy - damage is per directory, not gl
 - Tool: `desktop/tools/slow-route-ground-truth.cjs` (resumable; 1.5s designed gap, honors Retry-After, checkpoints per 3 entries).
 - Raw data: `desktop/tools/slow-route-truth.json` - per listing: status, sha256, bytes, fileref, timestamps.
 - Re-run anytime to re-probe only unresolved listings.
-

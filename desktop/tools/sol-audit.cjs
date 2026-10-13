@@ -19,7 +19,7 @@ const path = require("path");
 
 const CACHE = path.join(__dirname, ".cache");
 const NESACACHE = path.join(CACHE, "nesa-recovery");
-const CATALOGUE = path.join(__dirname, "..", "ui", "data", "papers.json");
+const CATALOGUE = path.join(__dirname, "..", "ui", "data", "papers-v2.json");
 const OUT = path.join(__dirname, "nesa-recovery.json");
 const DEAD_OUT = path.join(__dirname, "dead-solutions.json");
 const REPORT = path.join(CACHE, "sol-audit-report.json");

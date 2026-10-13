@@ -10,8 +10,8 @@ no browser CORS or ZIP-size limits.
 ```
 desktop/
   sources.json        frozen source config (THSC repos, endpoints, polite-fetch policy)
-  ui/                 frontend (copy of website UI; data/papers.json is GENERATED — do not hand-edit)
-  tools/build-index.cjs catalogue builder: THSC listings + NESA JSON -> ui/data/papers.json
+  ui/                 shared frontend; data/papers-v2.json is the modern GENERATED feed
+  tools/build-index.cjs builder -> modern papers-v2.json + legacy-compatible papers.json
   tools/.cache/       builder HTTP cache (git-ignored)
   src-tauri/          Tauri app (HSCPapers): Rust backend + installer config
 ```
@@ -26,10 +26,18 @@ node tools/build-index.cjs --no-cache # refetch everything
 node tools/build-index.cjs --limit=6  # quick parser test
 ```
 
-Current catalogue: **7,015 papers / 8,892 files (6,079 fast)** — sources
+Local 1.0.27 candidate: **6,629 available records / 7,328 file pointers** — sources
 `thsc-listing` + `nesa` + mirrors (HSC Portal, Board of Studies).
 Papers belong to their schools/authors and NESA; the app is a study-use index
 — see `sources.json` attribution.
+
+The modern client uses `data/papers-v2.json`, with a bundled offline fallback.
+Released v1.0.26 clients retain `data/papers.json`, whose compatibility projection
+bridges descriptor sources to ordinary PDF-producing URLs and excludes role-dependent
+aliases. Keep the two feeds coordinated during publication.
+
+Release readiness: [`../RELEASE-READINESS-PLAN.md`](../RELEASE-READINESS-PLAN.md).
+Results and remaining publication checks: [`tools/release-readiness-report.md`](tools/release-readiness-report.md).
 
 ## Develop (needs Rust once: https://rustup.rs — install, reboot, then:)
 

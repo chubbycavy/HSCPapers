@@ -25,7 +25,8 @@ papers) vs Trial (school-written). This repo ships two products from one codebas
 desktop/
   sources.json          frozen source config (THSC, mirrors, polite-fetch policy)
   ui/                   ★ CANONICAL WEB UI — index.html, css/, js/, data/, pdfjs/
-    data/papers.json    GENERATED catalogue (7,000+ papers / 7,700+ files) — do not hand-edit
+    data/papers-v2.json GENERATED modern catalogue (6,000+ papers / 7,000+ files)
+    data/papers.json    GENERATED compatibility feed for released v1.0.26 clients
   tools/build-index.cjs catalogue builder (THSC listings + NESA + mirrors)
   tools/.cache/         builder HTTP cache (git-ignored)
   src-tauri/            Tauri app (Rust backend + NSIS installer config)
@@ -62,14 +63,14 @@ Then open the port shown. `fetch()` needs a server — it's blocked on `file://`
 4. Deploy. The `*.pages.dev` URL is live; every push to `main` redeploys.
 
 The nightly GitHub Action (`catalogue.yml`) regenerates
-`desktop/ui/data/papers.json` and commits it — the push triggers a site
+both catalogue feeds and commits them — the push triggers a site
 redeploy automatically.
 
 ## Legal & removal
 
 - **Code**: © chubbycavy, all rights reserved (no license granted).
 - **Papers**: remain the property of their schools/authors and NESA. This is
-  a non-commercial, study-use **index** and hosts no PDFs.
+  a non-commercial, study-use **index** with a limited registered self-hosted set.
 - **Removal requests**: see [TAKEDOWN.md](TAKEDOWN.md) — honored within 24
   hours and permanent (the nightly builder excludes removed papers via
   `desktop/tools/removals.json`; the removal form is a GitHub issue template).
@@ -90,14 +91,14 @@ redeploy automatically.
 Every number shown on the site/app traces to a source — update them together:
 
 - **Live counts** (papers / subjects / schools / solutions in the hero) are
-  derived from `desktop/ui/data/papers.json` — always correct by construction.
+  derived from `desktop/ui/data/papers-v2.json` — available/recovery records are separate.
 - **Static claims** live in `desktop/ui/js/config.js`:
   `MAX_ZIP_FILES` (200) + `MAX_ZIP_BUDGET_MB` (500). When these change, update
   in the same commit: hero sub ("up to 200 papers…"), the meta description,
   feature card 4, the features stats band, and the desktop ZIP notes.
-- Catalogue-scale claims ("7,000+ papers", "7,700+ files", "6,400+
+- Catalogue-scale claims ("6,000+ papers", "7,000+ files", "6,400+
   one-click", "1967–2026") are durable round numbers — re-derive from the
-  current catalogue when they drift by more than ~5%.
+  available catalogue on every rebuild; recovery records do not inflate them.
 - Download/traffic counters: intentionally absent until real analytics exist
   (Cloudflare Web Analytics toggle in the dashboard).
 
@@ -111,9 +112,9 @@ node desktop/tools/build-index.cjs --no-cache # refetch everything
 node desktop/tools/build-index.cjs --limit=6  # quick parser test (partial output)
 ```
 
-Current catalogue: **7,000+ papers / 7,700+ files** — sources
+Current catalogue: **6,000+ papers / 7,000+ files** — sources
 `thsc-listing` + `nesa` + mirrors (HSC Portal, Board of Studies).
-Slow-route files (~400, THSC rate-limited resolver) are hidden by default
+Slow-route files (validated THSC fragment or transitional legacy delivery) are hidden by default
 (sidebar toggle 🐢). Papers belong to their schools/authors and NESA — see
 `desktop/sources.json` attribution.
 
@@ -124,9 +125,9 @@ Slow-route files (~400, THSC rate-limited resolver) are hidden by default
 | Search, filters, level pills, deep links | ✅ | ✅ |
 | Embedded reader + study timer | ✅ (CORS-permitting sources) | ✅ (local files) |
 | Single downloads | ✅ | ✅ |
-| Bulk downloads | Browser ZIP, ≤30 files (RAM-bound) | Unlimited, queued, resumable, direct-to-folder |
+| Bulk downloads | Browser ZIP, ≤200 files / 500 MiB | Queued, resumable, direct-to-folder |
 | Library tools (Verify / Import) | — | ✅ |
-| Slow-route (THSC resolver) files | Fallback links only | ✅ (background, polite pacing) |
+| Slow-route files | ✅ (validated proxy delivery, opt-in) | ✅ (native delivery, opt-in) |
 
 ## Sources & attribution
 

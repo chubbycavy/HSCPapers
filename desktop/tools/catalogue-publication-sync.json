@@ -1,0 +1,1188 @@
+{
+ "version": 1,
+ "base": "775fe948f94412a0ec3495a0b7f5770c62059f3c",
+ "sourceCommit": "8fe14f0a10223e06aa37432d57656987620536fc",
+ "commits": [
+  "8fe14f0 catalogue: nightly rebuild (2026-10-13)",
+  "12190de catalogue: nightly rebuild (2026-10-11)"
+ ],
+ "checkedAt": "2026-10-13T08:35:46.593Z",
+ "entries": [
+  {
+   "published": {
+    "id": "thsc-5222-normanhurst-boys-2025-w-sol",
+    "subject": "Mathematics Advanced",
+    "level": "Preliminary",
+    "year": 2025,
+    "school": "Normanhurst Boys",
+    "type": "assessment",
+    "title": "2025 Normanhurst Boys Mathematics Advanced Assessment",
+    "url": "https://thsconline.com.au/pdf/papers/yr11/maths/assessment-tasks-advanced/normanhurst-boys-2025-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5222",
+    "linkText": "Normanhurst Boys 2025 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5222/Normanhurst%20Boys%202025%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "914f190edca86c5b1f718552964d8126f3e9c8a660790e3b8925d6ed80bac8ad",
+    "bytes": 2758853
+   },
+   "previousCandidate": {
+    "id": "thsc-5222-normanhurst-boys-2025-w-sol",
+    "url": "https://www.thsconline.net/s/v/5222/Normanhurst%20Boys%202025%20w.%20sol",
+    "subject": "Mathematics Advanced",
+    "school": "Normanhurst Boys",
+    "year": 2025,
+    "type": "assessment",
+    "title": "2025 Normanhurst Boys Mathematics Advanced Assessment",
+    "level": "Preliminary",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5222",
+    "linkText": "Normanhurst Boys 2025 w. sol",
+    "sourceKeys": [
+     "5222|normanhurst boys 2025 w. sol"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-5222-normanhurst-boys-2025-w-sol",
+      "url": "https://thsconline.github.io/s/d/5222/Normanhurst%20Boys%202025%20w.%20sol",
+      "subject": "Mathematics Advanced",
+      "school": "Normanhurst Boys",
+      "year": 2025,
+      "type": "assessment",
+      "title": "2025 Normanhurst Boys Mathematics Advanced Assessment"
+     },
+     {
+      "id": "thsc-5222-normanhurst-boys-2025-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F5222%2FNormanhurst%2520Boys%25202025%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Mathematics Advanced",
+      "school": "Normanhurst Boys",
+      "year": 2025,
+      "type": "assessment",
+      "title": "2025 Normanhurst Boys Mathematics Advanced Assessment"
+     },
+     {
+      "id": "thsc-5222-normanhurst-boys-2025-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F5222%2FNormanhurst%2520Boys%25202025%2520w.%2520sol&dl=1",
+      "subject": "Mathematics Advanced",
+      "school": "Normanhurst Boys",
+      "year": 2025,
+      "type": "assessment",
+      "title": "2025 Normanhurst Boys Mathematics Advanced Assessment"
+     }
+    ],
+    "sha256": "914f190edca86c5b1f718552964d8126f3e9c8a660790e3b8925d6ed80bac8ad",
+    "bytes": 2758853,
+    "pages": 34,
+    "examBlock": "Assessment Task 2",
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-2718-fort-st-2026-p1",
+    "subject": "English Paper 1",
+    "level": "HSC",
+    "year": 2026,
+    "school": "Fort St",
+    "type": "trial",
+    "title": "2026 Fort St English Paper 1 Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/fort-st-2026-p1.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "2718",
+    "linkText": "Fort St 2026 P1",
+    "fallbackUrl": "https://thsconline.github.io/s/d/2718/Fort%20St%202026%20P1",
+    "mirror": "thsc-au",
+    "sha256": "3072db090eea579d7b1f68b5bfe354adf11e5ec3491a79bfa8c6d81371c3833e",
+    "bytes": 465651
+   },
+   "previousCandidate": {
+    "id": "thsc-2718-fort-st-2026-p1",
+    "subject": "English Paper 1",
+    "level": "HSC",
+    "year": 2026,
+    "school": "Fort St",
+    "type": "trial",
+    "title": "2026 Fort St English Paper 1 Trial",
+    "url": "https://www.thsconline.net/s/v/2718/Fort%20St%202026%20P1",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "2718",
+    "linkText": "Fort St 2026 P1",
+    "sha256": "3072db090eea579d7b1f68b5bfe354adf11e5ec3491a79bfa8c6d81371c3833e",
+    "bytes": 465651,
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-2718-fort-st-2026-p1",
+      "url": "https://thsconline.github.io/s/d/2718/Fort%20St%202026%20P1",
+      "subject": "English Paper 1",
+      "school": "Fort St",
+      "year": 2026,
+      "type": "trial",
+      "title": "2026 Fort St English Paper 1 Trial"
+     },
+     {
+      "id": "thsc-2718-fort-st-2026-p1",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F2718%2FFort%2520St%25202026%2520P1&dl=1",
+      "solutionUrl": "",
+      "subject": "English Paper 1",
+      "school": "Fort St",
+      "year": 2026,
+      "type": "trial",
+      "title": "2026 Fort St English Paper 1 Trial"
+     },
+     {
+      "id": "thsc-2718-fort-st-2026-p1",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F2718%2FFort%2520St%25202026%2520P1&dl=1",
+      "subject": "English Paper 1",
+      "school": "Fort St",
+      "year": 2026,
+      "type": "trial",
+      "title": "2026 Fort St English Paper 1 Trial"
+     }
+    ],
+    "pages": 15,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-2718-north-sydney-girls-2025-p1",
+    "subject": "English Paper 1",
+    "level": "HSC",
+    "year": 2025,
+    "school": "North Sydney Girls",
+    "type": "trial",
+    "title": "2025 North Sydney Girls English Paper 1 Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/north-sydney-girls-2025-p1.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "2718",
+    "linkText": "North Sydney Girls 2025 P1",
+    "fallbackUrl": "https://thsconline.github.io/s/d/2718/North%20Sydney%20Girls%202025%20P1",
+    "mirror": "thsc-au",
+    "sha256": "549ca4fcd9f9309323f96113421c7630a46fc8a572dd3439b5fa4df3bbfa9eae",
+    "bytes": 535097
+   },
+   "previousCandidate": {
+    "id": "thsc-2718-north-sydney-girls-2025-p1",
+    "url": "https://www.thsconline.net/s/v/2718/North%20Sydney%20Girls%202025%20P1",
+    "subject": "English Paper 1",
+    "school": "North Sydney Girls",
+    "year": 2025,
+    "type": "trial",
+    "title": "2025 North Sydney Girls English Paper 1 Trial",
+    "level": "HSC",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "2718",
+    "linkText": "North Sydney Girls 2025 P1",
+    "sourceKeys": [
+     "2718|north sydney girls 2025 p1"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-2718-north-sydney-girls-2025-p1",
+      "url": "https://thsconline.github.io/s/d/2718/North%20Sydney%20Girls%202025%20P1",
+      "subject": "English Paper 1",
+      "school": "North Sydney Girls",
+      "year": 2025,
+      "type": "trial",
+      "title": "2025 North Sydney Girls English Paper 1 Trial"
+     },
+     {
+      "id": "thsc-2718-north-sydney-girls-2025-p1",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F2718%2FNorth%2520Sydney%2520Girls%25202025%2520P1&dl=1",
+      "solutionUrl": "",
+      "subject": "English Paper 1",
+      "school": "North Sydney Girls",
+      "year": 2025,
+      "type": "trial",
+      "title": "2025 North Sydney Girls English Paper 1 Trial"
+     },
+     {
+      "id": "thsc-2718-north-sydney-girls-2025-p1",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F2718%2FNorth%2520Sydney%2520Girls%25202025%2520P1&dl=1",
+      "subject": "English Paper 1",
+      "school": "North Sydney Girls",
+      "year": 2025,
+      "type": "trial",
+      "title": "2025 North Sydney Girls English Paper 1 Trial"
+     }
+    ],
+    "sha256": "549ca4fcd9f9309323f96113421c7630a46fc8a572dd3439b5fa4df3bbfa9eae",
+    "bytes": 535097,
+    "pages": 18,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-2718-st-george-girls-2021-p1",
+    "subject": "English Paper 1",
+    "level": "HSC",
+    "year": 2021,
+    "school": "St George Girls",
+    "type": "trial",
+    "title": "2021 St George Girls English Paper 1 Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/st-george-girls-2021-p1.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "2718",
+    "linkText": "St George Girls 2021 P1",
+    "fallbackUrl": "https://thsconline.github.io/s/d/2718/St%20George%20Girls%202021%20P1",
+    "mirror": "thsc-au",
+    "sha256": "ab8af9ea7fa4f2b167389f26995c2b9c0eb5e8c8651960cbfd98dfa7d7eb3184",
+    "bytes": 122338
+   },
+   "previousCandidate": {
+    "id": "thsc-2718-st-george-girls-2021-p1",
+    "url": "https://www.thsconline.net/s/v/2718/St%20George%20Girls%202021%20P1",
+    "subject": "English Paper 1",
+    "school": "St George Girls",
+    "year": 2021,
+    "type": "trial",
+    "title": "2021 St George Girls English Paper 1 Trial",
+    "level": "HSC",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "2718",
+    "linkText": "St George Girls 2021 P1",
+    "sourceKeys": [
+     "2718|st george girls 2021 p1"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-2718-st-george-girls-2021-p1",
+      "url": "https://thsconline.github.io/s/d/2718/St%20George%20Girls%202021%20P1",
+      "subject": "English Paper 1",
+      "school": "St George Girls",
+      "year": 2021,
+      "type": "trial",
+      "title": "2021 St George Girls English Paper 1 Trial"
+     },
+     {
+      "id": "thsc-2718-st-george-girls-2021-p1",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F2718%2FSt%2520George%2520Girls%25202021%2520P1&dl=1",
+      "solutionUrl": "",
+      "subject": "English Paper 1",
+      "school": "St George Girls",
+      "year": 2021,
+      "type": "trial",
+      "title": "2021 St George Girls English Paper 1 Trial"
+     },
+     {
+      "id": "thsc-2718-st-george-girls-2021-p1",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F2718%2FSt%2520George%2520Girls%25202021%2520P1&dl=1",
+      "subject": "English Paper 1",
+      "school": "St George Girls",
+      "year": 2021,
+      "type": "trial",
+      "title": "2021 St George Girls English Paper 1 Trial"
+     }
+    ],
+    "sha256": "ab8af9ea7fa4f2b167389f26995c2b9c0eb5e8c8651960cbfd98dfa7d7eb3184",
+    "bytes": 122338,
+    "pages": 3,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-5331-caringbah-2024-w-sol",
+    "subject": "Mathematics Extension 1",
+    "level": "HSC",
+    "year": 2024,
+    "school": "Caringbah",
+    "type": "assessment",
+    "title": "2024 Caringbah Mathematics Extension 1 Assessment",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension1/caringbah-2024-w-sol-2.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5331",
+    "linkText": "Caringbah 2024 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5331/Caringbah%202024%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "fbb00ec5ad7a6059d0c573c4a2f7853d96e755e862c6711d37aa99b1b939222c",
+    "bytes": 939729
+   },
+   "previousCandidate": {
+    "id": "thsc-5331-caringbah-2024-w-sol",
+    "subject": "Mathematics Extension 1",
+    "level": "HSC",
+    "examBlock": "Assessment Task 1",
+    "year": 2024,
+    "school": "Caringbah",
+    "type": "assessment",
+    "title": "2024 Caringbah Mathematics Extension 1 Assessment",
+    "url": "https://www.thsconline.net/s/v/5331/Caringbah%202024%20w.%20sol",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5331",
+    "linkText": "Caringbah 2024 w. sol",
+    "sha256": "fbb00ec5ad7a6059d0c573c4a2f7853d96e755e862c6711d37aa99b1b939222c",
+    "bytes": 939729,
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-5331-caringbah-2024-w-sol",
+      "url": "https://thsconline.github.io/s/d/5331/Caringbah%202024%20w.%20sol",
+      "subject": "Mathematics Extension 1",
+      "school": "Caringbah",
+      "year": 2024,
+      "type": "assessment",
+      "title": "2024 Caringbah Mathematics Extension 1 Assessment"
+     },
+     {
+      "id": "thsc-5331-caringbah-2024-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F5331%2FCaringbah%25202024%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Mathematics Extension 1",
+      "school": "Caringbah",
+      "year": 2024,
+      "type": "assessment",
+      "title": "2024 Caringbah Mathematics Extension 1 Assessment"
+     },
+     {
+      "id": "thsc-5331-caringbah-2024-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F5331%2FCaringbah%25202024%2520w.%2520sol&dl=1",
+      "subject": "Mathematics Extension 1",
+      "school": "Caringbah",
+      "year": 2024,
+      "type": "assessment",
+      "title": "2024 Caringbah Mathematics Extension 1 Assessment"
+     }
+    ],
+    "pages": 24,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-5341-james-ruse-1999-w-sol",
+    "subject": "Mathematics Extension 2",
+    "level": "HSC",
+    "year": 1999,
+    "school": "James Ruse",
+    "type": "assessment",
+    "title": "1999 James Ruse Mathematics Extension 2 Assessment",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1999-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5341",
+    "linkText": "James Ruse 1999 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5341/James%20Ruse%201999%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "ca179de7e9a9c54f085953ab1322a47d272534940fc55ac1c76ab9e767ab9bba",
+    "bytes": 131801
+   },
+   "previousCandidate": {
+    "id": "thsc-5341-james-ruse-1999-w-sol",
+    "subject": "Mathematics Extension 2",
+    "level": "HSC",
+    "year": 1999,
+    "school": "James Ruse",
+    "type": "assessment",
+    "title": "1999 James Ruse Mathematics Extension 2 Assessment",
+    "url": "https://thsconline.github.io/s/d/5341/James%20Ruse%201999%20w.%20sol",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5341",
+    "linkText": "James Ruse 1999 w. sol",
+    "sha256": "ca179de7e9a9c54f085953ab1322a47d272534940fc55ac1c76ab9e767ab9bba",
+    "bytes": 131801,
+    "provenanceSources": [],
+    "pages": 6,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-5341-james-ruse-1999-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F5341%2FJames%2520Ruse%25201999%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Mathematics Extension 2",
+      "school": "James Ruse",
+      "year": 1999,
+      "type": "assessment",
+      "title": "1999 James Ruse Mathematics Extension 2 Assessment"
+     }
+    ]
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-5342-girraween-2024-w-sol",
+    "subject": "Mathematics Extension 2",
+    "level": "HSC",
+    "year": 2024,
+    "school": "Girraween",
+    "type": "assessment",
+    "title": "2024 Girraween Mathematics Extension 2 Assessment",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/girraween-2024-w-sol-2.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5342",
+    "linkText": "Girraween 2024 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5342/Girraween%202024%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "c0b20993aed3a2a8fd0e06b6378fe990bc0d5f9d97a076a3ca4112c4f2a5eba5",
+    "bytes": 721700
+   },
+   "previousCandidate": {
+    "id": "thsc-5342-girraween-2024-w-sol",
+    "url": "https://www.thsconline.net/s/v/5342/Girraween%202024%20w.%20sol",
+    "subject": "Mathematics Extension 2",
+    "school": "Girraween",
+    "year": 2024,
+    "type": "assessment",
+    "title": "2024 Girraween Mathematics Extension 2 Assessment",
+    "level": "HSC",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5342",
+    "linkText": "Girraween 2024 w. sol",
+    "sourceKeys": [
+     "5342|girraween 2024 w. sol"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-5342-girraween-2024-w-sol",
+      "url": "https://thsconline.github.io/s/d/5342/Girraween%202024%20w.%20sol",
+      "subject": "Mathematics Extension 2",
+      "school": "Girraween",
+      "year": 2024,
+      "type": "assessment",
+      "title": "2024 Girraween Mathematics Extension 2 Assessment"
+     },
+     {
+      "id": "thsc-5342-girraween-2024-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F5342%2FGirraween%25202024%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Mathematics Extension 2",
+      "school": "Girraween",
+      "year": 2024,
+      "type": "assessment",
+      "title": "2024 Girraween Mathematics Extension 2 Assessment"
+     },
+     {
+      "id": "thsc-5342-girraween-2024-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F5342%2FGirraween%25202024%2520w.%2520sol&dl=1",
+      "subject": "Mathematics Extension 2",
+      "school": "Girraween",
+      "year": 2024,
+      "type": "assessment",
+      "title": "2024 Girraween Mathematics Extension 2 Assessment"
+     }
+    ],
+    "sha256": "c0b20993aed3a2a8fd0e06b6378fe990bc0d5f9d97a076a3ca4112c4f2a5eba5",
+    "bytes": 721700,
+    "pages": 18,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-5342-girraween-2025-w-sol",
+    "subject": "Mathematics Extension 2",
+    "level": "HSC",
+    "year": 2025,
+    "school": "Girraween",
+    "type": "assessment",
+    "title": "2025 Girraween Mathematics Extension 2 Assessment",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/girraween-2025-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5342",
+    "linkText": "Girraween 2025 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5342/Girraween%202025%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "1168a6aaaeb4b8d90b6af6fe208e59c92c73ec51db2813e9b188b1d0909c7cfc",
+    "bytes": 725266
+   },
+   "previousCandidate": {
+    "id": "thsc-5342-girraween-2025-w-sol",
+    "url": "https://www.thsconline.net/s/v/5342/Girraween%202025%20w.%20sol",
+    "subject": "Mathematics Extension 2",
+    "school": "Girraween",
+    "year": 2025,
+    "type": "assessment",
+    "title": "2025 Girraween Mathematics Extension 2 Assessment",
+    "level": "HSC",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5342",
+    "linkText": "Girraween 2025 w. sol",
+    "sourceKeys": [
+     "5342|girraween 2025 w. sol"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-5342-girraween-2025-w-sol",
+      "url": "https://thsconline.github.io/s/d/5342/Girraween%202025%20w.%20sol",
+      "subject": "Mathematics Extension 2",
+      "school": "Girraween",
+      "year": 2025,
+      "type": "assessment",
+      "title": "2025 Girraween Mathematics Extension 2 Assessment"
+     },
+     {
+      "id": "thsc-5342-girraween-2025-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F5342%2FGirraween%25202025%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Mathematics Extension 2",
+      "school": "Girraween",
+      "year": 2025,
+      "type": "assessment",
+      "title": "2025 Girraween Mathematics Extension 2 Assessment"
+     },
+     {
+      "id": "thsc-5342-girraween-2025-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F5342%2FGirraween%25202025%2520w.%2520sol&dl=1",
+      "subject": "Mathematics Extension 2",
+      "school": "Girraween",
+      "year": 2025,
+      "type": "assessment",
+      "title": "2025 Girraween Mathematics Extension 2 Assessment"
+     }
+    ],
+    "sha256": "1168a6aaaeb4b8d90b6af6fe208e59c92c73ec51db2813e9b188b1d0909c7cfc",
+    "bytes": 725266,
+    "pages": 43,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-5328-roseville-2026-w-sol",
+    "subject": "Mathematics Advanced",
+    "level": "HSC",
+    "year": 2026,
+    "school": "Roseville",
+    "type": "trial",
+    "title": "2026 Roseville Mathematics Advanced Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-advanced/roseville-2026-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5328",
+    "linkText": "Roseville 2026 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5328/Roseville%202026%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "f7222ccd91cd0e8b3a82f7e63def24f94b11407842e5ec8360b4bc70f45122c6",
+    "bytes": 1482763
+   },
+   "previousCandidate": {
+    "id": "thsc-5328-roseville-2026-w-sol",
+    "url": "https://www.thsconline.net/s/v/5328/Roseville%202026%20w.%20sol",
+    "subject": "Mathematics Advanced",
+    "school": "Roseville",
+    "year": 2026,
+    "type": "trial",
+    "title": "2026 Roseville Mathematics Advanced Trial",
+    "level": "HSC",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5328",
+    "linkText": "Roseville 2026 w. sol",
+    "sourceKeys": [
+     "5328|roseville 2026 w. sol"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-5328-roseville-2026-w-sol",
+      "url": "https://thsconline.github.io/s/d/5328/Roseville%202026%20w.%20sol",
+      "subject": "Mathematics Advanced",
+      "school": "Roseville",
+      "year": 2026,
+      "type": "trial",
+      "title": "2026 Roseville Mathematics Advanced Trial"
+     },
+     {
+      "id": "thsc-5328-roseville-2026-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F5328%2FRoseville%25202026%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Mathematics Advanced",
+      "school": "Roseville",
+      "year": 2026,
+      "type": "trial",
+      "title": "2026 Roseville Mathematics Advanced Trial"
+     },
+     {
+      "id": "thsc-5328-roseville-2026-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F5328%2FRoseville%25202026%2520w.%2520sol&dl=1",
+      "subject": "Mathematics Advanced",
+      "school": "Roseville",
+      "year": 2026,
+      "type": "trial",
+      "title": "2026 Roseville Mathematics Advanced Trial"
+     }
+    ],
+    "sha256": "f7222ccd91cd0e8b3a82f7e63def24f94b11407842e5ec8360b4bc70f45122c6",
+    "bytes": 1482763,
+    "pages": 71,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-5338-abbotsleigh-2022",
+    "subject": "Mathematics Extension 1",
+    "level": "HSC",
+    "year": 2022,
+    "school": "Abbotsleigh",
+    "type": "trial",
+    "title": "2022 Abbotsleigh Mathematics Extension 1 Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/abbotsleigh-2022.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5338",
+    "linkText": "Abbotsleigh 2022",
+    "solutionUrl": "https://hscportal.pages.dev/yr12/Maths/Extension%201/Abbotsleigh%202022%20w.%20sol%20%5B5338-99796fba%5D.pdf",
+    "fallbackUrl": "https://thsconline.github.io/s/d/5338/Abbotsleigh%202022",
+    "mirror": "thsc-au",
+    "sha256": "866569610dc4bf9c5a1a009328f6f05142440f411c08a96fe5c3ff4aca11da93",
+    "bytes": 993649
+   },
+   "previousCandidate": {
+    "id": "thsc-5338-abbotsleigh-2022-w-sol",
+    "subject": "Mathematics Extension 1",
+    "level": "HSC",
+    "year": 2022,
+    "school": "Abbotsleigh",
+    "type": "trial",
+    "title": "2022 Abbotsleigh Mathematics Extension 1 Trial",
+    "url": "https://hscportal.pages.dev/yr12/Maths/Extension%201/Abbotsleigh%202022%20w.%20sol%20%5B5338-99796fba%5D.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "5338",
+    "linkText": "Abbotsleigh 2022 w. sol",
+    "fallbackUrl": "https://www.thsconline.net/s/v/5338/Abbotsleigh%202022",
+    "mirror": "hscportal",
+    "sourceKeys": [
+     "5338|abbotsleigh 2022 w. sol",
+     "5338|abbotsleigh 2022"
+    ],
+    "libraryAliases": [
+     {
+      "id": "thsc-5338-abbotsleigh-2022-w-sol",
+      "url": "https://hscportal.pages.dev/yr12/Maths/Extension%201/Abbotsleigh%202022%20w.%20sol%20%5B5338-99796fba%5D.pdf",
+      "subject": "Mathematics Extension 1",
+      "school": "Abbotsleigh",
+      "year": 2022,
+      "type": "trial",
+      "title": "2022 Abbotsleigh Mathematics Extension 1 Trial"
+     },
+     {
+      "id": "add-thsc-au-growth-db836e142c",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/abbotsleigh-2022-w-sol.pdf",
+      "subject": "Mathematics Extension 1",
+      "school": "Abbotsleigh",
+      "year": 2022,
+      "type": "trial",
+      "title": "Abbotsleigh 2022 w. sol"
+     }
+    ],
+    "solutionUrl": "",
+    "fileVariants": [
+     {
+      "url": "https://hscportal.pages.dev/yr12/Maths/Extension%201/Abbotsleigh%202022%20w.%20sol%20%5B5338-99796fba%5D.pdf",
+      "role": "combined",
+      "label": "Questions + solutions (previous copy)",
+      "sha256": "db836e142ca9d4a18afad755383e87d8c6c235c2b09385efa7f01ee4407473f2",
+      "pages": 30,
+      "libraryRecord": {
+       "id": "thsc-5338-abbotsleigh-2022-w-sol",
+       "url": "https://hscportal.pages.dev/yr12/Maths/Extension%201/Abbotsleigh%202022%20w.%20sol%20%5B5338-99796fba%5D.pdf",
+       "subject": "Mathematics Extension 1",
+       "school": "Abbotsleigh",
+       "year": 2022,
+       "type": "trial",
+       "title": "2022 Abbotsleigh Mathematics Extension 1 Trial"
+      }
+     },
+     {
+      "url": "https://www.thsconline.net/s/v/5338/Abbotsleigh%202022",
+      "role": "questions",
+      "label": "Questions only (migrated copy)",
+      "sha256": "866569610dc4bf9c5a1a009328f6f05142440f411c08a96fe5c3ff4aca11da93",
+      "pages": 13,
+      "libraryRecord": {
+       "id": "thsc-5338-abbotsleigh-2022",
+       "url": "https://thsconline.github.io/s/d/5338/Abbotsleigh%202022",
+       "solutionUrl": "https://hscportal.pages.dev/yr12/Maths/Extension%201/Abbotsleigh%202022%20w.%20sol%20%5B5338-99796fba%5D.pdf",
+       "subject": "Mathematics Extension 1",
+       "school": "Abbotsleigh",
+       "year": 2022,
+       "type": "trial",
+       "title": "2022 Abbotsleigh Mathematics Extension 1 Trial"
+      }
+     }
+    ],
+    "alternateSources": [
+     {
+      "url": "https://www.thsconline.net/s/v/5338/Abbotsleigh%202022",
+      "source": "thsc-fragments",
+      "sha256": "866569610dc4bf9c5a1a009328f6f05142440f411c08a96fe5c3ff4aca11da93",
+      "bytes": 993649,
+      "pages": 13
+     }
+    ],
+    "provenanceSources": [
+     {
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/abbotsleigh-2022-w-sol.pdf",
+      "role": "primary",
+      "reason": "No current full-file proof; excluded from online actions"
+     },
+     {
+      "url": "https://thsconline.github.io/s/d/5338/Abbotsleigh%202022%20w.%20sol",
+      "role": "primary",
+      "reason": "No current full-file proof; excluded from online actions"
+     }
+    ],
+    "sha256": "db836e142ca9d4a18afad755383e87d8c6c235c2b09385efa7f01ee4407473f2",
+    "bytes": 1235233,
+    "pages": 30,
+    "solFallbackUrl": ""
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-6528-caringbah-2019",
+    "subject": "Physics",
+    "level": "HSC",
+    "year": 2019,
+    "school": "Caringbah",
+    "type": "trial",
+    "title": "2019 Caringbah Physics Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/caringbah-2019.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "Caringbah 2019",
+    "fallbackUrl": "https://thsconline.github.io/s/d/6528/Caringbah%202019",
+    "mirror": "thsc-au",
+    "sha256": "c5b8dd3a223f8a7cd1c986bab431e91543618564b6d96edbd9f3ff35b478c8af",
+    "bytes": 1130311
+   },
+   "previousCandidate": {
+    "id": "thsc-6528-caringbah-2019",
+    "subject": "Physics",
+    "level": "HSC",
+    "year": 2019,
+    "school": "Caringbah",
+    "type": "trial",
+    "title": "2019 Caringbah Physics Trial",
+    "url": "https://www.thsconline.net/s/v/6528/Caringbah%202019",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": false,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "Caringbah 2019",
+    "sha256": "c5b8dd3a223f8a7cd1c986bab431e91543618564b6d96edbd9f3ff35b478c8af",
+    "bytes": 1130311,
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-6528-caringbah-2019",
+      "url": "https://thsconline.github.io/s/d/6528/Caringbah%202019",
+      "subject": "Physics",
+      "school": "Caringbah",
+      "year": 2019,
+      "type": "trial",
+      "title": "2019 Caringbah Physics Trial"
+     },
+     {
+      "id": "thsc-6528-caringbah-2019",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F6528%2FCaringbah%25202019&dl=1",
+      "solutionUrl": "",
+      "subject": "Physics",
+      "school": "Caringbah",
+      "year": 2019,
+      "type": "trial",
+      "title": "2019 Caringbah Physics Trial"
+     },
+     {
+      "id": "thsc-6528-caringbah-2019",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F6528%2FCaringbah%25202019&dl=1",
+      "subject": "Physics",
+      "school": "Caringbah",
+      "year": 2019,
+      "type": "trial",
+      "title": "2019 Caringbah Physics Trial"
+     }
+    ],
+    "pages": 27,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-6528-north-sydney-girls-2022-w-sol",
+    "subject": "Physics",
+    "level": "HSC",
+    "year": 2022,
+    "school": "North Sydney Girls",
+    "type": "trial",
+    "title": "2022 North Sydney Girls Physics Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2022-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "North Sydney Girls 2022 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202022%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "c995b161a1a2a7de8da317a80acf20fa469e125363011d84cc0ba3b9170af460",
+    "bytes": 1582482
+   },
+   "previousCandidate": {
+    "id": "thsc-6528-north-sydney-girls-2022-w-sol",
+    "url": "https://www.thsconline.net/s/v/6528/North%20Sydney%20Girls%202022%20w.%20sol",
+    "subject": "Physics",
+    "school": "North Sydney Girls",
+    "year": 2022,
+    "type": "trial",
+    "title": "2022 North Sydney Girls Physics Trial",
+    "level": "HSC",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "North Sydney Girls 2022 w. sol",
+    "sourceKeys": [
+     "6528|north sydney girls 2022 w. sol"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-6528-north-sydney-girls-2022-w-sol",
+      "url": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202022%20w.%20sol",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2022,
+      "type": "trial",
+      "title": "2022 North Sydney Girls Physics Trial"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2022-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F6528%2FNorth%2520Sydney%2520Girls%25202022%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2022,
+      "type": "trial",
+      "title": "2022 North Sydney Girls Physics Trial"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2022-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F6528%2FNorth%2520Sydney%2520Girls%25202022%2520w.%2520sol&dl=1",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2022,
+      "type": "trial",
+      "title": "2022 North Sydney Girls Physics Trial"
+     }
+    ],
+    "sha256": "c995b161a1a2a7de8da317a80acf20fa469e125363011d84cc0ba3b9170af460",
+    "bytes": 1582482,
+    "pages": 81,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-6528-north-sydney-girls-2023-w-sol",
+    "subject": "Physics",
+    "level": "HSC",
+    "year": 2023,
+    "school": "North Sydney Girls",
+    "type": "trial",
+    "title": "2023 North Sydney Girls Physics Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2023-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "North Sydney Girls 2023 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202023%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "a31a005edf0c721af7637160ca72ebed9423fc14bb694e1d06f39f319846561b",
+    "bytes": 1890263
+   },
+   "previousCandidate": {
+    "id": "thsc-6528-north-sydney-girls-2023",
+    "subject": "Physics",
+    "level": "HSC",
+    "year": 2023,
+    "school": "North Sydney Girls",
+    "type": "trial",
+    "title": "2023 North Sydney Girls Physics Trial",
+    "url": "https://hscportal.pages.dev/yr12/Physics/Trials/2023/North%20Sydney%20Girls%202023%20%5B6528-6939e926%5D.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "North Sydney Girls 2023",
+    "fallbackUrl": "",
+    "mirror": "hscportal",
+    "sourceKeys": [
+     "6528|north sydney girls 2023",
+     "6528|north sydney girls 2023 w. sol"
+    ],
+    "libraryAliases": [
+     {
+      "id": "thsc-6528-north-sydney-girls-2023",
+      "url": "https://hscportal.pages.dev/yr12/Physics/Trials/2023/North%20Sydney%20Girls%202023%20%5B6528-6939e926%5D.pdf",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2023,
+      "type": "trial",
+      "title": "2023 North Sydney Girls Physics Trial"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2023-w-sol",
+      "url": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202023%20w.%20sol",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2023,
+      "type": "trial",
+      "title": "2023 North Sydney Girls Physics Trial",
+      "forKind": "solutions",
+      "savedKind": "paper"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2023",
+      "url": "https://hscportal.pages.dev/yr12/Physics/Trials/2023/North%20Sydney%20Girls%202023%20%5B6528-6939e926%5D.pdf",
+      "solutionUrl": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F6528%2FNorth%2520Sydney%2520Girls%25202023%2520w.%2520sol&dl=1",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2023,
+      "type": "trial",
+      "title": "2023 North Sydney Girls Physics Trial"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2023-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F6528%2FNorth%2520Sydney%2520Girls%25202023%2520w.%2520sol&dl=1",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2023,
+      "type": "trial",
+      "title": "2023 North Sydney Girls Physics Trial",
+      "forKind": "solutions",
+      "savedKind": "paper"
+     }
+    ],
+    "solutionUrl": "https://www.thsconline.net/s/v/6528/North%20Sydney%20Girls%202023%20w.%20sol",
+    "fileVariants": [
+     {
+      "url": "https://hscportal.pages.dev/yr12/Physics/Trials/2023/North%20Sydney%20Girls%202023%20%5B6528-6939e926%5D.pdf",
+      "role": "questions",
+      "label": "Questions (previous copy)",
+      "sha256": "acea17ee12cf4edff3257dbdd880edd31985cb1a5f84e13df42d5faa1a2889d4",
+      "pages": 39,
+      "libraryRecord": {
+       "id": "thsc-6528-north-sydney-girls-2023",
+       "url": "https://hscportal.pages.dev/yr12/Physics/Trials/2023/North%20Sydney%20Girls%202023%20%5B6528-6939e926%5D.pdf",
+       "subject": "Physics",
+       "school": "North Sydney Girls",
+       "year": 2023,
+       "type": "trial",
+       "title": "2023 North Sydney Girls Physics Trial"
+      }
+     },
+     {
+      "url": "https://www.thsconline.net/s/v/6528/North%20Sydney%20Girls%202023%20w.%20sol",
+      "role": "combined",
+      "label": "Questions + solutions (migrated copy)",
+      "sha256": "a31a005edf0c721af7637160ca72ebed9423fc14bb694e1d06f39f319846561b",
+      "pages": 88,
+      "libraryRecord": {
+       "id": "thsc-6528-north-sydney-girls-2023-w-sol",
+       "url": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202023%20w.%20sol",
+       "subject": "Physics",
+       "school": "North Sydney Girls",
+       "year": 2023,
+       "type": "trial",
+       "title": "2023 North Sydney Girls Physics Trial"
+      }
+     }
+    ],
+    "provenanceSources": [
+     {
+      "url": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202023",
+      "role": "primary",
+      "reason": "No current full-file proof; excluded from online actions"
+     }
+    ],
+    "sha256": "acea17ee12cf4edff3257dbdd880edd31985cb1a5f84e13df42d5faa1a2889d4",
+    "bytes": 707445,
+    "pages": 39,
+    "alternateSources": [],
+    "solFallbackUrl": ""
+   }
+  },
+  {
+   "published": {
+    "id": "thsc-6528-north-sydney-girls-2024-w-sol",
+    "subject": "Physics",
+    "level": "HSC",
+    "year": 2024,
+    "school": "North Sydney Girls",
+    "type": "trial",
+    "title": "2024 North Sydney Girls Physics Trial",
+    "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2024-w-sol.pdf",
+    "solutionPath": "",
+    "size": "",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "North Sydney Girls 2024 w. sol",
+    "fallbackUrl": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202024%20w.%20sol",
+    "mirror": "thsc-au",
+    "sha256": "a8a02011b1d03bea92fd4e48120ff0553e92c602d4286e1f4a27acb31bdca490",
+    "bytes": 1624689
+   },
+   "previousCandidate": {
+    "id": "thsc-6528-north-sydney-girls-2024-w-sol",
+    "url": "https://www.thsconline.net/s/v/6528/North%20Sydney%20Girls%202024%20w.%20sol",
+    "subject": "Physics",
+    "school": "North Sydney Girls",
+    "year": 2024,
+    "type": "trial",
+    "title": "2024 North Sydney Girls Physics Trial",
+    "level": "HSC",
+    "hasSolutions": true,
+    "source": "thsc-listing",
+    "viewno": "6528",
+    "linkText": "North Sydney Girls 2024 w. sol",
+    "sourceKeys": [
+     "6528|north sydney girls 2024 w. sol"
+    ],
+    "provenanceSources": [],
+    "libraryAliases": [
+     {
+      "id": "thsc-6528-north-sydney-girls-2024-w-sol",
+      "url": "https://thsconline.github.io/s/d/6528/North%20Sydney%20Girls%202024%20w.%20sol",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2024,
+      "type": "trial",
+      "title": "2024 North Sydney Girls Physics Trial"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2024-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fwww.thsconline.net%2Fs%2Fv%2F6528%2FNorth%2520Sydney%2520Girls%25202024%2520w.%2520sol&dl=1",
+      "solutionUrl": "",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2024,
+      "type": "trial",
+      "title": "2024 North Sydney Girls Physics Trial"
+     },
+     {
+      "id": "thsc-6528-north-sydney-girls-2024-w-sol",
+      "url": "https://hscpapers.com/proxy?url=https%3A%2F%2Fthsconline.github.io%2Fs%2Fd%2F6528%2FNorth%2520Sydney%2520Girls%25202024%2520w.%2520sol&dl=1",
+      "subject": "Physics",
+      "school": "North Sydney Girls",
+      "year": 2024,
+      "type": "trial",
+      "title": "2024 North Sydney Girls Physics Trial"
+     }
+    ],
+    "sha256": "a8a02011b1d03bea92fd4e48120ff0553e92c602d4286e1f4a27acb31bdca490",
+    "bytes": 1624689,
+    "pages": 81,
+    "alternateSources": [],
+    "fallbackUrl": "",
+    "solutionUrl": "",
+    "solFallbackUrl": "",
+    "fileVariants": []
+   }
+  }
+ ]
+}

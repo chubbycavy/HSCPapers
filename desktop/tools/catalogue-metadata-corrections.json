@@ -1,0 +1,51 @@
+{
+ "version": 1,
+ "entries": {
+  "add-acehsc-511ff93752": {
+   "fields": {
+    "subject": "English Advanced"
+   },
+   "reason": "Verified identical Advanced Paper 2 bytes and explicit document heading; original ACE subject was incorrect"
+  },
+  "portal-5228-abbotsleigh-2024": {
+   "fields": {
+    "school": "Abbotsleigh",
+    "type": "assessment",
+    "examBlock": "Assessment Task 3",
+    "solutionUrl": "",
+    "hasSolutions": false
+   },
+   "reason": "Verified Advanced Task 3 heading; detached unrelated Barker solutions"
+  },
+  "portal-5238-abbotsleigh-2024": {
+   "fields": {
+    "school": "Abbotsleigh",
+    "subject": "Mathematics Advanced",
+    "type": "assessment",
+    "examBlock": "Assessment Task 3",
+    "viewno": "5228",
+    "sourceKeys": [
+     "5228|abbotsleigh 2024"
+    ],
+    "solutionUrl": "",
+    "hasSolutions": false,
+    "fallbackUrl": ""
+   },
+   "reason": "Published cross-list is an identical Advanced assessment, not an Extension 1 exam; detached unrelated half-yearly solutions"
+  },
+  "hsc-2017-mathematics-hsc-exam-paper": {
+   "fields": {
+    "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-maths.pdf",
+    "viewno": "5320",
+    "linkText": "2017 HSC",
+    "sourceKeys": [
+     "5320|2017 hsc"
+    ],
+    "fallbackUrl": "",
+    "documentRole": "questions"
+   },
+   "libraryRole": "solutions",
+   "reason": "Exact 2017 official exam bytes already verified; marking guidelines remain the separate solutions file"
+  }
+ }
+}

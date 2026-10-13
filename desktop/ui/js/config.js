@@ -24,6 +24,8 @@ const SITE_CONFIG = {
   // The function itself allowlists hosts. Empty string = no proxy
   // (those sources fall back to the "use ⭳" hint).
   PROXY_BASE: "/proxy",
+  // Absolute gateway for native card/external links; raw descriptors stay in data.
+  PUBLIC_PDF_PROXY_URL: "https://hscpapers.com/proxy",
 
   // Small badge in the nav showing which surface you're on ("🖥 Desktop app"
   // shows in the desktop app; this is the web counterpart).
@@ -63,7 +65,7 @@ const SITE_CONFIG = {
   // Desktop only: the app prefers this live, nightly-rebuilt catalogue at
   // startup and falls back to the bundled copy when offline. The site itself
   // ignores this (same-origin asset already).
-  LIVE_CATALOGUE_URL: "https://hscpapers.com/data/papers.json",
+  LIVE_CATALOGUE_URL: "https://hscpapers.com/data/papers-v2.json",
 };
 
 /**

@@ -1,5 +1,5 @@
 /* HSC Papers Mirror — search, filter, multi-select + bulk download
-   Data: data/papers.json · Remote files: js/config.js -> fileUrl(path) */
+    Data: data/papers-v2.json · Remote files: js/config.js -> fileUrl(path) */
 (() => {
   "use strict";
 
@@ -128,7 +128,7 @@
     return baseRel(p, kind).replace(/\.pdf$/, `-${hash6(url)}.pdf`);
   }
   function libraryCandidates(p, kind) {
-    return [...new Set([p, ...(p.libraryAliases || [])].map(row => libraryRel(row, kind)).filter(Boolean))];
+    return [...new Set([p, ...(p.libraryAliases || []).filter(row => !row.variantOnly && (!row.forKind || row.forKind === kind))].map(row => libraryRel(row, row.savedKind || kind)).filter(Boolean))];
   }
 
   /* ---------- theme ---------- */
@@ -299,16 +299,50 @@
     const ids = await decodeSel(v);
     if (!ids || !ids.length) return; // unreadable/empty — ignore silently
     const known = new Set(state.papers.map(p => p.id));
-    let restored = 0, dropped = 0;
+    let restored = 0, dropped = 0, archived = 0;
     for (const id of ids) {
       const active = canonicalId(id);
       if (active && known.has(active)) { state.selected.add(active); restored++; }
-      else dropped++; // removed/expired ids (e.g. takedown removals)
+      else {
+        const all = new Set([...known, ...recoveryPapers.map(p => p.id)]);
+        const target = window.CatalogueAliases.resolve(id, catalogueAliases, all);
+        const record = recoveryPapers.find(p => p.id === target);
+        if (record) { archived++; $("#recoveryPanel").open = true; $("#recoverySearch").value = record.title; }
+        else dropped++;
+      }
     }
     if (restored) sharedSelNote = { restored, dropped };
+    else if (archived) { showSelNotice(`Shared paper retained in the recovery archive (${archived} unavailable online)`); }
     else if (dropped) sharedSelNote = { restored: 0, dropped, dead: true };
   }
 
+  let recoveryPapers = [];
+  function renderRecovery() {
+    const panel = $("#recoveryPanel"); if (!panel) return;
+    panel.hidden = !recoveryPapers.length; $("#recoveryCount").textContent = `(${recoveryPapers.length})`;
+    const search = $("#recoverySearch"), input = (search.value || state.q || "").toLowerCase().trim();
+    if (!search.dataset.wired) { search.dataset.wired = "1"; search.addEventListener("input", renderRecovery); }
+    const rows = recoveryPapers.filter(p => `${p.subject} ${p.school} ${p.year} ${p.title}`.toLowerCase().includes(input));
+    const container = $("#recoveryCards"); container.innerHTML = "";
+    for (const p of rows.slice(0, 30)) {
+      const item = document.createElement("div"); item.className = "about-card"; item.style.marginTop = ".5rem";
+      const heading = document.createElement("b"); heading.textContent = p.title; item.appendChild(heading);
+      const detail = document.createElement("p"); detail.textContent = `${p.subject} · ${p.school} · ${p.year} — ${p.availability?.reason || "Awaiting verified replacement"}`; item.appendChild(detail);
+      const bookmark = document.createElement("button"); bookmark.className = "mini-btn"; bookmark.textContent = bkState.has(p.id) ? "★ Bookmarked" : "☆ Bookmark";
+      bookmark.onclick = () => { toggleBookmark(p.id); renderRecovery(); }; item.appendChild(bookmark);
+      if (IS_TAURI) {
+        const open = document.createElement("button"); open.className = "mini-btn"; open.textContent = "Open existing local file";
+        open.onclick = async () => {
+          const relpaths = libraryCandidates(p, "paper");
+          const saved = await window.__TAURI__.core.invoke("saved_paths", { relpaths }).catch(() => ({}));
+          const local = (Array.isArray(saved) ? saved : relpaths.map(r => saved[r])).find(Boolean);
+          if (local) openReader(local, p.title, p.id, null, null, null); else open.textContent = "No matching local file found";
+        }; item.appendChild(open);
+      }
+      container.appendChild(item);
+    }
+    if (rows.length > 30) { const note = document.createElement("p"); note.textContent = `Showing 30 of ${rows.length}; narrow the archive search.`; container.appendChild(note); }
+  }
   /* ---------- load data ---------- */
   async function load() {
     let json = null;
@@ -317,28 +351,34 @@
     if (IS_TAURI && window.SITE_CONFIG?.LIVE_CATALOGUE_URL) {
       try {
         const liveUrl = new URL(window.SITE_CONFIG.LIVE_CATALOGUE_URL);
-        liveUrl.searchParams.set("v", "canonical-1"); // bypass the old inflated catalogue's CDN cache key
+        liveUrl.searchParams.set("v", "migration-1"); // refresh migrated transport and source dispositions
         const res = await fetch(liveUrl.href, { cache: "no-store" });
-        if (res.ok) json = await res.json();
+        if (res.ok) { const live = await res.json(); if (window.MigrationState.compatible(live)) json = live; }
       } catch {}
     }
     if (!json) {
       try {
-        const res = await fetch("data/papers.json?v=canonical-1", { cache: "no-store" });
+        const res = await fetch("data/papers-v2.json?v=migration-2", { cache: "no-store" });
+        if (!res.ok) throw new Error("Catalogue HTTP " + res.status);
         json = await res.json();
+        if (!window.MigrationState.compatible(json)) throw new Error("Incompatible catalogue");
       } catch (e) {
-        cardsEl.innerHTML = `<div class="empty"><b>Couldn't load data/papers.json</b>Run via a local server (e.g. <code>npx serve .</code>) — fetch() is blocked on file://.</div>`;
+        cardsEl.innerHTML = `<div class="empty"><b>Couldn't load the compatible catalogue</b>Check your connection or bundled data/papers-v2.json. Run local copies through a web server.</div>`;
         return;
       }
     }
+    try { window.MigrationState.checkpoint(localStorage); }
+    catch { cardsEl.innerHTML = `<div class="empty"><b>Couldn't preserve your pre-upgrade state</b>Free some device storage and retry. Your original bookmarks and queue have been retained.</div>`; return; }
     state.papers = json.papers || [];
+    recoveryPapers = json.recoveryPapers || [];
     catalogueAliases = json.idAliases || {};
     activePaperIds = new Set(state.papers.map(p => p.id));
     restoreState(); // saved filters/selection first…
     state.selected = new Set(window.CatalogueAliases.remap([...state.selected], catalogueAliases, activePaperIds));
     // Pending/review IDs remain stored so their bookmarks can return when
     // resolved. Only active canonical IDs participate in selections/cards.
-    bkState = new Set(window.CatalogueAliases.remap([...bkState], catalogueAliases, activePaperIds, true));
+    const knownPaperIds = new Set([...activePaperIds, ...recoveryPapers.map(p => p.id)]);
+    bkState = new Set(window.CatalogueAliases.remap([...bkState], catalogueAliases, knownPaperIds, true));
     rvState = window.CatalogueAliases.remap(rvState, catalogueAliases, activePaperIds, true).slice(0, 50);
     dlState = new Set(window.CatalogueAliases.remap([...downloadedSet()], catalogueAliases, activePaperIds, true));
     saveBookmarks();
@@ -714,6 +754,7 @@
     renderShowMore(list.length, visible.length);
     renderBulk();
     patchSavedButtons();
+    renderRecovery();
     persistState(); // filters/selection survive restarts + reader overlays
     // keep strip highlight in sync
     document.querySelectorAll(".subj-chip").forEach((chip, i) => {
@@ -734,6 +775,9 @@
     // tag made it look mislabeled.
     const slowPaper = !isFastHostUrl(p.url);
     const slowSol = solHref ? !isFastHostUrl(solHref) : false;
+    const solLinkAttrs = slowSol && !state.includeSlowRoute
+      ? 'aria-disabled="true" title="Enable Slow route to download these solutions"'
+      : `href="${esc(deliveryHref(solHref))}" target="_blank" rel="noopener" download`;
     const slowFull = slowPaper && slowSol ? "🐢 paper + sol" : slowPaper ? "🐢 paper" : slowSol ? "🐢 sol" : "";
     // B11: compact mode shortens labels so tag rows never wrap (height stays
     // constant); the 🐢 tooltip keeps the full detail on every density.
@@ -742,9 +786,9 @@
     const gotTag = compact ? "✓" : "✓ Got";
     const solTag = compact ? "Sol" : "Solutions";
     const slowTip = slowPaper && slowSol
-      ? "Paper AND solutions need THSC's rate-limited resolver (or are dead links)"
+      ? "Paper and solutions use validated Slow route delivery (migrated THSC or legacy sources)"
       : slowPaper
-        ? "Paper file needs the slow route (THSC resolver / dead link) — hidden from saves while the toggle is off"
+        ? "Paper uses validated Slow route delivery — excluded from saves while the toggle is off"
         : "Only the SOLUTIONS file needs the slow route — the paper itself downloads fast; solutions save only when the toggle is on";
     el.innerHTML = `
       <input type="checkbox" ${state.selected.has(p.id) ? "checked" : ""} aria-label="Select ${esc(p.title)}">
@@ -760,13 +804,38 @@
         <h3></h3>
         <div class="meta"></div>
         <div class="card-actions">
-          <a class="mini-btn go" href="${esc(IS_TAURI ? paperHref : downloadHref(paperHref))}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}" ${!IS_TAURI ? `data-dl data-source="${esc(paperHref)}" data-fallback="${esc(p.fallbackUrl || "")}" data-name="${esc(safeName(p, "paper"))}"` : ""}>⭳ Paper</a>
-          ${solHref ? `<a class="mini-btn" href="${esc(IS_TAURI ? solHref : downloadHref(solHref))}" target="_blank" rel="noopener" download data-rel="${esc(srel || "")}" ${!IS_TAURI ? `data-dl data-source="${esc(solHref)}" data-fallback="${esc(p.solFallbackUrl || "")}" data-name="${esc(safeName(p, "solutions"))}"` : ""}>Solutions</a>` : ""}
+          <a class="mini-btn go" href="${esc(deliveryHref(paperHref))}" target="_blank" rel="noopener" download data-rel="${esc(prel || "")}" ${!IS_TAURI ? `data-dl data-kind="paper" data-source="${esc(paperHref)}" data-fallback="${esc(p.fallbackUrl || "")}" data-name="${esc(safeName(p, "paper"))}"` : ""}>⭳ Paper</a>
+          ${solHref ? `<a class="mini-btn" ${solLinkAttrs} data-rel="${esc(srel || "")}" ${!IS_TAURI ? `data-dl data-kind="solutions" data-source="${esc(solHref)}" data-fallback="${esc(p.solFallbackUrl || "")}" data-name="${esc(safeName(p, "solutions"))}"` : ""}>Solutions</a>` : ""}
           ${!IS_TAURI && paperHref && paperHref !== "#" ? `<button class="mini-btn" data-read>📖 Read</button>` : ""}
         </div>
       </div>`;
     el.querySelector("h3").textContent = p.title;
     el.querySelector(".meta").textContent = `${p.subject} · ${p.school} · ${p.size || ""}`.replace(/ · $/, "");
+    if (p.fileVariants?.length > 1) {
+      const versions = document.createElement("details"), summary = document.createElement("summary");
+      summary.textContent = "Other file versions"; versions.appendChild(summary);
+      for (const v of p.fileVariants.filter(v => v.url !== p.url)) {
+        const button = document.createElement("button"); button.className = "mini-btn"; button.textContent = `${v.label || v.role} (${v.pages || "?"} pages)`;
+        button.disabled = !state.includeSlowRoute && !isFastHostUrl(v.url); button.title = button.disabled ? "Enable Slow-route papers to use this version" : "Open this verified document version";
+        button.onclick = async event => {
+          event.stopPropagation();
+          if (!IS_TAURI) { openReader(v.url, `${p.title} — ${v.label || v.role}`, p.id, null, null, null, true); return; }
+          const kind = v.role === "solutions" ? "solutions" : "paper";
+          const row = { ...p, url: v.url, solutionUrl: v.url }, historical = v.libraryRecord;
+          const relpaths = [...new Set([libraryRel(row, kind), historical && libraryRel(historical, "paper"), ...(v.libraryAliases || []).map(a => libraryRel(a, a.savedKind || "paper"))].filter(Boolean))];
+          const saved = await window.__TAURI__.core.invoke("saved_paths", { relpaths }).catch(() => []);
+          let local = (Array.isArray(saved) ? saved : relpaths.map(r => saved[r])).find(Boolean);
+          if (!local) {
+            button.textContent = "Saving version…";
+            try { await window.__TAURI__.core.invoke("cancel_downloads", { cancel: false }); local = await window.__TAURI__.core.invoke("download_paper", { id: p.id + "-variant", url: v.url, relpath: relpaths[0], fallback: null }); }
+            catch (e) { button.textContent = "Version unavailable: " + String(e?.message || e); return; }
+          }
+          button.textContent = `${v.label || v.role} (${v.pages || "?"} pages)`; openReader(local, `${p.title} — ${v.label || v.role}`, p.id, null, null, null);
+        };
+        versions.appendChild(button);
+      }
+      el.querySelector(".card-body").appendChild(versions);
+    }
     const readBtn = el.querySelector("[data-read]");
     if (readBtn) readBtn.addEventListener("click", (e) => {
       e.preventDefault(); e.stopPropagation();
@@ -783,9 +852,10 @@
     });
     if (!IS_TAURI) {
       el.querySelectorAll("a[data-dl]").forEach(a => a.addEventListener("click", (e) => {
+        if (a.getAttribute("aria-disabled") === "true") { e.preventDefault(); return; }
         if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return; // browser opens in new tab
         e.preventDefault();
-        instantDownload(a.dataset.source || a.href, a.dataset.name, p.id, a.dataset.fallback);
+        instantDownload(a.dataset.source || a.href, a.dataset.name, p.id, a.dataset.fallback, a.dataset.kind);
       }));
     }
     const box = el.querySelector("input");
@@ -982,24 +1052,23 @@
   function shelfHas(id) {
     return bkState.has(id) || downloadedSet().has(id) || rvState.includes(id);
   }
-  async function fetchPdfBlob(url, fallback) {
+  async function fetchPdfBlob(url, fallback, record, kind = "paper") {
+    if (!window.SourcePolicy.allowedPrimary(url, state.includeSlowRoute)) throw new Error("Enable Slow route to download this file");
     let lastError;
-    const paper = state.papers.find(p => p.url === url);
-    const alternatives = (paper?.alternateSources || []).map(s => s.url);
-    for (const source of [...new Set([url, ...alternatives, fallback].filter(Boolean))]) {
+    for (const source of window.SourcePolicy.candidates(record, kind, url, state.includeSlowRoute, false, fallback)) {
       try {
         const res = await fetch(proxied(source), { signal: AbortSignal.timeout(120000) });
         if (!res.ok) throw new Error(res.status === 503 ? "Source busy — try again shortly" : `HTTP ${res.status}`);
         const blob = await res.blob();
-        if (!(await blob.slice(0, 5).text()).startsWith("%PDF-")) throw new Error("Source did not return a valid PDF");
+        await window.PdfValidation.validateBlob(blob);
         return blob;
       } catch (e) { lastError = e; }
     }
     throw lastError || new Error("No PDF source available");
   }
-  async function instantDownload(url, filename, paperId, fallback) {
+  async function instantDownload(url, filename, paperId, fallback, kind = "paper") {
     try {
-      const blob = await fetchPdfBlob(url, fallback);
+      const blob = await fetchPdfBlob(url, fallback, state.papers.find(p => p.id === paperId), kind);
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = filename || "paper.pdf";
@@ -1036,7 +1105,8 @@
       const f = files[i];
       $("#zipProgress").textContent = `Fetching ${i + 1}/${files.length} · ${fmtMB(bytes)} so far…`;
       try {
-        const blob = await fetchPdfBlob(f.url, state.includeSlowRoute ? f.fallback : null);
+        const baseId = f.kind === "solutions" ? f.id.slice(0, -4) : f.id;
+        const blob = await fetchPdfBlob(f.url, f.fallback, state.papers.find(p => p.id === baseId), f.kind);
         if (bytes + blob.size > budget) {
           // Budget enforced DURING the build with real sizes: emit what we
           // have instead of risking a tab crash on oversized selections.
@@ -1173,13 +1243,17 @@
     else try { localStorage.setItem(QUEUE_KEY, JSON.stringify(q)); } catch {}
   }
 
-  // Hosts proven to serve direct bytes — everything else (THSC router,
-  // dead NESA wcm) is a "slow route" resolved via the throttled resolver.
+  // Direct sources use the fast lane. Fragment descriptors and validated legacy
+  // transition sources share the existing Slow route setting.
   // (A third-party mirror was delisted 2026-09-25; its papers are
   // self-hosted now — desktop/tools/selfhost.json.)
-  const FAST_SAVE_HOSTS = new Set(["hscportal.pages.dev", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au", "thsconline.github.io", "thsconline.com.au", "web.archive.org", "aceh.b-cdn.net", "4unitmaths.com", "cresteconomics.com"]);
-  function isFastHostUrl(u) {
-    try { const url = new URL(u); if (/^\/s\/[dvfz]\//.test(url.pathname)) return false; return FAST_SAVE_HOSTS.has(url.host); } catch { return false; }
+  const isFastHostUrl = window.SourcePolicy.isFast;
+  function eligibleFallback(primary, candidate) {
+    return window.SourcePolicy.eligible(primary, candidate, state.includeSlowRoute);
+  }
+  function firstFallback(p, kind) {
+    const primary = paperUrlOf(p, kind);
+    return window.SourcePolicy.candidates(p, kind, primary, state.includeSlowRoute)[1] || "";
   }
   // Hosts whose files can be read cross-site by JS (they send ACAO:*) —
   // reader + ZIP fetch them directly. Everything else goes through the
@@ -1201,14 +1275,17 @@
     const resolved = proxied(u);
     return resolved === u ? u : resolved + "&dl=1";
   }
+  function deliveryHref(u) {
+    return IS_TAURI ? window.SourcePolicy.deliveryHref(u, window.SITE_CONFIG.PUBLIC_PDF_PROXY_URL) : downloadHref(u);
+  }
   let lastSlowSkipped = 0; // slow-route files excluded from the last filesForPapers() call
 
   // Shared: {id, url, name, relpath, fallback, kind} entries for any paper
-  // list (selection or filter). `fallback` = THSC router URL used when a
-  // mirror file is unavailable (handled in the Rust backend). `kind` is
+  // list (selection or filter). `fallback` = first eligible verified backup
+  // (handled in the Rust backend). `kind` is
   // explicit — id-suffix guessing misclassifies paper files whose THSC link
   // text ends in "w. sol". Unless "Include slow-route papers" is on,
-  // slow-route files are excluded from saves (they take ~20-40 min extra).
+  // slow-route files are excluded from saves.
   function filesForPapers(list) {
     const files = [];
     let skipped = 0;
@@ -1217,7 +1294,7 @@
       const paperUrl = paperUrlOf(p, "paper");
       const prel = libraryRel(p, "paper");
       if (prel) {
-        const f = { id: p.id, url: paperUrl, name: safeName(p, "paper"), relpath: prel, fallback: p.alternateSources?.[0]?.url || p.fallbackUrl || "", kind: "paper" };
+        const f = { id: p.id, url: paperUrl, name: safeName(p, "paper"), relpath: prel, fallback: firstFallback(p, "paper"), kind: "paper" };
         if (allowSlow || isFastHostUrl(f.url)) files.push(f);
         else skipped++;
       }
@@ -1225,7 +1302,7 @@
       if (sol && state.includeSolutionsInZip) {
         const srel = libraryRel(p, "solutions");
         if (srel) {
-          const f = { id: p.id + "-sol", url: sol, name: safeName(p, "solutions"), relpath: srel, fallback: p.solFallbackUrl || "", kind: "solutions" };
+          const f = { id: p.id + "-sol", url: sol, name: safeName(p, "solutions"), relpath: srel, fallback: firstFallback(p, "solutions"), kind: "solutions" };
           if (allowSlow || isFastHostUrl(f.url)) files.push(f);
           else skipped++;
         }
@@ -1265,7 +1342,7 @@
     const cdnR = windowedRate("cdn"), bosR = windowedRate("bos"), scriptR = windowedRate("script");
     if (cdnR > 0) rates.push(`CDN ${fmtMB(cdnR)}/s`);
     if (bosR > 0) rates.push(`BOS ${fmtMB(bosR)}/s`);
-    if (scriptR > 0) rates.push(`script ${(scriptR / 1048576).toFixed(2)} MB/s`);
+    if (scriptR > 0) rates.push(`slow route ${(scriptR / 1048576).toFixed(2)} MB/s`);
     const frac = tauriRun.bytesTotal ? `${fmtMB(tauriRun.bytesDone)}/${fmtMB(tauriRun.bytesTotal)}` : fmtMB(tauriRun.bytesDone);
     tauriStatus(`Saving ${at}/${tauriRun.total} file${tauriRun.total === 1 ? "" : "s"}… ${frac}${rates.length ? " · " + rates.join(" · ") : ""}${tauriEta()}`);
   }
@@ -1295,10 +1372,8 @@
         while (active < n && i < files.length) {
           const f = files[i++];
           active++;
-          // Toggle OFF = zero resolver traffic: no fallback, so a
-          // mirror-missing file fails immediately instead of using THSC's
-          // rate-limited resolver. Toggle ON keeps the full fallback chain.
-          window.__TAURI__.core.invoke("download_paper", { id: f.id, url: f.url, relpath: f.relpath, fallback: (state.includeSlowRoute && f.fallback) || null })
+          // Slow route off retains fast backups and excludes resolver backups.
+          window.__TAURI__.core.invoke("download_paper", { id: f.id, url: f.url, relpath: f.relpath, fallback: eligibleFallback(f.url, f.fallback) ? f.fallback : null })
             .then(() => { tauriRun.ok++; queueRemove(f.id); })
             .catch((e) => {
               const msg = String(e?.message || e);
@@ -1322,6 +1397,16 @@
   /* ----- batch start (shared by Save / Resume) ----- */
   async function tauriStartBatch(files, estBytes = 0) {
     if (tauriRun || !files.length) return;
+    function currentJob(f) {
+      const sol = f.kind === "solutions" || (!f.kind && f.id.endsWith("-sol"));
+      const base = sol ? f.id.slice(0, -4) : f.id, id = canonicalId(base);
+      const p = state.papers.find(p => p.id === id); if (!p) return null;
+      const kind = sol ? "solutions" : "paper", url = paperUrlOf(p, kind); if (!url) return null;
+      const compatible = f.url === url || (p.libraryAliases || []).some(a => !a.variantOnly && paperUrlOf(a, kind) === f.url);
+      return { ...f, id: id + (sol ? "-sol" : ""), kind, url, fallback: firstFallback(p, kind), relpath: compatible ? f.relpath : libraryRel(p, kind) };
+    }
+    files = files.map(currentJob).filter(Boolean);
+    if (!files.length) { tauriStatus("Queued records currently have no verified online source; their metadata remains in the recovery archive."); return; }
     try { await window.__TAURI__.core.invoke("cancel_downloads", { cancel: false }); } catch {}
     // Slow-route exclusion applies to resumed queues too.
     if (!state.includeSlowRoute) {
@@ -1334,11 +1419,7 @@
     const pending = queueLoad();
     if (pending && Array.isArray(pending.files) && pending.files.length) {
       const have = new Set(files.map((f) => f.id));
-      const add = pending.files.map(f => {
-        const sol = f.id.endsWith("-sol"), base = sol ? f.id.slice(0, -4) : f.id;
-        const id = canonicalId(base);
-        return id ? { ...f, id: id + (sol ? "-sol" : "") } : f;
-      }).filter((f) => !have.has(f.id) && (state.includeSlowRoute || isFastHostUrl(f.url)));
+      const add = pending.files.map(currentJob).filter(f => f && !have.has(f.id) && (state.includeSlowRoute || isFastHostUrl(f.url)));
       if (add.length) {
         // The size estimate was computed for the armed selection only —
         // extend it (flat per-file guess) so progress can't exceed 100%.
@@ -1657,6 +1738,8 @@
           b.removeAttribute("href");
           b.removeAttribute("target");
           b.removeAttribute("download");
+          b.removeAttribute("aria-disabled");
+          b.removeAttribute("title");
           b.textContent = "📖 View";
           // Primary: open the embedded reader (split when solutions are on disk).
           b.addEventListener("click", (e) => {
@@ -1708,14 +1791,21 @@
   let readerSync = false;    // page-follow toggle (persisted, default off)
   try { readerSync = localStorage.getItem("hsc-reader-sync") === "1"; } catch {}
   let readerPaperUrl = null, readerSolUrl = null, readerSolFallbackUrl = null, readerPaperFallbackUrl = null;
+  let readerSlowSolExcluded = false;
   let pendingPaperId = null; // B8: recently-viewed logs only on a successful load
 
   function paneNumEl(key) { return $(key === "paper" ? "#numPaper" : "#numSol"); }
   function paneScrollEl(key) { return $(key === "paper" ? "#scrollPaper" : "#scrollSol"); }
 
-  function openReader(path, title, id, solPath, solFallbackPath, paperFallbackPath) {
+  function openReader(path, title, id, solPath, solFallbackPath, paperFallbackPath, exactVersion = false) {
     if (!path) return;
-    if (!IS_TAURI) paperFallbackPath = state.papers.find(p => p.id === id)?.alternateSources?.[0]?.url || paperFallbackPath;
+    readerSlowSolExcluded = !IS_TAURI && !!solPath && !window.SourcePolicy.allowedPrimary(solPath, state.includeSlowRoute);
+    if (readerSlowSolExcluded) { solPath = null; solFallbackPath = null; }
+    if (!IS_TAURI) {
+      const p = state.papers.find(p => p.id === id);
+      paperFallbackPath = window.SourcePolicy.candidates(p, "paper", path, state.includeSlowRoute, exactVersion, paperFallbackPath)[1] || null;
+      solFallbackPath = window.SourcePolicy.candidates(p, "solutions", solPath, state.includeSlowRoute, exactVersion, solFallbackPath)[1] || null;
+    }
     pendingPaperId = id || null;
     readerPaperUrl = IS_TAURI ? path : proxied(path);
     readerSolUrl = solPath ? (IS_TAURI ? solPath : proxied(solPath)) : null;
@@ -1765,7 +1855,7 @@
     addSol.disabled = !readerSolUrl;
     addSol.title = readerSolUrl
       ? "Open the solutions alongside the paper"
-      : "No solutions file available for this paper";
+      : readerSlowSolExcluded ? "Enable Slow route before opening these solutions" : "No solutions file available for this paper";
     // The pane bars own page navigation and printing everywhere — the
     // global bar carries only unique controls (v1.0.6 de-duplication).
     setFocus(readerFocus);
@@ -1800,8 +1890,13 @@
         || ((IS_TAURI && pane.sysPath) ? window.__TAURI__.core.convertFileSrc(pane.sysPath)
           : (key === "paper" ? readerPaperUrl : readerSolUrl));
       const doc = await window.pdfjsLib.getDocument({ url }).promise;
+      if (doc.numPages === 1) {
+        try { await window.PdfValidation.validateBlob(new Blob([await doc.getData()])); }
+        catch (e) { await doc.destroy(); throw e; }
+      }
       pane.doc = doc;
       pane.numPages = doc.numPages;
+      paneNumEl(key).textContent = `1 / ${pane.numPages}`;
       if (key === "paper" && pendingPaperId) { logRecentlyViewed(pendingPaperId); pendingPaperId = null; } // B8
       // Page placeholders: uniform dims from page 1 (exam papers are
       // uniform; a deviant page simply renders at its own size in place).

@@ -23,7 +23,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..", "..");
-const CATALOGUE = path.join(__dirname, "..", "ui", "data", "papers.json");
+const CATALOGUE = path.join(__dirname, "..", "ui", "data", "papers-v2.json");
 const CACHE = path.join(__dirname, ".cache", "nesa-recovery");
 const OUT = path.join(__dirname, "nesa-recovery.json");
 const UA = { "User-Agent": "HSCPapers/1.0 (study use; cached index, on-demand downloads)" };
@@ -54,7 +54,7 @@ function extractPdfLinks(html) {
 
 (async () => {
   fs.mkdirSync(CACHE, { recursive: true });
-  const catalogue = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "ui", "data", "papers.json"), "utf8")).papers;
+    const catalogue = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "ui", "data", "papers-v2.json"), "utf8")).papers;
 
   // 1. dead-wcm population
   const dead = catalogue.filter((p) => /educationstandards\.nsw\.edu\.au/.test(p.url || ""));

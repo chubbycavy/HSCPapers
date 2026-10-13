@@ -234,7 +234,7 @@ async function probeUrl(url) {
 if (require.main === module) {
   (async () => {
   const t0 = Date.now();
-  const catalogue = require("../ui/data/papers.json").papers;
+  const catalogue = require("../ui/data/papers-v2.json").papers;
   const truth = (() => { try { return JSON.parse(fs.readFileSync(path.join(TOOLS, "slow-route-truth.json"), "utf8")).entries || {}; } catch { return {}; } })();
   const slow = catalogue.filter((p) => p.url && /\/s\/[dvfz]\//.test(p.url));
   const usable = slow.filter((p) => truth[p.id] && (truth[p.id].ok || truth[p.id].withheld));

@@ -30,6 +30,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const admission = require("./document-admission.cjs");
 
 const TOOLS = __dirname;
 const WORKDIR = path.join(TOOLS, ".cache", "drive");
@@ -98,7 +99,7 @@ async function downloadFile(id) {
     const DISCOVER_MANIFEST = path.join(TOOLS, ".cache", "discover", "drive.candidates.json");
     if (!fs.existsSync(DISCOVER_MANIFEST)) { console.error("drive candidates missing - run discover.cjs --source=drive first"); process.exit(1); }
     const candidates = (JSON.parse(fs.readFileSync(DISCOVER_MANIFEST, "utf8")).candidates || []);
-    const catalogue = require("../ui/data/papers.json").papers;
+    const catalogue = require("../ui/data/papers-v2.json").papers;
     const knownShas = new Set(catalogue.map((p) => p.sha256).filter(Boolean));
     const knownUrls = new Set(catalogue.map((p) => p.url));
     const normKey = (s) => String(s || "").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ").trim();
@@ -116,6 +117,9 @@ async function downloadFile(id) {
     let i = 0, stagedN = 0, skipN = 0, failN = 0;
     for (const row of work) {
       i++;
+      if (admission.curriculumIssue(row) || !admission.completeMetadata(row)) {
+        console.log(`[${i}/${work.length}] REVIEW curriculum/subject/level/provider metadata required: ${row.title}`); failN++; continue;
+      }
       // tuple gate BEFORE the download (a parallel doc needs human eyes)
       if (tuples.has(tupleOf(row))) { console.log(`[${i}/${work.length}] REVIEW (tuple exists) ${row.title.slice(0, 46)}`); failN++; continue; }
       const id = row.hints && row.hints.driveFileId;
@@ -159,13 +163,14 @@ async function downloadFile(id) {
   }
 
   if (MODE === "flip") {
-    const entries = Object.entries(registry.entries || {}).filter(([, e]) => e.staged && !e.uploaded);
+    const entries = Object.entries(registry.entries || {}).filter(([, e]) => e.staged && !e.uploaded && e.disposition !== "review" && admission.completeMetadata(e));
     console.log(`flip: verifying ${entries.length} staged rows against the public bucket`);
     let flipped = 0, missing = 0;
     for (const [key, e] of entries) {
       const url = `https://${R2_HOST}/${e.r2Key}`;
-      const res = await fetch(url, { method: "HEAD", headers: UA, signal: AbortSignal.timeout(30000) });
-      if (res.ok && Number(res.headers.get("content-length") || 0) === e.bytes) {
+      const res = await fetch(url, { headers: UA, signal: AbortSignal.timeout(30000) });
+      const remote = res.ok ? Buffer.from(await res.arrayBuffer()) : Buffer.alloc(0);
+      if (remote.length === e.bytes && crypto.createHash("sha256").update(remote).digest("hex") === e.sha256) {
         e.uploaded = true;
         e.r2Url = url;
         flipped++;

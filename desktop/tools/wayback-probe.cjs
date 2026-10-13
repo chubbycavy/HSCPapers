@@ -2,7 +2,7 @@
    dead wcm URLs? Sample-probes the availability API (rate-polite). */
 const fs = require("fs");
 const path = require("path");
-const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "ui", "data", "papers.json"), "utf8")).papers;
+const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "ui", "data", "papers-v2.json"), "utf8")).papers;
 const dead = papers.filter(p => (p.url || "").includes("wcm"));
 
 (async () => {

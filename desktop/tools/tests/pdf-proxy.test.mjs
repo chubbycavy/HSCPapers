@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { createProxyHandler } from "../../ui/_lib/pdf-proxy.mjs";
 import { onRequest as productionHandler } from "../../ui/functions/proxy.js";
+import { gzipSync } from "node:zlib";
+import { fragmentDescriptor, sanitizeThscTitle } from "../../ui/_lib/thsc-fragments.mjs";
 const pdf = new TextEncoder().encode("%PDF-1.4\nregression fixture\n%%EOF");
 const payload = () => new Response(`downloadfile(${JSON.stringify({ data: Buffer.from(pdf).toString("base64") })});`);
 const request = (target, options = {}, dl = false) => ({ request: new Request("https://hscpapers.com/proxy?url=" + encodeURIComponent(target) + (dl ? "&dl=1" : ""), options) });
@@ -52,7 +54,7 @@ test("concurrent requests for one paper make one resolver call", async () => {
 });
 test("rate limits create a cooldown and do not trigger retry storms", async () => {
   let calls = 0;
-  const serve = handler({ fetchImpl: async () => { calls++; return new Response(null, { status: 404 }); } });
+  const serve = handler({ fetchImpl: async () => { calls++; return new Response(null, { status: 429 }); } });
   const first = await serve(request(route));
   const second = await serve(request(route.replace("2004", "2005")));
   assert.equal(first.status, 503);
@@ -61,28 +63,29 @@ test("rate limits create a cooldown and do not trigger retry storms", async () =
   assert.equal(calls, 1);
 });
 const payloadWith = (fileref) => new Response(`downloadfile(${JSON.stringify({ fileref, data: Buffer.from(pdf).toString("base64") })});`);
-test("same fileref under one viewno for two titles = corrupted mapping, bytes withheld", async () => {
+test("legitimate aliases sharing a fileref are validated rather than accused of corruption", async () => {
   let calls = 0;
   const serve = handler({ fetchImpl: async () => { calls++; return payloadWith("12TrRtJ9xfV4mo9O34MJ5_1YrHzjvirBR"); } });
   const first = await serve(request(route)); // 5106/Sydney Boys 2004
   assert.equal(first.status, 200);
   const second = await serve(request("https://thsconline.github.io/s/d/5106/Riverside%20Girls%202004"));
-  assert.equal(second.status, 503);
-  assert.match(await second.text(), /corrupted|withheld/i);
+  assert.equal(second.status, 200);
+  assert.deepEqual(new Uint8Array(await second.arrayBuffer()), pdf);
   // a different viewno may legitimately reference the same file: no refusal
   const otherView = await serve(request("https://thsconline.github.io/s/d/9999/Sydney%20Boys%202004"));
   assert.equal(otherView.status, 200);
   assert.equal(calls, 3);
 });
-test("a resolver document whose sha is on the collapsed list is never served", async () => {
+test("a known placeholder PDF is unavailable, never cached as a successful paper", async () => {
   const realSha = Buffer.from(pdf).toString("base64"); // the pool serves this fixture for two titles below
   const serve = handler({ fetchImpl: async () => new Response(`downloadfile(${JSON.stringify({ data: realSha })});`) });
   const response = await serve(request(route));
   assert.equal(response.status, 200); // the pristine document still passes the default empty-ban list
   const banning = handler({ fetchImpl: async () => new Response(`downloadfile(${JSON.stringify({ data: realSha })});`), collapsedShas: new Set([await shaOf(pdf)]) });
   const withheld = await banning(request(route));
-  assert.equal(withheld.status, 503);
-  assert.match(await withheld.text(), /withheld/);
+  assert.equal(withheld.status, 404);
+  assert.match(await withheld.text(), /placeholder.*unavailable/);
+  assert.equal(withheld.headers.get("cache-control"), "no-store");
 });
 async function shaOf(bytes) {
   const hex = await (await import("node:crypto")).webcrypto.subtle.digest("SHA-256", bytes);
@@ -121,4 +124,58 @@ test("cache failures never turn a valid upstream PDF into an error", async () =>
   const response = await serve(request(route));
   assert.equal(response.status, 200);
   assert.deepEqual(new Uint8Array(await response.arrayBuffer()), pdf);
+});
+
+const netRoute = "https://www.thsconline.net/s/v/5338/Abbotsleigh%202022";
+test("old-client ordinary and nested bridge URLs deliver migrated PDF bytes without script calls", async () => {
+  const compressed = gzipSync(pdf), calls = [];
+  const serve = handler({ fetchImpl: async url => {
+    calls.push(url); assert.match(url, /^https:\/\/www\.thsconline\.net\/api\/v1\//);
+    return url.includes("getmetadata") ? Response.json({ fragmentCount: 1 }) : new Response(compressed);
+  } });
+  const bridge = "https://hscpapers.com/proxy?url=" + encodeURIComponent(netRoute) + "&dl=1";
+  const direct = await serve({ request: new Request(bridge) });
+  assert.equal(direct.status, 200); assert.deepEqual(new Uint8Array(await direct.arrayBuffer()), pdf);
+  const nested = await serve(request(bridge));
+  assert.equal(nested.status, 200); assert.deepEqual(new Uint8Array(await nested.arrayBuffer()), pdf);
+  assert.equal(calls.length, 2);
+  assert.equal((await serve(request("https://hscpapers.com/proxy?url=" + encodeURIComponent("https://unapproved.example/paper.pdf")))).status, 403);
+});
+test("migrated transport joins out-of-order gzip fragments and shares validated PDF cache", async () => {
+  const compressed = gzipSync(pdf), pieces = [compressed.subarray(0, 13), compressed.subarray(13)];
+  const calls = [];
+  const serve = handler({ fetchImpl: async url => {
+    calls.push(url); assert.match(url, /^https:\/\/www\.thsconline\.net\/api\/v1\//);
+    if (url.includes("getmetadata")) return Response.json({ fragmentCount: 2, originalFileName: "paper.pdf" });
+    const i = Number(url.split("/").pop()); if (i === 0) await new Promise(r => setTimeout(r, 15));
+    return new Response(pieces[i]);
+  } });
+  const [a, b] = await Promise.all([serve(request(netRoute)), serve(request(netRoute))]);
+  assert.equal(a.status, 200); assert.deepEqual(new Uint8Array(await a.arrayBuffer()), pdf);
+  assert.deepEqual(new Uint8Array(await b.arrayBuffer()), pdf);
+  assert.equal(calls.length, 3);
+  const head = await serve(request(netRoute, { method: "HEAD" })); assert.equal(head.headers.get("content-length"), String(pdf.length));
+  assert.equal(calls.length, 3);
+});
+test("unmigrated metadata returns an explicit miss without an Apps Script or viewer fallback", async () => {
+  let calls = 0;
+  const serve = handler({ fetchImpl: async url => { calls++; assert.match(url, /\/api\/v1\/getmetadata\//); return Response.json({ fragmentCount: 0, originalFileName: "404_html.pdf" }); } });
+  const response = await serve(request(netRoute)); assert.equal(response.status, 404); assert.equal(calls, 1);
+  assert.match(await response.text(), /migrated transport/);
+});
+test("broken gzip and missing fragments fail honestly without entering the legacy transport", async () => {
+  for (const fail of ["gzip", "http"]) {
+    const serve = handler({ fetchImpl: async url => {
+      assert.match(url, /thsconline\.net\/api/);
+      if (url.includes("metadata")) return Response.json({ fragmentCount: 1 });
+      return fail === "gzip" ? new Response("not gzip") : new Response(null, { status: 404 });
+    } });
+    assert.equal((await serve(request(netRoute))).status, 502);
+  }
+});
+test("sanitization is a transport lookup only and malformed descriptors fail closed", () => {
+  assert.equal(sanitizeThscTitle(" A & O'Brien (Adv.) "), "A  OBrien (Adv.)");
+  assert.equal(fragmentDescriptor(netRoute).rawTitle, "Abbotsleigh 2022");
+  for (const url of ["https://www.thsconline.net/s/v/no/title", netRoute + "?field=x", "https://www.thsconline.net/s/v/5338/%ZZ"])
+    assert.throws(() => fragmentDescriptor(url));
 });

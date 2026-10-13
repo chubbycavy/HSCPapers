@@ -1,7 +1,9 @@
+import { THSC_NET_HOSTS, fragmentDescriptor, resolveFragments, pdfProof, readBounded, SourceError, PLACEHOLDER_SHA256 } from "./thsc-fragments.mjs";
 export const ALLOWED_HOSTS = new Set([
   "hscportal.pages.dev", "www.nsw.gov.au", "www.boardofstudies.nsw.edu.au",
   "thsconline.github.io", "thsconline.pages.dev", "thsconline.com.au",
   "web.archive.org", "aceh.b-cdn.net", "4unitmaths.com", "cresteconomics.com",
+  "www.thsconline.net", "thsconline.net", "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev",
 ]);
 export const EXPORT_APIS = [
   "https://script.google.com/macros/s/AKfycbzwc57zmEK1Vm9Q5L1n1my3dxRafZRfNhCZ24zSLIa9H7MhySFhNahvPfW4R3uq753_/exec",
@@ -24,8 +26,10 @@ export const EXPORT_APIS = [
 const THSC_ROUTER_HOSTS = new Set(["thsconline.github.io", "thsconline.pages.dev"]);
 const THSC_ROUTER_RE = /^\/s\/(?:d|v|f|z|fz)\/(\d{1,8})\/(.+)$/;
 const UA = "HSCPapers/1.0 (study use; cached index, on-demand downloads)";
-const CACHE_SECONDS = 1800; // B-decision: 30min — the pool has a demonstrated wrong-doc state; keep the poison window short
-export const KNOWN_COLLAPSED_SHAS = new Set(["ae3414ce7149e4f808bca8563d46b813a36af04c5651762c47ce0f854ff0561c"]); // the wrong-doc signature observed 2026-10-10 (see tools/slow-route-truth.json)
+const CACHE_SECONDS = 1800;
+export const KNOWN_PLACEHOLDER_SHAS = new Set([PLACEHOLDER_SHA256]);
+// Compatibility for historical operator reports; this is a 404 PDF, not evidence of corrupt mappings.
+export const KNOWN_COLLAPSED_SHAS = KNOWN_PLACEHOLDER_SHAS;
 const MAX_JSON_BYTES = 24 * 1024 * 1024;
 const MEMORY_BUDGET = 8 * 1024 * 1024;
 const cors = extra => ({
@@ -61,7 +65,8 @@ async function limitedText(response, limit) {
 export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), cache = () => globalThis.caches?.default, gapMs = 1500, timeoutMs = 90000, now = () => Date.now(), sleep = ms => new Promise(resolve => setTimeout(resolve, ms)), collapsedShas = KNOWN_COLLAPSED_SHAS } = {}) {
   let apiIdx = null;
   let tail = Promise.resolve(), pending = 0, lastEnd = 0, cooldown = 0, memoryBytes = 0;
-  const inFlight = new Map(), memory = new Map(), filerefs = new Map();
+  const inFlight = new Map(), memory = new Map();
+  let fragmentJobs = 0;
 
   async function resolveRouter(viewno, title) {
     if (pending >= 4 || now() < cooldown) return { failure: error("THSC resolver busy — try again shortly", 503, { "Retry-After": "60" }) };
@@ -72,11 +77,12 @@ export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), ca
       if (wait) await sleep(wait);
       try {
         const hash = await hex(new TextEncoder().encode(viewno));
-        if (apiIdx === null) apiIdx = crypto.getRandomValues(new Uint32Array(1))[0] % EXPORT_APIS.length;
-        const api = EXPORT_APIS[apiIdx++ % EXPORT_APIS.length];
-        const url = `${api}?export=data&field=${encQ(title)}&base=${encQ(viewno)}&hash=${hash}`;
+        // Use the currently published legacy fallback contract. Retired deployments'
+        // HTTP 404 responses are not evidence of quota throttling.
+        const api = EXPORT_APIS[EXPORT_APIS.length - 1];
+        const url = `${api}?export=view&field=${encQ(title)}&base=${encQ(viewno)}&hash=${hash}`;
         const upstream = await fetchImpl(url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(timeoutMs) });
-        if ([404, 429, 503].includes(upstream.status)) {
+        if ([429, 503].includes(upstream.status)) {
           cooldown = now() + 60000;
           await upstream.body?.cancel();
           return { failure: error("THSC resolver throttled — try again shortly", 503, { "Retry-After": "60" }) };
@@ -84,33 +90,18 @@ export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), ca
         if (!upstream.ok) { await upstream.body?.cancel(); return { failure: error(`THSC resolver HTTP ${upstream.status}`) }; }
         const text = await limitedText(upstream, MAX_JSON_BYTES);
         const match = text.match(/^\s*downloadfile\(([\s\S]*)\)\s*;?\s*$/);
-        if (!match) return { failure: error("THSC resolver returned an unexpected response") };
         let record;
-        try { record = JSON.parse(match[1]); } catch { return { failure: error("THSC resolver returned invalid JSON") }; }
+        try { record = JSON.parse(match ? match[1] : text); } catch { return { failure: error("THSC resolver returned invalid JSON") }; }
         if (typeof record?.data !== "string" || !record.data.trim()) return { failure: error("THSC resolver returned no file data") };
-        // Wrong-bytes guard (A-decision): the pool maps listings to Drive files
-        // via `fileref`. Two different titles under one viewno resolving to the
-        // same fileref = that directory's mapping is corrupted (verified
-        // 2026-10-10: it handed one shared document out for every title).
-        // Withhold the bytes and answer honestly instead of serving a wrong paper.
-        if (typeof record.fileref === "string" && record.fileref) {
-          const prior = filerefs.get(record.fileref);
-          if (prior && prior.viewno === viewno) {
-            return { failure: error("THSC resolver mapping corrupted for this listing — file withheld", 503, { "Retry-After": "60" }) };
-          }
-          if (!prior) filerefs.set(record.fileref, { viewno, title });
-        }
+        // Legitimate aliases may share a Drive fileref; validate the actual bytes.
         let decoded;
         try { decoded = atob(record.data.replace(/\s/g, "")); } catch { return { failure: error("THSC resolver returned invalid base64") }; }
         if (!decoded.startsWith("%PDF-") || !decoded.slice(-4096).includes("%%EOF")) return { failure: error("THSC resolver returned a web page or invalid PDF") };
         const bytes = new Uint8Array(decoded.length);
         for (let i = 0; i < decoded.length; i++) bytes[i] = decoded.charCodeAt(i);
-        const sha = await hex(bytes);
-        // Second, independent guard: the known collapsed document (one shared
-        // doc served for many listings on 2026-10-10). Never serve it again.
-        if (collapsedShas.has(sha)) {
-          return { failure: error("THSC resolver mapping corrupted for this listing — file withheld", 503, { "Retry-After": "60" }) };
-        }
+        let sha;
+        try { sha = (await pdfProof(bytes, collapsedShas)).sha256; }
+        catch (e) { return { failure: error(e.message, e.status || 502) }; }
         return { bytes, etag: `"${sha}"` };
       } catch (e) { return { failure: error(`THSC resolver unavailable: ${e.message}`) }; }
       finally { lastEnd = now(); }
@@ -119,14 +110,12 @@ export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), ca
     try { return await job; } finally { pending--; }
   }
 
-  async function routerResponse(request, target, match) {
-    const viewno = match[1];
+  async function routerResponse(request, target, match, descriptor = null) {
+    const viewno = descriptor?.viewno || match[1];
     let title;
-    try { title = decodeURIComponent(match[2]).replace(/&/g, "_"); } catch { return error("Malformed THSC title", 400); }
-    const key = viewno + "|" + title;
-    // v2 namespace: orphans every edge-cache entry written while the pool's
-    // corrupted mapping was live (they could hold wrong bytes for a paper).
-    const cacheKey = new Request(new URL("/__resolved_pdf/v2/" + await hex(new TextEncoder().encode(key)), request.url));
+    try { title = descriptor?.title || decodeURIComponent(match[2]).replace(/&/g, "_"); } catch { return error("Malformed THSC title", 400); }
+    const key = (descriptor ? "fragments|" : "legacy|") + viewno + "|" + title;
+    const cacheKey = new Request(new URL("/__resolved_pdf/v3/" + await hex(new TextEncoder().encode(key)), request.url));
     const edge = typeof cache === "function" ? cache() : cache;
     let cached;
     try { cached = await edge?.match(cacheKey); } catch {}
@@ -134,7 +123,17 @@ export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), ca
     const item = memory.get(key);
     if (item && item.until > now()) return present(pdfResponse(item), request, target);
     if (!inFlight.has(key)) {
-      const job = resolveRouter(viewno, title).then(async result => {
+      const resolve = async () => {
+        if (!descriptor) return resolveRouter(viewno, title);
+        if (fragmentJobs >= 2) return { failure: error("THSC fragment delivery busy — try again shortly", 503) };
+        fragmentJobs++;
+        try {
+          const result = await resolveFragments(descriptor, { fetchImpl, signal: AbortSignal.timeout(Math.min(timeoutMs, 30000)), placeholderShas: collapsedShas });
+          return { bytes: result.bytes, etag: `"${result.sha256}"` };
+        } catch (e) { return { failure: error(e.message, e.status || 502) }; }
+        finally { fragmentJobs--; }
+      };
+      const job = resolve().then(async result => {
         if (result.failure) return result;
         if (result.bytes.length <= MEMORY_BUDGET) {
           while (memoryBytes + result.bytes.length > MEMORY_BUDGET && memory.size) {
@@ -161,7 +160,16 @@ export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), ca
     if (!["GET", "HEAD"].includes(request.method)) return error("Method not allowed", 405);
     let target;
     try { target = new URL(new URL(request.url).searchParams.get("url")); } catch { return error("Bad request: missing ?url=", 400); }
+    // Cached old browser code may wrap a compatibility-feed bridge once more.
+    // Unwrap locally; never fetch our gateway recursively or widen the allowlist.
+    if (target.origin === "https://hscpapers.com" && target.pathname === "/proxy" && !target.username && !target.password) {
+      try { target = new URL(target.searchParams.get("url")); } catch { return error("Malformed compatibility PDF URL", 400); }
+    }
     if (!/^https?:$/.test(target.protocol) || !ALLOWED_HOSTS.has(target.host) || target.username || target.password) return error("Forbidden: host not allowed", 403);
+    if (THSC_NET_HOSTS.has(target.host)) {
+      try { return routerResponse(request, target, null, fragmentDescriptor(target.toString())); }
+      catch (e) { return error(e.message, e.status || 400); }
+    }
     const match = THSC_ROUTER_HOSTS.has(target.host) && THSC_ROUTER_RE.exec(target.pathname);
     if (match) return routerResponse(request, target, match);
     if (THSC_ROUTER_HOSTS.has(target.host) && /^\/s\/(?:d|v|fz|f|z)(?:\/|$)/.test(target.pathname)) return error("Malformed THSC router URL", 400);
@@ -184,6 +192,13 @@ export function createProxyHandler({ fetchImpl = (...args) => fetch(...args), ca
         for (const name of ["content-type", "content-length", "content-range", "accept-ranges", "etag", "last-modified", "cache-control"]) {
           const value = upstream.headers.get(name);
           if (value) headers.set(name, value);
+        }
+        if (request.method === "GET" && upstream.status === 200) {
+          if (/text\/html/i.test(upstream.headers.get("content-type") || "")) { await upstream.body?.cancel(); return error("Source returned HTML instead of a PDF"); }
+          const bytes = await readBounded(upstream, 32 * 1024 * 1024);
+          try { await pdfProof(bytes, collapsedShas); } catch (e) { return error(e.message, e.status || 502); }
+          headers.set("content-type", "application/pdf"); headers.set("content-length", String(bytes.length));
+          return present(new Response(bytes, { status: 200, headers }), request, target);
         }
         return present(new Response(request.method === "HEAD" ? null : upstream.body, { status: upstream.status, headers }), request, target);
       }

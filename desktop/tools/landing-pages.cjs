@@ -86,7 +86,7 @@ ${LEGAL}
 }
 
 module.exports = async function generate() {
-  const { papers } = JSON.parse(fs.readFileSync(path.join(UI, "data", "papers.json"), "utf8"));
+  const { papers } = JSON.parse(fs.readFileSync(path.join(UI, "data", "papers-v2.json"), "utf8"));
   const bySubject = new Map();
   for (const p of papers) {
     for (const subject of require("./catalogue-identity.cjs").subjectsOf(p)) {

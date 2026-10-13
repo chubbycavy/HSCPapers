@@ -29,7 +29,7 @@ const step = (name) => console.log(`\n== [${stamp()}] ${name} ==`);
 // the canary regenerates these paths — the pre-canary worktree state is
 // SNAPSHOT byte-exact and restored after (git restore would wipe
 // UNCOMMITTED work, e.g. hand-edits sitting in the worktree)
-const CANARY_PATHS = ["ui/data/papers.json", "ui/sitemap.xml", "ui/coverage.html", "ui/index.html", "ui/subjects"];
+const CANARY_PATHS = ["ui/data/papers.json", "ui/data/papers-v2.json", "ui/sitemap.xml", "ui/coverage.html", "ui/index.html", "ui/subjects"];
 const os = require("os");
 const SNAPSHOT = fs.mkdtempSync(path.join(os.tmpdir(), "nuc-snap-"));
 for (const p of CANARY_PATHS) {
@@ -77,7 +77,7 @@ function runStep(name, cmd, args) {
 // normalised catalogue fingerprint: the "generated" stamp is stripped so two
 // runs of the same builder over the same cache compare equal
 function fingerprint() {
-  const j = JSON.parse(fs.readFileSync(path.join(DESKTOP, "ui", "data", "papers.json"), "utf8"));
+  const j = JSON.parse(fs.readFileSync(path.join(DESKTOP, "ui", "data", "papers-v2.json"), "utf8"));
   delete j.generated;
   const sha = crypto.createHash("sha256").update(JSON.stringify(j)).digest("hex").slice(0, 16);
   const files = j.papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);

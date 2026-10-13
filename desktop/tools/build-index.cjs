@@ -32,7 +32,7 @@ const CACHE = path.join(__dirname, ".cache");
 const VERBOSE = !process.env.CI || process.argv.includes("--verbose");
 const phase = (msg) => console.log(`\n== ${msg} ==`);
 const progress = (msg) => { if (VERBOSE) console.log(`  . ${msg}`); };
-const OUT = path.join(DESKTOP, "ui", "data", "papers.json");
+const OUT = path.join(DESKTOP, "ui", "data", "papers-v2.json");
 fs.mkdirSync(CACHE, { recursive: true });
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 
@@ -420,14 +420,14 @@ if (require.main === module) {
     let subject = subjectsArr[e.s] || "Miscellaneous";
     subject = PORTAL_SUBJECT_MAP[normKey(subject)] || subject;
     let school = Number.isInteger(e.h) ? (schoolsArr[e.h] || "") : "";
-    if (!school) {
+    if (!school || school === "NESA") {
       const ym = String(e.y || "");
       const i = ym ? e.n.indexOf(ym) : -1;
       school = i > 0 ? e.n.slice(0, i).replace(/[-–,]\s*$/, "").trim() : "NESA";
     }
     if (/^(?:19|20)\d{2}\b/.test(school) || !school) school = "NESA";
     const type = e.c === "T" ? "trial" : e.c === "A" ? "assessment" : "other";
-    const ukey = `${normKey(subject)}|${normKey(school)}|${e.y || "na"}|${type}`;
+    const ukey = `${normKey(subject)}|${normKey(school)}|${e.y || "na"}|${type}|${e.v}|${normKey(e.n)}`;
     if (haveKey.has(ukey)) continue;
     haveKey.add(ukey);
     push({
@@ -439,6 +439,7 @@ if (require.main === module) {
       fallbackUrl: `${SOURCES.trialPipeline.downloadEndpoint.replace("{viewno}", e.v).replace("{title}", encodeURIComponent(e.n))}`,
       solutionPath: "", size: "", hasSolutions: e.w === 1,
       source: "hscportal-unique", mirror: "hscportal",
+      viewno: String(e.v), linkText: e.n,
     });
     addedPortal++;
   }
@@ -481,18 +482,20 @@ if (require.main === module) {
     if (ourRouterKeys.has(`${e.v}|${normKey(e.n)}`)) { solAlready++; continue; }
     let subject = subjectsArr[e.s] || "Miscellaneous";
     subject = PORTAL_SUBJECT_MAP[normKey(subject)] || subject;
-    let school = Number.isInteger(e.h) ? (schoolsArr[e.h] || "") : "";
-    if (!school) school = sm[1].replace(/[-–,]\s*$/, "").trim() || "NESA";
+    let school = sm[1].replace(/[-–,]\s*$/, "").trim() || (Number.isInteger(e.h) ? (schoolsArr[e.h] || "") : "") || "NESA";
     if (/^(?:19|20)\d{2}\b/.test(school) || !school) school = "NESA";
     const type = e.c === "T" ? "trial" : e.c === "A" ? "assessment" : "other";
     const year = e.y || Number(sm[2]);
     // Attach: exactly one catalogue paper for (subject|school|year|type)
     // whose solution route is missing (empty) or dead (wcm).
     const cands = (ourParentIndex.get(`${normKey(subject)}|${normKey(school)}|${year}|${type}`) || [])
-      .filter((p) => !p.solutionUrl || /educationstandards\.nsw\.edu\.au/.test(p.solutionUrl));
+      .filter((p) => (!p.solutionUrl || /educationstandards\.nsw\.edu\.au/.test(p.solutionUrl)) &&
+        String(p.viewno || "") === String(e.v) &&
+        normKey(p.linkText || p.title).replace(/\s+w\.?\s*sol\.?\s*$/, "") === normKey(e.n).replace(/\s+w\.?\s*sol\.?\s*$/, ""));
     if (cands.length === 1) {
       const p = cands[0];
       p.solutionUrl = url;
+      p.sourceKeys = [...new Set([...identity.listingKeys(p), `${e.v}|${identity.listingName(e.n)}`])];
       p.hasSolutions = true;
       solAttached++;
       continue;
@@ -512,6 +515,7 @@ if (require.main === module) {
       fallbackUrl: routerFor(e),
       solutionPath: "", size: "", hasSolutions: false,
       source: "hscportal-sol", mirror: "hscportal",
+      viewno: String(e.v), linkText: e.n, documentRole: "combined",
     });
     solStandalone++;
   }
@@ -832,22 +836,8 @@ if (require.main === module) {
   }
   console.log(`mirror-boardofstudies(nesa): ${bosNesaPapers} papers, ${bosNesaSol} solutions -> direct BOS URLs`);
 
-  // (vi) URL dedupe — the same file can be listed on several THSC pages; it
-  // must occupy exactly ONE catalogue entry/relpath (double-counted entries
-  // otherwise inflate totals and share one library file).
-  const seenUrls = new Set();
-  const urlDeduped = [];
-  let urlDups = 0;
-  for (const p of papers) {
-    if (p.url && seenUrls.has(p.url)) { urlDups++; continue; }
-    if (p.url) seenUrls.add(p.url);
-    urlDeduped.push(p);
-  }
-  if (urlDups) {
-    console.log(`url-dedupe: removed ${urlDups} duplicate-URL entries`);
-    papers.length = 0;
-    papers.push(...urlDeduped);
-  }
+  // Equal URLs alone do not establish equal documents/context. Reconciliation
+  // below preserves identities and aliases using source identity/full-byte proof.
   // Takedowns: filter AFTER dedupe so the registry has final say.
   if (REMOVALS.ids.size || REMOVALS.urls.size) {
     const kept = papers.filter((p) =>
@@ -927,8 +917,11 @@ if (require.main === module) {
       const tuple = `${normKey(e.subject)}|${normKey(e.school)}|${e.year}|${e.type}`;
       const url = `${SELFHOST.base}/${encodeURI(e.key)}`;
       const cands = papers.filter((p) => tupleOf(p) === tuple && !((p.url || "").startsWith(SELFHOST.base)));
-      if (cands.length) {
-        const p = cands[0];
+      const sourceKey = identity.routerKey(e.fallbackUrl);
+      const exact = sourceKey ? cands.filter(p => identity.listingKeys(p).includes(sourceKey)) : [];
+      const matched = exact.length === 1 ? exact[0] : cands.length === 1 ? cands[0] : null;
+      if (matched) {
+        const p = matched;
         p.fallbackUrl = p.fallbackUrl || p.url; // keep the old route as backup
         p.url = url;
         p.mirror = "selfhost";
@@ -950,6 +943,11 @@ if (require.main === module) {
   // Durable, reviewed imports. Missing inputs are fatal, including in CI:
   // a local .cache/accepted.json must never determine the published catalogue.
   const imports = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-imports.json"), "utf8"));
+  const cleanup = require("./catalogue-cleanup.cjs");
+  const validation = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-validation.json"), "utf8"));
+  validation.ownerExclusions = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-document-review.json"), "utf8")).entries;
+  const publishedHistory = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-history.json"), "utf8"));
+  const metadataCorrections = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-metadata-corrections.json"), "utf8")).entries;
   // Independent mirror: exact route identity and verified PDF bytes only.
   // Persisted proofs make offline rebuilds identical to the network build.
   const slowBefore = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
@@ -999,35 +997,110 @@ if (require.main === module) {
       return r.url === p.url || !official || identity.officialReplacementAllowed(p, { url: r.url });
     });
   }
+  const metadataChanges = cleanup.prepareMetadata(papers, metadataCorrections);
+  const migratedHistory = cleanup.history(papers, publishedHistory, validation);
   const originals = reconciliation.coalesceExisting(papers);
   const eligibleImports = { ...imports, entries: imports.entries.filter(r => !REMOVALS.ids.has(r.id) && !REMOVALS.urls.has(r.url)) };
-  const reconciled = reconciliation.applyImports(papers, eligibleImports);
-  const idAliases = { ...originals.aliases, ...reconciled.aliases };
+  const reconciled = reconciliation.applyImports(papers, eligibleImports, { metadataCorrections });
+  const aliasGraph = { ...publishedHistory.aliases, ...originals.aliases, ...reconciled.aliases, ...migratedHistory.aliases };
+  // Feed disappearance cannot erase previously published records/history.
+  const present = new Set(papers.map(p => p.id));
+  for (const old of publishedHistory.records || []) {
+    if (present.has(cleanup.resolveAlias(old.id, aliasGraph)) || REMOVALS.ids.has(old.id) || REMOVALS.urls.has(old.url)) continue;
+    const restored = structuredClone(old); cleanup.prepareMetadata([restored], metadataCorrections); papers.push(restored); present.add(restored.id);
+  }
+  const cleaned = cleanup.apply(papers, validation, metadataCorrections);
+  const classificationCopies = reconciliation.coalesceClassificationCopies(papers, validation);
+  Object.assign(aliasGraph, classificationCopies.aliases);
+  const provedCopies = reconciliation.coalesceExisting(papers);
+  Object.assign(aliasGraph, provedCopies.aliases);
+  const versions = reconciliation.coalesceVersions(papers, validation);
+  Object.assign(aliasGraph, versions.aliases);
+  const attachedDocs = reconciliation.coalesceAttachedDocuments(papers, validation);
+  Object.assign(aliasGraph, attachedDocs.aliases);
+  const sharedEnglish = reconciliation.coalesceSharedEnglish(papers, validation);
+  Object.assign(aliasGraph, sharedEnglish.aliases);
+  // A verified byte stream is not permission to advertise conflicting document
+  // identities. Remaining shared-primary contexts require explicit mapping review.
+  const sharedFiles = new Map();
+  for (const p of papers) { if (!sharedFiles.has(p.url)) sharedFiles.set(p.url, []); sharedFiles.get(p.url).push(p); }
+  const mappingReview = [];
+  const disputed = new Set();
+  for (const [url, rows] of sharedFiles) {
+    if (rows.length < 2) continue;
+    if (new Set(rows.map(identity.semanticFileKey)).size < 2) continue;
+    mappingReview.push({ url, ids: rows.map(p => p.id), reason: "Same primary file is advertised under differing assessment/document contexts; awaiting reviewed mapping" });
+    for (const p of rows) {
+      disputed.add(p.id); p.libraryAliases ||= []; p.libraryAliases.push(reconciliation.legacyRecord(p));
+      p.provenanceSources ||= []; p.provenanceSources.push({ url, role: "primary", reason: "Document relationship requires mapping review" });
+      p.availability = { state: "review", reason: "Verified PDF, but its assessment/part/role mapping is not established" };
+      p.url = ""; p.solutionUrl = ""; p.fallbackUrl = ""; p.solFallbackUrl = ""; p.alternateSources = []; p.fileVariants = [];
+      cleaned.recovery.push(p);
+    }
+  }
+  papers.splice(0, papers.length, ...papers.filter(p => !disputed.has(p.id)));
+  // Imports consolidated by newly established full-byte evidence stay accounted.
+  reconciled.report.added = reconciled.report.added.filter(id => {
+    const target = cleanup.resolveAlias(id, aliasGraph);
+    if (target === id) return true;
+    reconciled.report.merged.push({ id, canonicalId: target, reason: "fresh-full-sha-and-semantic-context" }); return false;
+  });
+  const currentMerges = { ...originals.aliases, ...reconciled.aliases, ...classificationCopies.aliases, ...provedCopies.aliases, ...versions.aliases, ...attachedDocs.aliases, ...sharedEnglish.aliases, ...migratedHistory.aliases };
+  const recoveryPapers = cleaned.recovery.filter(p => !currentMerges[p.id]);
+  const recoveryCopies = reconciliation.coalesceExisting(recoveryPapers);
+  Object.assign(aliasGraph, recoveryCopies.aliases);
+  const idAliases = cleanup.finalizeAliases(aliasGraph, papers, recoveryPapers);
+  const publicationSync = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-publication-sync.json"), "utf8"));
+  const publicationBindings = require("./publication-continuity.cjs").apply(papers, publicationSync, validation, idAliases);
   const correctionIds = new Set(correctedMappings.map(r => r.id));
   const unexpectedPrimaryDowngrades = papers.filter(p => imports.previousPrimaries[p.id] && identity.isDirect(imports.previousPrimaries[p.id]) && !identity.isDirect(p.url) && !correctionIds.has(p.id)).map(p => p.id);
   const reconciliationReport = { version: 1, previousPublishedListings: 10368,
     activePapers: papers.length, importedRows: imports.entries.length,
     mergedImports: reconciled.report.merged, genuinelyAdded: reconciled.report.added,
     reviewQueue: reconciled.report.review, existingMerges: originals.report.merged,
-    sharedUrlMappingReview: originals.report.sharedUrls,
+    sharedUrlMappingReview: mappingReview,
     correctedMappings, unexpectedPrimaryDowngrades,
     limitations: "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count." };
   const finalFileCount = papers.reduce((n, p) => n + Number(!!p.url) + Number(!!p.solutionUrl), 0);
   const finalDirectCount = papers.reduce((n, p) => n + Number(isFastHost(p.url)) + Number(isFastHost(p.solutionUrl)), 0);
   reconciliationReport.filePointers = finalFileCount;
   reconciliationReport.directFilePointers = finalDirectCount;
-  reconciliationReport.resolverPrimaries = papers.filter(p => identity.routerKey(p.url)).length;
+  reconciliationReport.resolverPrimaries = papers.filter(p => identity.routerKey(p.url) && !/thsconline\.net/.test(p.url)).length;
+  reconciliationReport.fragmentPrimaries = papers.filter(p => /thsconline\.net\/s\/v\//.test(p.url)).length;
+  reconciliationReport.recoveryPapers = recoveryPapers.length;
+  reconciliationReport.publicationSync = { sourceCommit: publicationSync.sourceCommit, bindings: publicationBindings };
+  reconciliationReport.cleanup = { metadataChanges, identityChanges: migratedHistory.changes, classificationMerges: classificationCopies.merged, fullByteMerges: provedCopies.report.merged, versionMerges: versions.merged, attachedDocumentMerges: attachedDocs.merged, sharedEnglishMerges: sharedEnglish.merged, rejectedSources: cleaned.rejectedSources, auditCoverage: validation.coverage };
   fs.writeFileSync(path.join(__dirname, "reconciliation-report.json"), JSON.stringify(reconciliationReport, null, 1) + "\n");
   console.log(`reconciliation: ${reconciled.report.merged.length} imports merged; ${reconciled.report.added.length} additions; ${reconciled.report.review.length} review; ${papers.length} active papers`);
 
   // 4. write catalogue
   phase("phase 3: writing catalogue + coverage page");
   const generated = new Date().toISOString();
-  fs.writeFileSync(OUT, JSON.stringify({
+  const modernCatalogue = {
     _comment: "Generated by desktop/tools/build-index.cjs. Sources: THSCOnline listings (legacy route identities resolved server-side) + NESA direct + HSC Portal + PDF-validated exact-ID mappings from the independent thsconline.com.au mirror (not operated by Dan). A small self-hosted set is served from our own R2 bucket (desktop/tools/selfhost.json). Papers belong to their schools/authors and NESA; mirrors are credited in-app.",
-    generated, sources: "desktop/sources.json", idAliases,
+    generated, dataVersion: 2, sources: "desktop/sources.json", idAliases, recoveryPapers,
     papers,
-  }, null, 1) + "\n");
+  };
+  const feeds = require("./catalogue-feeds.cjs");
+  const compatibility = feeds.prepare(modernCatalogue);
+  const feedErrors = feeds.verify(modernCatalogue, compatibility.legacy);
+  if (feedErrors.length) throw new Error(feedErrors.join("\n"));
+  fs.writeFileSync(OUT, JSON.stringify(modernCatalogue, null, 1) + "\n");
+  fs.writeFileSync(path.join(DESKTOP, "ui/data/papers.json"), JSON.stringify(compatibility.legacy, null, 1) + "\n");
+  console.log("Compatibility feed:", JSON.stringify(compatibility.stats));
+
+  // Marketing rounds DOWN from available records, never counts recovery stubs.
+  const paperClaim = Math.floor(papers.length / 1000) * 1000;
+  const fileClaim = Math.floor(finalFileCount / 1000) * 1000;
+  const claimedSubjects = new Set(papers.flatMap(identity.subjectsOf)).size;
+  const syncClaims = text => text
+    .replace(/\b\d{1,3}(?:,\d{3})+\+(?= (?:free NSW HSC papers|papers|trial papers))/g, paperClaim.toLocaleString("en-AU") + "+")
+    .replace(/\b\d{1,3}(?:,\d{3})+\+(?= files)/g, fileClaim.toLocaleString("en-AU") + "+")
+    .replace(/across \d+ subjects/g, `across ${claimedSubjects} subjects`);
+  for (const filename of [path.join(DESKTOP, "ui/index.html"), path.join(ROOT, "README.md")]) {
+    const before = fs.readFileSync(filename, "utf8"), after = syncClaims(before);
+    if (after !== before) fs.writeFileSync(filename, after);
+  }
 
   // 5. report
   const byType = {}, bySource = {}, bySubject = {};
@@ -1045,9 +1118,11 @@ if (require.main === module) {
   const fallbacks = Object.entries(report.unmappedSubjects);
   console.log(`title-fallback pages needing review: ${fallbacks.length}`);
   for (const [pg, sj] of fallbacks.slice(0, 25)) console.log(`  ? ${pg} -> "${sj}"`);
-  console.log("page map:");
-  for (const p of report.pages) console.log(`  [${p.type}/${p.via}] ${p.page} -> "${p.subject}" (${p.entries})`);
-  console.log("sample:", JSON.stringify(papers.slice(0, 2), null, 1).slice(0, 900));
+  if (VERBOSE && !process.argv.includes("--quiet")) {
+    console.log("page map:");
+    for (const p of report.pages) console.log(`  [${p.type}/${p.via}] ${p.page} -> "${p.subject}" (${p.entries})`);
+    console.log("sample:", JSON.stringify(papers.slice(0, 2), null, 1).slice(0, 900));
+  }
   console.log(`wrote ${OUT}`);
   await require("./coverage-report.cjs")(); // F7: regenerate the public coverage page
   const landing = await require("./landing-pages.cjs")(); // Phase C: per-subject static pages + the sitemap

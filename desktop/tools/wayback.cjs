@@ -204,7 +204,7 @@ if (require.main === module) {
     const packsByCourse = new Map();
     for (const c of data) packsByCourse.set(normKey(c.course_name), c.packs || []);
     const truth = (() => { try { return JSON.parse(fs.readFileSync(path.join(TOOLS, "slow-route-truth.json"), "utf8")).entries || {}; } catch { return {}; } })();
-    const papers = require("../ui/data/papers.json").papers;
+    const papers = require("../ui/data/papers-v2.json").papers;
     const slow = papers.filter((p) => p.url && /\/s\/[dvfz]\//.test(p.url) && truth[p.id] && (truth[p.id].ok || truth[p.id].withheld));
     let registry;
     try { registry = JSON.parse(fs.readFileSync(OUT, "utf8")); } catch {

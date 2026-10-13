@@ -83,3 +83,40 @@ test("review bookmarks remain stored without becoming active selections", () => 
   assert.deepEqual(A.remap(["old", "pending"], aliases, active, true), ["paper", "pending"]);
   assert.deepEqual(A.remap(["old", "pending"], aliases, active), ["paper"]);
 });
+const C = require("../catalogue-cleanup.cjs"), D = require("../document-admission.cjs");
+test("invalid primary is replaced by a proved alternative and unverified actions become provenance", () => {
+  const p = original(), good = "https://thsconline.com.au/good.pdf", papers = [{ ...p, alternateSources: [{ url: good }] }];
+  const v = { entries: { [p.url]: { state: "invalid", reason: "HTML" }, [good]: { state: "verified", sha256: hash, bytes: 100, pages: 2, text: "" } } };
+  const result = C.apply(papers, v); assert.equal(papers[0].url, good); assert.equal(result.recovery.length, 0); assert.equal(papers[0].provenanceSources[0].url, p.url);
+});
+test("unavailable records preserve historical identity without online download actions", () => {
+  const p = original(), papers = [p]; const result = C.apply(papers, { entries: {} });
+  assert.equal(papers.length, 0); assert.equal(result.recovery[0].id, p.id); assert.equal(result.recovery[0].url, "");
+  assert.equal(result.recovery[0].libraryAliases[0].url, original().url);
+  assert.deepEqual(C.finalizeAliases({ old: p.id }, papers, result.recovery), { old: p.id });
+});
+test("a solution bundle from a different school is detached, not published as correct solutions", () => {
+  const p = { ...original(), school: "Abbotsleigh", solutionUrl: "https://hscportal.pages.dev/Barker%202025%20w.%20sol.pdf" }, papers = [p];
+  const e = { state: "verified", sha256: hash, bytes: 100, text: "" };
+  C.apply(papers, { entries: { [p.url]: e, [p.solutionUrl]: e } }); assert.equal(p.solutionUrl, "");
+});
+test("verified question/combined versions consolidate without discarding the older file", () => {
+  const a = { ...original(), linkText: "Ruse 2025", url: "https://hscportal.pages.dev/q.pdf", sha256: hash };
+  const b = { ...a, id: "combined", linkText: "Ruse 2025 w. sol", url: "https://hscportal.pages.dev/combined.pdf", sha256: hash2 };
+  const text = "Ruse High School 2025 Mathematics Extension 1 Trial Examination General Instructions Working Time Two Hours Total Marks Seventy Questions One Two Three Four Five Six Seven Eight Nine Ten";
+  const v = { entries: { [a.url]: { state: "verified", text }, [b.url]: { state: "verified", text } } }, papers = [a,b];
+  const result = R.coalesceVersions(papers, v); assert.equal(papers.length, 1); assert.equal(result.aliases.combined, a.id);
+  assert.equal(papers[0].fileVariants.length, 2); assert.equal(papers[0].url, b.url);
+});
+test("curriculum gate rejects university exams and detects explicit wrong-course headings", () => {
+  assert.match(D.curriculumIssue({ title: "MATH3202 final exam" }), /University/);
+  assert.match(D.contextIssue({ ...original(), subject: "English Standard" }, "primary", "English Advanced Paper 2 Modules", "https://test/q.pdf"), /not english standard/);
+});
+test("a solutions document already attached to its question paper is one assessment card", () => {
+  const q = { ...original(), id: "exam", school: "NESA", type: "hsc", linkText: "2025 HSC", solutionUrl: "https://test/mg.pdf", sha256: hash2 };
+  const mg = { ...q, id: "mg", linkText: "2025 Marking Guidelines", url: q.solutionUrl, solutionUrl: "", sha256: hash };
+  const papers = [q, mg], result = R.coalesceAttachedDocuments(papers, { entries: { [mg.url]: { state: "verified", sha256: hash } } });
+  assert.equal(papers.length, 1); assert.equal(result.aliases.mg, "exam");
+  assert.equal(papers[0].libraryAliases[0].forKind, "solutions");
+  assert.equal(papers[0].fileVariants[0].role, "solutions");
+});

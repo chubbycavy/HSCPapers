@@ -4,6 +4,11 @@ const { test, expect } = require("@playwright/test");
 const fs = require("fs");
 const { r2Paper, solPaper, noSolPaper, routerPaper } = require("../helpers.cjs");
 const { freezeTimerClock, checkTimerToggleJourney, checkTimerReloadJourney, checkTimerIconAlignment } = require("../timer-check.cjs");
+async function mockSplitBytes(page) {
+  const bytes = require("../pdf-fixture.cjs")("Split reader fixture");
+  await page.route("**/proxy?**", route => route.fulfill({ body: bytes, contentType: "application/pdf" }));
+  for (const url of [solPaper.url, solPaper.solutionUrl]) await page.route(url, route => route.fulfill({ body: bytes, contentType: "application/pdf" }));
+}
 
 async function openPaper(page, title, includeSlow = false) {
   await page.goto("/");
@@ -50,6 +55,7 @@ test.describe("reader (continuous scroll)", () => {
   test("＋ Solutions: enabled for papers with solutions, renders; disabled+tooltip otherwise", async ({ page }) => {
     test.setTimeout(90_000);
     // with solutions (fast-hosted)
+    await mockSplitBytes(page);
     await openPaper(page, solPaper.title);
     const addSol = page.locator("#readerAddSol");
     await expect(addSol).toBeEnabled();
@@ -66,6 +72,7 @@ test.describe("reader (continuous scroll)", () => {
 
   test("page-follow sync turns the solutions with the paper", async ({ page }) => {
     test.setTimeout(120_000);
+    await mockSplitBytes(page);
     await openPaper(page, solPaper.title);
     await expect(page.locator("#scrollPaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
     await page.locator("#readerAddSol").click();
@@ -229,7 +236,7 @@ test.describe("reader (continuous scroll)", () => {
     await card.locator("[data-dl]").first().click();
     const file = await downloaded;
     expect(fs.readFileSync(await file.path()).equals(fixture)).toBe(true);
-    await page.locator("#slowRoute").check();
+    expect(await page.locator("#slowRoute").evaluate(el => el.checked)).toBe(true);
     await card.locator("input[type=checkbox]").check();
     const zipped = page.waitForEvent("download");
     await page.locator("#zipBtn").click();

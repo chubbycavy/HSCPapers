@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-const catalogue = require("../../../ui/data/papers.json");
+const catalogue = require("../../../ui/data/papers-v2.json");
 const pair = Object.entries(catalogue.idAliases || {}).find(([id, target]) => id.startsWith("add-thsc-au-growth-") && catalogue.papers.some(p => p.id === target && p.libraryAliases?.some(r => r.id === id)));
 if (!pair) throw new Error("The duplicate regression fixture must exist in the generated catalogue");
 const [oldId, canonicalId] = pair;
@@ -45,7 +45,7 @@ test("the shared English Paper 1 has one card under either course filter", async
 });
 test("desktop recognizes the file saved under the duplicate mirror's old path", async ({ page }) => {
   const legacyRel = oldLibraryRel(oldRecord);
-  await page.route("**/data/papers.json**", route => route.fulfill({ json: catalogue }));
+  await page.route("**/data/papers-v2.json**", route => route.fulfill({ json: catalogue }));
   await page.addInitScript(({ legacyRel }) => {
     window.__TAURI__ = {
       core: { invoke: async (command, args) => {
@@ -68,4 +68,57 @@ test("desktop recognizes the file saved under the duplicate mirror's old path", 
   await page.locator("#zipBtn").click();
   await expect(page.locator("#zipProgress")).toContainText("already on disk");
   expect(await page.evaluate(() => window.checkedPreflightPaths)).toContain(legacyRel);
+});
+
+const publication = require("../../../tools/catalogue-publication-sync.json");
+async function publicationLibrary(page, savedRel) {
+  await page.route("**/data/papers-v2.json**", route => route.fulfill({ json: catalogue }));
+  await page.route("**/existing-publication.pdf", route => route.fulfill({ body: require("../pdf-fixture.cjs")("Existing publication file"), contentType: "application/pdf" }));
+  await page.addInitScript(savedRel => {
+    window.downloadRequests = []; window.lookupPaths = [];
+    window.__TAURI__ = {
+      core: {
+        convertFileSrc: () => location.origin + "/existing-publication.pdf",
+        invoke: async (command, args) => {
+          if (command === "saved_paths") { window.lookupPaths.push(...args.relpaths); return args.relpaths.map(r => r === savedRel ? "C:/fixture/existing.pdf" : null); }
+          if (command === "get_library_config") return { library: "C:/fixture", is_default: true };
+          if (command === "update_check") return { update_available: false };
+          if (command === "download_paper") { window.downloadRequests.push(args); throw new Error("Existing file should not be downloaded again"); }
+          return null;
+        },
+      }, event: { listen: async () => () => {} },
+    };
+  }, savedRel);
+}
+function synced(id) {
+  const entry = publication.entries.find(e => e.published.id === id);
+  const canonical = catalogue.idAliases[id] || id;
+  return { entry, p: catalogue.papers.find(p => p.id === canonical) };
+}
+test("mirror promotion recognizes the fragment file saved with the tested installer", async ({ page }) => {
+  const { entry, p } = synced("thsc-5222-normanhurst-boys-2025-w-sol");
+  await publicationLibrary(page, oldLibraryRel(entry.previousCandidate));
+  await page.goto(`/?q=${encodeURIComponent(`${p.school} ${p.subject} ${p.year}`)}`);
+  await expect(page.locator(`[data-id="${p.id}"] a.go`)).toContainText("View");
+  expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
+});
+test("latest public combined filename satisfies solutions but not the question-only primary", async ({ page }) => {
+  const { entry, p } = synced("thsc-6528-north-sydney-girls-2023-w-sol");
+  await publicationLibrary(page, oldLibraryRel(entry.published));
+  await page.goto(`/?q=${encodeURIComponent(`${p.school} ${p.subject} ${p.year}`)}`);
+  const card = page.locator(`[data-id="${p.id}"]`);
+  await expect(card.locator("a.go")).toContainText("Paper");
+  await expect(card.locator(".card-actions a").nth(1)).toContainText("View");
+  expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
+});
+test("latest public questions-only filename opens its exact version without replacing the combined primary", async ({ page }) => {
+  const { entry, p } = synced("thsc-5338-abbotsleigh-2022");
+  const rel = oldLibraryRel(entry.published); await publicationLibrary(page, rel);
+  await page.goto(`/?q=${encodeURIComponent(`${p.school} ${p.subject} ${p.year}`)}`);
+  const card = page.locator(`[data-id="${p.id}"]`);
+  await expect(card.locator("a.go")).toContainText("Paper");
+  await card.locator("details summary").click(); await card.getByRole("button", { name: /Questions only/ }).click();
+  await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible();
+  expect(await page.evaluate(() => window.lookupPaths)).toContain(rel);
+  expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
 });

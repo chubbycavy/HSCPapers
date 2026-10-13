@@ -15,7 +15,7 @@ const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","
 
 module.exports = async function run() {
   const ui = path.join(__dirname, "..", "ui");
-  const cat = JSON.parse(fs.readFileSync(path.join(ui, "data", "papers.json"), "utf8"));
+  const cat = JSON.parse(fs.readFileSync(path.join(ui, "data", "papers-v2.json"), "utf8"));
   const papers = cat.papers || [];
   // cov-note carries the CATALOGUE's build stamp (not the render time) — the
   // page's freshness = the data's freshness, so the committed artifact is

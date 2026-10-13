@@ -41,7 +41,7 @@ if (require.main === module) (async () => {
   const dir = path.join(__dirname, ".cache", "census"), file = path.join(dir, "state.json");
   const read = (f, fallback) => { try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch { return fallback; } };
   const state = read(file, { heads: {}, verified: {} });
-  const catalogue = read(path.join(__dirname, "..", "ui", "data", "papers.json"), { papers: [] });
+  const catalogue = read(path.join(__dirname, "..", "ui", "data", "papers-v2.json"), { papers: [] });
   const imports = read(path.join(__dirname, "catalogue-imports.json"), { proofs: {} });
   let result = collectEvidence(catalogue.papers, state, imports.proofs);
   console.log(JSON.stringify({ ...result.coverage, unconfirmedLengthGroups: result.candidateGroups.length,

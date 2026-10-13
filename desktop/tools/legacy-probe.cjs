@@ -8,7 +8,7 @@ const fs = require("fs");
 const path = require("path");
 
 const CACHE = path.join(__dirname, ".cache");
-const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "ui", "data", "papers.json"), "utf8")).papers;
+const papers = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "ui", "data", "papers-v2.json"), "utf8")).papers;
 const dead = papers.filter(p => (p.url || "").includes("wcm"));
 const normKey = (s) => (s ?? "").toString().toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 

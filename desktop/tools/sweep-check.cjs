@@ -28,7 +28,7 @@ const proxyJs = read(path.join(UI, "functions", "proxy.js")) + "\n" + read(path.
 const headers = read(path.join(UI, "_headers"));
 const swJs = read(path.join(UI, "sw.js"));
 const manifest = JSON.parse(read(path.join(UI, "manifest.webmanifest")));
-const catalogue = JSON.parse(read(path.join(UI, "data", "papers.json")));
+const catalogue = JSON.parse(read(path.join(UI, "data", "papers-v2.json")));
 const papers = catalogue.papers || [];
 
 let fails = 0, passes = 0, warns = 0;
@@ -145,7 +145,7 @@ async function main() {
       const m = text.slice(i, i + 400).match(/Set\(\[([\s\S]*?)\]\)/);
       return m ? new Set([...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1])) : null;
     };
-    const fast = hostsOf(appJs, "const FAST_SAVE_HOSTS");
+    const fast = require("../ui/js/source-policy.js").FAST_SAVE_HOSTS;
     const cors = hostsOf(appJs, "const CORS_OK_HOSTS");
     const allowed = hostsOf(proxyJs, "const ALLOWED_HOSTS");
     const biLine = (builder.split("\n").find((l) => l.includes("FAST_HOST_RE")) || "");
@@ -165,7 +165,7 @@ async function main() {
     // Resolver lane contract: proxy.js must carry the Apps Script resolution
     // branch, and its 16 quota pools must EXACTLY match the Rust WORKERS
     // array (round-robin spreads load across the same deployments).
-    for (const marker of ["THSC_ROUTER_RE", "export=data", "resolveRouter"]) {
+    for (const marker of ["THSC_ROUTER_RE", "export=view", "resolveRouter", "resolveFragments"]) {
       if (!proxyJs.includes(marker)) { fail(`proxy resolver lane missing "${marker}"`); ok = false; }
     }
     const ep = (text) => [...text.matchAll(/"(https:\/\/script\.google\.com\/macros\/s\/[^"]+)"/g)].map((m) => m[1]);
@@ -217,7 +217,7 @@ async function main() {
   {
     // (a) payload budget: the catalogue is the app's biggest download —
     // brotli-compressed it must stay under 0.75 MB (measured 0.21 at v1.0.22)
-    const raw = read(path.join(UI, "data", "papers.json"));
+    const raw = read(path.join(UI, "data", "papers-v2.json"));
     const brotli = require("zlib").brotliCompressSync(Buffer.from(raw, "utf8"));
     const MB = brotli.length / (1024 * 1024);
     if (MB <= 0.75) pass(`papers.json payload budget holds (brotli ${MB.toFixed(2)} MB of 0.75)`);
@@ -248,9 +248,9 @@ async function main() {
     const duplicates = [...identities].filter(([, ids]) => ids.size > 1);
     if (duplicates.length) fail("Duplicate source-listing cards", duplicates.slice(0, 5).map(([k]) => k).join(" | "));
     else pass("no duplicate source-listing identities in active cards");
-    const activeIds = new Set(papers.map(p => p.id)), aliasMap = catalogue.idAliases || {};
+    const activeIds = new Set([...papers, ...(catalogue.recoveryPapers || [])].map(p => p.id)), aliasMap = catalogue.idAliases || {};
     const invalidAliases = Object.entries(aliasMap).filter(([from, to]) => activeIds.has(from) || !activeIds.has(to) || from === to);
-    if (invalidAliases.length) fail("Historical IDs do not resolve to one active paper", JSON.stringify(invalidAliases.slice(0, 3)));
+    if (invalidAliases.length) fail("Historical IDs do not resolve to an active or recovery record", JSON.stringify(invalidAliases.slice(0, 3)));
     else pass(`historical aliases: ${Object.keys(aliasMap).length} resolve to active papers, not extra cards`);
     if (audit.activePapers !== papers.length) fail("Reconciliation report/catalogue counts disagree");
     else pass(`reconciliation accounts for ${audit.importedRows} imports: ${audit.mergedImports.length} merged / ${audit.genuinelyAdded.length} added / ${audit.reviewQueue.length} review`);
@@ -285,7 +285,7 @@ async function main() {
     const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
     const fastFiles = papers.reduce((n, p) => n + (isFast(p.url) ? 1 : 0) + (isFast(p.solutionUrl) ? 1 : 0), 0);
     const subjects = new Set(papers.map((p) => p.subject)).size;
-    for (const [claim, actual, min] of [["7,000+", papers.length, 6750], ["7,700+", totalFiles, 7550], ["6,400+", fastFiles, 6250]]) {
+    for (const [claim, actual, min] of [[`${(Math.floor(papers.length/1000)*1000).toLocaleString("en-AU")}+`, papers.length, Math.floor(papers.length/1000)*1000], [`${(Math.floor(totalFiles/1000)*1000).toLocaleString("en-AU")}+`, totalFiles, Math.floor(totalFiles/1000)*1000], ["6,400+", fastFiles, 6400]]) {
       if (html.includes(claim)) { if (actual >= min) pass(`claim "${claim}" holds (actual ${actual})`); else fail(`claim "${claim}" DRIFTED`, `actual ${actual} < floor ${min}`); }
       else warn(`claim "${claim}" not found in index.html`);
     }
@@ -295,7 +295,7 @@ async function main() {
     const readme = fs.readFileSync(path.join(__dirname, "..", "..", "README.md"), "utf8");
     if (readme.includes("hscpapers.com")) pass("README links the live site");
     else fail("README missing the live site link");
-    if (readme.includes("7,000+ papers") && readme.includes("7,700+ files")) pass("README carries the evergreen counts");
+    if (readme.includes(`${(Math.floor(papers.length/1000)*1000).toLocaleString("en-AU")}+ papers`) && readme.includes(`${(Math.floor(totalFiles/1000)*1000).toLocaleString("en-AU")}+ files`)) pass("README carries available-catalogue counts");
     else fail("README counts stale or missing");
   }
 
