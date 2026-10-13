@@ -62,22 +62,10 @@ async function decompressGzip(pieces) {
   const combined = new Uint8Array(total);
   let off = 0;
   for (const p of pieces) { combined.set(p, off); off += p.length; }
-  if (typeof DecompressionStream !== "undefined") {
-    try {
-      const stream = new ReadableStream({
-        start(c) { c.enqueue(combined); c.close(); }
-      }).pipeThrough(new DecompressionStream("gzip"));
-      return await readBounded(new Response(stream), MAX_PDF_BYTES);
-    } catch {}
-  }
-  return await inflateGzip(combined);
-}
-
-async function inflateGzip(data) {
-  const { gunzipSync } = await import("fflate");
-  const buf = gunzipSync(data);
-  if (buf.length > MAX_PDF_BYTES) throw new SourceError("Source exceeds transport byte limit", 413, "size-limit");
-  return buf;
+  const stream = new ReadableStream({
+    start(c) { c.enqueue(combined); c.close(); }
+  }).pipeThrough(new DecompressionStream("gzip"));
+  return await readBounded(new Response(stream), MAX_PDF_BYTES);
 }
 
 export async function resolveFragments({ viewno, title }, { fetchImpl = fetch, signal = AbortSignal.timeout(30000), placeholderShas, onProgress = () => {} } = {}) {
