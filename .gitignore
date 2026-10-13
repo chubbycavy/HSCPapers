@@ -19,6 +19,9 @@ desktop/node_modules/
 *.part
 .opencode/
 
+# Internal planning docs — local only, never published
+docs/internal/
+
 # Browser-ZIP test artifacts (downloads land in the repo folder)
 hsc-papers-selection.zip
 

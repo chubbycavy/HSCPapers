@@ -1,7 +1,7 @@
 # HSCPapers 1.0.27: local release-readiness completion
 
 Completed locally: 2026-10-13. Approved plan:
-[`../../RELEASE-READINESS-PLAN.md`](../../RELEASE-READINESS-PLAN.md).
+[`../../docs/internal/release-readiness-plan.md`](../../docs/internal/release-readiness-plan.md).
 
 ## Delivered
 
@@ -131,13 +131,19 @@ historical endpoint helper. Neither prevented packaging or the passing checks.
 
 ## Remaining release gates
 
-1. **Explicit publication instruction:** review the whole dirty candidate and
+1. **Cloudflare Pages Function deployment is stuck.** The proxy function at
+   `/proxy` is serving an old test stub instead of the real handler. Static
+   files (feeds, sw.js, website) deployed correctly. The proxy is needed for
+   201 compatibility-feed bridge URLs, 200 legacy primaries, and 1 fragment
+   primary. Fix: redeploy from the Cloudflare dashboard or use `wrangler`
+   with API credentials. The code is correct in the repo.
+2. **Explicit publication instruction:** review the whole dirty candidate and
    required untracked files, remote changes and intended release diff before
    commit/push. Preserve `debug.log` and `desktop/tools/logo-previews/`.
-2. **Coordinate publication:** ship proxy, both feeds and website coherently;
+3. **Coordinate publication:** ship proxy, both feeds and website coherently;
    publish the versioned installer; verify the GitHub asset digest; run production
    smoke checks against the synchronized modern and compatibility feeds.
-3. **Notify Dan:** explain the removed-link delivery fix and corrected placeholder
+4. **Notify Dan:** explain the removed-link delivery fix and corrected placeholder
    diagnosis. The user decides where/how to send the message.
 
 No commit, push, public deployment, upload or GitHub release publication happened.

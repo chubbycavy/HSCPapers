@@ -21,6 +21,16 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Block internal docs from being tracked
+        run: |
+          leaks=$(git ls-files docs/internal/ 2>/dev/null || true)
+          if [ -n "$leaks" ]; then
+            echo "::error::Internal planning docs must not be committed: $leaks"
+            echo "Remove them with: git rm --cached -r docs/internal/"
+            exit 1
+          fi
+          echo "No internal docs tracked — OK"
+
       - uses: actions/setup-node@v7
         with:
           node-version: "20"

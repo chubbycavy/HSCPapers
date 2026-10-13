@@ -36,7 +36,7 @@ Released v1.0.26 clients retain `data/papers.json`, whose compatibility projecti
 bridges descriptor sources to ordinary PDF-producing URLs and excludes role-dependent
 aliases. Keep the two feeds coordinated during publication.
 
-Release readiness: [`../RELEASE-READINESS-PLAN.md`](../RELEASE-READINESS-PLAN.md).
+Release readiness: [`../docs/internal/release-readiness-plan.md`](../docs/internal/release-readiness-plan.md).
 Results and remaining publication checks: [`tools/release-readiness-report.md`](tools/release-readiness-report.md).
 
 ## Develop (needs Rust once: https://rustup.rs — install, reboot, then:)
