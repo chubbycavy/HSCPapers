@@ -16787,6 +16787,6 @@
  "unexpectedPrimaryDowngrades": [],
  "limitations": "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count.",
  "filePointers": 7985,
- "directFilePointers": 7215,
- "resolverPrimaries": 311
+ "directFilePointers": 7229,
+ "resolverPrimaries": 297
 }
