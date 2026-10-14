@@ -13,7 +13,7 @@
     "test:nuclear": "node tools/nuclear.cjs"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
+    "@playwright/test": "^1.64.0",
     "@tauri-apps/cli": "^2"
   }
 }
