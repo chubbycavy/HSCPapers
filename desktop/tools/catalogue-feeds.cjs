@@ -2,9 +2,10 @@
 "use strict";
 const I = require("./catalogue-identity.cjs"), R = require("./catalogue-reconcile.cjs");
 const policy = require("../ui/js/source-policy.js");
+const reviewed = require("./reviewed-corrections.cjs");
 const BRIDGE = "https://hscpapers.com/proxy";
 function bridge(url) { return policy.deliveryHref(url, BRIDGE); }
-function prepare(modern) {
+function prepare(modern, validation) {
   const papers = [], stats = { bridgedPrimaries: 0, bridgedSolutions: 0, excludedRoleAliases: 0 };
   for (const p of modern.papers) {
     const before = R.legacyRecord(p);
@@ -13,9 +14,13 @@ function prepare(modern) {
     if (row.url !== p.url) stats.bridgedPrimaries++;
     if (row.solutionUrl !== (p.solutionUrl || "")) stats.bridgedSolutions++;
     row.libraryAliases = historical.filter(a => {
-      const safe = !a.forKind && !a.savedKind && !a.variantOnly && I.compatibleSourceContext(p, a);
+      const safe = !a.forKind && !a.savedKind && !a.variantOnly && (I.compatibleSourceContext(p, a) || reviewed.sameBytes(validation, p.url, a.url));
       if (!safe) stats.excludedRoleAliases++;
       return safe;
+    }).map(a => {
+      const alias = { ...a };
+      if (validation && alias.solutionUrl && !reviewed.sameBytes(validation, p.solutionUrl, alias.solutionUrl)) delete alias.solutionUrl;
+      return alias;
     });
     // Old clients treat every alias as both paper and solution; decorated role
     // aliases must never leak into this projection.

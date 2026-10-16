@@ -3,9 +3,7 @@
 "use strict";
 const fs = require("fs"), path = require("path");
 globalThis.crypto ||= require("crypto").webcrypto;
-(async () => {
-  const file = path.join(__dirname, "catalogue-validation.json"), registry = JSON.parse(fs.readFileSync(file, "utf8"));
-  const catalogue = JSON.parse(fs.readFileSync(path.join(__dirname, "../ui/data/papers-v2.json"), "utf8"));
+async function refresh(registry, catalogue, { fetch = globalThis.fetch, now = Date.now(), delayMs = 1000, resolveLegacy } = {}) {
   const { readBounded, pdfProof, resolveFragments, fragmentUrl, sanitizeThscTitle } = await import("../ui/_lib/thsc-fragments.mjs");
   const { isLegacy } = require("./priority-audit.cjs"), urls = new Map();
   for (const p of [...catalogue.papers, ...(catalogue.recoveryPapers || [])]) {
@@ -13,7 +11,7 @@ globalThis.crypto ||= require("crypto").webcrypto;
   }
   const unknown = [...urls].filter(([url]) => !registry.entries[url] && !isLegacy(url));
   const legacy = [...urls].filter(([url]) => isLegacy(url));
-  const offset = Math.floor(Date.now() / 86400000) * 25 % Math.max(1, legacy.length);
+  const offset = Math.floor(now / 86400000) * 25 % Math.max(1, legacy.length);
   const selected = [...unknown, ...Array.from({ length: Math.min(25, legacy.length) }, (_, i) => legacy[(offset+i)%legacy.length])];
   const pdfjs = require("../ui/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
   for (const [url] of selected) {
@@ -21,7 +19,7 @@ globalThis.crypto ||= require("crypto").webcrypto;
       let bytes, migratedUrl, transport = "direct-pdf";
       if (isLegacy(url)) {
         const m = new URL(url).pathname.match(/\/s\/(?:d|v|fz|f|z)\/(\d+)\/(.+)/), raw = decodeURIComponent(m[2]);
-        const result = await resolveFragments({ viewno: m[1], title: sanitizeThscTitle(raw) });
+        const result = await (resolveLegacy || resolveFragments)({ viewno: m[1], title: sanitizeThscTitle(raw) });
         bytes = result.bytes; migratedUrl = fragmentUrl(m[1], raw); transport = "thsc-fragments";
       } else {
         const r = await fetch(url, { signal: AbortSignal.timeout(30000), headers: { "User-Agent": "HSCPapers/1.0 (nightly admission)" } });
@@ -38,8 +36,15 @@ globalThis.crypto ||= require("crypto").webcrypto;
     } catch (e) {
       if (!registry.entries[url]) registry.entries[url] = { state: "review", reason: e.message, at: new Date().toISOString() };
     }
-    await new Promise(r => setTimeout(r, 1000));
+    if (delayMs) await new Promise(r => setTimeout(r, delayMs));
   }
-  fs.writeFileSync(file, JSON.stringify(registry, null, 1) + "\n");
   console.log(`Nightly proof admission checked ${selected.length} sources; Apps Script not used`);
+  return selected.length;
+}
+module.exports = { refresh };
+if (require.main === module) (async () => {
+  const file = path.join(__dirname, "catalogue-validation.json"), registry = JSON.parse(fs.readFileSync(file, "utf8"));
+  const catalogue = JSON.parse(fs.readFileSync(path.join(__dirname, "../ui/data/papers-v2.json"), "utf8"));
+  await refresh(registry, catalogue);
+  fs.writeFileSync(file, JSON.stringify(registry, null, 1) + "\n");
 })().catch(e => { console.error(e); process.exitCode = 1; });

@@ -122,3 +122,30 @@ test("latest public questions-only filename opens its exact version without repl
   expect(await page.evaluate(() => window.lookupPaths)).toContain(rel);
   expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
 });
+
+const acceleratedGroups = require("../../../tools/catalogue-metadata-corrections.json").reviewedGroups;
+for (const group of acceleratedGroups.filter(g => g.disposition !== "review-portal")) {
+  test(`accelerated ${group.year}: old Advanced portal filename and mirror bookmark resolve to the reviewed owner`, async ({ page }) => {
+    const p = catalogue.papers.find(p => p.id === group.canonicalId);
+    expect(p.url).toBe(group.mirrorUrl);
+    const saved = p.libraryAliases.find(a => a.subject === "Mathematics Advanced" && a.url === group.portalUrl && !a.variantOnly);
+    expect(saved).toBeTruthy();
+    await publicationLibrary(page, oldLibraryRel(saved));
+    const mirrorId = "add-thsc-au-growth-" + group.sha256.slice(0, 10);
+    await page.addInitScript(id => localStorage.setItem("hsc-bookmarked", JSON.stringify([id])), mirrorId);
+    await page.goto(`/?q=${encodeURIComponent(`Sydney Boys Maths Accelerated ${group.year}`)}&sel=${encodeURIComponent(mirrorId)}`);
+    await expect(page.locator(`[data-id="${p.id}"] a.go`)).toContainText("View");
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem("hsc-bookmarked")))).toEqual([p.id]);
+    expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
+  });
+}
+test("held 2016 portal file cannot satisfy the mirror primary's saved-file lookup", async ({ page }) => {
+  const group = acceleratedGroups.find(g => g.year === 2016), p = catalogue.papers.find(p => p.id === group.canonicalId);
+  const held = catalogue.recoveryPapers.find(p => p.id === group.portalIds[0]);
+  expect(held.availability.state).toBe("review");
+  expect(catalogue.idAliases[held.id]).toBeUndefined();
+  await publicationLibrary(page, oldLibraryRel(held.libraryAliases.find(a => a.url === group.portalUrl)));
+  await page.goto(`/?q=${encodeURIComponent("Sydney Boys Maths Accelerated 2016")}`);
+  await expect(page.locator(`[data-id="${p.id}"] a.go`)).toContainText("Paper");
+  await expect(page.locator(`.card[data-id="${held.id}"] a.go`)).toHaveCount(0);
+});

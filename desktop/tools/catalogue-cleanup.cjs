@@ -1,10 +1,11 @@
 "use strict";
 const I = require("./catalogue-identity.cjs"), R = require("./catalogue-reconcile.cjs"), admission = require("./document-admission.cjs");
+const reviewed = require("./reviewed-corrections.cjs");
 function proofFor(p, url, role, validation) {
   const e = validation.entries[url];
   if (e?.state !== "verified") return null;
   const exclusion = validation.ownerExclusions?.[p.id];
-  if (role === "primary" && exclusion && (!exclusion.sha256 || exclusion.sha256 === e.sha256)) return null;
+  if (role === "primary" && exclusion && (!exclusion.url || exclusion.url === url) && (!exclusion.sha256 || exclusion.sha256 === e.sha256)) return null;
   if (admission.contextIssue(p, role, e.text, url)) return null;
   return e;
 }
@@ -40,14 +41,17 @@ function history(papers, input, validation) {
   }
   return { aliases, changes };
 }
-function prepareMetadata(papers, corrections) {
+function prepareMetadata(papers, corrections, validation) {
   const corrected = [];
   for (const p of papers) {
     const fix = corrections[p.id]; if (!fix) continue;
+    const issue = reviewed.issue(p, fix, validation);
+    if (issue) { reviewed.mark(p, "reviewedCorrectionIssue", issue); continue; }
     p.libraryAliases ||= [];
     p.libraryAliases.push({ ...R.legacyRecord(p), ...(fix.libraryRole ? { forKind: fix.libraryRole, savedKind: "paper" } : {}) });
     if (fix.fields.url && fix.fields.url !== p.url) { delete p.sha256; delete p.bytes; delete p.pages; }
     Object.assign(p, fix.fields); Object.defineProperty(p, "metadataCorrected", { value: true, enumerable: false });
+    if (fix.when) reviewed.mark(p, "reviewedOwnerId", fix.canonicalId || p.id);
     corrected.push({ id: p.id, reason: fix.reason });
   }
   return corrected;
@@ -56,21 +60,30 @@ function apply(papers, validation, corrections = {}) {
   const recovery = [], rejectedSources = [], corrected = [], verified = validation.entries;
   for (const p of papers) {
     const fix = corrections[p.id];
-    if (fix && !p.metadataCorrected) corrected.push(...prepareMetadata([p], corrections));
+    if (fix && !p.metadataCorrected) corrected.push(...prepareMetadata([p], corrections, validation));
+    const held = reviewed.hold(p, validation);
+    if (held) reviewed.mark(p, "reviewedHold", held);
+    // Pin a reviewed identical mirror independently of the canonical public ID.
+    if (p.reviewedOwnerId && fix?.primaryUrl && reviewed.sameBytes(validation, p.url, fix.primaryUrl)) {
+      const before = R.legacyRecord(p);
+      p.libraryAliases ||= []; p.libraryAliases.push(before);
+      const previous = p.url; p.url = fix.primaryUrl; p.mirror = "thsc-au";
+      R.addAlternative(p, { url: previous, source: "hscportal" });
+    }
     const old = R.legacyRecord(p), candidates = [p.url, ...(p.alternateSources || []).map(x => x.url), p.fallbackUrl].filter(Boolean);
-    const good = candidates.filter(url => proofFor(p, url, "primary", validation));
+    const good = (held || p.reviewedCorrectionIssue) ? [] : candidates.filter(url => proofFor(p, url, "primary", validation));
     p.provenanceSources ||= [];
     const remember = (url, role, override) => {
       if (!url || p.provenanceSources.some(x => x.url === url && x.role === role)) return;
       const e = verified[url];
-      const reason = validation.ownerExclusions?.[p.id]?.reason || (e?.state === "verified" ? admission.contextIssue(p, role === "solutions" ? "solutions" : "primary", e.text, url) : e?.reason);
+      const reason = held || p.reviewedCorrectionIssue || (e?.state === "verified" ? admission.contextIssue(p, role === "solutions" ? "solutions" : "primary", e.text, url) : e?.reason);
       p.provenanceSources.push({ url, role, reason: override || reason || "No current full-file proof; excluded from online actions" });
       rejectedSources.push({ id: p.id, url, role, reason: override || reason || "Unverified source" });
     };
     for (const url of candidates) if (!good.includes(url)) remember(url, "primary");
     if (!good.length) {
       p.libraryAliases ||= []; p.libraryAliases.push(old);
-      p.availability = { state: "unavailable", reason: p.provenanceSources[0]?.reason || "No verified replacement currently available" };
+      p.availability = { state: held || p.reviewedCorrectionIssue ? "review" : "unavailable", reason: held || p.reviewedCorrectionIssue || p.provenanceSources[0]?.reason || "No verified replacement currently available" };
       p.url = ""; p.solutionUrl = ""; p.fallbackUrl = ""; p.solFallbackUrl = ""; p.alternateSources = [];
       recovery.push(p); continue;
     }
@@ -82,6 +95,10 @@ function apply(papers, validation, corrections = {}) {
       p.url = target;
     }
     p.sha256 = e.sha256; p.bytes = e.bytes; p.pages = e.pages;
+    if (p.reviewedOwnerId || validation.ownerExclusions?.[p.id]) for (const alias of p.libraryAliases || []) {
+      if (!alias.forKind && !alias.variantOnly && !reviewed.sameBytes(validation, alias.url, p.url)) alias.variantOnly = true;
+      if (alias.solutionUrl && !reviewed.sameBytes(validation, alias.solutionUrl, p.solutionUrl)) delete alias.solutionUrl;
+    }
     const task = (e.text?.slice(0, 500).match(/\bassessment\s*(?:task\s*)?(\d+)\b/i) || [])[1];
     if (task) {
       p.examBlock = "Assessment Task " + task;
@@ -136,4 +153,22 @@ function finalizeAliases(aliases, papers, recovery) {
   for (const [from, to] of Object.entries(aliases)) { const target = resolveAlias(to, aliases); if (!ids.has(from) && target !== from && ids.has(target)) out[from] = target; }
   return out;
 }
-module.exports = { apply, history, prepareMetadata, proofFor, schoolInFile, resolveAlias, finalizeAliases };
+function restrictCopies(papers, validation) {
+  const rejected = [];
+  for (const p of papers) {
+    p.alternateSources = (p.alternateSources || []).filter(a => {
+      if (reviewed.sameBytes(validation, p.url, a.url)) return true;
+      const reason = "Different/unproved source bytes require explicit version/role review, not an ordinary primary backup";
+      p.provenanceSources ||= [];
+      if (!p.provenanceSources.some(s => s.url === a.url && s.role === "primary")) p.provenanceSources.push({ url: a.url, role: "primary", reason });
+      rejected.push({ id: p.id, url: a.url, reason }); return false;
+    });
+    p.fallbackUrl = p.alternateSources[0]?.url || "";
+    for (const alias of p.libraryAliases || []) {
+      const proof = validation.entries[alias.url];
+      if (!alias.forKind && proof?.state === "verified" && proof.sha256 !== p.sha256) alias.variantOnly = true;
+    }
+  }
+  return rejected;
+}
+module.exports = { apply, history, prepareMetadata, proofFor, schoolInFile, resolveAlias, finalizeAliases, restrictCopies };

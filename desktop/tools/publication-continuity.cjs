@@ -28,7 +28,7 @@ function apply(papers, ledger, validation, aliases) {
         const previous = p.url; primaryAlias(p, p, validation);
         p.url = published.url; p.mirror = "thsc-au";
         const proof = validation.entries[previous];
-        R.addAlternative(p, { url: previous, sha256: sha, bytes: proof.bytes, pages: proof.pages, source: proof.transport || "verified-alternative" });
+        R.addAlternative(p, { url: previous, sha256: proof.sha256, bytes: proof.bytes, pages: proof.pages, source: proof.transport || "verified-alternative" });
       }
       role = "primary";
     }

@@ -6,23 +6,23 @@ The 10,368 figure counted listings, including mirror copies. v1.0.25 made URLs d
 
 ## Current accounting
 
-- Active catalogue entries: **6629** (previously 10,368).
+- Active catalogue entries: **6872** (previously 10,368).
 - Imported rows reconciled: 3393.
-- Mirror/copy imports merged into existing entries: **2999**.
+- Mirror/copy imports merged into existing entries: **3005**.
 - Added after metadata and identity checks: **172**.
-- Imports retained in the committed review registry, excluded from active totals: **222**.
-- Existing-copy merges: 928.
-- Historical aliases resolving to active/recovery records: 4844.
-- Recovery records preserved without online download actions: 894.
+- Imports retained in the committed review registry, excluded from active totals: **216**.
+- Existing-copy merges: 930.
+- Historical aliases resolving to active/recovery records: 4854.
+- Recovery records preserved without online download actions: 643.
 
-- Direct-file pointers: 7127/7328; resolver primaries: 200.
+- Direct-file pointers: 7370/7571; resolver primaries: 200.
 
 | Source | Merged | Added | Review |
 |---|---:|---:|---:|
 | 4unitmaths | 0 | 4 | 190 |
 | acehsc | 0 | 10 | 13 |
 | crest | 0 | 0 | 1 |
-| thsc-au-growth | 2999 | 158 | 18 |
+| thsc-au-growth | 3005 | 158 | 12 |
 
 ## Evidence and preservation rules
 
@@ -43,7 +43,7 @@ The census now distinguishes full-file hash evidence from incomplete HEAD covera
 - Identical-document classification consolidations: 815.
 - Redundant attached-document cards consolidated: 19.
 - Shared-course English Paper 1 consolidations: 4.
-- Question/combined assessment version consolidations: 0.
+- Question/combined assessment version consolidations: 2.
 - Migrated fragment primaries: 1; validated legacy primaries: 200.
 The known repeated 92,354-byte PDF is THSC's official 404 placeholder, not proof of corrupted directory mappings. Access-denied outcomes are review cases. Unverified legacy fallbacks are provenance rather than online actions.
 

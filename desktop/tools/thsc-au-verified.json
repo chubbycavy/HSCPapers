@@ -1,758 +1,758 @@
 {
- "version": 1,
- "_doc": "Exact THSC viewno/title mappings verified by HTTP 200, PDF MIME/signature, byte length, PDF.js page count and SHA-256. Used identically by online and offline builds.",
- "entries": [
-  {
-   "key": "1078|james ruse 2020",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/agriculture/trialpapers/james-ruse-2020.pdf",
-   "bytes": 512731,
-   "pages": 15,
-   "sha256": "bcf4f24ef1c8e647ea2d60fb5450fc7fd436dd65c2047dff36c8f1f8f7e8d363",
-   "verifiedAt": "2026-10-10T23:12:16.422Z"
-  },
-  {
-   "key": "1378|smiths hill 2017",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/biology/trialpapers/smiths-hill-2017.pdf",
-   "bytes": 947548,
-   "pages": 29,
-   "sha256": "1d40fd5cadb9a9c8bdaaddb3aa72c33a9d6be872e88ca9807e7100dc5088c504",
-   "verifiedAt": "2026-10-10T13:53:27.487Z"
-  },
-  {
-   "key": "1578|shore 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/business-studies/trialpapers/shore-2025-w-sol.pdf",
-   "bytes": 4263281,
-   "pages": 57,
-   "sha256": "2c10e6b84bcb4041fbb04e79f7c5e6536306bb56de12150b28cb08f10f21c681",
-   "verifiedAt": "2026-10-10T23:12:17.147Z"
-  },
-  {
-   "key": "1828|barker 2022",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/chemistry/trialpapers/barker-2022.pdf",
-   "bytes": 871536,
-   "pages": 38,
-   "sha256": "e914efc4cc1abc8e7f0aee4c5ed56a299d464f4677e66946ab7ee607d8e89367",
-   "verifiedAt": "2026-10-10T23:12:17.886Z"
-  },
-  {
-   "key": "1828|barker 2023",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/chemistry/trialpapers/barker-2023.pdf",
-   "bytes": 996688,
-   "pages": 39,
-   "sha256": "f4fd426aa0f6c16cc0785cea44c254e3c1bf925401e11323bf0ce0631f546227",
-   "verifiedAt": "2026-10-10T23:12:18.552Z"
-  },
-  {
-   "key": "1828|killara 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/chemistry/trialpapers/killara-2025-w-sol.pdf",
-   "bytes": 2199450,
-   "pages": 81,
-   "sha256": "35f1e2cc8a6b3e698bf92970bcc3bff2218776a65a41cdb1bb993a19c0a1ab02",
-   "verifiedAt": "2026-10-10T23:12:19.248Z"
-  },
-  {
-   "key": "2718|barker 2023 p1",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/barker-2023-p1.pdf",
-   "bytes": 694542,
-   "pages": 18,
-   "sha256": "81c5ddeab746e2b8c79bf0ca1babf967b85a84baf2250fc1d166cc8d292a6064",
-   "verifiedAt": "2026-10-10T13:53:27.717Z"
-  },
-  {
-   "key": "2718|fort st 2026 p1",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/fort-st-2026-p1.pdf",
-   "bytes": 465651,
-   "pages": 15,
-   "sha256": "3072db090eea579d7b1f68b5bfe354adf11e5ec3491a79bfa8c6d81371c3833e",
-   "verifiedAt": "2026-10-13T08:35:42.870Z"
-  },
-  {
-   "key": "2718|kinross wolaroi 2023 p1",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/kinross-wolaroi-2023-p1.pdf",
-   "bytes": 609294,
-   "pages": 18,
-   "sha256": "c336fde8e1cbba2dc878fb5f62193dfa6e1ddaa36c4bd8954e4a62240d587e66",
-   "verifiedAt": "2026-10-10T13:53:27.942Z"
-  },
-  {
-   "key": "2718|north sydney girls 2025 p1",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/north-sydney-girls-2025-p1.pdf",
-   "bytes": 535097,
-   "pages": 18,
-   "sha256": "549ca4fcd9f9309323f96113421c7630a46fc8a572dd3439b5fa4df3bbfa9eae",
-   "verifiedAt": "2026-10-13T08:35:43.143Z"
-  },
-  {
-   "key": "2718|shore 2023 p1",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/shore-2023-p1.pdf",
-   "bytes": 1867735,
-   "pages": 19,
-   "sha256": "02aeca3eb02ba1bb1e208371888373009772dd3e0a4a8df967e36f849de5dd42",
-   "verifiedAt": "2026-10-10T13:53:28.356Z"
-  },
-  {
-   "key": "2718|st george girls 2021 p1",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/st-george-girls-2021-p1.pdf",
-   "bytes": 122338,
-   "pages": 3,
-   "sha256": "ab8af9ea7fa4f2b167389f26995c2b9c0eb5e8c8651960cbfd98dfa7d7eb3184",
-   "verifiedAt": "2026-10-13T08:35:43.412Z"
-  },
-  {
-   "key": "2727|abbotsleigh 2022 p2 (std.)",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/abbotsleigh-2022-p2-std.pdf",
-   "bytes": 326143,
-   "pages": 10,
-   "sha256": "758209e98bad63a0c18c50aa7721d84b61e9c4b44b5a1f804d53cb1505f3fc8f",
-   "verifiedAt": "2026-10-10T23:12:20.859Z"
-  },
-  {
-   "key": "2727|ascham 2022 p2 (std.)",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/ascham-2022-p2-std.pdf",
-   "bytes": 267184,
-   "pages": 11,
-   "sha256": "40b9b174b1272b049c3870d3b9d00f90a6ca7475fdbc0db436a11aea16f1ff74",
-   "verifiedAt": "2026-10-10T23:12:21.451Z"
-  },
-  {
-   "key": "2727|riverview 2022 p2 (std.)",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/riverview-2022-p2-std.pdf",
-   "bytes": 790371,
-   "pages": 9,
-   "sha256": "7d1048200bc5ffaaf37233a9f6bc04d6c657fe121977b09df1927401e665e371",
-   "verifiedAt": "2026-10-10T23:12:22.065Z"
-  },
-  {
-   "key": "2727|sydney grammar 2022 p2 (std.)",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/sydney-grammar-2022-p2-std.pdf",
-   "bytes": 128221,
-   "pages": 4,
-   "sha256": "bbd972a8c4c2c3f57b6627f6e040659bbfb67b219d024a6efc424449020e8741",
-   "verifiedAt": "2026-10-10T23:12:22.471Z"
-  },
-  {
-   "key": "2728|james ruse 2022 p2 (adv.)",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-advanced/james-ruse-2022-p2-adv.pdf",
-   "bytes": 154865,
-   "pages": 13,
-   "sha256": "3377792963d15a972333a798519d76916f282defa1f7bdd835356159ec0979d3",
-   "verifiedAt": "2026-10-10T23:12:20.237Z"
-  },
-  {
-   "key": "5096|sydney boys 2015",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2015.pdf",
-   "bytes": 333346,
-   "pages": 20,
-   "sha256": "4e897c4d946cb717d8b100bc589aca2a9f9d4e471a5a6c654e5ceb18b4478dee",
-   "verifiedAt": "2026-10-10T13:53:33.060Z"
-  },
-  {
-   "key": "5096|sydney boys 2016",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2016.pdf",
-   "bytes": 1514395,
-   "pages": 20,
-   "sha256": "8b7275704b89e1fe4c7d1261cbd1d5db145c2ab83c2938837bdebcdbecafb191",
-   "verifiedAt": "2026-10-10T13:53:33.318Z"
-  },
-  {
-   "key": "5096|sydney boys 2017",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2017.pdf",
-   "bytes": 1058927,
-   "pages": 20,
-   "sha256": "e76d20071f4488b58c68c369bf3add59a0ae71907096e0b1e3cba9f2559bb6ce",
-   "verifiedAt": "2026-10-10T13:53:33.563Z"
-  },
-  {
-   "key": "5096|sydney boys 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2018-w-sol.pdf",
-   "bytes": 5161247,
-   "pages": 32,
-   "sha256": "d47b96ebfb72a276d59004a43e4fb7fe113085ec11812d99c23d4cc860390c5d",
-   "verifiedAt": "2026-10-10T13:53:33.920Z"
-  },
-  {
-   "key": "5096|sydney boys 2019 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2019-w-sol.pdf",
-   "bytes": 2734326,
-   "pages": 37,
-   "sha256": "019048cc433379861bbe959c083994dff6a179ef618ebbf3df4a7a012f6b3601",
-   "verifiedAt": "2026-10-10T23:12:23.156Z"
-  },
-  {
-   "key": "5096|sydney boys 2021 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2021-w-sol.pdf",
-   "bytes": 2001991,
-   "pages": 42,
-   "sha256": "fd4170db0a6315c951de63950de3e128938633840977bc64783956d3467e5bbe",
-   "verifiedAt": "2026-10-10T13:53:34.185Z"
-  },
-  {
-   "key": "5096|sydney boys 2022 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2022-w-sol.pdf",
-   "bytes": 3582657,
-   "pages": 38,
-   "sha256": "35011c7641e158446bcbf4cf47a2fdc95720615beeb81fdfd2b20ca5927259ab",
-   "verifiedAt": "2026-10-10T13:53:34.485Z"
-  },
-  {
-   "key": "5096|sydney boys 2023 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2023-w-sol.pdf",
-   "bytes": 4430879,
-   "pages": 46,
-   "sha256": "d73c4fa41d6c0d327cfdb9b49df5f35938d881015dcc98b55acbc94f0b885e01",
-   "verifiedAt": "2026-10-10T13:53:34.844Z"
-  },
-  {
-   "key": "5096|sydney girls 2015 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-girls-2015-w-sol.pdf",
-   "bytes": 2448801,
-   "pages": 15,
-   "sha256": "5fe32931f690f4de928cf8961deb01f9cadb9acaaa41cf36219fbd5c890a9a32",
-   "verifiedAt": "2026-10-10T13:53:35.107Z"
-  },
-  {
-   "key": "5096|sydney girls 2016 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-girls-2016-w-sol.pdf",
-   "bytes": 2543321,
-   "pages": 14,
-   "sha256": "94b6e14d2ecf22b60454149f5e26c350cd75e7c0fb7d4807046a79aac3097fb4",
-   "verifiedAt": "2026-10-10T13:53:35.379Z"
-  },
-  {
-   "key": "5096|sydney grammar 2016 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2016-w-sol.pdf",
-   "bytes": 697117,
-   "pages": 21,
-   "sha256": "1ef4d0f6b9f2d311d262177282db4af3b361f28559dd8fbd79b058cc494221d1",
-   "verifiedAt": "2026-10-10T13:53:35.611Z"
-  },
-  {
-   "key": "5096|sydney grammar 2017 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2017-w-sol.pdf",
-   "bytes": 766400,
-   "pages": 19,
-   "sha256": "2e6e0bc51e1f199e84467535be5aa8d43ce7b3c1a0f85324c0e6a765380fe47b",
-   "verifiedAt": "2026-10-10T13:53:35.845Z"
-  },
-  {
-   "key": "5096|sydney grammar 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2018-w-sol.pdf",
-   "bytes": 1857616,
-   "pages": 27,
-   "sha256": "9ce51812d53b7aac8a2d26f68e81e08dc49b30912acfcb09e8347a7edec551b2",
-   "verifiedAt": "2026-10-10T13:53:36.119Z"
-  },
-  {
-   "key": "5096|sydney grammar 2019 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2019-w-sol.pdf",
-   "bytes": 626968,
-   "pages": 19,
-   "sha256": "82b97e8d12f6b316b8305181bc682def22742173c1e95e084a3c08b91e603510",
-   "verifiedAt": "2026-10-10T23:12:23.835Z"
-  },
-  {
-   "key": "5096|sydney grammar 2021 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2021-w-sol.pdf",
-   "bytes": 3434577,
-   "pages": 30,
-   "sha256": "c8ef973bd21122acb61f86a6544f90d7e6e9e2ab530af7088b7e034e9745e4e7",
-   "verifiedAt": "2026-10-10T13:53:36.407Z"
-  },
-  {
-   "key": "5096|sydney grammar 2022 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2022-w-sol.pdf",
-   "bytes": 2040614,
-   "pages": 31,
-   "sha256": "81bc164a1e43412ddba5878b1788fbc5793f429e23825a116712f4aa771145aa",
-   "verifiedAt": "2026-10-10T13:53:36.687Z"
-  },
-  {
-   "key": "5096|sydney grammar 2023 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2023-w-sol.pdf",
-   "bytes": 5302597,
-   "pages": 34,
-   "sha256": "261c19affcf46be3a2305b78b733bdb070fc0e665737e5de890a8d88b1ebc10e",
-   "verifiedAt": "2026-10-10T13:53:37.046Z"
-  },
-  {
-   "key": "5096|sydney grammar 2024 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2024-w-sol.pdf",
-   "bytes": 12925038,
-   "pages": 18,
-   "sha256": "9ec896e5b7386cb2444f75d09e38795b59b7e70264cd390ac26f40237c0875ce",
-   "verifiedAt": "2026-10-10T13:53:37.572Z"
-  },
-  {
-   "key": "5096|sydney grammar 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2025-w-sol.pdf",
-   "bytes": 3348788,
-   "pages": 21,
-   "sha256": "019a69a2f8147b4318bc388cd0a08362a9ee0fe7619bcc7ec38ee5b89d3d5600",
-   "verifiedAt": "2026-10-10T13:53:37.851Z"
-  },
-  {
-   "key": "5106|penrith 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/penrith-2018-w-sol.pdf",
-   "bytes": 1736745,
-   "pages": 19,
-   "sha256": "1be9096d569dca9ea96d9c376689ed1a28ca7d5a91a3440881fe1664aabb0687",
-   "verifiedAt": "2026-10-10T13:53:19.372Z"
-  },
-  {
-   "key": "5106|sydney boys 2004",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2004.pdf",
-   "bytes": 192511,
-   "pages": 19,
-   "sha256": "1bc19bdbfe081b51fe21bedb7c21873363fbab5343079192f3025c07caf82afe",
-   "verifiedAt": "2026-10-10T13:53:19.583Z"
-  },
-  {
-   "key": "5106|sydney boys 2005",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2005.pdf",
-   "bytes": 568989,
-   "pages": 13,
-   "sha256": "b5419e4fa0ad9edfe5fc76fc923cafd105c5de576e76e9ac251ad4c50447e506",
-   "verifiedAt": "2026-10-10T13:53:19.814Z"
-  },
-  {
-   "key": "5106|sydney boys 2006 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2006-w-sol.pdf",
-   "bytes": 764727,
-   "pages": 28,
-   "sha256": "a684bc686a92c8c9cbbf3e0e1ef6459006294b6fc7793610978db07e218acef3",
-   "verifiedAt": "2026-10-10T13:53:20.082Z"
-  },
-  {
-   "key": "5106|sydney boys 2007 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2007-w-sol.pdf",
-   "bytes": 1618285,
-   "pages": 25,
-   "sha256": "f67946b6ea85ebbbfdb2903387374c419c06dd1d11e61b47983ee93cac668684",
-   "verifiedAt": "2026-10-10T13:53:20.350Z"
-  },
-  {
-   "key": "5106|sydney boys 2008 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2008-w-sol.pdf",
-   "bytes": 1183445,
-   "pages": 28,
-   "sha256": "6495b2433830a8180a3aceee5e5ef54f7df9f0fa53b53d3be97688d93a0ba2fc",
-   "verifiedAt": "2026-10-10T13:53:20.597Z"
-  },
-  {
-   "key": "5106|sydney boys 2009 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2009-w-sol.pdf",
-   "bytes": 763181,
-   "pages": 28,
-   "sha256": "280a52dcc5f869230eab1200d82e548aeda4f7435c622dfb2f470f86e9679708",
-   "verifiedAt": "2026-10-10T13:53:20.820Z"
-  },
-  {
-   "key": "5106|sydney boys 2010 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2010-w-sol.pdf",
-   "bytes": 363490,
-   "pages": 23,
-   "sha256": "5def6db85e6d1f59800663ed1ea19972a5cc8d0141bac088318536efb5f5238b",
-   "verifiedAt": "2026-10-10T13:53:21.054Z"
-  },
-  {
-   "key": "5106|sydney boys 2011 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2011-w-sol.pdf",
-   "bytes": 446416,
-   "pages": 33,
-   "sha256": "fb49f70bbce44baf4c4117a4caf3f2ecfd943d0652218cdd6200c84e8d4cd677",
-   "verifiedAt": "2026-10-10T13:53:21.289Z"
-  },
-  {
-   "key": "5106|sydney boys 2012 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2012-w-sol.pdf",
-   "bytes": 1186543,
-   "pages": 18,
-   "sha256": "e40543ac1d187cdc8be16c890d45be8b8b75bb6042b5bacd0933fec6e6077b34",
-   "verifiedAt": "2026-10-10T13:53:21.543Z"
-  },
-  {
-   "key": "5106|sydney boys 2013 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2013-w-sol.pdf",
-   "bytes": 437958,
-   "pages": 27,
-   "sha256": "e8f5106a0ff14efc04693d88e6525013517b3d839ddd8a287adf8a8178fb7db5",
-   "verifiedAt": "2026-10-10T13:53:21.771Z"
-  },
-  {
-   "key": "5106|sydney boys 2014 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2014-w-sol.pdf",
-   "bytes": 794671,
-   "pages": 36,
-   "sha256": "d0ff98f85d6c7abc62b7d55e33050a68755dcff3ce79f30a4f46a8c05980392c",
-   "verifiedAt": "2026-10-10T13:53:22.012Z"
-  },
-  {
-   "key": "5106|sydney boys 2015 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2015-w-sol.pdf",
-   "bytes": 1811960,
-   "pages": 34,
-   "sha256": "d05255c880daa87a0f78572f72b14e9578f402c15a4c64a5abfffd207744e023",
-   "verifiedAt": "2026-10-10T13:53:22.278Z"
-  },
-  {
-   "key": "5106|sydney boys 2016 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2016-w-sol.pdf",
-   "bytes": 1482209,
-   "pages": 29,
-   "sha256": "d5a7dbca670b1b35a548997b05dcd23f426ac61f4c430daf64f6bb078d4d193d",
-   "verifiedAt": "2026-10-10T13:53:22.545Z"
-  },
-  {
-   "key": "5106|sydney boys 2017 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2017-w-sol.pdf",
-   "bytes": 1167078,
-   "pages": 38,
-   "sha256": "b3182ce0c5193ce203b6bd5c5263c1b8d9d2f3d17e614585227382602e6b25e2",
-   "verifiedAt": "2026-10-10T13:53:22.804Z"
-  },
-  {
-   "key": "5106|sydney boys 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2018-w-sol.pdf",
-   "bytes": 1779171,
-   "pages": 37,
-   "sha256": "46a45fc60fd391c3820ff896b286471f63822719650223e3a577244c1a06cec4",
-   "verifiedAt": "2026-10-10T13:53:23.059Z"
-  },
-  {
-   "key": "5106|sydney boys 2019 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2019-w-sol.pdf",
-   "bytes": 1769987,
-   "pages": 51,
-   "sha256": "17d4643d05fc25bc66fa93f9087319ae5a5d09b31e9b15bb97cfd0ffd5f4cdc8",
-   "verifiedAt": "2026-10-10T23:12:13.966Z"
-  },
-  {
-   "key": "5106|sydney boys 2020",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2020.pdf",
-   "bytes": 1639040,
-   "pages": 20,
-   "sha256": "c03bcd12bbff7eef63e754d44e20df103f36ceb010a45d5df5310d03f9e69c80",
-   "verifiedAt": "2026-10-10T13:53:23.319Z"
-  },
-  {
-   "key": "5106|sydney boys 2021 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2021-w-sol.pdf",
-   "bytes": 4184403,
-   "pages": 51,
-   "sha256": "dd29d5d7986c6b0e031104abd849bee8f492fb26f6e32a00c807ff8de146d34c",
-   "verifiedAt": "2026-10-10T13:53:23.665Z"
-  },
-  {
-   "key": "5106|sydney boys 2022 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2022-w-sol.pdf",
-   "bytes": 6644085,
-   "pages": 55,
-   "sha256": "650eebf84d6bd1cf7486e1e280872b3ae3c471238d81084ab88aab60945a2bc2",
-   "verifiedAt": "2026-10-10T13:53:24.083Z"
-  },
-  {
-   "key": "5106|sydney boys 2023 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2023-w-sol.pdf",
-   "bytes": 8220676,
-   "pages": 62,
-   "sha256": "d714863d87fd75277ce46ba8bd8e62b0a234cfd2300d962153a64c34e53c4e59",
-   "verifiedAt": "2026-10-10T13:53:24.580Z"
-  },
-  {
-   "key": "5106|sydney girls 2011 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-girls-2011-w-sol.pdf",
-   "bytes": 657513,
-   "pages": 8,
-   "sha256": "1fec02e77ab201bb4e4c4364827334ca5fcda281fc2337ad4b1abbf16a9e6184",
-   "verifiedAt": "2026-10-10T13:53:24.827Z"
-  },
-  {
-   "key": "5106|sydney grammar 2016 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2016-w-sol.pdf",
-   "bytes": 652885,
-   "pages": 17,
-   "sha256": "511f002e062b48983ed9229987a939ea19e879eb627dae9dc6c69375345fa8af",
-   "verifiedAt": "2026-10-10T13:53:25.062Z"
-  },
-  {
-   "key": "5106|sydney grammar 2017 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2017-w-sol.pdf",
-   "bytes": 193398,
-   "pages": 18,
-   "sha256": "066b3d32ee6645cfd932ed01c29768acbc1aee4b0f8e638dcdc5393e53bf8f0b",
-   "verifiedAt": "2026-10-10T13:53:25.286Z"
-  },
-  {
-   "key": "5106|sydney grammar 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2018-w-sol.pdf",
-   "bytes": 2475958,
-   "pages": 32,
-   "sha256": "f1cd5a9d95d13f6c99ebdd6407d62635046ce5c866ad66afea9009d76de7dcb9",
-   "verifiedAt": "2026-10-10T13:53:25.579Z"
-  },
-  {
-   "key": "5106|sydney grammar 2019 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2019-w-sol.pdf",
-   "bytes": 1402579,
-   "pages": 25,
-   "sha256": "8b81bd3cb8733eb7a71dbb474957f14af42e3f5102f69a739de90e50029ddb10",
-   "verifiedAt": "2026-10-10T23:12:14.823Z"
-  },
-  {
-   "key": "5106|sydney tech 2016 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2016-w-sol.pdf",
-   "bytes": 192214,
-   "pages": 10,
-   "sha256": "d3284dd27053a4ee12441292d2b47bb082dc664c11b156d854dfc4b105a7e70c",
-   "verifiedAt": "2026-10-10T13:53:25.801Z"
-  },
-  {
-   "key": "5106|sydney tech 2017 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2017-w-sol.pdf",
-   "bytes": 367312,
-   "pages": 23,
-   "sha256": "59456cf63906bfc98c447e33e7dfca14fc3374545f10d8fc54af51af6babd7c3",
-   "verifiedAt": "2026-10-10T13:53:26.025Z"
-  },
-  {
-   "key": "5106|sydney tech 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2018-w-sol.pdf",
-   "bytes": 770163,
-   "pages": 13,
-   "sha256": "a85b4e498011f13b6f001aa9f4c568ebb25fc012343f9f0863881186f54db4b8",
-   "verifiedAt": "2026-10-10T13:53:26.272Z"
-  },
-  {
-   "key": "5106|sydney tech 2019 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2019-w-sol.pdf",
-   "bytes": 2529502,
-   "pages": 21,
-   "sha256": "84721e270adc1b14d8afc223c637875db87fbc7e7cf03ebf969775dc48e15804",
-   "verifiedAt": "2026-10-10T23:12:15.763Z"
-  },
-  {
-   "key": "5106|sydney tech 2021 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2021-w-sol.pdf",
-   "bytes": 1894137,
-   "pages": 19,
-   "sha256": "4a6db582920e7151ffe01d3bbdea6eab7f96abc634a2cadbe7a5caba2c0cc80f",
-   "verifiedAt": "2026-10-10T13:53:26.544Z"
-  },
-  {
-   "key": "5106|sydney tech 2022 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2022-w-sol.pdf",
-   "bytes": 1146219,
-   "pages": 19,
-   "sha256": "7a2e2cd84b1662272e42997f660f9848f0719b46863bf1b5e679b6f7cacab943",
-   "verifiedAt": "2026-10-10T13:53:26.788Z"
-  },
-  {
-   "key": "5106|sydney tech 2023 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2023-w-sol.pdf",
-   "bytes": 946018,
-   "pages": 13,
-   "sha256": "620787e35759c17122b35228b07e27432e115b9e7a102be5851a7e8024de5e17",
-   "verifiedAt": "2026-10-10T13:53:27.029Z"
-  },
-  {
-   "key": "5222|normanhurst boys 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr11/maths/assessment-tasks-advanced/normanhurst-boys-2025-w-sol.pdf",
-   "bytes": 2758853,
-   "pages": 34,
-   "sha256": "914f190edca86c5b1f718552964d8126f3e9c8a660790e3b8925d6ed80bac8ad",
-   "verifiedAt": "2026-10-13T08:35:43.767Z"
-  },
-  {
-   "key": "5232|north sydney boys 2024 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr11/maths/assessment-tasks-extension1/north-sydney-boys-2024-w-sol.pdf",
-   "bytes": 833826,
-   "pages": 10,
-   "sha256": "7a1bfb36d760e12f28f5b2052c3852945d654571d4ef1fb2a0ec20241ee50c08",
-   "verifiedAt": "2026-10-10T13:53:27.257Z"
-  },
-  {
-   "key": "5328|roseville 2026 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-advanced/roseville-2026-w-sol.pdf",
-   "bytes": 1482763,
-   "pages": 71,
-   "sha256": "f7222ccd91cd0e8b3a82f7e63def24f94b11407842e5ec8360b4bc70f45122c6",
-   "verifiedAt": "2026-10-13T08:35:44.048Z"
-  },
-  {
-   "key": "5331|caringbah 2024 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension1/caringbah-2024-w-sol-2.pdf",
-   "bytes": 939729,
-   "pages": 24,
-   "sha256": "fbb00ec5ad7a6059d0c573c4a2f7853d96e755e862c6711d37aa99b1b939222c",
-   "verifiedAt": "2026-10-13T08:35:44.306Z"
-  },
-  {
-   "key": "5338|abbotsleigh 2022",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/abbotsleigh-2022.pdf",
-   "bytes": 993649,
-   "pages": 13,
-   "sha256": "866569610dc4bf9c5a1a009328f6f05142440f411c08a96fe5c3ff4aca11da93",
-   "verifiedAt": "2026-10-13T08:35:44.563Z"
-  },
-  {
-   "key": "5338|cranbrook 2022",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/cranbrook-2022.pdf",
-   "bytes": 1088938,
-   "pages": 13,
-   "sha256": "f3c7717eb1234b12f169fb47cbc1248033eb92520a2b873885bc54d2300c09e7",
-   "verifiedAt": "2026-10-10T13:53:29.683Z"
-  },
-  {
-   "key": "5338|knox 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/knox-2025-w-sol.pdf",
-   "bytes": 1225287,
-   "pages": 29,
-   "sha256": "a6c86e3adb2fce21133eca86b9bfc4878edcabd6d1446e91e82979bcdc4b4c46",
-   "verifiedAt": "2026-10-10T13:53:29.938Z"
-  },
-  {
-   "key": "5341|james ruse 1995",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1995.pdf",
-   "bytes": 40918,
-   "pages": 1,
-   "sha256": "af655251810fc4e75004e27483402541d969d6d58f411ab04ab78dd73df78ebf",
-   "verifiedAt": "2026-10-10T13:53:28.568Z"
-  },
-  {
-   "key": "5341|james ruse 1996 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1996-w-sol.pdf",
-   "bytes": 158295,
-   "pages": 6,
-   "sha256": "ad5c68bc7c89a5b0c008417ccbd75c83dd745f284b42b54e28b77f4004185019",
-   "verifiedAt": "2026-10-10T13:53:28.789Z"
-  },
-  {
-   "key": "5341|james ruse 1997 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1997-w-sol.pdf",
-   "bytes": 149580,
-   "pages": 5,
-   "sha256": "46d9f0b324be2782fd69b1a6111aa96ffc4fb526a1d522d52a4e2e33cf3393ac",
-   "verifiedAt": "2026-10-10T13:53:29.003Z"
-  },
-  {
-   "key": "5341|james ruse 1998 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1998-w-sol.pdf",
-   "bytes": 165220,
-   "pages": 4,
-   "sha256": "3b3e992515f53cbd8a7e9b2865baf15b9a1e17f57dec079f4f90837c3d49f422",
-   "verifiedAt": "2026-10-10T13:53:29.220Z"
-  },
-  {
-   "key": "5341|james ruse 1999 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1999-w-sol.pdf",
-   "bytes": 131801,
-   "pages": 6,
-   "sha256": "ca179de7e9a9c54f085953ab1322a47d272534940fc55ac1c76ab9e767ab9bba",
-   "verifiedAt": "2026-10-13T08:35:44.815Z"
-  },
-  {
-   "key": "5341|north sydney boys 2018 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/north-sydney-boys-2018-w-sol.pdf",
-   "bytes": 405906,
-   "pages": 17,
-   "sha256": "e48492821886664c0c7fe2faddbf4ce35dfff1e0477612572b7f2a2f0f119b47",
-   "verifiedAt": "2026-10-10T13:53:29.448Z"
-  },
-  {
-   "key": "5342|girraween 2024 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/girraween-2024-w-sol-2.pdf",
-   "bytes": 721700,
-   "pages": 18,
-   "sha256": "c0b20993aed3a2a8fd0e06b6378fe990bc0d5f9d97a076a3ca4112c4f2a5eba5",
-   "verifiedAt": "2026-10-13T08:35:45.067Z"
-  },
-  {
-   "key": "5342|girraween 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/girraween-2025-w-sol.pdf",
-   "bytes": 725266,
-   "pages": 43,
-   "sha256": "1168a6aaaeb4b8d90b6af6fe208e59c92c73ec51db2813e9b188b1d0909c7cfc",
-   "verifiedAt": "2026-10-13T08:35:45.312Z"
-  },
-  {
-   "key": "5528|shore 2019",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/modern-history/trialpapers/shore-2019.pdf",
-   "bytes": 1160706,
-   "pages": 14,
-   "sha256": "d6920365d449c8033a4d6b69784a2efb259e6e71d74a2d76967e1a2a5079bb1b",
-   "verifiedAt": "2026-10-10T13:53:30.187Z"
-  },
-  {
-   "key": "6528|caringbah 2019",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/caringbah-2019.pdf",
-   "bytes": 1130311,
-   "pages": 27,
-   "sha256": "c5b8dd3a223f8a7cd1c986bab431e91543618564b6d96edbd9f3ff35b478c8af",
-   "verifiedAt": "2026-10-13T08:35:45.585Z"
-  },
-  {
-   "key": "6528|knox 2021 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2021-w-sol.pdf",
-   "bytes": 16400033,
-   "pages": 95,
-   "sha256": "4c00393fe75781bd0f0d62504302be37030adb31d74353c7047d842889c06f84",
-   "verifiedAt": "2026-10-10T13:53:30.953Z"
-  },
-  {
-   "key": "6528|knox 2022 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2022-w-sol.pdf",
-   "bytes": 9136073,
-   "pages": 83,
-   "sha256": "9b68d470d7ca99764fbd3fdfbeaed2aa09854043e2e86a8b0a7e5dc5f03a955c",
-   "verifiedAt": "2026-10-10T13:53:31.470Z"
-  },
-  {
-   "key": "6528|knox 2023 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2023-w-sol.pdf",
-   "bytes": 9224423,
-   "pages": 81,
-   "sha256": "20707af61ceb1a68c8666d044aa9bcda76dfe5fb97679bf0dab7e60250bd64c7",
-   "verifiedAt": "2026-10-10T13:53:31.942Z"
-  },
-  {
-   "key": "6528|knox 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2025-w-sol.pdf",
-   "bytes": 15001919,
-   "pages": 103,
-   "sha256": "9cb2943f4eddde36ff0f4815c862c4625f722b0a5fe8680dc5cd8615b49776cd",
-   "verifiedAt": "2026-10-10T13:53:32.591Z"
-  },
-  {
-   "key": "6528|north sydney girls 2022 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2022-w-sol.pdf",
-   "bytes": 1582482,
-   "pages": 81,
-   "sha256": "c995b161a1a2a7de8da317a80acf20fa469e125363011d84cc0ba3b9170af460",
-   "verifiedAt": "2026-10-13T08:35:45.846Z"
-  },
-  {
-   "key": "6528|north sydney girls 2023 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2023-w-sol.pdf",
-   "bytes": 1890263,
-   "pages": 88,
-   "sha256": "a31a005edf0c721af7637160ca72ebed9423fc14bb694e1d06f39f319846561b",
-   "verifiedAt": "2026-10-13T08:35:46.160Z"
-  },
-  {
-   "key": "6528|north sydney girls 2024 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2024-w-sol.pdf",
-   "bytes": 1624689,
-   "pages": 81,
-   "sha256": "a8a02011b1d03bea92fd4e48120ff0553e92c602d4286e1f4a27acb31bdca490",
-   "verifiedAt": "2026-10-13T08:35:46.438Z"
-  },
-  {
-   "key": "6528|sydney boys 2025 w. sol",
-   "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/sydney-boys-2025-w-sol.pdf",
-   "bytes": 1384999,
-   "pages": 56,
-   "sha256": "ce267960a56b5bf2d120eca73a390fb9e7eec9558ee606dda3bd03526777f5dc",
-   "verifiedAt": "2026-10-10T13:53:32.842Z"
-  }
- ]
+  "version": 1,
+  "_doc": "Exact THSC viewno/title mappings verified by HTTP 200, PDF MIME/signature, byte length, PDF.js page count and SHA-256. Used identically by online and offline builds.",
+  "entries": [
+    {
+      "key": "1078|james ruse 2020",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/agriculture/trialpapers/james-ruse-2020.pdf",
+      "bytes": 512731,
+      "pages": 15,
+      "sha256": "bcf4f24ef1c8e647ea2d60fb5450fc7fd436dd65c2047dff36c8f1f8f7e8d363",
+      "verifiedAt": "2026-10-16T08:12:29.396Z"
+    },
+    {
+      "key": "1378|smiths hill 2017",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/biology/trialpapers/smiths-hill-2017.pdf",
+      "bytes": 947548,
+      "pages": 29,
+      "sha256": "1d40fd5cadb9a9c8bdaaddb3aa72c33a9d6be872e88ca9807e7100dc5088c504",
+      "verifiedAt": "2026-10-16T08:12:29.687Z"
+    },
+    {
+      "key": "1578|shore 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/business-studies/trialpapers/shore-2025-w-sol.pdf",
+      "bytes": 4263281,
+      "pages": 57,
+      "sha256": "2c10e6b84bcb4041fbb04e79f7c5e6536306bb56de12150b28cb08f10f21c681",
+      "verifiedAt": "2026-10-16T08:12:30.078Z"
+    },
+    {
+      "key": "1828|barker 2022",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/chemistry/trialpapers/barker-2022.pdf",
+      "bytes": 871536,
+      "pages": 38,
+      "sha256": "e914efc4cc1abc8e7f0aee4c5ed56a299d464f4677e66946ab7ee607d8e89367",
+      "verifiedAt": "2026-10-16T08:12:30.326Z"
+    },
+    {
+      "key": "1828|barker 2023",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/chemistry/trialpapers/barker-2023.pdf",
+      "bytes": 996688,
+      "pages": 39,
+      "sha256": "f4fd426aa0f6c16cc0785cea44c254e3c1bf925401e11323bf0ce0631f546227",
+      "verifiedAt": "2026-10-16T08:12:30.585Z"
+    },
+    {
+      "key": "1828|killara 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/chemistry/trialpapers/killara-2025-w-sol.pdf",
+      "bytes": 2199450,
+      "pages": 81,
+      "sha256": "35f1e2cc8a6b3e698bf92970bcc3bff2218776a65a41cdb1bb993a19c0a1ab02",
+      "verifiedAt": "2026-10-16T08:12:31.104Z"
+    },
+    {
+      "key": "2718|barker 2023 p1",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/barker-2023-p1.pdf",
+      "bytes": 694542,
+      "pages": 18,
+      "sha256": "81c5ddeab746e2b8c79bf0ca1babf967b85a84baf2250fc1d166cc8d292a6064",
+      "verifiedAt": "2026-10-16T08:12:31.394Z"
+    },
+    {
+      "key": "2718|fort st 2026 p1",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/fort-st-2026-p1.pdf",
+      "bytes": 465651,
+      "pages": 15,
+      "sha256": "3072db090eea579d7b1f68b5bfe354adf11e5ec3491a79bfa8c6d81371c3833e",
+      "verifiedAt": "2026-10-16T08:12:31.638Z"
+    },
+    {
+      "key": "2718|kinross wolaroi 2023 p1",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/kinross-wolaroi-2023-p1.pdf",
+      "bytes": 609294,
+      "pages": 18,
+      "sha256": "c336fde8e1cbba2dc878fb5f62193dfa6e1ddaa36c4bd8954e4a62240d587e66",
+      "verifiedAt": "2026-10-16T08:12:31.982Z"
+    },
+    {
+      "key": "2718|north sydney girls 2025 p1",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/north-sydney-girls-2025-p1.pdf",
+      "bytes": 535097,
+      "pages": 18,
+      "sha256": "549ca4fcd9f9309323f96113421c7630a46fc8a572dd3439b5fa4df3bbfa9eae",
+      "verifiedAt": "2026-10-16T08:12:32.224Z"
+    },
+    {
+      "key": "2718|shore 2023 p1",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/shore-2023-p1.pdf",
+      "bytes": 1867735,
+      "pages": 19,
+      "sha256": "02aeca3eb02ba1bb1e208371888373009772dd3e0a4a8df967e36f849de5dd42",
+      "verifiedAt": "2026-10-16T08:12:32.771Z"
+    },
+    {
+      "key": "2718|st george girls 2021 p1",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper1/st-george-girls-2021-p1.pdf",
+      "bytes": 122338,
+      "pages": 3,
+      "sha256": "ab8af9ea7fa4f2b167389f26995c2b9c0eb5e8c8651960cbfd98dfa7d7eb3184",
+      "verifiedAt": "2026-10-16T08:12:32.994Z"
+    },
+    {
+      "key": "2727|abbotsleigh 2022 p2 (std.)",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/abbotsleigh-2022-p2-std.pdf",
+      "bytes": 326143,
+      "pages": 10,
+      "sha256": "758209e98bad63a0c18c50aa7721d84b61e9c4b44b5a1f804d53cb1505f3fc8f",
+      "verifiedAt": "2026-10-16T08:12:33.453Z"
+    },
+    {
+      "key": "2727|ascham 2022 p2 (std.)",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/ascham-2022-p2-std.pdf",
+      "bytes": 267184,
+      "pages": 11,
+      "sha256": "40b9b174b1272b049c3870d3b9d00f90a6ca7475fdbc0db436a11aea16f1ff74",
+      "verifiedAt": "2026-10-16T08:12:33.721Z"
+    },
+    {
+      "key": "2727|riverview 2022 p2 (std.)",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/riverview-2022-p2-std.pdf",
+      "bytes": 790371,
+      "pages": 9,
+      "sha256": "7d1048200bc5ffaaf37233a9f6bc04d6c657fe121977b09df1927401e665e371",
+      "verifiedAt": "2026-10-16T08:12:33.988Z"
+    },
+    {
+      "key": "2727|sydney grammar 2022 p2 (std.)",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-standard/sydney-grammar-2022-p2-std.pdf",
+      "bytes": 128221,
+      "pages": 4,
+      "sha256": "bbd972a8c4c2c3f57b6627f6e040659bbfb67b219d024a6efc424449020e8741",
+      "verifiedAt": "2026-10-16T08:12:34.215Z"
+    },
+    {
+      "key": "2728|james ruse 2022 p2 (adv.)",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/english/trialpapers-paper2-advanced/james-ruse-2022-p2-adv.pdf",
+      "bytes": 154865,
+      "pages": 13,
+      "sha256": "3377792963d15a972333a798519d76916f282defa1f7bdd835356159ec0979d3",
+      "verifiedAt": "2026-10-16T08:12:33.215Z"
+    },
+    {
+      "key": "5096|sydney boys 2015",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2015.pdf",
+      "bytes": 333346,
+      "pages": 20,
+      "sha256": "4e897c4d946cb717d8b100bc589aca2a9f9d4e471a5a6c654e5ceb18b4478dee",
+      "verifiedAt": "2026-10-16T08:12:42.792Z"
+    },
+    {
+      "key": "5096|sydney boys 2016",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2016.pdf",
+      "bytes": 1514395,
+      "pages": 20,
+      "sha256": "8b7275704b89e1fe4c7d1261cbd1d5db145c2ab83c2938837bdebcdbecafb191",
+      "verifiedAt": "2026-10-16T08:12:43.074Z"
+    },
+    {
+      "key": "5096|sydney boys 2017",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2017.pdf",
+      "bytes": 1058927,
+      "pages": 20,
+      "sha256": "e76d20071f4488b58c68c369bf3add59a0ae71907096e0b1e3cba9f2559bb6ce",
+      "verifiedAt": "2026-10-16T08:12:43.333Z"
+    },
+    {
+      "key": "5096|sydney boys 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2018-w-sol.pdf",
+      "bytes": 5161247,
+      "pages": 32,
+      "sha256": "d47b96ebfb72a276d59004a43e4fb7fe113085ec11812d99c23d4cc860390c5d",
+      "verifiedAt": "2026-10-16T08:12:43.728Z"
+    },
+    {
+      "key": "5096|sydney boys 2019 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2019-w-sol.pdf",
+      "bytes": 2734326,
+      "pages": 37,
+      "sha256": "019048cc433379861bbe959c083994dff6a179ef618ebbf3df4a7a012f6b3601",
+      "verifiedAt": "2026-10-16T08:12:44.248Z"
+    },
+    {
+      "key": "5096|sydney boys 2021 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2021-w-sol.pdf",
+      "bytes": 2001991,
+      "pages": 42,
+      "sha256": "fd4170db0a6315c951de63950de3e128938633840977bc64783956d3467e5bbe",
+      "verifiedAt": "2026-10-16T08:12:44.553Z"
+    },
+    {
+      "key": "5096|sydney boys 2022 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2022-w-sol.pdf",
+      "bytes": 3582657,
+      "pages": 38,
+      "sha256": "35011c7641e158446bcbf4cf47a2fdc95720615beeb81fdfd2b20ca5927259ab",
+      "verifiedAt": "2026-10-16T08:12:44.930Z"
+    },
+    {
+      "key": "5096|sydney boys 2023 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-boys-2023-w-sol.pdf",
+      "bytes": 4430879,
+      "pages": 46,
+      "sha256": "d73c4fa41d6c0d327cfdb9b49df5f35938d881015dcc98b55acbc94f0b885e01",
+      "verifiedAt": "2026-10-16T08:12:45.559Z"
+    },
+    {
+      "key": "5096|sydney girls 2015 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-girls-2015-w-sol.pdf",
+      "bytes": 2448801,
+      "pages": 15,
+      "sha256": "5fe32931f690f4de928cf8961deb01f9cadb9acaaa41cf36219fbd5c890a9a32",
+      "verifiedAt": "2026-10-16T08:12:45.868Z"
+    },
+    {
+      "key": "5096|sydney girls 2016 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-girls-2016-w-sol.pdf",
+      "bytes": 2543321,
+      "pages": 14,
+      "sha256": "94b6e14d2ecf22b60454149f5e26c350cd75e7c0fb7d4807046a79aac3097fb4",
+      "verifiedAt": "2026-10-16T08:12:46.167Z"
+    },
+    {
+      "key": "5096|sydney grammar 2016 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2016-w-sol.pdf",
+      "bytes": 697117,
+      "pages": 21,
+      "sha256": "1ef4d0f6b9f2d311d262177282db4af3b361f28559dd8fbd79b058cc494221d1",
+      "verifiedAt": "2026-10-16T08:12:46.406Z"
+    },
+    {
+      "key": "5096|sydney grammar 2017 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2017-w-sol.pdf",
+      "bytes": 766400,
+      "pages": 19,
+      "sha256": "2e6e0bc51e1f199e84467535be5aa8d43ce7b3c1a0f85324c0e6a765380fe47b",
+      "verifiedAt": "2026-10-16T08:12:46.711Z"
+    },
+    {
+      "key": "5096|sydney grammar 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2018-w-sol.pdf",
+      "bytes": 1857616,
+      "pages": 27,
+      "sha256": "9ce51812d53b7aac8a2d26f68e81e08dc49b30912acfcb09e8347a7edec551b2",
+      "verifiedAt": "2026-10-16T08:12:47.015Z"
+    },
+    {
+      "key": "5096|sydney grammar 2019 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2019-w-sol.pdf",
+      "bytes": 626968,
+      "pages": 19,
+      "sha256": "82b97e8d12f6b316b8305181bc682def22742173c1e95e084a3c08b91e603510",
+      "verifiedAt": "2026-10-16T08:12:47.431Z"
+    },
+    {
+      "key": "5096|sydney grammar 2021 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2021-w-sol.pdf",
+      "bytes": 3434577,
+      "pages": 30,
+      "sha256": "c8ef973bd21122acb61f86a6544f90d7e6e9e2ab530af7088b7e034e9745e4e7",
+      "verifiedAt": "2026-10-16T08:12:47.782Z"
+    },
+    {
+      "key": "5096|sydney grammar 2022 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2022-w-sol.pdf",
+      "bytes": 2040614,
+      "pages": 31,
+      "sha256": "81bc164a1e43412ddba5878b1788fbc5793f429e23825a116712f4aa771145aa",
+      "verifiedAt": "2026-10-16T08:12:48.064Z"
+    },
+    {
+      "key": "5096|sydney grammar 2023 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2023-w-sol.pdf",
+      "bytes": 5302597,
+      "pages": 34,
+      "sha256": "261c19affcf46be3a2305b78b733bdb070fc0e665737e5de890a8d88b1ebc10e",
+      "verifiedAt": "2026-10-16T08:12:48.511Z"
+    },
+    {
+      "key": "5096|sydney grammar 2024 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2024-w-sol.pdf",
+      "bytes": 12925038,
+      "pages": 18,
+      "sha256": "9ec896e5b7386cb2444f75d09e38795b59b7e70264cd390ac26f40237c0875ce",
+      "verifiedAt": "2026-10-16T08:12:49.161Z"
+    },
+    {
+      "key": "5096|sydney grammar 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr9/maths/assessment-tasks/sydney-grammar-2025-w-sol.pdf",
+      "bytes": 3348788,
+      "pages": 21,
+      "sha256": "019a69a2f8147b4318bc388cd0a08362a9ee0fe7619bcc7ec38ee5b89d3d5600",
+      "verifiedAt": "2026-10-16T08:12:49.537Z"
+    },
+    {
+      "key": "5106|penrith 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/penrith-2018-w-sol.pdf",
+      "bytes": 1736745,
+      "pages": 19,
+      "sha256": "1be9096d569dca9ea96d9c376689ed1a28ca7d5a91a3440881fe1664aabb0687",
+      "verifiedAt": "2026-10-16T08:12:18.690Z"
+    },
+    {
+      "key": "5106|sydney boys 2004",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2004.pdf",
+      "bytes": 192511,
+      "pages": 19,
+      "sha256": "1bc19bdbfe081b51fe21bedb7c21873363fbab5343079192f3025c07caf82afe",
+      "verifiedAt": "2026-10-16T08:12:18.930Z"
+    },
+    {
+      "key": "5106|sydney boys 2005",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2005.pdf",
+      "bytes": 568989,
+      "pages": 13,
+      "sha256": "b5419e4fa0ad9edfe5fc76fc923cafd105c5de576e76e9ac251ad4c50447e506",
+      "verifiedAt": "2026-10-16T08:12:19.167Z"
+    },
+    {
+      "key": "5106|sydney boys 2006 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2006-w-sol.pdf",
+      "bytes": 764727,
+      "pages": 28,
+      "sha256": "a684bc686a92c8c9cbbf3e0e1ef6459006294b6fc7793610978db07e218acef3",
+      "verifiedAt": "2026-10-16T08:12:19.479Z"
+    },
+    {
+      "key": "5106|sydney boys 2007 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2007-w-sol.pdf",
+      "bytes": 1618285,
+      "pages": 25,
+      "sha256": "f67946b6ea85ebbbfdb2903387374c419c06dd1d11e61b47983ee93cac668684",
+      "verifiedAt": "2026-10-16T08:12:19.764Z"
+    },
+    {
+      "key": "5106|sydney boys 2008 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2008-w-sol.pdf",
+      "bytes": 1183445,
+      "pages": 28,
+      "sha256": "6495b2433830a8180a3aceee5e5ef54f7df9f0fa53b53d3be97688d93a0ba2fc",
+      "verifiedAt": "2026-10-16T08:12:20.028Z"
+    },
+    {
+      "key": "5106|sydney boys 2009 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2009-w-sol.pdf",
+      "bytes": 763181,
+      "pages": 28,
+      "sha256": "280a52dcc5f869230eab1200d82e548aeda4f7435c622dfb2f470f86e9679708",
+      "verifiedAt": "2026-10-16T08:12:20.293Z"
+    },
+    {
+      "key": "5106|sydney boys 2010 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2010-w-sol.pdf",
+      "bytes": 363490,
+      "pages": 23,
+      "sha256": "5def6db85e6d1f59800663ed1ea19972a5cc8d0141bac088318536efb5f5238b",
+      "verifiedAt": "2026-10-16T08:12:20.522Z"
+    },
+    {
+      "key": "5106|sydney boys 2011 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2011-w-sol.pdf",
+      "bytes": 446416,
+      "pages": 33,
+      "sha256": "fb49f70bbce44baf4c4117a4caf3f2ecfd943d0652218cdd6200c84e8d4cd677",
+      "verifiedAt": "2026-10-16T08:12:20.766Z"
+    },
+    {
+      "key": "5106|sydney boys 2012 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2012-w-sol.pdf",
+      "bytes": 1186543,
+      "pages": 18,
+      "sha256": "e40543ac1d187cdc8be16c890d45be8b8b75bb6042b5bacd0933fec6e6077b34",
+      "verifiedAt": "2026-10-16T08:12:21.072Z"
+    },
+    {
+      "key": "5106|sydney boys 2013 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2013-w-sol.pdf",
+      "bytes": 437958,
+      "pages": 27,
+      "sha256": "e8f5106a0ff14efc04693d88e6525013517b3d839ddd8a287adf8a8178fb7db5",
+      "verifiedAt": "2026-10-16T08:12:21.520Z"
+    },
+    {
+      "key": "5106|sydney boys 2014 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2014-w-sol.pdf",
+      "bytes": 794671,
+      "pages": 36,
+      "sha256": "d0ff98f85d6c7abc62b7d55e33050a68755dcff3ce79f30a4f46a8c05980392c",
+      "verifiedAt": "2026-10-16T08:12:21.787Z"
+    },
+    {
+      "key": "5106|sydney boys 2015 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2015-w-sol.pdf",
+      "bytes": 1811960,
+      "pages": 34,
+      "sha256": "d05255c880daa87a0f78572f72b14e9578f402c15a4c64a5abfffd207744e023",
+      "verifiedAt": "2026-10-16T08:12:22.219Z"
+    },
+    {
+      "key": "5106|sydney boys 2016 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2016-w-sol.pdf",
+      "bytes": 1482209,
+      "pages": 29,
+      "sha256": "d5a7dbca670b1b35a548997b05dcd23f426ac61f4c430daf64f6bb078d4d193d",
+      "verifiedAt": "2026-10-16T08:12:22.638Z"
+    },
+    {
+      "key": "5106|sydney boys 2017 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2017-w-sol.pdf",
+      "bytes": 1167078,
+      "pages": 38,
+      "sha256": "b3182ce0c5193ce203b6bd5c5263c1b8d9d2f3d17e614585227382602e6b25e2",
+      "verifiedAt": "2026-10-16T08:12:22.939Z"
+    },
+    {
+      "key": "5106|sydney boys 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2018-w-sol.pdf",
+      "bytes": 1779171,
+      "pages": 37,
+      "sha256": "46a45fc60fd391c3820ff896b286471f63822719650223e3a577244c1a06cec4",
+      "verifiedAt": "2026-10-16T08:12:23.221Z"
+    },
+    {
+      "key": "5106|sydney boys 2019 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2019-w-sol.pdf",
+      "bytes": 1769987,
+      "pages": 51,
+      "sha256": "17d4643d05fc25bc66fa93f9087319ae5a5d09b31e9b15bb97cfd0ffd5f4cdc8",
+      "verifiedAt": "2026-10-16T08:12:23.543Z"
+    },
+    {
+      "key": "5106|sydney boys 2020",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2020.pdf",
+      "bytes": 1639040,
+      "pages": 20,
+      "sha256": "c03bcd12bbff7eef63e754d44e20df103f36ceb010a45d5df5310d03f9e69c80",
+      "verifiedAt": "2026-10-16T08:12:23.842Z"
+    },
+    {
+      "key": "5106|sydney boys 2021 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2021-w-sol.pdf",
+      "bytes": 4184403,
+      "pages": 51,
+      "sha256": "dd29d5d7986c6b0e031104abd849bee8f492fb26f6e32a00c807ff8de146d34c",
+      "verifiedAt": "2026-10-16T08:12:24.250Z"
+    },
+    {
+      "key": "5106|sydney boys 2022 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2022-w-sol.pdf",
+      "bytes": 6644085,
+      "pages": 55,
+      "sha256": "650eebf84d6bd1cf7486e1e280872b3ae3c471238d81084ab88aab60945a2bc2",
+      "verifiedAt": "2026-10-16T08:12:24.708Z"
+    },
+    {
+      "key": "5106|sydney boys 2023 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-boys-2023-w-sol.pdf",
+      "bytes": 8220676,
+      "pages": 62,
+      "sha256": "d714863d87fd75277ce46ba8bd8e62b0a234cfd2300d962153a64c34e53c4e59",
+      "verifiedAt": "2026-10-16T08:12:25.245Z"
+    },
+    {
+      "key": "5106|sydney girls 2011 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-girls-2011-w-sol.pdf",
+      "bytes": 657513,
+      "pages": 8,
+      "sha256": "1fec02e77ab201bb4e4c4364827334ca5fcda281fc2337ad4b1abbf16a9e6184",
+      "verifiedAt": "2026-10-16T08:12:25.484Z"
+    },
+    {
+      "key": "5106|sydney grammar 2016 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2016-w-sol.pdf",
+      "bytes": 652885,
+      "pages": 17,
+      "sha256": "511f002e062b48983ed9229987a939ea19e879eb627dae9dc6c69375345fa8af",
+      "verifiedAt": "2026-10-16T08:12:25.727Z"
+    },
+    {
+      "key": "5106|sydney grammar 2017 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2017-w-sol.pdf",
+      "bytes": 193398,
+      "pages": 18,
+      "sha256": "066b3d32ee6645cfd932ed01c29768acbc1aee4b0f8e638dcdc5393e53bf8f0b",
+      "verifiedAt": "2026-10-16T08:12:26.046Z"
+    },
+    {
+      "key": "5106|sydney grammar 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2018-w-sol.pdf",
+      "bytes": 2475958,
+      "pages": 32,
+      "sha256": "f1cd5a9d95d13f6c99ebdd6407d62635046ce5c866ad66afea9009d76de7dcb9",
+      "verifiedAt": "2026-10-16T08:12:26.350Z"
+    },
+    {
+      "key": "5106|sydney grammar 2019 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-grammar-2019-w-sol.pdf",
+      "bytes": 1402579,
+      "pages": 25,
+      "sha256": "8b81bd3cb8733eb7a71dbb474957f14af42e3f5102f69a739de90e50029ddb10",
+      "verifiedAt": "2026-10-16T08:12:26.615Z"
+    },
+    {
+      "key": "5106|sydney tech 2016 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2016-w-sol.pdf",
+      "bytes": 192214,
+      "pages": 10,
+      "sha256": "d3284dd27053a4ee12441292d2b47bb082dc664c11b156d854dfc4b105a7e70c",
+      "verifiedAt": "2026-10-16T08:12:26.874Z"
+    },
+    {
+      "key": "5106|sydney tech 2017 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2017-w-sol.pdf",
+      "bytes": 367312,
+      "pages": 23,
+      "sha256": "59456cf63906bfc98c447e33e7dfca14fc3374545f10d8fc54af51af6babd7c3",
+      "verifiedAt": "2026-10-16T08:12:27.121Z"
+    },
+    {
+      "key": "5106|sydney tech 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2018-w-sol.pdf",
+      "bytes": 770163,
+      "pages": 13,
+      "sha256": "a85b4e498011f13b6f001aa9f4c568ebb25fc012343f9f0863881186f54db4b8",
+      "verifiedAt": "2026-10-16T08:12:27.385Z"
+    },
+    {
+      "key": "5106|sydney tech 2019 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2019-w-sol.pdf",
+      "bytes": 2529502,
+      "pages": 21,
+      "sha256": "84721e270adc1b14d8afc223c637875db87fbc7e7cf03ebf969775dc48e15804",
+      "verifiedAt": "2026-10-16T08:12:27.702Z"
+    },
+    {
+      "key": "5106|sydney tech 2021 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2021-w-sol.pdf",
+      "bytes": 1894137,
+      "pages": 19,
+      "sha256": "4a6db582920e7151ffe01d3bbdea6eab7f96abc634a2cadbe7a5caba2c0cc80f",
+      "verifiedAt": "2026-10-16T08:12:28.015Z"
+    },
+    {
+      "key": "5106|sydney tech 2022 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2022-w-sol.pdf",
+      "bytes": 1146219,
+      "pages": 19,
+      "sha256": "7a2e2cd84b1662272e42997f660f9848f0719b46863bf1b5e679b6f7cacab943",
+      "verifiedAt": "2026-10-16T08:12:28.276Z"
+    },
+    {
+      "key": "5106|sydney tech 2023 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr10/maths/assessment-tasks/sydney-tech-2023-w-sol.pdf",
+      "bytes": 946018,
+      "pages": 13,
+      "sha256": "620787e35759c17122b35228b07e27432e115b9e7a102be5851a7e8024de5e17",
+      "verifiedAt": "2026-10-16T08:12:28.547Z"
+    },
+    {
+      "key": "5222|normanhurst boys 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr11/maths/assessment-tasks-advanced/normanhurst-boys-2025-w-sol.pdf",
+      "bytes": 2758853,
+      "pages": 34,
+      "sha256": "914f190edca86c5b1f718552964d8126f3e9c8a660790e3b8925d6ed80bac8ad",
+      "verifiedAt": "2026-10-16T08:12:28.904Z"
+    },
+    {
+      "key": "5232|north sydney boys 2024 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr11/maths/assessment-tasks-extension1/north-sydney-boys-2024-w-sol.pdf",
+      "bytes": 833826,
+      "pages": 10,
+      "sha256": "7a1bfb36d760e12f28f5b2052c3852945d654571d4ef1fb2a0ec20241ee50c08",
+      "verifiedAt": "2026-10-16T08:12:29.153Z"
+    },
+    {
+      "key": "5328|roseville 2026 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-advanced/roseville-2026-w-sol.pdf",
+      "bytes": 1482763,
+      "pages": 71,
+      "sha256": "f7222ccd91cd0e8b3a82f7e63def24f94b11407842e5ec8360b4bc70f45122c6",
+      "verifiedAt": "2026-10-16T08:12:36.778Z"
+    },
+    {
+      "key": "5331|caringbah 2024 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension1/caringbah-2024-w-sol-2.pdf",
+      "bytes": 939729,
+      "pages": 24,
+      "sha256": "fbb00ec5ad7a6059d0c573c4a2f7853d96e755e862c6711d37aa99b1b939222c",
+      "verifiedAt": "2026-10-16T08:12:34.469Z"
+    },
+    {
+      "key": "5338|abbotsleigh 2022",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/abbotsleigh-2022.pdf",
+      "bytes": 993649,
+      "pages": 13,
+      "sha256": "866569610dc4bf9c5a1a009328f6f05142440f411c08a96fe5c3ff4aca11da93",
+      "verifiedAt": "2026-10-16T08:12:37.082Z"
+    },
+    {
+      "key": "5338|cranbrook 2022",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/cranbrook-2022.pdf",
+      "bytes": 1088938,
+      "pages": 13,
+      "sha256": "f3c7717eb1234b12f169fb47cbc1248033eb92520a2b873885bc54d2300c09e7",
+      "verifiedAt": "2026-10-16T08:12:37.351Z"
+    },
+    {
+      "key": "5338|knox 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/trialpapers-extension1/knox-2025-w-sol.pdf",
+      "bytes": 1225287,
+      "pages": 29,
+      "sha256": "a6c86e3adb2fce21133eca86b9bfc4878edcabd6d1446e91e82979bcdc4b4c46",
+      "verifiedAt": "2026-10-16T08:12:37.709Z"
+    },
+    {
+      "key": "5341|james ruse 1995",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1995.pdf",
+      "bytes": 40918,
+      "pages": 1,
+      "sha256": "af655251810fc4e75004e27483402541d969d6d58f411ab04ab78dd73df78ebf",
+      "verifiedAt": "2026-10-16T08:12:34.711Z"
+    },
+    {
+      "key": "5341|james ruse 1996 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1996-w-sol.pdf",
+      "bytes": 158295,
+      "pages": 6,
+      "sha256": "ad5c68bc7c89a5b0c008417ccbd75c83dd745f284b42b54e28b77f4004185019",
+      "verifiedAt": "2026-10-16T08:12:34.991Z"
+    },
+    {
+      "key": "5341|james ruse 1997 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1997-w-sol.pdf",
+      "bytes": 149580,
+      "pages": 5,
+      "sha256": "46d9f0b324be2782fd69b1a6111aa96ffc4fb526a1d522d52a4e2e33cf3393ac",
+      "verifiedAt": "2026-10-16T08:12:35.226Z"
+    },
+    {
+      "key": "5341|james ruse 1998 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1998-w-sol.pdf",
+      "bytes": 165220,
+      "pages": 4,
+      "sha256": "3b3e992515f53cbd8a7e9b2865baf15b9a1e17f57dec079f4f90837c3d49f422",
+      "verifiedAt": "2026-10-16T08:12:35.464Z"
+    },
+    {
+      "key": "5341|james ruse 1999 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/james-ruse-1999-w-sol.pdf",
+      "bytes": 131801,
+      "pages": 6,
+      "sha256": "ca179de7e9a9c54f085953ab1322a47d272534940fc55ac1c76ab9e767ab9bba",
+      "verifiedAt": "2026-10-16T08:12:35.694Z"
+    },
+    {
+      "key": "5341|north sydney boys 2018 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/north-sydney-boys-2018-w-sol.pdf",
+      "bytes": 405906,
+      "pages": 17,
+      "sha256": "e48492821886664c0c7fe2faddbf4ce35dfff1e0477612572b7f2a2f0f119b47",
+      "verifiedAt": "2026-10-16T08:12:35.934Z"
+    },
+    {
+      "key": "5342|girraween 2024 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/girraween-2024-w-sol-2.pdf",
+      "bytes": 721700,
+      "pages": 18,
+      "sha256": "c0b20993aed3a2a8fd0e06b6378fe990bc0d5f9d97a076a3ca4112c4f2a5eba5",
+      "verifiedAt": "2026-10-16T08:12:36.169Z"
+    },
+    {
+      "key": "5342|girraween 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/maths/assessment-tasks-extension2/girraween-2025-w-sol.pdf",
+      "bytes": 725266,
+      "pages": 43,
+      "sha256": "1168a6aaaeb4b8d90b6af6fe208e59c92c73ec51db2813e9b188b1d0909c7cfc",
+      "verifiedAt": "2026-10-16T08:12:36.410Z"
+    },
+    {
+      "key": "5528|shore 2019",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/modern-history/trialpapers/shore-2019.pdf",
+      "bytes": 1160706,
+      "pages": 14,
+      "sha256": "d6920365d449c8033a4d6b69784a2efb259e6e71d74a2d76967e1a2a5079bb1b",
+      "verifiedAt": "2026-10-16T08:12:38.028Z"
+    },
+    {
+      "key": "6528|caringbah 2019",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/caringbah-2019.pdf",
+      "bytes": 1130311,
+      "pages": 27,
+      "sha256": "c5b8dd3a223f8a7cd1c986bab431e91543618564b6d96edbd9f3ff35b478c8af",
+      "verifiedAt": "2026-10-16T08:12:38.294Z"
+    },
+    {
+      "key": "6528|knox 2021 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2021-w-sol.pdf",
+      "bytes": 16400033,
+      "pages": 95,
+      "sha256": "4c00393fe75781bd0f0d62504302be37030adb31d74353c7047d842889c06f84",
+      "verifiedAt": "2026-10-16T08:12:39.104Z"
+    },
+    {
+      "key": "6528|knox 2022 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2022-w-sol.pdf",
+      "bytes": 9136073,
+      "pages": 83,
+      "sha256": "9b68d470d7ca99764fbd3fdfbeaed2aa09854043e2e86a8b0a7e5dc5f03a955c",
+      "verifiedAt": "2026-10-16T08:12:39.804Z"
+    },
+    {
+      "key": "6528|knox 2023 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2023-w-sol.pdf",
+      "bytes": 9224423,
+      "pages": 81,
+      "sha256": "20707af61ceb1a68c8666d044aa9bcda76dfe5fb97679bf0dab7e60250bd64c7",
+      "verifiedAt": "2026-10-16T08:12:40.528Z"
+    },
+    {
+      "key": "6528|knox 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/knox-2025-w-sol.pdf",
+      "bytes": 15001919,
+      "pages": 103,
+      "sha256": "9cb2943f4eddde36ff0f4815c862c4625f722b0a5fe8680dc5cd8615b49776cd",
+      "verifiedAt": "2026-10-16T08:12:41.420Z"
+    },
+    {
+      "key": "6528|north sydney girls 2022 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2022-w-sol.pdf",
+      "bytes": 1582482,
+      "pages": 81,
+      "sha256": "c995b161a1a2a7de8da317a80acf20fa469e125363011d84cc0ba3b9170af460",
+      "verifiedAt": "2026-10-16T08:12:41.697Z"
+    },
+    {
+      "key": "6528|north sydney girls 2023 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2023-w-sol.pdf",
+      "bytes": 1890263,
+      "pages": 88,
+      "sha256": "a31a005edf0c721af7637160ca72ebed9423fc14bb694e1d06f39f319846561b",
+      "verifiedAt": "2026-10-16T08:12:41.971Z"
+    },
+    {
+      "key": "6528|north sydney girls 2024 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/north-sydney-girls-2024-w-sol.pdf",
+      "bytes": 1624689,
+      "pages": 81,
+      "sha256": "a8a02011b1d03bea92fd4e48120ff0553e92c602d4286e1f4a27acb31bdca490",
+      "verifiedAt": "2026-10-16T08:12:42.270Z"
+    },
+    {
+      "key": "6528|sydney boys 2025 w. sol",
+      "url": "https://thsconline.com.au/pdf/papers/yr12/physics/trialpapers/sydney-boys-2025-w-sol.pdf",
+      "bytes": 1384999,
+      "pages": 56,
+      "sha256": "ce267960a56b5bf2d120eca73a390fb9e7eec9558ee606dda3bd03526777f5dc",
+      "verifiedAt": "2026-10-16T08:12:42.552Z"
+    }
+  ]
 }

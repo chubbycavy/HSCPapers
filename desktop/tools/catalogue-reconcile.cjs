@@ -1,5 +1,6 @@
 "use strict";
 const I = require("./catalogue-identity.cjs");
+const reviewed = require("./reviewed-corrections.cjs");
 
 function legacyRecord(p) {
   const out = {};
@@ -55,18 +56,22 @@ function applyImports(papers, registry, options = {}) {
   const aliases = { ...(registry.aliases || {}) }, report = { merged: [], added: [], review: [] };
   let index = indexRows(papers);
   for (const originalRow of registry.entries || []) {
-    const row = { ...originalRow, ...(options.metadataCorrections?.[originalRow.id]?.fields || {}) };
+    const fix = options.metadataCorrections?.[originalRow.id];
+    const correctionIssue = reviewed.issue(originalRow, fix, options.validation);
+    if (correctionIssue) { report.review.push({ id: I.importId(originalRow), reason: correctionIssue }); continue; }
+    const row = { ...originalRow, ...(fix?.fields || {}) };
     const id = I.importId(row);
+    if (reviewed.hold(row, options.validation)) { report.review.push({ id, reason: reviewed.hold(row, options.validation) }); continue; }
     const issue = require("./document-admission.cjs").curriculumIssue(row);
     if (issue) { report.review.push({ id, reason: issue }); continue; }
     if (row.disposition === "review") { report.review.push({ id, reason: row.reviewReason }); continue; }
     if (!I.validProof(row)) { report.review.push({ id, reason: "Missing full-file proof" }); continue; }
     const sourceMatches = [...new Set(I.listingKeys(row).flatMap(k => index.keys.get(k) || []))];
-    let matches = sourceMatches.filter(p => I.compatibleSourceContext(p, row));
+    let matches = sourceMatches.filter(p => !reviewed.hold(p, options.validation) && !p.reviewedCorrectionIssue && I.compatibleSourceContext(p, row));
     if (sourceMatches.length && !matches.length) { report.review.push({ id, reason: "Source listing has conflicting course/level/document-role metadata", candidates: sourceMatches.map(p => p.id) }); continue; }
     let reason = "exact-source-listing";
-    if (!matches.length) { matches = (index.urls.get(row.url) || []).filter(p => I.reviewKey(p) === I.reviewKey(row)); reason = "same-primary-url-and-context"; }
-    if (!matches.length) { matches = (index.hashes.get(row.sha256) || []).filter(p => I.reviewKey(p) === I.reviewKey(row)); reason = "same-sha-and-context"; }
+    if (!matches.length) { matches = (index.urls.get(row.url) || []).filter(p => !reviewed.hold(p, options.validation) && !p.reviewedCorrectionIssue && I.reviewKey(p) === I.reviewKey(row)); reason = "same-primary-url-and-context"; }
+    if (!matches.length) { matches = (index.hashes.get(row.sha256) || []).filter(p => !reviewed.hold(p, options.validation) && !p.reviewedCorrectionIssue && I.reviewKey(p) === I.reviewKey(row)); reason = "same-sha-and-context"; }
     if (matches.length === 1) { merge(matches[0], row, aliases, reason, report); indexRow(index, matches[0]); continue; }
     if (matches.length > 1) { report.review.push({ id, reason: "Ambiguous source identity", candidates: matches.map(x => x.id) }); continue; }
     const possible = index.reviews.get(I.reviewKey(row)) || [];
@@ -92,9 +97,14 @@ function applyImports(papers, registry, options = {}) {
 /* Coalesce existing copies only when their source identity is exact, or when
    URL/hash AND complete semantic context agree. Shared URLs with conflicting
    years, schools, roles or paper numbers are mapping problems, not merges. */
-function coalesceExisting(papers) {
+function coalesceExisting(papers, options = {}) {
   const aliases = {}, kept = [], seen = new Map(), report = { merged: [], sharedUrls: [] };
-  for (const p of papers) {
+  // Only evidence-bound designated owners get priority; unrelated rows retain order.
+  const ordered = [...papers].sort((a, b) => Number(b.id === b.reviewedOwnerId) - Number(a.id === a.reviewedOwnerId));
+  for (const p of ordered) {
+    const held = reviewed.hold(p, options.validation);
+    if (held) reviewed.mark(p, "reviewedHold", held);
+    if (held || p.reviewedCorrectionIssue) { kept.push(p); continue; }
     const keys = [...I.listingKeys(p).map(k => "source:" + k + "|" + I.sourceContext(p)),
       ...(p.url ? ["file:" + p.url + "|" + I.semanticFileKey(p)] : []),
       ...(p.sha256 ? ["hash:" + p.sha256 + "|" + I.semanticFileKey(p)] : [])];

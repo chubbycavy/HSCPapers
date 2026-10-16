@@ -1,5 +1,67 @@
 {
  "version": 1,
+ "reviewedGroups": [
+  {
+   "year": 2011,
+   "sha256": "5617998a1b100050d4efd48efd1a619026d7dcb20aac3b85f0791d3ac4b77c1c",
+   "canonicalId": "portal-5228-sydney-boys-2011-w-sol",
+   "portalIds": ["portal-5228-sydney-boys-2011-w-sol", "portal-5278-sydney-boys-2011-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2011-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202011%20w.%20sol%20%5B5278-9c527c50%5D.pdf"
+  },
+  {
+   "year": 2012,
+   "sha256": "d0dc860b99952c2f38296b37fbb46b40e2a3bab18141dc31b9f7520d3b69bcc9",
+   "canonicalId": "portal-5228-sydney-boys-2012-w-sol",
+   "portalIds": ["portal-5228-sydney-boys-2012-w-sol", "portal-5278-sydney-boys-2012-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2012-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202012%20w.%20sol%20%5B5278-0f8b5123%5D.pdf",
+   "reason": "Identical full portal/mirror SHA; scanned PDF has no extracted cover text. Yearly accelerated classification is supported by source listings, not fabricated header verification"
+  },
+  {
+   "year": 2013,
+   "sha256": "28020ac29f1d49c36230921adf9a5e57bc0f9965c8ca6b595dbbafe61667f525",
+   "canonicalId": "portal-5228-sydney-boys-2013-w-sol",
+   "portalIds": ["portal-5228-sydney-boys-2013-w-sol", "portal-5278-sydney-boys-2013-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2013-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202013%20w.%20sol%20%5B5278-36e31796%5D.pdf"
+  },
+  {
+   "year": 2014,
+   "sha256": "5f624ff605419b658d426faafe077458d1cdea32a2b6091547b039a5eb25b743",
+   "canonicalId": "portal-5228-sydney-boys-2014-w-sol",
+   "portalIds": ["portal-5228-sydney-boys-2014-w-sol", "portal-5278-sydney-boys-2014-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2014-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202014%20w.%20sol%20%5B5278-677dbd19%5D.pdf"
+  },
+  {
+   "year": 2015,
+   "sha256": "acd5cf2a39c8546e747f9a7cc9b460f715befc3aa809f3421a6ca6d0e7f024e9",
+   "canonicalId": "portal-5278-sydney-boys-2015-w-sol",
+   "portalIds": ["portal-5278-sydney-boys-2015-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2015-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202015%20w.%20sol%20%5B5278-abe736f8%5D.pdf"
+  },
+  {
+   "year": 2016,
+   "sha256": "d0f64ac68786ffd4c9200b3af360308b195788707ba9ced8832840344b1c371c",
+   "portalSha256": "8046e85bb2d645952597aee1d2754dd5711424a33c41221a3b5014c0b1661940",
+   "canonicalId": "add-thsc-au-growth-d0f64ac687",
+   "portalIds": ["portal-5278-sydney-boys-2016-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2016-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202016%20w.%20sol%20%5B5278-e9ca0502%5D.pdf",
+   "disposition": "review-portal",
+   "reason": "Verified Year 11 accelerated yearly metadata, but unequal full hashes; keep mirror active and the separate portal identity in pre-merge review pending image/diagram comparison"
+  },
+  {
+   "year": 2017,
+   "sha256": "f224187ffa0f87bfce3ef50f70c8ccd7a3dc0b2e7a5b5b2b268b3c32865dbb13",
+   "canonicalId": "portal-5278-sydney-boys-2017-w-sol",
+   "portalIds": ["portal-5278-sydney-boys-2017-w-sol"],
+   "mirrorUrl": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-accelerated/sydney-boys-2017-w-sol.pdf",
+   "portalUrl": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202017%20w.%20sol%20%5B5278-1fc50dd0%5D.pdf"
+  }
+ ],
  "entries": {
   "add-acehsc-511ff93752": {
    "fields": {

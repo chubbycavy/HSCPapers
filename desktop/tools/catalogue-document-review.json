@@ -1,6 +1,44 @@
 {
  "version": 1,
  "entries": {
+  "portal-5278-sydney-boys-2016-w-sol": {
+   "preMerge": true,
+   "url": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202016%20w.%20sol%20%5B5278-e9ca0502%5D.pdf",
+   "sha256": "8046e85bb2d645952597aee1d2754dd5711424a33c41221a3b5014c0b1661940",
+   "reason": "Unequal 2016 portal/mirror bytes: matching extracted text does not establish scanned/diagram equivalence; keep established mirror active and this portal copy in review before merging"
+  },
+  "portal-1368-sydney-tech-2022": {
+   "url": "https://hscportal.pages.dev/yr11/Biology/Other/2022/Sydney%20Tech%202022%20%5B1368-5ed41138%5D.pdf",
+   "sha256": "b0ca17fc53f5b527c69f615815449511210647faf13eb9fc1bfd202dbacf4b10",
+   "reason": "Fresh admission found unequal portal/mirror bytes; retain established mirror primary and hold this additional file pending version review"
+  },
+  "portal-5228-international-grammar-2019-w-sol": {
+   "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/International%20Grammar%202019%20w.%20sol%20%5B5228-a3c59047%5D.pdf",
+   "sha256": "73a59f31f5bb6f881ebd3f589a597d5af96670b2bbadeac03995d41f6acc020c",
+   "reason": "Fresh admission found unequal portal/mirror bytes; retain established mirror primary and hold this additional file pending version review"
+  },
+  "portal-5228-trinity-grammar-2005-w-sol": {
+   "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Trinity%20Grammar%202005%20w.%20sol%20%5B5228-85d70e3f%5D.pdf",
+   "sha256": "8304ee3376bb39f395f33a669f108043a6c57265bb055ba8760a7edd0e4474b7",
+   "reason": "Fresh admission found unequal portal/mirror bytes; retain established mirror primary and hold this additional file pending version review"
+  },
+  "portal-5238-knox-2013-w-sol": {
+   "url": "https://hscportal.pages.dev/yr11/Maths/Extension%201/Knox%202013%20w.%20sol%20%5B5238-cf8bae78%5D.pdf",
+   "sha256": "0f030b3a5e3234be819f06221549a16326b83e6ac13b0fc01931c4737d923eb5",
+   "reason": "Fresh candidate review found a 2012 cover and additional 2013 text on the same cover; advertised 2013 identity requires source-supported review"
+  },
+  "thsc-5322-killara-2023-w-sol": {
+   "sha256": "ac61607ecb286c7f58e9f76499dd9dab6ec12f9b2532be93f961f28f7ad9d9d3",
+   "reason": "Same reviewed 2022 cover/date as the held 5321 identity; cross-listing must not bypass the unresolved 2023 association"
+  },
+  "thsc-5323-killara-2023-w-sol": {
+   "sha256": "ac61607ecb286c7f58e9f76499dd9dab6ec12f9b2532be93f961f28f7ad9d9d3",
+   "reason": "Same reviewed 2022 cover/date as the held 5321 identity; cross-listing must not bypass the unresolved 2023 association"
+  },
+  "thsc-5328-killara-2023-w-sol": {
+   "sha256": "ac61607ecb286c7f58e9f76499dd9dab6ec12f9b2532be93f961f28f7ad9d9d3",
+   "reason": "Same reviewed 2022 cover/date as the held 5321 identity; cross-listing must not bypass the unresolved 2023 association"
+  },
   "thsc-5321-killara-2023-w-sol": {
    "sha256": "ac61607ecb286c7f58e9f76499dd9dab6ec12f9b2532be93f961f28f7ad9d9d3",
    "reason": "Cover identifies a 2022 task dated December 2022; advertised 2023 association requires publisher-supported review"

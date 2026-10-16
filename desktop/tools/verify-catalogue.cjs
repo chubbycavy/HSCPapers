@@ -13,10 +13,12 @@ function verify(catalogue, report, validation, previous) {
         if (url && !cleanup.proofFor(p, url, role, validation)) errors.push("Unverified/invalid active source: " + p.id + " " + url);
       }
       if (!p.url) errors.push("Active paper has no file: " + p.id);
+      for (const url of [p.fallbackUrl, ...(p.alternateSources || []).map(a => a.url)].filter(Boolean)) if (!require("./reviewed-corrections.cjs").sameBytes(validation, p.url, url)) errors.push("Unequal primary backup requires version review: " + p.id + " " + url);
     }
     for (const k of I.listingKeys(p)) {
-      if (keys.has(k) && keys.get(k) !== p.id) errors.push("Repeated source listing: " + k);
-      keys.set(k, p.id);
+      const other = keys.get(k);
+      if (other && other.id !== p.id) errors.push("Repeated source listing: " + k + " " + JSON.stringify([other, p].map(row => ({ id: row.id, subject: row.subject, level: row.level, role: I.sourceContext(row).split("|")[2], url: row.url }))));
+      keys.set(k, p);
     }
     if (p.sha256) {
       const k = p.sha256 + "|" + I.reviewKey(p);

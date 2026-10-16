@@ -1,0 +1,9 @@
+{
+ "version": 1,
+ "state": "pending",
+ "purpose": "Reviewed 2026-10-16 nightly admission repair",
+ "sha256": "c206fd74636350423defebd886ebc1d64addc9f8a180427e717eb05705766041",
+ "active": 6872,
+ "recovery": 643,
+ "aliases": 4854
+}

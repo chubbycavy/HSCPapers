@@ -15,7 +15,6 @@
 const fs = require("fs");
 const path = require("path");
 const identity = require("./catalogue-identity.cjs");
-const reconciliation = require("./catalogue-reconcile.cjs");
 const correctedMappings = [];
 
 const ROOT = path.resolve(__dirname, "..", "..");          // repo root (HSCPapers/)
@@ -943,11 +942,10 @@ if (require.main === module) {
   // Durable, reviewed imports. Missing inputs are fatal, including in CI:
   // a local .cache/accepted.json must never determine the published catalogue.
   const imports = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-imports.json"), "utf8"));
-  const cleanup = require("./catalogue-cleanup.cjs");
   const validation = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-validation.json"), "utf8"));
   validation.ownerExclusions = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-document-review.json"), "utf8")).entries;
   const publishedHistory = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-history.json"), "utf8"));
-  const metadataCorrections = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-metadata-corrections.json"), "utf8")).entries;
+  const metadataCorrections = require("./reviewed-corrections.cjs").expand(JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-metadata-corrections.json"), "utf8")));
   // Independent mirror: exact route identity and verified PDF bytes only.
   // Persisted proofs make offline rebuilds identical to the network build.
   const slowBefore = papers.filter((p) => /\/s\/[dvfz]\//.test(p.url || "")).length;
@@ -989,102 +987,14 @@ if (require.main === module) {
   const totalFiles = papers.reduce((n, p) => n + (p.url ? 1 : 0) + (p.solutionUrl ? 1 : 0), 0);
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);
 
-  for (const p of papers) {
-    const proof = imports.proofs[p.url];
-    if (proof) Object.assign(p, proof);
-    if (imports.legacyRows[p.id]) p.libraryAliases = imports.legacyRows[p.id].filter(r => {
-      const official = /(?:nsw\.gov\.au|boardofstudies\.nsw\.edu\.au|web\.archive\.org)/.test(r.url || "");
-      return r.url === p.url || !official || identity.officialReplacementAllowed(p, { url: r.url });
-    });
-  }
-  const metadataChanges = cleanup.prepareMetadata(papers, metadataCorrections);
-  const migratedHistory = cleanup.history(papers, publishedHistory, validation);
-  const originals = reconciliation.coalesceExisting(papers);
-  const eligibleImports = { ...imports, entries: imports.entries.filter(r => !REMOVALS.ids.has(r.id) && !REMOVALS.urls.has(r.url)) };
-  const reconciled = reconciliation.applyImports(papers, eligibleImports, { metadataCorrections });
-  const aliasGraph = { ...publishedHistory.aliases, ...originals.aliases, ...reconciled.aliases, ...migratedHistory.aliases };
-  // Feed disappearance cannot erase previously published records/history.
-  const present = new Set(papers.map(p => p.id));
-  for (const old of publishedHistory.records || []) {
-    if (present.has(cleanup.resolveAlias(old.id, aliasGraph)) || REMOVALS.ids.has(old.id) || REMOVALS.urls.has(old.url)) continue;
-    const restored = structuredClone(old); cleanup.prepareMetadata([restored], metadataCorrections); papers.push(restored); present.add(restored.id);
-  }
-  const cleaned = cleanup.apply(papers, validation, metadataCorrections);
-  const classificationCopies = reconciliation.coalesceClassificationCopies(papers, validation);
-  Object.assign(aliasGraph, classificationCopies.aliases);
-  const provedCopies = reconciliation.coalesceExisting(papers);
-  Object.assign(aliasGraph, provedCopies.aliases);
-  const versions = reconciliation.coalesceVersions(papers, validation);
-  Object.assign(aliasGraph, versions.aliases);
-  const attachedDocs = reconciliation.coalesceAttachedDocuments(papers, validation);
-  Object.assign(aliasGraph, attachedDocs.aliases);
-  const sharedEnglish = reconciliation.coalesceSharedEnglish(papers, validation);
-  Object.assign(aliasGraph, sharedEnglish.aliases);
-  // A verified byte stream is not permission to advertise conflicting document
-  // identities. Remaining shared-primary contexts require explicit mapping review.
-  const sharedFiles = new Map();
-  for (const p of papers) { if (!sharedFiles.has(p.url)) sharedFiles.set(p.url, []); sharedFiles.get(p.url).push(p); }
-  const mappingReview = [];
-  const disputed = new Set();
-  for (const [url, rows] of sharedFiles) {
-    if (rows.length < 2) continue;
-    if (new Set(rows.map(identity.semanticFileKey)).size < 2) continue;
-    mappingReview.push({ url, ids: rows.map(p => p.id), reason: "Same primary file is advertised under differing assessment/document contexts; awaiting reviewed mapping" });
-    for (const p of rows) {
-      disputed.add(p.id); p.libraryAliases ||= []; p.libraryAliases.push(reconciliation.legacyRecord(p));
-      p.provenanceSources ||= []; p.provenanceSources.push({ url, role: "primary", reason: "Document relationship requires mapping review" });
-      p.availability = { state: "review", reason: "Verified PDF, but its assessment/part/role mapping is not established" };
-      p.url = ""; p.solutionUrl = ""; p.fallbackUrl = ""; p.solFallbackUrl = ""; p.alternateSources = []; p.fileVariants = [];
-      cleaned.recovery.push(p);
-    }
-  }
-  papers.splice(0, papers.length, ...papers.filter(p => !disputed.has(p.id)));
-  // Imports consolidated by newly established full-byte evidence stay accounted.
-  reconciled.report.added = reconciled.report.added.filter(id => {
-    const target = cleanup.resolveAlias(id, aliasGraph);
-    if (target === id) return true;
-    reconciled.report.merged.push({ id, canonicalId: target, reason: "fresh-full-sha-and-semantic-context" }); return false;
-  });
-  const currentMerges = { ...originals.aliases, ...reconciled.aliases, ...classificationCopies.aliases, ...provedCopies.aliases, ...versions.aliases, ...attachedDocs.aliases, ...sharedEnglish.aliases, ...migratedHistory.aliases };
-  const recoveryPapers = cleaned.recovery.filter(p => !currentMerges[p.id]);
-  const recoveryCopies = reconciliation.coalesceExisting(recoveryPapers);
-  Object.assign(aliasGraph, recoveryCopies.aliases);
-  const idAliases = cleanup.finalizeAliases(aliasGraph, papers, recoveryPapers);
   const publicationSync = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-publication-sync.json"), "utf8"));
-  const publicationBindings = require("./publication-continuity.cjs").apply(papers, publicationSync, validation, idAliases);
-  const correctionIds = new Set(correctedMappings.map(r => r.id));
-  const unexpectedPrimaryDowngrades = papers.filter(p => imports.previousPrimaries[p.id] && identity.isDirect(imports.previousPrimaries[p.id]) && !identity.isDirect(p.url) && !correctionIds.has(p.id)).map(p => p.id);
-  const reconciliationReport = { version: 1, previousPublishedListings: 10368,
-    activePapers: papers.length, importedRows: imports.entries.length,
-    mergedImports: reconciled.report.merged, genuinelyAdded: reconciled.report.added,
-    reviewQueue: reconciled.report.review, existingMerges: originals.report.merged,
-    sharedUrlMappingReview: mappingReview,
-    correctedMappings, unexpectedPrimaryDowngrades,
-    limitations: "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count." };
-  const finalFileCount = papers.reduce((n, p) => n + Number(!!p.url) + Number(!!p.solutionUrl), 0);
-  const finalDirectCount = papers.reduce((n, p) => n + Number(isFastHost(p.url)) + Number(isFastHost(p.solutionUrl)), 0);
-  reconciliationReport.filePointers = finalFileCount;
-  reconciliationReport.directFilePointers = finalDirectCount;
-  reconciliationReport.resolverPrimaries = papers.filter(p => identity.routerKey(p.url) && !/thsconline\.net/.test(p.url)).length;
-  reconciliationReport.fragmentPrimaries = papers.filter(p => /thsconline\.net\/s\/v\//.test(p.url)).length;
-  reconciliationReport.recoveryPapers = recoveryPapers.length;
-  reconciliationReport.publicationSync = { sourceCommit: publicationSync.sourceCommit, bindings: publicationBindings };
-  reconciliationReport.cleanup = { metadataChanges, identityChanges: migratedHistory.changes, classificationMerges: classificationCopies.merged, fullByteMerges: provedCopies.report.merged, versionMerges: versions.merged, attachedDocumentMerges: attachedDocs.merged, sharedEnglishMerges: sharedEnglish.merged, rejectedSources: cleaned.rejectedSources, auditCoverage: validation.coverage };
+  const { modernCatalogue, compatibility, reconciliationReport, finalFileCount, finalDirectCount } = require("./catalogue-pipeline.cjs").build(papers, { imports, validation, publishedHistory, metadataCorrections, publicationSync, correctedMappings, removals: REMOVALS, isFastHost });
   fs.writeFileSync(path.join(__dirname, "reconciliation-report.json"), JSON.stringify(reconciliationReport, null, 1) + "\n");
-  console.log(`reconciliation: ${reconciled.report.merged.length} imports merged; ${reconciled.report.added.length} additions; ${reconciled.report.review.length} review; ${papers.length} active papers`);
+  console.log(`reconciliation: ${reconciliationReport.mergedImports.length} imports merged; ${reconciliationReport.genuinelyAdded.length} additions; ${reconciliationReport.reviewQueue.length} review; ${papers.length} active papers`);
 
   // 4. write catalogue
   phase("phase 3: writing catalogue + coverage page");
-  const generated = new Date().toISOString();
-  const modernCatalogue = {
-    _comment: "Generated by desktop/tools/build-index.cjs. Sources: THSCOnline listings (legacy route identities resolved server-side) + NESA direct + HSC Portal + PDF-validated exact-ID mappings from the independent thsconline.com.au mirror (not operated by Dan). A small self-hosted set is served from our own R2 bucket (desktop/tools/selfhost.json). Papers belong to their schools/authors and NESA; mirrors are credited in-app.",
-    generated, dataVersion: 2, sources: "desktop/sources.json", idAliases, recoveryPapers,
-    papers,
-  };
-  const feeds = require("./catalogue-feeds.cjs");
-  const compatibility = feeds.prepare(modernCatalogue);
-  const feedErrors = feeds.verify(modernCatalogue, compatibility.legacy);
-  if (feedErrors.length) throw new Error(feedErrors.join("\n"));
+  modernCatalogue._comment = "Generated by desktop/tools/build-index.cjs. Sources: THSCOnline listings (legacy route identities resolved server-side) + NESA direct + HSC Portal + PDF-validated exact-ID mappings from the independent thsconline.com.au mirror (not operated by Dan). A small self-hosted set is served from our own R2 bucket (desktop/tools/selfhost.json). Papers belong to their schools/authors and NESA; mirrors are credited in-app.";
   fs.writeFileSync(OUT, JSON.stringify(modernCatalogue, null, 1) + "\n");
   fs.writeFileSync(path.join(DESKTOP, "ui/data/papers.json"), JSON.stringify(compatibility.legacy, null, 1) + "\n");
   console.log("Compatibility feed:", JSON.stringify(compatibility.stats));
