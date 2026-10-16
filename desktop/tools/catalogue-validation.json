@@ -12,6 +12,11 @@
   "complete": true
  },
  "entries": {
+  "https://thsconline.github.io/s/d/5228/Caringbah%202019%20w.%20sol": {
+   "state": "review",
+   "reason": "THSC fragment 0 HTTP 403",
+   "at": "2026-10-16T08:46:00.722Z"
+  },
   "https://thsconline.github.io/s/d/5106/Penrith%202018%20w.%20sol": {
    "state": "review",
    "reason": "Unverified legacy fallback retained as provenance, not an actionable source",

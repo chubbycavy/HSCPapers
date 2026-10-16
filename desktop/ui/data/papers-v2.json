@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T08:34:28.609Z",
+ "generated": "2026-10-16T08:54:49.997Z",
  "dataVersion": 2,
  "sources": "desktop/sources.json",
  "idAliases": {
@@ -315707,7 +315707,7 @@
     {
      "url": "https://thsconline.github.io/s/d/5228/Caringbah%202019%20w.%20sol",
      "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
+     "reason": "THSC fragment 0 HTTP 403"
     }
    ],
    "sha256": "52856c969d349c67c28309237a7c5f7ea27cf2bd297a201541f85a74cfdfa1a1",
