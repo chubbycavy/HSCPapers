@@ -1,9 +1,10 @@
 {
  "version": 1,
- "state": "pending",
+ "state": "completed",
  "purpose": "Reviewed 2026-10-16 nightly admission repair",
  "sha256": "2b56e330398504268595a01ecb8b9cc723e8ba4a3f82b913b74629d95b0421ff",
  "active": 6872,
  "recovery": 643,
- "aliases": 4854
+ "aliases": 4854,
+ "workflowRun": "38877064793"
 }
