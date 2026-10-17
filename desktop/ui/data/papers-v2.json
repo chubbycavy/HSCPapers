@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T22:31:03.857Z",
+ "generated": "2026-10-17T22:03:34.269Z",
  "dataVersion": 2,
  "sources": "desktop/sources.json",
  "idAliases": {
@@ -315729,7 +315729,7 @@
    "type": "assessment",
    "title": "Caringbah 2020 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Caringbah%202020%20w.%20sol%20%5B5228-98b70cd2%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Caringbah%202020%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -315737,18 +315737,20 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Caringbah 2020 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Caringbah%202020%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "e5411b60493dc2b498a519678df57760e1cdd9f4a74cee26b235a4739dafe4aa",
    "bytes": 3346638,
    "pages": 33,
    "examBlock": "Assessment Task 3",
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Caringbah%202020%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "e5411b60493dc2b498a519678df57760e1cdd9f4a74cee26b235a4739dafe4aa",
+     "bytes": 3346638,
+     "pages": 33
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -315862,7 +315864,7 @@
     {
      "url": "https://thsconline.github.io/s/d/5228/Cheltenham%20Girls%202010%20w.%20sol",
      "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
+     "reason": "File not available through THSC's migrated transport"
     }
    ],
    "sha256": "a6ce5775034570a59521a5c6fd1d1a657efe7f626bc8352d0b17c379ad8852d3",
@@ -315949,7 +315951,7 @@
     {
      "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202016%20w.%20sol",
      "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
+     "reason": "File not available through THSC's migrated transport"
     }
    ],
    "sha256": "205435f9a8a1f12efc256bb6816f4ac961105bf7e6526b0f8e4168483bd4d690",
@@ -315968,7 +315970,7 @@
    "type": "other",
    "title": "Cherrybrook Tech 2020 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Cherrybrook%20Tech%202020%20w.%20sol%20%5B5228-a3717b2d%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Cherrybrook%20Tech%202020%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -315976,17 +315978,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Cherrybrook Tech 2020 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202020%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "df4e58dacdca48624a97aafb0763916712fec63894fd0feba850158fe39d997d",
    "bytes": 6459769,
    "pages": 40,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Cherrybrook%20Tech%202020%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "df4e58dacdca48624a97aafb0763916712fec63894fd0feba850158fe39d997d",
+     "bytes": 6459769,
+     "pages": 40
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316001,7 +316005,7 @@
    "type": "other",
    "title": "Cherrybrook Tech 2021 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Cherrybrook%20Tech%202021%20w.%20sol%20%5B5228-30fbfb12%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Cherrybrook%20Tech%202021%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316009,17 +316013,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Cherrybrook Tech 2021 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202021%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "57b604855bbdce64781c842a4b9c3a941e0078abdb0f050a24fd1e83e0c69621",
    "bytes": 4210433,
    "pages": 36,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Cherrybrook%20Tech%202021%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "57b604855bbdce64781c842a4b9c3a941e0078abdb0f050a24fd1e83e0c69621",
+     "bytes": 4210433,
+     "pages": 36
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316034,7 +316040,7 @@
    "type": "other",
    "title": "Cherrybrook Tech 2022 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Cherrybrook%20Tech%202022%20w.%20sol%20%5B5228-297d77a2%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Cherrybrook%20Tech%202022%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316042,17 +316048,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Cherrybrook Tech 2022 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202022%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "1ff8cac91867efa067e7a6e98a63f6d1d5b6933de7815ccdd4b6795fdd58f034",
    "bytes": 1830331,
    "pages": 52,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Cherrybrook%20Tech%202022%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "1ff8cac91867efa067e7a6e98a63f6d1d5b6933de7815ccdd4b6795fdd58f034",
+     "bytes": 1830331,
+     "pages": 52
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316126,7 +316134,7 @@
     {
      "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202009%20w.%20sol",
      "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
+     "reason": "File not available through THSC's migrated transport"
     }
    ],
    "sha256": "42261db80a4bf92172937ea20628c53ae2dd6e80f542f7a11c0e4383a5b7d7d5",
@@ -316159,7 +316167,7 @@
     {
      "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202010%20w.%20sol",
      "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
+     "reason": "File not available through THSC's migrated transport"
     }
    ],
    "sha256": "109e58c857bac4a940cdb33b1d7f7fa324bb627aad1e749e4844db7acb60b898",
@@ -316192,7 +316200,7 @@
     {
      "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202017%20w.%20sol",
      "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
+     "reason": "File not available through THSC's migrated transport"
     }
    ],
    "sha256": "ea25b93a9684aa2366fb1da103e3508a4aad0418d29ddb692428d9fa913b4308",
@@ -316278,7 +316286,7 @@
    "type": "assessment",
    "title": "Fort St 2019 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Fort%20St%202019%20w.%20sol%20%5B5228-30991e9e%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Fort%20St%202019%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316286,18 +316294,20 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Fort St 2019 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202019%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "6dd91d45063d6ab9fcb56aab4f6418878c5e3930ffdd7ba594cdfd40ca805d73",
    "bytes": 1124034,
    "pages": 34,
    "examBlock": "Assessment Task 3",
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Fort%20St%202019%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "6dd91d45063d6ab9fcb56aab4f6418878c5e3930ffdd7ba594cdfd40ca805d73",
+     "bytes": 1124034,
+     "pages": 34
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316312,7 +316322,7 @@
    "type": "other",
    "title": "Fort St 2020 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Fort%20St%202020%20w.%20sol%20%5B5228-d1213b1d%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Fort%20St%202020%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316320,17 +316330,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Fort St 2020 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202020%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "ed7c0b5975a2e4e9e1f36d5b0cfee0cf2c50671593dcbbbdb2ea9c925f9a7a1a",
    "bytes": 3035049,
    "pages": 49,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Fort%20St%202020%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "ed7c0b5975a2e4e9e1f36d5b0cfee0cf2c50671593dcbbbdb2ea9c925f9a7a1a",
+     "bytes": 3035049,
+     "pages": 49
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316345,7 +316357,7 @@
    "type": "assessment",
    "title": "Fort St 2021 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Fort%20St%202021%20w.%20sol%20%5B5228-0b7707b0%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Fort%20St%202021%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316353,18 +316365,20 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Fort St 2021 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202021%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "117e0342770016c71774b4fd01ed187f5fecf9658916def8c5885350ff7d3d76",
    "bytes": 937575,
    "pages": 28,
    "examBlock": "Assessment Task 3",
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Fort%20St%202021%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "117e0342770016c71774b4fd01ed187f5fecf9658916def8c5885350ff7d3d76",
+     "bytes": 937575,
+     "pages": 28
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316379,7 +316393,7 @@
    "type": "other",
    "title": "Fort St 2022 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Fort%20St%202022%20w.%20sol%20%5B5228-db54aeca%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Fort%20St%202022%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316387,17 +316401,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Fort St 2022 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202022%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "16bae57a53f22082d069726e644e69de0395cc0ea03ceb2385803fb55da916af",
    "bytes": 732646,
    "pages": 50,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Fort%20St%202022%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "16bae57a53f22082d069726e644e69de0395cc0ea03ceb2385803fb55da916af",
+     "bytes": 732646,
+     "pages": 50
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316412,7 +316428,7 @@
    "type": "other",
    "title": "Girraween 2019 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Girraween%202019%20w.%20sol%20%5B5228-81066249%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Girraween%202019%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316420,17 +316436,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Girraween 2019 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Girraween%202019%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "8bd246793651fefac3f5134c60bd64a074409031527bcec97df0494add30ae92",
    "bytes": 723261,
    "pages": 35,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Girraween%202019%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "8bd246793651fefac3f5134c60bd64a074409031527bcec97df0494add30ae92",
+     "bytes": 723261,
+     "pages": 35
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316445,7 +316463,7 @@
    "type": "other",
    "title": "Girraween 2020 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Girraween%202020%20w.%20sol%20%5B5228-79239b78%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Girraween%202020%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316453,17 +316471,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Girraween 2020 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Girraween%202020%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "00c6ed99ebccb4048513ba7a6847ff32e7dcb8aedcca5222b28faf215aefd40c",
    "bytes": 4439570,
    "pages": 37,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Girraween%202020%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "00c6ed99ebccb4048513ba7a6847ff32e7dcb8aedcca5222b28faf215aefd40c",
+     "bytes": 4439570,
+     "pages": 37
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316478,7 +316498,7 @@
    "type": "other",
    "title": "Girraween 2021 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Girraween%202021%20w.%20sol%20%5B5228-012871b5%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Girraween%202021%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316486,17 +316506,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Girraween 2021 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Girraween%202021%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "d8058d7be51753104575423c755e55f4e542d6002d0ee6d2da8364c1669f234e",
    "bytes": 895816,
    "pages": 17,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Girraween%202021%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "d8058d7be51753104575423c755e55f4e542d6002d0ee6d2da8364c1669f234e",
+     "bytes": 895816,
+     "pages": 17
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316511,7 +316533,7 @@
    "type": "other",
    "title": "Girraween 2022 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Girraween%202022%20w.%20sol%20%5B5228-6c93f958%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Girraween%202022%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316519,17 +316541,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Girraween 2022 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Girraween%202022%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "29fb705508041d8e6d4fd9a598bbaaa42427632b6c5d5054dce8698346b895fc",
    "bytes": 8179666,
    "pages": 51,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Girraween%202022%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "29fb705508041d8e6d4fd9a598bbaaa42427632b6c5d5054dce8698346b895fc",
+     "bytes": 8179666,
+     "pages": 51
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316544,7 +316568,7 @@
    "type": "other",
    "title": "Gosford 2019 w. sol",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Gosford%202019%20w.%20sol%20%5B5228-84f2a019%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Gosford%202019%20w.%20sol",
    "solutionPath": "",
    "size": "",
    "hasSolutions": true,
@@ -316552,17 +316576,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Gosford 2019 w. sol",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Gosford%202019%20w.%20sol",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "1a9edbf57d09b73dc3ddfd015272ebf3efa9b375150855c10a748d3d8bbe69ec",
    "bytes": 2126897,
    "pages": 27,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Gosford%202019%20w.%20sol",
+     "source": "thsc-fragments",
+     "sha256": "1a9edbf57d09b73dc3ddfd015272ebf3efa9b375150855c10a748d3d8bbe69ec",
+     "bytes": 2126897,
+     "pages": 27
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316577,7 +316603,7 @@
    "type": "other",
    "title": "Gosford 2023",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Gosford%202023%20%5B5228-37525343%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Gosford%202023",
    "solutionPath": "",
    "size": "",
    "hasSolutions": false,
@@ -316585,17 +316611,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Gosford 2023",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Gosford%202023",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "1679034291173c4121526845923e418c7fc88a880e974ccd2733ff776e51eb47",
    "bytes": 4007463,
    "pages": 23,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Gosford%202023",
+     "source": "thsc-fragments",
+     "sha256": "1679034291173c4121526845923e418c7fc88a880e974ccd2733ff776e51eb47",
+     "bytes": 4007463,
+     "pages": 23
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],
@@ -316610,7 +316638,7 @@
    "type": "other",
    "title": "Gosford 2024",
    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Gosford%202024%20%5B5228-c03fb9f4%5D.pdf",
-   "fallbackUrl": "",
+   "fallbackUrl": "https://www.thsconline.net/s/v/5228/Gosford%202024",
    "solutionPath": "",
    "size": "",
    "hasSolutions": false,
@@ -316618,17 +316646,19 @@
    "mirror": "hscportal",
    "viewno": "5228",
    "linkText": "Gosford 2024",
-   "provenanceSources": [
-    {
-     "url": "https://thsconline.github.io/s/d/5228/Gosford%202024",
-     "role": "primary",
-     "reason": "No current full-file proof; excluded from online actions"
-    }
-   ],
+   "provenanceSources": [],
    "sha256": "ac4497542f35d54b3b982039cd790635fed2842d56fbc41b0c374988bef7565f",
    "bytes": 2527039,
    "pages": 19,
-   "alternateSources": [],
+   "alternateSources": [
+    {
+     "url": "https://www.thsconline.net/s/v/5228/Gosford%202024",
+     "source": "thsc-fragments",
+     "sha256": "ac4497542f35d54b3b982039cd790635fed2842d56fbc41b0c374988bef7565f",
+     "bytes": 2527039,
+     "pages": 19
+    }
+   ],
    "solutionUrl": "",
    "solFallbackUrl": "",
    "fileVariants": [],

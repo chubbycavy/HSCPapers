@@ -66123,12 +66123,6 @@
     "reason": "THSC fragment 0 HTTP 403"
    },
    {
-    "id": "portal-5228-caringbah-2020-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Caringbah%202020%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "portal-5228-cheltenham-girls-2009-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cheltenham%20Girls%202009%20w.%20sol",
     "role": "primary",
@@ -66138,7 +66132,7 @@
     "id": "portal-5228-cheltenham-girls-2010-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cheltenham%20Girls%202010%20w.%20sol",
     "role": "primary",
-    "reason": "Unverified source"
+    "reason": "File not available through THSC's migrated transport"
    },
    {
     "id": "portal-5228-cherrybrook-tech-2007",
@@ -66150,7 +66144,7 @@
     "id": "portal-5228-cherrybrook-tech-2016-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202016%20w.%20sol",
     "role": "primary",
-    "reason": "Unverified source"
+    "reason": "File not available through THSC's migrated transport"
    },
    {
     "id": "portal-5228-cherrybrook-tech-2017-w-sol",
@@ -66171,24 +66165,6 @@
     "reason": "Unverified source"
    },
    {
-    "id": "portal-5228-cherrybrook-tech-2020-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202020%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-cherrybrook-tech-2021-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202021%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-cherrybrook-tech-2022-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Cherrybrook%20Tech%202022%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "portal-5228-cranbrook-2008-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202008%20w.%20sol",
     "role": "primary",
@@ -66198,19 +66174,19 @@
     "id": "portal-5228-cranbrook-2009-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202009%20w.%20sol",
     "role": "primary",
-    "reason": "Unverified source"
+    "reason": "File not available through THSC's migrated transport"
    },
    {
     "id": "portal-5228-cranbrook-2010-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202010%20w.%20sol",
     "role": "primary",
-    "reason": "Unverified source"
+    "reason": "File not available through THSC's migrated transport"
    },
    {
     "id": "portal-5228-cranbrook-2017-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Cranbrook%202017%20w.%20sol",
     "role": "primary",
-    "reason": "Unverified source"
+    "reason": "File not available through THSC's migrated transport"
    },
    {
     "id": "portal-5228-epping-boys-2012-w-sol",
@@ -66221,30 +66197,6 @@
    {
     "id": "portal-5228-fort-st-2011-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202011%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-fort-st-2019-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202019%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-fort-st-2020-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202020%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-fort-st-2021-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202021%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-fort-st-2022-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Fort%20St%202022%20w.%20sol",
     "role": "primary",
     "reason": "Unverified source"
    },
@@ -66275,30 +66227,6 @@
    {
     "id": "portal-5228-girraween-2009-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Girraween%202009%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-girraween-2019-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Girraween%202019%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-girraween-2020-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Girraween%202020%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-girraween-2021-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Girraween%202021%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-girraween-2022-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Girraween%202022%20w.%20sol",
     "role": "primary",
     "reason": "Unverified source"
    },
@@ -66341,24 +66269,6 @@
    {
     "id": "portal-5228-gosford-2012-w-sol",
     "url": "https://thsconline.github.io/s/d/5228/Gosford%202012%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-gosford-2019-w-sol",
-    "url": "https://thsconline.github.io/s/d/5228/Gosford%202019%20w.%20sol",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-gosford-2023",
-    "url": "https://thsconline.github.io/s/d/5228/Gosford%202023",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "portal-5228-gosford-2024",
-    "url": "https://thsconline.github.io/s/d/5228/Gosford%202024",
     "role": "primary",
     "reason": "Unverified source"
    },
