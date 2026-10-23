@@ -50,13 +50,13 @@ jobs:
         working-directory: desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # authenticated API: 1,000/hr vs 60/hr on shared runner IPs
-        run: node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --no-cache
+        run: node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --no-cache --reviewed-only
 
       - name: Verify canonical catalogue before publishing
         working-directory: desktop
         run: |
           node tools/refresh-catalogue-proof.cjs
-          node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --quiet
+          node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --quiet --reviewed-only
           node tools/verify-catalogue.cjs --previous="$RUNNER_TEMP/previous-catalogue.json"
           node tools/write-reconciliation-summary.cjs
           node tools/catalogue-publication-review.cjs --complete
