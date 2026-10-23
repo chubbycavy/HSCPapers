@@ -28,9 +28,17 @@ function verify(catalogue, report, validation, previous) {
   }
   for (const [alias, target] of Object.entries(catalogue.idAliases || {})) if (allIds.has(alias) || !allIds.has(target) || alias === target) errors.push("Invalid alias: " + alias);
   for (const p of recovery) if (p.url || p.solutionUrl || p.fallbackUrl || p.solFallbackUrl || p.alternateSources?.length) errors.push("Recovery record advertises online action: " + p.id);
+  for (const p of papers) {
+    if (/^unspecified(?:\s+school)?$/i.test(String(p.school || "").trim())) errors.push("Unidentified school in active catalogue: " + p.id);
+    const officialSolutions = p.school === "NESA" && p.type === "hsc";
+    if (p.documentRole === "solutions" && !officialSolutions) errors.push("Unpaired solution-only active record: " + p.id);
+  }
   if (previous) {
     const removed = require("./removals.json").entries || [];
-    const exceptions = new Set(removed.map(r => r.id));
+    let withdrawals = [];
+    try { withdrawals = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-withdrawals.json"), "utf8")).entries || []; }
+    catch { /* no quality quarantine registry yet */ }
+    const exceptions = new Set([...removed, ...withdrawals].map(r => r.id));
     for (const id of [...(previous.papers || []), ...(previous.recoveryPapers || [])].map(p => p.id).concat(Object.keys(previous.idAliases || {}))) {
       const target = catalogue.idAliases?.[id] || id;
       if (!allIds.has(target) && !exceptions.has(id)) errors.push("Published identity disappeared without disposition: " + id);

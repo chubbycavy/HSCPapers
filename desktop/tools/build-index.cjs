@@ -49,6 +49,23 @@ try {
   }
 } catch { /* no registry yet — nothing removed */ }
 
+/* Reviewed quality quarantines are not takedowns: they still exclude the
+   withdrawn record from active publication and prevent automatic growth from
+   recreating it. Keep the registries separate so rights-holder removals remain
+   auditable, but apply the same final exclusion filter below. */
+const WITHDRAWALS = { ids: new Set(), urls: new Set() };
+try {
+  const wj = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-withdrawals.json"), "utf8"));
+  for (const r of (wj.entries || [])) {
+    if (r.id) WITHDRAWALS.ids.add(r.id);
+    if (r.url) WITHDRAWALS.urls.add(r.url);
+  }
+} catch { /* no quality quarantine registry yet */ }
+const EXCLUSIONS = {
+  ids: new Set([...REMOVALS.ids, ...WITHDRAWALS.ids]),
+  urls: new Set([...REMOVALS.urls, ...WITHDRAWALS.urls]),
+};
+
 const NO_CACHE = process.argv.includes("--no-cache");
 // --reviewed-only: preserve the published identity graph and source rewrites,
 // but suppress automatic admission of new source records. New records must be
@@ -865,11 +882,11 @@ if (require.main === module) {
   // Equal URLs alone do not establish equal documents/context. Reconciliation
   // below preserves identities and aliases using source identity/full-byte proof.
   // Takedowns: filter AFTER dedupe so the registry has final say.
-  if (REMOVALS.ids.size || REMOVALS.urls.size) {
+  if (EXCLUSIONS.ids.size || EXCLUSIONS.urls.size) {
     const kept = papers.filter((p) =>
-      !REMOVALS.ids.has(p.id) && !REMOVALS.urls.has(p.url) && !REMOVALS.urls.has(p.fallbackUrl));
+      !EXCLUSIONS.ids.has(p.id) && !EXCLUSIONS.urls.has(p.url) && !EXCLUSIONS.urls.has(p.fallbackUrl));
     const removedN = papers.length - kept.length;
-    if (removedN) console.log(`takedowns: excluded ${removedN} paper(s) per removals.json (permanent)`);
+    if (removedN) console.log(`exclusions: excluded ${removedN} paper(s) per removals/withdrawals registries`);
     papers.length = 0;
     papers.push(...kept);
   }
@@ -1023,7 +1040,7 @@ if (require.main === module) {
   console.log(`files: ${fastFiles}/${totalFiles} fast (papers + solutions)`);
 
   const publicationSync = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-publication-sync.json"), "utf8"));
-  const { modernCatalogue, compatibility, reconciliationReport, finalFileCount, finalDirectCount } = require("./catalogue-pipeline.cjs").build(papers, { imports, validation, publishedHistory, metadataCorrections, publicationSync, correctedMappings, removals: REMOVALS, isFastHost });
+  const { modernCatalogue, compatibility, reconciliationReport, finalFileCount, finalDirectCount } = require("./catalogue-pipeline.cjs").build(papers, { imports, validation, publishedHistory, metadataCorrections, publicationSync, correctedMappings, removals: EXCLUSIONS, isFastHost });
   fs.writeFileSync(path.join(__dirname, "reconciliation-report.json"), JSON.stringify(reconciliationReport, null, 1) + "\n");
   console.log(`reconciliation: ${reconciliationReport.mergedImports.length} imports merged; ${reconciliationReport.genuinelyAdded.length} additions; ${reconciliationReport.reviewQueue.length} review; ${papers.length} active papers`);
 

@@ -46,6 +46,14 @@ const additions = [];
 const held = [];
 for (const r of review.rows) {
   if (r.disposition !== "new" || !r.proof) { held.push({ id: r.id, reason: r.disposition }); continue; }
+  if (r.solutionOnly || r.role === "solutions" || r.documentRole === "solutions") {
+    held.push({ id: r.id, reason: "standalone solution requires a paired question paper" });
+    continue;
+  }
+  if (/^unspecified(?:\s+school)?$/i.test(String(r.school || "").trim())) {
+    held.push({ id: r.id, reason: "unidentified school requires review" });
+    continue;
+  }
   if (r.source === "hscportal") {
     additions.push({ kind: "hscportal", row: r, proof: r.proof, fallback: null });
   } else if (r.source === "thsc-feed" && r.r2Upload) {

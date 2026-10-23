@@ -34,7 +34,9 @@ function normalize(c) {
   out.role = role;
   out.documentRole = role === "combined" ? "combined" : role;
   out.hasSolutions = c.hasSolutions ?? role !== "questions";
-  if (out.level === "Year 9" || out.level === "Year 10") {
+  out.solutionOnly = role === "solutions";
+  const preserveSourceTitle = /solutions?|feedback|marking guidelines|task|test|trial|assessment/i.test(out.title || "");
+  if ((out.level === "Year 9" || out.level === "Year 10") && !preserveSourceTitle) {
     out.title = `${out.year || ""} ${out.school || ""} Mathematics ${out.level} Yearly`.replace(/\s+/g, " ").trim();
   } else if (out.subject === "Miscellaneous" && out.type === "other") {
     out.title = `${out.year || ""} ${out.school || ""} ${out.subject} ${typeLabel(out.type)}`.replace(/\s+/g, " ").trim();

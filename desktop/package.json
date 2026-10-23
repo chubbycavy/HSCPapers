@@ -11,7 +11,8 @@
     "build:pages": "node tools/regenerate-pages.cjs",
     "test:e2e": "npx playwright test --config tools/e2e/playwright.config.cjs",
     "test:live": "node tools/e2e/live-check.cjs",
-    "test:nuclear": "node tools/nuclear.cjs"
+    "test:nuclear": "node tools/nuclear.cjs",
+    "audit:catalogue": "node tools/audit-solution-orphans.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

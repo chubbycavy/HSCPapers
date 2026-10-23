@@ -1,8 +1,8 @@
 {
  "version": 1,
  "previousPublishedListings": 10368,
- "activePapers": 6946,
- "importedRows": 3507,
+ "activePapers": 6936,
+ "importedRows": 3496,
  "mergedImports": [
   {
    "id": "add-thsc-au-growth-db3e2f43c5",
@@ -15271,13 +15271,11 @@
   "hscportal-drive2026-9230eddab9ec72-castle-hill-2026-task-2-w-sol",
   "hscportal-drive2026-b37159ea8b8191-castle-hill-2026-task-1-w-sol",
   "hscportal-drive2026-4fd918d81aedf3-girraween-2026-task-1-w-sol",
-  "hscportal-drive2026-7fb1f006b3845e-st-pius-x-2026-task-1-solutions",
   "hscportal-drive2026-21feb237782896-chatswood-2026-task-2-w-sol",
   "hscportal-drive2026-6e272460d8b4bf-st-marys-cathedral-2026-task-2-w-sol",
   "hscportal-drive2026-c9c7de1c749201-alpha-omega-2026-task-1-w-sol",
   "hscportal-drive2026-dad5fbb20e6226-sydney-grammar-2026-half-yearly-w-sol",
   "hscportal-drive2026-987c649cd12ca3-baulkham-hills-2026-paper-2",
-  "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions",
   "hscportal-drive2026-5928c4d010f024-burwood-girls-2026-trial-w-sol",
   "hscportal-drive2026-777918d2c4b226-cssa-2026-trial-w-sol",
   "hscportal-drive2026-3131a0f4a32f7e-castle-hill-2026-task-1",
@@ -15291,31 +15289,23 @@
   "hscportal-drive2026-6d77ef41e2f221-freshwater-2026-trial-w-sol",
   "hscportal-drive2026-bf5cbf698d6eb4-st-marys-cathedral-2026-task-2-w-sol",
   "hscportal-drive2026-8c69192dc67420-baulkham-hills-2026-trial-w-sol",
-  "hscportal-drive2026-61e998e20cf775-holy-spirit-lakemba-2026-task-1-solutions",
   "hscportal-drive2026-21d4d808a3d182-cssa-2026-trial",
   "hscportal-drive2026-18c72ff9f654a7-cssa-2026-trial-w-sol",
   "hscportal-drive2026-11fe49bece7ca4-bulli-2026-trial-w-sol",
-  "hscportal-drive2026-8eef4b36e9685a-girraween-2026-test-1-solutions",
   "hscportal-drive2026-3e8847285b8842-engadine-2026-trial",
-  "hscportal-drive2026-9cec1a9792d3d7-st-pius-x-2026-task-2-solutions",
   "hscportal-drive2026-29c2abfd68ce57-roseville-2026-paper-1-with-stimulus-booklet",
   "hscportal-drive2026-8bc636aa7947cc-sydney-tech-2026-task-2",
   "hscportal-drive2026-f40a3953a051b2-mount-st-benedict-2026-trial",
   "hscportal-drive2026-1208f43dc923ac-girraween-2026-preliminary-yearly-w-sol",
-  "hscportal-drive2026-e7e4930b232022-strathfield-girls-2026-task-2-solutions",
   "hscportal-drive2026-b7eedb9cf9c336-freshwater-2026-trial-w-sol",
-  "hscportal-drive2026-adf85a38079694-unspecified-school-2026-trial-w-sol",
   "hscportal-drive2026-3df8a021cde996-moriah-2026-preliminary-yearly-w-sol",
   "hscportal-drive2026-2f8d6998861cb7-parramatta-2026-trial-w-sol",
   "hscportal-drive2026-7ecd247b0df531-parramatta-marist-2026-task-2",
   "hscportal-drive2026-604751f157f618-condell-park-2026-half-yearly-w-sol",
   "hscportal-drive2026-ec267970061340-girraween-2026-task-3-w-sol",
   "hscportal-drive2026-358a7c7befdfa3-penrith-2026-task-2",
-  "hscportal-drive2026-6fec0900f68082-penrith-2026-task-1-solutions-and-feedback",
   "hscportal-drive2026-64701919076425-newington-2026-trial",
-  "hscportal-drive2026-f4dff47aa79bcc-sydney-tech-2026-task-1-solutions",
   "hscportal-drive2026-dfe9fa328bd520-ssc-blackwattle-bay-2026-trial",
-  "hscportal-drive2026-160a7ff32c5556-st-pius-x-2026-task-2-solutions",
   "hscportal-drive2026-2ea09412950fcc-manly-2026-task-1-w-sol",
   "hscportal-drive2026-3b620b00e2ff77-manly-2026-task-2-w-sol",
   "hscportal-drive2026-52b7f6bb2d319e-newcastle-grammar-2026-trial",
@@ -16647,13 +16637,6 @@
    "reason": "Source listing has conflicting course/level/document-role metadata",
    "candidates": [
     "thsc-5106-sydney-tech-2019-w-sol"
-   ]
-  },
-  {
-   "id": "hscportal-drive2026-5ab72c3772beed-unspecified-school-2026-term-2-test-solutions",
-   "reason": "Same metadata, unconfirmed file identity",
-   "candidates": [
-    "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions"
    ]
   },
   {
@@ -21114,8 +21097,8 @@
  ],
  "unexpectedPrimaryDowngrades": [],
  "limitations": "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count.",
- "filePointers": 7620,
- "directFilePointers": 7419,
+ "filePointers": 7610,
+ "directFilePointers": 7409,
  "resolverPrimaries": 200,
  "fragmentPrimaries": 1,
  "recoveryPapers": 657,

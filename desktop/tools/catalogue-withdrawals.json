@@ -1,0 +1,105 @@
+{
+  "_doc": "Reviewed catalogue quarantines. Entries are excluded from every rebuild, including automatic growth and published-history restoration. This is not the takedown registry; use removals.json for rights-holder requests. Match by catalogue id or source URL. Entries may be restored only after a reviewed parent/identity fix.",
+  "version": 1,
+  "entries": [
+    {
+      "id": "hscportal-drive2026-7fb1f006b3845e-st-pius-x-2026-task-1-solutions",
+      "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/St%20Pius%20X%202026%20Task%201%20solutions%20%5B7fb1f006b384%5D.pdf",
+      "title": "St Pius X 2026 Task 1 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no matching question or combined paper in the HSC Portal source or catalogue.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions",
+      "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Unspecified%20school%202026%20Advanced%20Task%201%20solutions%20%5Bbc537bf4a440%5D.pdf",
+      "title": "Unspecified school 2026 Advanced Task 1 solutions",
+      "source": "hscportal",
+      "reason": "Unidentified school and standalone solution upload; no parent question paper.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-61e998e20cf775-holy-spirit-lakemba-2026-task-1-solutions",
+      "url": "https://hscportal.pages.dev/yr12/Maths%20Ext%201/Assessments/2026/Holy%20Spirit%20Lakemba%202026%20Task%201%20solutions%20%5B61e998e20cf7%5D.pdf",
+      "title": "Holy Spirit Lakemba 2026 Task 1 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no matching question or combined paper in the HSC Portal source or catalogue.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-8eef4b36e9685a-girraween-2026-test-1-solutions",
+      "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Girraween%202026%20Test%201%20solutions%20%5B8eef4b36e968%5D.pdf",
+      "title": "Girraween 2026 Test 1 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no parent question paper. The growth normalizer also replaced its title with a generic Year 10 Yearly title.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-9cec1a9792d3d7-st-pius-x-2026-task-2-solutions",
+      "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/St%20Pius%20X%202026%20Task%202%20solutions%20%5B9cec1a9792d3%5D.pdf",
+      "title": "St Pius X 2026 Task 2 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no matching question or combined paper in the HSC Portal source or catalogue.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-e7e4930b232022-strathfield-girls-2026-task-2-solutions",
+      "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Strathfield%20Girls%202026%20Task%202%20solutions%20%5Be7e4930b2320%5D.pdf",
+      "title": "Strathfield Girls 2026 Task 2 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no parent question paper. The growth normalizer also replaced its title with a generic Year 10 Yearly title.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-adf85a38079694-unspecified-school-2026-trial-w-sol",
+      "url": "https://hscportal.pages.dev/yr12/Maths%20Ext%202/Trials/2026/Unspecified%20school%202026%20Trial%20w.%20sol%20%5Bcombined-6da657c8f5b7%5D.pdf",
+      "title": "Unspecified school 2026 Trial w. sol",
+      "source": "hscportal",
+      "reason": "Complete trial but the source identifies no school; school identity is unresolved.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-6fec0900f68082-penrith-2026-task-1-solutions-and-feedback",
+      "url": "https://hscportal.pages.dev/yr11/Maths%20Ext%201/Assessments/2026/Penrith%202026%20Task%201%20solutions%20and%20feedback%20%5B6fec0900f680%5D.pdf",
+      "title": "Penrith 2026 Task 1 solutions and feedback",
+      "source": "hscportal",
+      "reason": "Standalone solution/feedback upload; no matching question or combined paper in the HSC Portal source or catalogue.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-f4dff47aa79bcc-sydney-tech-2026-task-1-solutions",
+      "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/Sydney%20Tech%202026%20Task%201%20solutions%20%5Bf4dff47aa79b%5D.pdf",
+      "title": "Sydney Tech 2026 Task 1 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no matching question or combined paper in the HSC Portal source or catalogue.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-160a7ff32c5556-st-pius-x-2026-task-2-solutions",
+      "url": "https://hscportal.pages.dev/yr11/Maths%20Ext%201/Assessments/2026/St%20Pius%20X%202026%20Task%202%20solutions%20%5B160a7ff32c55%5D.pdf",
+      "title": "St Pius X 2026 Task 2 solutions",
+      "source": "hscportal",
+      "reason": "Standalone solution upload; no matching question or combined paper in the HSC Portal source or catalogue.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "hscportal-drive2026-5ab72c3772beed-unspecified-school-2026-term-2-test-solutions",
+      "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Unspecified%20school%202026%20Term%202%20test%20solutions%20%5B5ab72c3772be%5D.pdf",
+      "title": "Unspecified school 2026 Term 2 test solutions",
+      "source": "hscportal",
+      "reason": "Unidentified school and standalone solution upload; previously held, but the reviewed-only build admitted it from the portal harvest.",
+      "status": "quarantine",
+      "date": "2026-10-23"
+    }
+  ]
+}

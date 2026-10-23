@@ -105019,45 +105019,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-7fb1f006b3845e-st-pius-x-2026-task-1-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics Advanced",
-   "school": "St Pius X",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Preliminary",
-   "title": "St Pius X 2026 Task 1 solutions",
-   "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/St%20Pius%20X%202026%20Task%201%20solutions%20%5B7fb1f006b384%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-7fb1f006b3845e44",
-   "linkText": "St Pius X 2026 Task 1 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-7fb1f006b3845e44|st pius x 2026 task 1 solutions"
-   ],
-   "examBlock": "Task 1",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-7fb1f006b3845e44",
-    "cf": "yr11/Maths (2U)/Assessments/2026/St Pius X 2026 Task 1 solutions [7fb1f006b384].pdf"
-   },
-   "sha256": "7fb1f006b3845e4412cb0560ec034fd5858944c1312a56f8fcc11f1dcc3bf98c",
-   "bytes": 402728,
-   "pages": 10,
-   "checkedAt": "2026-10-23T10:37:43.277Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-7fb1f006b3845e-st-pius-x-2026-task-1-solutions",
-    "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/St%20Pius%20X%202026%20Task%201%20solutions%20%5B7fb1f006b384%5D.pdf",
-    "subject": "Mathematics Advanced",
-    "school": "St Pius X",
-    "year": 2026,
-    "type": "assessment",
-    "title": "St Pius X 2026 Task 1 solutions"
-   }
-  },
-  {
    "id": "hscportal-drive2026-21feb237782896-chatswood-2026-task-2-w-sol",
    "source": "hscportal",
    "subject": "Mathematics Extension 1",
@@ -105250,45 +105211,6 @@
     "year": 2026,
     "type": "trial",
     "title": "Baulkham Hills 2026 Paper 2"
-   }
-  },
-  {
-   "id": "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics",
-   "school": "Unspecified school",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Year 10",
-   "title": "2026 Unspecified school Mathematics Year 10 Yearly",
-   "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Unspecified%20school%202026%20Advanced%20Task%201%20solutions%20%5Bbc537bf4a440%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-bc537bf4a44013e2",
-   "linkText": "Unspecified school 2026 Advanced Task 1 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-bc537bf4a44013e2|unspecified school 2026 advanced task 1 solutions"
-   ],
-   "examBlock": "",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-bc537bf4a44013e2",
-    "cf": "yr10/Maths/Assessments/2026/Unspecified school 2026 Advanced Task 1 solutions [bc537bf4a440].pdf"
-   },
-   "sha256": "bc537bf4a44013e22b7fa9948a54aaf25cc26969ef8607f790cc77090dcfbf71",
-   "bytes": 442928,
-   "pages": 5,
-   "checkedAt": "2026-10-23T10:37:44.623Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions",
-    "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Unspecified%20school%202026%20Advanced%20Task%201%20solutions%20%5Bbc537bf4a440%5D.pdf",
-    "subject": "Maths",
-    "school": "Unspecified school",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Unspecified school 2026 Advanced Task 1 solutions"
    }
   },
   {
@@ -105604,45 +105526,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-5ab72c3772beed-unspecified-school-2026-term-2-test-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics",
-   "school": "Unspecified school",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Year 10",
-   "title": "2026 Unspecified school Mathematics Year 10 Yearly",
-   "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Unspecified%20school%202026%20Term%202%20test%20solutions%20%5B5ab72c3772be%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-5ab72c3772beeddf",
-   "linkText": "Unspecified school 2026 Term 2 test solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-5ab72c3772beeddf|unspecified school 2026 term 2 test solutions"
-   ],
-   "examBlock": "",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-5ab72c3772beeddf",
-    "cf": "yr10/Maths/Assessments/2026/Unspecified school 2026 Term 2 test solutions [5ab72c3772be].pdf"
-   },
-   "sha256": "5ab72c3772beeddfdb27be3e4f86f614b708c344ee360db7464ec23f3445590a",
-   "bytes": 367347,
-   "pages": 6,
-   "checkedAt": "2026-10-23T10:37:45.709Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-5ab72c3772beed-unspecified-school-2026-term-2-test-solutions",
-    "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Unspecified%20school%202026%20Term%202%20test%20solutions%20%5B5ab72c3772be%5D.pdf",
-    "subject": "Maths",
-    "school": "Unspecified school",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Unspecified school 2026 Term 2 test solutions"
-   }
-  },
-  {
    "id": "hscportal-drive2026-839dfed5be06a3-cheltenham-girls-2026-trial-w-sol",
    "source": "hscportal",
    "subject": "Chemistry",
@@ -105838,45 +105721,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-61e998e20cf775-holy-spirit-lakemba-2026-task-1-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics Extension 1",
-   "school": "Holy Spirit Lakemba",
-   "year": 2026,
-   "type": "assessment",
-   "level": "HSC",
-   "title": "Holy Spirit Lakemba 2026 Task 1 solutions",
-   "url": "https://hscportal.pages.dev/yr12/Maths%20Ext%201/Assessments/2026/Holy%20Spirit%20Lakemba%202026%20Task%201%20solutions%20%5B61e998e20cf7%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-61e998e20cf7757a",
-   "linkText": "Holy Spirit Lakemba 2026 Task 1 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-61e998e20cf7757a|holy spirit lakemba 2026 task 1 solutions"
-   ],
-   "examBlock": "Task 1",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-61e998e20cf7757a",
-    "cf": "yr12/Maths Ext 1/Assessments/2026/Holy Spirit Lakemba 2026 Task 1 solutions [61e998e20cf7].pdf"
-   },
-   "sha256": "61e998e20cf7757abe7e69519864ee6569e1b849e9ceb0afe8b310344444eb2f",
-   "bytes": 1862553,
-   "pages": 9,
-   "checkedAt": "2026-10-23T10:37:47.325Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-61e998e20cf775-holy-spirit-lakemba-2026-task-1-solutions",
-    "url": "https://hscportal.pages.dev/yr12/Maths%20Ext%201/Assessments/2026/Holy%20Spirit%20Lakemba%202026%20Task%201%20solutions%20%5B61e998e20cf7%5D.pdf",
-    "subject": "Mathematics Extension 1",
-    "school": "Holy Spirit Lakemba",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Holy Spirit Lakemba 2026 Task 1 solutions"
-   }
-  },
-  {
    "id": "hscportal-drive2026-21d4d808a3d182-cssa-2026-trial",
    "source": "hscportal",
    "subject": "Engineering Studies",
@@ -105994,45 +105838,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-8eef4b36e9685a-girraween-2026-test-1-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics",
-   "school": "Girraween",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Year 10",
-   "title": "2026 Girraween Mathematics Year 10 Yearly",
-   "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Girraween%202026%20Test%201%20solutions%20%5B8eef4b36e968%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-8eef4b36e9685ab1",
-   "linkText": "Girraween 2026 Test 1 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-8eef4b36e9685ab1|girraween 2026 test 1 solutions"
-   ],
-   "examBlock": "",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-8eef4b36e9685ab1",
-    "cf": "yr10/Maths/Assessments/2026/Girraween 2026 Test 1 solutions [8eef4b36e968].pdf"
-   },
-   "sha256": "8eef4b36e9685ab1b700d673460f821c2a29a17e7d66eb14c5584021f33ff9f1",
-   "bytes": 3752915,
-   "pages": 21,
-   "checkedAt": "2026-10-23T10:37:48.495Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-8eef4b36e9685a-girraween-2026-test-1-solutions",
-    "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Girraween%202026%20Test%201%20solutions%20%5B8eef4b36e968%5D.pdf",
-    "subject": "Maths",
-    "school": "Girraween",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Girraween 2026 Test 1 solutions"
-   }
-  },
-  {
    "id": "hscportal-drive2026-3e8847285b8842-engadine-2026-trial",
    "source": "hscportal",
    "subject": "Geography",
@@ -106069,45 +105874,6 @@
     "year": 2026,
     "type": "trial",
     "title": "Engadine 2026 Trial"
-   }
-  },
-  {
-   "id": "hscportal-drive2026-9cec1a9792d3d7-st-pius-x-2026-task-2-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics Advanced",
-   "school": "St Pius X",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Preliminary",
-   "title": "St Pius X 2026 Task 2 solutions",
-   "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/St%20Pius%20X%202026%20Task%202%20solutions%20%5B9cec1a9792d3%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-9cec1a9792d3d7e2",
-   "linkText": "St Pius X 2026 Task 2 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-9cec1a9792d3d7e2|st pius x 2026 task 2 solutions"
-   ],
-   "examBlock": "Task 2",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-9cec1a9792d3d7e2",
-    "cf": "yr11/Maths (2U)/Assessments/2026/St Pius X 2026 Task 2 solutions [9cec1a9792d3].pdf"
-   },
-   "sha256": "9cec1a9792d3d7e2e99abcd010ee14e94e8722dd4bb24668ccfc57174ee44c54",
-   "bytes": 419589,
-   "pages": 12,
-   "checkedAt": "2026-10-23T10:37:48.742Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-9cec1a9792d3d7-st-pius-x-2026-task-2-solutions",
-    "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/St%20Pius%20X%202026%20Task%202%20solutions%20%5B9cec1a9792d3%5D.pdf",
-    "subject": "Mathematics Advanced",
-    "school": "St Pius X",
-    "year": 2026,
-    "type": "assessment",
-    "title": "St Pius X 2026 Task 2 solutions"
    }
   },
   {
@@ -106306,45 +106072,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-e7e4930b232022-strathfield-girls-2026-task-2-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics",
-   "school": "Strathfield Girls",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Year 10",
-   "title": "2026 Strathfield Girls Mathematics Year 10 Yearly",
-   "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Strathfield%20Girls%202026%20Task%202%20solutions%20%5Be7e4930b2320%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-e7e4930b232022f2",
-   "linkText": "Strathfield Girls 2026 Task 2 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-e7e4930b232022f2|strathfield girls 2026 task 2 solutions"
-   ],
-   "examBlock": "",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-e7e4930b232022f2",
-    "cf": "yr10/Maths/Assessments/2026/Strathfield Girls 2026 Task 2 solutions [e7e4930b2320].pdf"
-   },
-   "sha256": "e7e4930b232022f25b2d4d5d7b9aeb062d7b521a8997ad9fa2ba612152094807",
-   "bytes": 3316296,
-   "pages": 12,
-   "checkedAt": "2026-10-23T10:37:51.093Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-e7e4930b232022-strathfield-girls-2026-task-2-solutions",
-    "url": "https://hscportal.pages.dev/yr10/Maths/Assessments/2026/Strathfield%20Girls%202026%20Task%202%20solutions%20%5Be7e4930b2320%5D.pdf",
-    "subject": "Maths",
-    "school": "Strathfield Girls",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Strathfield Girls 2026 Task 2 solutions"
-   }
-  },
-  {
    "id": "hscportal-drive2026-b7eedb9cf9c336-freshwater-2026-trial-w-sol",
    "source": "hscportal",
    "subject": "Mathematics Extension 2",
@@ -106381,45 +106108,6 @@
     "year": 2026,
     "type": "trial",
     "title": "Freshwater 2026 Trial w. sol"
-   }
-  },
-  {
-   "id": "hscportal-drive2026-adf85a38079694-unspecified-school-2026-trial-w-sol",
-   "source": "hscportal",
-   "subject": "Mathematics Extension 2",
-   "school": "Unspecified school",
-   "year": 2026,
-   "type": "trial",
-   "level": "HSC",
-   "title": "Unspecified school 2026 Trial w. sol",
-   "url": "https://hscportal.pages.dev/yr12/Maths%20Ext%202/Trials/2026/Unspecified%20school%202026%20Trial%20w.%20sol%20%5Bcombined-6da657c8f5b7%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-adf85a3807969403",
-   "linkText": "Unspecified school 2026 Trial w. sol",
-   "sourceKeys": [
-    "hscportal|drive2026-adf85a3807969403|unspecified school 2026 trial w sol"
-   ],
-   "examBlock": "",
-   "documentRole": "combined",
-   "hints": {
-    "portalRow": "drive2026-adf85a3807969403",
-    "cf": "yr12/Maths Ext 2/Trials/2026/Unspecified school 2026 Trial w. sol [combined-6da657c8f5b7].pdf"
-   },
-   "sha256": "6da657c8f5b72013ab2f5f03bf94d192fda991ccba49db53d97d7ee5d5d1f240",
-   "bytes": 14078295,
-   "pages": 53,
-   "checkedAt": "2026-10-23T10:37:51.942Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-adf85a38079694-unspecified-school-2026-trial-w-sol",
-    "url": "https://hscportal.pages.dev/yr12/Maths%20Ext%202/Trials/2026/Unspecified%20school%202026%20Trial%20w.%20sol%20%5Bcombined-6da657c8f5b7%5D.pdf",
-    "subject": "Mathematics Extension 2",
-    "school": "Unspecified school",
-    "year": 2026,
-    "type": "trial",
-    "title": "Unspecified school 2026 Trial w. sol"
    }
   },
   {
@@ -106657,45 +106345,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-6fec0900f68082-penrith-2026-task-1-solutions-and-feedback",
-   "source": "hscportal",
-   "subject": "Mathematics Extension 1",
-   "school": "Penrith",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Preliminary",
-   "title": "Penrith 2026 Task 1 solutions and feedback",
-   "url": "https://hscportal.pages.dev/yr11/Maths%20Ext%201/Assessments/2026/Penrith%202026%20Task%201%20solutions%20and%20feedback%20%5B6fec0900f680%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-6fec0900f680826f",
-   "linkText": "Penrith 2026 Task 1 solutions and feedback",
-   "sourceKeys": [
-    "hscportal|drive2026-6fec0900f680826f|penrith 2026 task 1 solutions and feedback"
-   ],
-   "examBlock": "Task 1",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-6fec0900f680826f",
-    "cf": "yr11/Maths Ext 1/Assessments/2026/Penrith 2026 Task 1 solutions and feedback [6fec0900f680].pdf"
-   },
-   "sha256": "6fec0900f680826f7a2b79214bd32e5edd61ad03aa524ca4be15d0a0fa11eec4",
-   "bytes": 2243230,
-   "pages": 18,
-   "checkedAt": "2026-10-23T10:37:54.082Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-6fec0900f68082-penrith-2026-task-1-solutions-and-feedback",
-    "url": "https://hscportal.pages.dev/yr11/Maths%20Ext%201/Assessments/2026/Penrith%202026%20Task%201%20solutions%20and%20feedback%20%5B6fec0900f680%5D.pdf",
-    "subject": "Mathematics Extension 1",
-    "school": "Penrith",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Penrith 2026 Task 1 solutions and feedback"
-   }
-  },
-  {
    "id": "hscportal-drive2026-64701919076425-newington-2026-trial",
    "source": "hscportal",
    "subject": "Mathematics Extension 2",
@@ -106735,45 +106384,6 @@
    }
   },
   {
-   "id": "hscportal-drive2026-f4dff47aa79bcc-sydney-tech-2026-task-1-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics Advanced",
-   "school": "Sydney Tech",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Preliminary",
-   "title": "Sydney Tech 2026 Task 1 solutions",
-   "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/Sydney%20Tech%202026%20Task%201%20solutions%20%5Bf4dff47aa79b%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-f4dff47aa79bcc27",
-   "linkText": "Sydney Tech 2026 Task 1 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-f4dff47aa79bcc27|sydney tech 2026 task 1 solutions"
-   ],
-   "examBlock": "Task 1",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-f4dff47aa79bcc27",
-    "cf": "yr11/Maths (2U)/Assessments/2026/Sydney Tech 2026 Task 1 solutions [f4dff47aa79b].pdf"
-   },
-   "sha256": "f4dff47aa79bcc27e6c8987f5ad725266768b7cdd831d3a32e418136f71caf86",
-   "bytes": 13670233,
-   "pages": 23,
-   "checkedAt": "2026-10-23T10:37:54.789Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-f4dff47aa79bcc-sydney-tech-2026-task-1-solutions",
-    "url": "https://hscportal.pages.dev/yr11/Maths%20(2U)/Assessments/2026/Sydney%20Tech%202026%20Task%201%20solutions%20%5Bf4dff47aa79b%5D.pdf",
-    "subject": "Mathematics Advanced",
-    "school": "Sydney Tech",
-    "year": 2026,
-    "type": "assessment",
-    "title": "Sydney Tech 2026 Task 1 solutions"
-   }
-  },
-  {
    "id": "hscportal-drive2026-dfe9fa328bd520-ssc-blackwattle-bay-2026-trial",
    "source": "hscportal",
    "subject": "Mathematics Advanced",
@@ -106810,45 +106420,6 @@
     "year": 2026,
     "type": "trial",
     "title": "SSC Blackwattle Bay 2026 Trial"
-   }
-  },
-  {
-   "id": "hscportal-drive2026-160a7ff32c5556-st-pius-x-2026-task-2-solutions",
-   "source": "hscportal",
-   "subject": "Mathematics Extension 1",
-   "school": "St Pius X",
-   "year": 2026,
-   "type": "assessment",
-   "level": "Preliminary",
-   "title": "St Pius X 2026 Task 2 solutions",
-   "url": "https://hscportal.pages.dev/yr11/Maths%20Ext%201/Assessments/2026/St%20Pius%20X%202026%20Task%202%20solutions%20%5B160a7ff32c55%5D.pdf",
-   "fallbackUrl": "",
-   "solutionUrl": "",
-   "solFallbackUrl": "",
-   "hasSolutions": true,
-   "viewno": "drive2026-160a7ff32c5556dc",
-   "linkText": "St Pius X 2026 Task 2 solutions",
-   "sourceKeys": [
-    "hscportal|drive2026-160a7ff32c5556dc|st pius x 2026 task 2 solutions"
-   ],
-   "examBlock": "Task 2",
-   "documentRole": "solutions",
-   "hints": {
-    "portalRow": "drive2026-160a7ff32c5556dc",
-    "cf": "yr11/Maths Ext 1/Assessments/2026/St Pius X 2026 Task 2 solutions [160a7ff32c55].pdf"
-   },
-   "sha256": "160a7ff32c5556dcbf4a5e9c0d6d339eb957b3a96688cc294de29fdcc7848caa",
-   "bytes": 3199427,
-   "pages": 12,
-   "checkedAt": "2026-10-23T10:37:55.109Z",
-   "legacyRecord": {
-    "id": "hscportal-drive2026-160a7ff32c5556-st-pius-x-2026-task-2-solutions",
-    "url": "https://hscportal.pages.dev/yr11/Maths%20Ext%201/Assessments/2026/St%20Pius%20X%202026%20Task%202%20solutions%20%5B160a7ff32c55%5D.pdf",
-    "subject": "Mathematics Extension 1",
-    "school": "St Pius X",
-    "year": 2026,
-    "type": "assessment",
-    "title": "St Pius X 2026 Task 2 solutions"
    }
   },
   {
