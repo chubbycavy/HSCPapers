@@ -1,8 +1,8 @@
 {
  "version": 1,
  "previousPublishedListings": 10368,
- "activePapers": 6872,
- "importedRows": 3393,
+ "activePapers": 6946,
+ "importedRows": 3507,
  "mergedImports": [
   {
    "id": "add-thsc-au-growth-db3e2f43c5",
@@ -15028,6 +15028,66 @@
    "id": "add-thsc-au-growth-eacf8c72f4",
    "canonicalId": "portal-5518-cranbrook-2011",
    "reason": "exact-source-listing"
+  },
+  {
+   "id": "hscportal-5326-kincoppal-2010-w-sol",
+   "canonicalId": "thsc-5326-kincoppal-2010-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5232-knox-2019-w-sol",
+   "canonicalId": "thsc-5231-knox-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5238-knox-2019-w-sol",
+   "canonicalId": "portal-5238-knox-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5238-normanhurst-boys-2019-w-sol",
+   "canonicalId": "portal-5238-normanhurst-boys-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5348-baulkham-hills-2019-w-sol",
+   "canonicalId": "thsc-5348-baulkham-hills-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5348-girraween-2019-w-sol",
+   "canonicalId": "thsc-5348-girraween-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5348-normanhurst-boys-2019-w-sol",
+   "canonicalId": "thsc-5348-normanhurst-boys-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5348-north-sydney-boys-2019-w-sol",
+   "canonicalId": "thsc-5348-north-sydney-boys-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5348-sydney-boys-2019-w-sol",
+   "canonicalId": "thsc-5348-sydney-boys-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-5348-sydney-grammar-2019-w-sol",
+   "canonicalId": "thsc-5348-sydney-grammar-2019-w-sol",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-1818-riverview-2023-w-sol",
+   "canonicalId": "add-thsc-au-growth-e97f7c9082",
+   "reason": "exact-source-listing"
+  },
+  {
+   "id": "thsc-1818-riverview-2024-w-sol",
+   "canonicalId": "add-thsc-au-growth-bc23678066",
+   "reason": "exact-source-listing"
   }
  ],
  "genuinelyAdded": [
@@ -15202,7 +15262,95 @@
   "add-thsc-au-growth-dd0896c8bc",
   "add-thsc-au-growth-791c9ddad6",
   "add-thsc-au-growth-3106d4fa9b",
-  "add-thsc-au-growth-3a411780bd"
+  "add-thsc-au-growth-3a411780bd",
+  "hscportal-drive2026-d06d9e4698d089-meriden-2026-task-1-w-sol",
+  "hscportal-drive2026-48cfaed73a2438-independent-2026-trial-w-sol",
+  "hscportal-drive2026-e984495d263599-st-marys-senior-2026-task-2-w-sol",
+  "hscportal-drive2026-79c13d20c6803b-danebank-2026-paper-2",
+  "hscportal-drive2026-f8bdc0a8460dd8-danebank-2026-paper-1-with-stimulus-booklet",
+  "hscportal-drive2026-9230eddab9ec72-castle-hill-2026-task-2-w-sol",
+  "hscportal-drive2026-b37159ea8b8191-castle-hill-2026-task-1-w-sol",
+  "hscportal-drive2026-4fd918d81aedf3-girraween-2026-task-1-w-sol",
+  "hscportal-drive2026-7fb1f006b3845e-st-pius-x-2026-task-1-solutions",
+  "hscportal-drive2026-21feb237782896-chatswood-2026-task-2-w-sol",
+  "hscportal-drive2026-6e272460d8b4bf-st-marys-cathedral-2026-task-2-w-sol",
+  "hscportal-drive2026-c9c7de1c749201-alpha-omega-2026-task-1-w-sol",
+  "hscportal-drive2026-dad5fbb20e6226-sydney-grammar-2026-half-yearly-w-sol",
+  "hscportal-drive2026-987c649cd12ca3-baulkham-hills-2026-paper-2",
+  "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions",
+  "hscportal-drive2026-5928c4d010f024-burwood-girls-2026-trial-w-sol",
+  "hscportal-drive2026-777918d2c4b226-cssa-2026-trial-w-sol",
+  "hscportal-drive2026-3131a0f4a32f7e-castle-hill-2026-task-1",
+  "hscportal-drive2026-160a700a40b469-baulkham-hills-2026-half-yearly-w-sol",
+  "hscportal-drive2026-90a7d12e372acb-bulli-2026-trial-w-sol",
+  "hscportal-drive2026-b1e051dafcf466-wollemi-2026-task-1",
+  "hscportal-drive2026-1e00c1362e18c4-parramatta-2026-trial",
+  "hscportal-drive2026-be365ea61828d5-ssc-blackwattle-bay-2026-final-examination",
+  "hscportal-drive2026-839dfed5be06a3-cheltenham-girls-2026-trial-w-sol",
+  "hscportal-drive2026-924ed61eab2cd0-st-marys-cathedral-2026-task-1-w-sol",
+  "hscportal-drive2026-6d77ef41e2f221-freshwater-2026-trial-w-sol",
+  "hscportal-drive2026-bf5cbf698d6eb4-st-marys-cathedral-2026-task-2-w-sol",
+  "hscportal-drive2026-8c69192dc67420-baulkham-hills-2026-trial-w-sol",
+  "hscportal-drive2026-61e998e20cf775-holy-spirit-lakemba-2026-task-1-solutions",
+  "hscportal-drive2026-21d4d808a3d182-cssa-2026-trial",
+  "hscportal-drive2026-18c72ff9f654a7-cssa-2026-trial-w-sol",
+  "hscportal-drive2026-11fe49bece7ca4-bulli-2026-trial-w-sol",
+  "hscportal-drive2026-8eef4b36e9685a-girraween-2026-test-1-solutions",
+  "hscportal-drive2026-3e8847285b8842-engadine-2026-trial",
+  "hscportal-drive2026-9cec1a9792d3d7-st-pius-x-2026-task-2-solutions",
+  "hscportal-drive2026-29c2abfd68ce57-roseville-2026-paper-1-with-stimulus-booklet",
+  "hscportal-drive2026-8bc636aa7947cc-sydney-tech-2026-task-2",
+  "hscportal-drive2026-f40a3953a051b2-mount-st-benedict-2026-trial",
+  "hscportal-drive2026-1208f43dc923ac-girraween-2026-preliminary-yearly-w-sol",
+  "hscportal-drive2026-e7e4930b232022-strathfield-girls-2026-task-2-solutions",
+  "hscportal-drive2026-b7eedb9cf9c336-freshwater-2026-trial-w-sol",
+  "hscportal-drive2026-adf85a38079694-unspecified-school-2026-trial-w-sol",
+  "hscportal-drive2026-3df8a021cde996-moriah-2026-preliminary-yearly-w-sol",
+  "hscportal-drive2026-2f8d6998861cb7-parramatta-2026-trial-w-sol",
+  "hscportal-drive2026-7ecd247b0df531-parramatta-marist-2026-task-2",
+  "hscportal-drive2026-604751f157f618-condell-park-2026-half-yearly-w-sol",
+  "hscportal-drive2026-ec267970061340-girraween-2026-task-3-w-sol",
+  "hscportal-drive2026-358a7c7befdfa3-penrith-2026-task-2",
+  "hscportal-drive2026-6fec0900f68082-penrith-2026-task-1-solutions-and-feedback",
+  "hscportal-drive2026-64701919076425-newington-2026-trial",
+  "hscportal-drive2026-f4dff47aa79bcc-sydney-tech-2026-task-1-solutions",
+  "hscportal-drive2026-dfe9fa328bd520-ssc-blackwattle-bay-2026-trial",
+  "hscportal-drive2026-160a7ff32c5556-st-pius-x-2026-task-2-solutions",
+  "hscportal-drive2026-2ea09412950fcc-manly-2026-task-1-w-sol",
+  "hscportal-drive2026-3b620b00e2ff77-manly-2026-task-2-w-sol",
+  "hscportal-drive2026-52b7f6bb2d319e-newcastle-grammar-2026-trial",
+  "hscportal-drive2026-42098c6e99e553-normanhurst-boys-2026-yearly-examination",
+  "hscportal-drive2026-26114c76de2233-cssa-2026-trial",
+  "hscportal-drive2026-7ff57fd669c7fb-knox-2026-task-1",
+  "thsc-5098-north-sydney-boys-2019",
+  "thsc-5098-sydney-boys-2019-w-sol",
+  "thsc-5098-sydney-grammar-2019-w-sol",
+  "thsc-5108-sydney-boys-2019-w-sol",
+  "thsc-5108-sydney-grammar-2019-w-sol",
+  "thsc-5108-sydney-tech-2019-w-sol",
+  "thsc-5238-manly-2019-w-sol",
+  "thsc-1378-sydney-grammar-2025",
+  "thsc-1818-riverview-2022-w-sol",
+  "thsc-2718-roseville-2026-p1",
+  "thsc-2738-abbotsleigh-2024",
+  "thsc-2738-fort-st-2019",
+  "thsc-2738-hornsby-girls-2020",
+  "thsc-2738-hornsby-girls-2019",
+  "thsc-2738-james-ruse-2024",
+  "thsc-2738-newington-2024",
+  "thsc-2738-shore-2023",
+  "thsc-2738-shore-2024",
+  "thsc-2738-sydney-girls-2021",
+  "thsc-2738-sydney-girls-2022",
+  "thsc-2738-sydney-girls-2024",
+  "thsc-5098-sydney-grammar-2024-w-sol",
+  "thsc-5098-sydney-grammar-2025-w-sol",
+  "thsc-5108-baulkham-hills-2010-w-sol",
+  "thsc-5108-baulkham-hills-2015-w-sol",
+  "thsc-5328-loreto-kirribilli-2024-w-sol",
+  "thsc-5328-riverview-2025",
+  "thsc-5331-hurlstone-2024-w-sol",
+  "thsc-5332-hurlstone-2022-w-sol"
  ],
  "reviewQueue": [
   {
@@ -16418,7 +16566,7 @@
   },
   {
    "id": "add-crest-18632af49b",
-   "reason": "Free-resource PDFs need paper-vs-essay classification"
+   "reason": "Invalid catalogue type"
   },
   {
    "id": "add-thsc-au-growth-74ee0ea1ad",
@@ -16499,6 +16647,104 @@
    "reason": "Source listing has conflicting course/level/document-role metadata",
    "candidates": [
     "thsc-5106-sydney-tech-2019-w-sol"
+   ]
+  },
+  {
+   "id": "hscportal-drive2026-5ab72c3772beed-unspecified-school-2026-term-2-test-solutions",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "hscportal-drive2026-bc537bf4a44013-unspecified-school-2026-advanced-task-1-solutions"
+   ]
+  },
+  {
+   "id": "hscportal-drive2026-2cedd175e5408b-north-sydney-boys-2026-trial-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5338-north-sydney-boys-2026-w-sol"
+   ]
+  },
+  {
+   "id": "hscportal-drive2026-a3a5443f0c32cb-hornsby-girls-2026-trial-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5318-hornsby-girls-2026-w-sol"
+   ]
+  },
+  {
+   "id": "hscportal-drive2026-4267a5a8f008b4-caringbah-2026-trial-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5348-caringbah-2026-w-sol"
+   ]
+  },
+  {
+   "id": "hscportal-drive2026-0cc4bff5d246cc-north-sydney-boys-2026-trial-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5328-north-sydney-boys-2026-w-sol"
+   ]
+  },
+  {
+   "id": "hscportal-drive2026-4d8829cbfb19b7-caringbah-2026-trial-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5328-caringbah-2026-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5228-baulkham-hills-2019-w-sol",
+   "reason": "Source listing has conflicting course/level/document-role metadata",
+   "candidates": [
+    "portal-5228-baulkham-hills-2019-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5228-cherrybrook-tech-2019-w-sol",
+   "reason": "Source listing has conflicting course/level/document-role metadata",
+   "candidates": [
+    "portal-5228-cherrybrook-tech-2019-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5228-knox-2019-w-sol",
+   "reason": "Source listing has conflicting course/level/document-role metadata",
+   "candidates": [
+    "portal-5228-knox-2019-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5228-normanhurst-boys-2019-w-sol",
+   "reason": "Source listing has conflicting course/level/document-role metadata",
+   "candidates": [
+    "portal-5228-normanhurst-boys-2019-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5228-north-sydney-girls-2019-w-sol",
+   "reason": "Source listing has conflicting course/level/document-role metadata",
+   "candidates": [
+    "portal-5228-north-sydney-girls-2019-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5332-hurlstone-2024-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5331-hurlstone-2024-w-sol"
+   ]
+  },
+  {
+   "id": "thsc-5342-hurlstone-2022-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5342-hurlstone-2022"
+   ]
+  },
+  {
+   "id": "thsc-5343-hurlstone-2023-w-sol",
+   "reason": "Same metadata, unconfirmed file identity",
+   "candidates": [
+    "thsc-5342-hurlstone-2023-w-sol"
    ]
   }
  ],
@@ -20324,768 +20570,8 @@
    "reason": "existing-copy"
   },
   {
-   "id": "hsc-2012-aboriginal-studies-specimen-exam-paper",
-   "canonicalId": "hsc-2012-aboriginal-studies-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-ancient-history-specimen-exam-paper",
-   "canonicalId": "hsc-2010-ancient-history-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-armenian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-armenian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-armenian-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-armenian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-armenian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-armenian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-armenian-continuers-hsc-exam-paper",
-   "canonicalId": "hsc-2002-armenian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-automotive-vehicle-body-hsc-exam-paper",
-   "canonicalId": "hsc-2018-automotive-mechanical-technology-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-automotive-vehicle-body-hsc-exam-paper",
-   "canonicalId": "hsc-2017-automotive-mechanical-technology-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-automotive-vehicle-body-hsc-exam-paper",
-   "canonicalId": "hsc-2016-automotive-mechanical-technology-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2015-automotive-vehicle-body-hsc-exam-paper",
-   "canonicalId": "hsc-2015-automotive-mechanical-technology-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2012-business-studies-specimen-exam-paper",
-   "canonicalId": "hsc-2012-business-studies-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-classical-greek-continuers-specimen-exam-paper",
-   "canonicalId": "hsc-2010-classical-greek-continuers-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-classical-greek-continuers-hsc-exam-paper",
-   "canonicalId": "hsc-2009-classical-greek-continuers-hsc-exam-paper-specimen",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-classical-greek-extension-specimen-exam-paper",
-   "canonicalId": "hsc-2010-classical-greek-extension-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-classical-greek-extension-hsc-exam-paper",
-   "canonicalId": "hsc-2009-classical-greek-extension-hsc-exam-paper-specimen",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-classical-hebrew-continuers-hsc-exam-paper",
-   "canonicalId": "hsc-2009-classical-hebrew-continuers-hsc-exam-paper-questions",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-classical-hebrew-extension-hsc-exam-paper",
-   "canonicalId": "hsc-2009-classical-hebrew-extension-hsc-exam-paper-questions",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-community-and-family-studies-hsc-exam-paper",
-   "canonicalId": "hsc-2009-community-and-family-studies-hsc-exam-paper-sample-questions",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-croatian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-croatian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-croatian-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-croatian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-croatian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-croatian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-croatian-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2002-croatian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-czech-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-czech-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-czech-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-czech-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-czech-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-czech-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-czech-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2002-czech-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-dance-hsc-exam-paper-section-2",
-   "canonicalId": "hsc-2018-dance-hsc-exam-paper-section-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-dance-hsc-exam-paper-section-2",
-   "canonicalId": "hsc-2017-dance-hsc-exam-paper-section-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-dance-hsc-exam-paper-section-2",
-   "canonicalId": "hsc-2016-dance-hsc-exam-paper-section-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2015-dance-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2015-dance-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2018-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2017-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2016-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2015-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2015-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2014-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2014-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2013-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2013-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2012-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2012-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2011-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2011-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2010-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2009-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2008-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2008-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2006-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2006-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2005-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2005-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2004-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2004-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2003-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2002-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2001-earth-and-environmental-science-hsc-exam-paper",
-   "canonicalId": "thsc-2420-2001-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2013-engineering-studies-specimen-exam-paper",
-   "canonicalId": "hsc-2013-engineering-studies-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-english-advanced-hsc-exam-paper-1",
-   "canonicalId": "thsc-2720-2018-hsc-paper-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-english-advanced-hsc-exam-paper-2",
-   "canonicalId": "thsc-2720-2018-hsc-paper-2-advanced",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-english-advanced-hsc-exam-paper-1",
-   "canonicalId": "thsc-2720-2017-hsc-paper-1",
-   "reason": "existing-copy"
-  },
-  {
    "id": "hsc-2006-english-advanced-hsc-exam-paper-2",
    "canonicalId": "hsc-2006-english-advanced-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-english-standard-hsc-exam-paper-1",
-   "canonicalId": "thsc-2720-2018-hsc-paper-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-english-standard-hsc-exam-paper-2",
-   "canonicalId": "thsc-2720-2018-hsc-paper-2-standard",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-english-standard-hsc-exam-paper-1",
-   "canonicalId": "thsc-2720-2017-hsc-paper-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-english-standard-hsc-exam-paper-2",
-   "canonicalId": "thsc-2720-2017-hsc-paper-2-standard",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-english-standard-hsc-exam-paper-1",
-   "canonicalId": "hsc-2016-english-advanced-hsc-exam-paper-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2012-english-standard-hsc-exam-paper-1",
-   "canonicalId": "thsc-2720-2012-hsc-paper-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2008-english-standard-hsc-exam-paper-1",
-   "canonicalId": "hsc-2008-english-advanced-hsc-exam-paper-1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-filipino-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-filipino-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-filipino-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-filipino-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-filipino-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-filipino-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-filipino-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2002-filipino-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2011-food-technology-specimen-exam-paper",
-   "canonicalId": "hsc-2011-food-technology-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2001-geography-hsc-exam-paper",
-   "canonicalId": "hsc-2001-geography-hsc-exam-paper-stimulus-booklet",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-hospitality-kitchen-operations-and-cookery-hsc-exam-paper",
-   "canonicalId": "hsc-2018-hospitality-food-and-beverage-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-hospitality-kitchen-operations-and-cookery-hsc-exam-paper",
-   "canonicalId": "hsc-2017-hospitality-food-and-beverage-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-hospitality-kitchen-operations-and-cookery-hsc-exam-paper",
-   "canonicalId": "hsc-2016-hospitality-food-and-beverage-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2015-hospitality-kitchen-operations-and-cookery-hsc-exam-paper",
-   "canonicalId": "hsc-2015-hospitality-food-and-beverage-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-industrial-technology-electronics-hsc-exam-paper",
-   "canonicalId": "hsc-2018-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-industrial-technology-graphics-hsc-exam-paper",
-   "canonicalId": "hsc-2018-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-industrial-technology-metal-and-engineering-hsc-exam-paper",
-   "canonicalId": "hsc-2018-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-industrial-technology-multimedia-hsc-exam-paper",
-   "canonicalId": "hsc-2018-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-industrial-technology-timber-products-and-furniture-hsc-exam-paper",
-   "canonicalId": "hsc-2018-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-industrial-technology-electronics-hsc-exam-paper",
-   "canonicalId": "hsc-2017-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-industrial-technology-graphics-hsc-exam-paper",
-   "canonicalId": "hsc-2017-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-industrial-technology-metal-and-engineering-hsc-exam-paper",
-   "canonicalId": "hsc-2017-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-industrial-technology-multimedia-hsc-exam-paper",
-   "canonicalId": "hsc-2017-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-industrial-technology-timber-products-and-furniture-hsc-exam-paper",
-   "canonicalId": "hsc-2017-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-industrial-technology-electronics-hsc-exam-paper",
-   "canonicalId": "hsc-2016-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-industrial-technology-graphics-hsc-exam-paper",
-   "canonicalId": "hsc-2016-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-industrial-technology-metal-and-engineering-hsc-exam-paper",
-   "canonicalId": "hsc-2016-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-industrial-technology-multimedia-hsc-exam-paper",
-   "canonicalId": "hsc-2016-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-industrial-technology-timber-products-and-furniture-hsc-exam-paper",
-   "canonicalId": "hsc-2016-industrial-technology-automotive-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-industrial-technology-multimedia-hsc-exam-paper",
-   "canonicalId": "hsc-2009-industrial-technology-multimedia-hsc-exam-paper-specimen",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-industrial-technology-timber-products-and-furniture-hsc-exam-paper",
-   "canonicalId": "hsc-2009-industrial-technology-timber-products-and-furniture-hsc-exam-paper-specimen",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-information-and-digital-technology-networking-and-hardware-hsc-exam-paper",
-   "canonicalId": "hsc-2018-information-and-digital-technology-digital-animation-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-information-and-digital-technology-web-and-software-applications-hsc-exam-paper",
-   "canonicalId": "hsc-2018-information-and-digital-technology-digital-animation-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-information-and-digital-technology-networking-and-hardware-hsc-exam-paper",
-   "canonicalId": "hsc-2017-information-and-digital-technology-digital-animation-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-information-and-digital-technology-web-and-software-applications-hsc-exam-paper",
-   "canonicalId": "hsc-2017-information-and-digital-technology-digital-animation-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-information-and-digital-technology-networking-and-hardware-hsc-exam-paper",
-   "canonicalId": "hsc-2016-information-and-digital-technology-digital-animation-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-information-and-digital-technology-web-and-software-applications-hsc-exam-paper",
-   "canonicalId": "hsc-2016-information-and-digital-technology-digital-animation-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2012-japanese-in-context-heritage-japanese-specimen-exam-paper",
-   "canonicalId": "hsc-2012-japanese-in-context-heritage-japanese-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-latin-continuers-specimen-exam-paper",
-   "canonicalId": "hsc-2010-latin-continuers-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-latin-continuers-hsc-exam-paper",
-   "canonicalId": "hsc-2009-latin-continuers-hsc-exam-paper-specimen",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2011-legal-studies-specimen-exam-paper",
-   "canonicalId": "hsc-2011-legal-studies-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-lithuanian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-lithuanian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-lithuanian-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2002-lithuanian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2018-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2017-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2016-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2014-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2014-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2013-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2013-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2011-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2011-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-mathematics-hsc-exam-paper",
-   "canonicalId": "thsc-5320-2010-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2018-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2017-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2016-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2014-mathematics-general-2-specimen-exam-paper",
-   "canonicalId": "hsc-2014-mathematics-general-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2013-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2013-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2011-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2011-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2010-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2009-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2009-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2008-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2008-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2006-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2006-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2005-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2005-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2004-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2004-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2003-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-mathematics-general-hsc-exam-paper",
-   "canonicalId": "thsc-5310-2002-hsc",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-modern-history-hsc-exam-paper-specimen-section-i",
-   "canonicalId": "hsc-2010-modern-history-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2001-music-2-hsc-exam-paper-aural-skills-question-2-score",
-   "canonicalId": "hsc-2001-music-2-hsc-exam-paper-aural-skills-question-1-score",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2001-music-2-hsc-exam-paper-aural-skills-question-3-score",
-   "canonicalId": "hsc-2001-music-2-hsc-exam-paper-aural-skills-question-1-score",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2001-music-2-hsc-exam-paper",
-   "canonicalId": "hsc-2001-music-2-hsc-exam-paper-aural-skills-question-1-score",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-serbian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-serbian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-serbian-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-serbian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-serbian-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-serbian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-serbian-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2002-serbian-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-slovenian-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-slovenian-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-slovenian-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-slovenian-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2015-society-and-culture-specimen-exam-paper",
-   "canonicalId": "hsc-2015-society-and-culture-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-society-and-culture-hsc-exam-paper",
-   "canonicalId": "hsc-2010-society-and-culture-philosophy-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2005-society-and-culture-hsc-exam-paper",
-   "canonicalId": "hsc-2005-society-and-culture-philosophy-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2004-society-and-culture-hsc-exam-paper",
-   "canonicalId": "hsc-2004-society-and-culture-philosophy-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-society-and-culture-hsc-exam-paper",
-   "canonicalId": "hsc-2003-society-and-culture-philosophy-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-society-and-culture-hsc-exam-paper",
-   "canonicalId": "hsc-2002-society-and-culture-philosophy-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2001-society-and-culture-hsc-exam-paper",
-   "canonicalId": "hsc-2001-society-and-culture-philosophy-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2018-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2018-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2017-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2017-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2016-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2016-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2015-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2015-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2014-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2014-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2013-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2013-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2012-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2012-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2011-studies-of-religion-sor-i-hsc-exam-paper",
-   "canonicalId": "hsc-2011-studies-of-religion-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2010-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2010-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2005-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2005-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2004-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2004-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-studies-of-religion-sor-i-hsc-exam-paper",
-   "canonicalId": "hsc-2003-studies-of-religion-sor-2-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-studies-of-religion-sor-ii-hsc-exam-paper",
-   "canonicalId": "hsc-2002-studies-of-religion-sor-i-hsc-exam-paper",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-turkish-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2003-turkish-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2003-turkish-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2003-turkish-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-turkish-continuers-hsc-exam-paper-s2",
-   "canonicalId": "hsc-2002-turkish-continuers-hsc-exam-paper-s1",
-   "reason": "existing-copy"
-  },
-  {
-   "id": "hsc-2002-turkish-continuers-hsc-exam-paper-s3",
-   "canonicalId": "hsc-2002-turkish-continuers-hsc-exam-paper-s1",
    "reason": "existing-copy"
   },
   {
@@ -21406,134 +20892,6 @@
    "reason": "An official exam does not establish this listing's document identity"
   },
   {
-   "id": "thsc-5330-2009-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2009-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2009-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2010-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2010-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2010-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2011-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2011-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2011-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2012-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2013-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2013-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2014-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2014-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2015-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5330-2015-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2009-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2009-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2009-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2010-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2010-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2010-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2011-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2011-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2011-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2012-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2013-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2013-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2014-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2014-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2015-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
-   "id": "thsc-5340-2015-itute-com-solutions",
-   "reason": "An official exam does not establish this listing's document identity"
-  },
-  {
    "id": "thsc-5310-2009-itute-com-solutions",
    "reason": "An official exam does not establish this listing's document identity"
   },
@@ -21746,23 +21104,7 @@
    "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
   },
   {
-   "id": "hsc-2018-english-advanced-hsc-exam-paper-1",
-   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
-  },
-  {
-   "id": "hsc-2017-english-advanced-hsc-exam-paper-1",
-   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
-  },
-  {
    "id": "hsc-2014-english-advanced-hsc-exam-paper-2",
-   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
-  },
-  {
-   "id": "hsc-2018-english-standard-hsc-exam-paper-1",
-   "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
-  },
-  {
-   "id": "hsc-2017-english-standard-hsc-exam-paper-2",
    "reason": "Explicit paper-number mismatch repaired from course/year-specific official pack"
   },
   {
@@ -21772,11 +21114,11 @@
  ],
  "unexpectedPrimaryDowngrades": [],
  "limitations": "Exact source-listing identities establish logical copies. Shared hashes/URLs with different semantic contexts are not merged. Unresolved imports remain in review, not in the active count.",
- "filePointers": 7571,
- "directFilePointers": 7370,
+ "filePointers": 7620,
+ "directFilePointers": 7419,
  "resolverPrimaries": 200,
  "fragmentPrimaries": 1,
- "recoveryPapers": 643,
+ "recoveryPapers": 657,
  "publicationSync": {
   "sourceCommit": "8fe14f0a10223e06aa37432d57656987620536fc",
   "bindings": [
@@ -21883,10 +21225,6 @@
  "cleanup": {
   "metadataChanges": [
    {
-    "id": "hsc-2017-mathematics-hsc-exam-paper",
-    "reason": "Exact 2017 official exam bytes already verified; marking guidelines remain the separate solutions file"
-   },
-   {
     "id": "portal-5228-abbotsleigh-2024",
     "reason": "Verified Advanced Task 3 heading; detached unrelated Barker solutions"
    },
@@ -21963,26 +21301,6 @@
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
    },
    {
-    "id": "thsc-2420-2010-sample-answers",
-    "canonicalId": "thsc-2420-2010-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-2420-2011-sample-answers",
-    "canonicalId": "thsc-2420-2011-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-2720-2012-sample-answers-paper-1",
-    "canonicalId": "thsc-2720-2012-marking-guidelines-paper-1",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-2720-2012-marking-feedback",
-    "canonicalId": "thsc-2720-2012-marking-guidelines-paper-1",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
     "id": "thsc-5313-newington-2012-w-sol",
     "canonicalId": "thsc-5316-newington-2012-w-sol",
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
@@ -22003,63 +21321,8 @@
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
    },
    {
-    "id": "thsc-5320-2010-sample-answers",
-    "canonicalId": "thsc-5320-2010-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5320-2010-marking-feedback",
-    "canonicalId": "thsc-5320-2010-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5320-2011-sample-answers",
-    "canonicalId": "thsc-5320-2011-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5320-2011-marking-feedback",
-    "canonicalId": "thsc-5320-2011-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5320-2013-marking-feedback",
-    "canonicalId": "thsc-5320-2013-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5320-2014-marking-feedback",
-    "canonicalId": "thsc-5320-2014-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
     "id": "thsc-5320-2015-marking-feedback",
     "canonicalId": "thsc-5320-2015-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5310-2009-sample-answers",
-    "canonicalId": "thsc-5310-2009-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5310-2009-marking-feedback",
-    "canonicalId": "thsc-5310-2009-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5310-2010-sample-answers",
-    "canonicalId": "thsc-5310-2010-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5310-2010-marking-feedback",
-    "canonicalId": "thsc-5310-2010-marking-guidelines",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "thsc-5310-2011-sample-answers",
-    "canonicalId": "thsc-5310-2011-marking-guidelines",
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
    },
    {
@@ -25078,26 +24341,6 @@
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
    },
    {
-    "id": "hsc-2014-esl-hsc-exam-paper",
-    "canonicalId": "hsc-2014-esl-hsc-exam-paper-1",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "hsc-2013-esl-hsc-exam-paper",
-    "canonicalId": "hsc-2013-esl-hsc-exam-paper-1",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "hsc-2005-senior-science-hsc-exam-paper-2",
-    "canonicalId": "hsc-2005-senior-science-hsc-exam-paper-1",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "hsc-2005-senior-science-hsc-exam-paper",
-    "canonicalId": "hsc-2005-senior-science-hsc-exam-paper-1",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
     "id": "portal-5228-barker-2021-w-sol",
     "canonicalId": "thsc-5221-barker-2021-w-sol",
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
@@ -26021,345 +25264,9 @@
     "id": "portal-5238-trinity-grammar-2016-w-sol",
     "canonicalId": "thsc-5236-trinity-grammar-2016-w-sol",
     "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
-   },
-   {
-    "id": "add-acehsc-511ff93752",
-    "canonicalId": "thsc-2728-baulkham-hills-2020-p2-adv",
-    "reason": "Identical full bytes and assessment context; source classifications normalized from evidence"
    }
   ],
-  "fullByteMerges": [
-   {
-    "id": "hsc-2008-english-standard-hsc-exam-paper",
-    "canonicalId": "hsc-2008-english-advanced-hsc-exam-paper-1",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1368-girraween-2022-w-sol",
-    "canonicalId": "portal-1368-girraween-2022-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1368-north-sydney-girls-2020-w-sol",
-    "canonicalId": "portal-1368-north-sydney-girls-2020-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1368-north-sydney-girls-2023-w-sol",
-    "canonicalId": "portal-1368-north-sydney-girls-2023-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1368-sydney-grammar-2018-w-sol",
-    "canonicalId": "portal-1368-sydney-grammar-2018-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-girraween-2022-w-sol",
-    "canonicalId": "portal-1818-girraween-2022-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-james-ruse-2008-w-sol",
-    "canonicalId": "portal-1818-james-ruse-2008-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-james-ruse-2012-w-sol",
-    "canonicalId": "portal-1818-james-ruse-2012-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-james-ruse-2018-w-sol",
-    "canonicalId": "portal-1818-james-ruse-2018-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-james-ruse-2019-w-sol",
-    "canonicalId": "portal-1818-james-ruse-2019-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-james-ruse-2020-w-sol",
-    "canonicalId": "portal-1818-james-ruse-2020-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-north-sydney-girls-2024-w-sol",
-    "canonicalId": "portal-1818-north-sydney-girls-2024-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-pymble-2023-w-sol",
-    "canonicalId": "portal-1818-pymble-2023-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-strathfield-girls-2011-w-sol",
-    "canonicalId": "portal-1818-strathfield-girls-2011-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-sydney-grammar-2014-w-sol",
-    "canonicalId": "portal-1818-sydney-grammar-2014-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-sydney-grammar-2016-w-sol",
-    "canonicalId": "portal-1818-sydney-grammar-2016-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-1818-sydney-grammar-2021-w-sol",
-    "canonicalId": "portal-1818-sydney-grammar-2021-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-2468-sydney-grammar-2014-w-sol",
-    "canonicalId": "portal-2468-sydney-grammar-2014-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-2468-sydney-grammar-2015-w-sol",
-    "canonicalId": "portal-2468-sydney-grammar-2015-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-2468-sydney-tech-2012-w-sol",
-    "canonicalId": "portal-2468-sydney-tech-2012-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-2468-sydney-tech-2013-w-sol",
-    "canonicalId": "portal-2468-sydney-tech-2013-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-blacktown-boys-2020-w-sol",
-    "canonicalId": "portal-5228-blacktown-boys-2020-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-blacktown-boys-2022-w-sol",
-    "canonicalId": "portal-5228-blacktown-boys-2022-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-caringbah-2010-w-sol",
-    "canonicalId": "portal-5228-caringbah-2010-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-caringbah-2014-w-sol",
-    "canonicalId": "portal-5228-caringbah-2014-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-caringbah-2015-w-sol",
-    "canonicalId": "portal-5228-caringbah-2015-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-caringbah-2016-w-sol",
-    "canonicalId": "portal-5228-caringbah-2016-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-caringbah-2017-w-sol",
-    "canonicalId": "portal-5228-caringbah-2017-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-cheltenham-girls-2009-w-sol",
-    "canonicalId": "portal-5228-cheltenham-girls-2009-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-cranbrook-2008-w-sol",
-    "canonicalId": "portal-5228-cranbrook-2008-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-epping-boys-2012-w-sol",
-    "canonicalId": "portal-5228-epping-boys-2012-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-hornsby-girls-2006-w-sol",
-    "canonicalId": "portal-5228-hornsby-girls-2006-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-international-grammar-2013-w-sol",
-    "canonicalId": "portal-5228-international-grammar-2013-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-knox-2002-w-sol",
-    "canonicalId": "portal-5228-knox-2002-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-roseville-2003-w-sol",
-    "canonicalId": "portal-5228-roseville-2003-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5228-sydney-boys-2000-w-sol",
-    "canonicalId": "portal-5228-sydney-boys-2000-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5218-kings-2018-w-sol",
-    "canonicalId": "portal-5218-kings-2018-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5218-kings-2016-w-sol",
-    "canonicalId": "portal-5218-kings-2016-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-blacktown-boys-2019-w-sol",
-    "canonicalId": "portal-5238-blacktown-boys-2019-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-blacktown-boys-2020-w-sol",
-    "canonicalId": "portal-5238-blacktown-boys-2020-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-blacktown-boys-2022-w-sol",
-    "canonicalId": "portal-5238-blacktown-boys-2022-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-caringbah-2014-w-sol",
-    "canonicalId": "portal-5238-caringbah-2014-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-caringbah-2015-w-sol",
-    "canonicalId": "portal-5238-caringbah-2015-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-caringbah-2025-w-sol",
-    "canonicalId": "portal-5238-caringbah-2025-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-cherrybrook-tech-2016-w-sol",
-    "canonicalId": "portal-5238-cherrybrook-tech-2016-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-fort-st-2006-w-sol",
-    "canonicalId": "portal-5238-fort-st-2006-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-fort-st-2009-w-sol",
-    "canonicalId": "portal-5238-fort-st-2009-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-fort-st-2012-w-sol",
-    "canonicalId": "portal-5238-fort-st-2012-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-fort-st-2013-w-sol",
-    "canonicalId": "portal-5238-fort-st-2013-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-fort-st-2018-w-sol",
-    "canonicalId": "portal-5238-fort-st-2018-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-girraween-2021-w-sol",
-    "canonicalId": "portal-5238-girraween-2021-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-gosford-2005-w-sol",
-    "canonicalId": "portal-5238-gosford-2005-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-gosford-2007-w-sol",
-    "canonicalId": "portal-5238-gosford-2007-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-killara-2001-w-sol",
-    "canonicalId": "portal-5238-killara-2001-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-sceggs-2004-w-sol",
-    "canonicalId": "portal-5238-sceggs-2004-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-sydney-boys-2002-w-sol",
-    "canonicalId": "portal-5238-sydney-boys-2002-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-5238-sydney-boys-2003-w-sol",
-    "canonicalId": "portal-5238-sydney-boys-2003-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-girraween-2023-w-sol",
-    "canonicalId": "portal-6518-girraween-2023-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-gosford-2022-w-sol",
-    "canonicalId": "portal-6518-gosford-2022-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-hornsby-girls-2018-w-sol",
-    "canonicalId": "portal-6518-hornsby-girls-2018-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-hornsby-girls-2020-w-sol",
-    "canonicalId": "portal-6518-hornsby-girls-2020-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-james-ruse-2015-w-sol",
-    "canonicalId": "portal-6518-james-ruse-2015-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-james-ruse-2016-w-sol",
-    "canonicalId": "portal-6518-james-ruse-2016-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-james-ruse-2019-w-sol",
-    "canonicalId": "portal-6518-james-ruse-2019-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-pymble-2005-w-sol",
-    "canonicalId": "portal-6518-pymble-2005-w-sol",
-    "reason": "existing-copy"
-   },
-   {
-    "id": "portal-sol-6518-pymble-2024-w-sol",
-    "canonicalId": "portal-6518-pymble-2024-w-sol",
-    "reason": "existing-copy"
-   }
-  ],
+  "fullByteMerges": [],
   "versionMerges": [
    {
     "id": "portal-5348-knox-2024",
@@ -26372,125 +25279,8 @@
     "reason": "Same publisher assessment with verified question/combined document variants"
    }
   ],
-  "attachedDocumentMerges": [
-   {
-    "id": "thsc-2420-2010-marking-guidelines",
-    "canonicalId": "thsc-2420-2010-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-2420-2011-marking-guidelines",
-    "canonicalId": "thsc-2420-2011-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-2420-2013-marking-guidelines",
-    "canonicalId": "thsc-2420-2013-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-2420-2014-marking-guidelines",
-    "canonicalId": "thsc-2420-2014-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-2420-2015-marking-guidelines",
-    "canonicalId": "thsc-2420-2015-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-2720-2012-marking-guidelines-paper-1",
-    "canonicalId": "thsc-2720-2012-hsc-paper-1",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2010-marking-guidelines",
-    "canonicalId": "thsc-5320-2010-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2011-marking-guidelines",
-    "canonicalId": "thsc-5320-2011-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2013-marking-guidelines",
-    "canonicalId": "thsc-5320-2013-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2014-marking-guidelines",
-    "canonicalId": "thsc-5320-2014-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2016-marking-guidelines",
-    "canonicalId": "thsc-5320-2016-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2017-marking-guidelines",
-    "canonicalId": "thsc-5320-2017-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5320-2018-marking-feedback",
-    "canonicalId": "thsc-5320-2018-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5310-2009-marking-guidelines",
-    "canonicalId": "thsc-5310-2009-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5310-2010-marking-guidelines",
-    "canonicalId": "thsc-5310-2010-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5310-2011-marking-guidelines",
-    "canonicalId": "thsc-5310-2011-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5310-2013-marking-guidelines",
-    "canonicalId": "thsc-5310-2013-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5310-2016-marking-guidelines",
-    "canonicalId": "thsc-5310-2016-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   },
-   {
-    "id": "thsc-5310-2017-marking-guidelines",
-    "canonicalId": "thsc-5310-2017-hsc",
-    "reason": "Verified document already attached as this assessment's solutions"
-   }
-  ],
-  "sharedEnglishMerges": [
-   {
-    "id": "hsc-2015-english-standard-hsc-exam-paper-1",
-    "canonicalId": "hsc-2015-english-advanced-hsc-exam-paper-1",
-    "reason": "Explicit shared Standard/Advanced Paper 1 heading and identical full bytes"
-   },
-   {
-    "id": "hsc-2014-english-standard-hsc-exam-paper-1",
-    "canonicalId": "hsc-2014-english-advanced-hsc-exam-paper-1",
-    "reason": "Explicit shared Standard/Advanced Paper 1 heading and identical full bytes"
-   },
-   {
-    "id": "hsc-2010-english-standard-hsc-exam-paper-1",
-    "canonicalId": "hsc-2010-english-advanced-hsc-exam-paper-1",
-    "reason": "Explicit shared Standard/Advanced Paper 1 heading and identical full bytes"
-   },
-   {
-    "id": "hsc-2009-english-standard-hsc-exam-paper-1",
-    "canonicalId": "hsc-2009-english-advanced-hsc-exam-paper-1",
-    "reason": "Explicit shared Standard/Advanced Paper 1 heading and identical full bytes"
-   }
-  ],
+  "attachedDocumentMerges": [],
+  "sharedEnglishMerges": [],
   "rejectedSources": [
    {
     "id": "portal-5228-sydney-boys-2011-w-sol",
@@ -31467,12 +30257,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2001-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/66bc7a3f-29ba-4168-b98b-71c5006952fe/earth-env-science-hsc-notes-2001.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-2420-2001-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/2420/2001%20Marking%20Guidelines",
     "role": "primary",
@@ -31483,12 +30267,6 @@
     "url": "https://thsconline.github.io/s/d/2420/2002%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2002-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/9051058a-c2fc-4d70-9988-df3837e6a72d/earth-env-science-hsc-notes-2002.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-2420-2002-marking-guidelines",
@@ -31503,12 +30281,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2003-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/81fb1625-d908-40e5-83d1-f2d15052f361/earth-env-science-hsc-notes-2003.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-2420-2003-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/2420/2003%20Marking%20Guidelines",
     "role": "primary",
@@ -31519,12 +30291,6 @@
     "url": "https://thsconline.github.io/s/d/2420/2004%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2004-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/0e44b6e0-7f74-4a16-a3b5-388b82af4691/earth-env-science-hsc-notes-2004.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-2420-2004-marking-guidelines",
@@ -31539,12 +30305,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2005-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/ff0aa0ad-711f-442f-be34-a2b788206f48/earth-env-science-hsc-notes-2005.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-2420-2005-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/2420/2005%20Marking%20Guidelines",
     "role": "primary",
@@ -31555,12 +30315,6 @@
     "url": "https://thsconline.github.io/s/d/2420/2006%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2006-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/da3c17bd-0d10-4585-a862-20a6bbe605b5/earth-env-science-hsc-notes-2006.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-2420-2006-marking-guidelines",
@@ -31585,12 +30339,6 @@
     "url": "https://thsconline.github.io/s/d/2420/2008%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2008-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/95fd174f-e82f-49b3-8d40-feafdfdd9ded/earth-env-science-hsc-notes-2008.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-2420-2008-marking-guidelines",
@@ -31629,46 +30377,16 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2010-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/2420/2010%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2010-sample-answers",
-    "url": "https://thsconline.github.io/s/d/2420/2010%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "thsc-2420-2011-hsc",
     "url": "https://thsconline.github.io/s/d/2420/2011%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2011-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/2420/2011%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2011-sample-answers",
-    "url": "https://thsconline.github.io/s/d/2420/2011%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "thsc-2420-2012-hsc",
     "url": "https://thsconline.github.io/s/d/2420/2012%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2012-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/0b7393da-b697-4183-9c0a-5b90bd4896dc/earth-env-science-hsc-mg-2012.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-2420-2012-marking-guidelines",
@@ -31689,32 +30407,14 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2013-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/2420/2013%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "thsc-2420-2014-hsc",
     "url": "https://thsconline.github.io/s/d/2420/2014%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-2420-2014-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/2420/2014%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "thsc-2420-2015-hsc",
     "url": "https://thsconline.github.io/s/d/2420/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-2420-2015-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/2420/2015%20Marking%20Guidelines",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
@@ -33003,12 +31703,6 @@
     "reason": "THSC returned its 404 placeholder; requested file unavailable"
    },
    {
-    "id": "thsc-2720-2012-marking-guidelines-paper-1",
-    "url": "https://thsconline.github.io/s/d/2720/2012%20Marking%20Guidelines%20Paper%201",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "thsc-2720-2012-marking-guidelines-paper-2-advanced",
     "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2012exams/pdf_doc/english-esl-listening-paper-hsc-sample-answers-12.pdf",
     "role": "primary",
@@ -33029,18 +31723,6 @@
    {
     "id": "thsc-2720-2012-marking-guidelines-paper-2-standard",
     "url": "https://thsconline.github.io/s/d/2720/2012%20Marking%20Guidelines%20Paper%202%20(Standard)",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "thsc-2720-2012-sample-answers-paper-1",
-    "url": "https://thsconline.github.io/s/d/2720/2012%20Sample%20Answers%20Paper%201",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "thsc-2720-2012-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/2720/2012%20Marking%20Feedback",
     "role": "primary",
     "reason": "Unverified source"
    },
@@ -41991,46 +40673,10 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5320-2010-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5320/2010%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2010-sample-answers",
-    "url": "https://thsconline.github.io/s/d/5320/2010%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "thsc-5320-2010-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5320/2010%20Marking%20Feedback",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "thsc-5320-2011-hsc",
     "url": "https://thsconline.github.io/s/d/5320/2011%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2011-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5320/2011%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2011-sample-answers",
-    "url": "https://thsconline.github.io/s/d/5320/2011%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "thsc-5320-2011-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5320/2011%20Marking%20Feedback",
-    "role": "primary",
-    "reason": "Unverified source"
    },
    {
     "id": "thsc-5320-2012-hsc",
@@ -42069,34 +40715,10 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5320-2013-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5320/2013%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2013-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5320/2013%20Marking%20Feedback",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "thsc-5320-2014-hsc",
     "url": "https://thsconline.github.io/s/d/5320/2014%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2014-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5320/2014%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2014-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5320/2014%20Marking%20Feedback",
-    "role": "primary",
-    "reason": "Unverified source"
    },
    {
     "id": "thsc-5320-2015-hsc",
@@ -42123,12 +40745,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5320-2016-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5320/2016%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "thsc-5320-2016-marking-feedback",
     "url": "https://thsconline.github.io/s/d/5320/2016%20Marking%20Feedback",
     "role": "primary",
@@ -42137,12 +40753,6 @@
    {
     "id": "thsc-5320-2017-hsc",
     "url": "https://thsconline.github.io/s/d/5320/2017%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2017-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5320/2017%20Marking%20Guidelines",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
@@ -42161,12 +40771,6 @@
    {
     "id": "thsc-5320-2018-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/5320/2018%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5320-2018-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5320/2018%20Marking%20Feedback",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
@@ -42225,12 +40829,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2002-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/825812ed-575f-4526-9c7a-536bd44a3018/maths-general-hsc-notes-2002.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-5310-2002-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/5310/2002%20Marking%20Guidelines",
     "role": "primary",
@@ -42241,12 +40839,6 @@
     "url": "https://thsconline.github.io/s/d/5310/2003%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2003-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/fc26ca92-08f0-403b-948f-a3e9680fdcd2/maths-general-hsc-notes-2003.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-5310-2003-marking-guidelines",
@@ -42261,12 +40853,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2004-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/b5a14c8d-7384-4c1f-bc0b-22b965984717/maths-general-hsc-notes-2004.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-5310-2004-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/5310/2004%20Marking%20Guidelines",
     "role": "primary",
@@ -42279,12 +40865,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2005-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/8895c788-596d-4fa1-9c26-e52ea04f1fbf/maths-general-hsc-notes-2005.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-5310-2005-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/5310/2005%20Marking%20Guidelines",
     "role": "primary",
@@ -42295,12 +40875,6 @@
     "url": "https://thsconline.github.io/s/d/5310/2006%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2006-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/dbf4890a-e42d-4368-8478-6be8d9c38ba1/maths-general-hsc-notes-2006.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
    },
    {
     "id": "thsc-5310-2006-marking-guidelines",
@@ -42327,12 +40901,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2008-hsc",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/0e9b0d9b-a374-49a2-8442-283ad93ecb00/maths-general-hsc-notes-2008.pdf?MOD=AJPERES",
-    "role": "solutions",
-    "reason": "Source returned HTML or an incomplete PDF"
-   },
-   {
     "id": "thsc-5310-2008-marking-guidelines",
     "url": "https://thsconline.github.io/s/d/5310/2008%20Marking%20Guidelines",
     "role": "primary",
@@ -42345,64 +40913,16 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2009-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5310/2009%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2009-sample-answers",
-    "url": "https://thsconline.github.io/s/d/5310/2009%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "thsc-5310-2009-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5310/2009%20Marking%20Feedback",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "thsc-5310-2010-hsc",
     "url": "https://thsconline.github.io/s/d/5310/2010%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2010-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5310/2010%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2010-sample-answers",
-    "url": "https://thsconline.github.io/s/d/5310/2010%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
-    "id": "thsc-5310-2010-marking-feedback",
-    "url": "https://thsconline.github.io/s/d/5310/2010%20Marking%20Feedback",
-    "role": "primary",
-    "reason": "Unverified source"
-   },
-   {
     "id": "thsc-5310-2011-hsc",
     "url": "https://thsconline.github.io/s/d/5310/2011%20HSC",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2011-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5310/2011%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2011-sample-answers",
-    "url": "https://thsconline.github.io/s/d/5310/2011%20Sample%20Answers",
-    "role": "primary",
-    "reason": "Unverified source"
    },
    {
     "id": "thsc-5310-2012-hsc",
@@ -42437,12 +40957,6 @@
    {
     "id": "thsc-5310-2013-hsc",
     "url": "https://thsconline.github.io/s/d/5310/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2013-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5310/2013%20Marking%20Guidelines",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
@@ -42483,12 +40997,6 @@
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
-    "id": "thsc-5310-2016-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5310/2016%20Marking%20Guidelines",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "thsc-5310-2016-marking-feedback",
     "url": "https://thsconline.github.io/s/d/5310/2016%20Marking%20Feedback",
     "role": "primary",
@@ -42497,12 +41005,6 @@
    {
     "id": "thsc-5310-2017-hsc",
     "url": "https://thsconline.github.io/s/d/5310/2017%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "thsc-5310-2017-marking-guidelines",
-    "url": "https://thsconline.github.io/s/d/5310/2017%20Marking%20Guidelines",
     "role": "primary",
     "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
@@ -58882,135 +57384,45 @@
    },
    {
     "id": "hsc-2018-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b6b1605-b3df-4dc3-91a1-3451ccb62055/2018-hsc-ancient-history.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2018%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/59140f8f-3220-41b4-a57e-0886b735d873/2018-hsc-ancient-history-mg.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b7a62d5-568e-43c8-b30d-3b8d49f9c77e/2017-hsc-ancient-history.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/0e0a2999-2388-43ea-aa10-93f60202122c/2017-hsc-mg-ancient-history.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/44446ad0-8e8a-4f0f-bf0d-a4dc22467cb3/2016-hsc-ancient-history.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/70352704-de94-4692-8674-48ad9142e902/2016-hsc-mg-ancient-history.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2012-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-ancient-history-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/35dc4f5f-5b13-45d9-a3ed-65c0c6e2fd9f/ancient-history-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-ancient-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1170/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2018-arabic-beginners-hsc-exam-paper",
@@ -59218,57 +57630,39 @@
    },
    {
     "id": "hsc-2018-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/114983e9-8298-435f-842e-2223ad1a757d/2018-hsc-biology.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2018%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/49b42cde-14de-4042-8602-855d6b9cbdd1/2018-hsc-biology-mg.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/fc23024b-f91e-468c-90b5-8d522b8d2dbf/2017-hsc-biology.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/0510d97c-140b-41ec-acf9-23ca14f34373/2017-hsc-mg-biology.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/adc1d586-5f58-4d32-a053-6a6c71fe9628/2016-hsc-biology.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/71cc392c-7c89-4002-9f21-768223e69e64/2016-hsc-mg-biology.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2012-biology-hsc-exam-paper",
@@ -59277,82 +57671,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2012-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2007-biology-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/8cf846a3-71a1-48ef-8683-09a6be7ca863/biology-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-biology-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1370/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2018-business-services-hsc-exam-paper",
@@ -59380,81 +57702,33 @@
    },
    {
     "id": "hsc-2018-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/858727ca-1db5-4df0-ab13-8a3496f3e4ff/2018-hsc-business-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/54c0daaf-2bc2-4d45-98cf-37dfed260dda/2017-hsc-business-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/357da7c1-1f05-4271-a5a1-56cf2bcbd42a/2017-hsc-mg-business-studies.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/b34cb127-f93f-41dd-92f5-5ea9135548ce/2016-hsc-business-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/af8dab75-2d4e-46c4-be42-a4daafba1302/2016-hsc-mg-business-studies.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2012-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-business-studies-hsc-exam-paper",
@@ -59463,184 +57737,130 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2007-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2007%20HSC",
+    "id": "hsc-2018-chemistry-hsc-exam-paper",
+    "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-chemistry-archive.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-business-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1570/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-chemistry-hsc-exam-paper",
-    "url": "https://www.nsw.gov.au/sites/default/files/2018-chemistry-hsc-exam.pdf",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/b17504ca-d354-4e45-ba86-e36a1bdb00ad/2018-hsc-chemistry.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "HTTP 404"
-   },
-   {
-    "id": "hsc-2018-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2018%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-chemistry-hsc-exam-paper",
-    "url": "https://www.nsw.gov.au/sites/default/files/chemistry-hsc-exam-2017.pdf",
+    "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-chemistry-archive.pdf",
     "role": "primary",
-    "reason": "HTTP 404"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/cb65ca25-fc28-4e21-8f2d-4886bf176ddd/2017-hsc-chemistry.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-chemistry-hsc-exam-paper",
-    "url": "https://www.nsw.gov.au/sites/default/files/chemistry-hsc-exam-2016.pdf",
+    "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-chemistry-archive.pdf",
     "role": "primary",
-    "reason": "HTTP 404"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e76232cd-1d84-4d3e-92ce-ea41546810f6/2016-hsc-chemistry.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2015-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2015%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/2015/exams/2015-hsc-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2014-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2014%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/2014/pdf_doc/2014-hsc-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2013-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2013%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/2013/pdf_doc/2013-hsc-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2012-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2012%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2012exams/pdf_doc/2012-hsc-exam-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2011-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2011%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2011exams/pdf_doc/2011-hsc-exam-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2010-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2010%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2010exams/pdf_doc/2010-hsc-exam-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2009-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2009%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2009exams/pdf_doc/2009-hsc-exam-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2008-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2008%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2008exams/pdf_doc/2008HSC-chemistry.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2007%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/1aacbf34-c201-4660-9602-9a7f458b985f/chemistry-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2006-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2006%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2006exams/pdf_doc/chemistry_06.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2005-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2005%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2005exams/pdf_doc/chemistry_05.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2004-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2004%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2004exams/pdf_doc/chemistry_04.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2003-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2003%20HSC",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2003exams/pdf_doc/chemistry_03.pdf",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2002-chemistry-hsc-exam-paper",
-    "url": "https://www.nsw.gov.au/sites/default/files/2021-xx/chemistry-hsc-exam-2002.pdf",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2002exams/pdf_doc/chemistry_02.pdf",
     "role": "primary",
-    "reason": "HTTP 404"
-   },
-   {
-    "id": "hsc-2002-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2001-chemistry-hsc-exam-paper",
-    "url": "https://www.nsw.gov.au/sites/default/files/2021-xx/chemistry-hsc-exam-2001.pdf",
+    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2001exams/pdf_doc/chemistr_01.pdf",
     "role": "primary",
-    "reason": "HTTP 404"
-   },
-   {
-    "id": "hsc-2001-chemistry-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/1820/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-chinese-beginners-hsc-exam-paper",
@@ -60502,129 +58722,39 @@
    },
    {
     "id": "hsc-2018-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/6a7e7c78-0dc8-44c1-b701-b4e358541657/2018-hsc-economics.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/fef45a39-d7af-40d5-9ad0-b4f987be28c2/2017-hsc-economics.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/a03cd270-e2ce-4fee-9bf7-e9b25d686e52/2017-hsc-mg-economics.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/09166211-0e2d-4863-8e6c-fa9573edbcdc/2016-hsc-economics.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e827534c-7f62-463d-ae3e-c2556ba15823/2016-hsc-mg-economics.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2012-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-economics-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/d5fced50-b2aa-473f-8588-afcfa4ca6f48/economics-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-economics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2470/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2018-electrotechnology-hsc-exam-paper",
@@ -60664,129 +58794,39 @@
    },
    {
     "id": "hsc-2018-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/432242fa-ee36-4c87-988c-093a16599662/2018-hsc-engineering-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/f892452a-3e25-4c2d-ad7d-9c9bb1852b9b/2017-hsc-engineering-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/9f5b1657-263f-45ca-9509-c9ecc7f022eb/2017-hsc-mg-engineering-studies.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/d7114ef2-04bd-4517-90a4-02da378219c7/2016-hsc-engineering-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/c127b443-d664-43bb-9632-db5de6c49815/2016-hsc-mg-engineering-studies.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2012-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-engineering-studies-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/4f781d81-71dc-40bf-8908-ec7c6d9726bc/engineering-studies-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-engineering-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/2670/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2017-english-advanced-hsc-exam-paper-2",
@@ -61047,12 +59087,6 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2015-english-standard-hsc-exam-paper-1",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/3d08cbb2-f486-4007-b7a6-2568f6329426/english-std-hsc-exam-1-2015.pdf?MOD=AJPERES",
-    "role": "primary",
-    "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
     "id": "hsc-2015-english-standard-hsc-exam-paper-2",
     "url": "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2015-english-std-hsc-exam-1.pdf",
     "role": "primary",
@@ -61061,12 +59095,6 @@
    {
     "id": "hsc-2015-english-standard-hsc-exam-paper-2",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/7401fc0c-dc14-4526-99e8-990b1bb8b14e/english-std-hsc-exam-2-2015.pdf?MOD=AJPERES",
-    "role": "primary",
-    "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2014-english-standard-hsc-exam-paper-1",
-    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/a0ac3925-6dbd-4441-a27b-00d5767875a5/english-std-hsc-exam-paper-1-2014.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
    },
@@ -61095,22 +59123,10 @@
     "reason": "Document heading identifies Paper 1, not Paper 2"
    },
    {
-    "id": "hsc-2010-english-standard-hsc-exam-paper-1",
-    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2010exams/pdf_doc/english-std-adv-p1-marking-guide-10.pdf",
-    "role": "solutions",
-    "reason": "Unverified source"
-   },
-   {
     "id": "hsc-2010-english-standard-hsc-exam-paper-2",
     "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2010exams/pdf_doc/2010-hsc-exam-eng-SandA-p1.pdf",
     "role": "primary",
     "reason": "Document heading identifies Paper 1, not Paper 2"
-   },
-   {
-    "id": "hsc-2009-english-standard-hsc-exam-paper-1",
-    "url": "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2009exams/pdf_doc/english-std-adv-paper-1-marking-guide-09.pdf",
-    "role": "solutions",
-    "reason": "Unverified source"
    },
    {
     "id": "hsc-2009-english-standard-hsc-exam-paper-2",
@@ -62356,39 +60372,21 @@
    },
    {
     "id": "hsc-2018-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/854a6907-b510-4ec5-b82a-8834252d83a5/2018-hsc-japanese-cont.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/9b93ea7d-c054-4e69-88a3-1164bcaf0b3e/2017-hsc-japanese-cont.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/69ac94a3-006d-47fd-b2d1-ebc1c0488e6f/2016-hsc-japanese-cont.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2012-japanese-continuers-hsc-exam-paper",
@@ -62397,82 +60395,10 @@
     "reason": "Access/integrity outcome needs revalidation, not a claim of an invalid paper: HTTP 403"
    },
    {
-    "id": "hsc-2012-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2007-japanese-continuers-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/7f153a45-7d2d-445c-ab51-53ff0b9b6bf1/japanese-cont-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-japanese-continuers-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4620/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2018-japanese-extension-hsc-exam-paper",
@@ -62481,22 +60407,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2018-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2018%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2017-japanese-extension-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/ef726d9d-5f75-4428-b2fe-8494e4a4be98/2017-hsc-japanese-ext.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2017-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2017%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2016-japanese-extension-hsc-exam-paper",
@@ -62505,64 +60419,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2016-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2016%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2015%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2014%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2013%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2012-japanese-extension-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/7d4013ac-a443-4c78-bd66-448f212695ee/japanese-ext-hsc-exam-2012.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2012-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2011%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2007-japanese-extension-hsc-exam-paper",
@@ -62571,40 +60431,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2007-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2003-japanese-extension-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/6119b800-2f61-4d19-84dc-e1881cca90d7/japanese-ext-hsc-exam-2003.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2003-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2003%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2002-japanese-extension-hsc-exam-paper",
@@ -62613,22 +60443,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2002-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2002%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2001-japanese-extension-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e52790df-b23a-4bd5-b896-1b27ff73714b/japanese-ext-hsc-exam-2001.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2001-japanese-extension-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/4630/2001%20HSC%20(Written%20Exam)",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2018-japanese-and-literature-japanese-background-speakers-hsc-exam-paper",
@@ -62866,129 +60684,39 @@
    },
    {
     "id": "hsc-2018-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/0926248d-0656-4a9b-8ce9-19c49656d8ae/2018-hsc-legal-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/c98405ce-b13d-41ad-a559-5584ea39a788/2017-hsc-legal-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/f1a63b3f-6894-4ad0-9ee0-e8acc85ab9a2/2017-hsc-mg-legal-studies.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/00aa1af2-2da3-4bed-a3ec-1a9c21ab3949/2016-hsc-legal-studies.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/702a600f-da0e-4cbf-b753-dd8abbfca582/2016-hsc-mg-legal-studies.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2012-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-legal-studies-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/aef20071-1af4-4386-be44-e031ebce40f4/legal-studies-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-legal-studies-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5020/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2001-maltese-continuers-hsc-exam-paper-2",
@@ -63076,57 +60804,39 @@
    },
    {
     "id": "hsc-2018-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/8e9f3072-c973-43d9-90d7-c1bea2b136ab/2018-hsc-mathematics-ext-1.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2018%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/f3305815-cf7f-49aa-b5d0-94b99177a287/2018-hsc-maths-ext-1-mg.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/807028e6-87cd-4c19-bf19-9c3c7f6e6be8/2017-hsc-maths-ext-1.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/8848f4d8-cd34-4bc8-9426-0c4fef5145e8/2017-hsc-mg-maths-ext-1.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/756b83c4-d51a-4033-ae36-ff7cd39d4369/2016-hsc-maths-ext-1.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/53f90038-d8a8-461b-9367-51a98de5a0ca/Maths+Ext+1.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2012-mathematics-extension-1-hsc-exam-paper",
@@ -63135,40 +60845,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2012-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2012-mathematics-extension-1-mathematics-1-and-2-hsc-exam-paper-sample-questions",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e5515bac-0879-4974-a493-44cacd8b6135/maths-ext-1-ext-2-hsc-exam-sa-questions-2012.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2011-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2007-mathematics-extension-1-hsc-exam-paper",
@@ -63177,100 +60857,40 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2007-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2007%20HSC",
+    "id": "hsc-2018-mathematics-extension-2-hsc-exam-paper",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/faaffce8-847b-4fc6-8d72-4cb072dd8c56/2018-hsc-mathematics-ext-2.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-mathematics-extension-1-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5330/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2018%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2018-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2018%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/9c567fb3-8a31-4f20-83d7-62ef5220fb9e/2018-hsc-maths-ext-2-mg.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/700df45c-5316-4877-9766-ccd681854bb8/2017-hsc-maths-ext-2.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/84098eb6-ba88-4c63-a424-32886220e0e2/2017-hsc-mg-maths-ext-2.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/d483decf-16ed-4afd-b3da-60807d00addd/2016-hsc-maths-ext-2.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/01ecf820-6f85-4ccb-bdee-a8d729af0d3e/Maths+Ext+2.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2012-mathematics-extension-2-hsc-exam-paper",
@@ -63279,88 +60899,16 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2012-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2012-mathematics-extension-2-mathematics-1-and-2-hsc-exam-paper-sample-questions",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e5515bac-0879-4974-a493-44cacd8b6135/maths-ext-1-ext-2-hsc-exam-sa-questions-2012.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2011-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2007-mathematics-extension-2-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/be775b95-7995-479b-9f5a-8e99ba84dea4/maths-ext2-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-mathematics-extension-2-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5340/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2012-mathematics-general-hsc-exam-paper",
@@ -63586,57 +61134,39 @@
    },
    {
     "id": "hsc-2018-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/715055f4-8c43-44be-9b81-aa4901d0b370/2018-hsc-modern-history.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2018%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/cfa47f84-4754-498d-9451-a8930e268e6f/2018-hsc-modern-history-mg.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/7eec5dc6-fada-443d-b560-0b3bde6f8810/2017-hsc-modern-history.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/e3d0a8dc-8673-4802-94c6-8dfeafd5c4f7/2017-hsc-mg-modern-history.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/2798031b-db0c-4098-b049-067d26fff4a9/2016-hsc-modern-history.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/681099b3-c9b0-4c5f-bb1d-5b01b84c903f/2016-hsc-mg-modern-history.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2012-modern-history-hsc-exam-paper",
@@ -63645,82 +61175,10 @@
     "reason": "Source redirects/returns HTML rather than PDF"
    },
    {
-    "id": "hsc-2012-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
     "id": "hsc-2007-modern-history-hsc-exam-paper",
     "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/fd380cfb-8867-47ab-a4cb-eb27f21c38d7/modern-history-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
     "reason": "Source redirects/returns HTML rather than PDF"
-   },
-   {
-    "id": "hsc-2007-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2007%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-modern-history-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/5520/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
    },
    {
     "id": "hsc-2018-music-1-hsc-exam-paper",
@@ -63946,123 +61404,39 @@
    },
    {
     "id": "hsc-2018-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2018%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/dfca82ef-5e10-45dd-b908-dec528d2bf77/2018-hsc-physics.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2017%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/27f6eee8-da04-4373-aa0d-6e038f04a92e/2017-hsc-physics.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2017-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2017%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/c932fb86-190e-405d-a2d5-380885a168fd/2017-hsc-mg-physics.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2016%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/5c414559-9792-41e6-bd98-e43c9097168d/2016-hsc-physics.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2016-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2016%20Marking%20Guidelines",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/296846fe-d7a4-45e6-b5bd-b0e5112eef45/2016-hsc-mg-physics.pdf?MOD=AJPERES",
     "role": "solutions",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2015-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2015%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2014-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2014%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2013-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2013%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2012-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2012%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2011-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2011%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2010-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2010%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2009-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2009%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2008-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2008%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2007-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2007%20HSC",
+    "url": "https://educationstandards.nsw.edu.au/wps/wcm/connect/34e8f83e-fdae-4a67-8ac5-ce503d2299a1/physics-hsc-exam-2007.pdf?MOD=AJPERES",
     "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2006-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2006%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2005-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2005%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2004-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2004%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2003-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2003%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2002-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2002%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
-   },
-   {
-    "id": "hsc-2001-physics-hsc-exam-paper",
-    "url": "https://thsconline.github.io/s/d/6520/2001%20HSC",
-    "role": "primary",
-    "reason": "Unverified legacy fallback retained as provenance, not an actionable source"
+    "reason": "Unverified source"
    },
    {
     "id": "hsc-2018-primary-industries-hsc-exam-paper",
@@ -69493,18 +66867,6 @@
     "url": "https://thsconline.github.io/s/d/6518/Sydney%20Grammar%202022",
     "role": "primary",
     "reason": "Unverified source"
-   },
-   {
-    "id": "portal-sol-5228-blacktown-boys-2023-w-sol",
-    "url": "https://hscportal.pages.dev/yr11/Maths/Advanced/Blacktown%20Boys%202023%20w.%20sol%20%5B5228-86d4ebb6%5D.pdf",
-    "role": "primary",
-    "reason": "THSC returned its 404 placeholder; requested file unavailable"
-   },
-   {
-    "id": "portal-sol-5238-blacktown-boys-2024-w-sol",
-    "url": "https://hscportal.pages.dev/yr11/Maths/Extension%201/Blacktown%20Boys%202024%20w.%20sol%20%5B5238-2cf1c3d2%5D.pdf",
-    "role": "primary",
-    "reason": "Document heading identifies mathematics advanced, not mathematics extension 1"
    }
   ],
   "rejectedSourceCopies": [
@@ -69556,6 +66918,11 @@
    {
     "id": "thsc-5236-newington-2001-w-sol",
     "url": "https://thsconline.com.au/pdf/papers/yr11/maths/assessment-tasks-extension1/newington-2001-w-sol-5236.pdf",
+    "reason": "Different/unproved source bytes require explicit version/role review, not an ordinary primary backup"
+   },
+   {
+    "id": "thsc-5231-knox-2019-w-sol",
+    "url": "https://pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev/papers/Mathematics%20Extension%201/2019/2019-mathematics-extension-1-knox-paper-e7753be96d60.pdf",
     "reason": "Different/unproved source bytes require explicit version/role review, not an ordinary primary backup"
    },
    {
@@ -71266,6 +68633,16 @@
    {
     "id": "portal-5218-epping-boys-2009-w-sol",
     "url": "https://thsconline.com.au/pdf/papers/yr11/maths/prelimpapers-general/epping-boys-2009-w-sol.pdf",
+    "reason": "Different/unproved source bytes require explicit version/role review, not an ordinary primary backup"
+   },
+   {
+    "id": "add-thsc-au-growth-bc23678066",
+    "url": "https://pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev/papers/Chemistry/2024/2024-chemistry-riverview-paper-a4bdfa77ded7.pdf",
+    "reason": "Different/unproved source bytes require explicit version/role review, not an ordinary primary backup"
+   },
+   {
+    "id": "add-thsc-au-growth-e97f7c9082",
+    "url": "https://pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev/papers/Chemistry/2023/2023-chemistry-riverview-paper-3df011f51f41.pdf",
     "reason": "Different/unproved source bytes require explicit version/role review, not an ordinary primary backup"
    }
   ],

@@ -180,9 +180,11 @@ async function probeBytes(url) {
   const sha256 = crypto.createHash("sha256").update(buf).digest("hex");
   let pages = null;
   try {
-    const doc = await (await pdfjs()).getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
+    const task = (await pdfjs()).getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true });
+    const doc = await task.promise;
     pages = doc.numPages;
-    await doc.destroy();
+    if (typeof task.destroy === "function") await task.destroy();
+    else if (typeof doc.destroy === "function") await doc.destroy();
   } catch { /* pages optional */ }
   return { cls: "pdf", bytes: buf.length, pages, sha256 };
 }

@@ -135,10 +135,14 @@ async function probe(row) {
     return { ok: false, cls: "rot", reason: `sha drift: ${evidence.sha256.slice(0, 12)} stored ${row.sha256.slice(0, 12)}`, ...evidence };
   if (row.pages != null && Number.isInteger(row.pages) && row.pages > 0) {
     try {
-      const doc = await (await pdfjs()).getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true }).promise;
+      const task = (await pdfjs()).getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true });
+      const doc = await task.promise;
       try {
         if (doc.numPages !== row.pages) return { ok: false, cls: "rot", reason: `page drift: ${doc.numPages} stored ${row.pages}`, ...evidence, pages: doc.numPages };
-      } finally { await doc.destroy(); }
+      } finally {
+        if (typeof task.destroy === "function") await task.destroy();
+        else if (typeof doc.destroy === "function") await doc.destroy();
+      }
     } catch (e) { return { ok: false, cls: "rot", reason: "PDF.js open failed: " + String((e && e.message) || e).slice(0, 80), ...evidence }; }
   }
   return { ok: true, cls: "ok", reason: "verified", evidence };

@@ -84,9 +84,17 @@ function applyImports(papers, registry, options = {}) {
     const p = { id, subject: I.canonicalSubject(row.subject), level: row.level, year: row.year,
       school: row.school, type: row.type, title: row.title,
       url: row.url, solutionPath: "", size: "", hasSolutions: !!row.hasSolutions,
-      source: row.source, mirror: row.source, sha256: row.sha256, bytes: row.bytes,
+      source: row.source, mirror: row.mirror || row.source, sha256: row.sha256, bytes: row.bytes,
       ...(row.listingKey ? { listingKey: row.listingKey } : {}),
-      ...(row.examBlock ? { examBlock: row.examBlock } : {}) };
+      ...(row.examBlock ? { examBlock: row.examBlock } : {}),
+      ...(row.solutionUrl ? { solutionUrl: row.solutionUrl } : {}),
+      ...(row.fallbackUrl ? { fallbackUrl: row.fallbackUrl } : {}),
+      ...(row.solFallbackUrl ? { solFallbackUrl: row.solFallbackUrl } : {}),
+      ...(row.sourceKeys ? { sourceKeys: row.sourceKeys } : {}),
+      ...(row.viewno ? { viewno: row.viewno } : {}),
+      ...(row.linkText ? { linkText: row.linkText } : {}),
+      ...(row.documentRole ? { documentRole: row.documentRole } : {}),
+      ...(row.hints ? { hints: row.hints } : {}) };
     if (row.legacyRecord) p.libraryAliases = [row.legacyRecord];
     papers.push(p); report.added.push(id); indexRow(index, p);
   }
@@ -214,6 +222,7 @@ function coalesceSharedEnglish(papers, validation) {
     const text = validation.entries[p.url]?.text || "";
     const common = p.type === "hsc" && p.school === "NESA" && /^English (Standard|Advanced)$/.test(p.subject) &&
       /english[\s\S]{0,80}standard[\s\S]{0,30}advanced/i.test(text) && /paper\s*1/i.test(text);
+    if (common) p.relatedSubjects = [...new Set([...I.subjectsOf(p), "English Standard", "English Advanced"])];
     const key = common && p.sha256 + "|" + p.year + "|" + p.level + "|" + I.reviewKey(p).split("|")[6];
     const old = key && seen.get(key);
     if (old) {

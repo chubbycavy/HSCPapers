@@ -29,7 +29,7 @@ const step = (name) => console.log(`\n== [${stamp()}] ${name} ==`);
 // the canary regenerates these paths — the pre-canary worktree state is
 // SNAPSHOT byte-exact and restored after (git restore would wipe
 // UNCOMMITTED work, e.g. hand-edits sitting in the worktree)
-const CANARY_PATHS = ["ui/data/papers.json", "ui/data/papers-v2.json", "ui/sitemap.xml", "ui/coverage.html", "ui/index.html", "ui/subjects"];
+const CANARY_PATHS = ["ui/data/papers.json", "ui/data/papers-v2.json", "ui/sitemap.xml", "ui/coverage.html", "ui/index.html", "ui/subjects", "tools/reconciliation-report.json", "tools/reconciliation-report.md"];
 const os = require("os");
 const SNAPSHOT = fs.mkdtempSync(path.join(os.tmpdir(), "nuc-snap-"));
 for (const p of CANARY_PATHS) {

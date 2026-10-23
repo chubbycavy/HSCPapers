@@ -23,6 +23,8 @@ const read = (p) => fs.readFileSync(p, "utf8");
 const appJs = read(path.join(UI, "js", "app.js"));
 const html = read(path.join(UI, "index.html"));
 const mainRs = read(path.join(ROOT, "desktop", "src-tauri", "src", "main.rs"));
+const updaterRs = read(path.join(ROOT, "desktop", "src-tauri", "src", "updater.rs"));
+const themeInit = read(path.join(UI, "js", "theme-init.js"));
 const builder = read(path.join(ROOT, "desktop", "tools", "build-index.cjs"));
 const proxyJs = read(path.join(UI, "functions", "proxy.js")) + "\n" + read(path.join(UI, "_lib", "pdf-proxy.mjs"));
 const headers = read(path.join(UI, "_headers"));
@@ -55,11 +57,11 @@ async function main() {
   console.log("\n[2] Rust<->JS contracts");
   {
     const structs = {};
-    for (const m of mainRs.matchAll(/#\[derive\(([^\)]*)\)\]\s*(?:#\[[^\]]*\]\s*)?struct\s+(\w+)\s*\{([^}]*)\}/g)) {
+    for (const source of [mainRs, updaterRs]) for (const m of source.matchAll(/#\[derive\(([^\)]*)\)\]\s*(?:#\[[^\]]*\]\s*)?(?:pub\s+)?struct\s+(\w+)\s*\{([^}]*)\}/g)) {
       if (!/Serialize/.test(m[1])) continue;
       const fields = [];
       for (const line of m[3].split(/\r?\n/)) {
-        const f = line.trim().match(/^([a-z_][a-z0-9_]*)\s*:/);
+        const f = line.trim().match(/^(?:pub\s+)?([a-z_][a-z0-9_]*)\s*:/);
         if (f) fields.push(f[1]);
       }
       if (fields.length) structs[m[2]] = fields;
@@ -494,7 +496,9 @@ async function main() {
     // B3 follow-system dark: all three HTML surfaces must carry the pre-paint
     // theme script (system default, no light-lock), and nothing may hardcode
     // data-theme="light" as the default experience
-    const themeOk = (t) => t.includes('localStorage.getItem("hsc-theme")') && t.includes("prefers-color-scheme");
+    const themeOk = (t) => (t.includes("/js/theme-init.js") ||
+      (t.includes('localStorage.getItem("hsc-theme")') && t.includes("prefers-color-scheme"))) &&
+      themeInit.includes('localStorage.getItem("hsc-theme")') && themeInit.includes("prefers-color-scheme");
     if (themeOk(html)) pass("index.html: pre-paint theme script (follow-system)");
     else fail("index.html theme script missing/system-blind");
     const theme = fs.readFileSync(path.join(__dirname, "landing-pages.cjs"), "utf8");

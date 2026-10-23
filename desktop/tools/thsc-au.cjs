@@ -67,9 +67,13 @@ async function validate(item, { fetchImpl = fetch } = {}) {
   const bytes = Buffer.from(await response.arrayBuffer());
   if (bytes.length !== item.bytes || bytes.subarray(0, 5).toString() !== "%PDF-") throw new Error("PDF signature or declared byte length mismatch");
   const pdfjs = await require("./pdfjs.cjs").load();
-  const doc = await pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true }).promise;
+  const task = pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true });
+  const doc = await task.promise;
   try { if (doc.numPages !== item.pages) throw new Error("PDF page count mismatch"); }
-  finally { await doc.destroy(); }
+  finally {
+    if (typeof task.destroy === "function") await task.destroy();
+    else if (typeof doc.destroy === "function") await doc.destroy();
+  }
   return { ...item, sha256: crypto.createHash("sha256").update(bytes).digest("hex"), verifiedAt: new Date().toISOString() };
 }
 async function refresh(papers, { cached, slug, log = console.log, registryPath = REGISTRY_PATH } = {}) {
