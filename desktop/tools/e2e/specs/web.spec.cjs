@@ -169,9 +169,9 @@ test.describe("catalogue", () => {
 });
 
 test.describe("share round-trip", () => {
-  test("share link restores the exact selection", async ({ browser }) => {
-    const ctx = await browser.newContext();
-    await ctx.grantPermissions(["clipboard-read", "clipboard-write"], { origin: "http://localhost:8000" });
+  test("share link restores the exact selection", async ({ browser, baseURL }) => {
+    const ctx = await browser.newContext({ baseURL });
+    await ctx.grantPermissions(["clipboard-read", "clipboard-write"], { origin: new URL(baseURL).origin });
     const page = await ctx.newPage();
     await ready(page);
     await page.locator("#cards .card input[type=checkbox]").nth(0).check();

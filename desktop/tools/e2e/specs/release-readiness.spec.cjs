@@ -92,7 +92,7 @@ test("native descriptor card links use the public PDF gateway", async ({ page })
 for (const liveVersion of [1, 3, "offline"]) test(`native incompatible live ${liveVersion} falls back to the modern bundled feed`, async ({ page }) => {
   await native(page);
   await page.route("https://hscpapers.com/data/papers-v2.json**", route => liveVersion === "offline" ? route.abort("failed") : route.fulfill({ json: { dataVersion: liveVersion, papers: [{ ...record, id: "wrong-live" }] } }));
-  await page.route("http://localhost:8000/data/papers-v2.json**", route => route.fulfill({ json: cat([record]) }));
+  await page.route(test.info().project.use.baseURL + "/data/papers-v2.json**", route => route.fulfill({ json: cat([record]) }));
   await page.goto("/"); await expect(page.locator('[data-id="release-paper"]')).toBeVisible();
   await expect(page.locator('[data-id="wrong-live"]')).toHaveCount(0);
 });

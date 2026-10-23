@@ -33,6 +33,7 @@ export const KNOWN_COLLAPSED_SHAS = KNOWN_PLACEHOLDER_SHAS;
 const MAX_JSON_BYTES = 24 * 1024 * 1024;
 const MEMORY_BUDGET = 8 * 1024 * 1024;
 const cors = extra => ({
+  "X-Content-Type-Options": "nosniff",
   "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
   "Access-Control-Allow-Headers": "Range, If-Range, Origin",
   "Access-Control-Expose-Headers": "Content-Length, Content-Range, Accept-Ranges, Content-Type, ETag",

@@ -52,14 +52,7 @@ const MODE = process.argv.includes("--flip") ? "flip" : process.argv.includes("-
 const LIMIT = Number(argValue("--limit") || 0);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-let pdfjsReady = null;
-function pdfjs() {
-  if (!pdfjsReady) {
-    pdfjsReady = require("../ui/pdfjs/pdf.min.js");
-    pdfjsReady.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
-  }
-  return pdfjsReady;
-}
+const pdfjs = require("./pdfjs.cjs").load;
 
 async function downloadFile(id) {
   const u1 = `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download`;
@@ -136,7 +129,7 @@ async function downloadFile(id) {
         knownShas.add(sha256);
         let pages = null;
         try {
-          const doc = await pdfjs().getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
+          const doc = await (await pdfjs()).getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
           pages = doc.numPages;
           await doc.destroy();
         } catch { /* pages optional */ }

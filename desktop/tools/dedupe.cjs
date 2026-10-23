@@ -46,14 +46,7 @@ const normKey = (s) => String(s || "").toLowerCase().replace(/&/g, " and ").repl
 const tupleOf = identity.reviewKey;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-let pdfjsReady = null;
-function pdfjs() {
-  if (!pdfjsReady) {
-    pdfjsReady = require("../ui/pdfjs/pdf.min.js");
-    pdfjsReady.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
-  }
-  return pdfjsReady;
-}
+const pdfjs = require("./pdfjs.cjs").load;
 let lastFetch = 0;
 async function probeUrl(url) {
   const gap = lastFetch + 1100 - Date.now();
@@ -72,7 +65,7 @@ async function probeUrl(url) {
   const sha256 = crypto.createHash("sha256").update(buf).digest("hex");
   let pages = null;
   try {
-    const doc = await pdfjs().getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
+    const doc = await (await pdfjs()).getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
     pages = doc.numPages;
     await doc.destroy();
   } catch { /* pages optional */ }

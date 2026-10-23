@@ -172,14 +172,7 @@ async function fetchPage(url, { expectHtml = true } = {}) {
   return res;
 }
 
-let pdfjsReady = null;
-function pdfjs() {
-  if (!pdfjsReady) {
-    pdfjsReady = require("../ui/pdfjs/pdf.min.js");
-    pdfjsReady.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
-  }
-  return pdfjsReady;
-}
+const pdfjs = require("./pdfjs.cjs").load;
 async function probeBytes(url) {
   const res = await fetchPage(url);
   const buf = Buffer.from(await res.arrayBuffer());
@@ -187,7 +180,7 @@ async function probeBytes(url) {
   const sha256 = crypto.createHash("sha256").update(buf).digest("hex");
   let pages = null;
   try {
-    const doc = await pdfjs().getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
+    const doc = await (await pdfjs()).getDocument({ data: new Uint8Array(buf), isEvalSupported: false, disableFontFace: true }).promise;
     pages = doc.numPages;
     await doc.destroy();
   } catch { /* pages optional */ }

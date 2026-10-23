@@ -118,14 +118,7 @@ async function fetchWithRetry(url) {
 }
 
 /* core probe: 200 + application/pdf + %PDF- + optional byte/sha/page proof */
-let pdfjsReady = null;
-function pdfjs() {
-  if (!pdfjsReady) {
-    pdfjsReady = require("../ui/pdfjs/pdf.min.js");
-    pdfjsReady.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
-  }
-  return pdfjsReady;
-}
+const pdfjs = require("./pdfjs.cjs").load;
 async function probe(row) {
   const res = await fetchWithRetry(row.url);
   if (res.class === "throttled") return { ok: false, cls: "error", reason: "throttled upstream after retries" };
@@ -142,7 +135,7 @@ async function probe(row) {
     return { ok: false, cls: "rot", reason: `sha drift: ${evidence.sha256.slice(0, 12)} stored ${row.sha256.slice(0, 12)}`, ...evidence };
   if (row.pages != null && Number.isInteger(row.pages) && row.pages > 0) {
     try {
-      const doc = await pdfjs().getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true }).promise;
+      const doc = await (await pdfjs()).getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true }).promise;
       try {
         if (doc.numPages !== row.pages) return { ok: false, cls: "rot", reason: `page drift: ${doc.numPages} stored ${row.pages}`, ...evidence, pages: doc.numPages };
       } finally { await doc.destroy(); }

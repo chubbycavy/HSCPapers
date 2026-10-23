@@ -1,6 +1,6 @@
 [package]
 name = "hscpapes"
-version = "1.0.27"
+version = "1.0.28"
 edition = "2021"
 
 [build-dependencies]
@@ -19,6 +19,10 @@ hex = "0.4"
 base64 = "0.23"
 flate2 = "1"
 open = "5"
+tempfile = "3"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Storage_FileSystem"] }
 
 [features]
 default = ["custom-protocol"]

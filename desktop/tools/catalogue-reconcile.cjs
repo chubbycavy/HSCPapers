@@ -61,6 +61,8 @@ function applyImports(papers, registry, options = {}) {
     if (correctionIssue) { report.review.push({ id: I.importId(originalRow), reason: correctionIssue }); continue; }
     const row = { ...originalRow, ...(fix?.fields || {}) };
     const id = I.importId(row);
+    const metadataIssue = require("../ui/js/catalogue-schema.js").metadataIssue(row, { partial: true });
+    if (metadataIssue) { report.review.push({ id, reason: metadataIssue }); continue; }
     if (reviewed.hold(row, options.validation)) { report.review.push({ id, reason: reviewed.hold(row, options.validation) }); continue; }
     const issue = require("./document-admission.cjs").curriculumIssue(row);
     if (issue) { report.review.push({ id, reason: issue }); continue; }

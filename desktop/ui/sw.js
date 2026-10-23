@@ -7,14 +7,17 @@
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
 importScripts("/js/pdf-validation.js");
-const VERSION = "v6"; // split catalogue feeds and shared source/state policy
+const VERSION = "v7-security"; // discard the vulnerable reader/app-shell cache
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
-const PAGES_CACHE = `hsc-pages-${VERSION}`;
-const PDF_CACHE = `hsc-pdfs-${VERSION}`;
+// This is a code-only security upgrade. Keep the existing catalogue and recent
+// PDF caches: the patched engine safely parses PDFs, and strict schema checks
+// protect cached catalogue data. Only executable/shell assets must be replaced.
+const PAGES_CACHE = "hsc-pages-v6";
+const PDF_CACHE = "hsc-pdfs-v6";
 const PDF_CACHE_MAX = 60; // recently read papers stay offline (LRU by insertion)
 const SHELL = [
-  "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js", "/js/catalogue-aliases.js", "/js/pdf-validation.js", "/js/source-policy.js", "/js/migration-state.js",
-  "/pdfjs/pdf.min.js", "/pdfjs/pdf.worker.min.js", "/vendor/jszip.min.js",
+  "/", "/index.html", "/css/styles.css", "/js/app.js", "/js/config.js", "/js/catalogue-aliases.js", "/js/pdf-validation.js", "/js/source-policy.js", "/js/migration-state.js", "/js/catalogue-schema.js", "/js/pdf-engine.js", "/js/theme-init.js",
+  "/pdfjs/6.4.299/pdf.min.mjs", "/pdfjs/6.4.299/pdf.worker.min.mjs", "/vendor/jszip.min.js",
   "/manifest.webmanifest", "/og-card.png?v=classic-h-1",
   "/logo.svg?v=classic-h-1", "/favicon.svg?v=classic-h-1",
   "/icon-192.png?v=classic-h-1", "/icon-512.png?v=classic-h-1", "/icon-maskable-512.png?v=classic-h-1",

@@ -19,7 +19,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
+      - name: Install locked verification dependencies
+        working-directory: desktop
+        run: npm ci --ignore-scripts
       - name: re-proof a rotating 5% of the registries
         working-directory: desktop
         run: node tools/validate-registry.cjs --sample

@@ -13,9 +13,9 @@ const SITE = "https://hscpapers.com";
 const FAST_HOSTS = /hscportal\.pages\.dev|pub-ec23c9b69d2544938d816ad28ee491fd\.r2\.dev|www\.nsw\.gov\.au|www\.boardofstudies\.nsw\.edu\.au/;
 const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-module.exports = async function run() {
-  const ui = path.join(__dirname, "..", "ui");
+module.exports = async function run({ ui = path.join(__dirname, "..", "ui") } = {}) {
   const cat = JSON.parse(fs.readFileSync(path.join(ui, "data", "papers-v2.json"), "utf8"));
+  require("../ui/js/catalogue-schema.js").assert(cat);
   const papers = cat.papers || [];
   // cov-note carries the CATALOGUE's build stamp (not the render time) — the
   // page's freshness = the data's freshness, so the committed artifact is
@@ -41,12 +41,12 @@ module.exports = async function run() {
   const schoolList = [...schools.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   const bucket = (n) => !n ? "" : n >= 10 ? "c4" : n >= 3 ? "c3" : n >= 1 ? "c2" : "";
 
-  const matrixHead = `<tr><th class="subj-col">Subject</th>${yearList.map(y => `<th>${String(y).slice(2)}</th>`).join("")}</tr>`;
+  const matrixHead = `<tr><th class="subj-col">Subject</th>${yearList.map(y => `<th>${esc(String(y).slice(2))}</th>`).join("")}</tr>`;
   const matrixBody = subjList.map(s =>
     `<tr><th class="subj-col">${esc(s)} <i>${subjects.get(s)}</i></th>` +
     yearList.map(y => {
       const n = grid.get(`${s}|${y}`) || 0;
-      return `<td class="${bucket(n)}" ${n ? `data-label="${esc(s)} · ${y}: ${n} paper${n === 1 ? "" : "s"}"` : ""}></td>`;
+      return `<td class="${bucket(n)}" ${n ? `data-label="${esc(s)} · ${esc(y)}: ${n} paper${n === 1 ? "" : "s"}"` : ""}></td>`;
     }).join("") + "</tr>"
   ).join("");
   const schoolRows = schoolList.map(([s, n], i) =>
@@ -62,7 +62,7 @@ module.exports = async function run() {
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${SITE}/coverage">
 <link rel="icon" href="${FAVICON_HREF}" type="image/svg+xml">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("hsc-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+<script src="/js/theme-init.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 <style>
   main.coverage { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.2rem 3rem; }
@@ -107,14 +107,14 @@ module.exports = async function run() {
     <div class="stat"><b>${subjects.size}</b><span>subjects</span></div>
     <div class="stat"><b>${schools.size}</b><span>schools + NESA</span></div>
     <div class="stat"><b>${withSol.toLocaleString("en-AU")}</b><span>with solutions</span></div>
-    <div class="stat"><b>${yearList[0]}–${yearList[yearList.length - 1]}</b><span>years covered</span></div>
+    <div class="stat"><b>${esc(yearList[0])}–${esc(yearList[yearList.length - 1])}</b><span>years covered</span></div>
   </div>
   <h2>Subjects × years</h2>
   <p style="color:var(--muted,#6b7280);font-size:.85rem">Darker = more papers. Hover any cell for the exact count. The year column is the last two digits.</p>
   <div class="matrix-wrap"><table class="matrix">${matrixHead}${matrixBody}</table></div>
   <h2>Schools by paper count</h2>
   <table class="school-table"><thead><tr><th>#</th><th>School</th><th>Papers</th></tr></thead><tbody>${schoolRows}</tbody></table>
-  <p class="cov-note">Catalogue generated ${generatedAt} UTC by desktop/tools/build-index.cjs — rebuilt nightly. Papers belong to their schools/authors and NESA; HSCPapers is a free, non-commercial index.</p>
+  <p class="cov-note">Catalogue generated ${esc(generatedAt)} UTC by desktop/tools/build-index.cjs — rebuilt nightly. Papers belong to their schools/authors and NESA; HSCPapers is a free, non-commercial index.</p>
 </main>
 <footer>
   <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a>
@@ -123,19 +123,7 @@ module.exports = async function run() {
 <div class="footer-subjects"><h2>All subjects · <a href="/subjects/">subjects hub</a></h2><div class="f-grid">${subjList.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${subjects.get(s)} papers</small></a>`).join("")}</div></div>
 <!-- SUBJECTS:STATIC:END -->
 <div id="covtip"></div>
-<script>
-(() => {
-  const tip = document.getElementById("covtip");
-  for (const td of document.querySelectorAll("table.matrix td[data-label]")) {
-    td.addEventListener("mouseenter", () => { tip.textContent = td.dataset.label; tip.style.display = "block"; });
-    td.addEventListener("mousemove", (e) => {
-      tip.style.left = Math.min(e.clientX + 12, window.innerWidth - tip.offsetWidth - 8) + "px";
-      tip.style.top = Math.max(8, e.clientY - 34) + "px";
-    });
-    td.addEventListener("mouseleave", () => { tip.style.display = "none"; });
-  }
-})();
-</script>
+<script src="/js/coverage.js"></script>
 </body>
 </html>
 `;

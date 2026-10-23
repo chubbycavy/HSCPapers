@@ -52,6 +52,7 @@ try {{
     $installation = Start-Process -FilePath $installer -ArgumentList @('/S', '/UPDATE') -Wait -PassThru
     Write-UpdateLog ('Installer exit code: ' + $installation.ExitCode)
     if ($installation.ExitCode -ne 0) {{ throw ('Installer failed with exit code ' + $installation.ExitCode + '.') }}
+    Remove-Item -LiteralPath $installer -Force -ErrorAction SilentlyContinue
     $replacement = Start-Process -FilePath $appExe -PassThru
     Write-UpdateLog ('Relaunched app, PID ' + $replacement.Id + '.')
     exit 0

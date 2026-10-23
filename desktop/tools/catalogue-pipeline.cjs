@@ -3,6 +3,8 @@
 "use strict";
 const identity = require("./catalogue-identity.cjs"), reconciliation = require("./catalogue-reconcile.cjs"), cleanup = require("./catalogue-cleanup.cjs");
 function build(papers, { imports, validation, publishedHistory, metadataCorrections, publicationSync, correctedMappings = [], removals = { ids: new Set(), urls: new Set() }, isFastHost = require("../ui/js/source-policy.js").isFast }) {
+  const schema = require("../ui/js/catalogue-schema.js");
+  for (const p of papers) { const issue = schema.metadataIssue(p); if (issue) throw new Error(issue + " before reconciliation"); }
   for (const p of papers) {
     const proof = imports.proofs[p.url];
     if (proof) Object.assign(p, proof);
@@ -77,6 +79,7 @@ function build(papers, { imports, validation, publishedHistory, metadataCorrecti
     cleanup: { metadataChanges, identityChanges: migratedHistory.changes, classificationMerges: classificationCopies.merged, fullByteMerges: provedCopies.report.merged, versionMerges: versions.merged, attachedDocumentMerges: attachedDocs.merged, sharedEnglishMerges: sharedEnglish.merged, rejectedSources: cleaned.rejectedSources, rejectedSourceCopies, auditCoverage: validation.coverage },
   };
   const modernCatalogue = { generated: new Date().toISOString(), dataVersion: 2, sources: "desktop/sources.json", idAliases, recoveryPapers, papers };
+  schema.assert(modernCatalogue);
   const compatibility = require("./catalogue-feeds.cjs").prepare(modernCatalogue, validation);
   const errors = require("./catalogue-feeds.cjs").verify(modernCatalogue, compatibility.legacy);
   if (errors.length) throw new Error(errors.join("\n"));

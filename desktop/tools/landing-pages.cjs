@@ -22,7 +22,7 @@ const papersLabel = (n) => `${n} paper${n === 1 ? "" : "s"}`;
 const typeLabel = (t) => ({ hsc: "HSC exam", trial: "Trial paper", assessment: "Assessment task", internal: "Internal" }[t] || "Other");
 
 const ICON = `<link rel="icon" href="${FAVICON_HREF}" type="image/svg+xml">`;
-const THEME = `<script>try{document.documentElement.dataset.theme=localStorage.getItem("hsc-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>`;
+const THEME = `<script src="/js/theme-init.js"></script>`;
 const LOGO_MARK = logoImage();
 const NAV = `<header><nav class="nav"><a class="logo" href="/"><span class="logo-mark">${LOGO_MARK}</span><span>HSCPapers<small>Free NSW HSC paper index</small></span></a><div class="nav-links"><a href="/">Browse the index</a><a href="/coverage">Coverage</a></div></nav></header>`;
 const LEGAL = `<footer><b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>. Fast mirrors: <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>, Board of Studies archive, official NESA releases.</footer>`;
@@ -85,8 +85,11 @@ ${LEGAL}
 `;
 }
 
-module.exports = async function generate() {
-  const { papers } = JSON.parse(fs.readFileSync(path.join(UI, "data", "papers-v2.json"), "utf8"));
+module.exports = async function generate({ ui = UI } = {}) {
+  const UI = ui;
+  const catalogue = JSON.parse(fs.readFileSync(path.join(UI, "data", "papers-v2.json"), "utf8"));
+  require("../ui/js/catalogue-schema.js").assert(catalogue);
+  const { papers } = catalogue;
   const bySubject = new Map();
   for (const p of papers) {
     for (const subject of require("./catalogue-identity.cjs").subjectsOf(p)) {
@@ -95,6 +98,8 @@ module.exports = async function generate() {
     }
   }
   const subjects = [...bySubject.keys()].sort((a, b) => a.localeCompare(b));
+  const slugs = subjects.map(slugOf);
+  if (slugs.some(s => !s) || new Set(slugs).size !== slugs.length) throw new Error("Invalid or colliding subject slugs");
   const root = path.join(UI, "subjects");
   fs.mkdirSync(root, { recursive: true });
   const currentSlugs = new Set(subjects.map(slugOf));
@@ -119,7 +124,7 @@ module.exports = async function generate() {
       { "@type": "ListItem", position: 2, name: "Subjects", item: SITE + "/subjects/" },
       { "@type": "ListItem", position: 3, name, item: canonical },
     ],
-  });
+  }).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
 
   for (const subject of subjects) {
     const list = bySubject.get(subject);
@@ -155,7 +160,7 @@ module.exports = async function generate() {
   <h1>NSW HSC ${esc(subject)} past papers</h1>
   <div class="l-stats">
     <div class="stat"><b>${list.length}</b><span>${list.length === 1 ? "paper" : "papers"} indexed</span></div>
-    <div class="stat"><b>${yearsAll.length ? `${yMin}–${yMax}` : "—"}</b><span>years covered</span></div>
+    <div class="stat"><b>${yearsAll.length ? `${esc(yMin)}–${esc(yMax)}` : "—"}</b><span>years covered</span></div>
     <div class="stat"><b>${schools.length}</b><span>schools + NESA</span></div>
   </div>
   <p>Every NSW HSC ${esc(subject)} paper we have — HSC exams, trial papers and assessment tasks — searchable and filterable in the full index, with paper and solutions readable side by side and up to 200 papers in one structured ZIP. Free, no sign-up, no ads.</p>

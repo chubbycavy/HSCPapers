@@ -72,7 +72,7 @@ async function main() {
   if (!process.argv.includes("--refresh-migrated")) throw new Error("Use --checkpoint, --refresh-migrated, --check-delivery or --package-report");
   const file = path.join(tools, "catalogue-validation.json"), registry = JSON.parse(fs.readFileSync(file, "utf8"));
   const { resolveFragments, fragmentUrl, sanitizeThscTitle, fragmentDescriptor } = await import("../ui/_lib/thsc-fragments.mjs");
-  const pdfjs = require("../ui/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
+  const pdfjs = await require("./pdfjs.cjs").load();
   const lookups = new Map(targets.map(([viewno, rawTitle]) => [viewno + "|" + rawTitle, { viewno, rawTitle }]));
   for (const [url, proof] of Object.entries(registry.entries)) if (proof.state === "verified" && proof.transport === "thsc-fragments") {
     const value = proof.migratedUrl || url;

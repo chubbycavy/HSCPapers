@@ -13,7 +13,7 @@ async function refresh(registry, catalogue, { fetch = globalThis.fetch, now = Da
   const legacy = [...urls].filter(([url]) => isLegacy(url));
   const offset = Math.floor(now / 86400000) * 25 % Math.max(1, legacy.length);
   const selected = [...unknown, ...Array.from({ length: Math.min(25, legacy.length) }, (_, i) => legacy[(offset+i)%legacy.length])];
-  const pdfjs = require("../ui/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
+  const pdfjs = await require("./pdfjs.cjs").load();
   for (const [url] of selected) {
     try {
       let bytes, migratedUrl, transport = "direct-pdf";

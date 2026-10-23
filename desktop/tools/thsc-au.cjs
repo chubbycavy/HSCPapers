@@ -66,8 +66,7 @@ async function validate(item, { fetchImpl = fetch } = {}) {
   }
   const bytes = Buffer.from(await response.arrayBuffer());
   if (bytes.length !== item.bytes || bytes.subarray(0, 5).toString() !== "%PDF-") throw new Error("PDF signature or declared byte length mismatch");
-  const pdfjs = require("../ui/pdfjs/pdf.min.js");
-  pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
+  const pdfjs = await require("./pdfjs.cjs").load();
   const doc = await pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true }).promise;
   try { if (doc.numPages !== item.pages) throw new Error("PDF page count mismatch"); }
   finally { await doc.destroy(); }

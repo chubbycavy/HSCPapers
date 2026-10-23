@@ -795,7 +795,7 @@
       <button class="star-btn ${bkState.has(p.id) ? "on" : ""}" data-star title="${bkState.has(p.id) ? "Remove bookmark" : "Bookmark this paper"}" aria-label="Bookmark ${esc(p.title)}">★</button>
       <div class="card-body">
         <div class="card-top">
-          <span class="tag ${p.type}">${{ hsc: "HSC", trial: "Trial", assessment: "Assessment", other: "Other" }[p.type] || (p.type === "hsc" ? "HSC" : "Trial")}</span>
+          <span class="tag ${esc(p.type)}">${{ hsc: "HSC", trial: "Trial", assessment: "Assessment", other: "Other" }[p.type] || (p.type === "hsc" ? "HSC" : "Trial")}</span>
           <span class="tag">${esc(String(p.year))}</span>
           ${p.hasSolutions ? `<span class="tag sol">${solTag}</span>` : ""}
           ${!IS_TAURI && downloadedSet().has(p.id) ? `<span class="tag got" title="Downloaded before in this browser">${gotTag}</span>` : ""}
@@ -1832,13 +1832,7 @@
     renderTimer();
     const sysBtn = $("#readerOpenSys");
     if (sysBtn) sysBtn.hidden = !IS_TAURI;
-    if (window.pdfjsLib) {
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "pdfjs/pdf.worker.min.js";
-      loadPane("paper");
-    } else {
-      $("#readerErr").hidden = false;
-      $("#readerErr").textContent = "Reader engine is still loading — try again in a second (or use the ⭳ button).";
-    }
+    loadPane("paper");
   }
   function applyReaderChrome() {
     const split = readerMode === "split";
@@ -1889,7 +1883,10 @@
       const url = urlOverride
         || ((IS_TAURI && pane.sysPath) ? window.__TAURI__.core.convertFileSrc(pane.sysPath)
           : (key === "paper" ? readerPaperUrl : readerSolUrl));
-      const doc = await window.pdfjsLib.getDocument({ url }).promise;
+      const engine = await window.PdfEngine.ready;
+      if (readerPanes[key] !== pane || $("#reader").hidden) return;
+      const doc = await engine.getDocument({ url, isEvalSupported: false }).promise;
+      if (readerPanes[key] !== pane || $("#reader").hidden) { await doc.destroy(); return; }
       if (doc.numPages === 1) {
         try { await window.PdfValidation.validateBlob(new Blob([await doc.getData()])); }
         catch (e) { await doc.destroy(); throw e; }

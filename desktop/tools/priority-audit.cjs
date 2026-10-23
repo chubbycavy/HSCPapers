@@ -59,7 +59,7 @@ if (require.main === module) (async () => {
   if (!process.argv.includes("--run")) { console.log(JSON.stringify(summary(), null, 2)); return; }
   const { pdfProof, readBounded, fragmentDescriptor, resolveFragments, sanitizeThscTitle, fragmentUrl } = await import("../ui/_lib/thsc-fragments.mjs");
   const { EXPORT_APIS } = await import("../ui/_lib/pdf-proxy.mjs");
-  const pdfjs = require("../ui/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
+  const pdfjs = await require("./pdfjs.cjs").load();
   const arg = process.argv.find(a => a.startsWith("--limit=")), limit = arg ? Number(arg.slice(8)) : Infinity;
   const pending = [...files.values()].filter(r => !state.entries[r.url] || state.entries[r.url].state === "transient").slice(0, limit);
   for (const row of pending) if (isLegacy(row.url) && !row.owners.some(o => o.role === "primary" || o.role === "solutions"))

@@ -6,10 +6,13 @@ const path = require("path");
 const { pathToFileURL } = require("url");
 const { Readable } = require("stream");
 const { exec } = require("child_process");
+const { headersFor } = require("./desktop/tools/security-headers.cjs");
 
 const ROOT = path.join(__dirname, "desktop", "ui");
-const START_PORT = 8000;
-const MAX_TRIES = 11;
+const explicitPort = process.argv.find(arg => arg.startsWith("--port="))?.slice(7);
+const START_PORT = explicitPort ? Number(explicitPort) : 8000;
+if (!Number.isInteger(START_PORT) || START_PORT < 1024 || START_PORT > 65535) throw new Error("Invalid preview port");
+const MAX_TRIES = explicitPort ? 1 : 11;
 const NO_OPEN = process.argv.includes("--no-open");
 const proxyModule = import(pathToFileURL(path.join(ROOT, "_lib", "pdf-proxy.mjs")).href);
 const MIME = {
@@ -18,18 +21,20 @@ const MIME = {
   ".json": "application/json; charset=utf-8", ".pdf": "application/pdf",
   ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
   ".svg": "image/svg+xml", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8",
+  ".wasm": "application/wasm",
 };
 const NO_STORE = new Set([".html", ".css", ".js", ".mjs", ".json"]);
 async function proxyHandle(req, res) {
   const { onRequest } = await proxyModule;
   const response = await onRequest({ request: new Request(new URL(req.url, "http://localhost"), { method: req.method, headers: req.headers }) });
-  res.writeHead(response.status, Object.fromEntries(response.headers));
+  res.writeHead(response.status, { ...headersFor("/proxy"), ...Object.fromEntries(response.headers) });
   if (!response.body || req.method === "HEAD") return res.end();
   Readable.fromWeb(response.body).on("error", error => res.destroy(error)).pipe(res);
 }
 const server = http.createServer((req, res) => {
   try {
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
+    for (const [name, value] of Object.entries(headersFor(urlPath))) res.setHeader(name, value);
     if (urlPath === "/proxy") {
       proxyHandle(req, res).catch(error => {
         if (res.headersSent) res.destroy(error);
@@ -41,7 +46,7 @@ const server = http.createServer((req, res) => {
     const file = path.join(ROOT, path.normalize(urlPath.replace(/^\/+/, "")));
     if (!file.startsWith(ROOT + path.sep)) { res.writeHead(403); res.end("Forbidden"); return; }
     fs.stat(file, (error, stat) => {
-      if (error || !stat.isFile()) { res.writeHead(404); res.end("Not found: " + urlPath); return; }
+       if (error || !stat.isFile()) { res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }); res.end("Not found: " + urlPath); return; }
       const ext = path.extname(file).toLowerCase();
       const headers = { "Content-Type": MIME[ext] || "application/octet-stream" };
       if (NO_STORE.has(ext)) headers["Cache-Control"] = "no-store";

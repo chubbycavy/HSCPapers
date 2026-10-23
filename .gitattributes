@@ -1,0 +1,4 @@
+# Preserve the integrity-locked upstream PDF.js assets byte-for-byte.
+desktop/ui/pdfjs/6.4.299/** -text
+# Upstream license notices retain their original formatting and hashes.
+desktop/ui/pdfjs/6.4.299/**/LICENSE* -whitespace

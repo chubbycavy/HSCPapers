@@ -67,7 +67,7 @@ write(manifestPath, manifest);
 console.log(`Stored ${identities.length} explicit ID/variant histories; ${accessReview} access outcomes retained in review; Drive uploads quarantined`);
 (async () => {
   const { pdfProof, readBounded } = await import("../ui/_lib/thsc-fragments.mjs");
-  const pdfjs = require("../ui/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
+  const pdfjs = await require("./pdfjs.cjs").load();
   for (const h of identities) {
     const url = h.previous.url; if (state.entries[url]?.state === "verified") continue;
     const response = await fetch(url, { signal: AbortSignal.timeout(30000), headers: { "User-Agent": "HSCPapers/1.0 (published variant continuity)" } });

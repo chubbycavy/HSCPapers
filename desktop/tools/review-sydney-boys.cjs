@@ -4,7 +4,7 @@ const fs = require("fs"), path = require("path");
 async function main() {
   const groups = require("./catalogue-metadata-corrections.json").reviewedGroups;
   const file = path.join(__dirname, "catalogue-validation.json"), validation = JSON.parse(fs.readFileSync(file, "utf8"));
-  const pdfjs = require("../ui/pdfjs/pdf.min.js"); pdfjs.GlobalWorkerOptions.workerSrc = require.resolve("../ui/pdfjs/pdf.worker.min.js");
+  const pdfjs = await require("./pdfjs.cjs").load();
   const { readBounded, pdfProof } = await import("../ui/_lib/thsc-fragments.mjs");
   const checked = [];
   for (const g of groups) for (const [url, expected] of [[g.mirrorUrl, g.sha256], [g.portalUrl, g.portalSha256 || g.sha256]]) {

@@ -231,7 +231,7 @@ test.describe("reader (continuous scroll)", () => {
     await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible({ timeout: 30_000 });
     await page.keyboard.press("Escape");
     await expect(page.locator("#reader")).toBeHidden();
-    expect(new URL(await card.locator("[data-dl]").first().getAttribute("href"), "http://localhost:8000").pathname).toBe("/proxy");
+    expect(new URL(await card.locator("[data-dl]").first().getAttribute("href"), page.url()).pathname).toBe("/proxy");
     const downloaded = page.waitForEvent("download");
     await card.locator("[data-dl]").first().click();
     const file = await downloaded;

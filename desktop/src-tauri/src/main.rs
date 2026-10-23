@@ -13,7 +13,6 @@ use std::sync::{
 };
 
 use base64::{engine::general_purpose::STANDARD as B64, Engine as _};
-use futures_util::StreamExt;
 use sha2::{Digest, Sha256};
 use tauri::{AppHandle, Emitter, Manager, State};
 use tokio::io::AsyncWriteExt;
@@ -21,6 +20,10 @@ use tokio::sync::Semaphore;
 
 #[cfg(windows)]
 mod update_launcher;
+mod safe_paths;
+mod network_policy;
+mod updater;
+use updater::UpdateInfo;
 
 const USER_AGENT: &str = "HSCPapers/1.0 (study use; cached index, on-demand downloads)";
 const MAX_WORKERS: usize = 10; // 5 CDN + 3 BOS + 2 script lanes; script calls also gate via `meta`
@@ -29,10 +32,8 @@ const IDLE_RESET_MS: u64 = 5 * 60 * 1000; // idle this long => assume pool recov
 const MAX_ATTEMPTS: usize = 3; // ladder tries before the long-pause final try
 const PAUSE_AFTER_CONSECUTIVE_404: usize = 3;
 const AUTO_PAUSE_MS: u64 = 10 * 60 * 1000;
-// Official resolver endpoints. THSC's own v2 site (thsconline.pages.dev,
-// viewer.js rewritten 2026-05-24) rotates 15 worker deployments + the
-// original to spread load across 16 Apps Script quota pools — we mirror
-// that behaviour exactly (round-robin).
+// Historical published resolver endpoints. Production uses only the last
+// export=view fallback; the list does not establish independent quota pools.
 const EXPORT_APIS: [&str; 16] = [
     "https://script.google.com/macros/s/AKfycbzwc57zmEK1Vm9Q5L1n1my3dxRafZRfNhCZ24zSLIa9H7MhySFhNahvPfW4R3uq753_/exec",
     "https://script.google.com/macros/s/AKfycbxCi8vsX-_l5a0JP-mG1RXIbSeiuZOfteumnk96oZCgQMR9nHjikpDqpknUHp-K5hg/exec",
@@ -56,6 +57,7 @@ const INDEX_BASE: &str = "https://thsconline.github.io/s/index/";
 const EST_BYTES_PER_PAPER: u64 = 4 * 1024 * 1024;
 
 /// Round-robin endpoint picker: `idx % 16 -> full exec URL`.
+#[cfg(test)]
 fn export_api_at(idx: usize) -> &'static str {
     EXPORT_APIS[idx % EXPORT_APIS.len()]
 }
@@ -63,6 +65,8 @@ fn export_api_at(idx: usize) -> &'static str {
 struct AppState {
     client: reqwest::Client,
     fragment_client: reqwest::Client,
+    update_client: reqwest::Client,
+    picked_folder: safe_paths::PickedFolder,
     meta: Arc<Semaphore>, // 1 permit: script-resolver calls stay sequential
     dl: Arc<Semaphore>,   // parallel direct downloads (mirrors/NESA)
     consec_404: AtomicUsize,
@@ -212,6 +216,7 @@ async fn library_dir(app: AppHandle) -> Result<String, String> {
 /// returns `\\?\C:\...` extended paths — mixing prefixed and plain paths
 /// silently breaks every `starts_with` check (this is what broke the
 /// Library button and the Open buttons). Normalise BOTH sides the same way.
+#[cfg(test)]
 fn norm_path(p: &Path) -> String {
     let s = std::path::absolute(p)
         .map(|x| x.to_string_lossy().into_owned())
@@ -221,6 +226,7 @@ fn norm_path(p: &Path) -> String {
     s.replace('/', "\\")
 }
 
+#[cfg(test)]
 fn path_within(root: &Path, path: &Path) -> bool {
     let r = norm_path(root);
     let c = norm_path(path);
@@ -246,7 +252,7 @@ fn get_library_config(app: AppHandle) -> Result<LibraryConfig, String> {
 
 /// Pick a folder via the native dialog (Rust-side, no JS plugin API needed).
 #[tauri::command]
-async fn pick_folder(app: AppHandle) -> Result<Option<String>, String> {
+async fn pick_folder(app: AppHandle, state: State<'_, AppState>) -> Result<Option<String>, String> {
     use tauri_plugin_dialog::DialogExt;
     let (tx, rx) = tokio::sync::oneshot::channel();
     app.dialog()
@@ -254,21 +260,19 @@ async fn pick_folder(app: AppHandle) -> Result<Option<String>, String> {
         .pick_folder(move |folder| {
             let _ = tx.send(folder.map(|f| f.to_string()));
         });
-    rx.await.map_err(|e| format!("dialog: {e}"))
+    let selected = rx.await.map_err(|e| format!("dialog: {e}"))?;
+    if let Some(folder) = &selected { state.picked_folder.select(Path::new(folder))?; }
+    Ok(selected)
 }
 
 #[tauri::command]
-async fn set_library_dir(app: AppHandle, dir: String) -> Result<String, String> {
-    let p = PathBuf::from(&dir);
-    if !p.is_absolute() {
-        return Err("path must be absolute".into());
-    }
-    tokio::fs::create_dir_all(&p)
-        .await
-        .map_err(|e| format!("create library dir: {e}"))?;
+async fn set_library_dir(app: AppHandle, state: State<'_, AppState>, dir: String) -> Result<String, String> {
+    let _quiet = state.dl.clone().try_acquire_many_owned(MAX_WORKERS as u32).map_err(|_| "finish downloads before changing the library")?;
+    let p = state.picked_folder.consume(Path::new(&dir))?;
     // Extend the asset-protocol scope so the embedded reader can serve it.
     app.asset_protocol_scope().allow_directory(&p, true).map_err(|e| format!("asset scope: {e}"))?;
-    let cfg = serde_json::json!({ "library": p.to_string_lossy() });
+    let displayed = safe_paths::presentation(&p);
+    let cfg = serde_json::json!({ "library": displayed.to_string_lossy() });
     let cfg_path = config_path(&app);
     if let Some(parent) = cfg_path.parent() {
         tokio::fs::create_dir_all(parent)
@@ -278,7 +282,7 @@ async fn set_library_dir(app: AppHandle, dir: String) -> Result<String, String> 
     tokio::fs::write(&cfg_path, serde_json::to_string(&cfg).unwrap_or_default())
         .await
         .map_err(|e| format!("save config: {e}"))?;
-    Ok(p.to_string_lossy().into_owned())
+    Ok(displayed.to_string_lossy().into_owned())
 }
 
 /* ------------- import / adopt existing files ------------- */
@@ -405,12 +409,10 @@ struct AdoptReport {
 /// Matches by exact current name, or by base name + (hash | unique group).
 /// Files are COPIED into the library; originals stay untouched.
 #[tauri::command]
-async fn adopt_library(app: AppHandle, folder: String) -> Result<AdoptReport, String> {
+async fn adopt_library(app: AppHandle, state: State<'_, AppState>, folder: String) -> Result<AdoptReport, String> {
+    let _quiet = state.dl.clone().try_acquire_many_owned(MAX_WORKERS as u32).map_err(|_| "finish downloads before importing files")?;
     let lib = library_path(&app)?;
-    let src = PathBuf::from(&folder);
-    if !src.is_dir() {
-        return Err("folder not found".into());
-    }
+    let src = state.picked_folder.consume(Path::new(&folder))?;
     let mut by_rel: std::collections::HashMap<String, String> = std::collections::HashMap::new();
     // filename (lowercased, no dir) -> candidate entries — old-scheme files
     // may sit in any folder, so match on the filename itself.
@@ -427,7 +429,10 @@ async fn adopt_library(app: AppHandle, folder: String) -> Result<AdoptReport, St
     let mut already_canonical = 0usize;
     let mut unmatched = 0usize;
     let mut stack = vec![src.clone()];
+    let mut visited = std::collections::HashSet::new();
     while let Some(dir) = stack.pop() {
+        let Ok(canonical) = std::fs::canonicalize(&dir) else { continue; };
+        if !canonical.starts_with(&src) || !visited.insert(canonical) { continue; }
         let mut rd = match tokio::fs::read_dir(&dir).await {
             Ok(rd) => rd,
             Err(_) => continue,
@@ -443,16 +448,17 @@ async fn adopt_library(app: AppHandle, folder: String) -> Result<AdoptReport, St
             if !name_lower.ends_with(".pdf") {
                 continue;
             }
+            if !std::fs::canonicalize(&p).is_ok_and(|p| p.starts_with(&src)) { continue; }
             scanned += 1;
             let rel = p
                 .strip_prefix(&src)
                 .map(|r| r.to_string_lossy().replace('\\', "/").to_lowercase())
                 .unwrap_or_default();
             if let Some(dest_rel) = by_rel.get(&rel) {
-                let dest = lib.join(dest_rel);
+                let dest = safe_paths::destination(&lib, dest_rel, true)?.path.clone();
                 if dest == p {
                     already_canonical += 1;
-                } else if copy_in(&dest, &p).await.is_ok() {
+                } else if copy_in(&lib, dest_rel, &p).await.is_ok() {
                     adopted += 1;
                 } else {
                     unmatched += 1;
@@ -480,8 +486,7 @@ async fn adopt_library(app: AppHandle, folder: String) -> Result<AdoptReport, St
                     dest_rel = Some(entries[0].0.clone());
                 }
                 if let Some(dr) = dest_rel {
-                    let dest = lib.join(&dr);
-                    if copy_in(&dest, &p).await.is_ok() {
+                    if copy_in(&lib, &dr, &p).await.is_ok() {
                         adopted += 1;
                     } else {
                         unmatched += 1;
@@ -504,25 +509,24 @@ async fn adopt_library(app: AppHandle, folder: String) -> Result<AdoptReport, St
     })
 }
 
-/// Copy src -> dest, creating parent dirs. Skips when dest exists with the
-/// same-or-larger size (already there).
-async fn copy_in(dest: &Path, src: &Path) -> Result<(), String> {
-    if let Ok(dm) = tokio::fs::metadata(dest).await {
-        if let Ok(sm) = tokio::fs::metadata(src).await {
-            if dm.len() >= sm.len() {
-                return Ok(());
-            }
-        }
+/// Import without replacing an existing library file or following child links.
+async fn copy_in(root: &Path, relative: &str, src: &Path) -> Result<(), String> {
+    let target = safe_paths::destination(root, relative, true)?;
+    if target.path.exists() {
+        return if pdf_magic_ok(&target.path).await { Ok(()) } else { Err("existing library file preserved; move it aside before replacing it".into()) };
     }
-    if let Some(parent) = dest.parent() {
-        tokio::fs::create_dir_all(parent)
-            .await
-            .map_err(|e| format!("mkdir: {e}"))?;
-    }
-    tokio::fs::copy(src, dest)
-        .await
-        .map(|_| ())
-        .map_err(|e| format!("copy: {e}"))
+    // Import staging is distinct from resumable download .part files, so an
+    // import cannot truncate an existing partial (or its own symlinked source).
+    let temporary = tempfile::Builder::new().prefix("HSCPapers-import-").suffix(".import")
+        .tempfile_in(target.path.parent().ok_or("import target has no parent")?).map_err(|e| e.to_string())?;
+    let (output, temporary) = temporary.into_parts();
+    let mut input = tokio::fs::File::open(src).await.map_err(|e| e.to_string())?;
+    let mut output = tokio::fs::File::from_std(output);
+    let copied = tokio::io::copy(&mut input, &mut output).await.map_err(|e| e.to_string());
+    let flushed = output.flush().await.map_err(|e| e.to_string()); drop(output.into_std().await);
+    copied?; flushed?;
+    if !pdf_magic_ok(&temporary).await { return Err("imported file is not a complete PDF".into()); }
+    safe_paths::finalize(&temporary, &target.path)
 }
 
 /// Modern catalogue snapshot baked in at build time.
@@ -624,18 +628,14 @@ struct ThscRecord {
 }
 
 /// Published per-page index JSON fast path (rare, but free when present).
-async fn try_index_url(client: &reqwest::Client, viewno: &str, title: &str) -> Option<String> {
+async fn try_index_url(client: &reqwest::Client, viewno: &str, title: &str, cancel: &AtomicBool) -> Option<String> {
     let idx = format!("{INDEX_BASE}{viewno}.json");
-    let resp = client
-        .get(&idx)
-        .header(reqwest::header::USER_AGENT, USER_AGENT)
-        .send()
-        .await
-        .ok()?;
+    let resp = send_interruptible(client.get(&idx).header(reqwest::header::USER_AGENT, USER_AGENT), cancel, "index request").await.ok()?;
     if !resp.status().is_success() {
         return None;
     }
-    let json: serde_json::Value = resp.json().await.ok()?;
+    let body = network_policy::body(resp, 1024 * 1024, Some(cancel)).await.ok()?;
+    let json: serde_json::Value = serde_json::from_slice(&body).ok()?;
     let items: Vec<&serde_json::Value> = match json.get(title) {
         Some(v) if v.is_array() => v.as_array().unwrap().iter().collect(),
         Some(v) => vec![v],
@@ -649,19 +649,11 @@ async fn try_index_url(client: &reqwest::Client, viewno: &str, title: &str) -> O
     None
 }
 
-async fn fetch_bytes(client: &reqwest::Client, url: &str) -> Result<Vec<u8>, String> {
-    let bytes = client
-        .get(url)
-        .header(reqwest::header::USER_AGENT, USER_AGENT)
-        .send()
-        .await
-        .map_err(|e| format!("file request: {e}"))?
+async fn fetch_bytes(client: &reqwest::Client, url: &str, cancel: &AtomicBool) -> Result<Vec<u8>, String> {
+    let response = send_interruptible(client.get(network_policy::source(url)?).header(reqwest::header::USER_AGENT, USER_AGENT), cancel, "index file request").await?
         .error_for_status()
-        .map_err(|e| format!("file HTTP {e}"))?
-        .bytes()
-        .await
-        .map_err(|e| format!("file body: {e}"))?;
-    Ok(bytes.to_vec())
+        .map_err(|e| format!("file HTTP {e}"))?;
+    network_policy::body(response, network_policy::MAX_PDF_BYTES, Some(cancel)).await
 }
 
 /// One resolver attempt: streams the base64 response with progress so the UI
@@ -682,8 +674,7 @@ async fn resolve_attempt(
     let mut hasher = Sha256::new();
     hasher.update(viewno.as_bytes());
     let hash = hex::encode(hasher.finalize());
-    // Round-robin across the 16 official deployments (same as THSC's own v2
-    // site) — each is a separate quota pool.
+    // Fixed published legacy fallback; fragment requests never enter this lane.
     let api = format!(
         "{}?export=view&field={}&base={}&hash={}",
         EXPORT_APIS[EXPORT_APIS.len() - 1],
@@ -728,14 +719,15 @@ async fn resolve_attempt(
         return Err(format!("resolver HTTP {status}"));
     }
     let total = resp.content_length();
+    if let Some(length) = total { network_policy::check_size(0, length, network_policy::MAX_RESOLVER_BYTES)?; }
     let mut stream = resp.bytes_stream();
     let mut buf: Vec<u8> = Vec::new();
     // Throttled progress events: at most every 128 KiB or 300ms — a big
     // base64 body used to flood ~2000 IPC events per file.
     let mut last_emit: u64 = 0;
     let mut last_emit_t = std::time::Instant::now();
-    while let Some(chunk) = stream.next().await {
-        let c = chunk.map_err(|e| format!("resolver stream: {e}"))?;
+    while let Some(c) = network_policy::chunk(&mut stream, cancel).await? {
+        network_policy::check_size(buf.len() as u64, c.len() as u64, network_policy::MAX_RESOLVER_BYTES)?;
         buf.extend_from_slice(&c);
         if cancel.load(Ordering::Relaxed) {
             return Err(CANCELLED.to_string());
@@ -760,6 +752,7 @@ async fn resolve_attempt(
     let bytes = B64
         .decode(clean)
         .map_err(|e| format!("resolver decode: {e}"))?;
+    network_policy::check_size(0, bytes.len() as u64, network_policy::MAX_PDF_BYTES)?;
     thsc_fragments::validate_pdf(&bytes)?;
     Ok(bytes)
 }
@@ -780,8 +773,8 @@ async fn resolve_throttled(
     title: &str,
 ) -> Result<Vec<u8>, String> {
     // Rare free fast path first (CDN, no quota cost).
-    if let Some(u) = try_index_url(&state.client, viewno, title).await {
-        if let Ok(b) = fetch_bytes(&state.client, &u).await {
+    if let Some(u) = try_index_url(&state.client, viewno, title, cancel).await {
+        if let Ok(b) = fetch_bytes(&state.client, &u, cancel).await {
             if thsc_fragments::validate_pdf(&b).is_ok() {
                 state.consec_404.store(0, Ordering::Relaxed);
                 return Ok(b);
@@ -857,6 +850,15 @@ async fn resolve_throttled(
 
 /* ---------------- file writing ---------------- */
 
+async fn write_part(path: &Path, bytes: &[u8]) -> Result<(), String> {
+    network_policy::check_size(0, bytes.len() as u64, network_policy::MAX_PDF_BYTES)?;
+    let mut file = tokio::fs::File::from_std(safe_paths::open_part(path, 0)?);
+    file.write_all(bytes).await.map_err(|e| format!("write: {e}"))?;
+    file.flush().await.map_err(|e| format!("flush: {e}"))?;
+    drop(file.into_std().await);
+    Ok(())
+}
+
 async fn stream_to_file(
     app: &AppHandle,
     cancel: &AtomicBool,
@@ -865,24 +867,18 @@ async fn stream_to_file(
     tmp: &Path,
     resume_from: u64,
 ) -> Result<u64, String> {
-    let total = resp.content_length().map(|n| n + resume_from);
+    let total = resp.content_length().map(|n| network_policy::check_size(resume_from, n, network_policy::MAX_PDF_BYTES)).transpose()?;
+    network_policy::check_size(0, resume_from, network_policy::MAX_PDF_BYTES)?;
     let mut stream = resp.bytes_stream();
-    let mut f = tokio::fs::OpenOptions::new()
-        .create(true)
-        .write(true)
-        .append(resume_from > 0)
-        .truncate(resume_from == 0)
-        .open(tmp)
-        .await
-        .map_err(|e| format!("create file: {e}"))?;
+    let mut f = tokio::fs::File::from_std(safe_paths::open_part(tmp, resume_from)?);
     let mut downloaded = resume_from;
     let mut last_emit = downloaded;
     let mut last_emit_t = std::time::Instant::now();
-    while let Some(chunk) = stream.next().await {
+    while let Some(c) = network_policy::chunk(&mut stream, cancel).await? {
         if cancel.load(Ordering::Relaxed) {
             return Err(CANCELLED.to_string());
         }
-        let c = chunk.map_err(|e| format!("download: {e}"))?;
+        network_policy::check_size(downloaded, c.len() as u64, network_policy::MAX_PDF_BYTES)?;
         f.write_all(&c)
             .await
             .map_err(|e| format!("write: {e}"))?;
@@ -900,7 +896,7 @@ async fn stream_to_file(
         }
     }
     f.flush().await.map_err(|e| format!("flush: {e}"))?;
-    drop(f);
+    drop(f.into_std().await);
     Ok(downloaded)
 }
 
@@ -949,12 +945,8 @@ async fn resolve_and_save(
         resolve_throttled(state, &state.cancel, app, id, &viewno, &title).await?
     };
     thsc_fragments::validate_pdf(&bytes)?;
-    tokio::fs::write(tmp, &bytes)
-        .await
-        .map_err(|e| format!("write: {e}"))?;
-    tokio::fs::rename(tmp, dest)
-        .await
-        .map_err(|e| format!("finalize: {e}"))?;
+    write_part(tmp, &bytes).await?;
+    safe_paths::finalize(tmp, dest)?;
     Ok(bytes.len() as u64)
 }
 
@@ -962,8 +954,8 @@ async fn resolve_and_save(
 /// HTML error pages.)
 async fn pdf_magic_ok(tmp: &Path) -> bool {
     use tokio::io::AsyncReadExt;
-    let mut f = match tokio::fs::File::open(tmp).await {
-        Ok(f) => f,
+    let mut f = match safe_paths::read_file(tmp) {
+        Ok(f) => tokio::fs::File::from_std(f),
         Err(_) => return false,
     };
     let mut head = [0u8; 5];
@@ -981,7 +973,7 @@ async fn pdf_magic_ok(tmp: &Path) -> bool {
 
 async fn download_direct(app: &AppHandle, state: &State<'_, AppState>, id: &str, url: &str, tmp: &Path) -> Result<(), String> {
     let resume_from = tokio::fs::metadata(tmp).await.map(|m| m.len()).unwrap_or(0);
-    let mut req = state.client.get(url).header(reqwest::header::USER_AGENT, USER_AGENT);
+    let mut req = state.client.get(network_policy::source(url)?).header(reqwest::header::USER_AGENT, USER_AGENT);
     if resume_from > 0 { req = req.header(reqwest::header::RANGE, format!("bytes={resume_from}-")); }
     let resp = send_interruptible(req, &state.cancel, "request").await?;
     if !resp.status().is_success() { return Err(format!("HTTP {}", resp.status())); }
@@ -997,12 +989,12 @@ async fn download_direct(app: &AppHandle, state: &State<'_, AppState>, id: &str,
 async fn save_source(app: &AppHandle, state: &State<'_, AppState>, id: &str, url: &str, tmp: &Path, dest: &Path, fallback_attempt: bool) -> Result<(), String> {
     if let Some((viewno, title)) = thsc_fragments::descriptor(url)? {
         let bytes = thsc_fragments::resolve(&state.fragment_client, &viewno, &title, &state.cancel).await?;
-        tokio::fs::write(tmp, bytes).await.map_err(|e| format!("write: {e}"))?;
+        write_part(tmp, &bytes).await?;
     } else if split_router_url(url).is_some() {
         resolve_and_save(app, state, id, url, tmp, dest, fallback_attempt).await?;
         return Ok(());
     } else { download_direct(app, state, id, url, tmp).await?; }
-    tokio::fs::rename(tmp, dest).await.map_err(|e| format!("finalize: {e}"))?;
+    safe_paths::finalize(tmp, dest)?;
     Ok(())
 }
 
@@ -1025,6 +1017,9 @@ async fn download_paper(
     relpath: String,
     fallback: Option<String>,
 ) -> Result<String, String> {
+    safe_paths::relative_pdf(&relpath)?;
+    network_policy::source(&url)?;
+    if let Some(candidate) = fallback.as_ref().filter(|s| !s.is_empty()) { network_policy::source(candidate)?; }
     if state.cancel.load(Ordering::Relaxed) {
         return Err(CANCELLED.to_string());
     }
@@ -1033,12 +1028,8 @@ async fn download_paper(
         return Err(CANCELLED.to_string());
     }
 
-    let dest = library_path(&app)?.join(&relpath);
-    if let Some(parent) = dest.parent() {
-        tokio::fs::create_dir_all(parent)
-            .await
-            .map_err(|e| format!("mkdir: {e}"))?;
-    }
+    let guarded = safe_paths::destination(&library_path(&app)?, &relpath, true)?;
+    let dest = &guarded.path;
     if dest.exists() {
         if !pdf_magic_ok(&dest).await { return Err("Existing file is invalid; it has been preserved in your library. Move it aside before downloading its replacement.".into()); }
         let _ = app.emit(
@@ -1047,7 +1038,7 @@ async fn download_paper(
         );
         return Ok(dest.to_string_lossy().into_owned());
     }
-    let tmp = dest.with_extension("part");
+    let tmp = &guarded.part;
     let finish = |app: &AppHandle, n: u64| {
         let _ = app.emit(
             "dl-progress",
@@ -1158,6 +1149,7 @@ async fn head_len(client: &reqwest::Client, url: &str) -> Option<u64> {
 /// real total. HTML responses (redirect targets, error pages) are ignored —
 /// they aren't sizeable papers.
 async fn sample_len(client: &reqwest::Client, url: &str) -> Option<u64> {
+    network_policy::source(url).ok()?;
     if thsc_fragments::descriptor(url).ok().flatten().is_some() { return None; }
     if let Some(len) = head_len(client, url).await {
         if len > 0 {
@@ -1206,12 +1198,13 @@ async fn preflight(
     files: Vec<PreflightIn>,
 ) -> Result<PreflightOut, String> {
     let base = library_path(&app)?;
+    for file in &files { safe_paths::relative_pdf(&file.relpath)?; network_policy::source(&file.url)?; }
     let mut already_saved = 0usize;
     let mut saved_bytes = 0u64;
     let mut missing: Vec<&PreflightIn> = Vec::new();
     for f in &files {
-        let p = base.join(&f.relpath);
-        match tokio::fs::metadata(&p).await {
+        let checked = safe_paths::destination(&base, &f.relpath, false);
+        match checked.and_then(|p| safe_paths::read_file(&p.path)).and_then(|f| f.metadata().map_err(|e| e.to_string())) {
             Ok(m) => {
                 already_saved += 1;
                 saved_bytes += m.len();
@@ -1283,12 +1276,8 @@ async fn saved_paths(
             out.push(None);
             continue;
         }
-        let p = lib.join(r);
-        if let Ok(cp) = std::fs::canonicalize(&p) {
-            if cp.is_file() && path_within(&lib, &cp) {
-                out.push(Some(cp.to_string_lossy().into_owned()));
-                continue;
-            }
+        if let Ok(checked) = safe_paths::destination(&lib, r, false) {
+            if safe_paths::read_file(&checked.path).is_ok() { out.push(Some(checked.path.to_string_lossy().into_owned())); continue; }
         }
         out.push(None);
     }
@@ -1299,10 +1288,7 @@ async fn saved_paths(
 #[tauri::command]
 fn open_file(app: AppHandle, path: String) -> Result<(), String> {
     let lib = library_path(&app)?;
-    let p = std::fs::canonicalize(&path).map_err(|_| "file not found")?;
-    if !p.is_file() || !path_within(&lib, &p) {
-        return Err("path is outside the library".into());
-    }
+    let p = safe_paths::existing(&lib, Path::new(&path))?;
     open::that(p).map_err(|e| format!("open: {e}"))
 }
 
@@ -1310,9 +1296,7 @@ fn open_file(app: AppHandle, path: String) -> Result<(), String> {
 #[tauri::command]
 fn reveal_in_folder(app: AppHandle, path: String) -> Result<(), String> {
     let lib = library_path(&app)?;
-    if !path_within(&lib, Path::new(&path)) {
-        return Err("path is outside the library".into());
-    }
+    let path = safe_paths::presentation(&safe_paths::reveal(&lib, Path::new(&path))?).to_string_lossy().into_owned();
     std::process::Command::new("explorer")
         .args(["/select,", &path])
         .spawn()
@@ -1320,81 +1304,11 @@ fn reveal_in_folder(app: AppHandle, path: String) -> Result<(), String> {
     Ok(())
 }
 
-/* ---------- app self-update (keyless: GitHub-attested SHA-256 digest) ----------
- *
- * Trust model: the GitHub repo is the source of truth (protected by the
- * account's 2FA). Every release asset carries a GitHub-computed digest, and
- * the installer is SHA-256-verified against it before it is ever executed.
- * No signing keys exist, so there is nothing to lose or leak; upgrading to
- * minisign verification later can ride one of these keyless updates.
- */
-const RELEASES_API: &str = "https://api.github.com/repos/chubbycavy/HSCPapers/releases/latest";
-
-#[derive(serde::Serialize, Clone)]
-struct UpdateInfo {
-    update_available: bool,
-    version: String,
-    notes: String,
-    asset_url: String,
-    digest: String, // "sha256:<hex>", GitHub-attested
-    asset_size: u64,
-}
-
-fn version_tuple(s: &str) -> [u64; 3] {
-    let mut out = [0u64; 3];
-    for (i, part) in s.trim_start_matches('v').trim().split('.').take(3).enumerate() {
-        out[i] = part.trim().parse().unwrap_or(0);
-    }
-    out
-}
-
-fn version_gt(a: &str, b: &str) -> bool {
-    let (a, b) = (version_tuple(a), version_tuple(b));
-    a > b
-}
-
+/* Backend-attested updates. Frontend fields are compatibility hints only.
+ * Independent artifact signatures need a separately managed signing-key rollout;
+ * the current trust roots remain HTTPS plus the pinned project GitHub account. */
 async fn latest_release(state: &State<'_, AppState>) -> Result<UpdateInfo, String> {
-    let resp = state
-        .client
-        .get(RELEASES_API)
-        .header(reqwest::header::ACCEPT, "application/vnd.github+json")
-        .send()
-        .await
-        .map_err(|e| format!("update check: {e}"))?;
-    if !resp.status().is_success() {
-        return Err(format!("update check: HTTP {}", resp.status()));
-    }
-    let json: serde_json::Value = resp.json().await.map_err(|e| format!("update check: {e}"))?;
-    let tag = json["tag_name"]
-        .as_str()
-        .unwrap_or("")
-        .trim_start_matches('v')
-        .to_string();
-    let mut asset_url = String::new();
-    let mut digest = String::new();
-    let mut asset_size = 0u64;
-    if let Some(assets) = json["assets"].as_array() {
-        for a in assets {
-            let name = a["name"].as_str().unwrap_or("");
-            if name.starts_with("HSCPapers_") && name.ends_with("x64-setup.exe") {
-                asset_url = a["browser_download_url"].as_str().unwrap_or("").to_string();
-                digest = a["digest"].as_str().unwrap_or_default().to_string();
-                asset_size = a["size"].as_u64().unwrap_or(0);
-                break;
-            }
-        }
-    }
-    Ok(UpdateInfo {
-        update_available: !tag.is_empty()
-            && version_gt(&tag, env!("CARGO_PKG_VERSION"))
-            && !asset_url.is_empty()
-            && !digest.is_empty(),
-        version: tag,
-        notes: json["body"].as_str().unwrap_or_default().to_string(),
-        asset_url,
-        digest,
-        asset_size,
-    })
+    updater::latest(&state.update_client).await
 }
 
 /// Check the latest GitHub release against the running version. Returns the
@@ -1423,80 +1337,25 @@ async fn update_install(
     url: Option<String>,
     expected_digest: Option<String>,
 ) -> Result<(), String> {
-    if state.dl.available_permits() < MAX_WORKERS {
-        return Err("finish the current download batch first".into());
-    }
-    // Self-sufficient install: a stale frontend may not carry usable asset
-    // fields at all (v1.0.4's JS read a mismatched field name and sent
-    // url: undefined). When the args are missing/empty, re-derive the
-    // latest release HERE and enforce "actually newer" — a broken client
-    // still heals through this same command.
-    let info = if version.as_deref().map(|v| !v.is_empty()).unwrap_or(false)
-        && url.as_deref().map(|u| !u.is_empty()).unwrap_or(false)
-        && expected_digest.as_deref().map(|d| !d.is_empty()).unwrap_or(false)
-    {
-        UpdateInfo {
-            update_available: true,
-            version: version.unwrap(),
-            notes: String::new(),
-            asset_url: url.unwrap(),
-            digest: expected_digest.unwrap(),
-            asset_size: 0,
-        }
-    } else {
-        latest_release(&state).await?
-    };
+    // Accept old invocation fields without ever treating them as trust material.
+    let _ = (version, url, expected_digest);
+    let _quiet = state.dl.clone().try_acquire_many_owned(MAX_WORKERS as u32)
+        .map_err(|_| "finish current downloads or the other update first")?;
+    let info = latest_release(&state).await?;
     if !info.update_available {
         return Err(format!("already up to date (running v{})", env!("CARGO_PKG_VERSION")));
     }
-    let want = info.digest.trim().trim_start_matches("sha256:").to_lowercase();
-    if want.len() != 64 || !want.chars().all(|c| c.is_ascii_hexdigit()) {
-        return Err("release has no verifiable SHA-256 digest — refusing to install".into());
-    }
-    if !info.asset_url.starts_with("https://github.com/")
-        && !info.asset_url.starts_with("https://objects.githubusercontent.com/")
-    {
-        return Err("refusing unexpected update URL".into());
-    }
-    let resp = state
-        .client
-        .get(&info.asset_url)
-        .send()
-        .await
-        .map_err(|e| format!("download: {e}"))?;
-    if !resp.status().is_success() {
-        return Err(format!("download: HTTP {}", resp.status()));
-    }
-    let total = resp.content_length().unwrap_or(0);
-    let tmp = std::env::temp_dir().join(format!("HSCPapers_{}_x64-setup.exe", info.version));
-    let mut file = tokio::fs::File::create(&tmp).await.map_err(|e| format!("temp file: {e}"))?;
-    let mut hasher = Sha256::new();
-    let mut stream = resp.bytes_stream();
-    let mut pos: u64 = 0;
-    let mut last_emit = std::time::Instant::now() - std::time::Duration::from_secs(1);
-    while let Some(chunk) = stream.next().await {
-        let chunk = chunk.map_err(|e| format!("download: {e}"))?;
-        hasher.update(&chunk);
-        file.write_all(&chunk).await.map_err(|e| format!("write: {e}"))?;
-        pos += chunk.len() as u64;
-        if last_emit.elapsed().as_millis() >= 300 {
-            last_emit = std::time::Instant::now();
-            let _ = app.emit(
-                "update-progress",
-                UpdateProgress { downloaded: pos, total: if total > 0 { Some(total) } else { None }, done: false },
-            );
+    let last_emit = AtomicU64::new(0);
+    let staged = updater::download(&state.update_client, &info, |pos, total| {
+        let now = now_ms();
+        if now.saturating_sub(last_emit.load(Ordering::Relaxed)) >= 300 {
+            last_emit.store(now, Ordering::Relaxed);
+            let _ = app.emit("update-progress", UpdateProgress { downloaded: pos, total: Some(total), done: false });
         }
-    }
-    file.flush().await.map_err(|e| format!("write: {e}"))?;
-    drop(file); // release the downloaded installer handle before the hand-off
-    let got = hex::encode(hasher.finalize());
-    if got != want {
-        let _ = tokio::fs::remove_file(&tmp).await;
-        return Err("update SHA-256 mismatch — installer discarded, staying on the current version".into());
-    }
+    }).await?;
     let _ = app.emit(
         "update-progress",
-        UpdateProgress { downloaded: pos, total: Some(pos), done: true },
+        UpdateProgress { downloaded: info.asset_size, total: Some(info.asset_size), done: true },
     );
     // Start a detached launcher and await its ready signal BEFORE exiting.
     // It waits for this process to end (not a fixed delay), runs the verified
@@ -1506,7 +1365,8 @@ async fn update_install(
     #[cfg(windows)]
     {
         let exe = std::env::current_exe().map_err(|e| format!("locate installed app: {e}"))?;
-        update_launcher::launch(&tmp, &exe, std::process::id()).await?;
+        update_launcher::launch(&staged.path, &exe, std::process::id()).await?;
+        let _retained_for_launcher = staged.keep();
         app.exit(0);
         Ok(())
     }
@@ -1524,17 +1384,15 @@ fn main() {
             if let Ok(lib) = library_path(&app.handle()) {
                 let _ = scope.allow_directory(&lib, true);
             }
-            let client = reqwest::Client::builder()
-                .user_agent(USER_AGENT)
-                .timeout(std::time::Duration::from_secs(300))
-                .build()
-                .expect("http client");
+            let client = network_policy::client().expect("restricted source client");
             app.manage(AppState {
                 client,
+                update_client: updater::client().expect("pinned update client"),
+                picked_folder: safe_paths::PickedFolder::default(),
                 fragment_client: reqwest::Client::builder().user_agent(USER_AGENT)
                     .redirect(reqwest::redirect::Policy::none()).timeout(std::time::Duration::from_secs(30))
                     .build().expect("THSC fragment client"),
-                meta: Arc::new(Semaphore::new(2)), // 2 concurrent script calls across 16 pools
+                meta: Arc::new(Semaphore::new(2)), // bounded legacy resolver concurrency
                 dl: Arc::new(Semaphore::new(MAX_WORKERS)),
                 consec_404: AtomicUsize::new(0),
                 ema_ms: AtomicU64::new(0),
@@ -1551,7 +1409,9 @@ fn main() {
                         let Ok(mut rd) = tokio::fs::read_dir(&dir).await else { continue };
                         while let Ok(Some(e)) = rd.next_entry().await {
                             let p = e.path();
-                            if p.is_dir() {
+                            let Ok(metadata) = tokio::fs::symlink_metadata(&p).await else { continue; };
+                            if safe_paths::is_reparse(&metadata) { continue; }
+                            if metadata.is_dir() {
                                 stack.push(p);
                             } else if p.extension().and_then(|x| x.to_str()) == Some("part") {
                                 tokio::fs::remove_file(&p).await.ok();
@@ -1590,6 +1450,64 @@ fn main() {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[tokio::test]
+    async fn importing_preserves_sources_existing_pdfs_and_rejects_escaped_destinations() {
+        let root = tempfile::tempdir().unwrap(); let source = tempfile::tempdir().unwrap();
+        let file = source.path().join("Å & O'Brien.pdf");
+        let original = b"%PDF-1.4\noriginal structural fixture\n%%EOF";
+        std::fs::write(&file, original).unwrap();
+        let relative = "Physics/2025/fixture.pdf";
+        let partial = safe_paths::destination(root.path(), relative, true).unwrap().part.clone();
+        std::fs::write(&partial, b"preserve interrupted download").unwrap();
+        copy_in(root.path(), relative, &file).await.unwrap();
+        assert_eq!(std::fs::read(&partial).unwrap(), b"preserve interrupted download");
+        let saved = safe_paths::destination(root.path(), relative, false).unwrap();
+        assert_eq!(std::fs::read(&saved.path).unwrap(), original);
+        assert_eq!(std::fs::read(&file).unwrap(), original);
+        std::fs::write(&file, b"%PDF-1.4\na larger different source that must not replace the user's existing file\n%%EOF").unwrap();
+        copy_in(root.path(), relative, &file).await.unwrap();
+        assert_eq!(std::fs::read(&saved.path).unwrap(), original);
+        assert!(copy_in(root.path(), "../escaped.pdf", &file).await.is_err());
+        std::fs::write(&file, b"HTML error").unwrap();
+        assert!(copy_in(root.path(), "Physics/2025/invalid.pdf", &file).await.is_err());
+        assert!(!root.path().join("Physics/2025/invalid.pdf").exists());
+    }
+
+    #[test]
+    fn every_published_download_source_and_historical_filename_fits_the_native_policy() {
+        let catalogue: serde_json::Value = serde_json::from_str(include_str!("../../ui/data/papers-v2.json")).unwrap();
+        let mut filenames = 0usize;
+        fn names(row: &serde_json::Value, count: &mut usize) {
+            let subject = row["subject"].as_str().unwrap_or("unsorted");
+            let school = row["school"].as_str().unwrap_or(""); let year = row["year"].as_u64();
+            for (key, kind) in [("url", "paper"), ("solutionUrl", "solutions")] {
+                if let Some(url) = row[key].as_str().filter(|s| !s.is_empty()) {
+                    let relative = format!("{}/{}/{}-{}.pdf", js_seg(subject), year.map(|y| y.to_string()).unwrap_or_else(|| "unknown".into()), js_safe_name(year, subject, school, kind), name_hash(url));
+                    safe_paths::relative_pdf(&relative).unwrap_or_else(|e| panic!("{relative}: {e}")); *count += 1;
+                }
+            }
+        }
+        for p in catalogue["papers"].as_array().unwrap() {
+            for key in ["url", "solutionUrl", "fallbackUrl", "solFallbackUrl"] {
+                if let Some(url) = p[key].as_str().filter(|s| !s.is_empty()) { network_policy::source(url).unwrap_or_else(|e| panic!("{url}: {e}")); }
+            }
+            for key in ["alternateSources", "fileVariants"] {
+                for row in p[key].as_array().into_iter().flatten() {
+                    if let Some(url) = row["url"].as_str() { network_policy::source(url).unwrap_or_else(|e| panic!("{url}: {e}")); }
+                }
+            }
+        }
+        for p in catalogue["papers"].as_array().unwrap().iter().chain(catalogue["recoveryPapers"].as_array().unwrap()) {
+            names(p, &mut filenames);
+            for alias in p["libraryAliases"].as_array().into_iter().flatten() { names(alias, &mut filenames); }
+            for v in p["fileVariants"].as_array().into_iter().flatten() {
+                if v["libraryRecord"].is_object() { names(&v["libraryRecord"], &mut filenames); }
+                for alias in v["libraryAliases"].as_array().into_iter().flatten() { names(alias, &mut filenames); }
+            }
+        }
+        assert!(filenames > catalogue["papers"].as_array().unwrap().len());
+    }
 
     #[test]
     fn migrated_primary_never_falls_back_to_legacy_script() {

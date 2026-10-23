@@ -1,7 +1,7 @@
 "use strict";
 const fs = require("fs"), path = require("path"), I = require("./catalogue-identity.cjs");
 function verify(catalogue, report, validation, previous) {
-  const errors = [], papers = catalogue.papers || [], ids = new Set(papers.map(p => p.id));
+  const errors = require("../ui/js/catalogue-schema.js").issues(catalogue), papers = catalogue.papers || [], ids = new Set(papers.map(p => p.id));
   const recovery = catalogue.recoveryPapers || [], allIds = new Set([...ids, ...recovery.map(p => p.id)]);
   if (allIds.size !== papers.length + recovery.length) errors.push("Duplicate active/recovery IDs");
   if (ids.size !== papers.length) errors.push("Duplicate active IDs");

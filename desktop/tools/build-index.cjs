@@ -15,6 +15,7 @@
 const fs = require("fs");
 const path = require("path");
 const identity = require("./catalogue-identity.cjs");
+const schema = require("../ui/js/catalogue-schema.js");
 const correctedMappings = [];
 
 const ROOT = path.resolve(__dirname, "..", "..");          // repo root (HSCPapers/)
@@ -264,6 +265,9 @@ if (require.main === module) {
   const papers = [];
   const seen = new Set();
   const push = (p) => {
+    p.year = schema.year(p.year);
+    const issue = schema.metadataIssue(p);
+    if (issue) throw new Error(issue + " in source record " + JSON.stringify(p.id));
     let id = p.id;
     let n = 2;
     while (seen.has(id)) id = `${p.id}-${n++}`;
@@ -432,7 +436,7 @@ if (require.main === module) {
     push({
       id: `portal-${e.v}-${slug(e.n)}`,
       subject, level: e.l === 12 ? "HSC" : e.l === 11 ? "Preliminary" : undefined,
-      year: e.y || null, school, type,
+      year: schema.year(e.y), school, type,
       title: decodeEnt(e.n),
       url: `https://hscportal.pages.dev/${e.cf.split("/").map(encodeURIComponent).join("/")}`,
       fallbackUrl: `${SOURCES.trialPipeline.downloadEndpoint.replace("{viewno}", e.v).replace("{title}", encodeURIComponent(e.n))}`,
@@ -484,7 +488,7 @@ if (require.main === module) {
     let school = sm[1].replace(/[-–,]\s*$/, "").trim() || (Number.isInteger(e.h) ? (schoolsArr[e.h] || "") : "") || "NESA";
     if (/^(?:19|20)\d{2}\b/.test(school) || !school) school = "NESA";
     const type = e.c === "T" ? "trial" : e.c === "A" ? "assessment" : "other";
-    const year = e.y || Number(sm[2]);
+    const year = schema.year(e.y ?? Number(sm[2]));
     // Attach: exactly one catalogue paper for (subject|school|year|type)
     // whose solution route is missing (empty) or dead (wcm).
     const cands = (ourParentIndex.get(`${normKey(subject)}|${normKey(school)}|${year}|${type}`) || [])
