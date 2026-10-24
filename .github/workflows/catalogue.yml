@@ -5,7 +5,12 @@ name: rebuild-catalogue
 on:
   schedule:
     - cron: "0 20 * * *" # 06:00 AEST — daily, before the school day
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Build and verify without publishing"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -17,9 +22,12 @@ concurrency:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v7
+
+      - name: Record source revision
+        run: echo "SOURCE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Block internal docs from being tracked
         run: |
@@ -50,37 +58,70 @@ jobs:
         working-directory: desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # authenticated API: 1,000/hr vs 60/hr on shared runner IPs
-        run: node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --no-cache --reviewed-only
+        run: timeout 25m node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --no-cache --reviewed-only
+
+      - name: Capture discovery digest
+        working-directory: desktop
+        run: node tools/verify-catalogue.cjs --digest-only > "$RUNNER_TEMP/discovery.digest"
 
       - name: Verify canonical catalogue before publishing
         working-directory: desktop
         run: |
-          node tools/refresh-catalogue-proof.cjs
-          node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --quiet --reviewed-only
-          node tools/verify-catalogue.cjs --previous="$RUNNER_TEMP/previous-catalogue.json"
+          set -euo pipefail
+          timeout 5m node tools/refresh-catalogue-proof.cjs
+          node --require ./tools/tests/no-local-ingest.cjs tools/build-index.cjs --quiet --offline --reviewed-only
+          node tools/verify-catalogue.cjs \
+            --previous="$RUNNER_TEMP/previous-catalogue.json" \
+            --max-new=0 \
+            --summary="$RUNNER_TEMP/nightly-summary.json"
+          node tools/audit-solution-orphans.cjs 2>&1 | tee "$RUNNER_TEMP/audit.txt"
           node tools/write-reconciliation-summary.cjs
           node tools/catalogue-publication-review.cjs --complete
+          first=$(tr -d '\r\n' < "$RUNNER_TEMP/discovery.digest")
+          second=$(node tools/verify-catalogue.cjs --digest-only | tr -d '\r\n')
+          if [ "$first" != "$second" ]; then
+            echo "::error::Nightly candidate is nondeterministic: discovery=$first rebuild=$second"
+            exit 1
+          fi
 
-      - name: Retain failed candidate diagnostics
-        if: failure()
+      - name: Retain nightly candidate diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: unpublished-catalogue-candidate
+          name: nightly-candidate
           path: |
             desktop/ui/data/papers-v2.json
             desktop/ui/data/papers.json
+            desktop/ui/sitemap.xml
+            desktop/ui/coverage.html
             desktop/tools/reconciliation-report.json
             desktop/tools/reconciliation-report.md
             desktop/tools/catalogue-validation.json
+            ${{ runner.temp }}/nightly-summary.json
+            ${{ runner.temp }}/audit.txt
+            ${{ runner.temp }}/discovery.digest
+          if-no-files-found: warn
 
-      - name: Commit (if changed)
+      - name: Publish verified reviewed-only candidate
+        if: success() && (github.event_name == 'schedule' || github.event.inputs.dry_run == 'false')
         run: |
+          set -euo pipefail
+          git fetch origin main --quiet
+          if [ "$(git rev-parse origin/main)" != "$(printf '%s' "$SOURCE_SHA" | tr -d '\r\n')" ]; then
+            echo "::error::main moved while the candidate was building; refusing to publish"
+            exit 1
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # the full regenerated surface: catalogue + the generators' artifacts
-          # (sitemap lastmod, coverage dashboard, subject pages, the SPA shell's
-          # static subject grid) — regenerating without committing discards them
           git add desktop/ui/data/papers.json desktop/ui/data/papers-v2.json desktop/ui/sitemap.xml desktop/ui/coverage.html desktop/ui/index.html desktop/ui/subjects/ desktop/tools/thsc-au-verified.json desktop/tools/reconciliation-report.json desktop/tools/reconciliation-report.md desktop/tools/catalogue-validation.json desktop/tools/catalogue-publication-review.json README.md
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            case "$f" in
+              desktop/ui/data/papers.json|desktop/ui/data/papers-v2.json|desktop/ui/sitemap.xml|desktop/ui/coverage.html|desktop/ui/index.html|desktop/ui/subjects/*|desktop/tools/thsc-au-verified.json|desktop/tools/reconciliation-report.json|desktop/tools/reconciliation-report.md|desktop/tools/catalogue-validation.json|desktop/tools/catalogue-publication-review.json|README.md) ;;
+              *) echo "::error::Unexpected generated path: $f"; exit 1 ;;
+            esac
+          done < <(git diff --cached --name-only)
+          git diff --cached --check
           if git diff --cached --quiet; then
             echo "Catalogue unchanged — no commit"
           else

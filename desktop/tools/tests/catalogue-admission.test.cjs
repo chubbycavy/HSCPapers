@@ -121,3 +121,10 @@ test("final source-copy gate retains explicit versions but never swaps their byt
   assert.deepEqual(p.alternateSources.map(a => a.url), ["https://test/copy.pdf"]);
   assert.equal(p.fileVariants.length, 1); assert.equal(p.libraryAliases[0].variantOnly, true); assert.equal(p.libraryAliases[1].variantOnly, undefined);
 });
+
+test("nightly new-active guard rejects new IDs but allows an existing identity to retarget", () => {
+  const previous = { papers: [{ id: "old" }], recoveryPapers: [{ id: "recovery-old" }], idAliases: { "historical-old": "old" } };
+  assert.deepEqual(V.newActiveIds({ papers: [{ id: "old" }, { id: "recovery-old" }], recoveryPapers: [], idAliases: {} }, previous), []);
+  assert.deepEqual(V.newActiveIds({ papers: [{ id: "renamed" }], recoveryPapers: [], idAliases: { old: "renamed" } }, previous), []);
+  assert.deepEqual(V.newActiveIds({ papers: [{ id: "new-card" }, { id: "renamed" }], recoveryPapers: [], idAliases: { old: "renamed" } }, previous), ["new-card"]);
+});

@@ -1,6 +1,20 @@
 "use strict";
 const fs = require("fs"), path = require("path"), I = require("./catalogue-identity.cjs");
-function verify(catalogue, report, validation, previous) {
+function newActiveIds(catalogue, previous) {
+  if (!previous) return [];
+  const previousIds = new Set([...(previous.papers || []), ...(previous.recoveryPapers || [])].map(p => p.id));
+  const allowed = new Set(previousIds);
+  for (const id of previousIds) {
+    const target = catalogue.idAliases?.[id];
+    if (target) allowed.add(target);
+  }
+  for (const id of Object.keys(previous.idAliases || {})) {
+    const target = catalogue.idAliases?.[id] || id;
+    if (target) allowed.add(target);
+  }
+  return (catalogue.papers || []).filter(p => !allowed.has(p.id)).map(p => p.id);
+}
+function verify(catalogue, report, validation, previous, maxNew = null) {
   const errors = require("../ui/js/catalogue-schema.js").issues(catalogue), papers = catalogue.papers || [], ids = new Set(papers.map(p => p.id));
   const recovery = catalogue.recoveryPapers || [], allIds = new Set([...ids, ...recovery.map(p => p.id)]);
   if (allIds.size !== papers.length + recovery.length) errors.push("Duplicate active/recovery IDs");
@@ -43,13 +57,17 @@ function verify(catalogue, report, validation, previous) {
       const target = catalogue.idAliases?.[id] || id;
       if (!allIds.has(target) && !exceptions.has(id)) errors.push("Published identity disappeared without disposition: " + id);
     }
+    if (maxNew != null) {
+      const added = newActiveIds(catalogue, previous);
+      if (added.length > maxNew) errors.push(`Unexpected new active IDs (${added.length} > ${maxNew}): ${added.slice(0, 20).join(", ")}${added.length > 20 ? ", …" : ""}`);
+    }
   }
   if (report.activePapers !== papers.length) errors.push("Audit count differs from the active catalogue");
   if (report.mergedImports.length + report.genuinelyAdded.length + report.reviewQueue.length !== report.importedRows) errors.push("Imports are not fully accounted for");
   if (report.unexpectedPrimaryDowngrades.length) errors.push("Unexpected primary downgrade: " + report.unexpectedPrimaryDowngrades.join(", "));
   return errors;
 }
-module.exports = { verify };
+module.exports = { verify, newActiveIds };
 if (require.main === module) {
   const catalogue = JSON.parse(fs.readFileSync(path.join(__dirname, "../ui/data/papers-v2.json"), "utf8"));
   const report = JSON.parse(fs.readFileSync(path.join(__dirname, "reconciliation-report.json"), "utf8"));
@@ -57,9 +75,30 @@ if (require.main === module) {
   validation.ownerExclusions = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-document-review.json"), "utf8")).entries;
   const arg = process.argv.find(a => a.startsWith("--previous="));
   const previous = arg ? JSON.parse(fs.readFileSync(arg.slice(11), "utf8")) : null;
+  const maxArg = process.argv.find(a => a.startsWith("--max-new="));
+  const maxNew = maxArg ? Number(maxArg.slice("--max-new=".length)) : null;
+  const summaryArg = process.argv.find(a => a.startsWith("--summary="));
   const legacy = JSON.parse(fs.readFileSync(path.join(__dirname, "../ui/data/papers.json"), "utf8"));
+  const publication = require("./catalogue-publication-review.cjs");
   const publicationSync = JSON.parse(fs.readFileSync(path.join(__dirname, "catalogue-publication-sync.json"), "utf8"));
-  const errors = [...verify(catalogue, report, validation, previous), ...require("./catalogue-feeds.cjs").verify(catalogue, legacy), ...require("./publication-continuity.cjs").verify(catalogue, publicationSync, validation)];
+  const errors = [...verify(catalogue, report, validation, previous, maxNew), ...require("./catalogue-feeds.cjs").verify(catalogue, legacy), ...require("./publication-continuity.cjs").verify(catalogue, publicationSync, validation)];
+  const previousIds = new Set((previous?.papers || []).map(p => p.id));
+  const currentIds = new Set((catalogue.papers || []).map(p => p.id));
+  const summary = {
+    generated: new Date().toISOString(),
+    maxNew,
+    active: catalogue.papers.length,
+    recovery: (catalogue.recoveryPapers || []).length,
+    aliases: Object.keys(catalogue.idAliases || {}).length,
+    imports: report.importedRows,
+    previousActive: previous ? (previous.papers || []).length : null,
+    newActiveIds: previous ? newActiveIds(catalogue, previous) : [],
+    removedActiveIds: previous ? [...previousIds].filter(id => !currentIds.has(id)) : [],
+    digest: publication.digest(catalogue, legacy),
+    errors
+  };
+  if (summaryArg) fs.writeFileSync(summaryArg.slice("--summary=".length), JSON.stringify(summary, null, 1) + "\n");
+  if (process.argv.includes("--digest-only")) { console.log(summary.digest); process.exit(0); }
   if (errors.length) { console.error(errors.join("\n")); process.exitCode = 1; }
   else console.log(`Catalogue verified: ${catalogue.papers.length} active entries, ${Object.keys(catalogue.idAliases).length} historical aliases, all ${report.importedRows} imports accounted for`);
 }
