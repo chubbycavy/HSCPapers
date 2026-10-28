@@ -3,6 +3,15 @@ const test = require("node:test"), assert = require("node:assert/strict"), fs = 
 const schema = require("../../ui/js/catalogue-schema.js"), migration = require("../../ui/js/migration-state.js");
 const record = { id: "security-paper", subject: "Physics", school: "Example", year: 2025, type: "trial", title: "2025 Example Trial", url: "https://hscportal.pages.dev/test.pdf" };
 const cat = row => ({ dataVersion: 2, papers: [row], recoveryPapers: [], idAliases: {} });
+test("source attribution recognizes exact file hosts without changing delivery eligibility", () => {
+  const policy = require("../../ui/js/source-policy.js");
+  assert.deepEqual(policy.credit("https://hscportal.pages.dev/yr12/a.pdf"), { name: "HSC Portal", href: "https://www.hscportal.app/" });
+  assert.equal(policy.credit("https://www.nsw.gov.au/a.pdf").name, "NESA");
+  assert.equal(policy.credit("https://pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev/a.pdf").name, "HSCPapers");
+  for (const url of [null, "", "file:///saved.pdf", "blob:https://hscpapers.com/abc", "https://hscportal.pages.dev.evil.test/a.pdf", "https://hscportal.pages.dev@evil.test/a.pdf", "https://user@hscportal.pages.dev/a.pdf", "https://hscportal.pages.dev:444/a.pdf", "https://unknown.test/a.pdf"]) assert.equal(policy.credit(url), null);
+  assert.equal(policy.isFast("https://unknown.test/a.pdf"), false);
+  assert.equal(policy.isFast("https://thsconline.github.io/s/d/1234/paper"), false);
+});
 test("catalogue rejects path/HTML years, CSS types, source schemes and poisoned filename history before client migration", () => {
   for (const change of [{ year: '../Startup' }, { year: 'x"><img src=x onerror=alert(1)>' }, { year: [2025] }, { year: 9999 }, { subject: ".." }, { school: "CON" }, { type: 'trial" onmouseover="alert(1)' }, { url: "javascript:alert(1)" }, { url: "https://user:secret@hscportal.pages.dev/a.pdf" }, { libraryAliases: [{ ...record, year: "../../" }] }, { fileVariants: [{ url: "data:text/html,test" }] }]) {
     const c = cat({ ...record, ...change }); assert.ok(schema.issues(c).length); assert.equal(migration.compatible(c), false);

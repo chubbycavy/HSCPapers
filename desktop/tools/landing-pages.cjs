@@ -12,6 +12,7 @@
 const fs = require("fs");
 const path = require("path");
 const { FAVICON_HREF, logoImage } = require("./logo.cjs");
+const { credit } = require("../ui/js/source-policy.js");
 
 const SITE = "https://hscpapers.com";
 const UI = path.join(__dirname, "..", "ui");
@@ -25,7 +26,14 @@ const ICON = `<link rel="icon" href="${FAVICON_HREF}" type="image/svg+xml">`;
 const THEME = `<script src="/js/theme-init.js"></script>`;
 const LOGO_MARK = logoImage();
 const NAV = `<header><nav class="nav"><a class="logo" href="/"><span class="logo-mark">${LOGO_MARK}</span><span>HSCPapers<small>Free NSW HSC paper index</small></span></a><div class="nav-links"><a href="/">Browse the index</a><a href="/coverage">Coverage</a></div></nav></header>`;
-const LEGAL = `<footer><b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>. Fast mirrors: <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>, Board of Studies archive, official NESA releases.</footer>`;
+const LEGAL = `<footer><b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>. Across HSCPapers, many PDFs and catalogue links are made available through <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>. Other sources include the independent THSC mirror, Board of Studies archive and official NESA releases. <a href="/#sources">How we use our sources →</a></footer>`;
+const PORTAL_CREDIT = `<section class="portal-credit" aria-label="HSC Portal acknowledgement"><div class="credit-icon" aria-hidden="true">↗</div><div class="credit-copy"><span class="credit-kicker">Catalogue &amp; PDF hosting</span><h2>With thanks to <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a></h2><p>Many of the PDFs in our index are hosted by HSC Portal. We use its public paper catalogue and file links to include those papers in our searchable index and reader.</p></div><a class="credit-visit" href="https://www.hscportal.app/" target="_blank" rel="noopener">Browse HSC Portal ↗</a></section>`;
+function fileCredits(p) {
+  const paper = credit(p.url), solutions = credit(p.solutionUrl);
+  const same = paper && solutions && paper.name === solutions.name;
+  const link = (source, prefix) => `<span>${prefix} <a class="source-link" href="${esc(source.href)}" target="_blank" rel="noopener">${esc(source.name)} ↗</a></span>`;
+  return [paper ? link(paper, same ? "PDFs hosted by" : p.solutionUrl ? "Paper hosted by" : "PDF hosted by") : "", solutions && !same ? link(solutions, "Solutions hosted by") : ""].filter(Boolean).join("<br>") || "—";
+}
 
 const STYLE = `
   main.landing { max-width: 980px; margin: 0 auto; padding: 1.5rem 1.2rem 3rem; }
@@ -42,6 +50,9 @@ const STYLE = `
   table.papers td { padding: .35rem .5rem; border-bottom: 1px solid var(--border, #eef0f6); vertical-align: top; }
   td.p-school { color: var(--muted, #6b7280); white-space: nowrap; }
   td.p-type { color: var(--muted, #6b7280); white-space: nowrap; font-size: .78rem; }
+  td.p-source { min-width: 145px; font-size: .72rem; color: var(--muted, #6b7280); }
+  .paper-table-wrap { overflow-x: auto; }
+  main.landing > .portal-credit { margin-top: 1.3rem; }
   .siblings { margin-top: 2rem; padding: 1rem 1.2rem; border: 1px solid var(--border, #e5e7f0); border-radius: 12px; }
   .siblings .slist { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .2rem .9rem; font-size: .82rem; }
   .hub-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .35rem 1.2rem; margin: 1.2rem 0; }
@@ -85,7 +96,7 @@ ${LEGAL}
 `;
 }
 
-module.exports = async function generate({ ui = UI } = {}) {
+module.exports = async function generate({ ui = UI, pruneRetired = true } = {}) {
   const UI = ui;
   const catalogue = JSON.parse(fs.readFileSync(path.join(UI, "data", "papers-v2.json"), "utf8"));
   require("../ui/js/catalogue-schema.js").assert(catalogue);
@@ -105,7 +116,7 @@ module.exports = async function generate({ ui = UI } = {}) {
   const currentSlugs = new Set(subjects.map(slugOf));
   // Remove only our generated index pages for retired subjects. Leave any
   // unrelated files or user-authored directories untouched.
-  for (const d of fs.readdirSync(root, { withFileTypes: true })) {
+  for (const d of pruneRetired ? fs.readdirSync(root, { withFileTypes: true }) : []) {
     if (!d.isDirectory() || currentSlugs.has(d.name)) continue;
     const f = path.join(root, d.name, "index.html");
     if (!fs.existsSync(f)) continue;
@@ -149,9 +160,9 @@ module.exports = async function generate({ ui = UI } = {}) {
     const blocks = yearKeys.map((y) => {
       const rows = byYear.get(y)
         .sort((a, b) => String(a.title).localeCompare(String(b.title)))
-        .map((p) => `<tr><td>${esc(p.title)}</td><td class="p-school">${esc(p.school || "—")}</td><td class="p-type">${esc(typeLabel(p.type))}</td></tr>`)
+        .map((p) => `<tr><td>${esc(p.title)}</td><td class="p-school">${esc(p.school || "—")}</td><td class="p-type">${esc(typeLabel(p.type))}</td><td class="p-source">${fileCredits(p)}</td></tr>`)
         .join("\n");
-      return `<div class="yearblock"><h3>${esc(y)}</h3><table class="papers"><thead><tr><th>Paper</th><th>School</th><th>Type</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+      return `<div class="yearblock"><h3>${esc(y)}</h3><div class="paper-table-wrap"><table class="papers"><thead><tr><th>Paper</th><th>School</th><th>Type</th><th>File source</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
     }).join("\n");
 
     const title = `HSC ${esc(subject)} Past Papers &amp; Trial Papers${range} | HSCPapers`;
@@ -165,6 +176,7 @@ module.exports = async function generate({ ui = UI } = {}) {
   </div>
   <p>Every NSW HSC ${esc(subject)} paper we have — HSC exams, trial papers and assessment tasks — searchable and filterable in the full index, with paper and solutions readable side by side and up to 200 papers in one structured ZIP. Free, no sign-up, no ads.</p>
   <p><a class="l-cta" href="/?subject=${encodeURIComponent(subject)}">Open ${esc(subject)} in the reader →</a></p>
+${list.some(p => [p.url, p.solutionUrl].some(url => credit(url)?.name === "HSC Portal")) ? "  " + PORTAL_CREDIT : ""}
   ${blocks}
   <div class="siblings">
     <h2>More subjects</h2>
@@ -181,6 +193,7 @@ module.exports = async function generate({ ui = UI } = {}) {
   const hubBody = `
   <h1>Browse NSW HSC papers by subject</h1>
   <p>${subjects.length} subjects — every NSW HSC exam, trial paper and school assessment in one free index. Pick a subject to see its papers, or <a href="/">search the full catalogue</a>.</p>
+  ${PORTAL_CREDIT}
   <div class="hub-list">${subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${papersLabel(bySubject.get(s).length)}</small></a>`).join("")}</div>`;
   fs.writeFileSync(path.join(root, "index.html"), page(hubTitle, esc(hubDesc), hubCanonical, hubBody, breadcrumb("Subjects", hubCanonical)));
 

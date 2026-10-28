@@ -7,11 +7,10 @@
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
 importScripts("/js/pdf-validation.js");
-const VERSION = "v7-security"; // discard the vulnerable reader/app-shell cache
+const VERSION = "v8-source-credit"; // refresh the shell with visible source attribution
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
-// This is a code-only security upgrade. Keep the existing catalogue and recent
-// PDF caches: the patched engine safely parses PDFs, and strict schema checks
-// protect cached catalogue data. Only executable/shell assets must be replaced.
+// Keep existing catalogue and recent PDF caches across app-shell updates.
+// Only executable/shell assets must be replaced.
 const PAGES_CACHE = "hsc-pages-v6";
 const PDF_CACHE = "hsc-pdfs-v6";
 const PDF_CACHE_MAX = 60; // recently read papers stay offline (LRU by insertion)

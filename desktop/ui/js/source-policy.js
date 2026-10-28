@@ -26,5 +26,28 @@
     if (!url || !(isFragment(url) || isLegacy(url))) return url;
     return proxyBase + "?url=" + encodeURIComponent(url) + "&dl=1";
   }
-  return { FAST_SAVE_HOSTS, isFast, isFragment, isLegacy, allowedPrimary, eligible, candidates, deliveryHref };
+  // Display-only attribution follows the file host, not listing metadata or a
+  // stale mirror label. These links do not change download eligibility.
+  function credit(url) {
+    let u;
+    try { u = new URL(url); } catch { return null; }
+    if (u.protocol !== "https:" || u.username || u.password) return null;
+    switch (u.host) {
+      case "hscportal.pages.dev": return { name: "HSC Portal", href: "https://www.hscportal.app/" };
+      case "www.nsw.gov.au": return { name: "NESA", href: "https://www.nsw.gov.au/education-and-training/nesa" };
+      case "www.boardofstudies.nsw.edu.au": return { name: "Board of Studies", href: "https://www.boardofstudies.nsw.edu.au/hsc_exams/" };
+      case "pub-ec23c9b69d2544938d816ad28ee491fd.r2.dev": return { name: "HSCPapers", href: "https://hscpapers.com/#sources" };
+      case "thsconline.github.io":
+      case "thsconline.pages.dev":
+      case "www.thsconline.net":
+      case "thsconline.net": return { name: "THSCOnline", href: "https://thsconline.github.io/s/" };
+      case "thsconline.com.au": return { name: "independent THSC mirror", href: "https://thsconline.com.au/#/about" };
+      case "web.archive.org": return { name: "Internet Archive", href: "https://web.archive.org/" };
+      case "aceh.b-cdn.net": return { name: "AceHSC", href: "https://www.acehsc.net/" };
+      case "4unitmaths.com": return { name: "4unitmaths", href: "https://4unitmaths.com/" };
+      case "cresteconomics.com": return { name: "CREST Economics", href: "https://www.cresteconomics.com/" };
+      default: return null;
+    }
+  }
+  return { FAST_SAVE_HOSTS, isFast, isFragment, isLegacy, allowedPrimary, eligible, candidates, deliveryHref, credit };
 });

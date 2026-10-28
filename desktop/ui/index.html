@@ -53,6 +53,16 @@
   <h1>Every NSW HSC paper. <span>One fast place.</span></h1>
   <p>A free, nightly-updated index of NSW HSC papers — trial papers, past HSC exams and school assessments — searchable, filterable and downloadable in seconds. Read any paper in your browser, take up to 200 papers home in one structured ZIP, share any selection with a single link, or let the desktop app pull the entire library in minutes at ~30&nbsp;MB/s. No sign-up. No paywalls. No ads.</p>
 
+  <section class="portal-credit" aria-labelledby="portalCreditTitle">
+    <div class="credit-icon" aria-hidden="true">↗</div>
+    <div class="credit-copy">
+      <span class="credit-kicker">Catalogue &amp; PDF hosting</span>
+      <h2 id="portalCreditTitle">With thanks to <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a></h2>
+      <p>Many of the PDFs here are hosted by HSC Portal. We use its public paper catalogue and file links to include those papers in our searchable index and reader.</p>
+    </div>
+    <a class="credit-visit" href="https://www.hscportal.app/" target="_blank" rel="noopener">Browse HSC Portal ↗</a>
+  </section>
+
   <div class="search-wrap">
     <form class="search" id="searchForm">
       <span class="s-icon">⌕</span>
@@ -201,7 +211,7 @@
     <div>
       <h2>What HSCPapers is</h2>
       <p>HSCPapers is an independent, study-first index of NSW Higher School Certificate material: <b>6,000+ trial papers, past HSC exams and school assessment tasks</b>, organised <code>Subject → Year → School</code> and split into HSC (NESA past papers) and Trial (school-written).</p>
-      <p style="margin-top:.6rem">Most downloads resolve to their source: the community mirror <b>HSC Portal</b>, the Board of Studies archive, and official <b>NESA</b> links — plus a small self-hosted set of papers from our own library. Catalogue metadata mirrors <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a> and rebuilds automatically every night.</p>
+      <p style="margin-top:.6rem">Many PDFs are hosted and made available by <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>; we use its public catalogue and direct file links in our index and reader. Other files come from the Board of Studies archive, official <b>NESA</b> links, independent mirrors, and a small registered self-hosted set. Public listing metadata also comes from <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>. <a href="#sources">How we use our sources →</a></p>
       <p style="margin-top:.6rem">🐢 <b>Slow-route papers</b> include THSC’s migrated fragment downloads and validated legacy sources. They’re hidden by default; enable the sidebar toggle to include them.</p>
       <p style="margin-top:.6rem">📄 Found a paper we’re missing? <a id="submitLink" href="#" target="_blank" rel="noopener" hidden>Submit it</a> — verified submissions go live self-hosted, same day.</p>
     </div>
@@ -217,11 +227,30 @@
     </div>
     <div>
       <h2>Content &amp; removal</h2>
-      <p>All papers remain the property of their schools/authors and <b>NESA</b> — this site is a <b>free, non-commercial index</b> and hosts no PDFs.</p>
+      <p>All papers remain the property of their schools/authors and <b>NESA</b> — this site is a <b>free, non-commercial index</b>. Most PDFs remain hosted at their sources; a limited registered subset is self-hosted.</p>
       <p style="margin-top:.6rem">Rights-holders can request removal of any indexed material: <b>we act within 24 hours</b>, and removals are permanent (the nightly catalogue builder excludes them going forward). Full policy: <a href="https://github.com/chubbycavy/HSCPapers/blob/main/TAKEDOWN.md" target="_blank" rel="noopener">TAKEDOWN.md</a>.</p>
       <p style="margin-top:.6rem"><a id="removalLink" href="#" target="_blank" rel="noopener" hidden>Report / removal requests →</a></p>
     </div>
   </div>
+  <section class="sources-section" id="sources" aria-labelledby="sourcesTitle">
+    <h2 id="sourcesTitle">Where the papers come from</h2>
+    <p class="sources-intro">HSCPapers brings the search, filtering and reading tools together. The people who catalogue and host the files make that possible.</p>
+    <section class="portal-credit expanded-credit" aria-labelledby="portalSourceTitle">
+      <div class="credit-icon" aria-hidden="true">↗</div>
+      <div class="credit-copy">
+        <span class="credit-kicker">HSC Portal</span>
+        <h3 id="portalSourceTitle">A major source of the files you read here.</h3>
+        <p>HSC Portal hosts many of the trial papers and assessments available through HSCPapers and maintains a public paper catalogue. We use that catalogue to match file links to our index and include papers available from its collection.</p>
+        <p>When a paper is labelled “PDF hosted by HSC Portal”, its file is served from HSC Portal’s hosting and displayed using HSCPapers’ reader. HSC Portal is a separate site where you can browse its collection directly.</p>
+        <a class="credit-visit" href="https://www.hscportal.app/" target="_blank" rel="noopener">Visit HSC Portal’s collection ↗</a>
+      </div>
+    </section>
+    <div class="other-sources">
+      <article><h3>THSCOnline</h3><p>Public paper-listing metadata and supported download routes help us identify and link records.</p><a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">Visit THSCOnline ↗</a></article>
+      <article><h3>NESA / Board of Studies</h3><p>Official HSC exam papers, marking materials and archive links are credited to their official sources.</p><a href="https://www.nsw.gov.au/education-and-training/nesa" target="_blank" rel="noopener">Visit NESA ↗</a></article>
+      <article><h3>HSCPapers &amp; other sources</h3><p>HSCPapers provides search, filters, the reader, download tools and a registered self-hosted subset. Additional files come from the <a href="https://thsconline.com.au/#/about" target="_blank" rel="noopener">independent THSC mirror</a>, AceHSC, 4unitmaths and verified archive copies. The file’s source is identified beside its actions.</p><p>Papers remain the property of their schools, authors and NESA.</p></article>
+    </div>
+  </section>
 </section>
 
 <div class="bulkbar" id="bulkbar" role="status" aria-live="polite">
@@ -237,7 +266,7 @@
 <footer>
   <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/subjects/">Browse by subject</a><br>
   Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>.
-  Fast mirrors: <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>, <a href="https://thsconline.com.au/#/about" target="_blank" rel="noopener">independent THSC mirror</a>, Board of Studies archive, official NESA releases. Removals: <a href="https://github.com/chubbycavy/HSCPapers/issues/new?template=removal-request.yml" target="_blank" rel="noopener">request form</a>.
+  Many PDFs and catalogue links are made available through <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>. Other file sources include the <a href="https://thsconline.com.au/#/about" target="_blank" rel="noopener">independent THSC mirror</a>, Board of Studies archive and official NESA releases. <a href="#sources">How we use our sources →</a> Removals: <a href="https://github.com/chubbycavy/HSCPapers/issues/new?template=removal-request.yml" target="_blank" rel="noopener">request form</a>.
   <span id="footerDesktopLink" hidden> · <a id="footerDesktopLinkA" href="#" target="_blank" rel="noopener">⭳ Desktop app</a></span>
   <span id="footerGitLink" hidden> · <a id="footerGitLinkA" href="#" target="_blank" rel="noopener">GitHub</a></span>
   <span id="footerRemovalLink" hidden> · <a id="footerRemovalLinkA" href="#" target="_blank" rel="noopener">Removal requests</a></span>
@@ -280,6 +309,7 @@
         <span class="pane-num" id="numPaper">1 / 1</span>
         <button class="bar-btn pane-nav" title="Next page">›</button>
       </div>
+      <div class="pane-source" id="paperSourceCredit" hidden></div>
       <div class="reader-scroll pane-scroll" id="scrollPaper"></div>
     </div>
     <div class="reader-pane" id="paneSol" data-pane="sol" hidden>
@@ -291,6 +321,7 @@
         <button class="bar-btn pane-nav" title="Next page">›</button>
         <button class="bar-btn pane-close" id="paneSolClose" title="Close solutions">✕</button>
       </div>
+      <div class="pane-source" id="solSourceCredit" hidden></div>
       <div class="reader-scroll pane-scroll" id="scrollSol"></div>
     </div>
   </div>

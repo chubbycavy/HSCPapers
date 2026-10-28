@@ -55,7 +55,7 @@ test("worker upgrade removes old executable caches while preserving offline PDFs
   // registration is explicit here because the app intentionally skips HTTP.
   await page.evaluate(async () => { await navigator.serviceWorker.register("/sw.js"); await navigator.serviceWorker.ready; });
   await expect.poll(() => page.evaluate(async () => (await caches.keys()).includes("hsc-shell-v6"))).toBe(false);
-  expect(await page.evaluate(async () => (await caches.keys()).includes("hsc-shell-v7-security"))).toBe(true);
+  expect(await page.evaluate(async () => (await caches.keys()).includes("hsc-shell-v8-source-credit"))).toBe(true);
   expect(await page.evaluate(async () => [...new Uint8Array(await (await (await caches.open("hsc-pdfs-v6")).match("/preserved-offline.pdf")).arrayBuffer())])).toEqual(bytes);
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("hsc-bookmarked")))).toEqual([bookmark]);
 });

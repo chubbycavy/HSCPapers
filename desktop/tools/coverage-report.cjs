@@ -117,7 +117,8 @@ module.exports = async function run({ ui = path.join(__dirname, "..", "ui") } = 
   <p class="cov-note">Catalogue generated ${esc(generatedAt)} UTC by desktop/tools/build-index.cjs — rebuilt nightly. Papers belong to their schools/authors and NESA; HSCPapers is a free, non-commercial index.</p>
 </main>
 <footer>
-  <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a>
+  <b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>
+  Many PDFs and catalogue links are made available through <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>. <a href="/#sources">How we use our sources →</a>
 </footer>
 <!-- SUBJECTS:STATIC:START -->
 <div class="footer-subjects"><h2>All subjects · <a href="/subjects/">subjects hub</a></h2><div class="f-grid">${subjList.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${subjects.get(s)} papers</small></a>`).join("")}</div></div>

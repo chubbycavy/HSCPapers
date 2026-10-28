@@ -396,6 +396,9 @@
     buildSubjectStrip();
     updateStats();
     render();
+    // Initial anchor navigation happens before the async catalogue arrives.
+    // Re-align the new source section after cards have changed the page height.
+    if (location.hash === "#sources") requestAnimationFrame(() => $("#sources")?.scrollIntoView({ block: "start", behavior: "instant" }));
   }
 
   /* ---------- stats ---------- */
@@ -762,6 +765,15 @@
     });
   }
 
+  function appendSourceCredit(container, source, prefix) {
+    const row = document.createElement("span");
+    const link = document.createElement("a");
+    link.className = "source-link"; link.href = source.href;
+    link.target = "_blank"; link.rel = "noopener";
+    link.textContent = source.name + " ↗";
+    row.append(document.createTextNode(prefix + " "), link);
+    container.appendChild(row);
+  }
   function cardEl(p) {
     const el = document.createElement("div");
     el.className = "card" + (state.selected.has(p.id) ? " selected" : "");
@@ -808,9 +820,16 @@
           ${solHref ? `<a class="mini-btn" ${solLinkAttrs} data-rel="${esc(srel || "")}" ${!IS_TAURI ? `data-dl data-kind="solutions" data-source="${esc(solHref)}" data-fallback="${esc(p.solFallbackUrl || "")}" data-name="${esc(safeName(p, "solutions"))}"` : ""}>Solutions</a>` : ""}
           ${!IS_TAURI && paperHref && paperHref !== "#" ? `<button class="mini-btn" data-read>📖 Read</button>` : ""}
         </div>
+        <div class="card-source" hidden></div>
       </div>`;
     el.querySelector("h3").textContent = p.title;
     el.querySelector(".meta").textContent = `${p.subject} · ${p.school} · ${p.size || ""}`.replace(/ · $/, "");
+    const sourceCredit = el.querySelector(".card-source");
+    const paperSource = window.SourcePolicy.credit?.(paperHref), solSource = window.SourcePolicy.credit?.(solHref);
+    const sameHost = paperSource && solSource && paperSource.name === solSource.name;
+    if (paperSource) appendSourceCredit(sourceCredit, paperSource, sameHost ? "PDFs hosted by" : solHref ? "Paper hosted by" : "PDF hosted by");
+    if (solSource && !sameHost) appendSourceCredit(sourceCredit, solSource, "Solutions hosted by");
+    sourceCredit.hidden = !sourceCredit.childElementCount;
     if (p.fileVariants?.length > 1) {
       const versions = document.createElement("details"), summary = document.createElement("summary");
       summary.textContent = "Other file versions"; versions.appendChild(summary);
@@ -830,7 +849,7 @@
             try { await window.__TAURI__.core.invoke("cancel_downloads", { cancel: false }); local = await window.__TAURI__.core.invoke("download_paper", { id: p.id + "-variant", url: v.url, relpath: relpaths[0], fallback: null }); }
             catch (e) { button.textContent = "Version unavailable: " + String(e?.message || e); return; }
           }
-          button.textContent = `${v.label || v.role} (${v.pages || "?"} pages)`; openReader(local, `${p.title} — ${v.label || v.role}`, p.id, null, null, null);
+          button.textContent = `${v.label || v.role} (${v.pages || "?"} pages)`; openReader(local, `${p.title} — ${v.label || v.role}`, p.id, null, null, null, true, v.url);
         };
         versions.appendChild(button);
       }
@@ -1757,7 +1776,8 @@
                 if (idx >= 0 && res[idx]) solLocal = res[idx];
               }
             }
-            openReader(path, title, card?.dataset.id, solLocal);
+            const sourceUrl = p ? paperUrlOf(p, libraryRel(p, "solutions") === b.dataset.rel ? "solutions" : "paper") : null;
+            openReader(path, title, card?.dataset.id, solLocal, null, null, false, sourceUrl);
           });
           // Secondary chip: open in the system PDF app.
           const sys = document.createElement("a");
@@ -1783,7 +1803,7 @@
   // memory. Paper/Solutions panes navigate and print independently; 🔗
   // sync follows the page index across panes.
   function mkPane() {
-    return { doc: null, page: 1, sysPath: null, numPages: 0, pages: [], queue: [], inFlight: 0, observer: null, scrollTick: false, syncLock: false, dims: null };
+    return { doc: null, page: 1, sysPath: null, sourceUrl: null, numPages: 0, pages: [], queue: [], inFlight: 0, observer: null, scrollTick: false, syncLock: false, dims: null };
   }
   const readerPanes = { paper: mkPane(), sol: mkPane() };
   let readerMode = "single"; // "single" (one pane) | "split" (both)
@@ -1791,20 +1811,29 @@
   let readerSync = false;    // page-follow toggle (persisted, default off)
   try { readerSync = localStorage.getItem("hsc-reader-sync") === "1"; } catch {}
   let readerPaperUrl = null, readerSolUrl = null, readerSolFallbackUrl = null, readerPaperFallbackUrl = null;
+  let readerPaperFallbackSource = null, readerSolFallbackSource = null;
   let readerSlowSolExcluded = false;
   let pendingPaperId = null; // B8: recently-viewed logs only on a successful load
 
   function paneNumEl(key) { return $(key === "paper" ? "#numPaper" : "#numSol"); }
   function paneScrollEl(key) { return $(key === "paper" ? "#scrollPaper" : "#scrollSol"); }
 
-  function openReader(path, title, id, solPath, solFallbackPath, paperFallbackPath, exactVersion = false) {
+  function paneSourceEl(key) { return $(key === "paper" ? "#paperSourceCredit" : "#solSourceCredit"); }
+  function updatePaneSource(key, sourceUrl) {
+    const container = paneSourceEl(key); if (!container) return;
+    container.replaceChildren();
+    const source = window.SourcePolicy.credit?.(sourceUrl);
+    container.hidden = !source;
+    if (source) appendSourceCredit(container, source, IS_TAURI ? "Catalogue source:" : key === "paper" ? "Paper hosted by" : "Solutions hosted by");
+  }
+  function openReader(path, title, id, solPath, solFallbackPath, paperFallbackPath, exactVersion = false, paperSourceUrl = null) {
     if (!path) return;
+    const record = state.papers.find(p => p.id === id);
     readerSlowSolExcluded = !IS_TAURI && !!solPath && !window.SourcePolicy.allowedPrimary(solPath, state.includeSlowRoute);
     if (readerSlowSolExcluded) { solPath = null; solFallbackPath = null; }
     if (!IS_TAURI) {
-      const p = state.papers.find(p => p.id === id);
-      paperFallbackPath = window.SourcePolicy.candidates(p, "paper", path, state.includeSlowRoute, exactVersion, paperFallbackPath)[1] || null;
-      solFallbackPath = window.SourcePolicy.candidates(p, "solutions", solPath, state.includeSlowRoute, exactVersion, solFallbackPath)[1] || null;
+      paperFallbackPath = window.SourcePolicy.candidates(record, "paper", path, state.includeSlowRoute, exactVersion, paperFallbackPath)[1] || null;
+      solFallbackPath = window.SourcePolicy.candidates(record, "solutions", solPath, state.includeSlowRoute, exactVersion, solFallbackPath)[1] || null;
     }
     pendingPaperId = id || null;
     readerPaperUrl = IS_TAURI ? path : proxied(path);
@@ -1816,10 +1845,15 @@
       ? (IS_TAURI ? solFallbackPath : proxied(solFallbackPath)) : null;
     readerPaperFallbackUrl = paperFallbackPath && paperFallbackPath !== path
       ? (IS_TAURI ? paperFallbackPath : proxied(paperFallbackPath)) : null;
+    readerPaperFallbackSource = paperFallbackPath || null;
+    readerSolFallbackSource = solFallbackPath || null;
     readerPanes.paper = mkPane();
     readerPanes.sol = mkPane();
     readerPanes.paper.sysPath = IS_TAURI ? path : null;
     readerPanes.sol.sysPath = IS_TAURI && solPath ? solPath : null;
+    readerPanes.paper.sourceUrl = IS_TAURI ? paperSourceUrl || record?.url || null : path;
+    readerPanes.sol.sourceUrl = IS_TAURI ? record?.solutionUrl || null : solPath;
+    updatePaneSource("paper", null); updatePaneSource("sol", null);
     $("#readerTitle").textContent = title || "Paper";
     $("#readerErr").hidden = true; $("#readerErr").textContent = "";
     $("#reader").hidden = false;
@@ -1873,6 +1907,7 @@
       paneScrollEl(key).innerHTML = "";
       try { pane.doc?.destroy(); } catch {}
       readerPanes[key] = mkPane();
+      updatePaneSource(key, null);
     }
     readerMode = "single"; readerFocus = "paper"; pendingPaperId = null;
     $("#readerErr").hidden = true; $("#readerErr").textContent = "";
@@ -1891,8 +1926,10 @@
         try { await window.PdfValidation.validateBlob(new Blob([await doc.getData()])); }
         catch (e) { await doc.destroy(); throw e; }
       }
+      if (readerPanes[key] !== pane || $("#reader").hidden) { await doc.destroy(); return; }
       pane.doc = doc;
       pane.numPages = doc.numPages;
+      updatePaneSource(key, pane.sourceUrl);
       paneNumEl(key).textContent = `1 / ${pane.numPages}`;
       if (key === "paper" && pendingPaperId) { logRecentlyViewed(pendingPaperId); pendingPaperId = null; } // B8
       // Page placeholders: uniform dims from page 1 (exam papers are
@@ -1920,6 +1957,7 @@
       wirePaneScroll(key);
       queueRender(key, 1); // eager first page
     } catch (e) {
+      if (readerPanes[key] !== pane || $("#reader").hidden) return;
       if (key === "sol") {
         // One fallback attempt before giving up: the catalogue keeps a live
         // solFallbackUrl beside some dead-primary solutions — try it once.
@@ -1928,11 +1966,14 @@
           try { pane.doc?.destroy(); } catch {}
           readerPanes.sol = mkPane();
           readerPanes.sol.solFallbackTried = true;
+          readerPanes.sol.sourceUrl = readerSolFallbackSource;
+          updatePaneSource(key, null);
           return loadPane(key, alt); // recursion happens at most once
         }
         // Solutions failed to load → graceful fallback to single-pane paper.
         try { pane.doc?.destroy(); } catch {}
         readerPanes.sol = mkPane();
+        updatePaneSource(key, null);
         readerMode = "single";
         applyReaderChrome();
         $("#readerErr").hidden = false;
@@ -1953,8 +1994,11 @@
           try { pane.doc?.destroy(); } catch {}
           readerPanes.paper = mkPane();
           readerPanes.paper.paperFallbackTried = true;
+          readerPanes.paper.sourceUrl = readerPaperFallbackSource;
+          updatePaneSource(key, null);
           return loadPane(key, alt); // recursion happens at most once
         }
+        updatePaneSource(key, null);
         $("#readerErr").hidden = false;
         // A 404/410 from the source is a dead link, not a CORS problem —
         // say that honestly instead of guessing about cross-site reading.
