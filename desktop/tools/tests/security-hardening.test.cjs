@@ -64,6 +64,8 @@ test("deployed header rules block inline/eval scripts and MIME sniffing on every
   for (const url of ["/", "/coverage", "/coverage.html", "/subjects/physics/", "/demo-scroll.html"]) {
     const h = headersFor(url), scripts = h["Content-Security-Policy"].split(";").find(d => d.trim().startsWith("script-src ")).trim().split(/\s+/);
     assert.ok(scripts.includes("'self'")); assert.equal(scripts.includes("'unsafe-eval'"), false); assert.equal(scripts.includes("'unsafe-inline'"), false);
+    assert.ok(scripts.includes("https://static.cloudflareinsights.com/beacon.min.js"));
+    assert.equal(scripts.includes("https:"), false);
     assert.equal(h["X-Content-Type-Options"], "nosniff");
   }
 });

@@ -14,9 +14,10 @@ for (const lane of ["direct", "proxy"]) test(`patched reader safely renders a re
   expect(await page.evaluate(() => window.pdfjsLib.version)).toBe("6.4.299");
   expect(oldAssets).toEqual([]);
 });
-test("CSP blocks inline handlers, inline script and JavaScript eval while the app remains usable", async ({ page }) => {
+test("CSP permits the analytics beacon but blocks inline handlers, eval and other external scripts", async ({ page }) => {
   await page.route("**/security-eval-fixture.js", route => route.fulfill({ contentType: "text/javascript", body: "try { new Function('window.evalExecuted=true')(); } catch(e) { window.evalBlocked=e instanceof EvalError; }" }));
   await page.route("https://security.invalid/fixture.js", route => route.fulfill({ contentType: "text/javascript", body: "window.externalExecuted=true" }));
+  await page.route("https://static.cloudflareinsights.com/beacon.min.js", route => route.fulfill({ contentType: "text/javascript", body: "window.analyticsBeaconLoaded=true" }));
   const response = await page.goto("/"); expect(response.headers()["content-security-policy"]).toContain("script-src-attr 'none'");
   await page.waitForSelector("#cards .card");
   await page.evaluate(() => {
@@ -25,9 +26,11 @@ test("CSP blocks inline handlers, inline script and JavaScript eval while the ap
     const image = document.createElement("img"); image.setAttribute("onerror", "window.handlerExecuted=true"); image.src = "/missing-security-image"; document.body.append(image);
     const external = document.createElement("script"); external.src = "/security-eval-fixture.js"; document.body.append(external);
     const foreign = document.createElement("script"); foreign.src = "https://security.invalid/fixture.js"; document.body.append(foreign);
+    const analytics = document.createElement("script"); analytics.src = "https://static.cloudflareinsights.com/beacon.min.js"; document.body.append(analytics);
   });
   await expect.poll(() => page.evaluate(() => window.evalBlocked)).toBe(true);
   await expect.poll(() => page.evaluate(() => window.externalBlocked)).toBe(true);
+  await expect.poll(() => page.evaluate(() => window.analyticsBeaconLoaded)).toBe(true);
   expect(await page.evaluate(() => [window.inlineExecuted, window.handlerExecuted, window.evalExecuted, window.externalExecuted].some(Boolean))).toBe(false);
   await page.locator("#themeBtn").click(); await expect(page.locator("#cards .card").first()).toBeVisible();
 });
