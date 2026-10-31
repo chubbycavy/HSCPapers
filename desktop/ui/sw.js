@@ -7,7 +7,7 @@
    - navigations: network-first → cached shell fallback
    Bump VERSION on any app-shell change so clients refresh. */
 importScripts("/js/pdf-validation.js");
-const VERSION = "v8-source-credit"; // refresh the shell with visible source attribution
+const VERSION = "v9-source-neutral"; // refresh source-neutral acknowledgements and styles
 const SHELL_CACHE = `hsc-shell-${VERSION}`;
 // Keep existing catalogue and recent PDF caches across app-shell updates.
 // Only executable/shell assets must be replaced.

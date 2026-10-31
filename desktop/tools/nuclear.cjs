@@ -3,7 +3,7 @@
  *   L1 sweep-check        (local, static)
  *   L2 e2e                (Playwright, local serve)
  *   L3 live-check         (production — every fetch bounded at 20s)
- *   L4 builder canary     (--offline: cache-only, ZERO network; run twice +
+ *   L4 builder canary     (--offline --reviewed-only: cache-only maintenance; run twice +
  *                         normalized-hash compare = the determinism gate)
  * Stops on the first red step. Child output is STREAMED through as it
  * arrives (spawn + pipe + forward — never stdio:'inherit', which returns
@@ -92,7 +92,7 @@ function fingerprint() {
   if (!skipLive && !(await runStep("L3 live-check (production, bounded fetches)", "node", ["tools/e2e/live-check.cjs"]))) throw new Error("Live check failed");
 
   const canary = async (n) => {
-    if (!(await runStep(`L4 builder canary (--offline, run ${n}/2)`, "node", ["--require", "./tools/tests/no-local-ingest.cjs", "tools/build-index.cjs", "--offline"]))) throw new Error("Canary failed");
+    if (!(await runStep(`L4 builder canary (--offline --reviewed-only, run ${n}/2)`, "node", ["--require", "./tools/tests/no-local-ingest.cjs", "tools/build-index.cjs", "--offline", "--reviewed-only"]))) throw new Error("Canary failed");
     const h = fingerprint();
     console.log(`  canary ${n}: ${h}`);
     return h;

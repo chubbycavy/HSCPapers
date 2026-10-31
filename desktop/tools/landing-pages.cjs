@@ -26,8 +26,8 @@ const ICON = `<link rel="icon" href="${FAVICON_HREF}" type="image/svg+xml">`;
 const THEME = `<script src="/js/theme-init.js"></script>`;
 const LOGO_MARK = logoImage();
 const NAV = `<header><nav class="nav"><a class="logo" href="/"><span class="logo-mark">${LOGO_MARK}</span><span>HSCPapers<small>Free NSW HSC paper index</small></span></a><div class="nav-links"><a href="/">Browse the index</a><a href="/coverage">Coverage</a></div></nav></header>`;
-const LEGAL = `<footer><b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>Papers belong to their respective schools/authors and NESA. Catalogue + resolver: <a href="https://thsconline.github.io/s/" target="_blank" rel="noopener">THSCOnline</a>. Across HSCPapers, many PDFs and catalogue links are made available through <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a>. Other sources include the independent THSC mirror, Board of Studies archive and official NESA releases. <a href="/#sources">How we use our sources →</a></footer>`;
-const PORTAL_CREDIT = `<section class="portal-credit" aria-label="HSC Portal acknowledgement"><div class="credit-icon" aria-hidden="true">↗</div><div class="credit-copy"><span class="credit-kicker">Catalogue &amp; PDF hosting</span><h2>With thanks to <a href="https://www.hscportal.app/" target="_blank" rel="noopener">HSC Portal</a></h2><p>HSC Portal’s public paper catalogue and file links help us match papers in our searchable index. Its PDFs are used for direct hosting and verified fallback copies.</p></div><a class="credit-visit" href="https://www.hscportal.app/" target="_blank" rel="noopener">Browse HSC Portal ↗</a></section>`;
+const LEGAL = `<footer><b>HSCPapers</b> · Independent paper index · Not affiliated with NESA · <a href="/">← Back to the papers</a><br>Papers belong to their respective schools/authors and NESA. <a href="/#sources">Sources and acknowledgements</a>.</footer>`;
+const SOURCES_LINK = `<p class="sources-link"><a href="/#sources">Sources and acknowledgements →</a></p>`;
 function fileCredits(p) {
   const paper = credit(p.url), solutions = credit(p.solutionUrl);
   const same = paper && solutions && paper.name === solutions.name;
@@ -52,7 +52,7 @@ const STYLE = `
   td.p-type { color: var(--muted, #6b7280); white-space: nowrap; font-size: .78rem; }
   td.p-source { min-width: 145px; font-size: .72rem; color: var(--muted, #6b7280); }
   .paper-table-wrap { overflow-x: auto; }
-  main.landing > .portal-credit { margin-top: 1.3rem; }
+  main.landing > .sources-link { font-size: .82rem; }
   .siblings { margin-top: 2rem; padding: 1rem 1.2rem; border: 1px solid var(--border, #e5e7f0); border-radius: 12px; }
   .siblings .slist { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .2rem .9rem; font-size: .82rem; }
   .hub-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .35rem 1.2rem; margin: 1.2rem 0; }
@@ -176,7 +176,7 @@ module.exports = async function generate({ ui = UI, pruneRetired = true } = {}) 
   </div>
   <p>Every NSW HSC ${esc(subject)} paper we have — HSC exams, trial papers and assessment tasks — searchable and filterable in the full index, with paper and solutions readable side by side and up to 200 papers in one structured ZIP. Free, no sign-up, no ads.</p>
   <p><a class="l-cta" href="/?subject=${encodeURIComponent(subject)}">Open ${esc(subject)} in the reader →</a></p>
-${list.some(p => [p.url, p.solutionUrl].some(url => credit(url)?.name === "HSC Portal")) ? "  " + PORTAL_CREDIT : ""}
+  ${SOURCES_LINK}
   ${blocks}
   <div class="siblings">
     <h2>More subjects</h2>
@@ -193,7 +193,7 @@ ${list.some(p => [p.url, p.solutionUrl].some(url => credit(url)?.name === "HSC P
   const hubBody = `
   <h1>Browse NSW HSC papers by subject</h1>
   <p>${subjects.length} subjects — every NSW HSC exam, trial paper and school assessment in one free index. Pick a subject to see its papers, or <a href="/">search the full catalogue</a>.</p>
-  ${PORTAL_CREDIT}
+  ${SOURCES_LINK}
   <div class="hub-list">${subjects.map((s) => `<a href="/subjects/${slugOf(s)}/"><span>${esc(s)}</span><small>${papersLabel(bySubject.get(s).length)}</small></a>`).join("")}</div>`;
   fs.writeFileSync(path.join(root, "index.html"), page(hubTitle, esc(hubDesc), hubCanonical, hubBody, breadcrumb("Subjects", hubCanonical)));
 

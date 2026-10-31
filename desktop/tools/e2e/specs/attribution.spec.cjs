@@ -25,9 +25,16 @@ test.beforeEach(async ({ page }) => {
   await page.waitForSelector("#cards .card");
 });
 
-test("browse credit explains catalogue/hosting and cards ignore stale source metadata", async ({ page }) => {
-  await expect(page.locator(".hero .portal-credit")).toContainText("public paper catalogue and file links");
-  await expect(page.locator(".hero .credit-visit")).toHaveAttribute("href", "https://www.hscportal.app/");
+test("browse links to balanced acknowledgements and cards ignore stale source metadata", async ({ page }) => {
+  await expect(page.locator(".hero .sources-link a")).toHaveText("Sources and acknowledgements");
+  await expect(page.locator(".hero .sources-link a")).toHaveAttribute("href", "#sources");
+  await expect(page.locator(".portal-credit")).toHaveCount(0);
+  await expect(page.locator("#sources .sources-grid > article")).toHaveCount(6);
+  const portal = page.locator("#sources article").filter({ has: page.getByRole("heading", { name: "HSC Portal", exact: true }) });
+  await expect(portal).toContainText("public catalogue helped us identify and match paper links");
+  await expect(portal).toContainText("limited set of primary PDFs and as a fallback source");
+  await expect(portal.getByRole("link")).toHaveAttribute("href", "https://www.hscportal.app/");
+  await expect(page.locator("#sources article").filter({ has: page.getByRole("heading", { name: "Independent THSC mirror", exact: true }) })).toBeAttached();
   await expect(page.locator('.card[data-id="portal"] .card-source')).toContainText("PDF hosted by HSC Portal");
   await expect(page.locator('.card[data-id="official"] .card-source')).toContainText("PDF hosted by NESA");
   await expect(page.locator('.card[data-id="official"] .card-source')).not.toContainText("HSC Portal");
@@ -40,7 +47,7 @@ test("browse credit explains catalogue/hosting and cards ignore stale source met
   await page.locator('.card[data-id="portal"] .source-link').click();
   await (await popup).close();
   await expect(page.locator('.card[data-id="portal"] input[type="checkbox"]')).not.toBeChecked();
-  await expect(page.locator("#sources")).toContainText("match file links to our index");
+  await expect(page.locator("footer > a[href='#sources']")).toHaveText("Sources and acknowledgements");
 });
 
 test("reader labels both documents independently and retains usable split panes on mobile", async ({ page }) => {
@@ -78,12 +85,15 @@ test("explicit file versions get their own source credit", async ({ page }) => {
   await expect(card.locator(".card-source")).toContainText("PDF hosted by HSC Portal");
 });
 
-test("credit remains readable without horizontal overflow in light/dark mobile and compact views", async ({ page }) => {
+test("source-neutral links and acknowledgements stay usable in light/dark mobile and compact views", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   for (const theme of ["light", "dark"]) {
     await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
-    await page.locator(".hero .portal-credit").scrollIntoViewIfNeeded();
-    await expect(page.locator(".hero .credit-visit")).toBeVisible();
+    await page.locator(".hero .sources-link").scrollIntoViewIfNeeded();
+    await expect(page.locator(".hero .sources-link a")).toBeVisible();
+    await page.locator(".hero .sources-link a").click();
+    await expect(page.locator("#sourcesTitle")).toBeInViewport();
+    await expect(page.locator("#sources article").filter({ has: page.getByRole("heading", { name: "HSC Portal", exact: true }) }).getByRole("link")).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   await page.locator("#densityBtn").click();
@@ -98,11 +108,16 @@ test("credit remains readable without horizontal overflow in light/dark mobile a
   })).toBe(true);
 });
 
-test("subject landing pages retain generated host credits and an explanatory acknowledgement", async ({ page }) => {
+test("subject landing pages retain host credits with neutral source links instead of provider banners", async ({ page }) => {
   await page.goto("/subjects/chemistry/index.html");
-  await expect(page.getByRole("region", { name: "HSC Portal acknowledgement" })).toContainText("public paper catalogue");
+  await expect(page.locator(".portal-credit")).toHaveCount(0);
+  await expect(page.locator("main .sources-link a")).toHaveText("Sources and acknowledgements →");
+  await expect(page.locator("main .sources-link a")).toHaveAttribute("href", "/#sources");
   const rows = page.locator("table.papers tbody tr");
   await expect(rows.first()).toBeVisible();
   expect(await page.locator("td.p-source .source-link", { hasText: "HSC Portal" }).count()).toBeGreaterThan(0);
-  await expect(page.locator('footer a[href="/#sources"]')).toBeVisible();
+  await expect(page.locator('footer a[href="/#sources"]')).toHaveText("Sources and acknowledgements");
+  await page.goto("/subjects/index.html");
+  await expect(page.locator(".portal-credit")).toHaveCount(0);
+  await expect(page.locator("main .sources-link a")).toHaveAttribute("href", "/#sources");
 });
