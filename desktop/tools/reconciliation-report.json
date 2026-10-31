@@ -66880,13 +66880,13 @@
   },
   "primaryPreferences": {
    "bindings": 4677,
-   "promoted": 4677,
+   "promoted": 0,
    "rejected": []
   }
  },
  "reviewedOnly": {
   "baselineActive": 6936,
-  "discoveredRows": 0,
+  "discoveredRows": 8769,
   "newImportsHeld": 0
  }
 }

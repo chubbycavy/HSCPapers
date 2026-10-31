@@ -14118,59 +14118,114 @@
    "at": "2026-10-11T14:15:26.272Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "664b71dbe62fded71a0495783328449dee452035981f2d72de6351977a2b7dc0",
+   "bytes": 160750,
+   "pages": 18,
+   "text": "NORMANHURST BOYS HIGH SCHOOL  MATHEMATICS  2015 HSC Course Assessment Task 4 (Trial Examination) Thursday July 30, 2015  General instructions  •   Working time – 3 hours. (plus 5 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   Board approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 13)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  BOSTES NUMBER:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED :   . . . . .  Class   (please   ✔ )  ©   12M6 – Mrs Bhamra   ©   12M3 – Mr Wall  ©   12M4 – Mr Tan  ©   12M5 – Mr Lam Marker’s use only.  QUESTION   1-10   11   12   13   14   15   16   Total MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202015%20w.%20sol",
+   "at": "2026-10-31T23:04:24.137Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "b2a9aabd4b5132ceed92a76b72e210bb18d360d1317d1aeda007c0651aaf7dac",
+   "bytes": 660456,
+   "pages": 20,
+   "text": "NORMANHURST BOYS HIGH SCHOOL  MATHEMATICS  2016 HSC Course Assessment Task 4 (Trial Examination) Thursday August 4, 2016  General instructions  •   Working time – 3 hours. (plus 5 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   Board approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 12)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  BOSTES NUMBER:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED :   . . . . .  Class   (please   ✔ )  ©   12MAT.6 – Dr Lawson   ©   12MAT.3 – Mr Lam  ©   12MAT.4 – Mr Wall  ©   12MAT.5 – Mrs Gan Marker’s use only.  QUESTION   1-10   11   12   13   14   15   16   Total MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202016%20w.%20sol",
+   "at": "2026-10-31T23:04:26.192Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "480e3f125dff7fe2bc3c3231364290f461bf50f04a9599596ea42723c46fdad2",
+   "bytes": 1182973,
+   "pages": 23,
+   "text": "MATHEMATICS  2017 HSC Course Assessment Task 4 (Trial Examination) Thursday, 3 August 2017  General instructions  • \u0001   Working time – 3 hours. (plus 5 minutes reading time)  • \u0001   Write using blue or black pen. Where diagrams are to be sketched, these may be done in pencil.  • \u0001   NESA approved calculators may be used.  • \u0001   Attempt all questions.  • \u0001   A NESA Reference Sheet is provided.  • \u0001   At the conclusion of the examination, bundle the booklets used in the correct order within this paper and hand to examination supervisors.  SECTION I  • \u0001   Mark your answers on the answer grid provided  SECTION II  • \u0001   Commence each new question on a new booklet. Write on both sides of the paper.  • \u0001   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT NUMBER:   ............................................   # BOOKLETS USED: ................................  Class: (please   \u0001 ) Marker’s use only  QUESTION   1-10   11   12   13   14   15   16   Total MARKS   \u0013\u0012 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0012\u0012 \u0001  \u0002   12MAT3 – Mr Wall  \u0002   12MAT4 – Mr Sekaran  \u0002   12MAT5 – Mrs Gan  \u0002   12MAT6 – Ms Park  \u0002   12MAT7 – Mr Tan",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202017%20w.%20sol",
+   "at": "2026-10-31T23:04:28.132Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "eb825e646f98647be3523c97d9f4f4822e0228a96e0f10d99509025f08f53c07",
+   "bytes": 649151,
+   "pages": 23,
+   "text": "MATHEMATICS  2018 HSC Course Assessment Task 4 (Trial Examination) Monday August 13, 2018  General instructions  •   Working time – 3 hours. (plus 5 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 11)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED :   . . . . .  Class   (please   ✔ )  ©   12MAT.3 – Mr Tan  ©   12MAT.4 – Mrs Gan  ©   12MAT.5 – Mr Lam  ©   12MAT.6 – Ms Park  ©   12MAT.7 – Mrs Dupuche Marker’s use only.  QUESTION   1-10   11   12   13   14   15   16   % MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202018%20w.%20sol",
+   "at": "2026-10-31T23:04:30.075Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "0e42a0ce505bf22dbbe74c4b10eef617d87dcd9b4c79e894c2ebff734395d5bd",
+   "bytes": 297887,
+   "pages": 36,
+   "text": "MATHEMATICS ADVANCED  2020 Year 12 Course Assessment Task 4 (Trial HSC Examination) Thursday, 20 August 2020  General instructions  •   Working time – 3 hour. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 28)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAX.3 – Mr Sekaran  ©   12MAX.4 – Mrs Bhamra  ©   12MAX.5 – Mr Siu  ©   12MAA.6 – Mr Ho Marker’s use only.  QUESTION   1-10   11-14   15-18   19-22   23-25   26-29   30-32   Total   % MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202020%20w.%20sol",
+   "at": "2026-10-31T23:04:31.816Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "972da625b105d0cabf85adcd55efd5e4a92a56bed255657935cd6dc624076764",
+   "bytes": 296995,
+   "pages": 38,
+   "text": "MATHEMATICS ADVANCED  2021 Year 12 Course Assessment Task 4 (Trial HSC Examination) Monday, 30 August 2021  General instructions  •   Working time – 3 hour. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 27)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAA.1 – Miss Lee  ©   12MAX.1 – Mr Ho  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Mr Lam  ©   12MAX.4 – Mr Sun Marker’s use only.  QUESTION   1-10   11-15   16-18   19-21   22-25   26-29   30-32   Total   % MARKS   10   15   14   15   16   17   13   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202021%20w.%20sol",
+   "at": "2026-10-31T23:04:33.557Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "ef0c12c08e8491f2627eccc2e22942e8cd0911618a2febc65870e466d7b4e368",
+   "bytes": 1206248,
+   "pages": 46,
+   "text": "MATHEMATICS ADVANCED  2022 Year 12 Course Assessment Task 4 (Trial HSC Examination) Thursday, 11 August 2022  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 29)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   \u0002 )  ©   12MAA.1 – Miss J. Kim  ©   12MAA.2 – Mr Ho  ©   12MAX.1 – Mr Lam  ©   12MAX.2 – Miss C. Kim  ©   12MAX.3 – Miss Lee Marker’s use only.  QUESTION   1-10   11-15   16-19   20-21   22-26   27-30   31-33   Total MARKS   10   12   16   11   18   17   16   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202022%20w.%20sol",
+   "at": "2026-10-31T23:04:35.490Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "8aa4cc2cb4c09f4d563fb7b62ffda95ff2f67379f3980f3a8b496382d35b05c2",
+   "bytes": 4894211,
+   "pages": 56,
+   "text": "MATHEMATICS ADVANCED  2023 Year 12 Course Assessment Task 4 (Trial HSC Examination) Wednesday, 16 August 2023  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 29)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   \u0002 )  ©   12MAA.1 – Mr Lam  ©   12MAX.1 – Ms C. Kim  ©   12MAX.2 – Ms Lee  ©   12MAX.3 – Ms J. Kim Marker’s use only.  QUESTION   1-10   11-14   15-17   18-19   20-21   22-24   25-26   27-28   29-30   Total MARKS   10   15   13   9   7   16   8   11   11   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202023%20w.%20sol",
+   "at": "2026-10-31T23:04:37.499Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "6f513366b18348f2a1082ae18c6797b6f701e2d413fe197cbf3c2d7bbafbaeba",
+   "bytes": 5299700,
+   "pages": 47,
+   "text": "MATHEMATICS ADVANCED  2024 Year 12 Course Assessment Task 4 (Trial HSC Examination) Monday, 19 August 2024  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 29)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   \u0002 )  ©   12MAA.1 – Miss Chaussivert   ©   12MAX.1 – Miss J. Kim  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Miss Lee Marker’s use only.  QUESTION   1-10   11-14   15-17   18-20   21-23   24-25   26-29   Total MARKS   10   14   13   13   16   18   16   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202024%20w.%20sol",
+   "at": "2026-10-31T23:04:39.573Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "c31c9817bd3dd230f9a4f45e13388cf3182363fe72d3133fa26d00f614459ab9",
+   "bytes": 360548,
+   "pages": 45,
+   "text": "MATHEMATICS ADVANCED  2025 Year 12 Course Assessment Task 4 (Trial HSC Examination) Friday, 1 August 2025  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 32)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   ✔ )  ©   12MAA.1 – Mr Tran   ©   12MAX.1 – Miss J. Kim  ©   12MAX.2 – Miss Chaussivert  ©   12MAX.3 – Miss Lee  ©   12MAX.4 – Mr Lam Marker’s use only.  QUESTION   1-10   11-14   15-17   18-21   22-24   25-27   28-29   Total MARKS   10   15   14   16   14   17   14   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202025%20w.%20sol",
+   "at": "2026-10-31T23:04:41.582Z"
   },
   "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "c7e7ddc85cca35b1299fc8a648f00f5097ac4dfcc2fd4330db053c689d41284a",
+   "bytes": 2370471,
+   "pages": 58,
+   "text": "MATHEMATICS ADVANCED  2026 Year 12 Course Assessment Task 4 (Trial HSC Examination) Friday, 31 July 2026  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 33)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   ✔ )  ©   12MAA.1 – Ms Quek  ©   12MAA.2 – Mr Gan  ©   12MAX.2 – Miss Lee  ©   12MAX.3 – Miss Chaussivert  ©   12MAX.4 – Miss J. Kim Marker’s use only.  QUESTION   1-10   11-15   16-18   19-22   23-26   27-29   30-32   Total MARKS   10   17   15   19   12   11   16   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202026%20w.%20sol",
+   "at": "2026-10-31T23:04:43.700Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202006%20w.%20sol": {
    "state": "review",
@@ -14178,49 +14233,94 @@
    "at": "2026-10-11T14:15:26.272Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "ee053dfa0483401cee9d8d095f8293c8d7d038041259e734c670cf21b84ee3f3",
+   "bytes": 555992,
+   "pages": 23,
+   "text": "MATHEMATICS  2018 HSC Course Assessment Task 3  (Trial Examination)  Wednesday June 27, 2018.  General Instructions  •   Working time –3 hours (plus 5 minutes reading time).  •   Write using blue or black pen. Diagrams may be sketched in pencil.  •   Board approved calculators may be used.  •   All necessary working should be shown in every question.  •   Attempt all questions.  Section I - 10 marks  •   Mark your answers on the answer sheet provided.  Section II – 90 marks  •   Commence each new question on a new page.  •   Show all necessary working in every question. Marks may be deducted for illegible or incomplete working.  STUDENT NUMBER:   …………………………………………   # BOOKLETS USED:   ……….  Class   (please    )   Mr Berry   Ms Ziaziaris  Mr Hwang   Mr Zuber  Mr Lin  Question   MC   11   12   13   14   15   16   Total  Marks   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202018%20w.%20sol",
+   "at": "2026-10-31T23:04:47.092Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "83b5e06c44827ac7cfb35fc4bd07af1fb691453a8d2df2bdec0b5b2c2ba9961e",
+   "bytes": 1251137,
+   "pages": 23,
+   "text": "MATHEMATICS  2019 HSC Course Assessment Task 3  (Trial Examination)  Thursday June 27, 2019.  General Instructions  •   Working time –3 hours (plus 5 minutes reading time).  •   Write using blue or black pen. Diagrams may be sketched in pencil.  •   Board approved calculators may be used.  •   All necessary working should be shown in every question.  •   Attempt all questions.  Section I - 10 marks  •   Mark your answers on the answer sheet provided.  Section II – 90 marks  •   Commence each new question on a new page.  •   Show all necessary working in every question. Marks may be deducted for illegible or incomplete working.  STUDENT NUMBER:   …………………………………………   # BOOKLETS USED:   ……….  Class   (please    )   Mr Berry   Ms Ziaziaris  Mr Hwang   Mr Zuber  Mr Lin  Question   MC   11   12   13   14   15   16   Total  Marks   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202019%20w.%20sol",
+   "at": "2026-10-31T23:04:49.612Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "6b89b932d60954386b3e8b2d846dffa23b3d5d6e845891fb181429054a658bd0",
+   "bytes": 1950784,
+   "pages": 51,
+   "text": "2020   YEAR   12   ASSESSMENT   TASK   3  Mathematics   Advanced  General   Instructions     Working   time   –   3   hours     Reading   time   –   10   minutes     Write   on   the   lined   paper   in   the  booklet   provided     Write   Multiple   Choice   responses   on  sheet   provided     Write   using   blue   or   black   pen     Board   approved   calculators   may   be  used     All   necessary   working   should   be  shown   in   every   question.   Marks   may  be   deducted   for   illegible   or  incomplete   working.     Use   the   Reference   Sheet  Class   Teacher :   Please   shade   the   circle.     Mr   Berry     Mr   Hwang     Mr   Ireland     Ms   Lee     Mr   Umakanthan  (To   be   used   by   the   exam   markers   only.)  Questions   1 ‐ 10   11 ‐ 17   18 ‐ 21   22 ‐ 25   26 ‐ 29   30 ‐ 34   35 ‐ 38   Total  Mark   10   15   16   15   15   15   14   100  STUDENT NUMBER:   4……………………………………………….",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202020%20w.%20sol",
+   "at": "2026-10-31T23:04:51.536Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "a41c4bfc52d083c352ffaf8a07c60b7561000f6a0ba043fd2009f9edb44d1eee",
+   "bytes": 10186821,
+   "pages": 85,
+   "text": "North Sydney Boys High School   Mathematics Advanced   Assessment 3  1 |   P a g e  Section I  10 marks  Attempt Questions 1–10  Allow about 15 minutes for this section  Use the multiple-choice answer sheet for Questions 1 – 10  1.   The amplitude of the curve   𝑦𝑦   =   1 2   sin(3 𝑥𝑥   +   𝜋𝜋 6 )   is  A.   1 6  B.   𝜋𝜋 6  C.   1 3  D.   1 2  MA12.5  2.   What is the equation of the tangent to the curve   at the origin?  A.  B.  C.  D.  MA12.6",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202021%20w.%20sol",
+   "at": "2026-10-31T23:04:53.951Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "4e620917fdbfa0126bb61d5ecaf27317a5f48c867360f9ff792beb0f963739c5",
+   "bytes": 4478335,
+   "pages": 49,
+   "text": "Student Number ________________________________   Teacher ________________________  2022   NSBHS TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Advanced  General Instructions  x   Reading time – 10 minutes  x   Working time – 3 hours  x   Write using black pen  x   Calculators approved by NESA may be used  x   A reference sheet is provided at the back of this paper  x   In Questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks : 100 Section I – 10 marks   (pages 3 – 6)  x   Attempt Questions 1 – 10  x   Allow about 15 minutes for this section  Section II – 90 marks   (pages 8 – 34)  x   Attempt Questions 11 – 33  x   Allow about 2 hours and 45 minutes for this section.  (For marker’s use only)  SECTION   SECTION I (MC) SECTION II (Part 1) SECTION II (Part 2) TOTAL MARK  ͳͲ   ͵ͺ   ͷʹ   ͳͲͲ",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202022%20w.%20sol",
+   "at": "2026-10-31T23:04:56.025Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.272Z"
+   "state": "verified",
+   "sha256": "60c03e2a96700500b3e211a7e21939db7ca7b4b78ed8654365adda617142a86c",
+   "bytes": 2480085,
+   "pages": 60,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202023%20w.%20sol",
+   "at": "2026-10-31T23:04:57.906Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "27c8f9446869b2f274fddb684e494a9c392ee3c1033ade287f079fb5ef1b22ef",
+   "bytes": 7116215,
+   "pages": 49,
+   "text": "2024 YEAR 12 HSC ASSESSMENT TASK 3  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time –   3 hours  •   Write using blue or black pen  •   Board approved calculators may  be used  •   All necessary working should be  shown in every question  •   Attempt all questions  Class Teacher:  (Please tick or highlight)     Ms Sarofim     Ms Cai     Ms Moss     Mr Ireland  (To be used by the exam markers only.)  Question  No   1-10   11- 30   Total  Mark   ⬚  10  ⬚  90  ⬚  100  Student Number:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202024%20w.%20sol",
+   "at": "2026-10-31T23:05:00.010Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "e484bee03d7d5080bf8ac487054efd153353264f723e3fd6dfaf5f82c8a1a513",
+   "bytes": 11978442,
+   "pages": 74,
+   "text": "2025 YEAR 12 HSC ASSESSMENT TASK 3  Mathematics Advanced  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using blue or black pen  •   DoE approved calculators may be used  •   All necessary working should be shown in every question  •   Attempt all questions  Class Teacher:  (Please tick or highlight)     Ms Sarofim     Ms Cai     Mr Ireland     Mr Umakanthan  (To be used by the exam markers only.)  Question No   1-10   11- 33   Total  Mark   ⬚  10  ⬚  90  ⬚  100  Student Number:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202025%20w.%20sol",
+   "at": "2026-10-31T23:05:03.050Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "0cc4bff5d246ccad81ae0250d106ccfecc64fcbc33e9b48f86bc420557f7b506",
+   "bytes": 11321990,
+   "pages": 59,
+   "text": "2026 HSC ASSESSMENT TASK 3 (TRIAL HSC)  Mathematics Advanced  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write in the space provided in the booklet  provided  •   Write using blue or black pen  •   Board approved calculators may be used  •   All necessary working should be shown in  every question  •   Extra working space is provided at the  end of examination.  •   Attempt all questions  Class Teacher:  (Please tick or highlight)     Mr Lin     Ms Everingham     Ms Cai     Ms Sarofim  (To be used by the exam markers only.)  Question  Numbers  1-10   11-16   17-21   22-25   26-29   30-32   33-35   Total  Mark   10   14   16   14   15   16   15   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202026%20w.%20sol",
+   "at": "2026-10-31T23:05:05.794Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%201989%20w.%20sol": {
    "state": "review",
@@ -147178,6 +147278,674 @@
    "text": "  ",
    "transport": "direct-pdf",
    "at": "2026-10-30T13:46:53.217Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b6b1605-b3df-4dc3-91a1-3451ccb62055/2018-hsc-ancient-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:33.992Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/59140f8f-3220-41b4-a57e-0886b735d873/2018-hsc-ancient-history-mg.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:35.600Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/3b7a62d5-568e-43c8-b30d-3b8d49f9c77e/2017-hsc-ancient-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:37.188Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0e0a2999-2388-43ea-aa10-93f60202122c/2017-hsc-mg-ancient-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:38.773Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/44446ad0-8e8a-4f0f-bf0d-a4dc22467cb3/2016-hsc-ancient-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:39.987Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/70352704-de94-4692-8674-48ad9142e902/2016-hsc-mg-ancient-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:41.622Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/114983e9-8298-435f-842e-2223ad1a757d/2018-hsc-biology.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:42.847Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/49b42cde-14de-4042-8602-855d6b9cbdd1/2018-hsc-biology-mg.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:44.449Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fc23024b-f91e-468c-90b5-8d522b8d2dbf/2017-hsc-biology.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:45.661Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0510d97c-140b-41ec-acf9-23ca14f34373/2017-hsc-mg-biology.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:46.874Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/adc1d586-5f58-4d32-a053-6a6c71fe9628/2016-hsc-biology.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:48.462Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/71cc392c-7c89-4002-9f21-768223e69e64/2016-hsc-mg-biology.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:49.672Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/858727ca-1db5-4df0-ab13-8a3496f3e4ff/2018-hsc-business-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:51.260Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/54c0daaf-2bc2-4d45-98cf-37dfed260dda/2017-hsc-business-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:52.855Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/357da7c1-1f05-4271-a5a1-56cf2bcbd42a/2017-hsc-mg-business-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:54.070Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b34cb127-f93f-41dd-92f5-5ea9135548ce/2016-hsc-business-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:55.658Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/af8dab75-2d4e-46c4-be42-a4daafba1302/2016-hsc-mg-business-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:57.255Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/6a7e7c78-0dc8-44c1-b701-b4e358541657/2018-hsc-economics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:02:58.853Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/fef45a39-d7af-40d5-9ad0-b4f987be28c2/2017-hsc-economics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:00.080Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/a03cd270-e2ce-4fee-9bf7-e9b25d686e52/2017-hsc-mg-economics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:01.666Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/09166211-0e2d-4863-8e6c-fa9573edbcdc/2016-hsc-economics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:03.251Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e827534c-7f62-463d-ae3e-c2556ba15823/2016-hsc-mg-economics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:04.835Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/432242fa-ee36-4c87-988c-093a16599662/2018-hsc-engineering-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:06.422Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f892452a-3e25-4c2d-ad7d-9c9bb1852b9b/2017-hsc-engineering-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:07.634Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9f5b1657-263f-45ca-9509-c9ecc7f022eb/2017-hsc-mg-engineering-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:09.218Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d7114ef2-04bd-4517-90a4-02da378219c7/2016-hsc-engineering-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:10.433Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c127b443-d664-43bb-9632-db5de6c49815/2016-hsc-mg-engineering-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:12.016Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/854a6907-b510-4ec5-b82a-8834252d83a5/2018-hsc-japanese-cont.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:13.614Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9b93ea7d-c054-4e69-88a3-1164bcaf0b3e/2017-hsc-japanese-cont.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:15.213Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/69ac94a3-006d-47fd-b2d1-ebc1c0488e6f/2016-hsc-japanese-cont.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:16.425Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/0926248d-0656-4a9b-8ce9-19c49656d8ae/2018-hsc-legal-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:17.655Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c98405ce-b13d-41ad-a559-5584ea39a788/2017-hsc-legal-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:19.253Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f1a63b3f-6894-4ad0-9ee0-e8acc85ab9a2/2017-hsc-mg-legal-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:20.466Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/00aa1af2-2da3-4bed-a3ec-1a9c21ab3949/2016-hsc-legal-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:22.052Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/702a600f-da0e-4cbf-b753-dd8abbfca582/2016-hsc-mg-legal-studies.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:23.267Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8e9f3072-c973-43d9-90d7-c1bea2b136ab/2018-hsc-mathematics-ext-1.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:24.867Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/f3305815-cf7f-49aa-b5d0-94b99177a287/2018-hsc-maths-ext-1-mg.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:26.467Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/807028e6-87cd-4c19-bf19-9c3c7f6e6be8/2017-hsc-maths-ext-1.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:28.051Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/8848f4d8-cd34-4bc8-9426-0c4fef5145e8/2017-hsc-mg-maths-ext-1.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:29.635Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/756b83c4-d51a-4033-ae36-ff7cd39d4369/2016-hsc-maths-ext-1.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:30.851Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/53f90038-d8a8-461b-9367-51a98de5a0ca/Maths+Ext+1.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:32.439Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/faaffce8-847b-4fc6-8d72-4cb072dd8c56/2018-hsc-mathematics-ext-2.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:34.038Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/9c567fb3-8a31-4f20-83d7-62ef5220fb9e/2018-hsc-maths-ext-2-mg.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:35.267Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/700df45c-5316-4877-9766-ccd681854bb8/2017-hsc-maths-ext-2.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:36.850Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/84098eb6-ba88-4c63-a424-32886220e0e2/2017-hsc-mg-maths-ext-2.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:38.436Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/d483decf-16ed-4afd-b3da-60807d00addd/2016-hsc-maths-ext-2.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:39.650Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/01ecf820-6f85-4ccb-bdee-a8d729af0d3e/Maths+Ext+2.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:40.865Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/715055f4-8c43-44be-9b81-aa4901d0b370/2018-hsc-modern-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:42.088Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/cfa47f84-4754-498d-9451-a8930e268e6f/2018-hsc-modern-history-mg.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:43.687Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/7eec5dc6-fada-443d-b560-0b3bde6f8810/2017-hsc-modern-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:45.273Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e3d0a8dc-8673-4802-94c6-8dfeafd5c4f7/2017-hsc-mg-modern-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:46.860Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/2798031b-db0c-4098-b049-067d26fff4a9/2016-hsc-modern-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:48.443Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/681099b3-c9b0-4c5f-bb1d-5b01b84c903f/2016-hsc-mg-modern-history.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:49.656Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/dfca82ef-5e10-45dd-b908-dec528d2bf77/2018-hsc-physics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:51.279Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/27f6eee8-da04-4373-aa0d-6e038f04a92e/2017-hsc-physics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:52.510Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/c932fb86-190e-405d-a2d5-380885a168fd/2017-hsc-mg-physics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:53.723Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/5c414559-9792-41e6-bd98-e43c9097168d/2016-hsc-physics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:55.310Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/296846fe-d7a4-45e6-b5bd-b0e5112eef45/2016-hsc-mg-physics.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:56.898Z"
+  },
+  "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2018-hsc-chemistry-archive.pdf": {
+   "state": "verified",
+   "sha256": "c7bddb90f1c7cab52eff72f4f0305f5acad8875116151e5e808fa4b7c76ad5a0",
+   "bytes": 830559,
+   "pages": 34,
+   "text": "NSW Education Standards Authority  2018   HIGHER SCHOOL CERTIFICATE EXAMINATION  Chemistry  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   Draw diagrams using pencil  •   Calculators approved by NESA may be used  •   A data sheet and Periodic Table are provided at the back of this paper  Total marks: 100  Section I – 75 marks   (pages 2–24) This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions 1–20 • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions 21–30 • Allow about 1 hour and 40 minutes for this part  Section II – 25 marks   (pages 25–32) • Attempt ONE question from Questions 31–35 • Allow about 45 minutes for this section  1010",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:03:58.082Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/b17504ca-d354-4e45-ba86-e36a1bdb00ad/2018-hsc-chemistry.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:03:59.682Z"
+  },
+  "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2017-hsc-chemistry-archive.pdf": {
+   "state": "verified",
+   "sha256": "a9bdf6b00ede299c1c0623fb2fdb34fef78905778929c8f06c8d11f0a0e17d51",
+   "bytes": 887405,
+   "pages": 42,
+   "text": "2017   HIGHER SCHOOL CERTIFICATE  EXAMINATION  Chemistry  General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black pen • Draw diagrams using pencil • NESA approved calculators may be used • A data sheet and Periodic Table are provided at the back of this paper  Total marks: 100  Section I – 75 marks   (pages 2–28) This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions 1–20 • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions 21–30 • Allow about 1 hour and 40 minutes for this part  Section II – 25 marks   (pages 29–39) • Attempt ONE question from Questions 31–35 • Allow about 45 minutes for this section  1010",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:00.736Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/cb65ca25-fc28-4e21-8f2d-4886bf176ddd/2017-hsc-chemistry.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:04:01.969Z"
+  },
+  "https://www.nsw.gov.au/sites/default/files/noindex/2025-05/2016-hsc-chemistry-archive.pdf": {
+   "state": "verified",
+   "sha256": "3773f3d35694e936340c2cbc00f9935f09ba5c111c035ced13408f10900a5f40",
+   "bytes": 826681,
+   "pages": 42,
+   "text": "2016   HIGHER SCHOOL CERTIFICATE EXAMINATION  1010  Chemistry  General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper  Total marks – 100 Section I   Pages 2–27  75 marks  This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions 1–20 • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions 21–30 • Allow about 1 hour and 40 minutes for this part  Section II   Pages 29–40  25 marks  • Attempt ONE question from Questions 31–35 • Allow about 45 minutes for this section",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:03.022Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/e76232cd-1d84-4d3e-92ce-ea41546810f6/2016-hsc-chemistry.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:04:04.233Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/2015/exams/2015-hsc-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "8194d7e329d39fdbae34236eae05738f7a765d44e72e7482772d6fb5270f863f",
+   "bytes": 1081154,
+   "pages": 42,
+   "text": "2 01 5   HIGHER SCHOOL CERTIFICATE  EXAMINATION 1020  Chemistry  General Instructions  • Reading   time   –   5   minutes  • Working   time   –   3   hours  • Write   using   black   pen  • Draw   diagrams   using   pencil  • Board-approved   calculators   may  be   used  • A   data   sheet   and   a   Periodic   Table  are   provided   at   the   back   of   this  paper  Total marks – 100  Section I   Pages   2–28  75 marks  This   section   has   two   parts,   Part   A   and   Part   B  Part   A   –   20   marks  • Attempt   Questions   1–20  • Allow   about   35   minutes   for   this   part  Part   B   –   55   marks  • Attempt   Questions   21–30  • Allow   about   1   hour   and   40   minutes   for   this   part  Section II   Pages   29–39  25 marks  • Attempt   ONE   question   from   Questions   31–35  • Allow   about   45   minutes   for   this   section",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:05.500Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/2014/pdf_doc/2014-hsc-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "00cae709edf71015db3423801daa63272ba80d5512433f03293bca53236dc687",
+   "bytes": 913805,
+   "pages": 42,
+   "text": "2060  2014   HIGHER SCHOOL CERTIFICATE EXAMINATION  e  Chemistry  General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen Black pen is preferred • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Tabl are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 13, 17, 19, 21 and 23  Total marks – 100 Section I   Pages 2–24  75 marks  This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions 1–20 • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions 21–31 • Allow about 1 hour and 40 minutes for this part  Section II   Pages 25–37  25 marks  • Attempt ONE question from Questions 32–36 • Allow about 45 minutes for this section",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:06.554Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/2013/pdf_doc/2013-hsc-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "00ac4e45fa9c6ecac1c37ff9bac7027f6b1337e2991711bdb0feb11af0da7bd8",
+   "bytes": 1001502,
+   "pages": 46,
+   "text": "2013 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  Chemistry  General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen Black pen is preferred • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 13, 17, 19, 21 and 25  Total marks – 100 Section I   Pages   2 – 28  75 marks  This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions   –  • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions  1 20  21 – 31  • Allow about 1 hour and 40 minutes for this part  Section II   Pages   29 – 44  25 marks  • Attempt ONE question from Questions   –  • Allow about 45 minutes for this section  32 36  2060",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:07.632Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2012exams/pdf_doc/2012-hsc-exam-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "f2af503b69c7982e94c413854f4401e11dbeae9313d659105f0656fc396ab87c",
+   "bytes": 579417,
+   "pages": 40,
+   "text": "2012 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  Chemistry  General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen Black pen is preferred • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 9, 11, 13, 17, 19 and 23  Total marks – 100 Section I   Pages 2–25  75 marks  This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions 1–20 • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions 21–33 • Allow about 1 hour and 40 minutes for this part  Section II   Pages 27–38  25 marks  • Attempt ONE question from Questions 34–38 • Allow about 45 minutes for this section  2020",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:08.695Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2011exams/pdf_doc/2011-hsc-exam-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "680c9bd8f3531511182db06576054426ab8c3bfb7a645d2b27b6c174520b9da5",
+   "bytes": 448906,
+   "pages": 44,
+   "text": "2011  H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  Chemistry  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen Black pen is preferred  •   Draw diagrams using pencil  •   Board-approved calculators may be used  •   A data sheet and a Periodic Table are provided at the back of this paper  •   Write your Centre Number and Student Number at the top of pages 9, 11, 13, 15, 17, 19 and 21  Total marks – 100 Section I   Pages 2–22  75 marks  This section has two parts, Part A and Part B Part A – 20 marks • Attempt Questions 1–20 • Allow about 35 minutes for this part Part B – 55 marks • Attempt Questions 21–32 • Allow about 1 hour and 40 minutes for this part  Section II   Pages 23–33  25 marks  • Attempt ONE question from Questions 33–37 • Allow about 45 minutes for this section  2000",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:09.763Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2010exams/pdf_doc/2010-hsc-exam-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "6d5c962991a6c3ff505c438e2037485f957cb325626ebe592f50af01b2423b0f",
+   "bytes": 367118,
+   "pages": 38,
+   "text": "2010  H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  Chemistry  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Draw diagrams using pencil  •   Board-approved calculators may be used  •   A data sheet and a Periodic Table are provided at the back of this paper  •   Write your Centre Number and Student Number at the top of pages 9, 11, 13, 15, 17, 19, 21 and 23  Total marks – 100  Section I   Pages 2–24  75 marks  This section has two parts, Part A and Part B  Part A – 20 marks  •   Attempt Questions 1–20  •   Allow about 35 minutes for this part  Part B – 55 marks  •   Attempt Questions 21–31  •   Allow about 1 hour and 40 minutes for this part  Section II   Pages 25–36  25 marks  •   Attempt ONE question from Questions 32–36  •   Allow about 45 minutes for this section  2000",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:10.805Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2009exams/pdf_doc/2009-hsc-exam-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "bedc9b55aa90e6a324239a3dffd5fca91673ceb4a48e8f75ca5fa365d9a731f4",
+   "bytes": 207850,
+   "pages": 38,
+   "text": "2009  H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  Chemistry  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Draw diagrams using pencil  •   Board-approved calculators may be used  •   A data sheet and a Periodic Table are provided at the back of this paper  •   Write your Centre Number and Student Number at the top of pages 9, 11, 13, 15 and 17  Total marks – 100  Section I   Pages 2–20  75 marks  This section has two parts, Part A and Part B  Part A – 15 marks  •   Attempt Questions 1–15  •   Allow about 30 minutes for this part  Part B – 60 marks  •   Attempt Questions 16–26  •   Allow about 1 hour and 45 minutes for this part  Section II   Pages 21–33  25 marks  •   Attempt ONE question from Questions 27–31  •   Allow about 45 minutes for this section  115",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:11.842Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2008exams/pdf_doc/2008HSC-chemistry.pdf": {
+   "state": "verified",
+   "sha256": "314bea07e17fabe7bf504cd09dc6829b1575a6b6dc2ef6daef0261d8f44bfe76",
+   "bytes": 477971,
+   "pages": 38,
+   "text": "2008  H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  Chemistry  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Draw diagrams using pencil  •   Board-approved calculators may be used  •   A data sheet and a Periodic Table are provided at the back of this paper  •   Write your Centre Number and Student Number at the top of pages 9, 11, 15, 17 and 21  Total marks – 100  Section I   Pages 2–23  75 marks  This section has two parts, Part A and Part B  Part A – 15 marks  •   Attempt Questions 1–15  •   Allow about 30 minutes for this part  Part B – 60 marks  •   Attempt Questions 16–28  •   Allow about 1 hour and 45 minutes for this part  Section II   Pages 25–35  25 marks  •   Attempt ONE question from Questions 29–33  •   Allow about 45 minutes for this section  115",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:12.879Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/1aacbf34-c201-4660-9602-9a7f458b985f/chemistry-hsc-exam-2007.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:04:14.756Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2006exams/pdf_doc/chemistry_06.pdf": {
+   "state": "verified",
+   "sha256": "c7d6fd662641908ed203fc1dd0eee308fddd2c11358ee165dbbb30415def7389",
+   "bytes": 672216,
+   "pages": 42,
+   "text": "General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 9, 11, 15, 17, 21 and 25  Total marks – 100  Pages 2–27  75 marks  This section has two parts, Part A and Part B Part A – 15 marks • Attempt Questions 1–15 • Allow about 30 minutes for this part Part B – 60 marks • Attempt Questions 16–28 • Allow about 1 hour and 45 minutes for this part Pages 29–40  25 marks  • Attempt ONE question from Questions 29–33 • Allow about 45 minutes for this section  Section II Section I  Chemistry  115  2006 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:15.785Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2005exams/pdf_doc/chemistry_05.pdf": {
+   "state": "verified",
+   "sha256": "1ca8085bd788b729da5d29d33de6fefa9d566246470301ec05e93feecc3a2e8a",
+   "bytes": 1276685,
+   "pages": 38,
+   "text": "General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 13, 15, 17, and 21  Total marks – 100  Pages 2–24  75 marks  This section has two parts, Part A and Part B Part A – 15 marks • Attempt Questions 1–15 • Allow about 30 minutes for this part Part B – 60 marks • Attempt Questions 16–27 • Allow about 1 hour and 45 minutes for this part Pages 25–36  25 marks  • Attempt ONE question from Questions 28–32 • Allow about 45 minutes for this section  Section II Section I  Chemistry  115  2005 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:16.855Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2004exams/pdf_doc/chemistry_04.pdf": {
+   "state": "verified",
+   "sha256": "5d03722c45b686f810ba3deab13cdf753da8b2d8c3de4463d1b59bcdeaf265e8",
+   "bytes": 237184,
+   "pages": 42,
+   "text": "General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 13, 17, 21 and 25  Total marks – 100  Pages 2–27  75 marks  This section has two parts, Part A and Part B Part A – 15 marks • Attempt Questions 1–15 • Allow about 30 minutes for this part Part B – 60 marks • Attempt Questions 16–27 • Allow about 1 hour and 45 minutes for this part Pages 29–38  25 marks  • Attempt ONE question from Questions 28–32 • Allow about 45 minutes for this section  Section II Section I  Chemistry  115  2004 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:17.889Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2003exams/pdf_doc/chemistry_03.pdf": {
+   "state": "verified",
+   "sha256": "7803ab3506ed4afa26cfb10dace1da017aeda068658e37c3e0fb97fc8575a0e9",
+   "bytes": 220592,
+   "pages": 42,
+   "text": "General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 13, 17, 21 and 25  Total marks – 100  Pages 2–28  75 marks  This section has two parts, Part A and Part B Part A – 15 marks • Attempt Questions 1–15 • Allow about 30 minutes for this part Part B – 60 marks • Attempt Questions 16–29 • Allow about 1 hour and 45 minutes for this part Pages 29–37  25 marks  • Attempt ONE question from Questions 30–34 • Allow about 45 minutes for this section  Section II Section I  Chemistry  115  2003 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:18.934Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2002exams/pdf_doc/chemistry_02.pdf": {
+   "state": "verified",
+   "sha256": "b48d246e66ca6fcd6ee107846fa9dd8141cefb53aae77c7c10d4c980a7e45faa",
+   "bytes": 160697,
+   "pages": 34,
+   "text": "General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 9, 13, 17 and 21  Total marks – 100  Pages 2–23  75 marks  This section has two parts, Part A and Part B Part A – 15 marks • Attempt Questions 1–15 • Allow about 30 minutes for this part Part B – 60 marks • Attempt Questions 16–27 • Allow about 1 hour and 45 minutes for this part Pages 25–30  25 marks  • Attempt ONE question from Questions 28–32 • Allow about 45 minutes for this section  Section II Section I  Chemistry  115  2002 H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:19.970Z"
+  },
+  "https://www.boardofstudies.nsw.edu.au/hsc_exams/hsc2001exams/pdf_doc/chemistr_01.pdf": {
+   "state": "verified",
+   "sha256": "d1967ad506879c3c72cd7bd5118884f1508bb165d8c85f3b0c77ae3c36a8194b",
+   "bytes": 153104,
+   "pages": 34,
+   "text": "200 1  H I G H E R   S C H O O L   C E R T I F I C A T E E X A M I N A T I O N  General Instructions  • Reading time – 5 minutes • Working time – 3 hours • Write using black or blue pen • Draw diagrams using pencil • Board-approved calculators may be used • A data sheet and a Periodic Table are provided at the back of this paper • Write your Centre Number and Student Number at the top of pages 9, 13, 17 and 21  Total Marks – 100  Pages 2–24  75 marks  This section has two parts, Part A and Part B Part A – 15 marks • Attempt Questions 1–15 • Allow about 30 minutes for this part Part B – 60 marks • Attempt Questions 16–27 • Allow about 1 hour and 45 minutes for this part Pages 25–31  25 marks  • Attempt ONE question from Questions 28–32 • Allow about 45 minutes for this section  Section II Section I  Chemistry  115",
+   "transport": "direct-pdf",
+   "at": "2026-10-31T23:04:20.999Z"
+  },
+  "https://educationstandards.nsw.edu.au/wps/wcm/connect/34e8f83e-fdae-4a67-8ac5-ce503d2299a1/physics-hsc-exam-2007.pdf?MOD=AJPERES": {
+   "state": "review",
+   "reason": "Source returned HTML or an incomplete PDF",
+   "at": "2026-10-31T23:04:22.273Z"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "664b71dbe62fded71a0495783328449dee452035981f2d72de6351977a2b7dc0",
+   "bytes": 160750,
+   "pages": 18,
+   "text": "NORMANHURST BOYS HIGH SCHOOL  MATHEMATICS  2015 HSC Course Assessment Task 4 (Trial Examination) Thursday July 30, 2015  General instructions  •   Working time – 3 hours. (plus 5 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   Board approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 13)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  BOSTES NUMBER:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED :   . . . . .  Class   (please   ✔ )  ©   12M6 – Mrs Bhamra   ©   12M3 – Mr Wall  ©   12M4 – Mr Tan  ©   12M5 – Mr Lam Marker’s use only.  QUESTION   1-10   11   12   13   14   15   16   Total MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:24.137Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b2a9aabd4b5132ceed92a76b72e210bb18d360d1317d1aeda007c0651aaf7dac",
+   "bytes": 660456,
+   "pages": 20,
+   "text": "NORMANHURST BOYS HIGH SCHOOL  MATHEMATICS  2016 HSC Course Assessment Task 4 (Trial Examination) Thursday August 4, 2016  General instructions  •   Working time – 3 hours. (plus 5 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   Board approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 12)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  BOSTES NUMBER:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED :   . . . . .  Class   (please   ✔ )  ©   12MAT.6 – Dr Lawson   ©   12MAT.3 – Mr Lam  ©   12MAT.4 – Mr Wall  ©   12MAT.5 – Mrs Gan Marker’s use only.  QUESTION   1-10   11   12   13   14   15   16   Total MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:26.192Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "480e3f125dff7fe2bc3c3231364290f461bf50f04a9599596ea42723c46fdad2",
+   "bytes": 1182973,
+   "pages": 23,
+   "text": "MATHEMATICS  2017 HSC Course Assessment Task 4 (Trial Examination) Thursday, 3 August 2017  General instructions  • \u0001   Working time – 3 hours. (plus 5 minutes reading time)  • \u0001   Write using blue or black pen. Where diagrams are to be sketched, these may be done in pencil.  • \u0001   NESA approved calculators may be used.  • \u0001   Attempt all questions.  • \u0001   A NESA Reference Sheet is provided.  • \u0001   At the conclusion of the examination, bundle the booklets used in the correct order within this paper and hand to examination supervisors.  SECTION I  • \u0001   Mark your answers on the answer grid provided  SECTION II  • \u0001   Commence each new question on a new booklet. Write on both sides of the paper.  • \u0001   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT NUMBER:   ............................................   # BOOKLETS USED: ................................  Class: (please   \u0001 ) Marker’s use only  QUESTION   1-10   11   12   13   14   15   16   Total MARKS   \u0013\u0012 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0017 \u0001   \u0013\u0012\u0012 \u0001  \u0002   12MAT3 – Mr Wall  \u0002   12MAT4 – Mr Sekaran  \u0002   12MAT5 – Mrs Gan  \u0002   12MAT6 – Ms Park  \u0002   12MAT7 – Mr Tan",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:28.132Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "eb825e646f98647be3523c97d9f4f4822e0228a96e0f10d99509025f08f53c07",
+   "bytes": 649151,
+   "pages": 23,
+   "text": "MATHEMATICS  2018 HSC Course Assessment Task 4 (Trial Examination) Monday August 13, 2018  General instructions  •   Working time – 3 hours. (plus 5 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 11)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED :   . . . . .  Class   (please   ✔ )  ©   12MAT.3 – Mr Tan  ©   12MAT.4 – Mrs Gan  ©   12MAT.5 – Mr Lam  ©   12MAT.6 – Ms Park  ©   12MAT.7 – Mrs Dupuche Marker’s use only.  QUESTION   1-10   11   12   13   14   15   16   % MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:30.075Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "0e42a0ce505bf22dbbe74c4b10eef617d87dcd9b4c79e894c2ebff734395d5bd",
+   "bytes": 297887,
+   "pages": 36,
+   "text": "MATHEMATICS ADVANCED  2020 Year 12 Course Assessment Task 4 (Trial HSC Examination) Thursday, 20 August 2020  General instructions  •   Working time – 3 hour. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 28)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAX.3 – Mr Sekaran  ©   12MAX.4 – Mrs Bhamra  ©   12MAX.5 – Mr Siu  ©   12MAA.6 – Mr Ho Marker’s use only.  QUESTION   1-10   11-14   15-18   19-22   23-25   26-29   30-32   Total   % MARKS   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:31.816Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "972da625b105d0cabf85adcd55efd5e4a92a56bed255657935cd6dc624076764",
+   "bytes": 296995,
+   "pages": 38,
+   "text": "MATHEMATICS ADVANCED  2021 Year 12 Course Assessment Task 4 (Trial HSC Examination) Monday, 30 August 2021  General instructions  •   Working time – 3 hour. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 27)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAA.1 – Miss Lee  ©   12MAX.1 – Mr Ho  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Mr Lam  ©   12MAX.4 – Mr Sun Marker’s use only.  QUESTION   1-10   11-15   16-18   19-21   22-25   26-29   30-32   Total   % MARKS   10   15   14   15   16   17   13   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:33.557Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "ef0c12c08e8491f2627eccc2e22942e8cd0911618a2febc65870e466d7b4e368",
+   "bytes": 1206248,
+   "pages": 46,
+   "text": "MATHEMATICS ADVANCED  2022 Year 12 Course Assessment Task 4 (Trial HSC Examination) Thursday, 11 August 2022  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 29)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   \u0002 )  ©   12MAA.1 – Miss J. Kim  ©   12MAA.2 – Mr Ho  ©   12MAX.1 – Mr Lam  ©   12MAX.2 – Miss C. Kim  ©   12MAX.3 – Miss Lee Marker’s use only.  QUESTION   1-10   11-15   16-19   20-21   22-26   27-30   31-33   Total MARKS   10   12   16   11   18   17   16   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:35.490Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "8aa4cc2cb4c09f4d563fb7b62ffda95ff2f67379f3980f3a8b496382d35b05c2",
+   "bytes": 4894211,
+   "pages": 56,
+   "text": "MATHEMATICS ADVANCED  2023 Year 12 Course Assessment Task 4 (Trial HSC Examination) Wednesday, 16 August 2023  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 29)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   \u0002 )  ©   12MAA.1 – Mr Lam  ©   12MAX.1 – Ms C. Kim  ©   12MAX.2 – Ms Lee  ©   12MAX.3 – Ms J. Kim Marker’s use only.  QUESTION   1-10   11-14   15-17   18-19   20-21   22-24   25-26   27-28   29-30   Total MARKS   10   15   13   9   7   16   8   11   11   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:37.499Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6f513366b18348f2a1082ae18c6797b6f701e2d413fe197cbf3c2d7bbafbaeba",
+   "bytes": 5299700,
+   "pages": 47,
+   "text": "MATHEMATICS ADVANCED  2024 Year 12 Course Assessment Task 4 (Trial HSC Examination) Monday, 19 August 2024  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 29)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   \u0002 )  ©   12MAA.1 – Miss Chaussivert   ©   12MAX.1 – Miss J. Kim  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Miss Lee Marker’s use only.  QUESTION   1-10   11-14   15-17   18-20   21-23   24-25   26-29   Total MARKS   10   14   13   13   16   18   16   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:39.573Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "c31c9817bd3dd230f9a4f45e13388cf3182363fe72d3133fa26d00f614459ab9",
+   "bytes": 360548,
+   "pages": 45,
+   "text": "MATHEMATICS ADVANCED  2025 Year 12 Course Assessment Task 4 (Trial HSC Examination) Friday, 1 August 2025  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 32)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   ✔ )  ©   12MAA.1 – Mr Tran   ©   12MAX.1 – Miss J. Kim  ©   12MAX.2 – Miss Chaussivert  ©   12MAX.3 – Miss Lee  ©   12MAX.4 – Mr Lam Marker’s use only.  QUESTION   1-10   11-14   15-17   18-21   22-24   25-27   28-29   Total MARKS   10   15   14   16   14   17   14   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:41.582Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Normanhurst%20Boys%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "c7e7ddc85cca35b1299fc8a648f00f5097ac4dfcc2fd4330db053c689d41284a",
+   "bytes": 2370471,
+   "pages": 58,
+   "text": "MATHEMATICS ADVANCED  2026 Year 12 Course Assessment Task 4 (Trial HSC Examination) Friday, 31 July 2026  General instructions  •   Working time – 3 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 33)  SECTION II  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .  Class   (please   ✔ )  ©   12MAA.1 – Ms Quek  ©   12MAA.2 – Mr Gan  ©   12MAX.2 – Miss Lee  ©   12MAX.3 – Miss Chaussivert  ©   12MAX.4 – Miss J. Kim Marker’s use only.  QUESTION   1-10   11-15   16-18   19-22   23-26   27-29   30-32   Total MARKS   10   17   15   19   12   11   16   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:43.700Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Normanhurst%20Boys%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "ee053dfa0483401cee9d8d095f8293c8d7d038041259e734c670cf21b84ee3f3",
+   "bytes": 555992,
+   "pages": 23,
+   "text": "MATHEMATICS  2018 HSC Course Assessment Task 3  (Trial Examination)  Wednesday June 27, 2018.  General Instructions  •   Working time –3 hours (plus 5 minutes reading time).  •   Write using blue or black pen. Diagrams may be sketched in pencil.  •   Board approved calculators may be used.  •   All necessary working should be shown in every question.  •   Attempt all questions.  Section I - 10 marks  •   Mark your answers on the answer sheet provided.  Section II – 90 marks  •   Commence each new question on a new page.  •   Show all necessary working in every question. Marks may be deducted for illegible or incomplete working.  STUDENT NUMBER:   …………………………………………   # BOOKLETS USED:   ……….  Class   (please    )   Mr Berry   Ms Ziaziaris  Mr Hwang   Mr Zuber  Mr Lin  Question   MC   11   12   13   14   15   16   Total  Marks   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:47.092Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "83b5e06c44827ac7cfb35fc4bd07af1fb691453a8d2df2bdec0b5b2c2ba9961e",
+   "bytes": 1251137,
+   "pages": 23,
+   "text": "MATHEMATICS  2019 HSC Course Assessment Task 3  (Trial Examination)  Thursday June 27, 2019.  General Instructions  •   Working time –3 hours (plus 5 minutes reading time).  •   Write using blue or black pen. Diagrams may be sketched in pencil.  •   Board approved calculators may be used.  •   All necessary working should be shown in every question.  •   Attempt all questions.  Section I - 10 marks  •   Mark your answers on the answer sheet provided.  Section II – 90 marks  •   Commence each new question on a new page.  •   Show all necessary working in every question. Marks may be deducted for illegible or incomplete working.  STUDENT NUMBER:   …………………………………………   # BOOKLETS USED:   ……….  Class   (please    )   Mr Berry   Ms Ziaziaris  Mr Hwang   Mr Zuber  Mr Lin  Question   MC   11   12   13   14   15   16   Total  Marks   10   15   15   15   15   15   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:49.612Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6b89b932d60954386b3e8b2d846dffa23b3d5d6e845891fb181429054a658bd0",
+   "bytes": 1950784,
+   "pages": 51,
+   "text": "2020   YEAR   12   ASSESSMENT   TASK   3  Mathematics   Advanced  General   Instructions     Working   time   –   3   hours     Reading   time   –   10   minutes     Write   on   the   lined   paper   in   the  booklet   provided     Write   Multiple   Choice   responses   on  sheet   provided     Write   using   blue   or   black   pen     Board   approved   calculators   may   be  used     All   necessary   working   should   be  shown   in   every   question.   Marks   may  be   deducted   for   illegible   or  incomplete   working.     Use   the   Reference   Sheet  Class   Teacher :   Please   shade   the   circle.     Mr   Berry     Mr   Hwang     Mr   Ireland     Ms   Lee     Mr   Umakanthan  (To   be   used   by   the   exam   markers   only.)  Questions   1 ‐ 10   11 ‐ 17   18 ‐ 21   22 ‐ 25   26 ‐ 29   30 ‐ 34   35 ‐ 38   Total  Mark   10   15   16   15   15   15   14   100  STUDENT NUMBER:   4……………………………………………….",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:51.536Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a41c4bfc52d083c352ffaf8a07c60b7561000f6a0ba043fd2009f9edb44d1eee",
+   "bytes": 10186821,
+   "pages": 85,
+   "text": "North Sydney Boys High School   Mathematics Advanced   Assessment 3  1 |   P a g e  Section I  10 marks  Attempt Questions 1–10  Allow about 15 minutes for this section  Use the multiple-choice answer sheet for Questions 1 – 10  1.   The amplitude of the curve   𝑦𝑦   =   1 2   sin(3 𝑥𝑥   +   𝜋𝜋 6 )   is  A.   1 6  B.   𝜋𝜋 6  C.   1 3  D.   1 2  MA12.5  2.   What is the equation of the tangent to the curve   at the origin?  A.  B.  C.  D.  MA12.6",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:53.951Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "4e620917fdbfa0126bb61d5ecaf27317a5f48c867360f9ff792beb0f963739c5",
+   "bytes": 4478335,
+   "pages": 49,
+   "text": "Student Number ________________________________   Teacher ________________________  2022   NSBHS TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Advanced  General Instructions  x   Reading time – 10 minutes  x   Working time – 3 hours  x   Write using black pen  x   Calculators approved by NESA may be used  x   A reference sheet is provided at the back of this paper  x   In Questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks : 100 Section I – 10 marks   (pages 3 – 6)  x   Attempt Questions 1 – 10  x   Allow about 15 minutes for this section  Section II – 90 marks   (pages 8 – 34)  x   Attempt Questions 11 – 33  x   Allow about 2 hours and 45 minutes for this section.  (For marker’s use only)  SECTION   SECTION I (MC) SECTION II (Part 1) SECTION II (Part 2) TOTAL MARK  ͳͲ   ͵ͺ   ͷʹ   ͳͲͲ",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:56.025Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "60c03e2a96700500b3e211a7e21939db7ca7b4b78ed8654365adda617142a86c",
+   "bytes": 2480085,
+   "pages": 60,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:04:57.906Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "27c8f9446869b2f274fddb684e494a9c392ee3c1033ade287f079fb5ef1b22ef",
+   "bytes": 7116215,
+   "pages": 49,
+   "text": "2024 YEAR 12 HSC ASSESSMENT TASK 3  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time –   3 hours  •   Write using blue or black pen  •   Board approved calculators may  be used  •   All necessary working should be  shown in every question  •   Attempt all questions  Class Teacher:  (Please tick or highlight)     Ms Sarofim     Ms Cai     Ms Moss     Mr Ireland  (To be used by the exam markers only.)  Question  No   1-10   11- 30   Total  Mark   ⬚  10  ⬚  90  ⬚  100  Student Number:",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:05:00.010Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "e484bee03d7d5080bf8ac487054efd153353264f723e3fd6dfaf5f82c8a1a513",
+   "bytes": 11978442,
+   "pages": 74,
+   "text": "2025 YEAR 12 HSC ASSESSMENT TASK 3  Mathematics Advanced  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using blue or black pen  •   DoE approved calculators may be used  •   All necessary working should be shown in every question  •   Attempt all questions  Class Teacher:  (Please tick or highlight)     Ms Sarofim     Ms Cai     Mr Ireland     Mr Umakanthan  (To be used by the exam markers only.)  Question No   1-10   11- 33   Total  Mark   ⬚  10  ⬚  90  ⬚  100  Student Number:",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:05:03.050Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Boys%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "0cc4bff5d246ccad81ae0250d106ccfecc64fcbc33e9b48f86bc420557f7b506",
+   "bytes": 11321990,
+   "pages": 59,
+   "text": "2026 HSC ASSESSMENT TASK 3 (TRIAL HSC)  Mathematics Advanced  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write in the space provided in the booklet  provided  •   Write using blue or black pen  •   Board approved calculators may be used  •   All necessary working should be shown in  every question  •   Extra working space is provided at the  end of examination.  •   Attempt all questions  Class Teacher:  (Please tick or highlight)     Mr Lin     Ms Everingham     Ms Cai     Ms Sarofim  (To be used by the exam markers only.)  Question  Numbers  1-10   11-16   17-21   22-25   26-29   30-32   33-35   Total  Mark   10   14   16   14   15   16   15   100",
+   "transport": "thsc-fragments",
+   "at": "2026-10-31T23:05:05.794Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202026%20w.%20sol"
   }
  },
  "releaseRefresh": {
