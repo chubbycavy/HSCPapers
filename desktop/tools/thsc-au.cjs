@@ -58,23 +58,28 @@ function applyVerified(papers, registry) {
   }
   return rewritten;
 }
-async function validate(item, { fetchImpl = fetch } = {}) {
+async function validate(item, { fetchImpl = fetch, includeText = false } = {}) {
   const response = await fetchImpl(item.url, { headers: { "User-Agent": "HSCPapers/1.0 (verified mirror reconciliation)", "Accept-Encoding": "identity" }, signal: AbortSignal.timeout(30000), redirect: "manual" });
   if (response.status !== 200 || !/^application\/pdf\b/i.test(response.headers.get("content-type") || "")) {
     await response.body?.cancel();
     throw new Error(`not a direct PDF: HTTP ${response.status}`);
   }
-  const bytes = Buffer.from(await response.arrayBuffer());
+  const { readBounded } = await import("../ui/_lib/thsc-fragments.mjs");
+  const bytes = Buffer.from(await readBounded(response, 32 * 1024 * 1024));
   if (bytes.length !== item.bytes || bytes.subarray(0, 5).toString() !== "%PDF-") throw new Error("PDF signature or declared byte length mismatch");
   const pdfjs = await require("./pdfjs.cjs").load();
   const task = pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true });
   const doc = await task.promise;
-  try { if (doc.numPages !== item.pages) throw new Error("PDF page count mismatch"); }
+  let text;
+  try {
+    if (doc.numPages !== item.pages) throw new Error("PDF page count mismatch");
+    if (includeText) text = (await (await doc.getPage(1)).getTextContent()).items.map(x => x.str).join(" ").slice(0, 1400);
+  }
   finally {
     if (typeof task.destroy === "function") await task.destroy();
     else if (typeof doc.destroy === "function") await doc.destroy();
   }
-  return { ...item, sha256: crypto.createHash("sha256").update(bytes).digest("hex"), verifiedAt: new Date().toISOString() };
+  return { ...item, sha256: crypto.createHash("sha256").update(bytes).digest("hex"), ...(includeText ? { text } : {}), verifiedAt: new Date().toISOString() };
 }
 async function refresh(papers, { cached, slug, log = console.log, registryPath = REGISTRY_PATH } = {}) {
   const registry = readRegistry(registryPath);

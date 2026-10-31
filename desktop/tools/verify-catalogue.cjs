@@ -28,6 +28,10 @@ function verify(catalogue, report, validation, previous, maxNew = null) {
       }
       if (!p.url) errors.push("Active paper has no file: " + p.id);
       for (const url of [p.fallbackUrl, ...(p.alternateSources || []).map(a => a.url)].filter(Boolean)) if (!require("./reviewed-corrections.cjs").sameBytes(validation, p.url, url)) errors.push("Unequal primary backup requires version review: " + p.id + " " + url);
+      for (const variant of p.fileVariants || []) {
+        const proof = validation.entries[variant.url];
+        if (variant.sha256 && variant.sha256 !== proof?.sha256 || variant.bytes && variant.bytes !== proof?.bytes || variant.pages && variant.pages !== proof?.pages) errors.push("File version differs from its proof: " + p.id + " " + variant.url);
+      }
     }
     for (const k of I.listingKeys(p)) {
       const other = keys.get(k);

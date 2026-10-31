@@ -84,6 +84,69 @@ test("review bookmarks remain stored without becoming active selections", () => 
   assert.deepEqual(A.remap(["old", "pending"], aliases, active), ["paper"]);
 });
 const C = require("../catalogue-cleanup.cjs"), D = require("../document-admission.cjs");
+test("exact alternative bindings preserve identity and primary, and are idempotent", () => {
+  const p = { ...original(), sha256: hash, bytes: 100 }, url = "https://thsconline.com.au/pdf/papers/copy.pdf";
+  const proof = { state: "verified", sha256: hash, bytes: 100, pages: 2, text: "Mathematics Extension 1" };
+  const v = { entries: { [p.url]: proof, [url]: proof } };
+  const registry = { exactAlternatives: [{ id: p.id, primaryUrl: p.url, sha256: hash, bytes: 100, urls: [url] }] };
+  assert.deepEqual(R.attachExactAlternatives([p], registry, v), { bindings: 1, added: 1, rejected: [] });
+  assert.equal(p.id, original().id); assert.equal(p.url, original().url);
+  assert.equal(p.fallbackUrl, url); assert.equal(p.alternateSources[0].url, url);
+  assert.equal(R.attachExactAlternatives([p], registry, v).added, 0);
+  assert.equal(p.alternateSources.length, 1); assert.equal(p.libraryAliases, undefined);
+});
+test("alternative bindings reject changed identity, hash, length, unverified or conflicting sources", () => {
+  const p = { ...original(), sha256: hash, bytes: 100 }, url = "https://thsconline.com.au/pdf/papers/copy.pdf";
+  const proof = { state: "verified", sha256: hash, bytes: 100, text: "Mathematics Extension 1" };
+  const binding = { id: p.id, primaryUrl: p.url, sha256: hash, bytes: 100, urls: [url] };
+  for (const replacement of [{ ...proof, sha256: hash2 }, { ...proof, bytes: 101 }, { ...proof, state: "review" }, { ...proof, text: "Chemistry" }]) {
+    const copy = structuredClone(p), result = R.attachExactAlternatives([copy], { exactAlternatives: [binding] }, { entries: { [p.url]: proof, [url]: replacement } });
+    assert.equal(result.rejected.length, 1); assert.equal(result.added, 0); assert.equal(copy.alternateSources, undefined);
+  }
+  for (const fix of [{ id: "missing" }, { sha256: hash2 }, { bytes: 101 }]) {
+    assert.equal(R.attachExactAlternatives([structuredClone(p)], { exactAlternatives: [{ ...binding, ...fix }] }, { entries: { [p.url]: proof, [url]: proof } }).added, 0);
+  }
+});
+test("reviewed PDF representations remain explicit versions, preserve primary and never become backups", () => {
+  const p = { ...original(), sha256: hash, bytes: 100, pages: 2 }, url = "https://thsconline.com.au/pdf/papers/representation.pdf";
+  const proof = { state: "verified", sha256: hash2, bytes: 90, pages: 2, text: "Mathematics Extension 1" };
+  const validation = { entries: { [p.url]: { ...proof, sha256: hash, bytes: 100 }, [url]: proof } };
+  const variant = { url, sha256: hash2, bytes: 90, pages: 2, role: "combined", label: "Mirror PDF (same rendered content)",
+    review: { method: "all-page-render-and-text", primarySha256: hash, variantSha256: hash2, pages: 2, scale: 1.5 } };
+  const binding = { id: p.id, primaryUrl: p.url, sha256: hash, bytes: 100, reviewKey: I.reviewKey(p), variants: [variant] };
+  const registry = { reviewedVariants: [binding] };
+  assert.deepEqual(R.attachReviewedVariants([p], registry, validation), { bindings: 1, added: 1, rejected: [] });
+  assert.equal(p.url, original().url); assert.equal(p.sha256, hash); assert.equal(p.fallbackUrl, undefined); assert.equal(p.alternateSources, undefined);
+  assert.deepEqual(p.fileVariants.map(v => v.url), [p.url, url]);
+  assert.equal(R.attachReviewedVariants([p], registry, validation).added, 0);
+  for (const changed of [{ sha256: "c".repeat(64) }, { bytes: 91 }, { pages: 3 }, { state: "review" }]) {
+    const copy = { ...p, fileVariants: [] }, bad = { entries: { ...validation.entries, [url]: { ...proof, ...changed } } };
+    assert.equal(R.attachReviewedVariants([copy], registry, bad).added, 0); assert.equal(copy.fileVariants.length, 0);
+  }
+  for (const changed of [{ role: "solutions" }, { review: { ...variant.review, pages: 1 } }, { review: { ...variant.review, primarySha256: hash2 } }]) {
+    assert.equal(R.attachReviewedVariants([{ ...p, fileVariants: [] }], { reviewedVariants: [{ ...binding, variants: [{ ...variant, ...changed }] }] }, validation).added, 0);
+  }
+  assert.equal(R.attachReviewedVariants([{ ...p, year: 2024, fileVariants: [] }], registry, validation).added, 0);
+});
+test("exact source promotion pins the mirror while preserving published Portal filenames and backup bytes", () => {
+  const p = { ...original(), sha256: hash, bytes: 100, pages: 2 }, mirrorUrl = "https://thsconline.com.au/pdf/papers/exact.pdf";
+  const proof = { state: "verified", sha256: hash, bytes: 100, pages: 2, text: "Mathematics Extension 1" };
+  const validation = { entries: { [p.url]: proof, [mirrorUrl]: proof } };
+  const binding = { id: p.id, primaryUrl: p.url, sha256: hash, bytes: 100, reviewKey: I.reviewKey(p), preferredUrl: mirrorUrl, previousRecord: R.legacyRecord(p) };
+  const registry = { primaryPreferences: [binding] };
+  assert.deepEqual(R.preferExactSources([p], registry, validation), { bindings: 1, promoted: 1, rejected: [] });
+  assert.equal(p.id, original().id); assert.equal(p.url, mirrorUrl); assert.equal(p.sha256, hash);
+  assert.equal(p.fallbackUrl, original().url); assert.equal(p.alternateSources[0].url, original().url);
+  assert.ok(p.libraryAliases.some(a => a.url === original().url && a.subject === original().subject));
+  const once = JSON.stringify(p);
+  assert.deepEqual(R.preferExactSources([p], registry, validation), { bindings: 1, promoted: 0, rejected: [] });
+  assert.equal(JSON.stringify(p), once);
+  for (const changed of [{ sha256: hash2 }, { bytes: 101 }, { pages: 3 }, { state: "review" }]) {
+    const copy = { ...original(), sha256: hash, bytes: 100, pages: 2 };
+    const result = R.preferExactSources([copy], registry, { entries: { ...validation.entries, [mirrorUrl]: { ...proof, ...changed } } });
+    assert.equal(result.promoted, 0); assert.equal(result.rejected.length, 1); assert.equal(copy.url, original().url);
+  }
+});
 test("invalid primary is replaced by a proved alternative and unverified actions become provenance", () => {
   const p = original(), good = "https://thsconline.com.au/good.pdf", papers = [{ ...p, alternateSources: [{ url: good }] }];
   const v = { entries: { [p.url]: { state: "invalid", reason: "HTML" }, [good]: { state: "verified", sha256: hash, bytes: 100, pages: 2, text: "" } } };

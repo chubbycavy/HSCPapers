@@ -70,6 +70,31 @@ test("explicit alternate version cannot fall back to the canonical document", as
   await page.locator("#cards details summary").click(); await page.getByRole("button", { name: "Questions only (1 pages)" }).click();
   await expect(page.locator("#readerErr")).toBeVisible(); expect(calls).toEqual([fragment]);
 });
+test("promoted mirror fails over to its identical Portal backup for save and reader without Slow route", async ({ page }) => {
+  const catalogue = require("../../../ui/data/papers-v2.json"), pref = require("../../../tools/catalogue-imports.json").primaryPreferences[0];
+  const p = catalogue.papers.find(p => p.id === pref.id);
+  expect(p.url).toBe(pref.preferredUrl); expect(p.fallbackUrl).toBe(pref.primaryUrl);
+  const calls = await fixture(page, p, new Map([[p.url, false], [pref.primaryUrl, true]]));
+  await page.goto("/");
+  const pending = page.waitForEvent("download"); await page.locator("a[data-dl][data-kind=paper]").click(); await pending;
+  expect(calls).toEqual([p.url, pref.primaryUrl]);
+  await page.locator("[data-read]").click(); await expect(page.locator("#panePaper .rpage.done").first()).toBeVisible();
+  await expect(page.locator("#paperSourceCredit")).toContainText("HSC Portal");
+  await expect(page.locator(".card-source")).toContainText("independent THSC mirror");
+  expect(calls).toEqual([p.url, pref.primaryUrl, p.url, pref.primaryUrl]);
+});
+test("reviewed mirror representation from the real catalogue keeps its own reader failure isolated", async ({ page }) => {
+  const p = require("../../../ui/data/papers-v2.json").papers.find(p => p.fileVariants?.some(v => v.label === "Mirror PDF (same rendered content)"));
+  expect(p).toBeTruthy();
+  const v = p.fileVariants.find(v => v.label === "Mirror PDF (same rendered content)");
+  const sources = new Map([[p.url, true], ...[p.fallbackUrl, ...(p.alternateSources || []).map(a => a.url)].filter(Boolean).map(url => [url, true]), [v.url, false]]);
+  const calls = await fixture(page, p, sources);
+  await page.goto("/");
+  const card = page.locator(`[data-id="${p.id}"]`);
+  await card.locator("details summary").click();
+  await card.getByRole("button", { name: /Mirror PDF \(same rendered content\)/ }).click();
+  await expect(page.locator("#readerErr")).toBeVisible(); expect(calls).toEqual([v.url]);
+});
 test("slow solutions on a fast-paper card require the switch for online actions", async ({ page }) => {
   const calls = await fixture(page, { ...record, solutionUrl: fragment, hasSolutions: true }, new Map([[fast, true], [fragment, true]]));
   await page.goto("/"); const solution = page.locator("a[data-kind=solutions]");

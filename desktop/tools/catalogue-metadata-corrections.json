@@ -108,6 +108,39 @@
    },
    "libraryRole": "solutions",
    "reason": "Exact 2017 official exam bytes already verified; marking guidelines remain the separate solutions file"
+  },
+  "thsc-5276-sydney-boys-2005": {
+   "when": {
+    "url": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202005%20%5B5276-3cad56ba%5D.pdf",
+    "sha256": "8a61587ec5bad26700ac24e54b9d9ff22f94f364d6970efb4063a6e4679cf556"
+   },
+   "fields": {
+    "subject": "Maths (Accelerated)",
+    "level": "Preliminary",
+    "type": "assessment",
+    "examBlock": "Assessment Task 1",
+    "title": "2005 Sydney Boys Mathematics Accelerated Assessment Task 1"
+   },
+   "reason": "Inspected complete byte-identical Portal/mirror PDFs and both covers: 2005 Year 11 Accelerated Assessment Task #1, not an established half-yearly label; retain the published ID and Advanced library filename as history"
+  },
+  "thsc-5226-sydney-boys-2005-w-sol": {
+   "when": {
+    "url": "https://hscportal.pages.dev/yr11/Maths/Accelerated/Sydney%20Boys%202005%20w.%20sol%20%5B5278-f0e0447a%5D.pdf",
+    "sha256": "7ccc9096752a69764c39ba0355b76cffa5d316f54a6cc0ad65bf8b79abc8b207"
+   },
+   "fields": {
+    "subject": "Maths (Accelerated)",
+    "level": "Preliminary",
+    "type": "assessment",
+    "examBlock": "Assessment Task 3",
+    "title": "2005 Sydney Boys Mathematics Accelerated Yearly Examination (Assessment Task 3)",
+    "viewno": "5278",
+    "sourceKeys": [
+     "5278|sydney boys 2005 w. sol"
+    ],
+    "linkText": "Sydney Boys 2005 w. sol"
+   },
+   "reason": "Inspected complete byte-identical Portal/mirror PDFs and both covers: 2005 Year 11 Accelerated Yearly Examination (Assessment Task #3); retain the published ID and Advanced library filename as history"
   }
  }
 }

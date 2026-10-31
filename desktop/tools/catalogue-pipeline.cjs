@@ -2,7 +2,9 @@
 // exact pipeline with deterministic parsed-source fixtures, not a second model.
 "use strict";
 const identity = require("./catalogue-identity.cjs"), reconciliation = require("./catalogue-reconcile.cjs"), cleanup = require("./catalogue-cleanup.cjs");
-function build(papers, { imports, validation, publishedHistory, metadataCorrections, publicationSync, correctedMappings = [], removals = { ids: new Set(), urls: new Set() }, isFastHost = require("../ui/js/source-policy.js").isFast }) {
+function build(papers, options) {
+  if (options.reviewedOnly) return buildReviewed(papers, options);
+  const { imports, validation, publishedHistory, metadataCorrections, publicationSync, correctedMappings = [], removals = { ids: new Set(), urls: new Set() }, isFastHost = require("../ui/js/source-policy.js").isFast } = options;
   const schema = require("../ui/js/catalogue-schema.js");
   for (const p of papers) { const issue = schema.metadataIssue(p); if (issue) throw new Error(issue + " before reconciliation"); }
   for (const p of papers) {
@@ -60,6 +62,10 @@ function build(papers, { imports, validation, publishedHistory, metadataCorrecti
   const recoveryCopies = reconciliation.coalesceExisting(recoveryPapers, { validation });
   Object.assign(aliasGraph, recoveryCopies.aliases);
   const idAliases = cleanup.finalizeAliases(aliasGraph, papers, recoveryPapers);
+  const exactAlternatives = reconciliation.attachExactAlternatives(papers, imports, validation, idAliases);
+  const reviewedVariants = reconciliation.attachReviewedVariants(papers, imports, validation, idAliases);
+  const primaryPreferences = reconciliation.preferExactSources(papers, imports, validation, idAliases);
+  if (primaryPreferences.rejected.length) throw new Error("Reviewed primary preference rejected: " + JSON.stringify(primaryPreferences.rejected));
   const publicationBindings = require("./publication-continuity.cjs").apply(papers, publicationSync, validation, idAliases);
   const rejectedSourceCopies = cleanup.restrictCopies(papers, validation);
   const correctionIds = new Set(correctedMappings.map(r => r.id));
@@ -76,12 +82,59 @@ function build(papers, { imports, validation, publishedHistory, metadataCorrecti
     fragmentPrimaries: papers.filter(p => /thsconline\.net\/s\/v\//.test(p.url)).length,
     recoveryPapers: recoveryPapers.length,
     publicationSync: { sourceCommit: publicationSync.sourceCommit, bindings: publicationBindings },
-    cleanup: { metadataChanges, identityChanges: migratedHistory.changes, classificationMerges: classificationCopies.merged, fullByteMerges: provedCopies.report.merged, versionMerges: versions.merged, attachedDocumentMerges: attachedDocs.merged, sharedEnglishMerges: sharedEnglish.merged, rejectedSources: cleaned.rejectedSources, rejectedSourceCopies, auditCoverage: validation.coverage },
+    cleanup: { metadataChanges, identityChanges: migratedHistory.changes, classificationMerges: classificationCopies.merged, fullByteMerges: provedCopies.report.merged, versionMerges: versions.merged, attachedDocumentMerges: attachedDocs.merged, sharedEnglishMerges: sharedEnglish.merged, rejectedSources: cleaned.rejectedSources, rejectedSourceCopies, exactAlternatives, reviewedVariants, primaryPreferences, auditCoverage: validation.coverage },
   };
   const modernCatalogue = { generated: new Date().toISOString(), dataVersion: 2, sources: "desktop/sources.json", idAliases, recoveryPapers, papers };
   schema.assert(modernCatalogue);
   const compatibility = require("./catalogue-feeds.cjs").prepare(modernCatalogue, validation);
   const errors = require("./catalogue-feeds.cjs").verify(modernCatalogue, compatibility.legacy);
+  if (errors.length) throw new Error(errors.join("\n"));
+  return { modernCatalogue, compatibility, reconciliationReport, finalFileCount, finalDirectCount };
+}
+// Maintenance mode uses the reviewed publication, including recovery records,
+// as its identity/metadata authority. Fresh discovery is diagnostic only; it
+// cannot relabel records, mint aliases, admit imports or promote recovery rows.
+function buildReviewed(discovered, { previous, previousReport, imports, validation, publicationSync, removals = { ids: new Set(), urls: new Set() }, isFastHost = require("../ui/js/source-policy.js").isFast }) {
+  const schema = require("../ui/js/catalogue-schema.js");
+  if (!previous || !previousReport || previous.dataVersion !== 2) throw new Error("Reviewed-only build requires the previous publication and its reconciliation receipt");
+  schema.assert(previous);
+  const excluded = p => removals.ids.has(p.id) || [p.url, p.fallbackUrl, ...(p.alternateSources || []).map(a => a.url)].some(u => u && removals.urls.has(u));
+  const papers = structuredClone(previous.papers.filter(p => !excluded(p)));
+  const recoveryPapers = structuredClone((previous.recoveryPapers || []).filter(p => !excluded(p)));
+  const idAliases = cleanup.finalizeAliases({ ...previous.idAliases }, papers, recoveryPapers);
+  const excludedIds = new Set([...previous.papers, ...(previous.recoveryPapers || [])].filter(excluded).map(p => p.id));
+  const allowed = rows => (rows || []).filter(b => !excludedIds.has(cleanup.resolveAlias(b.id, previous.idAliases || {})));
+  const registry = { ...imports, exactAlternatives: allowed(imports.exactAlternatives), reviewedVariants: allowed(imports.reviewedVariants), primaryPreferences: allowed(imports.primaryPreferences) };
+  const exactAlternatives = reconciliation.attachExactAlternatives(papers, registry, validation, idAliases);
+  const reviewedVariants = reconciliation.attachReviewedVariants(papers, registry, validation, idAliases);
+  const primaryPreferences = reconciliation.preferExactSources(papers, registry, validation, idAliases);
+  if (exactAlternatives.rejected.length || reviewedVariants.rejected.length || primaryPreferences.rejected.length) throw new Error("Reviewed source bindings changed: " + JSON.stringify({ exactAlternatives, reviewedVariants, primaryPreferences }));
+  const publicationBindings = require("./publication-continuity.cjs").apply(papers, publicationSync, validation, idAliases);
+  const rejectedSourceCopies = cleanup.restrictCopies(papers, validation);
+  const receipt = new Map([
+    ...(previousReport.mergedImports || []).map(row => [row.id, { kind: "merged", row }]),
+    ...(previousReport.genuinelyAdded || []).map(id => [id, { kind: "added", row: id }]),
+    ...(previousReport.reviewQueue || []).map(row => [row.id, { kind: "review", row }]),
+  ]);
+  const mergedImports = [], genuinelyAdded = [], reviewQueue = [];
+  for (const row of imports.entries || []) {
+    const id = identity.importId(row), old = receipt.get(id);
+    if (!old) { reviewQueue.push({ id, reason: "Reviewed-only: new import awaits explicit catalogue admission" }); continue; }
+    if (old.kind === "merged") mergedImports.push(structuredClone(old.row));
+    else if (old.kind === "added") genuinelyAdded.push(id);
+    else reviewQueue.push(structuredClone(old.row));
+  }
+  const finalFileCount = papers.reduce((n, p) => n + Number(!!p.url) + Number(!!p.solutionUrl), 0);
+  const finalDirectCount = papers.reduce((n, p) => n + Number(!!isFastHost(p.url)) + Number(!!isFastHost(p.solutionUrl)), 0);
+  const reconciliationReport = { ...structuredClone(previousReport), activePapers: papers.length, recoveryPapers: recoveryPapers.length,
+    importedRows: (imports.entries || []).length, mergedImports, genuinelyAdded, reviewQueue, filePointers: finalFileCount, directFilePointers: finalDirectCount,
+    publicationSync: { sourceCommit: publicationSync.sourceCommit, bindings: publicationBindings },
+    reviewedOnly: { baselineActive: previous.papers.length, discoveredRows: discovered.length, newImportsHeld: reviewQueue.filter(r => !receipt.has(r.id)).length },
+    cleanup: { ...structuredClone(previousReport.cleanup || {}), rejectedSourceCopies, exactAlternatives, reviewedVariants, primaryPreferences, auditCoverage: validation.coverage } };
+  const modernCatalogue = { ...structuredClone(previous), generated: new Date().toISOString(), papers, recoveryPapers, idAliases };
+  schema.assert(modernCatalogue);
+  const compatibility = require("./catalogue-feeds.cjs").prepare(modernCatalogue, validation);
+  const errors = [...require("./verify-catalogue.cjs").verify(modernCatalogue, reconciliationReport, validation, previous, 0), ...require("./catalogue-feeds.cjs").verify(modernCatalogue, compatibility.legacy)];
   if (errors.length) throw new Error(errors.join("\n"));
   return { modernCatalogue, compatibility, reconciliationReport, finalFileCount, finalDirectCount };
 }

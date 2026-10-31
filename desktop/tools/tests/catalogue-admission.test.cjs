@@ -25,6 +25,66 @@ function fixture() {
   return { groups, sources, options, payloads, originalPortal };
 }
 function build(f, reverse = false) { const sources = structuredClone(f.sources); if (reverse) sources.reverse(); return pipeline.build(sources, structuredClone(f.options)); }
+test("reviewed-only rebuild freezes source-ID drift, new imports/selfhost and recovery promotions without relaxing continuity", () => {
+  const bytes = pdf("Biology trial questions", 1), hash = sha(bytes), url = "https://hscportal.pages.dev/biology.pdf", mirror = "https://thsconline.com.au/pdf/papers/biology.pdf";
+  const p = { id: "published", url, subject: "Biology", school: "Ruse", year: 2025, type: "trial", level: "HSC", title: "2025 Biology Trial", sha256: hash, bytes: bytes.length, pages: 1 };
+  const recovery = { ...p, id: "recover", url: "", availability: { state: "review", reason: "Unresolved version" } };
+  const previous = { dataVersion: 2, papers: [p], recoveryPapers: [recovery], idAliases: { historical: "published" } };
+  const options = { reviewedOnly: true, previous, previousReport: { activePapers: 1, importedRows: 0, mergedImports: [], genuinelyAdded: [], reviewQueue: [], unexpectedPrimaryDowngrades: [], cleanup: {} },
+    imports: { entries: [{ ...p, id: "unadmitted-import", url: mirror }], primaryPreferences: [{ id: p.id, primaryUrl: url, sha256: hash, bytes: bytes.length, preferredUrl: mirror, previousRecord: R.legacyRecord(p) }] },
+    validation: { entries: { [url]: { state: "verified", sha256: hash, bytes: bytes.length, pages: 1, text: "Biology trial questions" }, [mirror]: { state: "verified", sha256: hash, bytes: bytes.length, pages: 1, text: "Biology trial questions" } } }, publicationSync: { entries: [] } };
+  const discovered = [{ ...p, id: "portal-prefix-changed", title: "Changed source title" }, { ...p, id: "selfhost-new" }, { ...p, id: "recover" }];
+  const first = pipeline.build(discovered, options), c = first.modernCatalogue;
+  assert.deepEqual(c.papers.map(p => p.id), [p.id]); assert.equal(c.papers[0].title, p.title);
+  assert.equal(c.papers[0].url, mirror); assert.equal(c.papers[0].fallbackUrl, url);
+  assert.deepEqual(c.idAliases, previous.idAliases); assert.deepEqual(c.recoveryPapers, previous.recoveryPapers);
+  assert.equal(first.reconciliationReport.reviewQueue[0].id, "unadmitted-import");
+  assert.deepEqual(V.verify(c, first.reconciliationReport, options.validation, previous, 0), []);
+  const legacy = first.compatibility.legacy.papers[0];
+  assert.ok(old.libraryCandidates(legacy, "paper").includes(old.libraryRel(p, "paper")));
+  const second = pipeline.build([{ ...p, id: "another-source-id" }], { ...options, previous: c, previousReport: first.reconciliationReport });
+  assert.equal(publication.digest(c, first.compatibility.legacy), publication.digest(second.modernCatalogue, second.compatibility.legacy));
+  const drift = structuredClone(options); drift.validation.entries[mirror].sha256 = "f".repeat(64);
+  assert.throws(() => pipeline.build(discovered, drift), /Reviewed source bindings changed/);
+  assert.throws(() => pipeline.build(discovered, { ...options, previous: null }), /previous publication/);
+});
+test("the production pipeline retains exact alternatives without new IDs or primary changes", () => {
+  const bytes = pdf("Biology trial questions", 1), hash = sha(bytes), url = "https://hscportal.pages.dev/biology.pdf", mirror = "https://thsconline.com.au/pdf/papers/biology.pdf";
+  const p = { id: "existing", url, subject: "Biology", school: "Ruse", year: 2025, type: "trial", level: "HSC", title: "2025 Biology Trial" };
+  const proof = { state: "verified", sha256: hash, bytes: bytes.length, pages: 1, text: "Biology trial questions" };
+  const options = { imports: { entries: [], proofs: {}, legacyRows: {}, previousPrimaries: {}, exactAlternatives: [{ id: p.id, primaryUrl: url, sha256: hash, bytes: bytes.length, urls: [mirror] }] },
+    validation: { entries: { [url]: proof, [mirror]: proof } }, publishedHistory: { records: [], aliases: {} }, metadataCorrections: {}, publicationSync: { entries: [] } };
+  const result = pipeline.build([structuredClone(p)], options), modern = result.modernCatalogue;
+  assert.deepEqual(modern.papers.map(p => p.id), ["existing"]); assert.deepEqual(modern.idAliases, {});
+  assert.equal(modern.papers[0].url, url); assert.equal(modern.papers[0].fallbackUrl, mirror);
+  assert.equal(modern.papers[0].alternateSources[0].sha256, hash);
+  assert.equal(result.reconciliationReport.cleanup.exactAlternatives.added, 1);
+  assert.deepEqual(V.verify(modern, result.reconciliationReport, options.validation, { papers: [p], recoveryPapers: [], idAliases: {} }, 0), []);
+  const changed = structuredClone(options); changed.validation.entries[mirror].sha256 = "f".repeat(64);
+  const held = pipeline.build([structuredClone(p)], changed);
+  assert.equal(held.modernCatalogue.papers[0].alternateSources.length, 0);
+  assert.equal(held.reconciliationReport.cleanup.exactAlternatives.rejected.length, 1);
+});
+test("reviewed different-byte representations survive the production pipeline only as proof-bound file versions", () => {
+  const bytes = pdf("Biology trial questions", 1), other = Buffer.concat([bytes, Buffer.from("\n% alternate representation\n")]);
+  const hash = sha(bytes), otherHash = sha(other), url = "https://hscportal.pages.dev/biology.pdf", mirror = "https://thsconline.com.au/pdf/papers/biology.pdf";
+  const p = { id: "existing", url, subject: "Biology", school: "Ruse", year: 2025, type: "trial", level: "HSC", title: "2025 Biology Trial" };
+  const proof = { state: "verified", sha256: hash, bytes: bytes.length, pages: 1, text: "Biology trial questions" };
+  const variant = { url: mirror, sha256: otherHash, bytes: other.length, pages: 1, role: "questions", label: "Mirror PDF (same rendered content)",
+    review: { method: "all-page-render-and-text", primarySha256: hash, variantSha256: otherHash, pages: 1, scale: 1.5 } };
+  const options = { imports: { entries: [], proofs: {}, legacyRows: {}, previousPrimaries: {}, reviewedVariants: [{ id: p.id, primaryUrl: url, sha256: hash, bytes: bytes.length, reviewKey: require("../catalogue-identity.cjs").reviewKey(p), variants: [variant] }] },
+    validation: { entries: { [url]: proof, [mirror]: { ...proof, sha256: otherHash, bytes: other.length } } }, publishedHistory: { records: [], aliases: {} }, metadataCorrections: {}, publicationSync: { entries: [] } };
+  const next = pipeline.build([structuredClone(p)], options), record = next.modernCatalogue.papers[0];
+  assert.equal(record.url, url); assert.equal(record.sha256, hash); assert.equal(record.fallbackUrl, ""); assert.deepEqual(record.alternateSources, []);
+  assert.equal(record.fileVariants.length, 2); assert.deepEqual(next.modernCatalogue.idAliases, {});
+  assert.deepEqual(V.verify(next.modernCatalogue, next.reconciliationReport, options.validation), []);
+  record.fileVariants[1].sha256 = hash;
+  assert.ok(V.verify(next.modernCatalogue, next.reconciliationReport, options.validation).some(e => e.startsWith("File version differs from its proof:")));
+  const changed = structuredClone(options); changed.validation.entries[mirror].sha256 = "f".repeat(64);
+  const held = pipeline.build([structuredClone(p)], changed);
+  assert.equal(held.modernCatalogue.papers.length, 1); assert.equal(held.modernCatalogue.papers[0].fileVariants.length, 0);
+  assert.equal(held.reconciliationReport.cleanup.reviewedVariants.rejected.length, 1);
+});
 test("production build -> real PDF proof admission -> rebuild -> verification preserves all seven dispositions and old filenames", async () => {
   const f = fixture(), dir = fs.mkdtempSync(path.join(os.tmpdir(), "hsc-admission-"));
   try {

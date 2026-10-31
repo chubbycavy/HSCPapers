@@ -43,7 +43,7 @@ const ONLY = argValue("--registry");
 const LIMIT = Number(argValue("--limit") || 0);
 const REPORT_ONLY = process.argv.includes("--report-only");
 
-if (!MODE) {
+if (!MODE && require.main === module) {
   console.error("usage: node tools/validate-registry.cjs --sample | --full [--registry=thsc-au|nesa-archive|nesa-recovery] [--limit=N] [--report-only]");
   process.exit(2);
 }
@@ -74,7 +74,18 @@ function loadEntries(reg) {
       rows.push({ id: e.key || e.url, url: e.url, sha256: e.sha256 || null, bytes: e.bytes || null, pages: e.pages || null });
     }
   }
-  return { rows, json };
+  if (reg.name === "catalogue-imports") {
+    const catalogue = JSON.parse(fs.readFileSync(path.join(TOOLS, "../ui/data/papers-v2.json"), "utf8"));
+    const active = new Map(catalogue.papers.map(p => [p.id, p]));
+    for (const binding of json.primaryPreferences || []) {
+      const owner = active.get(catalogue.idAliases?.[binding.id] || binding.id);
+      if (owner) rows.push({ id: binding.id, url: binding.preferredUrl, sha256: binding.sha256, bytes: binding.bytes, pages: owner.pages });
+    }
+    for (const binding of json.reviewedVariants || []) if (active.has(catalogue.idAliases?.[binding.id] || binding.id)) {
+      for (const v of binding.variants || []) rows.push({ id: binding.id, url: v.url, sha256: v.sha256, bytes: v.bytes, pages: v.pages });
+    }
+  }
+  return { rows: [...new Map(rows.map(row => [[row.url, row.sha256, row.bytes, row.pages].join("|"), row])).values()], json };
 }
 
 /* deterministic sample: sort by id, rotate the start by day-index, stride */
@@ -148,7 +159,8 @@ async function probe(row) {
   return { ok: true, cls: "ok", reason: "verified", evidence };
 }
 
-(async () => {
+module.exports = { loadEntries, sampleOf };
+if (require.main === module) (async () => {
   const checks = [];
   const t0 = Date.now();
   let rotted = 0, okN = 0, errorN = 0;

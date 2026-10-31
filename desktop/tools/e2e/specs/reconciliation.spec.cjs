@@ -149,3 +149,55 @@ test("held 2016 portal file cannot satisfy the mirror primary's saved-file looku
   await expect(page.locator(`[data-id="${p.id}"] a.go`)).toContainText("Paper");
   await expect(page.locator(`.card[data-id="${held.id}"] a.go`)).toHaveCount(0);
 });
+
+for (const id of ["thsc-5276-sydney-boys-2005", "thsc-5226-sydney-boys-2005-w-sol"]) {
+  test(`accelerated 2005 ${id}: corrected metadata retains the Advanced saved filename and published ID`, async ({ page }) => {
+    const p = catalogue.papers.find(p => p.id === id);
+    expect(p.subject).toBe("Maths (Accelerated)");
+    const originalUrl = require("../../../tools/catalogue-metadata-corrections.json").entries[id].when.url;
+    const saved = p.libraryAliases.find(a => a.subject === "Mathematics Advanced" && a.url === originalUrl && !a.variantOnly);
+    expect(saved).toBeTruthy();
+    await publicationLibrary(page, oldLibraryRel(saved));
+    await page.goto(`/?q=${encodeURIComponent("Sydney Boys Maths Accelerated 2005")}&sel=${encodeURIComponent(id)}`);
+    const card = page.locator(`[data-id="${id}"]`);
+    await expect(card.locator("a.go")).toContainText("View");
+    await expect(card.locator(".meta")).toContainText("Maths (Accelerated)");
+    await expect(page.locator("#bulkbar")).toContainText("1 paper");
+    expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
+  });
+}
+
+test("a reviewed mirror representation cannot reuse the saved primary's different PDF bytes", async ({ page }) => {
+  const p = catalogue.papers.find(p => p.fileVariants?.some(v => v.label === "Mirror PDF (same rendered content)"));
+  expect(p).toBeTruthy();
+  const v = p.fileVariants.find(v => v.label === "Mirror PDF (same rendered content)");
+  expect(v.sha256).not.toBe(p.sha256);
+  const savedRel = oldLibraryRel(p);
+  await publicationLibrary(page, savedRel);
+  await page.goto(`/?q=${encodeURIComponent(`${p.school} ${p.subject} ${p.year}`)}`);
+  const card = page.locator(`[data-id="${p.id}"]`);
+  await expect(card.locator("a.go")).toContainText("View");
+  await card.locator("details summary").click();
+  await card.getByRole("button", { name: /Mirror PDF \(same rendered content\)/ }).click();
+  await expect.poll(() => page.evaluate(() => window.downloadRequests.length)).toBe(1);
+  const jobs = await page.evaluate(() => window.downloadRequests);
+  expect(jobs[0].url).toBe(v.url); expect(jobs[0].relpath).not.toBe(savedRel);
+  expect(jobs[0].fallback).toBeNull();
+});
+
+const preferences = require("../../../tools/catalogue-imports.json").primaryPreferences || [];
+const promotedCases = new Map();
+for (const select of [p => !p.hasSolutions, p => p.hasSolutions, p => !!p.solutionUrl, p => p.fileVariants?.some(v => v.sha256 !== p.sha256), p => p.pages >= 60]) {
+  const pref = preferences.find(b => select(catalogue.papers.find(p => p.id === b.id)));
+  if (pref) promotedCases.set(pref.id, pref);
+}
+for (const pref of promotedCases.values()) test(`promoted mirror ${pref.id}: saved Portal file remains usable without a new download`, async ({ page }) => {
+  const p = catalogue.papers.find(p => p.id === pref.id);
+  expect(p.url).toBe(pref.preferredUrl); expect(p.fallbackUrl).toBe(pref.primaryUrl);
+  await publicationLibrary(page, oldLibraryRel(pref.previousRecord));
+  await page.goto(`/?q=${encodeURIComponent(`${p.school} ${p.subject} ${p.year}`)}&sel=${encodeURIComponent(p.id)}`);
+  const card = page.locator(`[data-id="${p.id}"]`);
+  await expect(card.locator("a.go")).toContainText("View");
+  await expect(page.locator("#bulkbar")).toContainText("1 paper");
+  expect(await page.evaluate(() => window.downloadRequests)).toEqual([]);
+});

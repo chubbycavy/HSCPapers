@@ -6,23 +6,25 @@ The 10,368 figure counted listings, including mirror copies. v1.0.25 made URLs d
 
 ## Current accounting
 
-- Active catalogue entries: **6872** (previously 10,368).
-- Imported rows reconciled: 3393.
-- Mirror/copy imports merged into existing entries: **3005**.
-- Added after metadata and identity checks: **172**.
-- Imports retained in the committed review registry, excluded from active totals: **216**.
-- Existing-copy merges: 930.
-- Historical aliases resolving to active/recovery records: 4854.
-- Recovery records preserved without online download actions: 643.
+- Active catalogue entries: **6936** (previously 10,368).
+- Imported rows reconciled: 3496.
+- Mirror/copy imports merged into existing entries: **3018**.
+- Added after metadata and identity checks: **250**.
+- Imports retained in the committed review registry, excluded from active totals: **228**.
+- Existing-copy merges: 778.
+- Historical aliases resolving to active/recovery records: 4859.
+- Recovery records preserved without online download actions: 657.
 
-- Direct-file pointers: 7370/7571; resolver primaries: 200.
+- Direct-file pointers: 7409/7610; resolver primaries: 200.
 
 | Source | Merged | Added | Review |
 |---|---:|---:|---:|
 | 4unitmaths | 0 | 4 | 190 |
 | acehsc | 0 | 10 | 13 |
 | crest | 0 | 0 | 1 |
-| thsc-au-growth | 3005 | 158 | 12 |
+| hscportal | 1 | 49 | 5 |
+| thsc-au-growth | 3006 | 158 | 11 |
+| thsc-feed | 11 | 29 | 8 |
 
 ## Evidence and preservation rules
 
@@ -33,16 +35,16 @@ Canonical entries retain the original ID and richer metadata. Mirror URLs and th
 ## Limits and remaining review
 
 Shared-URL groups with differing document metadata recorded for mapping review: 17. These are not silently merged or disguised by URL demotion.
-Rejected official replacements recorded: 119 (trial/assessment, provider or paper-part mismatches).
+Rejected official replacements recorded: 83 (trial/assessment, provider or paper-part mismatches).
 The census now distinguishes full-file hash evidence from incomplete HEAD coverage. This report does not claim every historical PDF is byte-unique or every legacy mapping has been repaired. The unresolved queue and complete row-level decisions are in reconciliation-report.json and catalogue-imports.json.
 
 ## Priority cleanup evidence
 
-- Audit disposition coverage: 16219 source URLs; {"verified":10253,"review":5094,"invalid":872}.
-- Newly proved full-byte copy merges: 66.
-- Identical-document classification consolidations: 815.
-- Redundant attached-document cards consolidated: 19.
-- Shared-course English Paper 1 consolidations: 4.
+- Audit disposition coverage: 18886 source URLs; {"review":5108,"verified":12906,"invalid":872}.
+- Newly proved full-byte copy merges: 0.
+- Identical-document classification consolidations: 795.
+- Redundant attached-document cards consolidated: 0.
+- Shared-course English Paper 1 consolidations: 0.
 - Question/combined assessment version consolidations: 2.
 - Migrated fragment primaries: 1; validated legacy primaries: 200.
 The known repeated 92,354-byte PDF is THSC's official 404 placeholder, not proof of corrupted directory mappings. Access-denied outcomes are review cases. Unverified legacy fallbacks are provenance rather than online actions.

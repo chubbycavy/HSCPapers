@@ -179,8 +179,19 @@ async function main() {
     if (ok) pass(`host layers in sync: ${fast ? fast.size : "?"} fast hosts, ${allowed ? allowed.size : "?"} proxy-allowed`);
     const registry = JSON.parse(read(path.join(ROOT, "desktop", "tools", "thsc-au-verified.json")));
     const proofs = new Map((registry.entries || []).map(entry => [entry.url, entry]));
-    const mirrors = papers.filter(p => p.mirror === "thsc-au");
-    if (mirrors.every(p => proofs.has(p.url) && proofs.get(p.url).sha256 === p.sha256 && proofs.get(p.url).bytes === p.bytes)) pass(`independent mirror: ${mirrors.length} mappings backed by PDF validation and SHA-256`);
+    const imports = JSON.parse(read(path.join(ROOT, "desktop", "tools", "catalogue-imports.json")));
+    for (const row of imports.entries || []) if (row.url && row.sha256) proofs.set(row.url, row);
+    const preferences = new Map((imports.primaryPreferences || []).map(b => [b.id, b]));
+    const validation = JSON.parse(read(path.join(ROOT, "desktop", "tools", "catalogue-validation.json")));
+    validation.ownerExclusions = JSON.parse(read(path.join(ROOT, "desktop", "tools", "catalogue-document-review.json"))).entries;
+    const mirrors = papers.filter(p => { try { return new URL(p.url).origin === "https://thsconline.com.au"; } catch { return false; } });
+    if (mirrors.every(p => {
+      const preferred = preferences.get(p.id), expected = preferred?.preferredUrl === p.url ? preferred : proofs.get(p.url);
+      const full = require("./catalogue-cleanup.cjs").proofFor(p, p.url, "primary", validation);
+      const old = preferred?.preferredUrl === p.url ? validation.entries[preferred.primaryUrl] : null;
+      return expected && expected.sha256 === p.sha256 && expected.bytes === p.bytes && full?.sha256 === p.sha256 && full.bytes === p.bytes && full.pages === p.pages &&
+        (!preferred || old?.state === "verified" && old.sha256 === p.sha256 && old.bytes === p.bytes);
+    })) pass(`independent mirror: ${mirrors.length} mappings backed by PDF validation and SHA-256`);
     else fail("independent mirror contains an unverified replacement");
     if (new Set(papers.map(p => p.id)).size === papers.length) pass(`catalogue IDs unique (${papers.length})`);
     else fail("duplicate catalogue IDs");

@@ -17,6 +17,96 @@ function addAlternative(p, row) {
     p.alternateSources.push(out);
   }
 }
+function boundPrimary(byId, binding, validation, aliases) {
+  const cleanup = require("./catalogue-cleanup.cjs"), p = byId.get(cleanup.resolveAlias(binding.id, aliases));
+  const expected = validation.entries[binding.primaryUrl], current = p && cleanup.proofFor(p, p.url, "primary", validation);
+  if (!p || !I.validProof(binding) || expected?.state !== "verified" || expected.sha256 !== binding.sha256 || expected.bytes !== binding.bytes ||
+      !current || current.sha256 !== binding.sha256 || current.bytes !== binding.bytes || p.sha256 !== binding.sha256 || p.bytes !== binding.bytes || reviewed.hold(p, validation) ||
+      (binding.reviewKey && binding.reviewKey !== I.reviewKey(p))) return null;
+  return p;
+}
+// Existing-record bindings only: never mint an import ID, alias or new paper.
+// Both the bound source and current primary must still prove the expected bytes.
+function attachExactAlternatives(papers, registry, validation, aliases = {}) {
+  const cleanup = require("./catalogue-cleanup.cjs"), byId = new Map(papers.map(p => [p.id, p]));
+  const result = { bindings: 0, added: 0, rejected: [] };
+  for (const binding of registry.exactAlternatives || []) {
+    const p = boundPrimary(byId, binding, validation, aliases);
+    if (!p) {
+      result.rejected.push({ id: binding.id, reason: "Bound identity or primary proof changed" }); continue;
+    }
+    for (const url of binding.urls || []) {
+      let approvedHost = false;
+      try { const u = new URL(url); approvedHost = u.origin === "https://thsconline.com.au" && u.pathname.startsWith("/pdf/papers/"); } catch {}
+      const proof = approvedHost && cleanup.proofFor(p, url, "primary", validation);
+      if (!proof || !I.validProof(proof) || proof.sha256 !== binding.sha256 || proof.bytes !== binding.bytes) {
+        result.rejected.push({ id: binding.id, url, reason: "Alternative lacks identical, context-compatible full-file proof" }); continue;
+      }
+      result.bindings++;
+      if (url === p.url || (p.alternateSources || []).some(a => a.url === url)) continue;
+      addAlternative(p, { url, source: "thsc-au", sha256: proof.sha256, bytes: proof.bytes, pages: proof.pages });
+      p.fallbackUrl ||= url;
+      result.added++;
+    }
+  }
+  return result;
+}
+// Different PDF representations stay explicit versions, never ordinary backups.
+// The reviewed all-page comparison is tied to both complete file proofs.
+function attachReviewedVariants(papers, registry, validation, aliases = {}) {
+  const cleanup = require("./catalogue-cleanup.cjs"), byId = new Map(papers.map(p => [p.id, p]));
+  const result = { bindings: 0, added: 0, rejected: [] };
+  for (const binding of registry.reviewedVariants || []) {
+    const p = boundPrimary(byId, binding, validation, aliases);
+    if (!p || !binding.reviewKey) { result.rejected.push({ id: binding.id, reason: "Reviewed version owner/context or primary proof changed" }); continue; }
+    for (const variant of binding.variants || []) {
+      let approvedHost = false;
+      try { const u = new URL(variant.url); approvedHost = u.origin === "https://thsconline.com.au" && u.pathname.startsWith("/pdf/papers/"); } catch {}
+      const proof = approvedHost && cleanup.proofFor(p, variant.url, "primary", validation), evidence = variant.review;
+      const role = p.documentRole === "combined" || /\bw\.?\s*sol/.test(I.routeText(p)) ? "combined" : p.documentRole === "solutions" ? "solutions" : "questions";
+      if (!proof || !I.validProof(variant) || proof.sha256 !== variant.sha256 || proof.bytes !== variant.bytes || proof.pages !== variant.pages ||
+          !evidence || evidence.method !== "all-page-render-and-text" || evidence.primarySha256 !== binding.sha256 || evidence.variantSha256 !== variant.sha256 ||
+          evidence.pages !== p.pages || evidence.pages !== variant.pages || evidence.scale !== 1.5 || variant.role !== role) {
+        result.rejected.push({ id: binding.id, url: variant.url, reason: "Reviewed version evidence/proof or document role changed" }); continue;
+      }
+      result.bindings++;
+      if (variant.url === p.url || (p.fileVariants || []).some(v => v.url === variant.url)) continue;
+      p.fileVariants ||= [];
+      if (!p.fileVariants.some(v => v.url === p.url)) p.fileVariants.push({ url: p.url, role, label: "Original PDF", sha256: p.sha256, bytes: p.bytes, pages: p.pages });
+      p.fileVariants.push({ url: variant.url, role, label: variant.label, sha256: variant.sha256, bytes: variant.bytes, pages: variant.pages });
+      result.added++;
+    }
+  }
+  return result;
+}
+function preferExactSources(papers, registry, validation, aliases = {}) {
+  const cleanup = require("./catalogue-cleanup.cjs"), byId = new Map(papers.map(p => [p.id, p]));
+  const result = { bindings: 0, promoted: 0, rejected: [] };
+  for (const binding of registry.primaryPreferences || []) {
+    const p = boundPrimary(byId, binding, validation, aliases);
+    let approvedHost = false;
+    try { const u = new URL(binding.preferredUrl); approvedHost = u.origin === "https://thsconline.com.au" && u.pathname.startsWith("/pdf/papers/"); } catch {}
+    const proof = p && approvedHost && cleanup.proofFor(p, binding.preferredUrl, "primary", validation);
+    if (!p || !proof || proof.sha256 !== binding.sha256 || proof.bytes !== binding.bytes || proof.pages !== p.pages ||
+        binding.previousRecord?.url !== binding.primaryUrl || binding.previousRecord?.id !== binding.id) {
+      result.rejected.push({ id: binding.id, url: binding.preferredUrl, reason: "Preferred source or bound primary no longer proves identical compatible bytes" }); continue;
+    }
+    result.bindings++;
+    const changed = p.url !== binding.preferredUrl, before = legacyRecord(binding.previousRecord), oldUrl = binding.primaryUrl;
+    p.libraryAliases ||= [];
+    if (!p.libraryAliases.some(a => a.id === before.id && a.url === before.url && a.subject === before.subject && a.year === before.year && a.school === before.school && !a.variantOnly && !a.forKind)) p.libraryAliases.push(before);
+    p.url = binding.preferredUrl; p.mirror = "thsc-au";
+    p.alternateSources = (p.alternateSources || []).filter(a => a.url !== p.url && a.url !== oldUrl);
+    const oldProof = validation.entries[oldUrl];
+    p.alternateSources.unshift({ url: oldUrl, source: "hscportal", sha256: oldProof.sha256, bytes: oldProof.bytes, pages: oldProof.pages });
+    p.fallbackUrl = oldUrl;
+    for (const variant of p.fileVariants || []) if (variant.url === oldUrl && variant.sha256 === p.sha256) {
+      variant.libraryRecord ||= before; variant.url = p.url;
+    }
+    if (changed) result.promoted++;
+  }
+  return result;
+}
 function indexRows(papers) {
   const index = { keys: new Map(), urls: new Map(), hashes: new Map(), reviews: new Map() };
   for (const p of papers) indexRow(index, p);
@@ -235,4 +325,4 @@ function coalesceSharedEnglish(papers, validation) {
   }
   papers.splice(0, papers.length, ...kept); return { aliases, merged };
 }
-module.exports = { applyImports, coalesceExisting, coalesceVersions, coalesceAttachedDocuments, coalesceClassificationCopies, coalesceSharedEnglish, indexRows, legacyRecord, addAlternative };
+module.exports = { applyImports, attachExactAlternatives, attachReviewedVariants, preferExactSources, coalesceExisting, coalesceVersions, coalesceAttachedDocuments, coalesceClassificationCopies, coalesceSharedEnglish, indexRows, legacyRecord, addAlternative };
