@@ -86,7 +86,7 @@ jobs:
 
       - name: Retain nightly candidate diagnostics
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: nightly-candidate
           path: |
