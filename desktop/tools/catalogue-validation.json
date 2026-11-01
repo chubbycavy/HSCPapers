@@ -14343,54 +14343,104 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "d1bcd318d61c78031ba7cd741d3345cc89c13a0dadd9c393e87c1fa6fd9e21c2",
+   "bytes": 361798,
+   "pages": 42,
+   "text": "   1     Mathematics  General Instructions     Reading Time      5 minutes     Working Time      3 hours     Write using black pen.     Board-approved calculators may be used.     A reference sheet is provided.     In Questions 11 – 16, show relevant mathematical reasoning and/or calculations.  NAME:______________________________   TEACHER:___________________ STUDENT NUMBER:__________________________  QUESTION   MARKS 1-10   /10 11   /15 12   /15 13   /15 14   /15 15   /15 16   /15 TOTAL   /100  NORTH SYDNEY GIRLS HIGH SCHOOL  2016 TRIAL HSC EXAMINATION  Section II   Pages 8 - 19  90 Marks     Attempt Questions 11 – 16     Allow about 2 hours and 45 minutes for this section  Total Marks – 100 Section I   Pages 3 - 6  10 marks     Attempt Questions 1 -10     Allow about 15 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202016%20w.%20sol",
+   "at": "2026-11-01T23:22:38.162Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "f6be49362c3e90f134442bc69279175196fa8f11fea8e6ae46469ecbc9b4ba57",
+   "bytes": 457599,
+   "pages": 31,
+   "text": "\u0010 \u0003\u0014\u0003 \u0010 \u0003 \u0003 \u0003\u0003\u0003\u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003   \u0003  Mathematics  \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 48(67,21\u0003   0$5.6\u0003 \u0014\u0003±\u0003\u0014\u0013\u0003   \u0012\u0014\u0013 \u0014\u0014\u0003   \u0012\u0014\u0018 \u0014\u0015\u0003   \u0012\u0014\u0018 \u0014\u0016\u0003   \u0012\u0014\u0018 \u0014\u0017\u0003   \u0012\u0014\u0018 \u0014\u0018\u0003   \u0012\u0014\u0018 \u0014\u0019\u0003   \u0012\u0014\u0018 727$/\u0003   \u0012\u0014\u0013\u0013  *HQHUDO\u0003,QVWUXFWLRQV\u0003  x \u0003   5HDGLQJ\u0003WLPH\u0003±\u0003\u0018\u0003PLQXWHV\u0003  x \u0003   :RUNLQJ\u0003WLPH\u0003±\u0003\u0016\u0003KRXUV\u0003  x \u0003   :ULWH\u0003XVLQJ\u0003EODFN\u0003SHQ\u0003  x \u0003   %RDUG\u0010DSSURYHG\u0003FDOFXODWRUV\u0003PD\\\u0003\u0003 EH\u0003XVHG\u0003  x \u0003   $\u0003UHIHUHQFH\u0003VKHHW\u0003KDV\u0003EHHQ\u0003SURYLGHG\u0003  x \u0003   ,Q\u00034XHVWLRQV\u0003\u0014\u0014 െ \u0014\u0019\u000f\u0003VKRZ\u0003\u0003 UHOHYDQW\u0003PDWKHPDWLFDO\u0003UHDVRQLQJ\u0003 DQG\u0012RU\u0003FDOFXODWLRQV\u0003  7RWDO\u00030DUNV\u0003±\u0003\u0014\u0013\u0013\u0003 6HFWLRQ\u0003, \u0003   3DJHV\u0003\u0015\u0003\u0010\u0003\u0018\u0003  \u0014\u0013\u0003PDUNV\u0003  x \u0003   $WWHPSW\u00034XHVWLRQV\u0003\u0014 െ \u0014\u0013\u0003  x \u0003   $OORZ\u0003DERXW\u0003\u0014\u0018\u0003PLQXWHV\u0003IRU\u0003WKLV\u0003VHFWLRQ\u0003  \u0003 6HFWLRQ\u0003,, \u0003   3DJHV\u0003\u0019\u0003\u0010\u0003\u0014\u0017\u0003  \u001c\u0013\u0003PDUNV\u0003  x \u0003   $WWHPSW\u00034XHVWLRQV\u0003\u0014\u0014 െ \u0014\u0019\u0003  x \u0003   $OORZ\u0003DERXW\u0003\u0015\u0003KRXUV\u0003DQG\u0003\u0017\u0018\u0003PLQXWHV\u0003IRU\u0003WKLV\u0003 VHFWLRQ\u0003  1257+\u00036<'1(<\u0003*,5/6\u0003 +,*+\u00036&+22/\u0003 \u0003 \u0003\u0003\u0003 \u0003   TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION 2017  6WXGHQW\u00031DPH\u001d BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\u0003  6WXGHQW\u00031XPEHU\u001d BBBBBBBBBBBBBBBBBBBBBBBBBBBB\u0003  &ODVV\u001d\u0003\u0003 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB \u0003  \u0003   \u0003   \u0003   \u0003 \u0003   \u0003   \u0003   \u0003 \u0003   \u0003   \u0003   \u0003  \u0003  \u0003 \u0003",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202017%20w.%20sol",
+   "at": "2026-11-01T23:22:40.339Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "3b4c32fd6e12e749b4661115c73c70f4f2e48cd667b894a7b651e96c20b9ebb6",
+   "bytes": 1993026,
+   "pages": 45,
+   "text": "Mathematics  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  Question   1-10   11   12   13   14   15   16   Total  Mark  /10   /15   /15   /15   /15   /15   /15   /100  Total marks – 100  Section I – 10 marks   (pages 2 – 5)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II   –   90 marks   (pages 6 – 15)     Attempt Questions 11 – 16     Allow about 2 hours 45 minutes for this section  NORTH SYDNEY GIRLS HIGH SCHOOL  2018   HSC  Trial Examination  General Instructions     Reading Time – 5 minutes     Working Time – 3 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided     In Questions 11 – 16, show relevant  mathematical reasoning and/or calculations",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202018%20w.%20sol",
+   "at": "2026-11-01T23:22:42.786Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "8747838e5d94c6181b260026882b7a35c63b64ae06c496bfd305eaf05eed7f93",
+   "bytes": 1991637,
+   "pages": 45,
+   "text": "Mathematics  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  Question   1-10   11   12   13   14   15   16   Total  Mark  /10   /15   /15   /15   /15   /15   /15   /100  Total marks – 100  Section I – 10 marks   (pages 2 – 6)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II   –   90 marks   (pages 7 – 15)     Attempt Questions 11 – 16     Allow about 2 hours 45 minutes for this section  NORTH SYDNEY GIRLS HIGH SCHOOL  2019   HSC  Trial Examination  General Instructions     Reading Time – 5 minutes     Working Time – 3 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided     In Questions 11 – 16, show relevant  mathematical reasoning and/or calculations",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202019%20w.%20sol",
+   "at": "2026-11-01T23:22:45.051Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "7242aae1170d6b726fff61915d7934892ca1f4d24a191d04cf15487be519eecc",
+   "bytes": 6244676,
+   "pages": 67,
+   "text": "   1     North Sydney Girls High School  Mathematics Advanced  General Instructions     Reading Time – 10 minutes     Working Time – 3 hours     Write using black pen     Calculators approved by NESA may be used     A reference sheet is provided     For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 100  Section I – 10 marks   (pages 2 – 6)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II   –   90 marks   (pages 8 – 30)     Attempt Questions 11 – 35     Allow about 2 hours and 45 minutes for this section  Question   1 – 10   11 – 16   17 – 20   21 – 24   25 – 29   30 – 33   34 – 35   Total Total   /10   /16   /16   /15   /16   /14   /13   /100  STUDENT NUMBER  2020   HSC TRIAL EXAMINATION",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202020%20w.%20sol",
+   "at": "2026-11-01T23:22:47.220Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "b98883f68827ef5672bcffc1c09f82066e456358c6f645f15fdbe9c5694b721b",
+   "bytes": 759441,
+   "pages": 70,
+   "text": "North Sydney Girls High School  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 44)  •   Attempt Questions 11 – 35  •   Allow about 2 hours and 45 minutes for this section  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  2022   HSC TRIAL EXAMINATION  Question   1–10   11–22   23–29   30–35   Total  Mark  /10   /33   /30   /27   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202022%20w.%20sol",
+   "at": "2026-11-01T23:22:49.332Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "15e2d43ea9e9bd8137ff502ec6813136c050b4531eeb3e8f0e7ed174d6433eb3",
+   "bytes": 4846811,
+   "pages": 80,
+   "text": "North Sydney Girls High School  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 7)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 44)  •   Attempt Questions 11 – 34  •   Allow about 2 hours and 45 minutes for this section  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  2023   HSC TRIAL EXAMINATION  Question   1–10   11–21   22–29   30-34   Total  Mark  /10   /30   /31   /29   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202023%20w.%20sol",
+   "at": "2026-11-01T23:22:51.453Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "b4c7c14b8d07c2e620f680304998364a6c7eda5162cad723599672b0814778a7",
+   "bytes": 3203909,
+   "pages": 70,
+   "text": "Teacher: ______________________  North Sydney Girls High School   Student Number  Mathematics Advanced  General Instructions   •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 100   Section I – 10 marks   (pages 3 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 44)  •   Attempt Questions 11 – 32  •   Allow about 2 hours and 45 minutes for this section  2024   HSC TRIAL EXAMINATION  Question   1–10   11–19   20-27   28-32   Total Mark /10   /30   /33   /27   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202024%20w.%20sol",
+   "at": "2026-11-01T23:22:53.395Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "6b4dee323f70ce2199e580edee32ef5c55d97811b62a90b88cf2f85f1668b0ab",
+   "bytes": 2923895,
+   "pages": 65,
+   "text": "Teacher: ______________________  North Sydney Girls High School   Student Number  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 7 – 43)  •   Attempt Questions 11 – 31  •   Allow about 2 hours and 45 minutes for this section  2025   HSC TRIAL EXAMINATION  Question   1–10   11–19   20-26   27-31   Total  Mark  /10   /32   /28   /30   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202025%20w.%20sol",
+   "at": "2026-11-01T23:22:55.288Z"
   },
   "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "ba8edb66980217c0d1058736e35c7ebc2d629125e5b74c50e965ba1018fde752",
+   "bytes": 4473963,
+   "pages": 80,
+   "text": "Student Number  North Sydney Girls High School  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 48)  •   Attempt Questions 11 – 32  •   Allow about 2 hours and 45 minutes for this section  2026   HSC TRIAL EXAMINATION  Question   1–10   11–18   19-25   26-32   Total  Mark  /10   /30   /29   /31   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202026%20w.%20sol",
+   "at": "2026-11-01T23:22:57.351Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202006": {
    "state": "review",
@@ -14408,64 +14458,124 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "dd6c603b65c97e5e05cc618f7dc38c7b554408a4d6c3291b12487d81c3eb1509",
+   "bytes": 370166,
+   "pages": 19,
+   "text": "Name:  Penrith High School  2013  Trial Higher School Certificate Examination  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A table of standard integrals is provided at the end of this paper.  •   A multiple choice answer sheet is provided at the end of this paper.  •   Show all necessary working for questions 11 – 16 in booklets.  •   Work on this question paper will not be marked  Total marks – 100  Section 1 – 10 marks  •   Attempt questions 1 – 10  •   Allow about 15 minutes for this section.  Section 2 – 90 marks  •   Attempt questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section.  Questions  1, 2, 3, 11 ∝   /12  4, 11 𝜷   /7  5, 6   /2  7, 8, 15 ∝   /7  9, 10, 13   /17  12   /15  14   /15  15   𝜷   /10  16   ∝   /4  16 𝜷   /11  Total   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202013%20w.%20sol",
+   "at": "2026-11-01T23:23:02.930Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "a137ad2fdfb69955ace1f54b95db267057011829fc82cec4b37bf28068eb0e61",
+   "bytes": 268602,
+   "pages": 23,
+   "text": "M  Genera              Stude  Stude  Pen H  ath  al Instructi  Reading tim Working tim Write using Black pen i Board-appr be used  A table of s provided at In Question relevant ma and/or calcu ent Numb  ents are advi conte  nrith Selec  2  Higher Sch Exam  hem  ons  me – 5 minu me – 3 hour g black or b is preferred  roved calcul standard int t the back of ns 11-16, sh athematical ulations  ber: ____  ised that this ent or forma  tive High  014  hool Certif mination  matic  utes  rs  lue pen  lators may tegrals is f this paper how reasoning ________  s is a trial ex at of the 2014  School  ficate  cs  Total M Section  10 mark     A     A  Section  60 mark     A     A  ________  xamination o 4 Higher Sch  Marks – 100 n I   Pages  ks  Attempt Qu Allow about  n II   Pages  ks  Attempt Qu Allow about _______  only and can hool Certific  0  s 2–5 estions 1–1 t 15 minute s 6–14 estions 11– t 2 hours 45 ________  nnot in any w cate Examin  0 s for this se –16 5 minutes fo ________  way guarant ation.  ection or this sectio ____  tee the  on",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202014%20w.%20sol",
+   "at": "2026-11-01T23:23:04.931Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "3e280e2c40f00f7db19e9c63e19e37608e298edd52011cb467d4e67ffb67a7de",
+   "bytes": 1568219,
+   "pages": 22,
+   "text": "PENRITH HIGH SCHOOL  2015  HSC TRIAL EXAMINATION  M M a a t t h h e e m m a a t t i i c c s s  General Instructions:  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  Black pen is preferred  •   Board-approved calculators may  be used  •   A table of standard integrals is  provided at the back of this paper  •   In questions 11 – 16,   show  relevant mathematical reasoning  and/or calculations  •   Answer all Questions in the booklets provided  Total marks–100  Pages 3–6  10 marks  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Pages 7–13  90 marks  •   Attempt Questions 11–16  •   Allow about 2 hours 45 minutes for this section  Student Name:   Teacher Name:  This paper MUST NOT be removed from the examination room Assessor: Dr. Anju Katyal  SECTION II  SECTION I  1",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202015%20w.%20sol",
+   "at": "2026-11-01T23:23:06.932Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "297b64f04312cd5becd4fcac4b9f52e037c731a23a792dd5cf344e6573b211a1",
+   "bytes": 370689,
+   "pages": 25,
+   "text": "Penrith Selective High School 2016 Higher School Certificate Examination Mathematics  General Instructions  •   Reading time - 5 minutes  •   Working time - 3 hours  •   Write using black or blue pen Black pen is preferred  •   Board-approved calculators may be used  Total Marks -100  [   Section   I   ] Pages 2-5  10 marks  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  •   A separate reference sheet is to be   ,   ------  provided for this examination   ;   [   Section   II   ] Pages 6-13  •  paper In Questions   11-16,   show relevant mathematical reasoning and/or calculations  ,   90 marks  •   Attempt Questions 11-16  •   Allow about 2 hour 45 minutes for this section •   All diagrams are not to scale •   Multiple choice answer sheet is   !.'  on page 14 of this paper   !  Student Number:  --------------------------  Students are advised that this is a trial examination only   and   cannot   in   any   way guarantee the content or format of   the 2016 Higher School Certificate Examination.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202016%20w.%20sol",
+   "at": "2026-11-01T23:23:08.646Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "738b01ae904454e31c3d09313c4916c4dbd8695efd5816bbcbcdafba4cfff134",
+   "bytes": 680273,
+   "pages": 30,
+   "text": "Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  Black pen is preferred  •   Board-approved calculators may be used  •   A separate reference sheet is to be provided for this examination paper  •   In Questions 11-16, show relevant mathematical reasoning and/or calculations  •   All diagrams are not to scale  •   Multiple choice answer sheet is on page 17 of this paper  Total Marks – 100  Section I   Pages 3 – 6  10 marks  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II   Pages 7 – 16  90 marks  •   Attempt Questions 11–16  •   Allow about 2 hour 45 minutes for this section  Student Number: _________________________________________  Students are advised that this is a trial examination only and cannot in any way guarantee the content or format of the 2017 Higher School Certificate Examination.  Penrith Selective High School  2017  Trial Higher School Certificate Examination",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202017%20w.%20sol",
+   "at": "2026-11-01T23:23:10.733Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "e046855f642cbe4d7fa3c0c4d5819c84c0b21653281acd3fa9499e349531873a",
+   "bytes": 1039537,
+   "pages": 18,
+   "text": "Student number  ____________________________________  2018  TRIAL HSC EXAMINATION  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using blue or black pen  Black pen is preferred  •   NESA approved calculators may be used  •   A reference sheet is provided  •   No liquid paper or correction tape allowed in this examination  Total Marks – 100  Section I:  10 marks  Section II:  90 marks  •   Attempt questions 11-16, on separate writing booklets.  TOPICS   M/C   11   12   13   14   15   16   TOTAL  Prelim   /4   /5   /4   /7   /2   /22  Geometry   /3   /6   /9  Calculus   /3   /4   /5   /4   /13   /29  Trig   /2   /9   /11  Exponential / logs   /1   /3   /3   /7  Series   /1   /4   /5   /10  Probability   /1   /4   /4   /9  Quadratics   /3   /3  TOTAL   /10   /15   /15   /15   /15   /15   /15   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202018%20w.%20sol",
+   "at": "2026-11-01T23:23:12.879Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "53d279e85823c2ba83b3666ebdad7e4d9d2b06add94183a847012df7385a1031",
+   "bytes": 386636,
+   "pages": 27,
+   "text": "Student number   --------------------  2019 TRIALHSC EXAMINATION Mathematics General Instructions  •   Reading time   -   5 minutes  •   Working time   -   3 hours  •   Write using blue or black pen Black pen is preferred  •   NESA approved calculators may be used  •   A reference sheet is provided  •   No liquid paper or correction tape allowed in this examination  ...   '0   :;I ~   ~  ~   0   ;;;·  §'   er   0  \"   ~  !<:   0  s·   ~   3 ~  <:!   \"' $  Multiple   1, 8   3   4  Choice   /2   /1   /1 Qll   b   e   I  /2   /2   .·  QJ2   d   .   a   (iii),   C  /2   /4 QJ3   b   .   a{i) a{ii)  /7   /3  Q14   a, b, c /12 QlS   .   .,   . ·   .   .  ·' ..  I  ..   .   I   .   · ..   ..  QJ6   .   .   .   .   ..  a  /3 Total   /13   /6   /20  .  Total Marks   -   100 Section I:   10 marks Section   II:   90 marks  •   Attempt questions 11-16, on separate writing booklets.  r   m   ~   V>   n   ►   \"'   ,,   0 0   X   \"'   \"'   \"   'C   a   \" \"'   'C   .0   ffi·   ~   C  \"   0   C   n\":!_  i   \"'   \" ~-   ~  \"'   ~   C   ;;·   ~   C.  ~  \"'   ~  \"   i:   ~   :T   0   @  :T   ~   n   ~   ~   ._   -   \"· 3   ~  \"'   C.   15·   0   n   n  ~   ~   ~   ~  \"'   :T   ~  ~   n  \" \"   ~  \"   ~  ~   0   <   \"' C.   \"'  7   9   s, 6,10   .   2 .  /1   /1   /3   /1  a   f   c,d  /2   /2   I   /7  .  a{i), a(ii)   e b   /7   /2  -  C  .   /5  . ·   d .  .   .   /3   .·  a   .   b  .  /11   .  ",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202019%20w.%20sol",
+   "at": "2026-11-01T23:23:14.454Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "fad49eb99ba7a6ed13c9f1b620a89b11187d51b9aad5c4300fbf42820a9e9127",
+   "bytes": 6541242,
+   "pages": 49,
+   "text": "PENRITH SELECTIVE HIGH SCHOOL  2020 HSC TRIAL EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided with this paper  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 100 Section I – 10 marks   (pages 2–5)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6–25)  •   Attempt Questions 11–33  •   Allow about 2 hours and 45 minutes for this section  Topic   Functions   Trig. Functions Differential Calculus / App. of Differentiation Integral Calculus Financial Maths Statistical Analysis Total MC Q.1-10  10  / 1  4  / 1  1, 3  / 2  5, 7  / 2  2, 9  / 2  6, 8  / 2  Section II Q.11-18  11, 13, 14  / 10  18  / 6  15  / 3  17  / 3  12, 16  / 8  Section II Q.19-25  19, 20, 21, 23  / 16  22, 24  / 9  25  / 3  Section II Q.26-33  29  / 3  32, 33  / 9  27, 31  / 7  28  / 5  26, 30  / 8  Total   / 11   / 10   / 30   / 18   / 13   / 18   / 100  Student Number:   ___________________   Teacher Name:   _________________________  This paper MUST NOT be removed from the examination room",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202020%20w.%20sol",
+   "at": "2026-11-01T23:23:16.540Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "c6cfb6624d9bbaf0bdc62762aed616f362a23ec74076550ada4d18ddfde17129",
+   "bytes": 5817808,
+   "pages": 24,
+   "text": "Mathematics Advanced  General Instructions  Reading time  10 minutes Working time  3 hours Write using black pen Calculators approved by NESA may be used A reference sheet is provided In Questions 1134 show relevant mathematical reasoning and/or calculations Write your NESA ID below, on the Multiple Choice Answer Sheet and the front of Booklets 1 & 2.  Total marks: 100 Section I  10 marks   (pages 3-8) Attempt Questions 110 Allow about 15 minutes for this section  Section II  91 marks   (pages 9-32) Attempt Questions 1134 Allow about 2 hours and 45 minutes for this section  NESA NUMBER:  TEACHER:   ____________________________________________________________  Multiple Choice: Differentiation   Statistics   Algebra & Graphing Integration   Series   Trigonometry /1  9  /2  2, 6  /4  3, 4, 7, 8  /1  10  /1  5  /1  1  Differentiation   Statistics   Algebra & Graphing Integration   Logarithms & Exponentials Probability   Series   Trigonometry  /16   /10   /9   /19   /8   /10   /9   /20 Total:   /101  2022   Penrith High School  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  - 3 -  Section I  10 marks Attempt questions 1-10 Allow about 15 minutes for this section  Use the multiple-choice answer sheet for Questions 1-10.  1   The graphs of   and   are shown below. How many solutions are there to the equation   for   ? A. B. C. D.  2   Mr Kim recorded the time it took him to driv",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202022%20w.%20sol",
+   "at": "2026-11-01T23:23:18.805Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "34efca19ffcc6151d02c56dbc665067a7310023e1b1ac85f808147eb323c67bb",
+   "bytes": 13003937,
+   "pages": 52,
+   "text": "1  Mathematics Advanced  General  InstrucƟons  •   Reading Ɵme – 10 minutes  •   Working Ɵme – 3 hours  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A reference sheet is provided.  •   In QuesƟons 11–32 show relevant mathemaƟcal reasoning and/or calculaƟons.  •   Write your NESA ID below, on the MulƟple-Choice Answer Sheet and the front of Booklets 1, 2 and 3.  Total marks:  100  SecƟon I – 10 marks   (pages 3-8)  •   AƩempt QuesƟons 1–10  •   Allow about 15 minutes for this secƟon.  SecƟon II – 90 marks   (pages 9-30)  •   AƩempt QuesƟons 11–32  •   Allow about 2 hours and 45 minutes for this secƟon.  Multiple Choice   Differentiation  & applications of Differential Calculus  Statistics   Algebra & Graphing Functions  Integration   Logarithms & Exponentials  Probability   Series & Financial mathematic s  Trigono metry  /1  10  /1  9  /1  7  /1  1  /1  3  /2  4 6  /2  2 5  /1  8  Total:   /10  Differentiation  And applications of Differential Calculus  Statistics   Algebra & Graphing Functions  Integration   Logarithms & Exponentials  Probabilit y  Series & Financial mathematics  Trigonomet ric functions  /21   /5   /6   /16   /6   /11   /13   /12  Total:   /90  Student NESA Number _____________________  Teacher___________________________________  2023   Penrith High School  HIGHER SCHOOL CERTIFICATE",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202023%20w.%20sol",
+   "at": "2026-11-01T23:23:21.031Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "a388c86a52d0796765e68d7290c769cc57d612663a309eb57211645251f71021",
+   "bytes": 8383802,
+   "pages": 70,
+   "text": "Mathematics Advanced  General Instructions     Reading time – 10 minutes     Working time – 3 hours     Write using black pen     Calculators approved by NESA may be used     A reference sheet is provided     In Questions 11–32 show relevant mathematical reasoning and/or calculations     Write your NESA ID below, on the Multiple Choice Answer Sheet and the front of Booklets 1, 2, 3 & 4.  Total marks: 100 Section I – 10 marks   (pages 3-9)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks   (pages 10-38)     Attempt Questions 11–32     Allow about 2 hours and 45 minutes for this section  NESA NUMBER:  TEACHER:   ____________________________________________________________  Multiple Choice: Functions   Trigonometric Functions Calculus   Exponential & Logarithmic Functions Statistical Analysis Financial Mathematics  /3  3, 7, 10  /1  1  /3  4, 5, 9  /2  6, 8  /1  2  Multiple Choice & Questions 11-32 Functions   Trigonometric Functions Calculus   Exponential & Logarithmic Functions Statistical Analysis Financial Mathematics TOTAL /29   /12   /23   /5   /16   /15   /100  2024   Penrith High School  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202024%20w.%20sol",
+   "at": "2026-11-01T23:23:23.268Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "9f69c9854ae31605cc3b452f4ba5a0b0addfa84a6ac03fd9b3ba6621ffd2e4f0",
+   "bytes": 10166541,
+   "pages": 77,
+   "text": "Teacher Name: …………………………..  NESA number  Penrith High School  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   In Questions 11 – 27 show relevant mathematical reasoning and/or calculations  •   Write your NESA ID above and on the cover of booklets 1, 2, and 3  Total Marks: 10 1  Section I – 10 marks   (pages 3 – 7)  •   Attempt questions 1 – 10  •   Allow about 15 minutes for this section  Section 11 – 9 1   marks   (pages 9 – 35)  •   Attempt questions 11 – 27  •   Allow about 2 hours and 45 minutes for this section  Multiple Choice  Functions   Trigonometric Functions   Statistical Analysis   Financial Mathematics   Calculus  /3   /3   /2   /2  1, 2, 5   3, 4, 6   8, 10   7, 9  Total  Functions   Trigonometric Functions   Statistical Analysis   Financial Mathematics   Calculus  /11   /16   /18   /11   /4 5  Total:   /10 1  2025",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Penrith%202025%20w.%20sol",
+   "at": "2026-11-01T23:23:25.283Z"
   },
   "https://thsconline.github.io/s/d/5328/Penrith%202026%20w.%20sol": {
    "state": "review",
@@ -147946,6 +148056,226 @@
    "transport": "thsc-fragments",
    "at": "2026-10-31T23:05:05.794Z",
    "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Boys%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "d1bcd318d61c78031ba7cd741d3345cc89c13a0dadd9c393e87c1fa6fd9e21c2",
+   "bytes": 361798,
+   "pages": 42,
+   "text": "   1     Mathematics  General Instructions     Reading Time      5 minutes     Working Time      3 hours     Write using black pen.     Board-approved calculators may be used.     A reference sheet is provided.     In Questions 11 – 16, show relevant mathematical reasoning and/or calculations.  NAME:______________________________   TEACHER:___________________ STUDENT NUMBER:__________________________  QUESTION   MARKS 1-10   /10 11   /15 12   /15 13   /15 14   /15 15   /15 16   /15 TOTAL   /100  NORTH SYDNEY GIRLS HIGH SCHOOL  2016 TRIAL HSC EXAMINATION  Section II   Pages 8 - 19  90 Marks     Attempt Questions 11 – 16     Allow about 2 hours and 45 minutes for this section  Total Marks – 100 Section I   Pages 3 - 6  10 marks     Attempt Questions 1 -10     Allow about 15 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:38.162Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f6be49362c3e90f134442bc69279175196fa8f11fea8e6ae46469ecbc9b4ba57",
+   "bytes": 457599,
+   "pages": 31,
+   "text": "\u0010 \u0003\u0014\u0003 \u0010 \u0003 \u0003 \u0003\u0003\u0003\u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003   \u0003  Mathematics  \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 \u0003 48(67,21\u0003   0$5.6\u0003 \u0014\u0003±\u0003\u0014\u0013\u0003   \u0012\u0014\u0013 \u0014\u0014\u0003   \u0012\u0014\u0018 \u0014\u0015\u0003   \u0012\u0014\u0018 \u0014\u0016\u0003   \u0012\u0014\u0018 \u0014\u0017\u0003   \u0012\u0014\u0018 \u0014\u0018\u0003   \u0012\u0014\u0018 \u0014\u0019\u0003   \u0012\u0014\u0018 727$/\u0003   \u0012\u0014\u0013\u0013  *HQHUDO\u0003,QVWUXFWLRQV\u0003  x \u0003   5HDGLQJ\u0003WLPH\u0003±\u0003\u0018\u0003PLQXWHV\u0003  x \u0003   :RUNLQJ\u0003WLPH\u0003±\u0003\u0016\u0003KRXUV\u0003  x \u0003   :ULWH\u0003XVLQJ\u0003EODFN\u0003SHQ\u0003  x \u0003   %RDUG\u0010DSSURYHG\u0003FDOFXODWRUV\u0003PD\\\u0003\u0003 EH\u0003XVHG\u0003  x \u0003   $\u0003UHIHUHQFH\u0003VKHHW\u0003KDV\u0003EHHQ\u0003SURYLGHG\u0003  x \u0003   ,Q\u00034XHVWLRQV\u0003\u0014\u0014 െ \u0014\u0019\u000f\u0003VKRZ\u0003\u0003 UHOHYDQW\u0003PDWKHPDWLFDO\u0003UHDVRQLQJ\u0003 DQG\u0012RU\u0003FDOFXODWLRQV\u0003  7RWDO\u00030DUNV\u0003±\u0003\u0014\u0013\u0013\u0003 6HFWLRQ\u0003, \u0003   3DJHV\u0003\u0015\u0003\u0010\u0003\u0018\u0003  \u0014\u0013\u0003PDUNV\u0003  x \u0003   $WWHPSW\u00034XHVWLRQV\u0003\u0014 െ \u0014\u0013\u0003  x \u0003   $OORZ\u0003DERXW\u0003\u0014\u0018\u0003PLQXWHV\u0003IRU\u0003WKLV\u0003VHFWLRQ\u0003  \u0003 6HFWLRQ\u0003,, \u0003   3DJHV\u0003\u0019\u0003\u0010\u0003\u0014\u0017\u0003  \u001c\u0013\u0003PDUNV\u0003  x \u0003   $WWHPSW\u00034XHVWLRQV\u0003\u0014\u0014 െ \u0014\u0019\u0003  x \u0003   $OORZ\u0003DERXW\u0003\u0015\u0003KRXUV\u0003DQG\u0003\u0017\u0018\u0003PLQXWHV\u0003IRU\u0003WKLV\u0003 VHFWLRQ\u0003  1257+\u00036<'1(<\u0003*,5/6\u0003 +,*+\u00036&+22/\u0003 \u0003 \u0003\u0003\u0003 \u0003   TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION 2017  6WXGHQW\u00031DPH\u001d BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\u0003  6WXGHQW\u00031XPEHU\u001d BBBBBBBBBBBBBBBBBBBBBBBBBBBB\u0003  &ODVV\u001d\u0003\u0003 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB \u0003  \u0003   \u0003   \u0003   \u0003 \u0003   \u0003   \u0003   \u0003 \u0003   \u0003   \u0003   \u0003  \u0003  \u0003 \u0003",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:40.339Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "3b4c32fd6e12e749b4661115c73c70f4f2e48cd667b894a7b651e96c20b9ebb6",
+   "bytes": 1993026,
+   "pages": 45,
+   "text": "Mathematics  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  Question   1-10   11   12   13   14   15   16   Total  Mark  /10   /15   /15   /15   /15   /15   /15   /100  Total marks – 100  Section I – 10 marks   (pages 2 – 5)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II   –   90 marks   (pages 6 – 15)     Attempt Questions 11 – 16     Allow about 2 hours 45 minutes for this section  NORTH SYDNEY GIRLS HIGH SCHOOL  2018   HSC  Trial Examination  General Instructions     Reading Time – 5 minutes     Working Time – 3 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided     In Questions 11 – 16, show relevant  mathematical reasoning and/or calculations",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:42.786Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "8747838e5d94c6181b260026882b7a35c63b64ae06c496bfd305eaf05eed7f93",
+   "bytes": 1991637,
+   "pages": 45,
+   "text": "Mathematics  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  Question   1-10   11   12   13   14   15   16   Total  Mark  /10   /15   /15   /15   /15   /15   /15   /100  Total marks – 100  Section I – 10 marks   (pages 2 – 6)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II   –   90 marks   (pages 7 – 15)     Attempt Questions 11 – 16     Allow about 2 hours 45 minutes for this section  NORTH SYDNEY GIRLS HIGH SCHOOL  2019   HSC  Trial Examination  General Instructions     Reading Time – 5 minutes     Working Time – 3 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided     In Questions 11 – 16, show relevant  mathematical reasoning and/or calculations",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:45.051Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "7242aae1170d6b726fff61915d7934892ca1f4d24a191d04cf15487be519eecc",
+   "bytes": 6244676,
+   "pages": 67,
+   "text": "   1     North Sydney Girls High School  Mathematics Advanced  General Instructions     Reading Time – 10 minutes     Working Time – 3 hours     Write using black pen     Calculators approved by NESA may be used     A reference sheet is provided     For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 100  Section I – 10 marks   (pages 2 – 6)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II   –   90 marks   (pages 8 – 30)     Attempt Questions 11 – 35     Allow about 2 hours and 45 minutes for this section  Question   1 – 10   11 – 16   17 – 20   21 – 24   25 – 29   30 – 33   34 – 35   Total Total   /10   /16   /16   /15   /16   /14   /13   /100  STUDENT NUMBER  2020   HSC TRIAL EXAMINATION",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:47.220Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b98883f68827ef5672bcffc1c09f82066e456358c6f645f15fdbe9c5694b721b",
+   "bytes": 759441,
+   "pages": 70,
+   "text": "North Sydney Girls High School  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 44)  •   Attempt Questions 11 – 35  •   Allow about 2 hours and 45 minutes for this section  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  2022   HSC TRIAL EXAMINATION  Question   1–10   11–22   23–29   30–35   Total  Mark  /10   /33   /30   /27   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:49.332Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "15e2d43ea9e9bd8137ff502ec6813136c050b4531eeb3e8f0e7ed174d6433eb3",
+   "bytes": 4846811,
+   "pages": 80,
+   "text": "North Sydney Girls High School  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 7)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 44)  •   Attempt Questions 11 – 34  •   Allow about 2 hours and 45 minutes for this section  NAME:______________________________   TEACHER:___________________________  STUDENT NUMBER:  2023   HSC TRIAL EXAMINATION  Question   1–10   11–21   22–29   30-34   Total  Mark  /10   /30   /31   /29   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:51.453Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b4c7c14b8d07c2e620f680304998364a6c7eda5162cad723599672b0814778a7",
+   "bytes": 3203909,
+   "pages": 70,
+   "text": "Teacher: ______________________  North Sydney Girls High School   Student Number  Mathematics Advanced  General Instructions   •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 100   Section I – 10 marks   (pages 3 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 44)  •   Attempt Questions 11 – 32  •   Allow about 2 hours and 45 minutes for this section  2024   HSC TRIAL EXAMINATION  Question   1–10   11–19   20-27   28-32   Total Mark /10   /30   /33   /27   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:53.395Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6b4dee323f70ce2199e580edee32ef5c55d97811b62a90b88cf2f85f1668b0ab",
+   "bytes": 2923895,
+   "pages": 65,
+   "text": "Teacher: ______________________  North Sydney Girls High School   Student Number  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 7 – 43)  •   Attempt Questions 11 – 31  •   Allow about 2 hours and 45 minutes for this section  2025   HSC TRIAL EXAMINATION  Question   1–10   11–19   20-26   27-31   Total  Mark  /10   /32   /28   /30   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:55.288Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/North%20Sydney%20Girls%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "ba8edb66980217c0d1058736e35c7ebc2d629125e5b74c50e965ba1018fde752",
+   "bytes": 4473963,
+   "pages": 80,
+   "text": "Student Number  North Sydney Girls High School  Mathematics Advanced  General  Instructions  •   Reading Time – 10 minutes  •   Working Time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant  mathematical reasoning and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 48)  •   Attempt Questions 11 – 32  •   Allow about 2 hours and 45 minutes for this section  2026   HSC TRIAL EXAMINATION  Question   1–10   11–18   19-25   26-32   Total  Mark  /10   /30   /29   /31   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:22:57.351Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/North%20Sydney%20Girls%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "dd6c603b65c97e5e05cc618f7dc38c7b554408a4d6c3291b12487d81c3eb1509",
+   "bytes": 370166,
+   "pages": 19,
+   "text": "Name:  Penrith High School  2013  Trial Higher School Certificate Examination  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A table of standard integrals is provided at the end of this paper.  •   A multiple choice answer sheet is provided at the end of this paper.  •   Show all necessary working for questions 11 – 16 in booklets.  •   Work on this question paper will not be marked  Total marks – 100  Section 1 – 10 marks  •   Attempt questions 1 – 10  •   Allow about 15 minutes for this section.  Section 2 – 90 marks  •   Attempt questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section.  Questions  1, 2, 3, 11 ∝   /12  4, 11 𝜷   /7  5, 6   /2  7, 8, 15 ∝   /7  9, 10, 13   /17  12   /15  14   /15  15   𝜷   /10  16   ∝   /4  16 𝜷   /11  Total   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:02.930Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a137ad2fdfb69955ace1f54b95db267057011829fc82cec4b37bf28068eb0e61",
+   "bytes": 268602,
+   "pages": 23,
+   "text": "M  Genera              Stude  Stude  Pen H  ath  al Instructi  Reading tim Working tim Write using Black pen i Board-appr be used  A table of s provided at In Question relevant ma and/or calcu ent Numb  ents are advi conte  nrith Selec  2  Higher Sch Exam  hem  ons  me – 5 minu me – 3 hour g black or b is preferred  roved calcul standard int t the back of ns 11-16, sh athematical ulations  ber: ____  ised that this ent or forma  tive High  014  hool Certif mination  matic  utes  rs  lue pen  lators may tegrals is f this paper how reasoning ________  s is a trial ex at of the 2014  School  ficate  cs  Total M Section  10 mark     A     A  Section  60 mark     A     A  ________  xamination o 4 Higher Sch  Marks – 100 n I   Pages  ks  Attempt Qu Allow about  n II   Pages  ks  Attempt Qu Allow about _______  only and can hool Certific  0  s 2–5 estions 1–1 t 15 minute s 6–14 estions 11– t 2 hours 45 ________  nnot in any w cate Examin  0 s for this se –16 5 minutes fo ________  way guarant ation.  ection or this sectio ____  tee the  on",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:04.931Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "3e280e2c40f00f7db19e9c63e19e37608e298edd52011cb467d4e67ffb67a7de",
+   "bytes": 1568219,
+   "pages": 22,
+   "text": "PENRITH HIGH SCHOOL  2015  HSC TRIAL EXAMINATION  M M a a t t h h e e m m a a t t i i c c s s  General Instructions:  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  Black pen is preferred  •   Board-approved calculators may  be used  •   A table of standard integrals is  provided at the back of this paper  •   In questions 11 – 16,   show  relevant mathematical reasoning  and/or calculations  •   Answer all Questions in the booklets provided  Total marks–100  Pages 3–6  10 marks  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Pages 7–13  90 marks  •   Attempt Questions 11–16  •   Allow about 2 hours 45 minutes for this section  Student Name:   Teacher Name:  This paper MUST NOT be removed from the examination room Assessor: Dr. Anju Katyal  SECTION II  SECTION I  1",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:06.932Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "297b64f04312cd5becd4fcac4b9f52e037c731a23a792dd5cf344e6573b211a1",
+   "bytes": 370689,
+   "pages": 25,
+   "text": "Penrith Selective High School 2016 Higher School Certificate Examination Mathematics  General Instructions  •   Reading time - 5 minutes  •   Working time - 3 hours  •   Write using black or blue pen Black pen is preferred  •   Board-approved calculators may be used  Total Marks -100  [   Section   I   ] Pages 2-5  10 marks  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  •   A separate reference sheet is to be   ,   ------  provided for this examination   ;   [   Section   II   ] Pages 6-13  •  paper In Questions   11-16,   show relevant mathematical reasoning and/or calculations  ,   90 marks  •   Attempt Questions 11-16  •   Allow about 2 hour 45 minutes for this section •   All diagrams are not to scale •   Multiple choice answer sheet is   !.'  on page 14 of this paper   !  Student Number:  --------------------------  Students are advised that this is a trial examination only   and   cannot   in   any   way guarantee the content or format of   the 2016 Higher School Certificate Examination.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:08.646Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "738b01ae904454e31c3d09313c4916c4dbd8695efd5816bbcbcdafba4cfff134",
+   "bytes": 680273,
+   "pages": 30,
+   "text": "Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  Black pen is preferred  •   Board-approved calculators may be used  •   A separate reference sheet is to be provided for this examination paper  •   In Questions 11-16, show relevant mathematical reasoning and/or calculations  •   All diagrams are not to scale  •   Multiple choice answer sheet is on page 17 of this paper  Total Marks – 100  Section I   Pages 3 – 6  10 marks  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II   Pages 7 – 16  90 marks  •   Attempt Questions 11–16  •   Allow about 2 hour 45 minutes for this section  Student Number: _________________________________________  Students are advised that this is a trial examination only and cannot in any way guarantee the content or format of the 2017 Higher School Certificate Examination.  Penrith Selective High School  2017  Trial Higher School Certificate Examination",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:10.733Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "e046855f642cbe4d7fa3c0c4d5819c84c0b21653281acd3fa9499e349531873a",
+   "bytes": 1039537,
+   "pages": 18,
+   "text": "Student number  ____________________________________  2018  TRIAL HSC EXAMINATION  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using blue or black pen  Black pen is preferred  •   NESA approved calculators may be used  •   A reference sheet is provided  •   No liquid paper or correction tape allowed in this examination  Total Marks – 100  Section I:  10 marks  Section II:  90 marks  •   Attempt questions 11-16, on separate writing booklets.  TOPICS   M/C   11   12   13   14   15   16   TOTAL  Prelim   /4   /5   /4   /7   /2   /22  Geometry   /3   /6   /9  Calculus   /3   /4   /5   /4   /13   /29  Trig   /2   /9   /11  Exponential / logs   /1   /3   /3   /7  Series   /1   /4   /5   /10  Probability   /1   /4   /4   /9  Quadratics   /3   /3  TOTAL   /10   /15   /15   /15   /15   /15   /15   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:12.879Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "53d279e85823c2ba83b3666ebdad7e4d9d2b06add94183a847012df7385a1031",
+   "bytes": 386636,
+   "pages": 27,
+   "text": "Student number   --------------------  2019 TRIALHSC EXAMINATION Mathematics General Instructions  •   Reading time   -   5 minutes  •   Working time   -   3 hours  •   Write using blue or black pen Black pen is preferred  •   NESA approved calculators may be used  •   A reference sheet is provided  •   No liquid paper or correction tape allowed in this examination  ...   '0   :;I ~   ~  ~   0   ;;;·  §'   er   0  \"   ~  !<:   0  s·   ~   3 ~  <:!   \"' $  Multiple   1, 8   3   4  Choice   /2   /1   /1 Qll   b   e   I  /2   /2   .·  QJ2   d   .   a   (iii),   C  /2   /4 QJ3   b   .   a{i) a{ii)  /7   /3  Q14   a, b, c /12 QlS   .   .,   . ·   .   .  ·' ..  I  ..   .   I   .   · ..   ..  QJ6   .   .   .   .   ..  a  /3 Total   /13   /6   /20  .  Total Marks   -   100 Section I:   10 marks Section   II:   90 marks  •   Attempt questions 11-16, on separate writing booklets.  r   m   ~   V>   n   ►   \"'   ,,   0 0   X   \"'   \"'   \"   'C   a   \" \"'   'C   .0   ffi·   ~   C  \"   0   C   n\":!_  i   \"'   \" ~-   ~  \"'   ~   C   ;;·   ~   C.  ~  \"'   ~  \"   i:   ~   :T   0   @  :T   ~   n   ~   ~   ._   -   \"· 3   ~  \"'   C.   15·   0   n   n  ~   ~   ~   ~  \"'   :T   ~  ~   n  \" \"   ~  \"   ~  ~   0   <   \"' C.   \"'  7   9   s, 6,10   .   2 .  /1   /1   /3   /1  a   f   c,d  /2   /2   I   /7  .  a{i), a(ii)   e b   /7   /2  -  C  .   /5  . ·   d .  .   .   /3   .·  a   .   b  .  /11   .  ",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:14.454Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "fad49eb99ba7a6ed13c9f1b620a89b11187d51b9aad5c4300fbf42820a9e9127",
+   "bytes": 6541242,
+   "pages": 49,
+   "text": "PENRITH SELECTIVE HIGH SCHOOL  2020 HSC TRIAL EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided with this paper  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 100 Section I – 10 marks   (pages 2–5)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6–25)  •   Attempt Questions 11–33  •   Allow about 2 hours and 45 minutes for this section  Topic   Functions   Trig. Functions Differential Calculus / App. of Differentiation Integral Calculus Financial Maths Statistical Analysis Total MC Q.1-10  10  / 1  4  / 1  1, 3  / 2  5, 7  / 2  2, 9  / 2  6, 8  / 2  Section II Q.11-18  11, 13, 14  / 10  18  / 6  15  / 3  17  / 3  12, 16  / 8  Section II Q.19-25  19, 20, 21, 23  / 16  22, 24  / 9  25  / 3  Section II Q.26-33  29  / 3  32, 33  / 9  27, 31  / 7  28  / 5  26, 30  / 8  Total   / 11   / 10   / 30   / 18   / 13   / 18   / 100  Student Number:   ___________________   Teacher Name:   _________________________  This paper MUST NOT be removed from the examination room",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:16.540Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "c6cfb6624d9bbaf0bdc62762aed616f362a23ec74076550ada4d18ddfde17129",
+   "bytes": 5817808,
+   "pages": 24,
+   "text": "Mathematics Advanced  General Instructions  Reading time  10 minutes Working time  3 hours Write using black pen Calculators approved by NESA may be used A reference sheet is provided In Questions 1134 show relevant mathematical reasoning and/or calculations Write your NESA ID below, on the Multiple Choice Answer Sheet and the front of Booklets 1 & 2.  Total marks: 100 Section I  10 marks   (pages 3-8) Attempt Questions 110 Allow about 15 minutes for this section  Section II  91 marks   (pages 9-32) Attempt Questions 1134 Allow about 2 hours and 45 minutes for this section  NESA NUMBER:  TEACHER:   ____________________________________________________________  Multiple Choice: Differentiation   Statistics   Algebra & Graphing Integration   Series   Trigonometry /1  9  /2  2, 6  /4  3, 4, 7, 8  /1  10  /1  5  /1  1  Differentiation   Statistics   Algebra & Graphing Integration   Logarithms & Exponentials Probability   Series   Trigonometry  /16   /10   /9   /19   /8   /10   /9   /20 Total:   /101  2022   Penrith High School  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  - 3 -  Section I  10 marks Attempt questions 1-10 Allow about 15 minutes for this section  Use the multiple-choice answer sheet for Questions 1-10.  1   The graphs of   and   are shown below. How many solutions are there to the equation   for   ? A. B. C. D.  2   Mr Kim recorded the time it took him to driv",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:18.805Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "34efca19ffcc6151d02c56dbc665067a7310023e1b1ac85f808147eb323c67bb",
+   "bytes": 13003937,
+   "pages": 52,
+   "text": "1  Mathematics Advanced  General  InstrucƟons  •   Reading Ɵme – 10 minutes  •   Working Ɵme – 3 hours  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A reference sheet is provided.  •   In QuesƟons 11–32 show relevant mathemaƟcal reasoning and/or calculaƟons.  •   Write your NESA ID below, on the MulƟple-Choice Answer Sheet and the front of Booklets 1, 2 and 3.  Total marks:  100  SecƟon I – 10 marks   (pages 3-8)  •   AƩempt QuesƟons 1–10  •   Allow about 15 minutes for this secƟon.  SecƟon II – 90 marks   (pages 9-30)  •   AƩempt QuesƟons 11–32  •   Allow about 2 hours and 45 minutes for this secƟon.  Multiple Choice   Differentiation  & applications of Differential Calculus  Statistics   Algebra & Graphing Functions  Integration   Logarithms & Exponentials  Probability   Series & Financial mathematic s  Trigono metry  /1  10  /1  9  /1  7  /1  1  /1  3  /2  4 6  /2  2 5  /1  8  Total:   /10  Differentiation  And applications of Differential Calculus  Statistics   Algebra & Graphing Functions  Integration   Logarithms & Exponentials  Probabilit y  Series & Financial mathematics  Trigonomet ric functions  /21   /5   /6   /16   /6   /11   /13   /12  Total:   /90  Student NESA Number _____________________  Teacher___________________________________  2023   Penrith High School  HIGHER SCHOOL CERTIFICATE",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:21.031Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a388c86a52d0796765e68d7290c769cc57d612663a309eb57211645251f71021",
+   "bytes": 8383802,
+   "pages": 70,
+   "text": "Mathematics Advanced  General Instructions     Reading time – 10 minutes     Working time – 3 hours     Write using black pen     Calculators approved by NESA may be used     A reference sheet is provided     In Questions 11–32 show relevant mathematical reasoning and/or calculations     Write your NESA ID below, on the Multiple Choice Answer Sheet and the front of Booklets 1, 2, 3 & 4.  Total marks: 100 Section I – 10 marks   (pages 3-9)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks   (pages 10-38)     Attempt Questions 11–32     Allow about 2 hours and 45 minutes for this section  NESA NUMBER:  TEACHER:   ____________________________________________________________  Multiple Choice: Functions   Trigonometric Functions Calculus   Exponential & Logarithmic Functions Statistical Analysis Financial Mathematics  /3  3, 7, 10  /1  1  /3  4, 5, 9  /2  6, 8  /1  2  Multiple Choice & Questions 11-32 Functions   Trigonometric Functions Calculus   Exponential & Logarithmic Functions Statistical Analysis Financial Mathematics TOTAL /29   /12   /23   /5   /16   /15   /100  2024   Penrith High School  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:23.268Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Penrith%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "9f69c9854ae31605cc3b452f4ba5a0b0addfa84a6ac03fd9b3ba6621ffd2e4f0",
+   "bytes": 10166541,
+   "pages": 77,
+   "text": "Teacher Name: …………………………..  NESA number  Penrith High School  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   In Questions 11 – 27 show relevant mathematical reasoning and/or calculations  •   Write your NESA ID above and on the cover of booklets 1, 2, and 3  Total Marks: 10 1  Section I – 10 marks   (pages 3 – 7)  •   Attempt questions 1 – 10  •   Allow about 15 minutes for this section  Section 11 – 9 1   marks   (pages 9 – 35)  •   Attempt questions 11 – 27  •   Allow about 2 hours and 45 minutes for this section  Multiple Choice  Functions   Trigonometric Functions   Statistical Analysis   Financial Mathematics   Calculus  /3   /3   /2   /2  1, 2, 5   3, 4, 6   8, 10   7, 9  Total  Functions   Trigonometric Functions   Statistical Analysis   Financial Mathematics   Calculus  /11   /16   /18   /11   /4 5  Total:   /10 1  2025",
+   "transport": "thsc-fragments",
+   "at": "2026-11-01T23:23:25.283Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202025%20w.%20sol"
   }
  },
  "releaseRefresh": {
