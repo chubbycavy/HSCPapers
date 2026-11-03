@@ -14703,34 +14703,64 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Pymble%202017": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "20c2a3ff4b3874164c19dd3150830e8175bb109f53ae2f335f4f83eed2e8cbec",
+   "bytes": 348093,
+   "pages": 16,
+   "text": "PLC Sydney 2U Mathematics Trial 2017   1  Section I  10 marks  Attempt Questions 1-10  Allow about 15 minutes for this section  Use the multiple-choice answer sheet for Questions 1-10.  1   What is the basic numeral for   4 4.5378 10   − ×   , correct to 4 significant figures?  (A)   0.00045378  (B)   0.0004538  (C)   0.4538  (D)   45380  2   What is the solution on a number line for   5   2   3   9 x −   <   −   ≤   ?  (A)  (B)  (C)  (D)  3   What is the solution of   3   2   1 x   x −   =   +   ?  (A)   4 x   = −  (B)   2 3  x   =  (C)   4 3  x   =  (D)   3 2  x   =",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Pymble%202017",
+   "at": "2026-11-03T02:00:57.320Z"
   },
   "https://thsconline.github.io/s/d/5328/Pymble%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "e7e63c353c85c4cd7ee9f89d5149a0be32c606f798f973be2357ba2e2e9cfc18",
+   "bytes": 3118191,
+   "pages": 56,
+   "text": "Mathematics Advanced  HSC Trial Examination Term 3 2022  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning or calculations  Total marks 100  Section 1 – 10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6-27)  •   Attempt Questions 11-33  •   Allow about 2 hours and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Pymble%202022%20w.%20sol",
+   "at": "2026-11-03T02:00:59.720Z"
   },
   "https://thsconline.github.io/s/d/5328/Pymble%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "621456f2c6e1784437be7824d250164019fca0780dcacfc094d48982b3b26eac",
+   "bytes": 1978062,
+   "pages": 80,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Pymble%202023%20w.%20sol",
+   "at": "2026-11-03T02:01:01.438Z"
   },
   "https://thsconline.github.io/s/d/5328/Pymble%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "62c6b78e7ef6215eae18808541636ea08b4b861f2685c3f4817d1a78950efd19",
+   "bytes": 3127529,
+   "pages": 72,
+   "text": "Mathematics Advanced  HSC Trial Examination  Term 3 2024  General  Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical  reasoning or calculations  Total marks  100  Section 1 – 10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6-33)  •   Attempt Questions 11-35  •   Allow about 2 hours and 45 minutes for this section  Name: ………………………………….........  Student Number:  Teacher’s Name: ……………………….......  lOMoARcPSD|35984220",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Pymble%202024%20w.%20sol",
+   "at": "2026-11-03T02:01:03.159Z"
   },
   "https://thsconline.github.io/s/d/5328/Pymble%202025": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "5b0709a21c5fb836cde06dfb9fade684d3e201b28c8415a2897c4829f25e1622",
+   "bytes": 1535613,
+   "pages": 42,
+   "text": "Mathematics Advanced  HSC Trial Examination  Term 3 2025  General  Instructions  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical  reasoning or calculations  Total marks  100  Section 1   –   10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 7-31)  •   Attempt Questions 11-31  •   Allow about 2 hours and 45 minutes for this section  Name: ………………………………… .........  Student Number:  Teacher’s Name: ……………………… .......  lOMoARcPSD|35984220",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Pymble%202025",
+   "at": "2026-11-03T02:01:04.960Z"
   },
   "https://thsconline.github.io/s/d/5328/Ravenswood%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "6d7a0d2bf652ddb1d162d0acf7afdc4ff56ebbdc7ff4cc1e9335d199bfaeb839",
+   "bytes": 5758261,
+   "pages": 40,
+   "text": "Student Number:  2021 HSC Mathematics Advanced Year 12 Trial Examination  Monday 23 August 2021  General instructions   Time Allowed – 2 hours and 10 minutes Reading time – 10 minutes Working time – 2 hours  x   Write using a black or blue non   ࡳ   erasable pen  x   Calculators approved by NESA may be used  x   A Reference Sheet is provided.  x   Show all necessary working  x   Marks are shown in bold  x   Use the Multiple Choice Answer sheet provided  Section I   Section II   Total Functions   /1   /7   /8 Trigonometric Functions   /1   /7   /8 Calculus   /15   /15 Exponential and Logarithmic Functions   /3   /3 Statistical Analysis   /2   /17   /19 Series and Financial Mathematics   /1   /11   /12 /65  Section I   –   Pages 2 to 4  x   Multiple Choice  x   Attempt Questions 1 - 5  Section II   ࡳ   Pages 5 to 19  x   Free Response  x   Attempt Questions 6 - 19",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Ravenswood%202021%20w.%20sol",
+   "at": "2026-11-03T02:01:06.750Z"
   },
   "https://thsconline.github.io/s/d/5328/Riverview%202001%20w.%20sol": {
    "state": "review",
@@ -14763,29 +14793,54 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Riverview%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "50d286c2a43d781c69db0b75042d36ee74e36d2220e4429213997a34ac5a195c",
+   "bytes": 897983,
+   "pages": 33,
+   "text": "SAINT IGNATIUS’ COLLEGE  Trial Higher School Certificate  2013  MATHEMATICS  Directions to Students     Reading Time : 5 minutes      Total Marks   100     Working Time : 3 hours     Write using blue or black pen.  (sketches in pencil).     This paper contains two sections. Section 1 contains ten objective response questions. Section 2 contains six free response questions. All questions may be attempted.     Board approved calculators may  be used     Section 1-all questions 1 mark each     Section 2- Q11-16, 15 marks each     A table of standard integrals is provided at the back of this paper.     All necessary working should be shown in every question.     Answer each question in the booklets provided and clearly label your name and teacher’s name.  This paper has been prepared independently of the Board of Studies NSW to provide additional exam preparation for students.  Although references have been reproduced with permission of the Board of Studies NSW, the publication is in no way connected  with or endorsed by the Board of Studies NSW.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Riverview%202013%20w.%20sol",
+   "at": "2026-11-03T02:01:15.699Z"
   },
   "https://thsconline.github.io/s/d/5328/Riverview%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "e042ba942e6432c8c2305db8760732654634a025f09c6c63fb816deb4f322598",
+   "bytes": 5279257,
+   "pages": 21,
+   "text": "Student ¶ s Name:___________________________ Teacher ¶ s Code : ________________________  Saint Ignatius¶ College, RiYerYieZ  Mathematics Assessment Task 2021 Year 12 Mathematics Task 4 Trial HSC Replacement Task Date : 27 th  August 2021  General Instructions:  x   Reading time :   5 minutes  x   Time Allowed:   2 hours  x   Write using blue or black pen only  x   NESA approved calculators may be used  x   Attempt all questions in the space provided on the paper  x   Write   your name   and   your teacher ’ s code  in the positions indicated  x   Marks may not be awarded for missing or carelessly arranged working.  Teachers :  x   Mr N Mushan   NHM  x   Mr P Collins   PPC  x   Dr M Furtado   MXF  x   Mrs F Yates   FEY  x   Mr J Newey   JPN  Format:  Section A   14 Marks  Short Answer  Section B   15 Marks  Short Answer  Section C   16 Marks  Short Answer  Section D   11 Marks  Short Answer  Section E   14 Marks  Short Answer ___________________________________  Total   70 Marks",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Riverview%202021%20w.%20sol",
+   "at": "2026-11-03T02:01:18.538Z"
   },
   "https://thsconline.github.io/s/d/5328/Riverview%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "0cc88e35fcd9e4f2e92dd4be09fc10b0ce14439ba875ffbcf1865961e4e7969c",
+   "bytes": 3370225,
+   "pages": 54,
+   "text": "1  Students’ Name:____________________Teachers’ Code:   Please circle NHM JPN MXF   FEY   SJM  Saint Ignatius’ College, Riverview  Mathematics Assessment Task  2022  Year 12  Mathematics  Task 4 Trial HSC Exam  Date: Thursday 25 th   August 2022  General Instructions:  •   Reading time : 10 mins  •   Time Allowed: 3 hours  •   Write using blue or black pen only  •   NESA approved calculators may be used  •   Attempt all questions.  •   A NESA Reference Sheet is provided.  •   Questions 1 to 10 are all multiple-choice questions worth 1 mark each and are to be answered on the multiple-choice answer sheet provided.  •   Questions 11 to 35 are each worth 90 marks each and are to be answered on the examination paper.  •   Each booklet and the multiple-choice answer sheet must have   your name   and   the initials of your class teacher   on the front cover.  •   Marks may not be awarded for missing or carelessly arranged working.  Topics Examined:  All Preliminary and HSC Mathematics topics  SECTION 1  Questions 1 -10   10 Marks  SECTION 2  Question 11 -35   90 Marks  Total   100 Marks  Teacher:  •   Mr N Mushan   NHM  •   Mr J Newey   JPN  •   Dr M Furtado   MXF  •   Ms F Yates   FEY  •   Mr S Maher   SJM",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Riverview%202022%20w.%20sol",
+   "at": "2026-11-03T02:01:20.527Z"
   },
   "https://thsconline.github.io/s/d/5328/Riverview%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1efa6b3fddc7c270ae716ebfdc8bb33f785d8656c76b35b914971b5251146c9a",
+   "bytes": 4589220,
+   "pages": 55,
+   "text": "Student’s Name:___________________________ Teacher’s Code :   NHM PPC MXF FEY JPN  Saint Ignatius’ College, Riverview  Mathematics Assessment Task  2023  Year 12  Mathematics  Task 4  Trial HSC Examination  Date : 17 th   August 2023  General Instructions:  •   Reading time :   10 minutes  •   Time Allowed:   3 hours  •   Write using blue or black pen only  •   Board approved calculators may be used  •   Attempt all questions in the space provided on the paper  •   Write   your name   and   your teacher’s code  in the positions indicated  •   Marks may not be awarded for missing or carelessly arranged working.  Teachers :  •   Mr N Mushan   NHM  •   Mr P Collins   PPC  •   Dr M Furtado   MXF  •   Mrs F Yates   FEY  •   Mr J Newey   JPN  Topics Examined:  Section A   10 Marks  Multiple Choice  Section B  Short Answer  Question 11-34   90 Marks  ___________________________________  Total   100 Marks",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Riverview%202023%20w.%20sol",
+   "at": "2026-11-03T02:01:22.149Z"
   },
   "https://thsconline.github.io/s/d/5328/Riverview%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "5f9922a153b2e599f9d31cf06757c8f4d4bae12ec34b323e1ef97b69dd2d5a70",
+   "bytes": 3577769,
+   "pages": 51,
+   "text": "1  Students’ Name:____________________   Teachers’ Code:   Please circle NHM JPN MXF   FEY   KXM  Saint Ignatius’ College, Riverview  Mathematics Assessment Task  2024  Year 12  Mathematics Advanced  Task 4 Trial HSC Exam  Date: 23 rd   August 2024  General Instructions:  •   Reading time : 10 mins  •   Time Allowed: 3 hours  •   Write using blue or black pen only  •   NESA approved calculators may be used  •   Attempt all questions.  •   A NESA Reference Sheet is provided.  •   Questions 1 to 10 are all multiple-choice questions worth 1 mark each and are to be answered on the multiple-choice answer sheet provided.  •   Questions 11 to 36 are each worth 90 marks and are to be answered on the examination paper.  •   Each booklet and the multiple-choice answer sheet must have   your name   and   the initials of your class teacher   on the front cover.  •   Marks may not be awarded for missing or carelessly arranged working.  Topics Examined:  All Preliminary and HSC Mathematics topics  SECTION 1  Questions 1 - 10   10 Marks  SECTION 2  Question 11 - 36   90 Marks  Total   100 Marks  Teacher:  •   Mr N Mushan   NHM  •   Ms F Yates   FEY  •   Mr J Newey   JPN  •   Mr P Collins   PPC  •   Ms K Mullan   KXM",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Riverview%202024%20w.%20sol",
+   "at": "2026-11-03T02:01:23.971Z"
   },
   "https://thsconline.github.io/s/d/5328/Roseville%201990": {
    "state": "review",
@@ -14808,19 +14863,34 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Roseville%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "d86b8fc55ba792b8284bcc67f10e4241088969a7c0d82241808f8cb11c398de5",
+   "bytes": 3831909,
+   "pages": 54,
+   "text": "~ 1 ~  Student Number: __________________  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  Mathematics Advanced  General  Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning  and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 7)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 9 – 32)  •   Attempt Questions 11 – 34  •   Allow about 2 hours and 45 minutes for this section  2022",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Roseville%202022%20w.%20sol",
+   "at": "2026-11-03T02:01:30.641Z"
   },
   "https://thsconline.github.io/s/d/5328/Roseville%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "6f431ce9d9f5c3839908f569afde515a9aa5c1d0438804ddbef26a3c81b9032f",
+   "bytes": 10833343,
+   "pages": 74,
+   "text": "Roseville College  2023   TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Approved calculators may be used  •   A reference sheet is provided at the back of this paper  •   In Questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks : 100 Section I – 10 marks   (pages 2 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 9 – 35)  •   Attempt Questions 11 – 34  •   Allow about 2 hours and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Roseville%202023%20w.%20sol",
+   "at": "2026-11-03T02:01:32.572Z"
   },
   "https://thsconline.github.io/s/d/5328/Roseville%202024": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "d70b2f7742351b270a8135bb46ceafb9d5660f63c72d922b25151101ca83fdd2",
+   "bytes": 1877106,
+   "pages": 36,
+   "text": "Student Number  2024   Trial Higher School Certificate Examination  Mathematics Advanced  General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  •   Write your Student Number at the top of this page  Total marks:  100  Section I - 10 marks   (pages 2—8)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II - 90 marks   (pages 9—36)  •   Attempt Questions 11–35  •   Allow about 2 hours and 45 minutes for this section  lOMoARcPSD|35984220",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Roseville%202024",
+   "at": "2026-11-03T02:01:34.179Z"
   },
   "https://thsconline.github.io/s/d/5328/SCEGGS%202000%20w.%20sol": {
    "state": "review",
@@ -148276,6 +148346,146 @@
    "transport": "thsc-fragments",
    "at": "2026-11-01T23:23:25.283Z",
    "proofSource": "https://thsconline.github.io/s/d/5328/Penrith%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Pymble%202017": {
+   "state": "verified",
+   "sha256": "20c2a3ff4b3874164c19dd3150830e8175bb109f53ae2f335f4f83eed2e8cbec",
+   "bytes": 348093,
+   "pages": 16,
+   "text": "PLC Sydney 2U Mathematics Trial 2017   1  Section I  10 marks  Attempt Questions 1-10  Allow about 15 minutes for this section  Use the multiple-choice answer sheet for Questions 1-10.  1   What is the basic numeral for   4 4.5378 10   − ×   , correct to 4 significant figures?  (A)   0.00045378  (B)   0.0004538  (C)   0.4538  (D)   45380  2   What is the solution on a number line for   5   2   3   9 x −   <   −   ≤   ?  (A)  (B)  (C)  (D)  3   What is the solution of   3   2   1 x   x −   =   +   ?  (A)   4 x   = −  (B)   2 3  x   =  (C)   4 3  x   =  (D)   3 2  x   =",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:00:57.320Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Pymble%202017"
+  },
+  "https://www.thsconline.net/s/v/5328/Pymble%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "e7e63c353c85c4cd7ee9f89d5149a0be32c606f798f973be2357ba2e2e9cfc18",
+   "bytes": 3118191,
+   "pages": 56,
+   "text": "Mathematics Advanced  HSC Trial Examination Term 3 2022  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning or calculations  Total marks 100  Section 1 – 10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6-27)  •   Attempt Questions 11-33  •   Allow about 2 hours and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:00:59.720Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Pymble%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Pymble%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "621456f2c6e1784437be7824d250164019fca0780dcacfc094d48982b3b26eac",
+   "bytes": 1978062,
+   "pages": 80,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:01.438Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Pymble%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Pymble%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "62c6b78e7ef6215eae18808541636ea08b4b861f2685c3f4817d1a78950efd19",
+   "bytes": 3127529,
+   "pages": 72,
+   "text": "Mathematics Advanced  HSC Trial Examination  Term 3 2024  General  Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical  reasoning or calculations  Total marks  100  Section 1 – 10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6-33)  •   Attempt Questions 11-35  •   Allow about 2 hours and 45 minutes for this section  Name: ………………………………….........  Student Number:  Teacher’s Name: ……………………….......  lOMoARcPSD|35984220",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:03.159Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Pymble%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Pymble%202025": {
+   "state": "verified",
+   "sha256": "5b0709a21c5fb836cde06dfb9fade684d3e201b28c8415a2897c4829f25e1622",
+   "bytes": 1535613,
+   "pages": 42,
+   "text": "Mathematics Advanced  HSC Trial Examination  Term 3 2025  General  Instructions  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical  reasoning or calculations  Total marks  100  Section 1   –   10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 7-31)  •   Attempt Questions 11-31  •   Allow about 2 hours and 45 minutes for this section  Name: ………………………………… .........  Student Number:  Teacher’s Name: ……………………… .......  lOMoARcPSD|35984220",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:04.960Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Pymble%202025"
+  },
+  "https://www.thsconline.net/s/v/5328/Ravenswood%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6d7a0d2bf652ddb1d162d0acf7afdc4ff56ebbdc7ff4cc1e9335d199bfaeb839",
+   "bytes": 5758261,
+   "pages": 40,
+   "text": "Student Number:  2021 HSC Mathematics Advanced Year 12 Trial Examination  Monday 23 August 2021  General instructions   Time Allowed – 2 hours and 10 minutes Reading time – 10 minutes Working time – 2 hours  x   Write using a black or blue non   ࡳ   erasable pen  x   Calculators approved by NESA may be used  x   A Reference Sheet is provided.  x   Show all necessary working  x   Marks are shown in bold  x   Use the Multiple Choice Answer sheet provided  Section I   Section II   Total Functions   /1   /7   /8 Trigonometric Functions   /1   /7   /8 Calculus   /15   /15 Exponential and Logarithmic Functions   /3   /3 Statistical Analysis   /2   /17   /19 Series and Financial Mathematics   /1   /11   /12 /65  Section I   –   Pages 2 to 4  x   Multiple Choice  x   Attempt Questions 1 - 5  Section II   ࡳ   Pages 5 to 19  x   Free Response  x   Attempt Questions 6 - 19",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:06.750Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Ravenswood%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Riverview%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "50d286c2a43d781c69db0b75042d36ee74e36d2220e4429213997a34ac5a195c",
+   "bytes": 897983,
+   "pages": 33,
+   "text": "SAINT IGNATIUS’ COLLEGE  Trial Higher School Certificate  2013  MATHEMATICS  Directions to Students     Reading Time : 5 minutes      Total Marks   100     Working Time : 3 hours     Write using blue or black pen.  (sketches in pencil).     This paper contains two sections. Section 1 contains ten objective response questions. Section 2 contains six free response questions. All questions may be attempted.     Board approved calculators may  be used     Section 1-all questions 1 mark each     Section 2- Q11-16, 15 marks each     A table of standard integrals is provided at the back of this paper.     All necessary working should be shown in every question.     Answer each question in the booklets provided and clearly label your name and teacher’s name.  This paper has been prepared independently of the Board of Studies NSW to provide additional exam preparation for students.  Although references have been reproduced with permission of the Board of Studies NSW, the publication is in no way connected  with or endorsed by the Board of Studies NSW.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:15.699Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Riverview%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Riverview%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "e042ba942e6432c8c2305db8760732654634a025f09c6c63fb816deb4f322598",
+   "bytes": 5279257,
+   "pages": 21,
+   "text": "Student ¶ s Name:___________________________ Teacher ¶ s Code : ________________________  Saint Ignatius¶ College, RiYerYieZ  Mathematics Assessment Task 2021 Year 12 Mathematics Task 4 Trial HSC Replacement Task Date : 27 th  August 2021  General Instructions:  x   Reading time :   5 minutes  x   Time Allowed:   2 hours  x   Write using blue or black pen only  x   NESA approved calculators may be used  x   Attempt all questions in the space provided on the paper  x   Write   your name   and   your teacher ’ s code  in the positions indicated  x   Marks may not be awarded for missing or carelessly arranged working.  Teachers :  x   Mr N Mushan   NHM  x   Mr P Collins   PPC  x   Dr M Furtado   MXF  x   Mrs F Yates   FEY  x   Mr J Newey   JPN  Format:  Section A   14 Marks  Short Answer  Section B   15 Marks  Short Answer  Section C   16 Marks  Short Answer  Section D   11 Marks  Short Answer  Section E   14 Marks  Short Answer ___________________________________  Total   70 Marks",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:18.538Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Riverview%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Riverview%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "0cc88e35fcd9e4f2e92dd4be09fc10b0ce14439ba875ffbcf1865961e4e7969c",
+   "bytes": 3370225,
+   "pages": 54,
+   "text": "1  Students’ Name:____________________Teachers’ Code:   Please circle NHM JPN MXF   FEY   SJM  Saint Ignatius’ College, Riverview  Mathematics Assessment Task  2022  Year 12  Mathematics  Task 4 Trial HSC Exam  Date: Thursday 25 th   August 2022  General Instructions:  •   Reading time : 10 mins  •   Time Allowed: 3 hours  •   Write using blue or black pen only  •   NESA approved calculators may be used  •   Attempt all questions.  •   A NESA Reference Sheet is provided.  •   Questions 1 to 10 are all multiple-choice questions worth 1 mark each and are to be answered on the multiple-choice answer sheet provided.  •   Questions 11 to 35 are each worth 90 marks each and are to be answered on the examination paper.  •   Each booklet and the multiple-choice answer sheet must have   your name   and   the initials of your class teacher   on the front cover.  •   Marks may not be awarded for missing or carelessly arranged working.  Topics Examined:  All Preliminary and HSC Mathematics topics  SECTION 1  Questions 1 -10   10 Marks  SECTION 2  Question 11 -35   90 Marks  Total   100 Marks  Teacher:  •   Mr N Mushan   NHM  •   Mr J Newey   JPN  •   Dr M Furtado   MXF  •   Ms F Yates   FEY  •   Mr S Maher   SJM",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:20.527Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Riverview%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Riverview%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1efa6b3fddc7c270ae716ebfdc8bb33f785d8656c76b35b914971b5251146c9a",
+   "bytes": 4589220,
+   "pages": 55,
+   "text": "Student’s Name:___________________________ Teacher’s Code :   NHM PPC MXF FEY JPN  Saint Ignatius’ College, Riverview  Mathematics Assessment Task  2023  Year 12  Mathematics  Task 4  Trial HSC Examination  Date : 17 th   August 2023  General Instructions:  •   Reading time :   10 minutes  •   Time Allowed:   3 hours  •   Write using blue or black pen only  •   Board approved calculators may be used  •   Attempt all questions in the space provided on the paper  •   Write   your name   and   your teacher’s code  in the positions indicated  •   Marks may not be awarded for missing or carelessly arranged working.  Teachers :  •   Mr N Mushan   NHM  •   Mr P Collins   PPC  •   Dr M Furtado   MXF  •   Mrs F Yates   FEY  •   Mr J Newey   JPN  Topics Examined:  Section A   10 Marks  Multiple Choice  Section B  Short Answer  Question 11-34   90 Marks  ___________________________________  Total   100 Marks",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:22.149Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Riverview%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Riverview%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "5f9922a153b2e599f9d31cf06757c8f4d4bae12ec34b323e1ef97b69dd2d5a70",
+   "bytes": 3577769,
+   "pages": 51,
+   "text": "1  Students’ Name:____________________   Teachers’ Code:   Please circle NHM JPN MXF   FEY   KXM  Saint Ignatius’ College, Riverview  Mathematics Assessment Task  2024  Year 12  Mathematics Advanced  Task 4 Trial HSC Exam  Date: 23 rd   August 2024  General Instructions:  •   Reading time : 10 mins  •   Time Allowed: 3 hours  •   Write using blue or black pen only  •   NESA approved calculators may be used  •   Attempt all questions.  •   A NESA Reference Sheet is provided.  •   Questions 1 to 10 are all multiple-choice questions worth 1 mark each and are to be answered on the multiple-choice answer sheet provided.  •   Questions 11 to 36 are each worth 90 marks and are to be answered on the examination paper.  •   Each booklet and the multiple-choice answer sheet must have   your name   and   the initials of your class teacher   on the front cover.  •   Marks may not be awarded for missing or carelessly arranged working.  Topics Examined:  All Preliminary and HSC Mathematics topics  SECTION 1  Questions 1 - 10   10 Marks  SECTION 2  Question 11 - 36   90 Marks  Total   100 Marks  Teacher:  •   Mr N Mushan   NHM  •   Ms F Yates   FEY  •   Mr J Newey   JPN  •   Mr P Collins   PPC  •   Ms K Mullan   KXM",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:23.971Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Riverview%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Roseville%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "d86b8fc55ba792b8284bcc67f10e4241088969a7c0d82241808f8cb11c398de5",
+   "bytes": 3831909,
+   "pages": 54,
+   "text": "~ 1 ~  Student Number: __________________  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  Mathematics Advanced  General  Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning  and/or calculations  Total marks:  100  Section I – 10 marks   (pages 2 – 7)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 9 – 32)  •   Attempt Questions 11 – 34  •   Allow about 2 hours and 45 minutes for this section  2022",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:30.641Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Roseville%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Roseville%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6f431ce9d9f5c3839908f569afde515a9aa5c1d0438804ddbef26a3c81b9032f",
+   "bytes": 10833343,
+   "pages": 74,
+   "text": "Roseville College  2023   TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Approved calculators may be used  •   A reference sheet is provided at the back of this paper  •   In Questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks : 100 Section I – 10 marks   (pages 2 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 9 – 35)  •   Attempt Questions 11 – 34  •   Allow about 2 hours and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:32.572Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Roseville%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Roseville%202024": {
+   "state": "verified",
+   "sha256": "d70b2f7742351b270a8135bb46ceafb9d5660f63c72d922b25151101ca83fdd2",
+   "bytes": 1877106,
+   "pages": 36,
+   "text": "Student Number  2024   Trial Higher School Certificate Examination  Mathematics Advanced  General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  •   Write your Student Number at the top of this page  Total marks:  100  Section I - 10 marks   (pages 2—8)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II - 90 marks   (pages 9—36)  •   Attempt Questions 11–35  •   Allow about 2 hours and 45 minutes for this section  lOMoARcPSD|35984220",
+   "transport": "thsc-fragments",
+   "at": "2026-11-03T02:01:34.179Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Roseville%202024"
   }
  },
  "releaseRefresh": {
