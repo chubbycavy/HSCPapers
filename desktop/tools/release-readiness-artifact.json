@@ -1,19 +1,19 @@
 {
-  "version": "1.0.27",
-  "generated": "2026-10-13T09:05:18.517Z",
-  "installer": "desktop/src-tauri/target/release/bundle/nsis/HSCPapers_1.0.27_x64-setup.exe",
-  "bytes": 7082960,
-  "sha256": "ac338eb4cbb811bf187d98edd4d108f21b9a91e6d1e5175c798e040a675e45aa",
+  "version": "1.0.29",
+  "generated": "2026-11-04T12:38:13.908Z",
+  "installer": "desktop/src-tauri/target/release/bundle/nsis/HSCPapers_1.0.29_x64-setup.exe",
+  "bytes": 9537948,
+  "sha256": "4789efd9872aad3c3203daacc4a9d7b364a17709ef47e79eb8ff4b508592bf6a",
   "payloadMachine": "x64",
   "installerMachine": "0x14c",
   "published": false,
   "inputs": {
-    "desktop/ui/index.html": "a14e347938f34564411c74f706f243f2290a7eca02458927a5274b4de1d1ff51",
-    "desktop/ui/js/app.js": "17814200e0b350b6ee25a3440f3a805c0ba89602c13aece156c51f0f1f3f1176",
+    "desktop/ui/index.html": "c6bfc62cf5b339ead958270d3ce68dd48c9d1037af438bd96b63ef1a316267dd",
+    "desktop/ui/js/app.js": "6576bcce43761c7e8e6e6fd6bf916bffa369d6e34024d09d891d4610f4548ac3",
     "desktop/ui/js/config.js": "3bf45db8a0bb20e7c9bc2a09841038ad39944745103efa8f22cdac6debb45edf",
-    "desktop/ui/js/source-policy.js": "f56fa3f86a7aa047c1543a20c98428a6ad5c607eb136680fded6e59924847cad",
-    "desktop/ui/js/migration-state.js": "95b2540f810b9c57c7c165faa7ef2be43839fef2f4f65f4ac7384ae4bb969278",
-    "desktop/ui/data/papers-v2.json": "ad62c4da2f38297e200c96736d5e9d6195745ba5e26458e553d015f7b716a9b8",
-    "desktop/ui/data/papers.json": "e03a35a2306cb3a1a88781b6d0f65c42f4c4921442752bddaf988ce65fb10df4"
+    "desktop/ui/js/source-policy.js": "b82fe3e29429a39f60f8b6169cb0847c5115107c544db1e0283cfd6e76d87da4",
+    "desktop/ui/js/migration-state.js": "17cae8619fe0be2704220e6a129db20bb2f2d0d9db9affec2ee085c9faf63cb8",
+    "desktop/ui/data/papers-v2.json": "b62a608dcc73f36670f1148aee1dc1ba08b2e7cd85265b5d5f818a01fc45cbac",
+    "desktop/ui/data/papers.json": "1f9986a79609feecfaca12e38a17352481c1539a63c3b7958e613a3afd922db9"
   }
 }
