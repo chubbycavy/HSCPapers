@@ -14988,24 +14988,44 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Shore%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "cde790abf4ec55046eba3a556dca739e2892fa1d804da67c449dd0b4fa237167",
+   "bytes": 1124119,
+   "pages": 27,
+   "text": "Year 12  Mathematics  Trial HSC Examination  2017  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA-approved calculators may be used  •   Answer Questions 1 – 10 on the Multiple  Choice Answer Sheet provided  •   Start each of Questions 11 – 16 in a new  writing booklet  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  •   Write your examination number on the front cover of each booklet  •   If you do not attempt a question, submit a blank booklet marked with your examination number and “N/A” on the front cover  •   A NESA Reference Sheet is provided.  Total marks   –   100  10 marks  •   Attempt Questions 1 – 10  •   Allow about 10 minutes for this section  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours 45 minutes for this section  Note:   Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Section I   Pages 1   –   7  Pages 8   –   15 Section II  Examination Number:  Set:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Shore%202017%20w.%20sol",
+   "at": "2026-11-04T00:23:26.593Z"
   },
   "https://thsconline.github.io/s/d/5328/Shore%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "e0fb5c1a73becd64c60831995086fab023b0f53a7e5404c0c7d7fa01a9be48c0",
+   "bytes": 1787413,
+   "pages": 35,
+   "text": "−   1   −  Year 12  Mathematics  Trial HSC Examination  August 2018  General instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  •   Write your examination number on the front cover of each booklet to be handed in  •   If you do not attempt a question, submit a blank booklet marked with your examination number and “N/A”  •   A NESA reference sheet is provided  Total marks – 100  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section  Note:   Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Section I  Examination Number:  Set:  Pages 2 – 5  Pages 6 – 13 Section II",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Shore%202018%20w.%20sol",
+   "at": "2026-11-04T00:23:28.588Z"
   },
   "https://thsconline.github.io/s/d/5328/Shore%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "a8bc4285213efd52ef48320ca013c47381e3c4b6f90ade84ab92b45818d1e252",
+   "bytes": 5942282,
+   "pages": 105,
+   "text": " 1   YEAR 12  TRIAL EXAMINATION  Mathematics Advanced  General Instructions     Reading time – 10 minutes     Working time – 3 hours     Write using non-erasable black pen     Calculators approved by NESA may be used     A reference sheet is provided     For questions in Section II, show relevant mathematical reasoning and/ or calculations  Total marks: 100  Section I – 10 marks     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks     Attempt Questions 11 – 33     Allow about 2 hours and 45 minutes for this section  Note:   Any time you have remaining should be spent reviewing your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM 2023  Examination Number: Set:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Shore%202023%20w.%20sol",
+   "at": "2026-11-04T00:23:30.423Z"
   },
   "https://thsconline.github.io/s/d/5328/Shore%202024": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1d05fce5e72ad850d1cecb507006506edf54dbf10d8d0efc50aa9cd06255c7a0",
+   "bytes": 649104,
+   "pages": 58,
+   "text": "−   1   −  YEAR 12  TRIAL EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/ or calculations  Total marks: 100  Section I – 10 marks  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 90 marks  •   Attempt Questions 11 – 30  •   Allow about 2 hours and 45 minutes for this section  Note:   Any time you have remaining should be spent reviewing your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM 2024  Examination Number: Set:  lOMoARcPSD|47508859",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Shore%202024",
+   "at": "2026-11-04T00:23:32.050Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20Catherines%202003%20w.%20sol": {
    "state": "review",
@@ -148486,6 +148506,46 @@
    "transport": "thsc-fragments",
    "at": "2026-11-03T02:01:34.179Z",
    "proofSource": "https://thsconline.github.io/s/d/5328/Roseville%202024"
+  },
+  "https://www.thsconline.net/s/v/5328/Shore%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "cde790abf4ec55046eba3a556dca739e2892fa1d804da67c449dd0b4fa237167",
+   "bytes": 1124119,
+   "pages": 27,
+   "text": "Year 12  Mathematics  Trial HSC Examination  2017  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA-approved calculators may be used  •   Answer Questions 1 – 10 on the Multiple  Choice Answer Sheet provided  •   Start each of Questions 11 – 16 in a new  writing booklet  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  •   Write your examination number on the front cover of each booklet  •   If you do not attempt a question, submit a blank booklet marked with your examination number and “N/A” on the front cover  •   A NESA Reference Sheet is provided.  Total marks   –   100  10 marks  •   Attempt Questions 1 – 10  •   Allow about 10 minutes for this section  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours 45 minutes for this section  Note:   Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Section I   Pages 1   –   7  Pages 8   –   15 Section II  Examination Number:  Set:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-04T00:23:26.593Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Shore%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Shore%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "e0fb5c1a73becd64c60831995086fab023b0f53a7e5404c0c7d7fa01a9be48c0",
+   "bytes": 1787413,
+   "pages": 35,
+   "text": "−   1   −  Year 12  Mathematics  Trial HSC Examination  August 2018  General instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  •   Write your examination number on the front cover of each booklet to be handed in  •   If you do not attempt a question, submit a blank booklet marked with your examination number and “N/A”  •   A NESA reference sheet is provided  Total marks – 100  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section  Note:   Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Section I  Examination Number:  Set:  Pages 2 – 5  Pages 6 – 13 Section II",
+   "transport": "thsc-fragments",
+   "at": "2026-11-04T00:23:28.588Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Shore%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Shore%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a8bc4285213efd52ef48320ca013c47381e3c4b6f90ade84ab92b45818d1e252",
+   "bytes": 5942282,
+   "pages": 105,
+   "text": " 1   YEAR 12  TRIAL EXAMINATION  Mathematics Advanced  General Instructions     Reading time – 10 minutes     Working time – 3 hours     Write using non-erasable black pen     Calculators approved by NESA may be used     A reference sheet is provided     For questions in Section II, show relevant mathematical reasoning and/ or calculations  Total marks: 100  Section I – 10 marks     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks     Attempt Questions 11 – 33     Allow about 2 hours and 45 minutes for this section  Note:   Any time you have remaining should be spent reviewing your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM 2023  Examination Number: Set:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-04T00:23:30.423Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Shore%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Shore%202024": {
+   "state": "verified",
+   "sha256": "1d05fce5e72ad850d1cecb507006506edf54dbf10d8d0efc50aa9cd06255c7a0",
+   "bytes": 649104,
+   "pages": 58,
+   "text": "−   1   −  YEAR 12  TRIAL EXAMINATION  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using non-erasable black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/ or calculations  Total marks: 100  Section I – 10 marks  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 90 marks  •   Attempt Questions 11 – 30  •   Allow about 2 hours and 45 minutes for this section  Note:   Any time you have remaining should be spent reviewing your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM 2024  Examination Number: Set:  lOMoARcPSD|47508859",
+   "transport": "thsc-fragments",
+   "at": "2026-11-04T00:23:32.050Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Shore%202024"
   }
  },
  "releaseRefresh": {
