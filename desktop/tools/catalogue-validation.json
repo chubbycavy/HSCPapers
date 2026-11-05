@@ -15048,14 +15048,24 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20Catherines%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "b5a815186d97d4e4d3ee56afcd436bc35d746aa1fddca6c2d28c50da12f180fa",
+   "bytes": 793973,
+   "pages": 24,
+   "text": "1  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics  General Instructions     Reading Time – 5 minutes     Working Time – 3 hours     Write using black or blue pen Black pen is preferred     Board-approved calculators may be used     A table of standard integrals is provided at the back of this paper     Show all necessary working in Questions 11-16     Task weighting – 45%  Total Marks – 100 Pages 3-5 10 marks     Attempt Questions 1 – 10     Allow about 15 minutes for this section     Answer on the multiple choice answer sheet provided.  Pages 6-13 90 marks     Attempt Questions 11-16     Allow about 2 hours and 45 minutes for this section     Answer each question in the booklet provided.  St. Catherine’s School Waverley  August 2014  Student Number",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20Catherines%202014%20w.%20sol",
+   "at": "2026-11-05T00:44:49.708Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20Catherines%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "c53f7558ae6a470c0b8b8a45da874aa00e434d2188956e656b4ae7295d928a57",
+   "bytes": 1871610,
+   "pages": 33,
+   "text": "- 1 -  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  Mathematics  General Instructions  •   Reading Time – 5 minutes  •   Working Time – 3 hours  •   Write using black or blue pen  Black pen is preferred  •   Board-approved calculators may be used  •   A table of standard integrals is provided at the back of this paper.  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  •   Task Weighting – 40%  Total Marks – 100  Section I   Pages 3 – 5  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section.  Section II   Pages 6 – 12  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section.  2016",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20Catherines%202016%20w.%20sol",
+   "at": "2026-11-05T00:44:51.686Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202002%20w.%20sol": {
    "state": "review",
@@ -15098,74 +15108,144 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1e636b670e094e69848819c3cb00a0829b65bc10b5181581afcedde9e343869e",
+   "bytes": 1396264,
+   "pages": 20,
+   "text": "I   .•  /   S.   N o   (\\   t:.J;   etr,  St   George Girls High School Trial Higher School Certificate Examination  2013  Mathematics General Instructions   ·  •   Reading time - 5 minutes  •   Working time- 3 hours  •   ·Write using blue or black pen  •   Begin each question in a new booklet  •   Write   your   student   number   on   each booklet.  •   Board-approved calculators may be used.  •   A   table of standard integrals is provided at the back of this paper.  •   Show   all necessary working in Questions 11-16.  Total Marks -   100  Section   I -   Pages   2 - 4 10marks  •   Attempt Questions 1 -   10   using the answer sheet provided at the end of the paper  •   Allow about 15 minutes for this section  Section   II -   Pages   5 -   10  90marks  •   Diagrams are not to scale.   •   Attempt Questions 11-16  •   The mark allocated for each question is   •   Allow about 2 hours 45 minutes for this section listed at   th~   side of   the question.  Students   are advised that this is a Trial Examination only   and   does   ·not   necessarily reflect the content or format of   the Higher   School   Certificate Examination.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202013%20w.%20sol",
+   "at": "2026-11-05T00:45:03.519Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "0c9f85016dbee3714664959905ed581763d95d79f83402db41436c0dd7c4284f",
+   "bytes": 1400222,
+   "pages": 10,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202014%20w.%20sol",
+   "at": "2026-11-05T00:45:05.214Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "f7803ea0c2427304121c8f5c3259cd3127d3c3b3fe8e50060a7bd8660a3d2b8d",
+   "bytes": 980396,
+   "pages": 37,
+   "text": "St George Girls High School Trial Higher School Certificate Examination  2015 Mathematics  General Instructions  I Total Marks - 100 •   Reading time -   5 minutes •   Working time - 3 hours •   Write using black or blue pen Black pen is preferred •   Board-approved calculators may be used •   A table of standard integrals is provided at the back of this paper  i   f   Section I   I Pages 2 - 4 10 marks •   Attempt Questions 1 - 10 •   Allow about 15 minutes for this section  •   fr In Questions 11- 16, show relevant   ,   f   Section II   I Pages 5 - 14 90 marks mathematical reasoning and/or calculations   •   Attempt Questions 11- 16 •   Allow about 2 hours and 45 minutes for this section Students are advised that this is a Trial Examination only and does not necessarily reflect the content or format of the Higher School Certificate Examination.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202015%20w.%20sol",
+   "at": "2026-11-05T00:45:06.999Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "f9c190f465d974d788a35b8939ad829382b46e7dcdff870b23e8b2f04175fe1e",
+   "bytes": 2258958,
+   "pages": 43,
+   "text": "Student Number:---------- Class Teacher: _________  St George   Girls   High School Trial Higher School Certificate Examination 2016  Mathematics  General Instructions  •   Reading time -   5 minutes  •   Working time - 3 hours  e   Write using black pen  •   Board-approved calculators may be used  •   A reference sheet is provided  \"   In Questions 11 - 15, show relevant mathematical reasoning and/or calculations  Section   I   /10  Section   II Ouestion 11   /18 Question 12   /18 Question 13   /18 Question 14   /18 Question 15   /18  Total   /100 Total Marks -100  [   Section   I ] Pages 2 - 6  10 marks  •   Attempt Questions 1 - 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper [   Section   II   ] Pages 7 - 16  90marks  •   Attempt Questions 11- 15  \"   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Students are advised that this is a Trial Examination only and does not necessarily reflect the content or format of the Higher School Certificate Examination.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202016%20w.%20sol",
+   "at": "2026-11-05T00:45:09.608Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "a4f80e77c3dcf237dae6b17ed91370b17a08c9a7530c824a8ec7a880f83009f6",
+   "bytes": 1307670,
+   "pages": 36,
+   "text": "Student Number: ________________________________ Class Teacher: ___________________________  St George Girls High School  Trial Higher School Certificate Examination  2017  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11 – 15, show relevant mathematical reasoning and/or calculations  Total Marks – 100  Pages 2 – 4  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper  Pages 5 – 10  90 marks  •   Attempt Questions 11 – 15  •   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Section I   /10  Section II  Question 11   /18  Question 12   /18  Question 13   /18  Question 14   /18  Question 15   /18  Total   /100  Students are advised that this is a Trial Examination only and does not necessarily  reflect the content or format of the Higher School Certificate Examination.  Section I  Section II",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202017%20w.%20sol",
+   "at": "2026-11-05T00:45:11.327Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "7d7e7bf629690475f8c667554bc93dbd83ea4421013443920516cbeffdf74d91",
+   "bytes": 884176,
+   "pages": 27,
+   "text": "Student Number: ________________________________ Class Teacher: ___________________________  St George Girls High School  Trial Higher School Certificate Examination  2018  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  Total Marks – 100  Pages 2 – 5  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper  Pages 6 – 14  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Section I   /10  Section II  Question 11   /15  Question 12   /15  Question 13   /15  Question 14   /15  Question 15   /15  Question 16   /15  Total   /100  Students are advised that this is a Trial Examination only and does not necessarily  reflect the content or format of the Higher School Certificate Examination.  Section I  Section II",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202018%20w.%20sol",
+   "at": "2026-11-05T00:45:13.197Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "6ec2401b3a476723607c16d32f7bef434fb9ddb5b153369e0333c1c79d05d338",
+   "bytes": 3606324,
+   "pages": 39,
+   "text": "Student Number: ________________________________ Class Teacher: ___________________________  St George Girls High School  Trial Higher School Certificate Examination  2019  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   Board-approved calculators may be used  •   A reference sheet is provided  •   Diagrams are not necessarily to scale  •   In Questions 11 – 17, show relevant mathematical reasoning and/or calculations  •   Marks may not be awarded for careless or poorly presented solutions  Total Marks – 100  Pages 2 – 5  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper  Pages 6 – 13  90 marks  •   Attempt Questions 11 – 17  •   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Section I   /10  Section II  Question 11   /13  Question 12   /13  Question 13   /13  Question 14   /13  Question 15   /13  Question 16   /13  Question 17   /12  Total   /100  Section I  Section II",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202019%20w.%20sol",
+   "at": "2026-11-05T00:45:15.166Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "2d0cdcbbf4969235bfb80b02eb98e91ca038f567bee4279e3f0ce8099df5692e",
+   "bytes": 2387101,
+   "pages": 54,
+   "text": "St George Girls High School  Mathematics Advanced  2020 Trial HSC Examination  General  Instructions     Reading time – 10 minutes     Working Time – 3 hours     Write using black pen     Calculators approved by NESA may be used.     A reference sheet is provided.     For questions in   Section I,   use the multiple-choice answer sheet provided.     For questions in   Section II:  o   Answer the questions in the space provided.  o   Show relevant mathematical reasoning and/or calculations.  o   Extra writing space is provided at the back of this booklet. If you use this space, clearly indicate which question you are answering.  o   Marks may not be awarded for incomplete or poorly presented solutions  Total marks:  100  Section I – 10 marks ( pages 3 – 8 )     Attempt Questions 1 - 10     Allow about 15 minutes for this section  Section II – 90 marks ( pages 9 – 30 )     Attempt Questions 11 – 33     Allow about 2 hour and 45 minutes for this section  Q1 – Q10   /10  Q11 – Q15   /15  Q16 – Q19   /15  Q20   /2  Q21 – Q25   /15  Q26 – Q29   /15  Q30   /8  Q31   /9  Q32   /5  Q33   /6  Total   /100  %  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202020%20w.%20sol",
+   "at": "2026-11-05T00:45:16.798Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "db08cf354d2f7ea06f04cb649474dd7e47201090f1e6796b27b20e2b81b407a6",
+   "bytes": 6096332,
+   "pages": 56,
+   "text": "St George Girls High School  Mathematics Advanced  2021 Trial Higher School Certificate Examination  General  Instructions     Reading time   –   10 minutes     Working Time   –   3 hours     Write using black pen.     Calculators approved by NESA may be used.     A reference sheet is provided.     For questions in   Section I,   use the multiple-choice answer sheet provided.     For questions in   Section II:  o   Answer the questions in the space provided in the 6 booklets.  o   Show relevant mathematical reasoning and/or calculations.  o   Extra writing space is provided at the back of the booklets. If you use this space, clearly indicate which question you are answering.  o   Marks may not be awarded for incomplete or poorly presented solutions  Total marks:  100  Section I   –   10 marks ( pages 3   –   7 )     Attempt Questions 1 - 10     Allow about 15 minutes for this section  Section II   –   90 marks ( pages 8   –   34 )     Attempt Questions 11   –   32     Allow about 2 hour and 45 minutes for this section  Q1   –   Q10   /10  Q11   –   Q15   /15  Q16   –   Q20   /15  Q21   –   Q23   /15  Q24   –   Q26   /17  Q27   –   Q30   /15  Q31   –   Q33   /13  Total   /100  %  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202021%20w.%20sol",
+   "at": "2026-11-05T00:45:18.714Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "4bb2bd2bb05e7bbee56579df2f9208ea0b99eda7d2e6a8aa53dbaa587a36a357",
+   "bytes": 6954812,
+   "pages": 86,
+   "text": "\u0001  \u0001  \u0004\u000e\u0001\u0002\u0006   \u0007\u0006\u0001\u0002   \u0001\u0003 \u0007\b\u0001\u0004\u0005\b   \u0001\u0001\u0001  \u0001  \u0003\u0004 \b\u0007   \u0004 \u0005 \u0001\u0002\u0006\u000e\u0004 \u0005\u0007\u0006\u0001  \u0016\u0010 \u0012\u0001   \u0007\u0001\b\u001a \u0013\u0010\u0014 \u0018\u0010\u0015\u0014\u0001   \u0001  \u0001 \u0001   \u0001  \b \b\u001b$\u001b(\u0017\"\u0001 $)*(+\u0019*\u001f%$)\u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001  \u0001  \u0013%*\u0017\"\u0001#\u0017(!)2\u0001 >==\u0001  \u0002\u0001   \u0011\u001b\u0017\u001a\u001f$\u001d\u0001*\u001f#\u001b\u0001;\u0001>=\u0001#\u001f$+*\u001b)\u0001  \u0002\u0001   \u0015%(!\u001f$\u001d\u0001*\u001f#\u001b\u0001;\u0001@\u0001\u001e%+()\u0001  \u0002\u0001   \u0015(\u001f*\u001b\u0001+)\u001f$\u001d\u0001\u0018\"\u0017\u0019!\u0001&\u001b$\u0001  \u0002\u0001   \u0004\u0017\"\u0019+\"\u0017*%()\u0001\u0017&&(%,\u001b\u001a\u0001\u0018/\u0001   \u0006\u0012\u0002\u0001#\u0017/\u0001\u0018\u001b\u0001+)\u001b\u001a\u0001  \u0002\u0001   \u0002\u0001(\u001b\u001c\u001b(\u001b$\u0019\u001b\u0001)\u001e\u001b\u001b*\u0001\u001f)\u0001&(%,\u001f\u001a\u001b\u001a\u0001  \u0002\u0001   \u0007%(\u0001'+\u001b)*\u001f%$)\u0001\u001f$\u0001\u0012\u001b\u0019*\u001f%$\u0001 1\u0001+)\u001b\u0001*\u001e\u001b\u0001   +\"*\u001f&\"\u001b5\u0004\u001e%\u001f\u0019\u001b\u0001\u0017$)-\u001b(\u0001)\u001e\u001b\u001b*\u0001&(%,\u001f\u001a\u001b\u001a\u0001 \u0007%(\u0001'+\u001b)*\u001f%$)\u0001\u001f$\u0001\u0012\u001b\u0019*\u001f%$\u0001   2\u0001  o \u0001   \u0002$)-\u001b(\u0001*\u001e\u001b\u0001'+\u001b)*\u001f%$)\u0001\u001f$\u0001*\u001e\u001b\u0001\u0018%%!\"\u001b*)\u0001&(%,\u001f\u001a\u001b\u001a\u0001  o \u0001   \u0012\u001e%-\u0001(\u001b\"\u001b,\u0017$*\u0001#\u0017*\u001e\u001b#\u0017*\u001f\u0019\u0017\"\u0001(\u001b\u0017)%$\u001f$\u001d\u0001\u0017$\u001a9%(\u0001 \u0019\u0017\"\u0019+\"\u0017*\u001f%$)\u0001  o \u0001   \u0017(!)\u0001#\u0017/\u0001$%*\u0001\u0018\u001b\u0001\u0017-\u0017(\u001a\u001b\u001a\u0001\u001c%(\u0001\u001f$\u0019%#&\"\u001b*\u001b\u0001%(\u0001&%%(\"/\u0001 &(\u001b)\u001b$*\u001b\u001a\u0001)%\"+*\u001f%$)1\u0001%(\u0001-\u001e\u001b(\u001b\u0001#+\"*\u001f&\"\u001b\u0001)%\"+*\u001f%$)\u0001\u0017(\u001b\u0001 &(%,\u001f\u001a\u001b\u001a\u0001 \u0001  \u0001 \u0001  \u0001  \u0012\u001b\u0019*\u001f%$\u0001 \u0001;\u0001>=\u0001#\u0017(!)\u0001n&\u0017\u001d\u001b)\u0001@\u0001;\u0001Do\u0001  \u0002\u0001 \u0002**\u001b#&*\u0001\u0010+\u001b)*\u001f%$)\u0001 >\u0001;\u0001>=\u0001  \u0002\u0001 \u0002\"\"%-\u0001\u0017\u0018%+*\u0001>B\u0001#\u001f$+*\u001b)\u0001\u001c%(\u0001*\u001e\u001f)\u0001)\u001b\u0019*\u001f%$\u0001 \u0001 \u0012\u001b\u0019*\u001f%$\u0001   \u0001;\u0001F=\u0001#\u0017(!)\u0001n&\u0017\u001d\u001b)\u0001>>\u0001;\u0001@Eo\u0001  \u0002\u0001 \u0002**\u001b#&*\u0001\u0010+\u001b)*\u001f%$)\u0001>>\u0001;\u0001?F\u0001  \u0002\u0001 \u0002\"\"%-\u0001\u0017\u0018%+*\u0001?\u0001\u001e%+()\u0001\u0017$\u001a\u0001AB\u0001#\u001f$+*\u001b)\u0001 \u001c%(\u0001*\u001e\u001f)\u0001)\u001b\u0019*\u001f%$\u0001  \u0001  \u0004\u0002\u0004\u0004\u0001  \u0003\u0015\u0001\u0013\u0001\u0003\u0015\u0014\u0001\u0001   \u0012\u0015\u0014\u0001 \u0003\u0015\u0015\u0001\u0013\u0001\u0003\u0015\u0017\u0001   \u0012\u0015\u0016\u0001 \u0003\u0015\u0018\u0001\u0013\u0001\u0003\u0015\u001a\u0001   \u0012\u0015\u0016\u0001 \u0003\u0015\u001b\u0001\u0013\u0001\u0003\u0015\u001c\u0001   \u0012\u0015\u0017\u0001 \u0003\u0016\u0014\u0001\u0013\u0001\u0003\u0016\u0015\u0001   \u0012\u0015\u0018\u0001 \u0003\u0016\u0016\u0001\u0013\u0001\u0003\u0016\u0018\u0001   \u0012\u0015\u0017\u0001 \u0003\u0016\u0019\u0001\u0013\u0001\u0003\u0016\u001a\u0001   \u0012\u0015\u0016\u0001 \u0003\u0016\u001b\u0001\u0013\u0001\u0003\u0016\u001c\u0001   \u0012\u0015\u0018\u0001  \u0015\u0019 \u0012\u0001   \u001f\"!!\u0001  \u0001   \u001d\u0001  \u0012*+\u001a\u001b$*\u0001   +#\u0018\u001b( \u0002\u0001  \u0013\u001b\u0017\u0019\u001e\u001b(2\u0001",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202022%20w.%20sol",
+   "at": "2026-11-05T00:45:21.069Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "dba29548951b9d6824eebd263f3c826cd4b9ed416c4f088a1d8e90ea755b503c",
+   "bytes": 7579851,
+   "pages": 58,
+   "text": "St George Girls High School  Mathematics Advanced  Trial HSC Examination  General Instructions  Total marks: 100  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section I, use the Multiple-Choice answer sheet provided  For questions in Section II:  o   Answer the questions in the booklets provided  o   Show relevant mathematical reasoning and/or calculations  o   Marks may not be awarded for incomplete or poorly presented solutions, or where multiple solutions are provided  Section I   –   10 marks (pages 3   –   6)  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II   –   90 marks Booklet 1 (pages 8-20) Booklet 2 (pages 24-38)  •   Attempt Questions 11   –   32  •   Allow about 2 hours and 45 minutes  for this section  2023  Q1   –   Q10   /10  Q11   –   Q14   /14  Q15   –   Q17   /12  Q18   –   Q20   /10  Q21   –   Q23   /15  Q24   –   Q27   /12  Q28   –   Q30   /15  Q31   –   Q32   /12  Total   /100  %  Student Number :  Teacher:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202023%20w.%20sol",
+   "at": "2026-11-05T00:45:23.028Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "f507ac3fccdf878427d6ccc53857e7b54310f2a44fc844b79a6ebcf3f4290f24",
+   "bytes": 12538645,
+   "pages": 86,
+   "text": "1  St George Girls High School  Mathematics Advanced  Trial HSC Examination  General  Instructions  o   Reading time   –   10 minutes  o   Working time   –   3 hours  o   Write using black pen.  o   Calculators approved by NESA may be used.  o   A reference sheet is provided.  o   For questions in   Section I , use the Multiple-Choice answer sheet provided at the back of this booklet. For questions in   Section II:  o   Answer the question in the spaces provided.  o   Show relevant mathematical reasoning   and/or calculations.  o   Extra writing space   is provided at the back of each booklet. If you use this space, clearly indicate  which question you are answering.  o   Marks may not be awarded for incomplete or poorly presented solutions or where multiple solutions are provided.  Total marks: 100  Section I   –   10 marks (pages 2 to 7)  •   Attempt Questions 1-10  •   Allow about 20 minutes for this section.  Section II   –   90 marks (pages 9 to 40)  •   Attempt Questions 11   –   35  •   Allow about 2 hours and 40 minutes for this section.  Q1   –   Q10   /10  Q11   –   Q17   /20  Q18   –   Q23   /18  Q24 –   Q28   /17  Q29   –   Q32   /17  Q33   –   Q35   /18  Total   /100  %  2024  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202024%20w.%20sol",
+   "at": "2026-11-05T00:45:25.661Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "395494a48385c75f5248b1b9601b9d7387d8cc224a633e7b904bb0e91acbb146",
+   "bytes": 15201607,
+   "pages": 80,
+   "text": "St George Girls High School  Mathematics Advanced  2025 HSC Trial Examination  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section I, use the Multiple-Choice answer sheet provided  •   For questions in Section II:  o   Answer the questions in the space provided  o   Show relevant mathematical reasoning and/or calculations  o   Marks may not be awarded for incomplete or poorly presented solutions, or where multiple solutions are provided  Total marks: 100  Section I – 10 marks (pages 3 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks (pages 9 – 40)  •   Attempt Questions 11 – 35  •   Allow about 2 hours and 45 minutes for this section  Q1 – Q10   /10  Q11 – Q15   / 16  Q16 – Q22a   / 15  Q22b – Q26   / 16  Q27 – Q30   / 15  Q31 – Q33a   / 13  Q33b – Q35   / 15  Total   /100  %  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202025%20w.%20sol",
+   "at": "2026-11-05T00:45:28.810Z"
   },
   "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "265d933f8d99561e85786491f9d40a3baf89b83e46ccc3b647d071562557d88a",
+   "bytes": 17990742,
+   "pages": 93,
+   "text": "St George Girls High School  Mathematics Advanced  2026 Trial HSC Examination  General Instructions  Total marks: 100  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in   Section I , use the Multiple-Choice answer sheet provided For questions in   Section II:  o   Answer the questions in the space provided  o   Show relevant mathematical reasoning and/or calculations  o   Marks may not be awarded for incomplete or poorly presented solutions, or where multiple solutions are provided  Section I   –   10 marks   (pages 2 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 37)  •   Attempt Questions 11 – 33  •   Allow about 2 hours and 45 minutes for this section  Q1 – Q10   /10 Q11 – Q17   /19 Q18 – Q22   /17 Q23 – Q26   /17 Q27 – Q29   /14 Q30 – Q31   /12 Q32 – Q33   /11  Total   /100  %  Student Number :  Teacher:  BOOKLET 1",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202026%20w.%20sol",
+   "at": "2026-11-05T00:45:31.770Z"
   },
   "https://thsconline.github.io/s/d/5328/Stella%20Maris%202008%20w.%20sol": {
    "state": "review",
@@ -148546,6 +148626,166 @@
    "transport": "thsc-fragments",
    "at": "2026-11-04T00:23:32.050Z",
    "proofSource": "https://thsconline.github.io/s/d/5328/Shore%202024"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20Catherines%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b5a815186d97d4e4d3ee56afcd436bc35d746aa1fddca6c2d28c50da12f180fa",
+   "bytes": 793973,
+   "pages": 24,
+   "text": "1  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics  General Instructions     Reading Time – 5 minutes     Working Time – 3 hours     Write using black or blue pen Black pen is preferred     Board-approved calculators may be used     A table of standard integrals is provided at the back of this paper     Show all necessary working in Questions 11-16     Task weighting – 45%  Total Marks – 100 Pages 3-5 10 marks     Attempt Questions 1 – 10     Allow about 15 minutes for this section     Answer on the multiple choice answer sheet provided.  Pages 6-13 90 marks     Attempt Questions 11-16     Allow about 2 hours and 45 minutes for this section     Answer each question in the booklet provided.  St. Catherine’s School Waverley  August 2014  Student Number",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:44:49.708Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20Catherines%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20Catherines%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "c53f7558ae6a470c0b8b8a45da874aa00e434d2188956e656b4ae7295d928a57",
+   "bytes": 1871610,
+   "pages": 33,
+   "text": "- 1 -  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  Mathematics  General Instructions  •   Reading Time – 5 minutes  •   Working Time – 3 hours  •   Write using black or blue pen  Black pen is preferred  •   Board-approved calculators may be used  •   A table of standard integrals is provided at the back of this paper.  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  •   Task Weighting – 40%  Total Marks – 100  Section I   Pages 3 – 5  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section.  Section II   Pages 6 – 12  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section.  2016",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:44:51.686Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20Catherines%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1e636b670e094e69848819c3cb00a0829b65bc10b5181581afcedde9e343869e",
+   "bytes": 1396264,
+   "pages": 20,
+   "text": "I   .•  /   S.   N o   (\\   t:.J;   etr,  St   George Girls High School Trial Higher School Certificate Examination  2013  Mathematics General Instructions   ·  •   Reading time - 5 minutes  •   Working time- 3 hours  •   ·Write using blue or black pen  •   Begin each question in a new booklet  •   Write   your   student   number   on   each booklet.  •   Board-approved calculators may be used.  •   A   table of standard integrals is provided at the back of this paper.  •   Show   all necessary working in Questions 11-16.  Total Marks -   100  Section   I -   Pages   2 - 4 10marks  •   Attempt Questions 1 -   10   using the answer sheet provided at the end of the paper  •   Allow about 15 minutes for this section  Section   II -   Pages   5 -   10  90marks  •   Diagrams are not to scale.   •   Attempt Questions 11-16  •   The mark allocated for each question is   •   Allow about 2 hours 45 minutes for this section listed at   th~   side of   the question.  Students   are advised that this is a Trial Examination only   and   does   ·not   necessarily reflect the content or format of   the Higher   School   Certificate Examination.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:03.519Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "0c9f85016dbee3714664959905ed581763d95d79f83402db41436c0dd7c4284f",
+   "bytes": 1400222,
+   "pages": 10,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:05.214Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f7803ea0c2427304121c8f5c3259cd3127d3c3b3fe8e50060a7bd8660a3d2b8d",
+   "bytes": 980396,
+   "pages": 37,
+   "text": "St George Girls High School Trial Higher School Certificate Examination  2015 Mathematics  General Instructions  I Total Marks - 100 •   Reading time -   5 minutes •   Working time - 3 hours •   Write using black or blue pen Black pen is preferred •   Board-approved calculators may be used •   A table of standard integrals is provided at the back of this paper  i   f   Section I   I Pages 2 - 4 10 marks •   Attempt Questions 1 - 10 •   Allow about 15 minutes for this section  •   fr In Questions 11- 16, show relevant   ,   f   Section II   I Pages 5 - 14 90 marks mathematical reasoning and/or calculations   •   Attempt Questions 11- 16 •   Allow about 2 hours and 45 minutes for this section Students are advised that this is a Trial Examination only and does not necessarily reflect the content or format of the Higher School Certificate Examination.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:06.999Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f9c190f465d974d788a35b8939ad829382b46e7dcdff870b23e8b2f04175fe1e",
+   "bytes": 2258958,
+   "pages": 43,
+   "text": "Student Number:---------- Class Teacher: _________  St George   Girls   High School Trial Higher School Certificate Examination 2016  Mathematics  General Instructions  •   Reading time -   5 minutes  •   Working time - 3 hours  e   Write using black pen  •   Board-approved calculators may be used  •   A reference sheet is provided  \"   In Questions 11 - 15, show relevant mathematical reasoning and/or calculations  Section   I   /10  Section   II Ouestion 11   /18 Question 12   /18 Question 13   /18 Question 14   /18 Question 15   /18  Total   /100 Total Marks -100  [   Section   I ] Pages 2 - 6  10 marks  •   Attempt Questions 1 - 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper [   Section   II   ] Pages 7 - 16  90marks  •   Attempt Questions 11- 15  \"   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Students are advised that this is a Trial Examination only and does not necessarily reflect the content or format of the Higher School Certificate Examination.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:09.608Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a4f80e77c3dcf237dae6b17ed91370b17a08c9a7530c824a8ec7a880f83009f6",
+   "bytes": 1307670,
+   "pages": 36,
+   "text": "Student Number: ________________________________ Class Teacher: ___________________________  St George Girls High School  Trial Higher School Certificate Examination  2017  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11 – 15, show relevant mathematical reasoning and/or calculations  Total Marks – 100  Pages 2 – 4  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper  Pages 5 – 10  90 marks  •   Attempt Questions 11 – 15  •   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Section I   /10  Section II  Question 11   /18  Question 12   /18  Question 13   /18  Question 14   /18  Question 15   /18  Total   /100  Students are advised that this is a Trial Examination only and does not necessarily  reflect the content or format of the Higher School Certificate Examination.  Section I  Section II",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:11.327Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "7d7e7bf629690475f8c667554bc93dbd83ea4421013443920516cbeffdf74d91",
+   "bytes": 884176,
+   "pages": 27,
+   "text": "Student Number: ________________________________ Class Teacher: ___________________________  St George Girls High School  Trial Higher School Certificate Examination  2018  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11 – 16, show relevant mathematical reasoning and/or calculations  Total Marks – 100  Pages 2 – 5  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper  Pages 6 – 14  90 marks  •   Attempt Questions 11 – 16  •   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Section I   /10  Section II  Question 11   /15  Question 12   /15  Question 13   /15  Question 14   /15  Question 15   /15  Question 16   /15  Total   /100  Students are advised that this is a Trial Examination only and does not necessarily  reflect the content or format of the Higher School Certificate Examination.  Section I  Section II",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:13.197Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6ec2401b3a476723607c16d32f7bef434fb9ddb5b153369e0333c1c79d05d338",
+   "bytes": 3606324,
+   "pages": 39,
+   "text": "Student Number: ________________________________ Class Teacher: ___________________________  St George Girls High School  Trial Higher School Certificate Examination  2019  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   Board-approved calculators may be used  •   A reference sheet is provided  •   Diagrams are not necessarily to scale  •   In Questions 11 – 17, show relevant mathematical reasoning and/or calculations  •   Marks may not be awarded for careless or poorly presented solutions  Total Marks – 100  Pages 2 – 5  10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  •   Answer on the multiple choice answer sheet provided at the back of this paper  Pages 6 – 13  90 marks  •   Attempt Questions 11 – 17  •   Allow about 2 hours and 45 minutes for this section  •   Begin each question in a new writing booklet  Section I   /10  Section II  Question 11   /13  Question 12   /13  Question 13   /13  Question 14   /13  Question 15   /13  Question 16   /13  Question 17   /12  Total   /100  Section I  Section II",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:15.166Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "2d0cdcbbf4969235bfb80b02eb98e91ca038f567bee4279e3f0ce8099df5692e",
+   "bytes": 2387101,
+   "pages": 54,
+   "text": "St George Girls High School  Mathematics Advanced  2020 Trial HSC Examination  General  Instructions     Reading time – 10 minutes     Working Time – 3 hours     Write using black pen     Calculators approved by NESA may be used.     A reference sheet is provided.     For questions in   Section I,   use the multiple-choice answer sheet provided.     For questions in   Section II:  o   Answer the questions in the space provided.  o   Show relevant mathematical reasoning and/or calculations.  o   Extra writing space is provided at the back of this booklet. If you use this space, clearly indicate which question you are answering.  o   Marks may not be awarded for incomplete or poorly presented solutions  Total marks:  100  Section I – 10 marks ( pages 3 – 8 )     Attempt Questions 1 - 10     Allow about 15 minutes for this section  Section II – 90 marks ( pages 9 – 30 )     Attempt Questions 11 – 33     Allow about 2 hour and 45 minutes for this section  Q1 – Q10   /10  Q11 – Q15   /15  Q16 – Q19   /15  Q20   /2  Q21 – Q25   /15  Q26 – Q29   /15  Q30   /8  Q31   /9  Q32   /5  Q33   /6  Total   /100  %  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:16.798Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "db08cf354d2f7ea06f04cb649474dd7e47201090f1e6796b27b20e2b81b407a6",
+   "bytes": 6096332,
+   "pages": 56,
+   "text": "St George Girls High School  Mathematics Advanced  2021 Trial Higher School Certificate Examination  General  Instructions     Reading time   –   10 minutes     Working Time   –   3 hours     Write using black pen.     Calculators approved by NESA may be used.     A reference sheet is provided.     For questions in   Section I,   use the multiple-choice answer sheet provided.     For questions in   Section II:  o   Answer the questions in the space provided in the 6 booklets.  o   Show relevant mathematical reasoning and/or calculations.  o   Extra writing space is provided at the back of the booklets. If you use this space, clearly indicate which question you are answering.  o   Marks may not be awarded for incomplete or poorly presented solutions  Total marks:  100  Section I   –   10 marks ( pages 3   –   7 )     Attempt Questions 1 - 10     Allow about 15 minutes for this section  Section II   –   90 marks ( pages 8   –   34 )     Attempt Questions 11   –   32     Allow about 2 hour and 45 minutes for this section  Q1   –   Q10   /10  Q11   –   Q15   /15  Q16   –   Q20   /15  Q21   –   Q23   /15  Q24   –   Q26   /17  Q27   –   Q30   /15  Q31   –   Q33   /13  Total   /100  %  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:18.714Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "4bb2bd2bb05e7bbee56579df2f9208ea0b99eda7d2e6a8aa53dbaa587a36a357",
+   "bytes": 6954812,
+   "pages": 86,
+   "text": "\u0001  \u0001  \u0004\u000e\u0001\u0002\u0006   \u0007\u0006\u0001\u0002   \u0001\u0003 \u0007\b\u0001\u0004\u0005\b   \u0001\u0001\u0001  \u0001  \u0003\u0004 \b\u0007   \u0004 \u0005 \u0001\u0002\u0006\u000e\u0004 \u0005\u0007\u0006\u0001  \u0016\u0010 \u0012\u0001   \u0007\u0001\b\u001a \u0013\u0010\u0014 \u0018\u0010\u0015\u0014\u0001   \u0001  \u0001 \u0001   \u0001  \b \b\u001b$\u001b(\u0017\"\u0001 $)*(+\u0019*\u001f%$)\u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001  \u0001  \u0013%*\u0017\"\u0001#\u0017(!)2\u0001 >==\u0001  \u0002\u0001   \u0011\u001b\u0017\u001a\u001f$\u001d\u0001*\u001f#\u001b\u0001;\u0001>=\u0001#\u001f$+*\u001b)\u0001  \u0002\u0001   \u0015%(!\u001f$\u001d\u0001*\u001f#\u001b\u0001;\u0001@\u0001\u001e%+()\u0001  \u0002\u0001   \u0015(\u001f*\u001b\u0001+)\u001f$\u001d\u0001\u0018\"\u0017\u0019!\u0001&\u001b$\u0001  \u0002\u0001   \u0004\u0017\"\u0019+\"\u0017*%()\u0001\u0017&&(%,\u001b\u001a\u0001\u0018/\u0001   \u0006\u0012\u0002\u0001#\u0017/\u0001\u0018\u001b\u0001+)\u001b\u001a\u0001  \u0002\u0001   \u0002\u0001(\u001b\u001c\u001b(\u001b$\u0019\u001b\u0001)\u001e\u001b\u001b*\u0001\u001f)\u0001&(%,\u001f\u001a\u001b\u001a\u0001  \u0002\u0001   \u0007%(\u0001'+\u001b)*\u001f%$)\u0001\u001f$\u0001\u0012\u001b\u0019*\u001f%$\u0001 1\u0001+)\u001b\u0001*\u001e\u001b\u0001   +\"*\u001f&\"\u001b5\u0004\u001e%\u001f\u0019\u001b\u0001\u0017$)-\u001b(\u0001)\u001e\u001b\u001b*\u0001&(%,\u001f\u001a\u001b\u001a\u0001 \u0007%(\u0001'+\u001b)*\u001f%$)\u0001\u001f$\u0001\u0012\u001b\u0019*\u001f%$\u0001   2\u0001  o \u0001   \u0002$)-\u001b(\u0001*\u001e\u001b\u0001'+\u001b)*\u001f%$)\u0001\u001f$\u0001*\u001e\u001b\u0001\u0018%%!\"\u001b*)\u0001&(%,\u001f\u001a\u001b\u001a\u0001  o \u0001   \u0012\u001e%-\u0001(\u001b\"\u001b,\u0017$*\u0001#\u0017*\u001e\u001b#\u0017*\u001f\u0019\u0017\"\u0001(\u001b\u0017)%$\u001f$\u001d\u0001\u0017$\u001a9%(\u0001 \u0019\u0017\"\u0019+\"\u0017*\u001f%$)\u0001  o \u0001   \u0017(!)\u0001#\u0017/\u0001$%*\u0001\u0018\u001b\u0001\u0017-\u0017(\u001a\u001b\u001a\u0001\u001c%(\u0001\u001f$\u0019%#&\"\u001b*\u001b\u0001%(\u0001&%%(\"/\u0001 &(\u001b)\u001b$*\u001b\u001a\u0001)%\"+*\u001f%$)1\u0001%(\u0001-\u001e\u001b(\u001b\u0001#+\"*\u001f&\"\u001b\u0001)%\"+*\u001f%$)\u0001\u0017(\u001b\u0001 &(%,\u001f\u001a\u001b\u001a\u0001 \u0001  \u0001 \u0001  \u0001  \u0012\u001b\u0019*\u001f%$\u0001 \u0001;\u0001>=\u0001#\u0017(!)\u0001n&\u0017\u001d\u001b)\u0001@\u0001;\u0001Do\u0001  \u0002\u0001 \u0002**\u001b#&*\u0001\u0010+\u001b)*\u001f%$)\u0001 >\u0001;\u0001>=\u0001  \u0002\u0001 \u0002\"\"%-\u0001\u0017\u0018%+*\u0001>B\u0001#\u001f$+*\u001b)\u0001\u001c%(\u0001*\u001e\u001f)\u0001)\u001b\u0019*\u001f%$\u0001 \u0001 \u0012\u001b\u0019*\u001f%$\u0001   \u0001;\u0001F=\u0001#\u0017(!)\u0001n&\u0017\u001d\u001b)\u0001>>\u0001;\u0001@Eo\u0001  \u0002\u0001 \u0002**\u001b#&*\u0001\u0010+\u001b)*\u001f%$)\u0001>>\u0001;\u0001?F\u0001  \u0002\u0001 \u0002\"\"%-\u0001\u0017\u0018%+*\u0001?\u0001\u001e%+()\u0001\u0017$\u001a\u0001AB\u0001#\u001f$+*\u001b)\u0001 \u001c%(\u0001*\u001e\u001f)\u0001)\u001b\u0019*\u001f%$\u0001  \u0001  \u0004\u0002\u0004\u0004\u0001  \u0003\u0015\u0001\u0013\u0001\u0003\u0015\u0014\u0001\u0001   \u0012\u0015\u0014\u0001 \u0003\u0015\u0015\u0001\u0013\u0001\u0003\u0015\u0017\u0001   \u0012\u0015\u0016\u0001 \u0003\u0015\u0018\u0001\u0013\u0001\u0003\u0015\u001a\u0001   \u0012\u0015\u0016\u0001 \u0003\u0015\u001b\u0001\u0013\u0001\u0003\u0015\u001c\u0001   \u0012\u0015\u0017\u0001 \u0003\u0016\u0014\u0001\u0013\u0001\u0003\u0016\u0015\u0001   \u0012\u0015\u0018\u0001 \u0003\u0016\u0016\u0001\u0013\u0001\u0003\u0016\u0018\u0001   \u0012\u0015\u0017\u0001 \u0003\u0016\u0019\u0001\u0013\u0001\u0003\u0016\u001a\u0001   \u0012\u0015\u0016\u0001 \u0003\u0016\u001b\u0001\u0013\u0001\u0003\u0016\u001c\u0001   \u0012\u0015\u0018\u0001  \u0015\u0019 \u0012\u0001   \u001f\"!!\u0001  \u0001   \u001d\u0001  \u0012*+\u001a\u001b$*\u0001   +#\u0018\u001b( \u0002\u0001  \u0013\u001b\u0017\u0019\u001e\u001b(2\u0001",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:21.069Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "dba29548951b9d6824eebd263f3c826cd4b9ed416c4f088a1d8e90ea755b503c",
+   "bytes": 7579851,
+   "pages": 58,
+   "text": "St George Girls High School  Mathematics Advanced  Trial HSC Examination  General Instructions  Total marks: 100  •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section I, use the Multiple-Choice answer sheet provided  For questions in Section II:  o   Answer the questions in the booklets provided  o   Show relevant mathematical reasoning and/or calculations  o   Marks may not be awarded for incomplete or poorly presented solutions, or where multiple solutions are provided  Section I   –   10 marks (pages 3   –   6)  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II   –   90 marks Booklet 1 (pages 8-20) Booklet 2 (pages 24-38)  •   Attempt Questions 11   –   32  •   Allow about 2 hours and 45 minutes  for this section  2023  Q1   –   Q10   /10  Q11   –   Q14   /14  Q15   –   Q17   /12  Q18   –   Q20   /10  Q21   –   Q23   /15  Q24   –   Q27   /12  Q28   –   Q30   /15  Q31   –   Q32   /12  Total   /100  %  Student Number :  Teacher:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:23.028Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f507ac3fccdf878427d6ccc53857e7b54310f2a44fc844b79a6ebcf3f4290f24",
+   "bytes": 12538645,
+   "pages": 86,
+   "text": "1  St George Girls High School  Mathematics Advanced  Trial HSC Examination  General  Instructions  o   Reading time   –   10 minutes  o   Working time   –   3 hours  o   Write using black pen.  o   Calculators approved by NESA may be used.  o   A reference sheet is provided.  o   For questions in   Section I , use the Multiple-Choice answer sheet provided at the back of this booklet. For questions in   Section II:  o   Answer the question in the spaces provided.  o   Show relevant mathematical reasoning   and/or calculations.  o   Extra writing space   is provided at the back of each booklet. If you use this space, clearly indicate  which question you are answering.  o   Marks may not be awarded for incomplete or poorly presented solutions or where multiple solutions are provided.  Total marks: 100  Section I   –   10 marks (pages 2 to 7)  •   Attempt Questions 1-10  •   Allow about 20 minutes for this section.  Section II   –   90 marks (pages 9 to 40)  •   Attempt Questions 11   –   35  •   Allow about 2 hours and 40 minutes for this section.  Q1   –   Q10   /10  Q11   –   Q17   /20  Q18   –   Q23   /18  Q24 –   Q28   /17  Q29   –   Q32   /17  Q33   –   Q35   /18  Total   /100  %  2024  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:25.661Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "395494a48385c75f5248b1b9601b9d7387d8cc224a633e7b904bb0e91acbb146",
+   "bytes": 15201607,
+   "pages": 80,
+   "text": "St George Girls High School  Mathematics Advanced  2025 HSC Trial Examination  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section I, use the Multiple-Choice answer sheet provided  •   For questions in Section II:  o   Answer the questions in the space provided  o   Show relevant mathematical reasoning and/or calculations  o   Marks may not be awarded for incomplete or poorly presented solutions, or where multiple solutions are provided  Total marks: 100  Section I – 10 marks (pages 3 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks (pages 9 – 40)  •   Attempt Questions 11 – 35  •   Allow about 2 hours and 45 minutes for this section  Q1 – Q10   /10  Q11 – Q15   / 16  Q16 – Q22a   / 15  Q22b – Q26   / 16  Q27 – Q30   / 15  Q31 – Q33a   / 13  Q33b – Q35   / 15  Total   /100  %  Student Number:  Teacher:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:28.810Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/St%20George%20Girls%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "265d933f8d99561e85786491f9d40a3baf89b83e46ccc3b647d071562557d88a",
+   "bytes": 17990742,
+   "pages": 93,
+   "text": "St George Girls High School  Mathematics Advanced  2026 Trial HSC Examination  General Instructions  Total marks: 100  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in   Section I , use the Multiple-Choice answer sheet provided For questions in   Section II:  o   Answer the questions in the space provided  o   Show relevant mathematical reasoning and/or calculations  o   Marks may not be awarded for incomplete or poorly presented solutions, or where multiple solutions are provided  Section I   –   10 marks   (pages 2 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks   (pages 9 – 37)  •   Attempt Questions 11 – 33  •   Allow about 2 hours and 45 minutes for this section  Q1 – Q10   /10 Q11 – Q17   /19 Q18 – Q22   /17 Q23 – Q26   /17 Q27 – Q29   /14 Q30 – Q31   /12 Q32 – Q33   /11  Total   /100  %  Student Number :  Teacher:  BOOKLET 1",
+   "transport": "thsc-fragments",
+   "at": "2026-11-05T00:45:31.770Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202026%20w.%20sol"
   }
  },
  "releaseRefresh": {
