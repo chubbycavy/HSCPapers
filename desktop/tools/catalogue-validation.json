@@ -15263,44 +15263,84 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "8e09678fcb7daf2507b63a5f3c2cc66c18000b24ba905e35c812d3b4ff6b39f8",
+   "bytes": 1423989,
+   "pages": 32,
+   "text": "1  \u0001  \u0001  2017  SYDNEY BOYS HIGH SCHOOL TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics  General Instructions •   Reading time – 5 minutes •   Working time – 3 hours •   Write using black pen •   Board-approved calculators may be used •   A reference sheet is provided with this paper •   Leave your answers in the simplest exact form, unless otherwise stated •   All necessary working should be shown in every question if full marks are to be awarded •   Marks may   NOT   be awarded for messy or badly arranged work •   In Questions 11–16, show relevant mathematical reasoning and/or calculations Total marks – 100  Pages 2–6 10 marks •   Attempt Questions 1–10 •   Allow about 15 minutes for this section Pages 8–19 90 marks •   Attempt Questions 11–16 •   Allow about 2 hour and 45 minutes for this section  Examiner:   B.Kilmore  Section I Section II",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202017%20w.%20sol",
+   "at": "2026-11-06T00:45:05.309Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "f7121210d68be3a774689cd7d7b2b672d3dfecdbfd9e6df499c0b0b652436b67",
+   "bytes": 2233768,
+   "pages": 48,
+   "text": "2018  SYDNEY BOYS HIGH SCHOOL  YEAR 12 THSC ASSESSMENT TASK #4  Mathematics  General Instructions      Reading time – 5 minutes     Working time – 3 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided with this paper     Leave your answers in the simplest exact form, unless otherwise stated     Marks may   NOT   be awarded for messy or badly arranged work     In Questions 11–16, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100 Section I – 10 marks   (pages 3–6)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks   (pages 8–19)     Attempt Questions 11–16     Allow about 2 hours and 45 minutes for this section  Examiner: E. Choy  D",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202018%20w.%20sol",
+   "at": "2026-11-06T00:45:07.662Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "5c6e4fad3ebf4cac336365655e0bb4392ce073abf20f9990678e2c3e55c5a80b",
+   "bytes": 3922188,
+   "pages": 44,
+   "text": "SYDNEY BOYS HIGH SCHOOL YEAR 12 TRIAL HSC ASSESSMENT TASK  Mathematics  General Instructions     Reading time – 5 minutes     Working time – 3 hours     Write using   black   pen     NESA approved calculators may be used     A reference sheet is provided with this paper     Marks may   NOT   be awarded for messy or badly arranged work     In Questions 11–16, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100 Section I – 10 marks   (pages 2–5)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks   (pages 6–15)     Attempt Questions 11–16     Allow about 2 hours and 45 minutes for this section  Examiner:   B.K  2019",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202019%20w.%20sol",
+   "at": "2026-11-06T00:45:09.941Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "830b1ef4c5ca3ea89860366a844a5cf0b480a656b79e27c106080979d1a0b4b7",
+   "bytes": 6976719,
+   "pages": 64,
+   "text": "SYDNEY BOYS HIGH SCHOOL  YEAR 12 TERM 3 TRIAL HSC  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 7 – 32)  •   Attempt all Questions in Section II  •   Allow about 2 hours and 45 minutes for this section  Examiner: BK  Section I  2020  NESA Number:  Name:  Class:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202020%20w.%20sol",
+   "at": "2026-11-06T00:45:12.258Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "73611b7c120ff4083cfd9a0dd092e1b9327325c8530c90993867d7934af1ddc2",
+   "bytes": 5847266,
+   "pages": 50,
+   "text": "SYDNEY BOYS HIGH SCHOOL  YEAR 12 TASK 4 TRIAL HSC  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100   Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6 – 35)  •   Attempt all Questions in Section II  •   Allow about 2 hours and 45 minutes for this section  Examiner: AW  2022  NESA Number: Name: Maths Class:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202022%20w.%20sol",
+   "at": "2026-11-06T00:45:15.150Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "4d319c85bc80d3e6abd25a6aa1775ad422cf3961d19e1ef7c5c9085939f7a55a",
+   "bytes": 4753152,
+   "pages": 82,
+   "text": "SYDNEY BOYS HIGH SCHOOL  YEAR 12 TASK 4 TRIAL HSC  Mathematics Advanced  General Instructions   •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   All answers, unless otherwise stated, should be left in simplified, exact form  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100   Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6 – 42)  •   Attempt all Questions in Section II  •   Allow about 2 hours and 45 minutes for this section  Examiner: AMG  2023  NESA Number:  Name:  Maths Class:   Circle  12P   12L   12U 12Z2   12Z4 11A   11B   11M1   11M2",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202023%20w.%20sol",
+   "at": "2026-11-06T00:45:17.280Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "18dfcb877a7c137511ae801e4c8614eb731dfa1b5905b0d8c8dd776103e6bb41",
+   "bytes": 7618251,
+   "pages": 82,
+   "text": "\u0001  SYDNEY BOYS HIGH SCHOOL  YEAR 12 HSC TASK 4 TRIAL HSC  Mathematics Advanced  \u0006 \u0012 \u0014 \u0010\u0001\u0007\u0012\u0015\u0016\u0014\u0017 \u0016\u000e\u0013\u0012\u0015 \u0001   • \u0001   *4038<6\u0001B8;4\u0001L\u0001   \u0001;8<CB4A\u0001  • \u0001   .=@98<6\u0001B8;4\u0001L\u0001\u000e\u00017=C@A\u0001  • \u0001   .@8B4\u0001CA8<6\u00011:029\u0001>4<\u0001  • \u0001   &\u001d+\u0019\u00010>>@=D43\u000120:2C:0B=@A\u0001;0G\u000114\u0001 CA43\u0001  • \u0001   \u0019\u0001@454@4<24\u0001A744B\u00018A\u0001>@=D8343\u0001E8B7\u0001B78A\u0001>0>4@\u0001  • \u0001   \u0019::\u00010<AE4@A\u0007\u0001C<:4AA\u0001=B74@E8A4\u0001AB0B43\u0007\u0001A7=C:3\u000114\u0001:45B\u00018<\u0001A8;>:85843\u0007\u0001 4F02B\u00015=@; \u0001%0@9A\u0001;0G\u0001 \u0014\u0015\u001a\u0001 14\u00010E0@343\u00015=@\u0001;4AAG\u0001=@\u0001103:G\u0001 0@@0<643\u0001E=@9\u0001  • \u0001   \u001e=@\u0001?C4AB8=<A\u00018<\u0001+42B8=<\u0001!!\u0007\u0001A7=E\u0001\u0019$$\u0001@4:4D0<B\u0001;0B74;0B820:\u0001 @40A=<8<6\u00010<3 =@\u000120:2C:0B8=<A \u0001\u0019<AE4@A\u0001B70B\u0001@4:G\u0001B=B0::G\u0001=<\u0001 20:2C:0B=@\u0001B427<=:=6G\u0001;0G\u0001<=B\u0001<424AA0@8:G\u0001@4248D4\u00015C::\u0001;0@9A  \u0013\u0016 \u0010\u0001\b \u0014\u000f\u0015\u0004\u0001\u0003\u0002\u0002\u0001   \u0019 \u001e-$)(\u0001\u0012\u00010\u0001\u0003\u0002\u0001'\u001c+%,\u0001 \u0004>064A\u0001 \u0001L\u0001\u0010\u0005\u0001  • \u0001   \u0019BB4;>B\u0001)C4AB8=<A\u0001 \u0001L\u0001   \u0001  • \u0001   \u0019::=E\u000101=CB\u0001 \u0010\u0001;8<CB4A\u00015=@\u0001B78A\u0001 A42B8=<\u0001  \u0001 \u0001 \u0019 \u001e-$)(\u0001\u0012\u0012\u00010\u0001 \u0002\u0001'\u001c+%,\u0001 \u0004>064A\u0001\u0011\u0001L\u0001\u000e\u0013\u0005\u0001  • \u0001   \u0019BB4;>B\u00010::\u0001)C4AB8=<A\u00018<\u0001+42B8=<\u0001!! \u0001  • \u0001   \u0019::=E\u000101=CB\u0001 \u00017=C@A\u00010<3\u0001\u000f\u0010\u0001;8<CB4A\u00015=@\u0001B78A\u0001A42B8=<  \u0001  \u0005\u0018 \u0011\u000e\u0012 \u0014\u0004\u0001   \u0005\u0010\u000f \u000e \b \u0001\u0005\u0010\b   \u000e\u0001\u0002\u0004\u0007\u0006\u0003  \u0001  \u0003\u0002\u0003\u0004\u0001  NESA Number:  Name:  Tick next to your teacher’s name  RCW JC WB MZ",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202025%20w.%20sol",
+   "at": "2026-11-06T00:45:19.594Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "eb45078cb0adfe9026184d876044857f9ab11033e372eec606486c4f1fde4662",
+   "bytes": 8957631,
+   "pages": 103,
+   "text": "SYDNEY BOYS HIGH SCHOOL  Name: NESA Number:  Tick next to your teacher’s name MZ JC RCW WB  2026   YEAR 12 TASK 4 TRIAL HSC  Mathematics Advanced  General Instructions  •   Reading time   −   10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Only NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   All answers, unless otherwise stated, should be left in simplified, exact form  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations as answers that rely totally on calculator technology may not necessarily receive full marks.  Total Marks: 100   Section I   −   10 marks   (pages 2   −   8)  •   Attempt Questions 1   −   10  •   Allow about 15 minutes for this section  Section II   −   90 marks   (pages 9   −   47)  •   Attempt all Questions in Section II  •   Allow about 2 hour and 45 minutes for this section  Examiner:  External Examiner",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202026%20w.%20sol",
+   "at": "2026-11-06T00:45:21.801Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202000%20w.%20sol": {
    "state": "review",
@@ -15333,44 +15373,84 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "a8f2eb346cc5666c33bb64cd52cac7d8ddc2b939d7b0f7086b3450d16626348f",
+   "bytes": 691966,
+   "pages": 37,
+   "text": "Sydney   Girls   High   School  2013  TRIAL   HIGHER   SCHOOL   CERTIFICATE  EXAMINATION  Mathematics  General   Instructions  •   Reading Time- 5 minutes  •   Working time- 3 hours  •   Write using   black   or   blue   pen  Black   pen is preferred  •   Board-approved   calculators   may be used  •   A   table   of standard   integrals   is provided at the back of this paper  •   In   Questions   11-16,   show  relevant   mathematical reasoning and/or   calculations  Total   marks-   100  I Section   I   )   Pages   3-   5  10   Marks  •   Attempt Questions   1-10  •   Answer on the   Multiple   Choice answer sheet provided  •   Allow about 15 minutes for this section  I Section   II   )   Pages   7-   17  90   Marks  •   Attempt Questions 11-16  •   Answer on the   blank   paper provided  •   Begin a new page for each question  •   Allow about 2 hours and 45 minutes for this section Name: ....................................................................   THIS   IS   A   TRIAL   PAPER   ONLY  It   does not   necessarily   reflect   the format or Teacher:................................................................   the content ofthe   2013   HSC   Examination  Paper   in this subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202013%20w.%20sol",
+   "at": "2026-11-06T00:45:32.069Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "93587b20c9080001f380b51a63e1ac44790098c90fa115b55442fa66d7bdcb1f",
+   "bytes": 1790680,
+   "pages": 28,
+   "text": "SYDNEY   GIRLS   HIGH   SCHOOL  HIGHER   SCHOQL.CERTIFICATE  TRIAL   EXAMINATION  Mathematics   2014  General   Instructions  o   Reading time-   5   minutes o   Working   time-   3   hours  o   Write using black or blue pen  o   Board-approved calculators may be used  o   A   table of standard integrals is provided at the back of this paper which can be detached and used throughout the paper Name: ..............................................................   . Teacher: ..................................................................  Total   marks-   100  SECTION   I   -   10   marks  o   Attempt Questions   1-10  o   Answer on the Multiple   Choice   answer sheet provided o   Allow about   15   minutes for this section  SECTION   II   -   90   marks  o   Attempt Questions   11-16 o   Answer on the blank paper provided  o   Allow   about   2   hours and   45   minutes for this section This is a Trial paper   ONLY.  It   does not necessarily reflect the format or the contents of the   2014   HSC   Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202014%20w.%20sol",
+   "at": "2026-11-06T00:45:34.323Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "24622f7f421c81546c8841a2e7af77aec3103e28938352d24c5300f81d72055f",
+   "bytes": 1020129,
+   "pages": 28,
+   "text": "Sydney   Girls   High   School  2015  TRIAL   HIGHER   SCHOOL   CERTIFICATE  EXAMINATION  Mathematics  General   Instructions     Reading   Time   –   5   minutes     Working   time   –   3   hours     Write   using   black   or   blue   pen  Black   pen   is   preferred     Board ‐ approved   calculators   may  be   used     A   table   of   standard   integrals   is  provided   at   the   back   of   this   paper     In   Questions   11   –   16,   show  relevant   mathematical   reasoning  and/or   calculations  Total   marks   – 100  Section   I   Pages   3   –   6  10   Marks     Attempt   Questions   1   –   10     Answer   on   the   Multiple   Choice   answer   sheet  provided     Allow   about   15   minutes   for   this   section  Section   II   Pages   7   –   15  90   Marks     Attempt   Questions   11   –   16     Answer   on   the   blank   paper   provided     Begin   a   new   page   for   each   question     Allow   about   2   hours   and   45   minutes   for   this  section  Name:   …………………………………………………………..  Teacher:   ……………………………………………………….  THIS   IS   A   TRIAL   PAPER   ONLY  It   does   not   necessarily   reflect   the   format   or  the   content   of   the   2015   HSC   Examination  Paper   in   this   subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202015%20w.%20sol",
+   "at": "2026-11-06T00:45:36.467Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "000d09ac62ad91c6498e3e39e2e44c7293b515726ba3d23e4e209bb7dd191f3d",
+   "bytes": 2484129,
+   "pages": 16,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202016%20w.%20sol",
+   "at": "2026-11-06T00:45:38.540Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "bc19c6255846ea65a7b7d2966af8b0de426cffb1fd2243698a9cff5a1b5b0d40",
+   "bytes": 1887996,
+   "pages": 38,
+   "text": "Sydney   Girls   High   School  2017  TRIAL   HIGHER   SCHOOL   CERTIFICATE  EXAMINATION  Mathematics  General   Instructions     Reading   Time   –   5   minutes     Working   time   –   3   hours     Write   using   black   or   blue   pen  Black   pen   is   preferred     Board ‐ approved   calculators   may  be   used     A   table   of   standard   integrals   is  provided   at   the   back   of   this   paper     In   Questions   11   –   16,   show  relevant   mathematical   reasoning  and/or   calculations  Total   marks   – 100  Section   I   Pages   3   –   5  10   Marks     Attempt   Questions   1   –   10     Answer   on   the   Multiple   Choice   answer   sheet  provided     Allow   about   15   minutes   for   this   section  Section   II   Pages   7   –   17  90   Marks     Attempt   Questions   11   –   16     Answer   on   the   blank   paper   provided     Begin   a   new   page   for   each   question     Allow   about   2   hours   and   45   minutes   for   this  section  Name:   …………………………………………………………..  Teacher:   ……………………………………………………….  THIS   IS   A   TRIAL   PAPER   ONLY  It   does   not   necessarily   reflect   the   format   or  the   content   of   the   2017   HSC   Examination  Paper   in   this   subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202017%20w.%20sol",
+   "at": "2026-11-06T00:45:40.584Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "fc9b16e6270cdc2711df558aaa5b22a185aa6b3ef17a98af1df1536f964ac546",
+   "bytes": 2695780,
+   "pages": 30,
+   "text": "Sydney  Girls  High  School  2018  TRIAL  HIGHER  SCHOOL  CERTIFICATE  EXAMINATION  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided  •   In Questions   11 – 16 , show relevant mathematical reasoning and/or calculations  Total marks : 100  Section I – 10 marks   (pages   3 − 6 )  •   Attempt Questions   1 – 10  •   Answer on the Multiple Choice answer sheet provided  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages   𝟕𝟕 – 𝟏𝟏𝟏𝟏 )  •   Attempt Questions   𝟏𝟏𝟏𝟏 – 𝟏𝟏𝟏𝟏  •   Answer on the blank paper provided  •   Begin a new page for each question  •   Allow about 2 hours and 45 minutes for this section  Name: ……………………………………………………...  Teacher: ……………………………………………………  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2018 HSC Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202018%20w.%20sol",
+   "at": "2026-11-06T00:45:43.078Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "945bae78dae500bd91d11676b89579bb6498c0666e766f777f61db6886f86639",
+   "bytes": 3447765,
+   "pages": 36,
+   "text": "Sydney  Girls  High  School  2019  TRIAL  HIGHER  SCHOOL  CERTIFICATE  EXAMINATION  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   NESA approved calculators may be used  •   A reference sheet is provided  •   In Questions   11 – 16 , show relevant mathematical reasoning and/or calculations.   A correct answer without working will be awarded a maximum of 1 mark.  Total marks : 100  Section 1 – 10 marks   (page s   𝟐𝟐 − 𝟓𝟓 )  •   Attempt Questions   1 – 10  •   Answer on the Multiple Choice answer sheet provided  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages   𝟔𝟔   –   𝟏𝟏 𝟓𝟓 )  •   Attempt Questions   𝟏𝟏𝟏𝟏   –   𝟏𝟏 𝟔𝟔  •   Answer on the blank paper provided  •   Begin a new page for each question  •   Allow about 2 hours and 45 minutes for this section  Name: ……………………………………………………...  Teacher: ……………………………………………………  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2019 HSC Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202019%20w.%20sol",
+   "at": "2026-11-06T00:45:44.830Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "655c4ca60facb6320bcbf56da7a31a2946002a44e98fd7188b9faebc477d5099",
+   "bytes": 6965104,
+   "pages": 58,
+   "text": "Student Number  Sydney Girls High School  2020  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time –   10 minutes  • Working time –   3 hours  • Write using black pen  • Calculators approved by NESA may be used  • A reference sheet is provided at the back of this paper  • For questio ns in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:   Section I   –   10 marks (pages 3 – 6)  100   • Attempt Questions 1– 10  • Allow about 15 minutes for this section  Section II   –   90 marks (pages 9 – 34)  • Attempt Questions 11– 36  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2020 HSC Examination Paper in this subject.  Question   M.C   11-18   19-25   26-32   33-36  Total",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202020%20w.%20sol",
+   "at": "2026-11-06T00:45:46.898Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202021%20w.%20sol": {
    "state": "review",
@@ -148786,6 +148866,166 @@
    "transport": "thsc-fragments",
    "at": "2026-11-05T00:45:31.770Z",
    "proofSource": "https://thsconline.github.io/s/d/5328/St%20George%20Girls%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "8e09678fcb7daf2507b63a5f3c2cc66c18000b24ba905e35c812d3b4ff6b39f8",
+   "bytes": 1423989,
+   "pages": 32,
+   "text": "1  \u0001  \u0001  2017  SYDNEY BOYS HIGH SCHOOL TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics  General Instructions •   Reading time – 5 minutes •   Working time – 3 hours •   Write using black pen •   Board-approved calculators may be used •   A reference sheet is provided with this paper •   Leave your answers in the simplest exact form, unless otherwise stated •   All necessary working should be shown in every question if full marks are to be awarded •   Marks may   NOT   be awarded for messy or badly arranged work •   In Questions 11–16, show relevant mathematical reasoning and/or calculations Total marks – 100  Pages 2–6 10 marks •   Attempt Questions 1–10 •   Allow about 15 minutes for this section Pages 8–19 90 marks •   Attempt Questions 11–16 •   Allow about 2 hour and 45 minutes for this section  Examiner:   B.Kilmore  Section I Section II",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:05.309Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f7121210d68be3a774689cd7d7b2b672d3dfecdbfd9e6df499c0b0b652436b67",
+   "bytes": 2233768,
+   "pages": 48,
+   "text": "2018  SYDNEY BOYS HIGH SCHOOL  YEAR 12 THSC ASSESSMENT TASK #4  Mathematics  General Instructions      Reading time – 5 minutes     Working time – 3 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided with this paper     Leave your answers in the simplest exact form, unless otherwise stated     Marks may   NOT   be awarded for messy or badly arranged work     In Questions 11–16, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100 Section I – 10 marks   (pages 3–6)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks   (pages 8–19)     Attempt Questions 11–16     Allow about 2 hours and 45 minutes for this section  Examiner: E. Choy  D",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:07.662Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "5c6e4fad3ebf4cac336365655e0bb4392ce073abf20f9990678e2c3e55c5a80b",
+   "bytes": 3922188,
+   "pages": 44,
+   "text": "SYDNEY BOYS HIGH SCHOOL YEAR 12 TRIAL HSC ASSESSMENT TASK  Mathematics  General Instructions     Reading time – 5 minutes     Working time – 3 hours     Write using   black   pen     NESA approved calculators may be used     A reference sheet is provided with this paper     Marks may   NOT   be awarded for messy or badly arranged work     In Questions 11–16, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100 Section I – 10 marks   (pages 2–5)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 90 marks   (pages 6–15)     Attempt Questions 11–16     Allow about 2 hours and 45 minutes for this section  Examiner:   B.K  2019",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:09.941Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "830b1ef4c5ca3ea89860366a844a5cf0b480a656b79e27c106080979d1a0b4b7",
+   "bytes": 6976719,
+   "pages": 64,
+   "text": "SYDNEY BOYS HIGH SCHOOL  YEAR 12 TERM 3 TRIAL HSC  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 7 – 32)  •   Attempt all Questions in Section II  •   Allow about 2 hours and 45 minutes for this section  Examiner: BK  Section I  2020  NESA Number:  Name:  Class:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:12.258Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "73611b7c120ff4083cfd9a0dd092e1b9327325c8530c90993867d7934af1ddc2",
+   "bytes": 5847266,
+   "pages": 50,
+   "text": "SYDNEY BOYS HIGH SCHOOL  YEAR 12 TASK 4 TRIAL HSC  Mathematics Advanced  General Instructions  •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100   Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6 – 35)  •   Attempt all Questions in Section II  •   Allow about 2 hours and 45 minutes for this section  Examiner: AW  2022  NESA Number: Name: Maths Class:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:15.150Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "4d319c85bc80d3e6abd25a6aa1775ad422cf3961d19e1ef7c5c9085939f7a55a",
+   "bytes": 4753152,
+   "pages": 82,
+   "text": "SYDNEY BOYS HIGH SCHOOL  YEAR 12 TASK 4 TRIAL HSC  Mathematics Advanced  General Instructions   •   Reading time – 10 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   All answers, unless otherwise stated, should be left in simplified, exact form  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations  Total Marks: 100   Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages 6 – 42)  •   Attempt all Questions in Section II  •   Allow about 2 hours and 45 minutes for this section  Examiner: AMG  2023  NESA Number:  Name:  Maths Class:   Circle  12P   12L   12U 12Z2   12Z4 11A   11B   11M1   11M2",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:17.280Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "18dfcb877a7c137511ae801e4c8614eb731dfa1b5905b0d8c8dd776103e6bb41",
+   "bytes": 7618251,
+   "pages": 82,
+   "text": "\u0001  SYDNEY BOYS HIGH SCHOOL  YEAR 12 HSC TASK 4 TRIAL HSC  Mathematics Advanced  \u0006 \u0012 \u0014 \u0010\u0001\u0007\u0012\u0015\u0016\u0014\u0017 \u0016\u000e\u0013\u0012\u0015 \u0001   • \u0001   *4038<6\u0001B8;4\u0001L\u0001   \u0001;8<CB4A\u0001  • \u0001   .=@98<6\u0001B8;4\u0001L\u0001\u000e\u00017=C@A\u0001  • \u0001   .@8B4\u0001CA8<6\u00011:029\u0001>4<\u0001  • \u0001   &\u001d+\u0019\u00010>>@=D43\u000120:2C:0B=@A\u0001;0G\u000114\u0001 CA43\u0001  • \u0001   \u0019\u0001@454@4<24\u0001A744B\u00018A\u0001>@=D8343\u0001E8B7\u0001B78A\u0001>0>4@\u0001  • \u0001   \u0019::\u00010<AE4@A\u0007\u0001C<:4AA\u0001=B74@E8A4\u0001AB0B43\u0007\u0001A7=C:3\u000114\u0001:45B\u00018<\u0001A8;>:85843\u0007\u0001 4F02B\u00015=@; \u0001%0@9A\u0001;0G\u0001 \u0014\u0015\u001a\u0001 14\u00010E0@343\u00015=@\u0001;4AAG\u0001=@\u0001103:G\u0001 0@@0<643\u0001E=@9\u0001  • \u0001   \u001e=@\u0001?C4AB8=<A\u00018<\u0001+42B8=<\u0001!!\u0007\u0001A7=E\u0001\u0019$$\u0001@4:4D0<B\u0001;0B74;0B820:\u0001 @40A=<8<6\u00010<3 =@\u000120:2C:0B8=<A \u0001\u0019<AE4@A\u0001B70B\u0001@4:G\u0001B=B0::G\u0001=<\u0001 20:2C:0B=@\u0001B427<=:=6G\u0001;0G\u0001<=B\u0001<424AA0@8:G\u0001@4248D4\u00015C::\u0001;0@9A  \u0013\u0016 \u0010\u0001\b \u0014\u000f\u0015\u0004\u0001\u0003\u0002\u0002\u0001   \u0019 \u001e-$)(\u0001\u0012\u00010\u0001\u0003\u0002\u0001'\u001c+%,\u0001 \u0004>064A\u0001 \u0001L\u0001\u0010\u0005\u0001  • \u0001   \u0019BB4;>B\u0001)C4AB8=<A\u0001 \u0001L\u0001   \u0001  • \u0001   \u0019::=E\u000101=CB\u0001 \u0010\u0001;8<CB4A\u00015=@\u0001B78A\u0001 A42B8=<\u0001  \u0001 \u0001 \u0019 \u001e-$)(\u0001\u0012\u0012\u00010\u0001 \u0002\u0001'\u001c+%,\u0001 \u0004>064A\u0001\u0011\u0001L\u0001\u000e\u0013\u0005\u0001  • \u0001   \u0019BB4;>B\u00010::\u0001)C4AB8=<A\u00018<\u0001+42B8=<\u0001!! \u0001  • \u0001   \u0019::=E\u000101=CB\u0001 \u00017=C@A\u00010<3\u0001\u000f\u0010\u0001;8<CB4A\u00015=@\u0001B78A\u0001A42B8=<  \u0001  \u0005\u0018 \u0011\u000e\u0012 \u0014\u0004\u0001   \u0005\u0010\u000f \u000e \b \u0001\u0005\u0010\b   \u000e\u0001\u0002\u0004\u0007\u0006\u0003  \u0001  \u0003\u0002\u0003\u0004\u0001  NESA Number:  Name:  Tick next to your teacher’s name  RCW JC WB MZ",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:19.594Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Boys%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "eb45078cb0adfe9026184d876044857f9ab11033e372eec606486c4f1fde4662",
+   "bytes": 8957631,
+   "pages": 103,
+   "text": "SYDNEY BOYS HIGH SCHOOL  Name: NESA Number:  Tick next to your teacher’s name MZ JC RCW WB  2026   YEAR 12 TASK 4 TRIAL HSC  Mathematics Advanced  General Instructions  •   Reading time   −   10 minutes  •   Working time – 3 hours  •   Write using black pen  •   Only NESA approved calculators may be used  •   A reference sheet is provided with this paper  •   All answers, unless otherwise stated, should be left in simplified, exact form  •   Marks may   NOT   be awarded for messy or badly arranged work  •   For questions in Section II, show ALL relevant mathematical reasoning and/or calculations as answers that rely totally on calculator technology may not necessarily receive full marks.  Total Marks: 100   Section I   −   10 marks   (pages 2   −   8)  •   Attempt Questions 1   −   10  •   Allow about 15 minutes for this section  Section II   −   90 marks   (pages 9   −   47)  •   Attempt all Questions in Section II  •   Allow about 2 hour and 45 minutes for this section  Examiner:  External Examiner",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:21.801Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Boys%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a8f2eb346cc5666c33bb64cd52cac7d8ddc2b939d7b0f7086b3450d16626348f",
+   "bytes": 691966,
+   "pages": 37,
+   "text": "Sydney   Girls   High   School  2013  TRIAL   HIGHER   SCHOOL   CERTIFICATE  EXAMINATION  Mathematics  General   Instructions  •   Reading Time- 5 minutes  •   Working time- 3 hours  •   Write using   black   or   blue   pen  Black   pen is preferred  •   Board-approved   calculators   may be used  •   A   table   of standard   integrals   is provided at the back of this paper  •   In   Questions   11-16,   show  relevant   mathematical reasoning and/or   calculations  Total   marks-   100  I Section   I   )   Pages   3-   5  10   Marks  •   Attempt Questions   1-10  •   Answer on the   Multiple   Choice answer sheet provided  •   Allow about 15 minutes for this section  I Section   II   )   Pages   7-   17  90   Marks  •   Attempt Questions 11-16  •   Answer on the   blank   paper provided  •   Begin a new page for each question  •   Allow about 2 hours and 45 minutes for this section Name: ....................................................................   THIS   IS   A   TRIAL   PAPER   ONLY  It   does not   necessarily   reflect   the format or Teacher:................................................................   the content ofthe   2013   HSC   Examination  Paper   in this subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:32.069Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "93587b20c9080001f380b51a63e1ac44790098c90fa115b55442fa66d7bdcb1f",
+   "bytes": 1790680,
+   "pages": 28,
+   "text": "SYDNEY   GIRLS   HIGH   SCHOOL  HIGHER   SCHOQL.CERTIFICATE  TRIAL   EXAMINATION  Mathematics   2014  General   Instructions  o   Reading time-   5   minutes o   Working   time-   3   hours  o   Write using black or blue pen  o   Board-approved calculators may be used  o   A   table of standard integrals is provided at the back of this paper which can be detached and used throughout the paper Name: ..............................................................   . Teacher: ..................................................................  Total   marks-   100  SECTION   I   -   10   marks  o   Attempt Questions   1-10  o   Answer on the Multiple   Choice   answer sheet provided o   Allow about   15   minutes for this section  SECTION   II   -   90   marks  o   Attempt Questions   11-16 o   Answer on the blank paper provided  o   Allow   about   2   hours and   45   minutes for this section This is a Trial paper   ONLY.  It   does not necessarily reflect the format or the contents of the   2014   HSC   Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:34.323Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "24622f7f421c81546c8841a2e7af77aec3103e28938352d24c5300f81d72055f",
+   "bytes": 1020129,
+   "pages": 28,
+   "text": "Sydney   Girls   High   School  2015  TRIAL   HIGHER   SCHOOL   CERTIFICATE  EXAMINATION  Mathematics  General   Instructions     Reading   Time   –   5   minutes     Working   time   –   3   hours     Write   using   black   or   blue   pen  Black   pen   is   preferred     Board ‐ approved   calculators   may  be   used     A   table   of   standard   integrals   is  provided   at   the   back   of   this   paper     In   Questions   11   –   16,   show  relevant   mathematical   reasoning  and/or   calculations  Total   marks   – 100  Section   I   Pages   3   –   6  10   Marks     Attempt   Questions   1   –   10     Answer   on   the   Multiple   Choice   answer   sheet  provided     Allow   about   15   minutes   for   this   section  Section   II   Pages   7   –   15  90   Marks     Attempt   Questions   11   –   16     Answer   on   the   blank   paper   provided     Begin   a   new   page   for   each   question     Allow   about   2   hours   and   45   minutes   for   this  section  Name:   …………………………………………………………..  Teacher:   ……………………………………………………….  THIS   IS   A   TRIAL   PAPER   ONLY  It   does   not   necessarily   reflect   the   format   or  the   content   of   the   2015   HSC   Examination  Paper   in   this   subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:36.467Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "000d09ac62ad91c6498e3e39e2e44c7293b515726ba3d23e4e209bb7dd191f3d",
+   "bytes": 2484129,
+   "pages": 16,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:38.540Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "bc19c6255846ea65a7b7d2966af8b0de426cffb1fd2243698a9cff5a1b5b0d40",
+   "bytes": 1887996,
+   "pages": 38,
+   "text": "Sydney   Girls   High   School  2017  TRIAL   HIGHER   SCHOOL   CERTIFICATE  EXAMINATION  Mathematics  General   Instructions     Reading   Time   –   5   minutes     Working   time   –   3   hours     Write   using   black   or   blue   pen  Black   pen   is   preferred     Board ‐ approved   calculators   may  be   used     A   table   of   standard   integrals   is  provided   at   the   back   of   this   paper     In   Questions   11   –   16,   show  relevant   mathematical   reasoning  and/or   calculations  Total   marks   – 100  Section   I   Pages   3   –   5  10   Marks     Attempt   Questions   1   –   10     Answer   on   the   Multiple   Choice   answer   sheet  provided     Allow   about   15   minutes   for   this   section  Section   II   Pages   7   –   17  90   Marks     Attempt   Questions   11   –   16     Answer   on   the   blank   paper   provided     Begin   a   new   page   for   each   question     Allow   about   2   hours   and   45   minutes   for   this  section  Name:   …………………………………………………………..  Teacher:   ……………………………………………………….  THIS   IS   A   TRIAL   PAPER   ONLY  It   does   not   necessarily   reflect   the   format   or  the   content   of   the   2017   HSC   Examination  Paper   in   this   subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:40.584Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "fc9b16e6270cdc2711df558aaa5b22a185aa6b3ef17a98af1df1536f964ac546",
+   "bytes": 2695780,
+   "pages": 30,
+   "text": "Sydney  Girls  High  School  2018  TRIAL  HIGHER  SCHOOL  CERTIFICATE  EXAMINATION  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black pen  •   NESA approved calculators may be used  •   A reference sheet is provided  •   In Questions   11 – 16 , show relevant mathematical reasoning and/or calculations  Total marks : 100  Section I – 10 marks   (pages   3 − 6 )  •   Attempt Questions   1 – 10  •   Answer on the Multiple Choice answer sheet provided  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages   𝟕𝟕 – 𝟏𝟏𝟏𝟏 )  •   Attempt Questions   𝟏𝟏𝟏𝟏 – 𝟏𝟏𝟏𝟏  •   Answer on the blank paper provided  •   Begin a new page for each question  •   Allow about 2 hours and 45 minutes for this section  Name: ……………………………………………………...  Teacher: ……………………………………………………  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2018 HSC Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:43.078Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "945bae78dae500bd91d11676b89579bb6498c0666e766f777f61db6886f86639",
+   "bytes": 3447765,
+   "pages": 36,
+   "text": "Sydney  Girls  High  School  2019  TRIAL  HIGHER  SCHOOL  CERTIFICATE  EXAMINATION  Mathematics  General Instructions  •   Reading time – 5 minutes  •   Working time – 3 hours  •   Write using black or blue pen  •   NESA approved calculators may be used  •   A reference sheet is provided  •   In Questions   11 – 16 , show relevant mathematical reasoning and/or calculations.   A correct answer without working will be awarded a maximum of 1 mark.  Total marks : 100  Section 1 – 10 marks   (page s   𝟐𝟐 − 𝟓𝟓 )  •   Attempt Questions   1 – 10  •   Answer on the Multiple Choice answer sheet provided  •   Allow about 15 minutes for this section  Section II – 90 marks   (pages   𝟔𝟔   –   𝟏𝟏 𝟓𝟓 )  •   Attempt Questions   𝟏𝟏𝟏𝟏   –   𝟏𝟏 𝟔𝟔  •   Answer on the blank paper provided  •   Begin a new page for each question  •   Allow about 2 hours and 45 minutes for this section  Name: ……………………………………………………...  Teacher: ……………………………………………………  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2019 HSC Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:44.830Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "655c4ca60facb6320bcbf56da7a31a2946002a44e98fd7188b9faebc477d5099",
+   "bytes": 6965104,
+   "pages": 58,
+   "text": "Student Number  Sydney Girls High School  2020  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time –   10 minutes  • Working time –   3 hours  • Write using black pen  • Calculators approved by NESA may be used  • A reference sheet is provided at the back of this paper  • For questio ns in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:   Section I   –   10 marks (pages 3 – 6)  100   • Attempt Questions 1– 10  • Allow about 15 minutes for this section  Section II   –   90 marks (pages 9 – 34)  • Attempt Questions 11– 36  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2020 HSC Examination Paper in this subject.  Question   M.C   11-18   19-25   26-32   33-36  Total",
+   "transport": "thsc-fragments",
+   "at": "2026-11-06T00:45:46.898Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202020%20w.%20sol"
   }
  },
  "releaseRefresh": {
