@@ -1,6 +1,6 @@
 {
  "_comment": "Compatibility projection for v1.0.26: supported PDF URLs, no role-dependent aliases or raw router descriptors. Modern consumers use papers-v2.json.",
- "generated": "2026-11-06T00:45:49.927Z",
+ "generated": "2026-11-07T00:00:19.454Z",
  "dataVersion": 1,
  "idAliases": {
   "hsc-2018-automotive-vehicle-body-hsc-exam-paper": "hsc-2018-automotive-mechanical-technology-hsc-exam-paper",
