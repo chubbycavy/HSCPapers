@@ -15453,34 +15453,64 @@
    "at": "2026-11-07T00:00:15.296Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "6c0600497573570d980c7449f7bf59448b95f6f15a9e95a7e23a1f1167ea30f9",
+   "bytes": 5216630,
+   "pages": 25,
+   "text": "Sydney Girls High School  2021  Alternate Task 4  Mathematics Advanced  ____________________  General Instructions   • Reading time – 5 minutes  • Working time – 60 minutes  • Write using a black pen  • Calculators approved by NESA may be used  • A NESA reference sheet has been provided for use  • For questions in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:  50   Section I – 10 marks (pages 2–5)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 40 marks (pages 6–9)  • Attempt Questions 11–14  • Allow about 45 minutes for this section  THIS IS NOT A TRIAL PAPER  It does not reflect the format or the content of the 2021 HSC Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202021%20w.%20sol",
+   "at": "2026-11-07T23:25:43.905Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "b4af08c9a81571dc418fe0db447163b8f972b25a53eaa2fd7b06d0be365cac7e",
+   "bytes": 5447789,
+   "pages": 77,
+   "text": "Student Number:  Sydney Girls High School  2022  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using black pen  • Calculators approved by NESA may be used  • A reference sheet is provided at the back of this paper  • For questions in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:  100   Section I – 10 marks (pages 4–7)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 10–43)  • Attempt Questions 11–34  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2022 HSC Examination Paper in this subject.  Question   1-10  M.C  11-16   17-21   22-26   27-34  Total  /10   /16   /19   /19   /36   %",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202022%20w.%20sol",
+   "at": "2026-11-07T23:25:46.256Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "b1eb532f55ef9ff4730936eb3e4c2e36a3b7d44199907e2f723d97515498f677",
+   "bytes": 2619535,
+   "pages": 63,
+   "text": "Student Number:  Sydney Girls High School  2023  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using blue or black pen  • Calculators approved by NESA may be used  • A reference sheet is provided  • For questions in Section II, show relevant mathematical  reasoning and/or calculations  ___________________  Total Marks:  100   Section I – 10 marks (pages 2–7)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 8–37)  • Attempt Questions 11–40  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2023 HSC Examination Paper in this subject.  Question   M.C   11-23   24-30   31-40  Total   /10   /31   /23   /36   /100  1",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202023%20w.%20sol",
+   "at": "2026-11-07T23:25:48.325Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "83c9e70ec12a77c0a880b5016dc94b9ba0da237890463dd47ba0e14a444b54bb",
+   "bytes": 7058936,
+   "pages": 65,
+   "text": "Student Number  Sydney Girls High School  2024  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using black pen  • Calculators approved by NESA may be used  • A reference sheet is provided at the back of this paper  • For questions in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:   Section I – 10 marks (pages 3–6)  100   • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 9–34)  • Attempt Questions 11–36  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2020 HSC Examination Paper in this subject.  Question   M.C   11-20   21-24   25-29   30-34   35-37   Total  Marks   /10   /31   /14   /16   /14   /15   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202024%20w.%20sol",
+   "at": "2026-11-07T23:25:50.726Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "5eeaa73d32d6b2da747ee050a70033a5bad3832cb91398dac18292a2d27f1da2",
+   "bytes": 7351974,
+   "pages": 65,
+   "text": "Student Number:  Sydney Girls High School  2025  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using blue or black pen  • Calculators approved by NESA may be used  • A reference sheet is provided  • For questions in Section II, show relevant mathematical  reasoning and/or calculations  ___________________  Total Marks:   Section I – 10 marks (pages 2–7)  100   • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 8–41)  • Attempt Questions 11–39  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2025 HSC Examination Paper in this subject.  Questions   M.C.   Q11-23   Q24-27   Q28-32   Q33-36   Q37-39   Total  Total   /10   /30   /14   /16   /15   /15   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202025%20w.%20sol",
+   "at": "2026-11-07T23:25:53.065Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "568a826bf3368e4b247be6a49a428b1fff45f3ed7cadbcc4da5597fb1c3acd2e",
+   "bytes": 7682220,
+   "pages": 75,
+   "text": "Sydney Girls High School 2026  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Advanced  General Instructions   •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total Marks:   Section I   –   10 marks  100   •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks  •   Attempt Questions 11 – 32  •   Allow about 2 hours and 45 minutes for this section  Questions   M.C.   Q11-16   Q17-20   Q21-27   Q28-29   Q30-32   Total  Total   /10   /14   /14   /30   /15   /17   /100  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2026 HSC   Examination .",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202026%20w.%20sol",
+   "at": "2026-11-07T23:25:55.382Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%201995%20w.%20sol": {
    "state": "review",
@@ -15528,9 +15558,14 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202007%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "6b9aac44187cd6bfe19e71a9fe967ecaffebdf6031a961d84510834bf2b7ead9",
+   "bytes": 676371,
+   "pages": 19,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202007%20w.%20sol",
+   "at": "2026-11-07T23:26:08.649Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202008%20w.%20sol": {
    "state": "review",
@@ -15548,34 +15583,64 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "960a71c77b275f1ddd57b2b616e4a487e335d8102840fcb797995ae32aea7ae1",
+   "bytes": 863581,
+   "pages": 30,
+   "text": "CANDIDATE NUMBER  S YDNEY   G RAMMAR   S CHOOL  2017 Trial Examination  FORM VI MATHEMATICS 2 UNIT  Thursday 10th August 2017 General Instructions  •   Reading time   —   5 minutes  •   Writing time   —   3 hours  •   Write using black pen.  •   Board-approved calculators and templates may be used.  Total   —   100 Marks  •   All questions may be attempted.  Section I   –   10 Marks  •   Questions 1 – 10 are of equal value.  •   Record your answers to the multiple choice on the sheet provided.  Section II   –   90 Marks  •   Questions 11 – 16 are of equal value.  •   All necessary working should be shown.  •   Start each question in a new booklet.  Collection  •   Write your candidate number on each answer booklet and on your multiple choice answer sheet.  •   Hand in the booklets in a single well- ordered pile.  •   Hand in a booklet for each question in Section II, even if it has not been attempted.  •   If you use a second booklet for a question, place it inside the first.  •   Write your candidate number on this question paper and hand it in with your answers.  •   Place everything inside the answer booklet for Question Eleven.  Checklist  •   SGS booklets   —   6 per boy  •   Multiple choice answer sheet  •   Reference sheet  •   Candidature   —   91 boys  Examiner  RCF",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202017%20w.%20sol",
+   "at": "2026-11-07T23:26:14.615Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "82ef0c25bb3611942dac41a1093ea57b6f40ca92080f7fe50760419957634832",
+   "bytes": 733356,
+   "pages": 30,
+   "text": "CANDIDATE NUMBER SYDNEY GRAMMAR SCHOOL 2018 Trial Examination  FORM VI MATHEMATICS 2 UNIT Friday 10th August 2018 General Instructions  •   Reading time   —   5 minutes  •   Writing time   —   3 hours  •   Write using black pen.  •   Board-approved calculators and templates may be used.  Total   —   100 Marks  •   All questions may be attempted.  Section I   –   10 Marks  •   Questions 1 – 10 are of equal value.  •   Record your answers to the multiple choice on the sheet provided.  Section II   –   90 Marks  •   Questions 11 – 16 are of equal value.  •   All necessary working should be shown.  •   Start each question in a new booklet.  Collection  •   Write your candidate number on each answer booklet and on your multiple choice answer sheet.  •   Hand in the booklets in a single well- ordered pile.  •   Hand in a booklet for each question in Section II, even if it has not been attempted.  •   If you use a second booklet for a question, place it inside the first.  •   Write your candidate number on this question paper and hand it in with your answers.  •   Place everything inside the answer booklet for Question Eleven.  Checklist  •   SGS booklets   —   6 per boy  •   Multiple choice answer sheet  •   Reference Sheet  •   Candidature   —   102 boys  Examiner  LRP",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202018%20w.%20sol",
+   "at": "2026-11-07T23:26:16.851Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "c3f1a952ea76c4d88493176ca0d598cd4ed626c3212d7497dd6096291ae79d2c",
+   "bytes": 927368,
+   "pages": 21,
+   "text": "CANDIDATE NUMBER  S YDNEY   G RAMMAR   S CHOOL  2019 Trial Examination  FORM VI MATHEMATICS 2 UNIT  Monday 12th August 2019 General Instructions  •   Reading time   —   5 minutes  •   Writing time   —   3 hours  •   Write using black pen.  •   NESA-approved calculators and templates may be used.  Total   —   100 Marks  •   All questions may be attempted.  Section I   —   10 Marks  •   Questions 1   –   10 are of equal value.  •   Record your answers to the multiple choice on the sheet provided.  Section II   —   90 Marks  •   Questions 11 – 16 are of equal value.  •   All necessary working should be shown.  •   Start each question in a new booklet.  Collection  •   Write your candidate number on each answer booklet and on your multiple choice answer sheet.  •   Hand in the booklets in a single well- ordered pile.  •   Hand in a booklet for each question in Section II, even if it has not been attempted.  •   If you use a second booklet for a question, place it inside the first.  •   Write your candidate number on this question paper and hand it in with your answers.  •   Place everything inside the answer booklet for Question Eleven.  Checklist  •   SGS booklets   —   6 per boy  •   Multiple choice answer sheet  •   Reference Sheet  •   Candidature   —   90 boys  Examiner  PKH",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202019%20w.%20sol",
+   "at": "2026-11-07T23:26:19.136Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "692f9f6acfe8df96a130c5e15fff928533451215ca81f5dbda8e1637da9fb69c",
+   "bytes": 1365135,
+   "pages": 54,
+   "text": "CANDIDATE NUMBER  2020 Trial Examination  Form VI Mathematics Advanced  Wednesday 12th August 2020 General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Attempt all questions.  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A loose reference sheet is provided separate to this paper.  •   Remove the central staple: you should have this cover booklet with Section I and 4 booklets for Section II.  Total Marks: 100 Section I (10 marks)   Questions 1–10  •   This section is multiple-choice. Each question is worth 1 mark.  •   Record your answers on the provided answer sheet.  Section II (90 marks)   Questions 11–32  •   Relevant mathematical reasoning and calculations are required.  •   Answer the questions in this paper in the spaces provided.  •   This section is divided in four parts.   Extra writing paper is provided at the end of each part.  Collection   •   Write your candidate number on each booklet and on the multiple choice sheet.  •   Place everything inside this cover booklet.  Checklist  •   Reference sheet  •   Multiple-choice answer sheet  •   Candidature: 92 pupils  Writer:   RDP/BDD",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202020%20w.%20sol",
+   "at": "2026-11-07T23:26:21.114Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1532561c0782ef48c11ce4458574dfec5bed0f726f934360c1d69d6bba079102",
+   "bytes": 3790366,
+   "pages": 58,
+   "text": "CANDIDATE NUMBER  2021   Trial Examination  Form VI Mathematics Advanced  Friday 20th August 2021 8:40am  General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Attempt all questions.  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A loose reference sheet is provided separate to this paper.  Total Marks: 100 Section I (10 marks)   Questions 1 – 10  •   This section is multiple-choice. Each question is worth 1 mark.  •   Record your answers on the provided answer sheet.  •   Write your candidate number on each page.  Section II (90 marks)   Questions 11 – 33  •   Because of the nature of this task, greater weight than normal will be placed on working.   Clear reasoning and full calculations are required.  •   Answer the questions in this paper in the spaces provided.  •   Write your candidate number on each page.  •   This section is divided in four parts. Extra writing paper is provided at the end of each part. Your sheets must be ORDERED then scanned and uploaded in a SINGLE PDF FILE to the Schoology page of your mathematics class  Checklist  •   Reference sheet  •   Multiple-choice answer sheet  •   Candidature: 101 pupils   Writer:   LYL",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202021%20w.%20sol",
+   "at": "2026-11-07T23:26:23.209Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "46a85fce23593ae8dbac50e6d618ff15a5f257abca7b99534e21c937a8e7bfc3",
+   "bytes": 2811718,
+   "pages": 62,
+   "text": "CANDIDATE NUMBER  2022   Trial Examination Form VI Mathematics Advanced Wednesday 10th August 2022 8:40am  General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Attempt all questions.  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A loose reference sheet is provided separate to this paper.  •   Remove the central staple: you should have this cover booklet with Section I, 4 booklets for Section II, and the multiple-choice answer sheet.  Total Marks: 100 Section I (10 marks)   Questions 1 – 10  •   This section is multiple-choice. Each question is worth 1 mark.  •   Record your answers on the provided answer sheet.  Section II (90 marks)   Questions 11 – 36  •   Relevant mathematical reasoning and calculations are required.  •   Answer the questions in this paper in the spaces provided.  •   This section is divided into four parts. Extra writing paper is pro- vided at the end of each part.  Collection  •   Write your candidate number on this page, on the start of each separate part, and on the multiple choice sheet.  Checklist  •   Reference sheet  •   Multiple-choice answer sheet  •   Candidature: 96 pupils  Writer:   BLR",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202022%20w.%20sol",
+   "at": "2026-11-07T23:26:25.221Z"
   },
   "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202023%20w.%20sol": {
    "state": "review",
@@ -149026,6 +149091,136 @@
    "transport": "thsc-fragments",
    "at": "2026-11-07T00:00:15.296Z",
    "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6c0600497573570d980c7449f7bf59448b95f6f15a9e95a7e23a1f1167ea30f9",
+   "bytes": 5216630,
+   "pages": 25,
+   "text": "Sydney Girls High School  2021  Alternate Task 4  Mathematics Advanced  ____________________  General Instructions   • Reading time – 5 minutes  • Working time – 60 minutes  • Write using a black pen  • Calculators approved by NESA may be used  • A NESA reference sheet has been provided for use  • For questions in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:  50   Section I – 10 marks (pages 2–5)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 40 marks (pages 6–9)  • Attempt Questions 11–14  • Allow about 45 minutes for this section  THIS IS NOT A TRIAL PAPER  It does not reflect the format or the content of the 2021 HSC Examination Paper in this subject.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:25:43.905Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b4af08c9a81571dc418fe0db447163b8f972b25a53eaa2fd7b06d0be365cac7e",
+   "bytes": 5447789,
+   "pages": 77,
+   "text": "Student Number:  Sydney Girls High School  2022  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using black pen  • Calculators approved by NESA may be used  • A reference sheet is provided at the back of this paper  • For questions in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:  100   Section I – 10 marks (pages 4–7)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 10–43)  • Attempt Questions 11–34  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2022 HSC Examination Paper in this subject.  Question   1-10  M.C  11-16   17-21   22-26   27-34  Total  /10   /16   /19   /19   /36   %",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:25:46.256Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b1eb532f55ef9ff4730936eb3e4c2e36a3b7d44199907e2f723d97515498f677",
+   "bytes": 2619535,
+   "pages": 63,
+   "text": "Student Number:  Sydney Girls High School  2023  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using blue or black pen  • Calculators approved by NESA may be used  • A reference sheet is provided  • For questions in Section II, show relevant mathematical  reasoning and/or calculations  ___________________  Total Marks:  100   Section I – 10 marks (pages 2–7)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 8–37)  • Attempt Questions 11–40  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2023 HSC Examination Paper in this subject.  Question   M.C   11-23   24-30   31-40  Total   /10   /31   /23   /36   /100  1",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:25:48.325Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "83c9e70ec12a77c0a880b5016dc94b9ba0da237890463dd47ba0e14a444b54bb",
+   "bytes": 7058936,
+   "pages": 65,
+   "text": "Student Number  Sydney Girls High School  2024  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using black pen  • Calculators approved by NESA may be used  • A reference sheet is provided at the back of this paper  • For questions in Section II, show relevant mathematical  reasoning and/ or calculations  ___________________  Total Marks:   Section I – 10 marks (pages 3–6)  100   • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 9–34)  • Attempt Questions 11–36  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2020 HSC Examination Paper in this subject.  Question   M.C   11-20   21-24   25-29   30-34   35-37   Total  Marks   /10   /31   /14   /16   /14   /15   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:25:50.726Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "5eeaa73d32d6b2da747ee050a70033a5bad3832cb91398dac18292a2d27f1da2",
+   "bytes": 7351974,
+   "pages": 65,
+   "text": "Student Number:  Sydney Girls High School  2025  TRIAL HIGHER SCHOOL CERTIFICATE  EXAMINATION  Mathematics Advanced  ____________________  General Instructions   • Reading time – 10 minutes  • Working time – 3 hours  • Write using blue or black pen  • Calculators approved by NESA may be used  • A reference sheet is provided  • For questions in Section II, show relevant mathematical  reasoning and/or calculations  ___________________  Total Marks:   Section I – 10 marks (pages 2–7)  100   • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II – 90 marks (pages 8–41)  • Attempt Questions 11–39  • Allow about 2 hours and 45 minutes for this section  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2025 HSC Examination Paper in this subject.  Questions   M.C.   Q11-23   Q24-27   Q28-32   Q33-36   Q37-39   Total  Total   /10   /30   /14   /16   /15   /15   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:25:53.065Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Girls%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "568a826bf3368e4b247be6a49a428b1fff45f3ed7cadbcc4da5597fb1c3acd2e",
+   "bytes": 7682220,
+   "pages": 75,
+   "text": "Sydney Girls High School 2026  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Advanced  General Instructions   •   Reading time   –   10 minutes  •   Working time   –   3 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total Marks:   Section I   –   10 marks  100   •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   90 marks  •   Attempt Questions 11 – 32  •   Allow about 2 hours and 45 minutes for this section  Questions   M.C.   Q11-16   Q17-20   Q21-27   Q28-29   Q30-32   Total  Total   /10   /14   /14   /30   /15   /17   /100  THIS IS A TRIAL PAPER ONLY  It does not necessarily reflect the format or the content of the 2026 HSC   Examination .",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:25:55.382Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Girls%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202007%20w.%20sol": {
+   "state": "verified",
+   "sha256": "6b9aac44187cd6bfe19e71a9fe967ecaffebdf6031a961d84510834bf2b7ead9",
+   "bytes": 676371,
+   "pages": 19,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:08.649Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202007%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "960a71c77b275f1ddd57b2b616e4a487e335d8102840fcb797995ae32aea7ae1",
+   "bytes": 863581,
+   "pages": 30,
+   "text": "CANDIDATE NUMBER  S YDNEY   G RAMMAR   S CHOOL  2017 Trial Examination  FORM VI MATHEMATICS 2 UNIT  Thursday 10th August 2017 General Instructions  •   Reading time   —   5 minutes  •   Writing time   —   3 hours  •   Write using black pen.  •   Board-approved calculators and templates may be used.  Total   —   100 Marks  •   All questions may be attempted.  Section I   –   10 Marks  •   Questions 1 – 10 are of equal value.  •   Record your answers to the multiple choice on the sheet provided.  Section II   –   90 Marks  •   Questions 11 – 16 are of equal value.  •   All necessary working should be shown.  •   Start each question in a new booklet.  Collection  •   Write your candidate number on each answer booklet and on your multiple choice answer sheet.  •   Hand in the booklets in a single well- ordered pile.  •   Hand in a booklet for each question in Section II, even if it has not been attempted.  •   If you use a second booklet for a question, place it inside the first.  •   Write your candidate number on this question paper and hand it in with your answers.  •   Place everything inside the answer booklet for Question Eleven.  Checklist  •   SGS booklets   —   6 per boy  •   Multiple choice answer sheet  •   Reference sheet  •   Candidature   —   91 boys  Examiner  RCF",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:14.615Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "82ef0c25bb3611942dac41a1093ea57b6f40ca92080f7fe50760419957634832",
+   "bytes": 733356,
+   "pages": 30,
+   "text": "CANDIDATE NUMBER SYDNEY GRAMMAR SCHOOL 2018 Trial Examination  FORM VI MATHEMATICS 2 UNIT Friday 10th August 2018 General Instructions  •   Reading time   —   5 minutes  •   Writing time   —   3 hours  •   Write using black pen.  •   Board-approved calculators and templates may be used.  Total   —   100 Marks  •   All questions may be attempted.  Section I   –   10 Marks  •   Questions 1 – 10 are of equal value.  •   Record your answers to the multiple choice on the sheet provided.  Section II   –   90 Marks  •   Questions 11 – 16 are of equal value.  •   All necessary working should be shown.  •   Start each question in a new booklet.  Collection  •   Write your candidate number on each answer booklet and on your multiple choice answer sheet.  •   Hand in the booklets in a single well- ordered pile.  •   Hand in a booklet for each question in Section II, even if it has not been attempted.  •   If you use a second booklet for a question, place it inside the first.  •   Write your candidate number on this question paper and hand it in with your answers.  •   Place everything inside the answer booklet for Question Eleven.  Checklist  •   SGS booklets   —   6 per boy  •   Multiple choice answer sheet  •   Reference Sheet  •   Candidature   —   102 boys  Examiner  LRP",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:16.851Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "c3f1a952ea76c4d88493176ca0d598cd4ed626c3212d7497dd6096291ae79d2c",
+   "bytes": 927368,
+   "pages": 21,
+   "text": "CANDIDATE NUMBER  S YDNEY   G RAMMAR   S CHOOL  2019 Trial Examination  FORM VI MATHEMATICS 2 UNIT  Monday 12th August 2019 General Instructions  •   Reading time   —   5 minutes  •   Writing time   —   3 hours  •   Write using black pen.  •   NESA-approved calculators and templates may be used.  Total   —   100 Marks  •   All questions may be attempted.  Section I   —   10 Marks  •   Questions 1   –   10 are of equal value.  •   Record your answers to the multiple choice on the sheet provided.  Section II   —   90 Marks  •   Questions 11 – 16 are of equal value.  •   All necessary working should be shown.  •   Start each question in a new booklet.  Collection  •   Write your candidate number on each answer booklet and on your multiple choice answer sheet.  •   Hand in the booklets in a single well- ordered pile.  •   Hand in a booklet for each question in Section II, even if it has not been attempted.  •   If you use a second booklet for a question, place it inside the first.  •   Write your candidate number on this question paper and hand it in with your answers.  •   Place everything inside the answer booklet for Question Eleven.  Checklist  •   SGS booklets   —   6 per boy  •   Multiple choice answer sheet  •   Reference Sheet  •   Candidature   —   90 boys  Examiner  PKH",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:19.136Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "692f9f6acfe8df96a130c5e15fff928533451215ca81f5dbda8e1637da9fb69c",
+   "bytes": 1365135,
+   "pages": 54,
+   "text": "CANDIDATE NUMBER  2020 Trial Examination  Form VI Mathematics Advanced  Wednesday 12th August 2020 General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Attempt all questions.  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A loose reference sheet is provided separate to this paper.  •   Remove the central staple: you should have this cover booklet with Section I and 4 booklets for Section II.  Total Marks: 100 Section I (10 marks)   Questions 1–10  •   This section is multiple-choice. Each question is worth 1 mark.  •   Record your answers on the provided answer sheet.  Section II (90 marks)   Questions 11–32  •   Relevant mathematical reasoning and calculations are required.  •   Answer the questions in this paper in the spaces provided.  •   This section is divided in four parts.   Extra writing paper is provided at the end of each part.  Collection   •   Write your candidate number on each booklet and on the multiple choice sheet.  •   Place everything inside this cover booklet.  Checklist  •   Reference sheet  •   Multiple-choice answer sheet  •   Candidature: 92 pupils  Writer:   RDP/BDD",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:21.114Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1532561c0782ef48c11ce4458574dfec5bed0f726f934360c1d69d6bba079102",
+   "bytes": 3790366,
+   "pages": 58,
+   "text": "CANDIDATE NUMBER  2021   Trial Examination  Form VI Mathematics Advanced  Friday 20th August 2021 8:40am  General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Attempt all questions.  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A loose reference sheet is provided separate to this paper.  Total Marks: 100 Section I (10 marks)   Questions 1 – 10  •   This section is multiple-choice. Each question is worth 1 mark.  •   Record your answers on the provided answer sheet.  •   Write your candidate number on each page.  Section II (90 marks)   Questions 11 – 33  •   Because of the nature of this task, greater weight than normal will be placed on working.   Clear reasoning and full calculations are required.  •   Answer the questions in this paper in the spaces provided.  •   Write your candidate number on each page.  •   This section is divided in four parts. Extra writing paper is provided at the end of each part. Your sheets must be ORDERED then scanned and uploaded in a SINGLE PDF FILE to the Schoology page of your mathematics class  Checklist  •   Reference sheet  •   Multiple-choice answer sheet  •   Candidature: 101 pupils   Writer:   LYL",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:23.209Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5328/Sydney%20Grammar%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "46a85fce23593ae8dbac50e6d618ff15a5f257abca7b99534e21c937a8e7bfc3",
+   "bytes": 2811718,
+   "pages": 62,
+   "text": "CANDIDATE NUMBER  2022   Trial Examination Form VI Mathematics Advanced Wednesday 10th August 2022 8:40am  General Instructions   •   Reading time — 10 minutes  •   Working time — 3 hours  •   Attempt all questions.  •   Write using black pen.  •   Calculators approved by NESA may be used.  •   A loose reference sheet is provided separate to this paper.  •   Remove the central staple: you should have this cover booklet with Section I, 4 booklets for Section II, and the multiple-choice answer sheet.  Total Marks: 100 Section I (10 marks)   Questions 1 – 10  •   This section is multiple-choice. Each question is worth 1 mark.  •   Record your answers on the provided answer sheet.  Section II (90 marks)   Questions 11 – 36  •   Relevant mathematical reasoning and calculations are required.  •   Answer the questions in this paper in the spaces provided.  •   This section is divided into four parts. Extra writing paper is pro- vided at the end of each part.  Collection  •   Write your candidate number on this page, on the start of each separate part, and on the multiple choice sheet.  Checklist  •   Reference sheet  •   Multiple-choice answer sheet  •   Candidature: 96 pupils  Writer:   BLR",
+   "transport": "thsc-fragments",
+   "at": "2026-11-07T23:26:25.221Z",
+   "proofSource": "https://thsconline.github.io/s/d/5328/Sydney%20Grammar%202022%20w.%20sol"
   }
  },
  "releaseRefresh": {
