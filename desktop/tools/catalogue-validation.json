@@ -16363,34 +16363,64 @@
    "at": "2026-11-11T00:27:02.414Z"
   },
   "https://thsconline.github.io/s/d/5338/Caringbah%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "bf62cecb4ed5b3bac5348855287b00e3e161995d9e2db70e675fc018dd30d83d",
+   "bytes": 1110808,
+   "pages": 17,
+   "text": "Caringbah High School 2017 Extension 1 Trial HSC  Page | 1  Caringbah High School  2017  Trial HSC Examination  Mathematics Extension   1  General Instructions   Total marks – 70  • Reading time – 5 minutes  • Working time – 2 hours  • Write using black or blue pen  (Black pen is preferred)  Section I   Pages 2 – 5  10 marks  • Attempt Questions 1–10  • Allow about 15 minutes for this section  • Board-approved calculators may be used  • A Board-approved reference sheet is provided for this paper  Section II   Pages 6 – 12  60 marks  • In Questions 11–14, show relevant mathematical reasoning and/or calculations  • Attempt Questions 11–14  • Allow about 1 hour and 45   minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Caringbah%202017%20w.%20sol",
+   "at": "2026-11-12T01:49:07.340Z"
   },
   "https://thsconline.github.io/s/d/5338/Caringbah%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "3056f831438a3ac56454af1d32121d428ed68e4e8766b179c0295645a4f35803",
+   "bytes": 683518,
+   "pages": 15,
+   "text": "CARINGBAH HIGH SCHOOL  Name: _____________________  2018   HSC TRIAL  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided.     In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks: 70 Section I – 10 marks   (pages 2–5)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 60 marks   (pages 6–11)     Attempt Questions 11–14     Allow about 1 hour and 45 minutes for this section  Marker’s Use Only  Question   1 – 10   11   12   13   14   Total Mark  /10   /15   /15   /15   /15   /70   %  This paper must not be removed from the examination room",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Caringbah%202018%20w.%20sol",
+   "at": "2026-11-12T01:49:09.580Z"
   },
   "https://thsconline.github.io/s/d/5338/Caringbah%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "979d2d188b12ad19a8112aa5feb57b2d0b6733854effc39aa2f30a14a82868ec",
+   "bytes": 486419,
+   "pages": 14,
+   "text": "P a g e | 1  Caringbah High School  2019 Year 12 Trial HSC Examination  Mathematics Extension 1  General Instructions  • Reading time – 5 minutes  • Working time – 2 hours  • Write using black pen.  • Board-approved calculators may be used.  • A reference sheet with standard formulae and integrals is provided.  • In Questions 11–14, show relevant mathematical reasoning and/or calculations. Total marks – 70  Section I (Pages 3–5)  10 marks  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II (Pages 6–11)  60 marks  • Attempt Questions 11–14  • Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Caringbah%202019%20w.%20sol",
+   "at": "2026-11-12T01:49:11.768Z"
   },
   "https://thsconline.github.io/s/d/5338/Caringbah%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1957697663eecac2ef50021f6789dd170c5f2d794c8319e32b2abdf0a94a712b",
+   "bytes": 2179354,
+   "pages": 26,
+   "text": "CARINGBAH HIGH SCHOOL  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General  Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided on separate paper  •   In Questions 11 – 14, show relevant mathematical reasoning and/or calculations  Total marks:  70  Section I   –   10 marks (pages 2 – 4)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   60 marks (pages 5 – 10)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  Marker’s Use Only  Section I   Section II   Total  Q 1-10   Q11   Q12   Q13   Q14  /10   /15   /15   /15   /15   /70   %  2020",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Caringbah%202020%20w.%20sol",
+   "at": "2026-11-12T01:49:14.173Z"
   },
   "https://thsconline.github.io/s/d/5338/Caringbah%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "216f79e65ca9113614f3ec06abbf6a97c48ce2b8010ebc52f0c7dfe0738c4a94",
+   "bytes": 2347752,
+   "pages": 30,
+   "text": "Caringbah High School  Year 12 2025  Mathematics Extension 1  HSC Course  Assessment Task 4 Trial Examination  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   NESA-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations  •   Marks may not be awarded for partial or incomplete answers  Total marks   –   70  Section I   10 marks  Attempt Questions 1-10 Mark your answers on the answer sheet provided. You may detach the sheet and write your name on it.  Section II   60 marks  Attempt Questions 11-14  Write your answers in the answer booklets provided. Ensure your name or student number is clearly visible.  Student Number:   Class:  Marker’s Use Only  Section I   Section II   Total  Q 1-10   Q11   Q12   Q13   Q14  /10   /15   /15   /15   /15   /70   %",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Caringbah%202025%20w.%20sol",
+   "at": "2026-11-12T01:49:16.533Z"
   },
   "https://thsconline.github.io/s/d/5338/Caringbah%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "d7d15117bb77166df3f99a0b406befedc80079aeae1f309b6b487c59ec63c2cb",
+   "bytes": 5073794,
+   "pages": 34,
+   "text": "– 1 –  Caringbah High School  Year 12 2026  Mathematics Extension 1  HSC Course  Assessment Task 4 Trial Examination  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   NESA-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations  •   Marks may not be awarded for partial or incomplete answers  Total marks – 70  Section I   10 marks  Attempt Questions 1-10 Mark your answers on the answer sheet provided. You may detach the sheet and write your name on it.  Section II   60 marks  Attempt Questions 11-14  Write your answers in the answer booklets provided. Ensure your name or student number is clearly visible.  Student Number:   Class:  Marker’s Use Only  Section I   Section II   Total  Q 1-10   Q11   Q12   Q13   Q14  /10   /15   /15   /15   /15   /70   %",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Caringbah%202026%20w.%20sol",
+   "at": "2026-11-12T01:49:18.572Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%201996": {
    "state": "review",
@@ -16428,34 +16458,64 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "946fd7755f4320c055d15c8ad2c5bf01a7b70cb23efe14a2b6a0e0fbc25705d0",
+   "bytes": 483611,
+   "pages": 28,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202015%20w.%20sol",
+   "at": "2026-11-12T01:49:29.832Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202016": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "13b0dd74030d293c5553f423ef18d45debbd7cc9fe8af25c14d03a96f04fabcb",
+   "bytes": 215763,
+   "pages": 14,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202016",
+   "at": "2026-11-12T01:49:31.838Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "8b5dc1f22ae94418b2c7e368ca150d07459edf8f15b782b70fe64b589c446964",
+   "bytes": 4414319,
+   "pages": 29,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202021%20w.%20sol",
+   "at": "2026-11-12T01:49:33.969Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "f99133ce08300f92186aaba6342e004bfbf382edee1d300babd1cfab2c14da9f",
+   "bytes": 2607335,
+   "pages": 46,
+   "text": "Student Number:  Cheltenham Girls High School  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A NESA reference sheet is provided  •   Use the multiple-choice answer sheet attached for Question 1 - 10  •   For Questions in Section II, show mathematical reasoning and/or calculations to gain maximum marks  •   Write your Student Number on the front of each Writing Booklet for Questions 11, 12, 13 and 14  Total Marks: 70  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 60 marks   (pages 7 – 15)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  2022",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202022%20w.%20sol",
+   "at": "2026-11-12T01:49:36.224Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "20c8e3bcef68f7ad53f3ccbdfead61a8eb1f37786c4e586ab65b09fb2cbab502",
+   "bytes": 1503752,
+   "pages": 43,
+   "text": "Student Number:  Cheltenham Girls High School  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A NESA reference sheet is provided  •   Use the multiple-choice answer sheet attached for Question 1 - 10  •   For Questions in Section II, show mathematical reasoning and/or calculations to gain maximum marks  •   Write your Student Number on the front of each Writing Booklet for Questions 11, 12, 13 and 14  •   Start a new writing booklet for each of Questions 11, 12, 13 and 14  Total Marks: 70  Section I   –   10 marks  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II   –   60 marks  •   Attempt Questions 11   –   14  •   Allow about 1 hour and 45 minutes for this section  2023",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202023%20w.%20sol",
+   "at": "2026-11-12T01:49:38.225Z"
   },
   "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "683a8bcdbe91746f861188767e01db15b7bd5a716528080861116fc3a634ae5d",
+   "bytes": 2716329,
+   "pages": 50,
+   "text": "Student Number:  Teacher: ______________________________________  Cheltenham Girls High School  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  Assessment Task 4  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A NESA reference sheet is provided at the back of this paper  •   For Section I: Multiple choice questions, a multiple choice answer sheet is provided  •   For questions in Section II:  ►   Start a new writing booklet for Questions 11, 12, 13 and 14  ►   Show relevant mathematical reasoning and/or calculations to gain maximum marks  Total Marks: 70  Section I – 10 marks   (pages 2 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes (maximum) for this section  Section II – 60 marks   (pages 9 – 15 + page 17)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  2024",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202024%20w.%20sol",
+   "at": "2026-11-12T01:49:40.401Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202001": {
    "state": "review",
@@ -149881,6 +149941,126 @@
    "transport": "thsc-fragments",
    "at": "2026-11-11T00:27:02.414Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Caringbah%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "bf62cecb4ed5b3bac5348855287b00e3e161995d9e2db70e675fc018dd30d83d",
+   "bytes": 1110808,
+   "pages": 17,
+   "text": "Caringbah High School 2017 Extension 1 Trial HSC  Page | 1  Caringbah High School  2017  Trial HSC Examination  Mathematics Extension   1  General Instructions   Total marks – 70  • Reading time – 5 minutes  • Working time – 2 hours  • Write using black or blue pen  (Black pen is preferred)  Section I   Pages 2 – 5  10 marks  • Attempt Questions 1–10  • Allow about 15 minutes for this section  • Board-approved calculators may be used  • A Board-approved reference sheet is provided for this paper  Section II   Pages 6 – 12  60 marks  • In Questions 11–14, show relevant mathematical reasoning and/or calculations  • Attempt Questions 11–14  • Allow about 1 hour and 45   minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:07.340Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Caringbah%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "3056f831438a3ac56454af1d32121d428ed68e4e8766b179c0295645a4f35803",
+   "bytes": 683518,
+   "pages": 15,
+   "text": "CARINGBAH HIGH SCHOOL  Name: _____________________  2018   HSC TRIAL  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     NESA approved calculators may be used     A reference sheet is provided.     In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks: 70 Section I – 10 marks   (pages 2–5)     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II – 60 marks   (pages 6–11)     Attempt Questions 11–14     Allow about 1 hour and 45 minutes for this section  Marker’s Use Only  Question   1 – 10   11   12   13   14   Total Mark  /10   /15   /15   /15   /15   /70   %  This paper must not be removed from the examination room",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:09.580Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Caringbah%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "979d2d188b12ad19a8112aa5feb57b2d0b6733854effc39aa2f30a14a82868ec",
+   "bytes": 486419,
+   "pages": 14,
+   "text": "P a g e | 1  Caringbah High School  2019 Year 12 Trial HSC Examination  Mathematics Extension 1  General Instructions  • Reading time – 5 minutes  • Working time – 2 hours  • Write using black pen.  • Board-approved calculators may be used.  • A reference sheet with standard formulae and integrals is provided.  • In Questions 11–14, show relevant mathematical reasoning and/or calculations. Total marks – 70  Section I (Pages 3–5)  10 marks  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II (Pages 6–11)  60 marks  • Attempt Questions 11–14  • Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:11.768Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Caringbah%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1957697663eecac2ef50021f6789dd170c5f2d794c8319e32b2abdf0a94a712b",
+   "bytes": 2179354,
+   "pages": 26,
+   "text": "CARINGBAH HIGH SCHOOL  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General  Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided on separate paper  •   In Questions 11 – 14, show relevant mathematical reasoning and/or calculations  Total marks:  70  Section I   –   10 marks (pages 2 – 4)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II   –   60 marks (pages 5 – 10)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  Marker’s Use Only  Section I   Section II   Total  Q 1-10   Q11   Q12   Q13   Q14  /10   /15   /15   /15   /15   /70   %  2020",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:14.173Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Caringbah%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "216f79e65ca9113614f3ec06abbf6a97c48ce2b8010ebc52f0c7dfe0738c4a94",
+   "bytes": 2347752,
+   "pages": 30,
+   "text": "Caringbah High School  Year 12 2025  Mathematics Extension 1  HSC Course  Assessment Task 4 Trial Examination  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   NESA-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations  •   Marks may not be awarded for partial or incomplete answers  Total marks   –   70  Section I   10 marks  Attempt Questions 1-10 Mark your answers on the answer sheet provided. You may detach the sheet and write your name on it.  Section II   60 marks  Attempt Questions 11-14  Write your answers in the answer booklets provided. Ensure your name or student number is clearly visible.  Student Number:   Class:  Marker’s Use Only  Section I   Section II   Total  Q 1-10   Q11   Q12   Q13   Q14  /10   /15   /15   /15   /15   /70   %",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:16.533Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Caringbah%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "d7d15117bb77166df3f99a0b406befedc80079aeae1f309b6b487c59ec63c2cb",
+   "bytes": 5073794,
+   "pages": 34,
+   "text": "– 1 –  Caringbah High School  Year 12 2026  Mathematics Extension 1  HSC Course  Assessment Task 4 Trial Examination  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   NESA-approved calculators may be used  •   A reference sheet is provided  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations  •   Marks may not be awarded for partial or incomplete answers  Total marks – 70  Section I   10 marks  Attempt Questions 1-10 Mark your answers on the answer sheet provided. You may detach the sheet and write your name on it.  Section II   60 marks  Attempt Questions 11-14  Write your answers in the answer booklets provided. Ensure your name or student number is clearly visible.  Student Number:   Class:  Marker’s Use Only  Section I   Section II   Total  Q 1-10   Q11   Q12   Q13   Q14  /10   /15   /15   /15   /15   /70   %",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:18.572Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Caringbah%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "946fd7755f4320c055d15c8ad2c5bf01a7b70cb23efe14a2b6a0e0fbc25705d0",
+   "bytes": 483611,
+   "pages": 28,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:29.832Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202016": {
+   "state": "verified",
+   "sha256": "13b0dd74030d293c5553f423ef18d45debbd7cc9fe8af25c14d03a96f04fabcb",
+   "bytes": 215763,
+   "pages": 14,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:31.838Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202016"
+  },
+  "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "8b5dc1f22ae94418b2c7e368ca150d07459edf8f15b782b70fe64b589c446964",
+   "bytes": 4414319,
+   "pages": 29,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:33.969Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f99133ce08300f92186aaba6342e004bfbf382edee1d300babd1cfab2c14da9f",
+   "bytes": 2607335,
+   "pages": 46,
+   "text": "Student Number:  Cheltenham Girls High School  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A NESA reference sheet is provided  •   Use the multiple-choice answer sheet attached for Question 1 - 10  •   For Questions in Section II, show mathematical reasoning and/or calculations to gain maximum marks  •   Write your Student Number on the front of each Writing Booklet for Questions 11, 12, 13 and 14  Total Marks: 70  Section I – 10 marks   (pages 2 – 6)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 60 marks   (pages 7 – 15)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  2022",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:36.224Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "20c8e3bcef68f7ad53f3ccbdfead61a8eb1f37786c4e586ab65b09fb2cbab502",
+   "bytes": 1503752,
+   "pages": 43,
+   "text": "Student Number:  Cheltenham Girls High School  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A NESA reference sheet is provided  •   Use the multiple-choice answer sheet attached for Question 1 - 10  •   For Questions in Section II, show mathematical reasoning and/or calculations to gain maximum marks  •   Write your Student Number on the front of each Writing Booklet for Questions 11, 12, 13 and 14  •   Start a new writing booklet for each of Questions 11, 12, 13 and 14  Total Marks: 70  Section I   –   10 marks  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II   –   60 marks  •   Attempt Questions 11   –   14  •   Allow about 1 hour and 45 minutes for this section  2023",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:38.225Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cheltenham%20Girls%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "683a8bcdbe91746f861188767e01db15b7bd5a716528080861116fc3a634ae5d",
+   "bytes": 2716329,
+   "pages": 50,
+   "text": "Student Number:  Teacher: ______________________________________  Cheltenham Girls High School  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  Assessment Task 4  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A NESA reference sheet is provided at the back of this paper  •   For Section I: Multiple choice questions, a multiple choice answer sheet is provided  •   For questions in Section II:  ►   Start a new writing booklet for Questions 11, 12, 13 and 14  ►   Show relevant mathematical reasoning and/or calculations to gain maximum marks  Total Marks: 70  Section I – 10 marks   (pages 2 – 8)  •   Attempt Questions 1 – 10  •   Allow about 15 minutes (maximum) for this section  Section II – 60 marks   (pages 9 – 15 + page 17)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  2024",
+   "transport": "thsc-fragments",
+   "at": "2026-11-12T01:49:40.401Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202024%20w.%20sol"
   }
  },
  "releaseRefresh": {
