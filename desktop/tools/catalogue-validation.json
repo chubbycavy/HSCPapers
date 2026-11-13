@@ -16568,54 +16568,104 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "db6f59f27622e2987622fe302e40ef32cc9ead7265721a66c5178049e74e5087",
+   "bytes": 212059,
+   "pages": 27,
+   "text": "Page   1  2013 CTHS Mathematics Extension 1 AP4 Examination  Section I 10 marks Attempt Questions 1 – 10 Use the multiple choice answer sheet located at the back of the paper. Allow about 15 minutes for this section  1.   Which of the following could be the equation of the polynomial   P(x) ?  (A)   ( )   (   1)(   2) P x   x   x          (B)   2   3 ( )   (   1) (   2) P x   x   x         (C)   2   3 ( )   (   1) (   2) P x   x   x          (D)   3 ( )   (   1)(   2) P x   x   x         2.   sin 2   cos 2        = (A)  1  sin 4 2     (B)   4sin   cos        (C)   1  sin 2 2     (D)   2sin 2    3.   The points   A, B   and   C   lie on the circle with centre   O. OA   is parallel to   CB.  AC   intersects   OB   at   D   and   ODC   =    . What is the size of    OAD in terms of    ? (A)  2     (B)  3     (C)   3 2    (D) 3 ",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202013%20w.%20sol",
+   "at": "2026-11-13T00:54:31.526Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1c1c79e3b3a7f86ccca6f75f6523304dc16d61888eedd4f4ef77da780f511432",
+   "bytes": 315254,
+   "pages": 31,
+   "text": "Page   1   of   11  2014 CTHS Mathematics Extension 1 AP4 Examination  Section I  10 marks  Attempt Questions 1 – 10  Use the multiple choice answer sheet located at the back of the paper.  Allow about 15 minutes for this section  1.   If   A   and   B   are the points   (   ) 2,   1 −   and   (   ) 2,   4 −   −   respectively, the coordinates of the point   M   which divides   AB   externally in the ratio 1:3 is,  (A)   1 4,  2  M                (B)   11 2,   2  M       −   −          (C)   7 2,   4  M       −   −          (D)   13 2,   4  M       −          2.  20 cm,   9 cm and   cm. AB   CD   AC   x =   =   =   Find the value of   x.  (A)   5   (B)   9   (C)   11   (D)   16  3.   The derivative of   1 3sin   2  x −   is,  (A)   2 3 4   x −   (B)   2 3 1   4 x −  (C)   2 3 1 4   x −   (D)   2 3 1   4  x  −  4.   The exact value of   cos105 °   is,  (A)   3   1 2   2  −   (B)   1   3 2   2  −   (C)   3   1 2   2  +   (D)  1   3 2   2  +",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202014%20w.%20sol",
+   "at": "2026-11-13T00:54:33.583Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "18165b0111291944acdcaebde51ceea2f4ac1d62907f7ab5fe5b8a41b7df431c",
+   "bytes": 1044243,
+   "pages": 27,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202015%20w.%20sol",
+   "at": "2026-11-13T00:54:35.990Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "694c4c9ead8a53b1921a33214b5b6d9b3d1fb506537070f22355b95b6d1ef0c0",
+   "bytes": 971194,
+   "pages": 23,
+   "text": "CTHS Extension 1 AP4 2016 Page 1  Section I 10 marks Attempt Questions 1   –   10. Allow about 15 minutes for this section.  Use the multiple-choice answer sheet for Questions 1   –   10. 1.   Which expression is a correct factorisation of   𝑎 ଷ   − ͸Ͷ?  (A)   ሺ𝑎 − Ͷሻሺ𝑎 ଶ   + Ͷ𝑎 + ͳ͸ሻ  (B)   ሺ𝑎 − Ͷሻሺ𝑎 ଶ   − Ͷ𝑎 + ͳ͸ሻ  (C)   ሺ𝑎 + Ͷሻሺ𝑎 ଶ   + Ͷ𝑎 + ͳ͸ሻ  (D)   ሺ𝑎 + Ͷሻሺ𝑎 ଶ   − Ͷ𝑎 + ͳ͸ሻ  2.   The interval   DE   is divided internally in the ratio 3:2 by the point   F . Find the   x -coordinate of   F . (A) (B)  (C) (D)",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202016%20w.%20sol",
+   "at": "2026-11-13T00:54:38.108Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "18b491c3e53c4cd79f0abf2444516500449130f55f666ba741638d3de3fdf7ee",
+   "bytes": 1109135,
+   "pages": 26,
+   "text": "NAME_______________ CLASS 12MT___  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2017  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 HOURS + 5 Minutes Reading Time  DIRECTIONS TO CANDIDATES:     Attempt all sections.     Write your name on the paper. Questions 1 - 10 are to be answered on the multiple choice answer sheet.     Write your answers to questions 11 – 14 in separate writing booklets     All necessary working should be shown in every question. Full marks may not be awarded for careless or badly arranged work.     Approved calculators may be used. Reference Sheets are provided.  KL KS GB AB",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202017%20w.%20sol",
+   "at": "2026-11-13T00:54:40.396Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202018": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "b1eb23cc23c4f2d778adb557f53509cce4d0212b0d5c5dd74341ddf6cc7a4c9e",
+   "bytes": 357400,
+   "pages": 13,
+   "text": "NAME_______________  CLASS 12MTX___  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2018  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 HOURS + 5 Minutes Reading Time  DIRECTIONS TO CANDIDATES:  SECTION I:   Use the multiple-choice answer sheet provided.  SECTION II:     Each question is to be commenced in a new booklet clearly marked Question 11, Question 12, etc. on the front.     All necessary working should be shown in every question. Full marks may not be awarded for careless or badly arranged work.     If you do not attempt a question, you must submit a blank booklet clearly indicating the question number, your name and class.     All questions should be placed in order – multiple choice answer sheet followed by Questions 11 to 14.     NESA approved calculators may be used.     The NESA Reference Sheet is provided.  MK  KS  ML/EW  AB",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202018",
+   "at": "2026-11-13T00:54:42.276Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "93cd969dc3e6b0970cf68f296d44e717b16ff25512e8c54f5edaef6285aa39fc",
+   "bytes": 1540658,
+   "pages": 30,
+   "text": "NAME_______________  CLASS 12MTX___  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2019  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 HOURS + 5 Minutes Reading Time  DIRECTIONS TO CANDIDATES:  SECTION I:   Use the multiple-choice answer sheet provided.  SECTION II:     Each question is to be commenced in a new booklet clearly marked Question 11, Question 12, etc. on the front.     All necessary working should be shown in every question. Full marks may not be awarded for careless or badly arranged work.     If you do not attempt a question, you must submit a blank booklet clearly indicating the question number, your name and class.     All questions should be placed in order – multiple choice answer sheet followed by Questions 11 to 14.     NESA approved calculators may be used.     The NESA Reference Sheet is provided.  MK  ML  RL  AB  KS",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202019%20w.%20sol",
+   "at": "2026-11-13T00:54:44.590Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "1c202d352a4d18cd540e8b96a36c78dfee741786c86a05465cb05d0f542890f2",
+   "bytes": 2278223,
+   "pages": 35,
+   "text": "NAME: __________________________  CLASS: 12MTX_____  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2020  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 hours plus 10 minutes reading time  General  Instructions     Attempt all questions     Write your name on the question paper     Write using black pen     Calculators approved by NESA may be used     The NESA reference sheet has been provided     For questions in Section II, show relevant mathematical reasoning  and/or calculations     Marks may not be awarded for careless, badly arranged, or poorly written work  Total marks:  70  Section I – 10 marks (pages 3 – 6)     Attempt Questions 1-10 on the answer sheet provided     Allow about 15 minutes for this section  Section II – 60 marks (pages 7 – 11)     Attempt Questions 11-14     Each question must be commenced in a new booklet clearly marked with your name, class and question number eg. Question 11, Question 12, Question 13, or Question 14     Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202020%20w.%20sol",
+   "at": "2026-11-13T00:54:46.561Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "0123b9e608abcc4dc506fb7079ec65f7445389b59327c32748c8c0f85c0d32a9",
+   "bytes": 3985954,
+   "pages": 34,
+   "text": "NESA No.  Class: 12MTX21______  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2021  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 hours plus 10 minutes reading time  General  Instructions     Attempt all questions     Write your name and NESA number on the question paper     Write using black pen     NESA approved calculators may be used     The NESA reference sheet has been provided     For questions in Section II, show relevant mathematical reasoning  and/or calculations  Total marks:  70  Section I – 10 marks (pages 2 – 5)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II – 60 marks (pages 6 – 10)     Attempt Questions 11 – 14     Each question must be written in a new booklet clearly marked with your NESA number, class and question number eg. Question 11, Question 12, Question 13 or Question 14     Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202021%20w.%20sol",
+   "at": "2026-11-13T00:54:48.675Z"
   },
   "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "9dc0f304b052a70a026dde799c335e99ca09056ec13baa268390b6047db368a9",
+   "bytes": 3027108,
+   "pages": 28,
+   "text": "NESA No.  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2022  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 hours plus 10 minutes reading time  General  Instructions     Attempt all questions     Write your NESA number on the question paper     Write using black pen     NESA approved calculators may be used     The NESA reference sheet has been provided     For questions in Section II, show relevant mathematical reasoning  and/or calculations  Total marks:  70  Section I – 10 marks (pages 2 – 4)     Attempt Questions 1-10     Allow about 15 minutes for this section  Section II – 60 marks (pages 5 – 10)     Attempt Questions 11-14     Each question must be commenced in a new booklet clearly marked with your NESA number and question number eg. Question 11, Question 12, Question 13, or Question 14     Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202022%20w.%20sol",
+   "at": "2026-11-13T00:54:51.071Z"
   },
   "https://thsconline.github.io/s/d/5338/Cranbrook%201999%20w.%20sol": {
    "state": "review",
@@ -16668,9 +16718,14 @@
    "at": "2026-10-11T14:15:26.273Z"
   },
   "https://thsconline.github.io/s/d/5338/Cranbrook%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.273Z"
+   "state": "verified",
+   "sha256": "aed9ace56abfce6382fd6e05f55ae174886971e7d14a8d71d8831a972009b2f1",
+   "bytes": 572159,
+   "pages": 32,
+   "text": "2016  HSC Trial Examination  Assessment Task 3  Extension 1 Mathematics  Reading time   5 minutes  Writing time   2 hours  Total Marks   70  Task weighting   40%  General Instructions     Write using a black pen     A Board-approved calculator may be used     A BOSTES formula sheet is provided     Use the Multiple-Choice Answer Sheet provided     All relevant working should be shown for each question 11-14  Additional Materials Needed     BOSTES Formula Sheet     Multiple Choice Answer Sheet     4 writing booklets  Structure & Suggested Time Spent  Section I  Multiple Choice Questions  •   Answer Q1 – 10 on the multiple choice answer sheet  •   Allow about 17 minutes for this section  Section II  Extended response Questions     Attempt all questions in this section in a separate writing booklet     Allow about 103 minutes for this section  This paper must not be removed from the examination room  Disclaimer  The content and format of this paper does not necessarily reflect the content and format of the HSC examination paper.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Cranbrook%202016%20w.%20sol",
+   "at": "2026-11-13T00:55:05.223Z"
   },
   "https://thsconline.github.io/s/d/5338/Cranbrook%202017%20w.%20sol": {
    "state": "review",
@@ -150061,6 +150116,116 @@
    "transport": "thsc-fragments",
    "at": "2026-11-12T01:49:40.401Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Cheltenham%20Girls%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "db6f59f27622e2987622fe302e40ef32cc9ead7265721a66c5178049e74e5087",
+   "bytes": 212059,
+   "pages": 27,
+   "text": "Page   1  2013 CTHS Mathematics Extension 1 AP4 Examination  Section I 10 marks Attempt Questions 1 – 10 Use the multiple choice answer sheet located at the back of the paper. Allow about 15 minutes for this section  1.   Which of the following could be the equation of the polynomial   P(x) ?  (A)   ( )   (   1)(   2) P x   x   x          (B)   2   3 ( )   (   1) (   2) P x   x   x         (C)   2   3 ( )   (   1) (   2) P x   x   x          (D)   3 ( )   (   1)(   2) P x   x   x         2.   sin 2   cos 2        = (A)  1  sin 4 2     (B)   4sin   cos        (C)   1  sin 2 2     (D)   2sin 2    3.   The points   A, B   and   C   lie on the circle with centre   O. OA   is parallel to   CB.  AC   intersects   OB   at   D   and   ODC   =    . What is the size of    OAD in terms of    ? (A)  2     (B)  3     (C)   3 2    (D) 3 ",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:31.526Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1c1c79e3b3a7f86ccca6f75f6523304dc16d61888eedd4f4ef77da780f511432",
+   "bytes": 315254,
+   "pages": 31,
+   "text": "Page   1   of   11  2014 CTHS Mathematics Extension 1 AP4 Examination  Section I  10 marks  Attempt Questions 1 – 10  Use the multiple choice answer sheet located at the back of the paper.  Allow about 15 minutes for this section  1.   If   A   and   B   are the points   (   ) 2,   1 −   and   (   ) 2,   4 −   −   respectively, the coordinates of the point   M   which divides   AB   externally in the ratio 1:3 is,  (A)   1 4,  2  M                (B)   11 2,   2  M       −   −          (C)   7 2,   4  M       −   −          (D)   13 2,   4  M       −          2.  20 cm,   9 cm and   cm. AB   CD   AC   x =   =   =   Find the value of   x.  (A)   5   (B)   9   (C)   11   (D)   16  3.   The derivative of   1 3sin   2  x −   is,  (A)   2 3 4   x −   (B)   2 3 1   4 x −  (C)   2 3 1 4   x −   (D)   2 3 1   4  x  −  4.   The exact value of   cos105 °   is,  (A)   3   1 2   2  −   (B)   1   3 2   2  −   (C)   3   1 2   2  +   (D)  1   3 2   2  +",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:33.583Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "18165b0111291944acdcaebde51ceea2f4ac1d62907f7ab5fe5b8a41b7df431c",
+   "bytes": 1044243,
+   "pages": 27,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:35.990Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "694c4c9ead8a53b1921a33214b5b6d9b3d1fb506537070f22355b95b6d1ef0c0",
+   "bytes": 971194,
+   "pages": 23,
+   "text": "CTHS Extension 1 AP4 2016 Page 1  Section I 10 marks Attempt Questions 1   –   10. Allow about 15 minutes for this section.  Use the multiple-choice answer sheet for Questions 1   –   10. 1.   Which expression is a correct factorisation of   𝑎 ଷ   − ͸Ͷ?  (A)   ሺ𝑎 − Ͷሻሺ𝑎 ଶ   + Ͷ𝑎 + ͳ͸ሻ  (B)   ሺ𝑎 − Ͷሻሺ𝑎 ଶ   − Ͷ𝑎 + ͳ͸ሻ  (C)   ሺ𝑎 + Ͷሻሺ𝑎 ଶ   + Ͷ𝑎 + ͳ͸ሻ  (D)   ሺ𝑎 + Ͷሻሺ𝑎 ଶ   − Ͷ𝑎 + ͳ͸ሻ  2.   The interval   DE   is divided internally in the ratio 3:2 by the point   F . Find the   x -coordinate of   F . (A) (B)  (C) (D)",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:38.108Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "18b491c3e53c4cd79f0abf2444516500449130f55f666ba741638d3de3fdf7ee",
+   "bytes": 1109135,
+   "pages": 26,
+   "text": "NAME_______________ CLASS 12MT___  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2017  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 HOURS + 5 Minutes Reading Time  DIRECTIONS TO CANDIDATES:     Attempt all sections.     Write your name on the paper. Questions 1 - 10 are to be answered on the multiple choice answer sheet.     Write your answers to questions 11 – 14 in separate writing booklets     All necessary working should be shown in every question. Full marks may not be awarded for careless or badly arranged work.     Approved calculators may be used. Reference Sheets are provided.  KL KS GB AB",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:40.396Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202018": {
+   "state": "verified",
+   "sha256": "b1eb23cc23c4f2d778adb557f53509cce4d0212b0d5c5dd74341ddf6cc7a4c9e",
+   "bytes": 357400,
+   "pages": 13,
+   "text": "NAME_______________  CLASS 12MTX___  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2018  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 HOURS + 5 Minutes Reading Time  DIRECTIONS TO CANDIDATES:  SECTION I:   Use the multiple-choice answer sheet provided.  SECTION II:     Each question is to be commenced in a new booklet clearly marked Question 11, Question 12, etc. on the front.     All necessary working should be shown in every question. Full marks may not be awarded for careless or badly arranged work.     If you do not attempt a question, you must submit a blank booklet clearly indicating the question number, your name and class.     All questions should be placed in order – multiple choice answer sheet followed by Questions 11 to 14.     NESA approved calculators may be used.     The NESA Reference Sheet is provided.  MK  KS  ML/EW  AB",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:42.276Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202018"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "93cd969dc3e6b0970cf68f296d44e717b16ff25512e8c54f5edaef6285aa39fc",
+   "bytes": 1540658,
+   "pages": 30,
+   "text": "NAME_______________  CLASS 12MTX___  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2019  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 HOURS + 5 Minutes Reading Time  DIRECTIONS TO CANDIDATES:  SECTION I:   Use the multiple-choice answer sheet provided.  SECTION II:     Each question is to be commenced in a new booklet clearly marked Question 11, Question 12, etc. on the front.     All necessary working should be shown in every question. Full marks may not be awarded for careless or badly arranged work.     If you do not attempt a question, you must submit a blank booklet clearly indicating the question number, your name and class.     All questions should be placed in order – multiple choice answer sheet followed by Questions 11 to 14.     NESA approved calculators may be used.     The NESA Reference Sheet is provided.  MK  ML  RL  AB  KS",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:44.590Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1c202d352a4d18cd540e8b96a36c78dfee741786c86a05465cb05d0f542890f2",
+   "bytes": 2278223,
+   "pages": 35,
+   "text": "NAME: __________________________  CLASS: 12MTX_____  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2020  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 hours plus 10 minutes reading time  General  Instructions     Attempt all questions     Write your name on the question paper     Write using black pen     Calculators approved by NESA may be used     The NESA reference sheet has been provided     For questions in Section II, show relevant mathematical reasoning  and/or calculations     Marks may not be awarded for careless, badly arranged, or poorly written work  Total marks:  70  Section I – 10 marks (pages 3 – 6)     Attempt Questions 1-10 on the answer sheet provided     Allow about 15 minutes for this section  Section II – 60 marks (pages 7 – 11)     Attempt Questions 11-14     Each question must be commenced in a new booklet clearly marked with your name, class and question number eg. Question 11, Question 12, Question 13, or Question 14     Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:46.561Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "0123b9e608abcc4dc506fb7079ec65f7445389b59327c32748c8c0f85c0d32a9",
+   "bytes": 3985954,
+   "pages": 34,
+   "text": "NESA No.  Class: 12MTX21______  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2021  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 hours plus 10 minutes reading time  General  Instructions     Attempt all questions     Write your name and NESA number on the question paper     Write using black pen     NESA approved calculators may be used     The NESA reference sheet has been provided     For questions in Section II, show relevant mathematical reasoning  and/or calculations  Total marks:  70  Section I – 10 marks (pages 2 – 5)     Attempt Questions 1 – 10     Allow about 15 minutes for this section  Section II – 60 marks (pages 6 – 10)     Attempt Questions 11 – 14     Each question must be written in a new booklet clearly marked with your NESA number, class and question number eg. Question 11, Question 12, Question 13 or Question 14     Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:48.675Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cherrybrook%20Tech%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "9dc0f304b052a70a026dde799c335e99ca09056ec13baa268390b6047db368a9",
+   "bytes": 3027108,
+   "pages": 28,
+   "text": "NESA No.  CHERRYBROOK TECHNOLOGY HIGH SCHOOL  2022  YEAR 12  AP4  MATHEMATICS EXTENSION 1  Time allowed – 2 hours plus 10 minutes reading time  General  Instructions     Attempt all questions     Write your NESA number on the question paper     Write using black pen     NESA approved calculators may be used     The NESA reference sheet has been provided     For questions in Section II, show relevant mathematical reasoning  and/or calculations  Total marks:  70  Section I – 10 marks (pages 2 – 4)     Attempt Questions 1-10     Allow about 15 minutes for this section  Section II – 60 marks (pages 5 – 10)     Attempt Questions 11-14     Each question must be commenced in a new booklet clearly marked with your NESA number and question number eg. Question 11, Question 12, Question 13, or Question 14     Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:54:51.071Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cherrybrook%20Tech%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Cranbrook%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "aed9ace56abfce6382fd6e05f55ae174886971e7d14a8d71d8831a972009b2f1",
+   "bytes": 572159,
+   "pages": 32,
+   "text": "2016  HSC Trial Examination  Assessment Task 3  Extension 1 Mathematics  Reading time   5 minutes  Writing time   2 hours  Total Marks   70  Task weighting   40%  General Instructions     Write using a black pen     A Board-approved calculator may be used     A BOSTES formula sheet is provided     Use the Multiple-Choice Answer Sheet provided     All relevant working should be shown for each question 11-14  Additional Materials Needed     BOSTES Formula Sheet     Multiple Choice Answer Sheet     4 writing booklets  Structure & Suggested Time Spent  Section I  Multiple Choice Questions  •   Answer Q1 – 10 on the multiple choice answer sheet  •   Allow about 17 minutes for this section  Section II  Extended response Questions     Attempt all questions in this section in a separate writing booklet     Allow about 103 minutes for this section  This paper must not be removed from the examination room  Disclaimer  The content and format of this paper does not necessarily reflect the content and format of the HSC examination paper.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-13T00:55:05.223Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Cranbrook%202016%20w.%20sol"
   }
  },
  "releaseRefresh": {
