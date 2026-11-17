@@ -28,7 +28,7 @@ jobs:
         run: node tools/validate-registry.cjs --sample
       - name: publish health report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: health-report
           path: desktop/tools/health-report.json
