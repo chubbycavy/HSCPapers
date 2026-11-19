@@ -17683,9 +17683,14 @@
    "at": "2026-11-18T02:05:14.877Z"
   },
   "https://thsconline.github.io/s/d/5338/Killara%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "7425ab6d71c4208dfebabf5a3bfc4b017e566757564e3935bb54f9393d5ec3ba",
+   "bytes": 1394113,
+   "pages": 43,
+   "text": "1  Student Number  2026   Year 12 Examination  Mathematics Extension 1  Trial examination  Date  17/08/2026  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  •   Write your NESA student number at the top of this page  •   No white-out may be used  Total Marks:  70  Section I - 10 marks (pages 3   –   7)  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II - 60 marks (pages 8   –   15)  •   Attempt Questions 11   –   14  •   Allow about 1 hour and 45 minutes for this section  This question paper must not be removed from the examination room.  This assessment task constitutes 30% of the course.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Killara%202026%20w.%20sol",
+   "at": "2026-11-19T01:46:38.689Z"
   },
   "https://thsconline.github.io/s/d/5338/Kincoppal%202000%20w.%20sol": {
    "state": "review",
@@ -17788,14 +17793,24 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Kings%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "78370e0a59c7635d24c4ce6a06cfef825f97677417c3d31d703b96aa244fc9bb",
+   "bytes": 648035,
+   "pages": 36,
+   "text": "Y12 THSC Mathematics Ext 1 0813.doc 1 of 15  THE KING’S SCHOOL  2013  Higher School Certificate  Trial Examination  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes  •   Working time – 2 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A table of standard integrals is provided at the back of this paper  •   All necessary working should be shown in every question  Total marks – 70  Section I  10 marks  •   Attempt Questions 1-10  •   Answer on the Multiple Choice Answer Sheet provided.  •   Allow about 15 minutes for this Section.  Section II  60 marks  •   Attempt Questions 11-14  •   Answer in the examination booklets provided, unless otherwise instructed.  •   Start a new booklet for each question.  •   Allow about 1 hour 45 minutes for this Section.  Disclaimer  This is a Trial HSC Examination only. Whilst it reflects and mirrors both the format and topics of the HSC Examination designed by the NSW Board of Studies for the respective sections, there is no guarantee that the content of this exam exactly replicates the actual HSC Examination.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Kings%202013%20w.%20sol",
+   "at": "2026-11-19T01:47:07.301Z"
   },
   "https://thsconline.github.io/s/d/5338/Kings%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "bacf0c6e85b6ba6ddd5e812be7618488806477ba7929154d9332e21b25897189",
+   "bytes": 2320616,
+   "pages": 33,
+   "text": "2021   Year 12 Alternative Higher School Certificate Trial Examination Mathematics Extension 1 General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A Reference Sheet is provided  •   In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks: 70   Section I   10 marks  •   Attempt Questions 1-10  •   Use the Multiple Choice answer sheet provided  •   Allow about 15 minutes for this section  Section II   60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour and 45 minutes for this section  Examiners’ Use Only   Setter/Checker: External/GJD  Question   Calculus   Functions   Combinatorics Statistical Analysis Trigonometric Functions   Vectors   Total Section I  1-10   4, 6, 9,10   / 4   2,3,7   / 3   8   /1   1   / 1   5   / 1   /10 Section II  11   a,b   /5   d   / 4   c   / 2   e   /4   /15 12   d   / 3   a,e   / 5   c   /3   b   / 4   /15 13   a,b,d   / 9   c   / 6   /15 14   c   6   a   /4   b   /5   /15 Total   /16   /19   / 9   /3   / 9   / 14   /70  Section 1",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Kings%202021%20w.%20sol",
+   "at": "2026-11-19T01:47:09.743Z"
   },
   "https://thsconline.github.io/s/d/5338/Kinross%20Wolaroi%202012%20w.%20sol": {
    "state": "review",
@@ -17803,9 +17818,14 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Kinross%20Wolaroi%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "29801299f2ca78c36378ccbd856c0a0427512dc3b03938d57925ba7a816cde30",
+   "bytes": 1258570,
+   "pages": 19,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Kinross%20Wolaroi%202014%20w.%20sol",
+   "at": "2026-11-19T01:47:13.850Z"
   },
   "https://thsconline.github.io/s/d/5338/Kinross%20Wolaroi%202015%20w.%20sol": {
    "state": "review",
@@ -151216,6 +151236,46 @@
    "transport": "thsc-fragments",
    "at": "2026-11-18T02:05:14.877Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Killara%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Killara%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "7425ab6d71c4208dfebabf5a3bfc4b017e566757564e3935bb54f9393d5ec3ba",
+   "bytes": 1394113,
+   "pages": 43,
+   "text": "1  Student Number  2026   Year 12 Examination  Mathematics Extension 1  Trial examination  Date  17/08/2026  General Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  •   Write your NESA student number at the top of this page  •   No white-out may be used  Total Marks:  70  Section I - 10 marks (pages 3   –   7)  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II - 60 marks (pages 8   –   15)  •   Attempt Questions 11   –   14  •   Allow about 1 hour and 45 minutes for this section  This question paper must not be removed from the examination room.  This assessment task constitutes 30% of the course.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-19T01:46:38.689Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Killara%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Kings%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "78370e0a59c7635d24c4ce6a06cfef825f97677417c3d31d703b96aa244fc9bb",
+   "bytes": 648035,
+   "pages": 36,
+   "text": "Y12 THSC Mathematics Ext 1 0813.doc 1 of 15  THE KING’S SCHOOL  2013  Higher School Certificate  Trial Examination  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes  •   Working time – 2 hours  •   Write using black or blue pen  •   Board-approved calculators may be used  •   A table of standard integrals is provided at the back of this paper  •   All necessary working should be shown in every question  Total marks – 70  Section I  10 marks  •   Attempt Questions 1-10  •   Answer on the Multiple Choice Answer Sheet provided.  •   Allow about 15 minutes for this Section.  Section II  60 marks  •   Attempt Questions 11-14  •   Answer in the examination booklets provided, unless otherwise instructed.  •   Start a new booklet for each question.  •   Allow about 1 hour 45 minutes for this Section.  Disclaimer  This is a Trial HSC Examination only. Whilst it reflects and mirrors both the format and topics of the HSC Examination designed by the NSW Board of Studies for the respective sections, there is no guarantee that the content of this exam exactly replicates the actual HSC Examination.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-19T01:47:07.301Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Kings%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Kings%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "bacf0c6e85b6ba6ddd5e812be7618488806477ba7929154d9332e21b25897189",
+   "bytes": 2320616,
+   "pages": 33,
+   "text": "2021   Year 12 Alternative Higher School Certificate Trial Examination Mathematics Extension 1 General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A Reference Sheet is provided  •   In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks: 70   Section I   10 marks  •   Attempt Questions 1-10  •   Use the Multiple Choice answer sheet provided  •   Allow about 15 minutes for this section  Section II   60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour and 45 minutes for this section  Examiners’ Use Only   Setter/Checker: External/GJD  Question   Calculus   Functions   Combinatorics Statistical Analysis Trigonometric Functions   Vectors   Total Section I  1-10   4, 6, 9,10   / 4   2,3,7   / 3   8   /1   1   / 1   5   / 1   /10 Section II  11   a,b   /5   d   / 4   c   / 2   e   /4   /15 12   d   / 3   a,e   / 5   c   /3   b   / 4   /15 13   a,b,d   / 9   c   / 6   /15 14   c   6   a   /4   b   /5   /15 Total   /16   /19   / 9   /3   / 9   / 14   /70  Section 1",
+   "transport": "thsc-fragments",
+   "at": "2026-11-19T01:47:09.743Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Kings%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Kinross%20Wolaroi%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "29801299f2ca78c36378ccbd856c0a0427512dc3b03938d57925ba7a816cde30",
+   "bytes": 1258570,
+   "pages": 19,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-19T01:47:13.850Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Kinross%20Wolaroi%202014%20w.%20sol"
   }
  },
  "releaseRefresh": {
