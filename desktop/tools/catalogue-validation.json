@@ -18008,69 +18008,134 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "33cb6e5e7e51c573b6f8cdbff40e2727dc51c13c6b73000794cbd6133eac0377",
+   "bytes": 734902,
+   "pages": 30,
+   "text": "2014 HSC Trial Examination  Mathematics Extension 1  General Instructions     Reading time – 5 minutes.     Working time – 2 hours.     Write using blue or black pen.     Board-approved calculators and templates may be used.     All necessary working should be shown in every question.     Multiple choice questions are to be completed on the special answer page.     Each free response questions to be completed in separate booklets.  Total marks – 70     Attempt Questions 1-14  Northern Beaches Secondary College  Manly Selective Campus",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202014%20w.%20sol",
+   "at": "2026-11-21T01:04:46.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "4b1b99a74331c225ee56581cfa434e6690834251307871f892f18a1a83e93217",
+   "bytes": 1233079,
+   "pages": 24,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  HIGHER SCHOOL CERTIFICATE  Trial Examination  2015  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black or blue pen     Write your Student Number at the top of each page     Answer Section I- Multiple Choice on Answer Sheet provided     Answer Section II – Free Response in a separate booklet for each question.     Board approved calculators and templates may be used.  Section I Multiple Choice     10 marks     Attempt all questions  Section II – Free Response     60 marks     Each question is of equal value     All necessary working should be shown in every question.  Weighting: 40%",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202015%20w.%20sol",
+   "at": "2026-11-21T01:04:48.796Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "bd2a55b55c5e522c21d21a8a23b0544548c7474f1358b2ffd383a88459375714",
+   "bytes": 1197107,
+   "pages": 24,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  2016  Mathematics Extension I  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Write your Student Number at the top of each page     Answer Section I- Multiple Choice on Answer Sheet provided     Answer Section II – Free Response in a separate booklet for each question.     Board approved calculators and templates may be used.  Section I Multiple Choice     10 marks     Attempt all questions     Allow about 15 minutes for this section  Section II – Free Response     60 marks     Each question is of equal value     All necessary working should be shown in every question.     Allow about 1 hour 45 minutes for this section  Weighting : 40%",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202016%20w.%20sol",
+   "at": "2026-11-21T01:04:51.469Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "457798b691a091a515c5bd9f657c3431b3752b8be9f2015504f987ec2fe47380",
+   "bytes": 1075032,
+   "pages": 27,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE MANLY SELECTIVE CAMPUS HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION 2017 Mathematics Extension I General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using   black   pen only     Write your Student Number at the top of each page     Answer Section I- Multiple Choice on Answer Sheet provided     Answer Section II – Free Response in a separate booklet for each question.     Board approved calculators and templates may be used. Section I Multiple Choice     10 marks     Attempt all questions     Allow about 15 minutes for this section Section II – Free Response     60 marks     Each question is of equal value     All necessary working should be shown in every question.     Allow about 1 hour 45 minutes for this section Weighting: 40%",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202017%20w.%20sol",
+   "at": "2026-11-21T01:04:53.807Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "f9b83e7d8307d52324e7424d4e44d1c528fb7df0e5a2d3a4d8f8b07990a78dec",
+   "bytes": 1531529,
+   "pages": 25,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2018  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Write your name on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators and templates may be used.     Weighting: 40%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202018%20w.%20sol",
+   "at": "2026-11-21T01:04:56.409Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "a17e4ac7915dc8260b01bb3c5f01d9302ecb6cda1fd771f07939030bd6691eb8",
+   "bytes": 1654700,
+   "pages": 30,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2019  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Write your name on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators and templates may be used.     Weighting: 30%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202019%20w.%20sol",
+   "at": "2026-11-21T01:04:59.024Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "cd550ba921dcd4e0b20460d144dd0b7153ba70aff5d76e39ed3badb75911b744",
+   "bytes": 556861,
+   "pages": 22,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202020%20w.%20sol",
+   "at": "2026-11-21T01:05:01.090Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "efbf2d71f577ebb9a1a88a42db4caf6c58226275cb7c17507e63f3b330a84ff6",
+   "bytes": 2446607,
+   "pages": 32,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2021  Mathematics Extension 1  General Instructions     Reading time – 10 minutes     Working time – 2 hours     Write using black pen     Write your name on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators may be used.     Weighting:30%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202021%20w.%20sol",
+   "at": "2026-11-21T01:05:02.668Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "ca668e2ad36e6107c2621cc485e1ffd62a7e1582bc63ffa873b13664e485ea7e",
+   "bytes": 2308286,
+   "pages": 27,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2022  Mathematics Extension 1  General Instructions     Reading time – 10 minutes     Working time – 2 hours     Write using black pen     Write your student number on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators may be used.     Weighting:30%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202022%20w.%20sol",
+   "at": "2026-11-21T01:05:05.207Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "31b6236ce444d0e1f074f4ea59051f377a16a5abca913e36e2b68cd44bab869f",
+   "bytes": 1344769,
+   "pages": 29,
+   "text": "1  Northern Beaches Secondary College  Manly Campus  2023  Higher School Certificate Trial Examination  Mathematics Extension 1  General Instructions  • Reading time – 5 minutes  • Working time – 2 hours  • Write using black pen  • NESA approved calculators may be used  • A reference sheet is provided with this paper  • For questions in Section II, show relevant mathematical reasoning and/or calculations  Total Marks: 70  Section I – 10 marks (pages 2–6)  • Attempt Questions 1-10  • Allow about 15 minutes for this section  •   Answer on Multiple Choice Answer Sheet provided  Section II – 60 marks (pages 7–14)  • Attempt Questions 11–14  • Allow about 1 hour and 45 minutes minutes for this section  •   Answer each question in a separate booklet",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202023%20w.%20sol",
+   "at": "2026-11-21T01:05:07.327Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "dda539e7a2d367f435eea9a058e9499474c683ed7dbd46956135ffedad373881",
+   "bytes": 1643811,
+   "pages": 27,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE MANLY CAMPUS  MATHEMATICS EXTENSION 1  2024 Year 12 Course Assessment Task 4 – Trial HSC  Tuesday, 13 August 2024  General instructions  •   Working time: 2 hours (plus 10 minutes reading time)  •   Write using blue or black pen. Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt all questions.  •   At the conclusion of the examination, bundle the booklets used in the correct order within this paper and hand to examination supervisors.  SECTION I  •   Mark your answers on the answer grid provided on page 2  SECTION II  •   Commence each new question in a new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  •   NESA reference sheet is provided  •   Table of z-scores is provided on page 15  NESA STUDENT #: ..........................................................   # BOOKLETS USED: ................................  Marker’s use only  QUESTION   1-10   11   12   13   14   Total   %  MARKS   ⬚  10  ⬚  15  ⬚  15  ⬚  15  ⬚  15  ⬚  70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202024%20w.%20sol",
+   "at": "2026-11-21T01:05:09.486Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "ff8e3e620c9557f1194f942de61b4d96180b9ef0f49382c3db91977a388644e1",
+   "bytes": 1990493,
+   "pages": 26,
+   "text": "NAME: ______________________________  Northern Beaches Secondary College  Manly Campus  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General  Instructions  Total marks:  70  2025  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in section II, show relevant mathematical reasoning and/or calculations  Section I   –   10 marks  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II   –   60 marks  •   Attempt Questions 11   –   14  •   Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202025%20w.%20sol",
+   "at": "2026-11-21T01:05:11.858Z"
   },
   "https://thsconline.github.io/s/d/5338/Manly%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "3db4705370963e98e47e18421881c1f320ec20c0f13c4c6fc3f2cc4a9bcc91ae",
+   "bytes": 1554723,
+   "pages": 23,
+   "text": "Northern Beaches Secondary College  Manly Campus  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General  Instructions  Total marks:  70  2026  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in section II, show relevant mathematical reasoning and/or calculations  Section I – 10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 60 marks  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  Name………………………………………………………….  Ext 1 Teacher……………………………………………….",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Manly%202026%20w.%20sol",
+   "at": "2026-11-21T01:05:14.111Z"
   },
   "https://thsconline.github.io/s/d/5338/Merewether%201999%20w.%20sol": {
    "state": "review",
@@ -18078,44 +18143,84 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Merewether%202018%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "4ec102c5b214e382eeaa0e2386ff9e7ca8f74577edc3363368b2722c78a3459d",
+   "bytes": 9317052,
+   "pages": 31,
+   "text": "2018  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes  •   Working time – 2 hours.  •   Write using black pen.  •   NESA approved calculators may be used.  •   A reference sheet is provided at the back of this paper.  •   In Questions 11 – 14, show relevant mathematical reasoning and/or calculations.  •   Submit ALL work at the end of the examination.  •   Diagrams are NOT drawn to scale.  Total marks: 70 Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10.  •   Allow about 15 minutes for this section.  Section II – 60 marks   (pages 6 – 12)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section. MEREWETHER HIGH SCHOOL HIGHER SCHOOL CERTIFICATE ASSESSMENT TASK 4",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Merewether%202018%20w.%20sol",
+   "at": "2026-11-21T01:05:18.661Z"
   },
   "https://thsconline.github.io/s/d/5338/Merewether%202020%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "e569de4f8c688ef14579055be814bdd822331fe3e20257b88fd5bca1e081fde5",
+   "bytes": 3615802,
+   "pages": 33,
+   "text": "Merewether High School  2020   TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks: 70 Section I – 10 marks   (pages 2–5)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 60 marks   (pages 6–11)  •   Attempt Questions 11–14  •   Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Merewether%202020%20w.%20sol",
+   "at": "2026-11-21T01:05:21.082Z"
   },
   "https://thsconline.github.io/s/d/5338/Merewether%202021": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "2c0e3a4f423964e37a40a57988c42661e97faabedc6ec184198401362f70a2d2",
+   "bytes": 573725,
+   "pages": 16,
+   "text": "1  Merewether High School  HIGHER SCHOOL  CERTIFICATE  Mathematics Extension 1  ASSESSMENT TASK 4  • Reading Time 10 minutes  • Working time – 120 minutes  • Write using black pen  • NESA approved calculators may be used  • A reference sheet is provided at the back of this paper  • In Section II, show relevant mathematical reasoning and/or calculations  Section I – 10 marks (pages 2–6)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II –60 marks (pages 7–12)  • Attempt Questions 11-16  • Allow about 105 minutes for this section  DO NOT REMOVE THIS EXAMINATION PAPER FROM THE ROOM  General  Instructions  Total Marks:  70 marks  2021",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Merewether%202021",
+   "at": "2026-11-21T01:05:23.146Z"
   },
   "https://thsconline.github.io/s/d/5338/Merewether%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "d528ea527174da3b9db49bb69ed216aa2a80cbe98ec34405d458eb40839c88c4",
+   "bytes": 10043072,
+   "pages": 46,
+   "text": "\u0002   \u0003\u0004\u0006   \u0007\u0004\b\u0005 \u0001\u0006\u0005 \u0005  \u0003\u0006 \u0006\u000f\u0006\u000e\b\u0006   \u0002 \u0007\b \u0004\u0005\b  \u0012\u0011\u0012\u0013   \u000f \b\u0002   \u0007\b\u0006\u0007\u0004   \u000e\u0003\u0007   \u0003\u0004 \u000f\b\u0005\b\u0003\u0002\u000f\u0004 \u0004\u0010\u0002   \b   \u0002\u000f\b  \u0007\b\u0011   \b\u0011   \u0010\u0001\u0006\u0012\u0011 \u000e\u0010 \u000f\u000e\u0001\u0018  \u0014 ( ,\u001c& \u0015(-.,/\u001e.$)(-  x   \b\u0001849@?0>\u0001=0,/492\u0001?480  x   *:=6492\u0001?480\u0001 –   \u00013:@=>  x   *=4?0\u0001@>492\u0001-7,.6\u0001;09\u0006  x   \u0018,7.@7,?:=>\u0001,;;=:A0/\u0001-D\u0001\"\u001a'\u0016\u00018,D\u0001-0\u0001@>0/\u0006  x   \u0016\u0001=010=09.0\u0001>300?\u00014>\u0001;=:A4/0/\u0006  x   \u001b:=\u0001<@0>?4:9>\u000149\u0001'0.?4:9\u0001\u001e\u001e\u0004\u0001>3:B\u0001=070A,9?\u00018,?308,?4.,7 \u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001=0,>:9492\u0001,9/\u0007:=\u0001.,7.@7,?4:9>\u0006  x   '@-84?\u0001\u0016   \u0001B:=6\u0001,?\u0001?30\u000109/\u0001:1\u0001?30\u00010C,849,?4:9\u0006  x   \u00194,2=,8>\u0001,=0\u0001\"#(\u0001/=,B9\u0001?:\u0001>.,70\u0006  \u001a).\u001c&\u0001\u0016\u001c,%-\u0001 \u0006 \u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0019 \u001e.$)(\u0001\u0015\u0001 –   \u0007\u0006 '\u001c,%-   \u0002;,20>\u0001 \u0001 – \u000f\u0003  x   \u0016??08;?\u0001%@0>?4:9>\u0001 \u0001 –   \b  x   \u001677:B\u0001,-:@?\u0001   849@?0>\u00011:=\u0001?34>\u0001>0.?4:9\u0006  \u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0019 \u001e.$)(\u0001\u0015\u0015\u0001 – \u0001\u0001 \u0006 '\u001c,%-   \u0002;,20>\u0001\u0010\u0001\u0001 –   \u000e\u0003  x   \u0016??08;?\u0001%@0>?4:9>\u0001   –  x   \u001677:B\u0001,-:@?\u0001 \b   849@?0>\u00011:=\u0001?34>\u0001>0.?4:9\u0006",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Merewether%202025%20w.%20sol",
+   "at": "2026-11-21T01:05:26.630Z"
   },
   "https://thsconline.github.io/s/d/5338/MLC%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "606f48850ff9769c064179e4d281b2a1c4924670dbede51aa8e12f6983230492",
+   "bytes": 336376,
+   "pages": 27,
+   "text": "MLC School  2016 Y E A R 1 2 T R I A L H S C E X A M I N A T I O N  Mathematics Extension 1  Name:   Teacher:  Date:   2016  Weighting:   40 %  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write in blue or black pen     Board approved calculators may be used     All necessary working should be shown in questions 11 - 14     A separate reference sheet is provided Total Marks –   70  Section 1   Pages 3 - 5  10 marks  Attempt Questions 1 - 10 Allow about 15 minutes for this section Section 2   Pages 6 - 10  60 marks  Attempt Questions 11 - 14 Allow about 1 hour 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/MLC%202016%20w.%20sol",
+   "at": "2026-11-21T01:05:28.787Z"
   },
   "https://thsconline.github.io/s/d/5338/Moriah%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "a93ed4f83e70aa5f77914239c46382b6f7b2226b88d6104c33ac6399d073eed5",
+   "bytes": 928792,
+   "pages": 26,
+   "text": "1  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General Instructions Reading time – 10 minutes  • Working time – 2 hours • Write using black pen • Calculators approved by NESA may be used • A reference sheet is provided at the back of this paper • For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 70 Section I – 10 marks   (pages 2–6) • Attempt Questions 1–10 • Allow about 15 minutes for this section  Section II – 60 marks   (pages 7–10) • Attempt Questions 11–14 • Allow about 1 hours and 45 minutes for this section  2021",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Moriah%202021%20w.%20sol",
+   "at": "2026-11-21T01:05:30.591Z"
   },
   "https://thsconline.github.io/s/d/5338/Moriah%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "1ca2ea8e1ee5882c6a492b29ef3ce7f3a44d02eba25fbbbbe2060dc997578e96",
+   "bytes": 730609,
+   "pages": 35,
+   "text": "Mathematics Extension 1  General Instructions  •   Reading time – 10 minutes   Total Marks   –   70  •   Working time – 2   hours   Section I   Questions 1 – 10   10 marks  •   Write using blue or black pen   Allow about 15 minutes for this section  •   NESA-approved calculators may   Section II   Questions 11 – 14   60 marks  be used   Allow about 1 hour and 45 minutes for  •   A reference sheet is provided   this section  •   For questions in Section II show  relevant mathematical reasoning  and/or calculations  2022  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Moriah College",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Moriah%202022%20w.%20sol",
+   "at": "2026-11-21T01:05:32.231Z"
   },
   "https://thsconline.github.io/s/d/5338/Moriah%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "dfc0529ac5fbe02c38c335ccd688cb9f52d2f301e97fbc9c4f19d3c5ded1217d",
+   "bytes": 1142668,
+   "pages": 26,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Moriah%202023%20w.%20sol",
+   "at": "2026-11-21T01:05:34.146Z"
   },
   "https://thsconline.github.io/s/d/5338/Newcastle%20Grammar%202004%20w.%20sol": {
    "state": "review",
@@ -18128,9 +18233,14 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Newcastle%20Grammar%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "81d24cc5aa66fafe133d6a5eeae8e5f3c3e5b504bb18d2bf30c949bd6534cf4e",
+   "bytes": 672386,
+   "pages": 35,
+   "text": "2016 Year 12 Newcastle Grammar School Mathematics Extension 1 HSC Trial Examination  1  Newcastle Grammar School Mathematics Extension 1 2016 HSC Trial Examination  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Board-approved calculators may be used     A table of standard integrals is provided at the back of this paper     In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks – 100 Section I   Pages 2 – 4  10 marks     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II   Pages 5 –11  60 marks     Attempt Questions 11–14     Allow about 1 hour and 45 minutes for this section Examiner DC",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Newcastle%20Grammar%202016%20w.%20sol",
+   "at": "2026-11-21T01:05:39.058Z"
   },
   "https://thsconline.github.io/s/d/5338/Newcastle%20Grammar%202020%20w.%20sol": {
    "state": "review",
@@ -151441,6 +151551,226 @@
    "transport": "thsc-fragments",
    "at": "2026-11-20T01:40:29.894Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Knox%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "33cb6e5e7e51c573b6f8cdbff40e2727dc51c13c6b73000794cbd6133eac0377",
+   "bytes": 734902,
+   "pages": 30,
+   "text": "2014 HSC Trial Examination  Mathematics Extension 1  General Instructions     Reading time – 5 minutes.     Working time – 2 hours.     Write using blue or black pen.     Board-approved calculators and templates may be used.     All necessary working should be shown in every question.     Multiple choice questions are to be completed on the special answer page.     Each free response questions to be completed in separate booklets.  Total marks – 70     Attempt Questions 1-14  Northern Beaches Secondary College  Manly Selective Campus",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:04:46.274Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "4b1b99a74331c225ee56581cfa434e6690834251307871f892f18a1a83e93217",
+   "bytes": 1233079,
+   "pages": 24,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  HIGHER SCHOOL CERTIFICATE  Trial Examination  2015  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black or blue pen     Write your Student Number at the top of each page     Answer Section I- Multiple Choice on Answer Sheet provided     Answer Section II – Free Response in a separate booklet for each question.     Board approved calculators and templates may be used.  Section I Multiple Choice     10 marks     Attempt all questions  Section II – Free Response     60 marks     Each question is of equal value     All necessary working should be shown in every question.  Weighting: 40%",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:04:48.796Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "bd2a55b55c5e522c21d21a8a23b0544548c7474f1358b2ffd383a88459375714",
+   "bytes": 1197107,
+   "pages": 24,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  2016  Mathematics Extension I  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Write your Student Number at the top of each page     Answer Section I- Multiple Choice on Answer Sheet provided     Answer Section II – Free Response in a separate booklet for each question.     Board approved calculators and templates may be used.  Section I Multiple Choice     10 marks     Attempt all questions     Allow about 15 minutes for this section  Section II – Free Response     60 marks     Each question is of equal value     All necessary working should be shown in every question.     Allow about 1 hour 45 minutes for this section  Weighting : 40%",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:04:51.469Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "457798b691a091a515c5bd9f657c3431b3752b8be9f2015504f987ec2fe47380",
+   "bytes": 1075032,
+   "pages": 27,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE MANLY SELECTIVE CAMPUS HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION 2017 Mathematics Extension I General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using   black   pen only     Write your Student Number at the top of each page     Answer Section I- Multiple Choice on Answer Sheet provided     Answer Section II – Free Response in a separate booklet for each question.     Board approved calculators and templates may be used. Section I Multiple Choice     10 marks     Attempt all questions     Allow about 15 minutes for this section Section II – Free Response     60 marks     Each question is of equal value     All necessary working should be shown in every question.     Allow about 1 hour 45 minutes for this section Weighting: 40%",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:04:53.807Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f9b83e7d8307d52324e7424d4e44d1c528fb7df0e5a2d3a4d8f8b07990a78dec",
+   "bytes": 1531529,
+   "pages": 25,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2018  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Write your name on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators and templates may be used.     Weighting: 40%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:04:56.409Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a17e4ac7915dc8260b01bb3c5f01d9302ecb6cda1fd771f07939030bd6691eb8",
+   "bytes": 1654700,
+   "pages": 30,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2019  Mathematics Extension 1  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Write your name on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators and templates may be used.     Weighting: 30%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:04:59.024Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "cd550ba921dcd4e0b20460d144dd0b7153ba70aff5d76e39ed3badb75911b744",
+   "bytes": 556861,
+   "pages": 22,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:01.090Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "efbf2d71f577ebb9a1a88a42db4caf6c58226275cb7c17507e63f3b330a84ff6",
+   "bytes": 2446607,
+   "pages": 32,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2021  Mathematics Extension 1  General Instructions     Reading time – 10 minutes     Working time – 2 hours     Write using black pen     Write your name on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators may be used.     Weighting:30%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:02.668Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "ca668e2ad36e6107c2621cc485e1ffd62a7e1582bc63ffa873b13664e485ea7e",
+   "bytes": 2308286,
+   "pages": 27,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE  MANLY SELECTIVE CAMPUS  Year 12  Trial Examination  2022  Mathematics Extension 1  General Instructions     Reading time – 10 minutes     Working time – 2 hours     Write using black pen     Write your student number on the front of every booklet.     In Questions 11 to 14 show relevant mathematical reasoning and/or calculations.     NESA approved calculators may be used.     Weighting:30%  Section I Multiple Choice     10 marks     Attempt all questions.     Answer Sheet provided     Allow about 15 minutes for this section  Section II Free Response     60 marks     Start a separate booklet for each question.     Each question is of equal value.     All necessary working should be shown in every question.     Allow about 1 hour and 45 minutes for this section.",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:05.207Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "31b6236ce444d0e1f074f4ea59051f377a16a5abca913e36e2b68cd44bab869f",
+   "bytes": 1344769,
+   "pages": 29,
+   "text": "1  Northern Beaches Secondary College  Manly Campus  2023  Higher School Certificate Trial Examination  Mathematics Extension 1  General Instructions  • Reading time – 5 minutes  • Working time – 2 hours  • Write using black pen  • NESA approved calculators may be used  • A reference sheet is provided with this paper  • For questions in Section II, show relevant mathematical reasoning and/or calculations  Total Marks: 70  Section I – 10 marks (pages 2–6)  • Attempt Questions 1-10  • Allow about 15 minutes for this section  •   Answer on Multiple Choice Answer Sheet provided  Section II – 60 marks (pages 7–14)  • Attempt Questions 11–14  • Allow about 1 hour and 45 minutes minutes for this section  •   Answer each question in a separate booklet",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:07.327Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "dda539e7a2d367f435eea9a058e9499474c683ed7dbd46956135ffedad373881",
+   "bytes": 1643811,
+   "pages": 27,
+   "text": "NORTHERN BEACHES SECONDARY COLLEGE MANLY CAMPUS  MATHEMATICS EXTENSION 1  2024 Year 12 Course Assessment Task 4 – Trial HSC  Tuesday, 13 August 2024  General instructions  •   Working time: 2 hours (plus 10 minutes reading time)  •   Write using blue or black pen. Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt all questions.  •   At the conclusion of the examination, bundle the booklets used in the correct order within this paper and hand to examination supervisors.  SECTION I  •   Mark your answers on the answer grid provided on page 2  SECTION II  •   Commence each new question in a new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  •   NESA reference sheet is provided  •   Table of z-scores is provided on page 15  NESA STUDENT #: ..........................................................   # BOOKLETS USED: ................................  Marker’s use only  QUESTION   1-10   11   12   13   14   Total   %  MARKS   ⬚  10  ⬚  15  ⬚  15  ⬚  15  ⬚  15  ⬚  70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:09.486Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "ff8e3e620c9557f1194f942de61b4d96180b9ef0f49382c3db91977a388644e1",
+   "bytes": 1990493,
+   "pages": 26,
+   "text": "NAME: ______________________________  Northern Beaches Secondary College  Manly Campus  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General  Instructions  Total marks:  70  2025  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in section II, show relevant mathematical reasoning and/or calculations  Section I   –   10 marks  •   Attempt Questions 1   –   10  •   Allow about 15 minutes for this section  Section II   –   60 marks  •   Attempt Questions 11   –   14  •   Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:11.858Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Manly%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "3db4705370963e98e47e18421881c1f320ec20c0f13c4c6fc3f2cc4a9bcc91ae",
+   "bytes": 1554723,
+   "pages": 23,
+   "text": "Northern Beaches Secondary College  Manly Campus  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General  Instructions  Total marks:  70  2026  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in section II, show relevant mathematical reasoning and/or calculations  Section I – 10 marks  •   Attempt Questions 1 – 10  •   Allow about 15 minutes for this section  Section II – 60 marks  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section  Name………………………………………………………….  Ext 1 Teacher……………………………………………….",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:14.111Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Manly%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Merewether%202018%20w.%20sol": {
+   "state": "verified",
+   "sha256": "4ec102c5b214e382eeaa0e2386ff9e7ca8f74577edc3363368b2722c78a3459d",
+   "bytes": 9317052,
+   "pages": 31,
+   "text": "2018  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes  •   Working time – 2 hours.  •   Write using black pen.  •   NESA approved calculators may be used.  •   A reference sheet is provided at the back of this paper.  •   In Questions 11 – 14, show relevant mathematical reasoning and/or calculations.  •   Submit ALL work at the end of the examination.  •   Diagrams are NOT drawn to scale.  Total marks: 70 Section I – 10 marks   (pages 2 – 5)  •   Attempt Questions 1 – 10.  •   Allow about 15 minutes for this section.  Section II – 60 marks   (pages 6 – 12)  •   Attempt Questions 11 – 14  •   Allow about 1 hour and 45 minutes for this section. MEREWETHER HIGH SCHOOL HIGHER SCHOOL CERTIFICATE ASSESSMENT TASK 4",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:18.661Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Merewether%202018%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Merewether%202020%20w.%20sol": {
+   "state": "verified",
+   "sha256": "e569de4f8c688ef14579055be814bdd822331fe3e20257b88fd5bca1e081fde5",
+   "bytes": 3615802,
+   "pages": 33,
+   "text": "Merewether High School  2020   TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks: 70 Section I – 10 marks   (pages 2–5)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 60 marks   (pages 6–11)  •   Attempt Questions 11–14  •   Allow about 1 hour and 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:21.082Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Merewether%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Merewether%202021": {
+   "state": "verified",
+   "sha256": "2c0e3a4f423964e37a40a57988c42661e97faabedc6ec184198401362f70a2d2",
+   "bytes": 573725,
+   "pages": 16,
+   "text": "1  Merewether High School  HIGHER SCHOOL  CERTIFICATE  Mathematics Extension 1  ASSESSMENT TASK 4  • Reading Time 10 minutes  • Working time – 120 minutes  • Write using black pen  • NESA approved calculators may be used  • A reference sheet is provided at the back of this paper  • In Section II, show relevant mathematical reasoning and/or calculations  Section I – 10 marks (pages 2–6)  • Attempt Questions 1–10  • Allow about 15 minutes for this section  Section II –60 marks (pages 7–12)  • Attempt Questions 11-16  • Allow about 105 minutes for this section  DO NOT REMOVE THIS EXAMINATION PAPER FROM THE ROOM  General  Instructions  Total Marks:  70 marks  2021",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:23.146Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Merewether%202021"
+  },
+  "https://www.thsconline.net/s/v/5338/Merewether%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "d528ea527174da3b9db49bb69ed216aa2a80cbe98ec34405d458eb40839c88c4",
+   "bytes": 10043072,
+   "pages": 46,
+   "text": "\u0002   \u0003\u0004\u0006   \u0007\u0004\b\u0005 \u0001\u0006\u0005 \u0005  \u0003\u0006 \u0006\u000f\u0006\u000e\b\u0006   \u0002 \u0007\b \u0004\u0005\b  \u0012\u0011\u0012\u0013   \u000f \b\u0002   \u0007\b\u0006\u0007\u0004   \u000e\u0003\u0007   \u0003\u0004 \u000f\b\u0005\b\u0003\u0002\u000f\u0004 \u0004\u0010\u0002   \b   \u0002\u000f\b  \u0007\b\u0011   \b\u0011   \u0010\u0001\u0006\u0012\u0011 \u000e\u0010 \u000f\u000e\u0001\u0018  \u0014 ( ,\u001c& \u0015(-.,/\u001e.$)(-  x   \b\u0001849@?0>\u0001=0,/492\u0001?480  x   *:=6492\u0001?480\u0001 –   \u00013:@=>  x   *=4?0\u0001@>492\u0001-7,.6\u0001;09\u0006  x   \u0018,7.@7,?:=>\u0001,;;=:A0/\u0001-D\u0001\"\u001a'\u0016\u00018,D\u0001-0\u0001@>0/\u0006  x   \u0016\u0001=010=09.0\u0001>300?\u00014>\u0001;=:A4/0/\u0006  x   \u001b:=\u0001<@0>?4:9>\u000149\u0001'0.?4:9\u0001\u001e\u001e\u0004\u0001>3:B\u0001=070A,9?\u00018,?308,?4.,7 \u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001=0,>:9492\u0001,9/\u0007:=\u0001.,7.@7,?4:9>\u0006  x   '@-84?\u0001\u0016   \u0001B:=6\u0001,?\u0001?30\u000109/\u0001:1\u0001?30\u00010C,849,?4:9\u0006  x   \u00194,2=,8>\u0001,=0\u0001\"#(\u0001/=,B9\u0001?:\u0001>.,70\u0006  \u001a).\u001c&\u0001\u0016\u001c,%-\u0001 \u0006 \u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0019 \u001e.$)(\u0001\u0015\u0001 –   \u0007\u0006 '\u001c,%-   \u0002;,20>\u0001 \u0001 – \u000f\u0003  x   \u0016??08;?\u0001%@0>?4:9>\u0001 \u0001 –   \b  x   \u001677:B\u0001,-:@?\u0001   849@?0>\u00011:=\u0001?34>\u0001>0.?4:9\u0006  \u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0019 \u001e.$)(\u0001\u0015\u0015\u0001 – \u0001\u0001 \u0006 '\u001c,%-   \u0002;,20>\u0001\u0010\u0001\u0001 –   \u000e\u0003  x   \u0016??08;?\u0001%@0>?4:9>\u0001   –  x   \u001677:B\u0001,-:@?\u0001 \b   849@?0>\u00011:=\u0001?34>\u0001>0.?4:9\u0006",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:26.630Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Merewether%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/MLC%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "606f48850ff9769c064179e4d281b2a1c4924670dbede51aa8e12f6983230492",
+   "bytes": 336376,
+   "pages": 27,
+   "text": "MLC School  2016 Y E A R 1 2 T R I A L H S C E X A M I N A T I O N  Mathematics Extension 1  Name:   Teacher:  Date:   2016  Weighting:   40 %  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write in blue or black pen     Board approved calculators may be used     All necessary working should be shown in questions 11 - 14     A separate reference sheet is provided Total Marks –   70  Section 1   Pages 3 - 5  10 marks  Attempt Questions 1 - 10 Allow about 15 minutes for this section Section 2   Pages 6 - 10  60 marks  Attempt Questions 11 - 14 Allow about 1 hour 45 minutes for this section",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:28.787Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/MLC%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Moriah%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a93ed4f83e70aa5f77914239c46382b6f7b2226b88d6104c33ac6399d073eed5",
+   "bytes": 928792,
+   "pages": 26,
+   "text": "1  HIGHER SCHOOL CERTIFICATE TRIAL EXAMINATION  Mathematics Extension 1  General Instructions Reading time – 10 minutes  • Working time – 2 hours • Write using black pen • Calculators approved by NESA may be used • A reference sheet is provided at the back of this paper • For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: 70 Section I – 10 marks   (pages 2–6) • Attempt Questions 1–10 • Allow about 15 minutes for this section  Section II – 60 marks   (pages 7–10) • Attempt Questions 11–14 • Allow about 1 hours and 45 minutes for this section  2021",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:30.591Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Moriah%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Moriah%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1ca2ea8e1ee5882c6a492b29ef3ce7f3a44d02eba25fbbbbe2060dc997578e96",
+   "bytes": 730609,
+   "pages": 35,
+   "text": "Mathematics Extension 1  General Instructions  •   Reading time – 10 minutes   Total Marks   –   70  •   Working time – 2   hours   Section I   Questions 1 – 10   10 marks  •   Write using blue or black pen   Allow about 15 minutes for this section  •   NESA-approved calculators may   Section II   Questions 11 – 14   60 marks  be used   Allow about 1 hour and 45 minutes for  •   A reference sheet is provided   this section  •   For questions in Section II show  relevant mathematical reasoning  and/or calculations  2022  TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Moriah College",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:32.231Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Moriah%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Moriah%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "dfc0529ac5fbe02c38c335ccd688cb9f52d2f301e97fbc9c4f19d3c5ded1217d",
+   "bytes": 1142668,
+   "pages": 26,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:34.146Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Moriah%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Newcastle%20Grammar%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "81d24cc5aa66fafe133d6a5eeae8e5f3c3e5b504bb18d2bf30c949bd6534cf4e",
+   "bytes": 672386,
+   "pages": 35,
+   "text": "2016 Year 12 Newcastle Grammar School Mathematics Extension 1 HSC Trial Examination  1  Newcastle Grammar School Mathematics Extension 1 2016 HSC Trial Examination  General Instructions     Reading time – 5 minutes     Working time – 2 hours     Write using black pen     Board-approved calculators may be used     A table of standard integrals is provided at the back of this paper     In Questions 11–14, show relevant mathematical reasoning and/or calculations  Total marks – 100 Section I   Pages 2 – 4  10 marks     Attempt Questions 1–10     Allow about 15 minutes for this section  Section II   Pages 5 –11  60 marks     Attempt Questions 11–14     Allow about 1 hour and 45 minutes for this section Examiner DC",
+   "transport": "thsc-fragments",
+   "at": "2026-11-21T01:05:39.058Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Newcastle%20Grammar%202016%20w.%20sol"
   }
  },
  "releaseRefresh": {
