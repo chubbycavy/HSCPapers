@@ -18443,34 +18443,64 @@
    "at": "2026-11-22T00:06:07.510Z"
   },
   "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "f899d37c3c1cebc7dedda3271b94a085a8ac449da504e23098835094b5ffab4b",
+   "bytes": 379376,
+   "pages": 23,
+   "text": "MATHEMATICS EXTENSION 1  2021 Year 12 Course Assessment Task 4 (Trial Examination) Thursday September 2, 2021  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 12)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MXX.1 – Mr Sekaran  ©   12MXX.2 – Ms Ham  ©   12MAX.1 – Mr Ho  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Mr Lam  ©   12MAX.4 – Mr Sun Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   16   16   14   14   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202021%20w.%20sol",
+   "at": "2026-11-23T00:36:45.472Z"
   },
   "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "b4ff5b66dd84ff5bd373c41cd7ef5591c95b9b597730c4a9569b275aadfe2e26",
+   "bytes": 966868,
+   "pages": 14,
+   "text": "MATHEMATICS EXTENSION 1  2022 Year 12 Course Assessment Task 4 (Trial Examination) Tuesday August 16, 2022  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 9)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   \u0002 )  ©   12MAX.1 – Mr Lam  ©   12MAX.2 – Ms C. Kim  ©   12MAX.3 – Ms Lee  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Sekaran Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   18   14   13   15   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202022%20w.%20sol",
+   "at": "2026-11-23T00:36:47.359Z"
   },
   "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "ab7020eb4275d5ecef2119ee637e15976a867c36d7341c870a08881170752140",
+   "bytes": 304969,
+   "pages": 21,
+   "text": "MATHEMATICS EXTENSION 1  2023 Year 12 Course Assessment Task 4 (Trial Examination) Wednesday August 9th, 2023  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 11)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAX.1 – Miss C. Kim  ©   12MAX.2 – Miss Lee  ©   12MAX.3 – Miss J. Kim  ©   12MXX.1 – Mr Ho  ©   12MXX.2 – Mr Sekaran  ©   12MXX.3 – Ms Ham Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   15   17   17   11   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202023%20w.%20sol",
+   "at": "2026-11-23T00:36:50.151Z"
   },
   "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "7ef4eb8040e15fe84960e35d4a342677dbcd32032d9a25f9b884ec735e9dcb34",
+   "bytes": 586963,
+   "pages": 27,
+   "text": "MATHEMATICS EXTENSION 1  2024 Year 12 Course Assessment Task 4 (Trial Examination) Wednesday 14 August, 2024  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 13)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Ho  ©   12MXX.3 – Mr Lam  ©   12MAX.1 – Ms J Kim  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Ms Lee Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   16   12   17   15   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202024%20w.%20sol",
+   "at": "2026-11-23T00:36:51.921Z"
   },
   "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "21e0287172a78f8e2126b3d12663c2665489d7ac119062fa46f7dbb6f142c86c",
+   "bytes": 418003,
+   "pages": 23,
+   "text": "MATHEMATICS EXTENSION 1  2025 Year 12 Course Assessment Task 4 (Trial Examination) Friday 8th August, 2025  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 14)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAX.1 – Miss Kim  ©   12MAX.2 – Miss Chaussivert  ©   12MAX.3 – Miss Lee  ©   12MAX.4 – Mr Lam  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Ho Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   17   15   17   11   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202025%20w.%20sol",
+   "at": "2026-11-23T00:36:53.621Z"
   },
   "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "a3f9c648eb4518d85ec7b4eb0fc19a9803ed2968951c79efbd753720f802dfbc",
+   "bytes": 2685576,
+   "pages": 30,
+   "text": "MATHEMATICS EXTENSION 1  2026 Year 12 Course Assessment Task 4 (Trial Examination) Friday 7th August, 2026  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 13)  SECTION II  •   Answer   the   questions   in   the   Section   II Writing Booklet. Extra writing booklets are available.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   \u0002 )  ©   12MAX.2 – Ms Lee  ©   12MAX.3 – Ms Chaussivert  ©   12MAX.4 – Ms Kim  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Ho Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   17   16   14   13   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202026%20w.%20sol",
+   "at": "2026-11-23T00:36:55.374Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%201998": {
    "state": "review",
@@ -18518,39 +18548,74 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "8c7fe8d5b0e06805952dbfc0fa58290aa1d5628771382600151e6847cdabb725",
+   "bytes": 1022564,
+   "pages": 29,
+   "text": "-   ~   ~  ~vt   ~  ~~~'   ~  NORTH   SYDNEY   BOYS  HIGH   SCHOOL  2019   HSC   ASSESSMENT   TASK   3   (TRIAL   HSC)  Mathematics Extension 1  General   Instructions  •   Reading   time -   5   minutes  •   Working   time -   2   hours  •   Write using   blue   or   black   pen  •   Board approved   calculators   may be used  •   All   necessary working should be shown in every question  •   Each new question is to be started on a new page.  •   Attempt   all   questions  I   Student Number:  Class   Teacher:  (Please   tick or   highlight)  0   Mr Berry  0   Mr   Ireland  0   Dr Jomaa  0   Ms Lee  0   Mr Lin  0   Ms   Ziaziaris  (To be used by the exam markers   only.)  Question   1-10   11   12 No   13   14   Total   Total  Mark   -   -   -   -   -   -   -  10   15   15   15   15   70   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202019%20w.%20sol",
+   "at": "2026-11-23T00:37:09.005Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202021%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "5b661a28e026c9dc235dc55c2d0538a8953331d33acb9f99534035cd0c692bf2",
+   "bytes": 1022201,
+   "pages": 25,
+   "text": "NORTH SYDNEY BOYS HIGH   SCHOOL  2021 YEAR 12 HSC ASSESSMENT TASK 3 Mathematics Extension 1  I   Student Number: General Instructions  •   Reading time   -10   minutes  •   Working time   -   2 hours  •   Write using blue or black pen •   Board approved calculators may be used •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working. •   Write Multiple Choice responses on sheet provided •   Write on the lined paper in the booklets provided •   Use the Reference Sheet  Question   1--10   11 No  Mark   -   - 10   15  12  -  15  13  - 15  Section   I -   10 marks  •   Attempt Questions l -   10 •   Allow about 15 minutes for this section  Section   II -   60   marks  •   Attempt Questions 11 -   14 •   Allow about 1 hour 45 minutes for this section  Class   Teacher:  (Shade the circle) 0   Mr Berry 0   Mr Lin 0   Mr Umakanthan 0   Mr Ireland 0   Ms Lee 0   Dr Vranesevic  14   Total   % -   -   - 15   70   100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202021%20w.%20sol",
+   "at": "2026-11-23T00:37:10.874Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "f44fb7b9956b57fa6614dbd7517c4197f8f21841b3f687b2138fba5456ab7c1e",
+   "bytes": 601798,
+   "pages": 19,
+   "text": "HSC Course Assessment Task 3-Trial Examination MATHEMATICS EXTENSION 1 General instructions  • Reading time - 10 minutes • Working time - 2 hours. • A reference sheet is provided • Write using blue or black pen. Where diagrams are to be sketched, these may be done in pencil. • NESA approved calculators may be used. • For questions in Section II, show relevant mathematical reasoning and/or calculations in every question. Marks may be deducted for illegible or incomplete working. • Attempt   all   questions. • At the conclusion of the examination, bundle any addi- tional sheets used in the correct order within this paper and hand to examination supervisors.  Class   (please tick)  ⃝   12MM4.A2 – Mr Berry  ⃝   12MM4.B2 – Ms Lee  ⃝   12MM3.B2 – Mr Lin  ⃝   12MM3.A2 – Mr Ireland  ⃝   12MM3.C2 – Ms Moss  ⃝   12MM4.C2 – Mr Umakanthan  Marker’s use only. QUESTION   1-10   11   12   13   14   Total MARKS   10   15   15   15   15   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202022%20w.%20sol",
+   "at": "2026-11-23T00:37:12.551Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "d93b2ebe478c9a74651e869d3416fff10a67a5845b322bb6461bacc82c4a4a6c",
+   "bytes": 4271892,
+   "pages": 41,
+   "text": "Student No:  Mathematics Extension 1  Year 12, Assessment task 3, Term 2 2023  General Instruction:  •   Reading time – 10 minutes  •   Working time – 120 minutes  •   Write using black/blue pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: Section I – 10 marks (pages 1–3)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 60 marks (pages 4–7)  •   Attempt Questions 11–14  •   Allow about 1 hour and 45 minutes for this section  Class Teacher (please tick one name)  ©   Mr Berry  ©   Ms Fu  ©   Mr Ireland  ©   Ms Lee  ©   Mr Lin  ©   Mr Umakanthan  ©   Dr Vraneˇ sevi´ c  Question No. 1-10   11   12   13   14   Total   Total % Marks   /10   /15   /15   /15   /15   /70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202023%20w.%20sol",
+   "at": "2026-11-23T00:37:14.229Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "88a8d083f4b17a357d142d705ded80b5f242f9370242563201bf954e558d8ef1",
+   "bytes": 936182,
+   "pages": 15,
+   "text": "Mathematics Extension 1  2024 Assessment Task 3  General Instructions:  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   For questions in Section B, show all relevant mathematical reasoning  and/or calculations  •   Use a new booklet for each question  •   Write your student number and tick teacher name on   everything  Teacher  (Please tick)     Mr Berry     Ms Cai     Mr Ireland     Ms Lee     Ms Moss     Mr Umakanthan     Dr Vranešević  Student Number:  4  Marker Use Only:  Question   MC   11   12   13   14   Total   %  Mark   10   15   15   15   15   70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202024%20w.%20sol",
+   "at": "2026-11-23T00:37:15.947Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "d02d91b0821b2cc3afe60c6997b3cba7b42fdd220f3d5379a0c05752216a8831",
+   "bytes": 5529130,
+   "pages": 43,
+   "text": "Student No: Mathematics Extension 1 2025 HSC – Year 12, Assessment Task 3, 2025 General Instruction:  •   Reading time – 10 minutes  •   Working time – 120 minutes  •   Write using black/blue pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: Section I – 10 marks (page 1-3)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 60 marks (pages 4–9)  •   Attempt Questions 11–14  •   Allow about 1 hour and 45 minutes for this section  Class Teacher (please tick one name)  ©   Mr Berry  ©   Ms Cai  ©   Mr Ireland  ©   Ms Lee  ©   Ms Moss  ©   Mr Umakanthan  ©   Dr Vraneˇ sevi´ c  Question No. 1-10   11   12   13   14   Total   % Marks   /10   /15   /15   /15   /15   /70   /100",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202025%20w.%20sol",
+   "at": "2026-11-23T00:37:18.082Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202026%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "1dc3c7a00a63e41ab30353935b06c2d921ddbe3da9a86dcf48b01ff9376c6373",
+   "bytes": 2955467,
+   "pages": 31,
+   "text": "2026 HSC ASSESSMENT TASK 3  Mathematics  Extension 1  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A separate reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  •   Write your Student Number and and select your Class teacher on the front of each booklet  Class Teacher:  (Please tick or highlight)     Ms Sarofim     Ms Everingham     Ms Cai     Mr Berry     Dr Vranešević     Ms Moss     Ms Lee  (To be used by the exam markers only.)  Question  No   1-10   11   12   13   14   Total   Total  Mark   10   15   15   15   15   70   100  Student Number :",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202026%20w.%20sol",
+   "at": "2026-11-23T00:37:19.820Z"
   },
   "https://thsconline.github.io/s/d/5338/North%20Sydney%20Girls%201990%20w.%20sol": {
    "state": "review",
@@ -151996,6 +152061,136 @@
    "transport": "thsc-fragments",
    "at": "2026-11-22T00:06:07.510Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202020%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f899d37c3c1cebc7dedda3271b94a085a8ac449da504e23098835094b5ffab4b",
+   "bytes": 379376,
+   "pages": 23,
+   "text": "MATHEMATICS EXTENSION 1  2021 Year 12 Course Assessment Task 4 (Trial Examination) Thursday September 2, 2021  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 12)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MXX.1 – Mr Sekaran  ©   12MXX.2 – Ms Ham  ©   12MAX.1 – Mr Ho  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Mr Lam  ©   12MAX.4 – Mr Sun Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   16   16   14   14   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:36:45.472Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "b4ff5b66dd84ff5bd373c41cd7ef5591c95b9b597730c4a9569b275aadfe2e26",
+   "bytes": 966868,
+   "pages": 14,
+   "text": "MATHEMATICS EXTENSION 1  2022 Year 12 Course Assessment Task 4 (Trial Examination) Tuesday August 16, 2022  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 9)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   \u0002 )  ©   12MAX.1 – Mr Lam  ©   12MAX.2 – Ms C. Kim  ©   12MAX.3 – Ms Lee  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Sekaran Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   18   14   13   15   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:36:47.359Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "ab7020eb4275d5ecef2119ee637e15976a867c36d7341c870a08881170752140",
+   "bytes": 304969,
+   "pages": 21,
+   "text": "MATHEMATICS EXTENSION 1  2023 Year 12 Course Assessment Task 4 (Trial Examination) Wednesday August 9th, 2023  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 11)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAX.1 – Miss C. Kim  ©   12MAX.2 – Miss Lee  ©   12MAX.3 – Miss J. Kim  ©   12MXX.1 – Mr Ho  ©   12MXX.2 – Mr Sekaran  ©   12MXX.3 – Ms Ham Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   15   17   17   11   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:36:50.151Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "7ef4eb8040e15fe84960e35d4a342677dbcd32032d9a25f9b884ec735e9dcb34",
+   "bytes": 586963,
+   "pages": 27,
+   "text": "MATHEMATICS EXTENSION 1  2024 Year 12 Course Assessment Task 4 (Trial Examination) Wednesday 14 August, 2024  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 13)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Ho  ©   12MXX.3 – Mr Lam  ©   12MAX.1 – Ms J Kim  ©   12MAX.2 – Mrs Bhamra  ©   12MAX.3 – Ms Lee Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   16   12   17   15   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:36:51.921Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "21e0287172a78f8e2126b3d12663c2665489d7ac119062fa46f7dbb6f142c86c",
+   "bytes": 418003,
+   "pages": 23,
+   "text": "MATHEMATICS EXTENSION 1  2025 Year 12 Course Assessment Task 4 (Trial Examination) Friday 8th August, 2025  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  •   At the conclusion of the examination, bundle the   booklets   used   in   the   correct   order within this paper and hand to examination supervisors.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 14)  SECTION II  •   Commence   each   new   question   on   a   new booklet. Write on both sides of the paper.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   ✔ )  ©   12MAX.1 – Miss Kim  ©   12MAX.2 – Miss Chaussivert  ©   12MAX.3 – Miss Lee  ©   12MAX.4 – Mr Lam  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Ho Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   17   15   17   11   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:36:53.621Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Normanhurst%20Boys%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "a3f9c648eb4518d85ec7b4eb0fc19a9803ed2968951c79efbd753720f802dfbc",
+   "bytes": 2685576,
+   "pages": 30,
+   "text": "MATHEMATICS EXTENSION 1  2026 Year 12 Course Assessment Task 4 (Trial Examination) Friday 7th August, 2026  General instructions  •   Working time – 2 hours. (plus 10 minutes reading time)  •   Write   using   blue   or   black   pen.   Where diagrams are to be sketched, these may be done in pencil.  •   NESA approved calculators may be used.  •   Attempt   all   questions.  SECTION I  •   Mark   your   answers   on   the   answer   grid provided (on page 13)  SECTION II  •   Answer   the   questions   in   the   Section   II Writing Booklet. Extra writing booklets are available.  •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working.  NESA STUDENT #:   . . . . . . . . . . . . . . . . . . . . . . . . . .   # BOOKLETS USED : . . . . .  Class   (please   \u0002 )  ©   12MAX.2 – Ms Lee  ©   12MAX.3 – Ms Chaussivert  ©   12MAX.4 – Ms Kim  ©   12MXX.1 – Ms Ham  ©   12MXX.2 – Mr Ho Marker’s use only.  QUESTION   1-10   11   12   13   14   Total   % MARKS   10   17   16   14   13   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:36:55.374Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Normanhurst%20Boys%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "8c7fe8d5b0e06805952dbfc0fa58290aa1d5628771382600151e6847cdabb725",
+   "bytes": 1022564,
+   "pages": 29,
+   "text": "-   ~   ~  ~vt   ~  ~~~'   ~  NORTH   SYDNEY   BOYS  HIGH   SCHOOL  2019   HSC   ASSESSMENT   TASK   3   (TRIAL   HSC)  Mathematics Extension 1  General   Instructions  •   Reading   time -   5   minutes  •   Working   time -   2   hours  •   Write using   blue   or   black   pen  •   Board approved   calculators   may be used  •   All   necessary working should be shown in every question  •   Each new question is to be started on a new page.  •   Attempt   all   questions  I   Student Number:  Class   Teacher:  (Please   tick or   highlight)  0   Mr Berry  0   Mr   Ireland  0   Dr Jomaa  0   Ms Lee  0   Mr Lin  0   Ms   Ziaziaris  (To be used by the exam markers   only.)  Question   1-10   11   12 No   13   14   Total   Total  Mark   -   -   -   -   -   -   -  10   15   15   15   15   70   100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:09.005Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202021%20w.%20sol": {
+   "state": "verified",
+   "sha256": "5b661a28e026c9dc235dc55c2d0538a8953331d33acb9f99534035cd0c692bf2",
+   "bytes": 1022201,
+   "pages": 25,
+   "text": "NORTH SYDNEY BOYS HIGH   SCHOOL  2021 YEAR 12 HSC ASSESSMENT TASK 3 Mathematics Extension 1  I   Student Number: General Instructions  •   Reading time   -10   minutes  •   Working time   -   2 hours  •   Write using blue or black pen •   Board approved calculators may be used •   All necessary working should be shown in every question. Marks may be deducted for illegible or incomplete working. •   Write Multiple Choice responses on sheet provided •   Write on the lined paper in the booklets provided •   Use the Reference Sheet  Question   1--10   11 No  Mark   -   - 10   15  12  -  15  13  - 15  Section   I -   10 marks  •   Attempt Questions l -   10 •   Allow about 15 minutes for this section  Section   II -   60   marks  •   Attempt Questions 11 -   14 •   Allow about 1 hour 45 minutes for this section  Class   Teacher:  (Shade the circle) 0   Mr Berry 0   Mr Lin 0   Mr Umakanthan 0   Mr Ireland 0   Ms Lee 0   Dr Vranesevic  14   Total   % -   -   - 15   70   100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:10.874Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202021%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "f44fb7b9956b57fa6614dbd7517c4197f8f21841b3f687b2138fba5456ab7c1e",
+   "bytes": 601798,
+   "pages": 19,
+   "text": "HSC Course Assessment Task 3-Trial Examination MATHEMATICS EXTENSION 1 General instructions  • Reading time - 10 minutes • Working time - 2 hours. • A reference sheet is provided • Write using blue or black pen. Where diagrams are to be sketched, these may be done in pencil. • NESA approved calculators may be used. • For questions in Section II, show relevant mathematical reasoning and/or calculations in every question. Marks may be deducted for illegible or incomplete working. • Attempt   all   questions. • At the conclusion of the examination, bundle any addi- tional sheets used in the correct order within this paper and hand to examination supervisors.  Class   (please tick)  ⃝   12MM4.A2 – Mr Berry  ⃝   12MM4.B2 – Ms Lee  ⃝   12MM3.B2 – Mr Lin  ⃝   12MM3.A2 – Mr Ireland  ⃝   12MM3.C2 – Ms Moss  ⃝   12MM4.C2 – Mr Umakanthan  Marker’s use only. QUESTION   1-10   11   12   13   14   Total MARKS   10   15   15   15   15   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:12.551Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "d93b2ebe478c9a74651e869d3416fff10a67a5845b322bb6461bacc82c4a4a6c",
+   "bytes": 4271892,
+   "pages": 41,
+   "text": "Student No:  Mathematics Extension 1  Year 12, Assessment task 3, Term 2 2023  General Instruction:  •   Reading time – 10 minutes  •   Working time – 120 minutes  •   Write using black/blue pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided at the back of this paper  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: Section I – 10 marks (pages 1–3)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 60 marks (pages 4–7)  •   Attempt Questions 11–14  •   Allow about 1 hour and 45 minutes for this section  Class Teacher (please tick one name)  ©   Mr Berry  ©   Ms Fu  ©   Mr Ireland  ©   Ms Lee  ©   Mr Lin  ©   Mr Umakanthan  ©   Dr Vraneˇ sevi´ c  Question No. 1-10   11   12   13   14   Total   Total % Marks   /10   /15   /15   /15   /15   /70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:14.229Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "88a8d083f4b17a357d142d705ded80b5f242f9370242563201bf954e558d8ef1",
+   "bytes": 936182,
+   "pages": 15,
+   "text": "Mathematics Extension 1  2024 Assessment Task 3  General Instructions:  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   For questions in Section B, show all relevant mathematical reasoning  and/or calculations  •   Use a new booklet for each question  •   Write your student number and tick teacher name on   everything  Teacher  (Please tick)     Mr Berry     Ms Cai     Mr Ireland     Ms Lee     Ms Moss     Mr Umakanthan     Dr Vranešević  Student Number:  4  Marker Use Only:  Question   MC   11   12   13   14   Total   %  Mark   10   15   15   15   15   70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:15.947Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "d02d91b0821b2cc3afe60c6997b3cba7b42fdd220f3d5379a0c05752216a8831",
+   "bytes": 5529130,
+   "pages": 43,
+   "text": "Student No: Mathematics Extension 1 2025 HSC – Year 12, Assessment Task 3, 2025 General Instruction:  •   Reading time – 10 minutes  •   Working time – 120 minutes  •   Write using black/blue pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  Total marks: Section I – 10 marks (page 1-3)  •   Attempt Questions 1–10  •   Allow about 15 minutes for this section  Section II – 60 marks (pages 4–9)  •   Attempt Questions 11–14  •   Allow about 1 hour and 45 minutes for this section  Class Teacher (please tick one name)  ©   Mr Berry  ©   Ms Cai  ©   Mr Ireland  ©   Ms Lee  ©   Ms Moss  ©   Mr Umakanthan  ©   Dr Vraneˇ sevi´ c  Question No. 1-10   11   12   13   14   Total   % Marks   /10   /15   /15   /15   /15   /70   /100",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:18.082Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202025%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/North%20Sydney%20Boys%202026%20w.%20sol": {
+   "state": "verified",
+   "sha256": "1dc3c7a00a63e41ab30353935b06c2d921ddbe3da9a86dcf48b01ff9376c6373",
+   "bytes": 2955467,
+   "pages": 31,
+   "text": "2026 HSC ASSESSMENT TASK 3  Mathematics  Extension 1  General Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using blue or black pen  •   Calculators approved by NESA may be used  •   A separate reference sheet is provided  •   For questions in Section II, show relevant mathematical reasoning and/or calculations  •   Write your Student Number and and select your Class teacher on the front of each booklet  Class Teacher:  (Please tick or highlight)     Ms Sarofim     Ms Everingham     Ms Cai     Mr Berry     Dr Vranešević     Ms Moss     Ms Lee  (To be used by the exam markers only.)  Question  No   1-10   11   12   13   14   Total   Total  Mark   10   15   15   15   15   70   100  Student Number :",
+   "transport": "thsc-fragments",
+   "at": "2026-11-23T00:37:19.820Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/North%20Sydney%20Boys%202026%20w.%20sol"
   }
  },
  "releaseRefresh": {
