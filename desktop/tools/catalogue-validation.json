@@ -18843,9 +18843,14 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Presbyterian%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "2ab6ba3627b4da1647b058954ddcede3a85861eb226ac3dd932fc90adf88328f",
+   "bytes": 513244,
+   "pages": 26,
+   "text": "Page 1 PLC Sydney Extension 1 Mathematics HSC Trial Examination 2014  Student’s name   Student’s number   Teacher’s name  _________________________________   _______________   _____________________________  2014 TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions     Reading time - 5 minutes     Working time - 2 hours     Write using blue or black pen Black is preferred     Board-approved calculators may be used     A table of standard integrals is provided at the back of this paper     All necessary working should be shown in every question  Total Marks   –   70 Section I: Pages 3-6 10 marks     Attempt questions 1-10, using the answer sheet on page 13.     Allow about 15 minutes for this section  Section II: Pages 7-10 60 marks     Attempt questions 11-14, using the booklets provided.     Allow about 1 hours 45 minutes for this section  Question   1-10   11   12   13   14   Total   % Marks /10   /15   /15   /15   /15   /70",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Presbyterian%202014%20w.%20sol",
+   "at": "2026-11-25T03:22:02.755Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%201995%20w.%20sol": {
    "state": "review",
@@ -18888,44 +18893,84 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202013%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "87aee34f00a59326e0c393576b91702eacaa9a5ed0c49f0685c75e1cf8bddf0d",
+   "bytes": 620719,
+   "pages": 17,
+   "text": "1  Section I  10 marks  Attempt Questions 1-10  Allow about 15 minutes for this section.  Use the multiple choice answer sheet for Questions 1-10.  1   The expansion of     3  2 x   y    is  (A) 3   2   2   3  8   4   4 x   x y   xy   y         (B) 3   2   2   3  8   12   6 x   x y   xy   y         (C) 3   2   2   3  8   4   2 x   x y   xy   y         (D) 3   2   2   3  8   12   6 x   x y   xy   y         2   O   is the centre of the circle. If   OM = ON,  which of the following is true?  (I)   UV=VW  (II)   MV=NV  (A)   (I) only  (B)   (II) only  (C)   Both (I) and (II).  (D)   Neither (I) nor (II).  3   The exact value of 1   2 tan   sin   3                                is:  (A) 2 5    (B) 2 5  (C) 2 3    (D) 2 5",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202013%20w.%20sol",
+   "at": "2026-11-25T03:22:15.009Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202014%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "c30863a69e5276987680c59b270c4c08588f8d1c5bb9748a00119650d5c4d8d5",
+   "bytes": 850009,
+   "pages": 22,
+   "text": "Mr Antonio Mrs Collett Mrs Israel Mrs Kerr Mrs Williams Name: ...................................................   . Teacher: ................................................ .  'iforwk~es'   @ollege  HIGHER   SCHOOL   CERTIFICATE TRIAL   EXAMINATION  2014  Mathematics Extension 1  General Instructions  •   Reading time - 5 minutes.  •   Working time- 2 hours. Total Marks- 70 [ Section I   J   Pages   1-4 10 marks  •   Attempt all Questions   1-10  •   Write using pencil for Questions   1-10.   •   Allow about 15 mins for this section  •   Write using black or blue pen for Questions 11-14. Black pen is preferred.  •   Board approved calculators may be used.  •   A table of standard integrals is provided at the back of this paper.  •   In   Questions 11-14, show relevant mathematical reasoning and/or calculations. [ Section II J   Pages   5-11 60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour 45 minutes for this section Mark   /70  Highest   Mark·   /70  Rank",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202014%20w.%20sol",
+   "at": "2026-11-25T03:22:17.555Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202015%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "205d2e2cdc79e90df5220768204ab92affdfff378e03b1b83dbf82baabd4cffc",
+   "bytes": 458242,
+   "pages": 25,
+   "text": "1  Section I 10 marks Attempt Questions 1-10 Allow about 15 minutes for this section.  Use the multiple choice answer sheet for Questions 1-10.  1   Which expression is the correct factorisation of   3 8   125? x   +  (A)   (   )(   ) 2 2   5   4   10   25 x   x   x +   +   +  (B)   (   )(   ) 2 2   5   4   10   25 x   x   x +   −   +  (C)   (   )(   ) 2 2   5   4   10   25 x   x   x −   +   +  (D)   (   )(   ) 2 2   5   4   10   25 x   x   x −   −   +  2  The line   DT   is a tangent to the circle at   D   and   AT   is a secant meeting the circle at A and B. Given that   6,   5 and   , DT   AB   BT   x =   =   =   which of the following is the value of   x ? (A)   4 x   =  (B)   5 x   =  (C)   6 x   =  (D)   9 x   =",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202015%20w.%20sol",
+   "at": "2026-11-25T03:22:19.473Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202016%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "49f1a617de25bb4d27935408343a8902e42209912df6963e91f287010e4bce43",
+   "bytes": 501608,
+   "pages": 27,
+   "text": "Mrs Israel  Mrs Kerr  Ms Lau  Ms Prosser  Mrs Semler  Name:   …………………………………..………..  Teacher: ………………………………………….  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  2016  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes.  •   Working time – 2 hours.  •   Write using pencil for Questions 1-10.  •   Write using black or blue pen for  Questions 11-14. Black pen is preferred.  •   Board approved calculators may be used.  •   A reference sheet is provided.  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations.  Total Marks – 70  Section I   Pages 1-4  10 marks  •   Attempt all Questions 1-10  •   Allow about 15 minutes for this section  Section II   Pages 5-12  60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour 45 minutes for this section  Mark   /70  Highest Mark   /70  Rank",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202016%20w.%20sol",
+   "at": "2026-11-25T03:22:21.497Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202019%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "980ba59a2a9446022ef4efe1578c6bc45639bd44acad9ab2d6190860daf4a933",
+   "bytes": 1893044,
+   "pages": 30,
+   "text": "Mr Feng   Ms Davis  Mrs Greenberg   Mrs Kerr  Ms Lau  Name:   …………………………………..………..  Teacher: ………………………………………….  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  2019  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes.  •   Working time – 2 hours.  •   Write using pencil for Questions 1-10.  •   Write using black or blue pen for  Questions 11-14. Black pen is preferred.  •   Erasable pens are   not   to be used.  •   Board approved calculators may be used.  •   A reference sheet is provided.  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations.  Total Marks – 70  Section I ( Pages 1 – 4)  10 marks  •   Attempt all Questions 1-10 on the multiple choice answer sheet provided.  •   Allow about 15 minutes for this section  Section II ( Pages 5 – 12)  60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour 45 minutes for this section  Mark   /70  Highest Mark   /70  Rank",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202019%20w.%20sol",
+   "at": "2026-11-25T03:22:24.144Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202023%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "149a2f02510ceb72dac723c248635d59d8dae7e45f19ad34b3a92fa6cda1be53",
+   "bytes": 3434309,
+   "pages": 50,
+   "text": "Mathematics Extension 1  HSC Trial Examination  Term 3 2023  General  Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical  reasoning and/or calculations  Total marks  70  SECTION 1 – 10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  •   Answer each question on the multiple-choice answer sheet  provided in the answer booklet.  SECTION II – 60 marks   (pages 5-10)  •   Attempt Questions 11-14  •   Allow about 1 hours and 45 minutes for this section  •   Answer each question in the appropriate space in the Answer Booklet. Extra writing pages are included at the end of each question.  Name: …………………………………..  Student  Number  Teacher: ………………………………..",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202023%20w.%20sol",
+   "at": "2026-11-25T03:22:26.353Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202024%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "01b94907eab59ce6c6115585e30eca1800271e99eb389f3c15bac30a1d45d57c",
+   "bytes": 3778236,
+   "pages": 28,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202024%20w.%20sol",
+   "at": "2026-11-25T03:22:28.384Z"
   },
   "https://thsconline.github.io/s/d/5338/Pymble%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "8ef133cfe477e7ed9f771e8d74ee4e1b8d31e39cdabb8064a84ecf51b9dff65e",
+   "bytes": 7086615,
+   "pages": 48,
+   "text": "Mathematics Extension 1  HSC Trial Examination  Term 3 2025  General  Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical  reasoning and/or calculations  Total marks  70  SECTION 1   –   10 marks   (pages 1-5)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  •   Answer each question on the multiple-choice answer sheet  provided in the answer booklet.  SECTION II   –   60 marks   (pages 7-14)  •   Attempt Questions 11-14  •   Allow about 1 hours and 45 minutes for this section  •   Answer each question in the appropriate space in the Answer Booklet. Extra writing pages are included at the end of each question.  Name: …………………………………. .  Student  Number  Teacher: ………………………………. .",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Pymble%202025%20w.%20sol",
+   "at": "2026-11-25T03:22:31.034Z"
   },
   "https://thsconline.github.io/s/d/5338/Ravenswood%202000": {
    "state": "review",
@@ -152446,6 +152491,96 @@
    "transport": "thsc-fragments",
    "at": "2026-11-24T04:37:29.010Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Penrith%202026%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Presbyterian%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "2ab6ba3627b4da1647b058954ddcede3a85861eb226ac3dd932fc90adf88328f",
+   "bytes": 513244,
+   "pages": 26,
+   "text": "Page 1 PLC Sydney Extension 1 Mathematics HSC Trial Examination 2014  Student’s name   Student’s number   Teacher’s name  _________________________________   _______________   _____________________________  2014 TRIAL HIGHER SCHOOL CERTIFICATE EXAMINATION  Mathematics Extension 1  General Instructions     Reading time - 5 minutes     Working time - 2 hours     Write using blue or black pen Black is preferred     Board-approved calculators may be used     A table of standard integrals is provided at the back of this paper     All necessary working should be shown in every question  Total Marks   –   70 Section I: Pages 3-6 10 marks     Attempt questions 1-10, using the answer sheet on page 13.     Allow about 15 minutes for this section  Section II: Pages 7-10 60 marks     Attempt questions 11-14, using the booklets provided.     Allow about 1 hours 45 minutes for this section  Question   1-10   11   12   13   14   Total   % Marks /10   /15   /15   /15   /15   /70",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:02.755Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Presbyterian%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202013%20w.%20sol": {
+   "state": "verified",
+   "sha256": "87aee34f00a59326e0c393576b91702eacaa9a5ed0c49f0685c75e1cf8bddf0d",
+   "bytes": 620719,
+   "pages": 17,
+   "text": "1  Section I  10 marks  Attempt Questions 1-10  Allow about 15 minutes for this section.  Use the multiple choice answer sheet for Questions 1-10.  1   The expansion of     3  2 x   y    is  (A) 3   2   2   3  8   4   4 x   x y   xy   y         (B) 3   2   2   3  8   12   6 x   x y   xy   y         (C) 3   2   2   3  8   4   2 x   x y   xy   y         (D) 3   2   2   3  8   12   6 x   x y   xy   y         2   O   is the centre of the circle. If   OM = ON,  which of the following is true?  (I)   UV=VW  (II)   MV=NV  (A)   (I) only  (B)   (II) only  (C)   Both (I) and (II).  (D)   Neither (I) nor (II).  3   The exact value of 1   2 tan   sin   3                                is:  (A) 2 5    (B) 2 5  (C) 2 3    (D) 2 5",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:15.009Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202013%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202014%20w.%20sol": {
+   "state": "verified",
+   "sha256": "c30863a69e5276987680c59b270c4c08588f8d1c5bb9748a00119650d5c4d8d5",
+   "bytes": 850009,
+   "pages": 22,
+   "text": "Mr Antonio Mrs Collett Mrs Israel Mrs Kerr Mrs Williams Name: ...................................................   . Teacher: ................................................ .  'iforwk~es'   @ollege  HIGHER   SCHOOL   CERTIFICATE TRIAL   EXAMINATION  2014  Mathematics Extension 1  General Instructions  •   Reading time - 5 minutes.  •   Working time- 2 hours. Total Marks- 70 [ Section I   J   Pages   1-4 10 marks  •   Attempt all Questions   1-10  •   Write using pencil for Questions   1-10.   •   Allow about 15 mins for this section  •   Write using black or blue pen for Questions 11-14. Black pen is preferred.  •   Board approved calculators may be used.  •   A table of standard integrals is provided at the back of this paper.  •   In   Questions 11-14, show relevant mathematical reasoning and/or calculations. [ Section II J   Pages   5-11 60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour 45 minutes for this section Mark   /70  Highest   Mark·   /70  Rank",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:17.555Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202014%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202015%20w.%20sol": {
+   "state": "verified",
+   "sha256": "205d2e2cdc79e90df5220768204ab92affdfff378e03b1b83dbf82baabd4cffc",
+   "bytes": 458242,
+   "pages": 25,
+   "text": "1  Section I 10 marks Attempt Questions 1-10 Allow about 15 minutes for this section.  Use the multiple choice answer sheet for Questions 1-10.  1   Which expression is the correct factorisation of   3 8   125? x   +  (A)   (   )(   ) 2 2   5   4   10   25 x   x   x +   +   +  (B)   (   )(   ) 2 2   5   4   10   25 x   x   x +   −   +  (C)   (   )(   ) 2 2   5   4   10   25 x   x   x −   +   +  (D)   (   )(   ) 2 2   5   4   10   25 x   x   x −   −   +  2  The line   DT   is a tangent to the circle at   D   and   AT   is a secant meeting the circle at A and B. Given that   6,   5 and   , DT   AB   BT   x =   =   =   which of the following is the value of   x ? (A)   4 x   =  (B)   5 x   =  (C)   6 x   =  (D)   9 x   =",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:19.473Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202015%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202016%20w.%20sol": {
+   "state": "verified",
+   "sha256": "49f1a617de25bb4d27935408343a8902e42209912df6963e91f287010e4bce43",
+   "bytes": 501608,
+   "pages": 27,
+   "text": "Mrs Israel  Mrs Kerr  Ms Lau  Ms Prosser  Mrs Semler  Name:   …………………………………..………..  Teacher: ………………………………………….  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  2016  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes.  •   Working time – 2 hours.  •   Write using pencil for Questions 1-10.  •   Write using black or blue pen for  Questions 11-14. Black pen is preferred.  •   Board approved calculators may be used.  •   A reference sheet is provided.  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations.  Total Marks – 70  Section I   Pages 1-4  10 marks  •   Attempt all Questions 1-10  •   Allow about 15 minutes for this section  Section II   Pages 5-12  60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour 45 minutes for this section  Mark   /70  Highest Mark   /70  Rank",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:21.497Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202016%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202019%20w.%20sol": {
+   "state": "verified",
+   "sha256": "980ba59a2a9446022ef4efe1578c6bc45639bd44acad9ab2d6190860daf4a933",
+   "bytes": 1893044,
+   "pages": 30,
+   "text": "Mr Feng   Ms Davis  Mrs Greenberg   Mrs Kerr  Ms Lau  Name:   …………………………………..………..  Teacher: ………………………………………….  HIGHER SCHOOL CERTIFICATE  TRIAL EXAMINATION  2019  Mathematics Extension 1  General Instructions  •   Reading time – 5 minutes.  •   Working time – 2 hours.  •   Write using pencil for Questions 1-10.  •   Write using black or blue pen for  Questions 11-14. Black pen is preferred.  •   Erasable pens are   not   to be used.  •   Board approved calculators may be used.  •   A reference sheet is provided.  •   In Questions 11-14, show relevant mathematical reasoning and/or calculations.  Total Marks – 70  Section I ( Pages 1 – 4)  10 marks  •   Attempt all Questions 1-10 on the multiple choice answer sheet provided.  •   Allow about 15 minutes for this section  Section II ( Pages 5 – 12)  60 marks  •   Attempt Questions 11-14  •   Allow about 1 hour 45 minutes for this section  Mark   /70  Highest Mark   /70  Rank",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:24.144Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202019%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202023%20w.%20sol": {
+   "state": "verified",
+   "sha256": "149a2f02510ceb72dac723c248635d59d8dae7e45f19ad34b3a92fa6cda1be53",
+   "bytes": 3434309,
+   "pages": 50,
+   "text": "Mathematics Extension 1  HSC Trial Examination  Term 3 2023  General  Instructions  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical  reasoning and/or calculations  Total marks  70  SECTION 1 – 10 marks   (pages 1-4)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  •   Answer each question on the multiple-choice answer sheet  provided in the answer booklet.  SECTION II – 60 marks   (pages 5-10)  •   Attempt Questions 11-14  •   Allow about 1 hours and 45 minutes for this section  •   Answer each question in the appropriate space in the Answer Booklet. Extra writing pages are included at the end of each question.  Name: …………………………………..  Student  Number  Teacher: ………………………………..",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:26.353Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202023%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202024%20w.%20sol": {
+   "state": "verified",
+   "sha256": "01b94907eab59ce6c6115585e30eca1800271e99eb389f3c15bac30a1d45d57c",
+   "bytes": 3778236,
+   "pages": 28,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:28.384Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202024%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Pymble%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "8ef133cfe477e7ed9f771e8d74ee4e1b8d31e39cdabb8064a84ecf51b9dff65e",
+   "bytes": 7086615,
+   "pages": 48,
+   "text": "Mathematics Extension 1  HSC Trial Examination  Term 3 2025  General  Instructions  •   Reading time   –   10 minutes  •   Working time   –   2 hours  •   Write using black pen  •   Calculators approved by NESA may be used  •   A reference sheet is provided  •   For questions in Section II, show relevant mathematical  reasoning and/or calculations  Total marks  70  SECTION 1   –   10 marks   (pages 1-5)  •   Attempt Questions 1-10  •   Allow about 15 minutes for this section  •   Answer each question on the multiple-choice answer sheet  provided in the answer booklet.  SECTION II   –   60 marks   (pages 7-14)  •   Attempt Questions 11-14  •   Allow about 1 hours and 45 minutes for this section  •   Answer each question in the appropriate space in the Answer Booklet. Extra writing pages are included at the end of each question.  Name: …………………………………. .  Student  Number  Teacher: ………………………………. .",
+   "transport": "thsc-fragments",
+   "at": "2026-11-25T03:22:31.034Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Pymble%202025%20w.%20sol"
   }
  },
  "releaseRefresh": {
