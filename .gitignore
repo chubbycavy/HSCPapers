@@ -27,3 +27,5 @@ hsc-papers-selection.zip
 
 # Downloaded installers / release artifacts (browser saves land in the repo folder)
 HSCPapers_*.exe
+# Local-only portfolio demo (not part of HSCPapers)
+/n8n-lead-automation/
