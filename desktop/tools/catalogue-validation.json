@@ -19193,9 +19193,14 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Scots%202021": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "4211be3e63e1febe5ba1d424866e670a77d0033132f6d149d547fee22c386504",
+   "bytes": 737846,
+   "pages": 13,
+   "text": "- 1 -  The Scots College  HSC Year 12 Trial Examination  Mathematics Extension 1  General Instructions Total marks: 70  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used.  •   A reference sheet is provided.  •   For questions in Section II, show all relevant mathematical reasonings and/or calculations.  •   Answer each question at the start of a NEW page, using either writing booklets or A4 paper.  •   Section I – 10 marks   (pages 3–6) -   Attempt Questions 1–10 -   Allow about 15 minutes for this section -   Use the Multiple Choice Answer Sheet provided  •   Section II   –   60 marks   (pages 7 – 13)  -   Attempt Questions 11–14 -   Allow about 1 hour and 45 minutes for this section  2021",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Scots%202021",
+   "at": "2026-11-27T02:39:33.368Z"
   },
   "https://thsconline.github.io/s/d/5338/Shore%202003%20w.%20sol": {
    "state": "review",
@@ -19223,24 +19228,44 @@
    "at": "2026-10-11T14:15:26.274Z"
   },
   "https://thsconline.github.io/s/d/5338/Shore%202017%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "da8e8e618eedd880c474c5f35aa179f98a40bd14be0d624014972d5a6420b9d7",
+   "bytes": 1159060,
+   "pages": 32,
+   "text": "Year 12  HSC Assessment Task 5 - Trial HSC  17th August 2017  Mathematics Extension 1  General Instructions  •   Reading time − 5 minutes  •   Working time −   2   hours  •   Write using black pen  •   Board- approved calculators may be used  •   A NESA   reference sheet is provided  •   Answer Questions 1 – 10 on the Multiple Choice Answer Sheet provided  •   Start each of Questions 11 – 14 in a new writing booklet  •   In Questions 11 – 14, your responses should include relevant mathematical reasoning and/or calculations.  •   Write your examination number on the front cover of each booklet  •   If you do not attempt a question, submit a  blank booklet   marked   your examination number and “ N /A” on the front cover  Total marks – 70  Section I   Pages   3–6  10 marks  •   Attempt Questions 1−10  •   Allow about 15 minutes for this section  Section II   Pages   7– 12  60 marks  •   Attempt Questions 11−14  •   Allow about 1 hour 45 minutes for this section  Note: Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Examination Number:  Set:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Shore%202017%20w.%20sol",
+   "at": "2026-11-27T02:39:41.848Z"
   },
   "https://thsconline.github.io/s/d/5338/Shore%202019": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "4b1ff5e0856194ad603d8bc15723d6e3dbf8492b6a5aff667774d929ad95b2dd",
+   "bytes": 520557,
+   "pages": 12,
+   "text": "Year 12  HSC Assessment Task 4 - Trial HSC  Monday 26 August 2019  Mathematics Extension 1  General Instructions     Reading time − 5 minutes     Working time − 2 hours     Write using black pen     NESA-approved calculators may be used     A NESA reference sheet is provided     Answer Questions 1–10 on the Multiple Choice Answer Sheet provided     Start each of Questions 11–14 in a new writing booklet     In Questions 11–14, your responses should include relevant mathematical reasoning and/or calculations     Write your examination number on the front cover of each booklet     If you do not attempt a question, submit a blank booklet marked your examination number and “N/A” on the front cover  Total marks – 70  Section I   Pages 3–6  10 marks     Attempt Questions 1−10     Allow about 15 minutes for this section  Section II   Pages 7–11  60 marks     Attempt Questions 11−14     Allow about 1 hour 45 minutes for this section  Note: Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Examination Number:  Set:",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Shore%202019",
+   "at": "2026-11-27T02:39:43.951Z"
   },
   "https://thsconline.github.io/s/d/5338/Shore%202022%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "3e30c7c29eeb4c9bc5277d42f0f0a63f69e7878522e30248faf5f76690af8794",
+   "bytes": 1841525,
+   "pages": 13,
+   "text": "Section I   10 marks Attempt Questions 1-10 Allow about 15 minutes for this section 1.   Which of the following is the angle between the vectors   ~ a   =  ( 3 4  )  and   ~ b   =  ( − 1 2  )  A. 10 °  B. 63 °  C. 140 °  D. 117 °  2.   Which of the following equal to cos   θ  A. sin 2   θ  2   −   cos 2   θ  2 B. 2 cos 2   θ  2  + 1 C. 1   −   2 cos 2   θ  D.   sin   θ  tan   θ  3.   The polynomial   P   ( x ) =   x 3   −   x 2   −   5 x   −   3 has a double root at   x   =   α . What is the value of   α ? A.   − 5 3 B.   − 1 C. 1 D.   5 3  4.   Which of the following is equivalent to   ∫   sin   x   cos   x dx ? A.   −   cos 2 x   +   c  B.   −   1 2  cos 2 x   +   c  C.   −   1 4  cos 2 x   +   c  D.   1 4  cos 2 x   +   c  5.   What is the domain of   y   = 3 cos − 1 (2 x   + 1)? A. Domain [ − 1 ,   0] B. Domain (1 ,   0) C. Domain [ −   1 2   ,   0] D. Domain [  1 2   ,   0]  4  Shore 2022 Maths Ext 1 Trial HSC Exam",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Shore%202022%20w.%20sol",
+   "at": "2026-11-27T02:39:46.479Z"
   },
   "https://thsconline.github.io/s/d/5338/Smiths%20Hill%202025%20w.%20sol": {
-   "state": "review",
-   "reason": "Unverified legacy fallback retained as provenance, not an actionable source",
-   "at": "2026-10-11T14:15:26.274Z"
+   "state": "verified",
+   "sha256": "5b6fe7680bc30e7ec0ddbbea8ce3ed4fbe178997a62f3d1b184219df86cffb99",
+   "bytes": 5080741,
+   "pages": 31,
+   "text": "",
+   "transport": "thsc-fragments",
+   "migratedUrl": "https://www.thsconline.net/s/v/5338/Smiths%20Hill%202025%20w.%20sol",
+   "at": "2026-11-27T02:39:48.966Z"
   },
   "https://thsconline.github.io/s/d/5338/St%20Catherines%201996": {
    "state": "review",
@@ -152671,6 +152696,56 @@
    "transport": "thsc-fragments",
    "at": "2026-11-26T02:41:46.690Z",
    "proofSource": "https://thsconline.github.io/s/d/5338/Roseville%202025"
+  },
+  "https://www.thsconline.net/s/v/5338/Scots%202021": {
+   "state": "verified",
+   "sha256": "4211be3e63e1febe5ba1d424866e670a77d0033132f6d149d547fee22c386504",
+   "bytes": 737846,
+   "pages": 13,
+   "text": "- 1 -  The Scots College  HSC Year 12 Trial Examination  Mathematics Extension 1  General Instructions Total marks: 70  •   Reading time – 10 minutes  •   Working time – 2 hours  •   Write using black pen  •   Calculators approved by NESA may be used.  •   A reference sheet is provided.  •   For questions in Section II, show all relevant mathematical reasonings and/or calculations.  •   Answer each question at the start of a NEW page, using either writing booklets or A4 paper.  •   Section I – 10 marks   (pages 3–6) -   Attempt Questions 1–10 -   Allow about 15 minutes for this section -   Use the Multiple Choice Answer Sheet provided  •   Section II   –   60 marks   (pages 7 – 13)  -   Attempt Questions 11–14 -   Allow about 1 hour and 45 minutes for this section  2021",
+   "transport": "thsc-fragments",
+   "at": "2026-11-27T02:39:33.368Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Scots%202021"
+  },
+  "https://www.thsconline.net/s/v/5338/Shore%202017%20w.%20sol": {
+   "state": "verified",
+   "sha256": "da8e8e618eedd880c474c5f35aa179f98a40bd14be0d624014972d5a6420b9d7",
+   "bytes": 1159060,
+   "pages": 32,
+   "text": "Year 12  HSC Assessment Task 5 - Trial HSC  17th August 2017  Mathematics Extension 1  General Instructions  •   Reading time − 5 minutes  •   Working time −   2   hours  •   Write using black pen  •   Board- approved calculators may be used  •   A NESA   reference sheet is provided  •   Answer Questions 1 – 10 on the Multiple Choice Answer Sheet provided  •   Start each of Questions 11 – 14 in a new writing booklet  •   In Questions 11 – 14, your responses should include relevant mathematical reasoning and/or calculations.  •   Write your examination number on the front cover of each booklet  •   If you do not attempt a question, submit a  blank booklet   marked   your examination number and “ N /A” on the front cover  Total marks – 70  Section I   Pages   3–6  10 marks  •   Attempt Questions 1−10  •   Allow about 15 minutes for this section  Section II   Pages   7– 12  60 marks  •   Attempt Questions 11−14  •   Allow about 1 hour 45 minutes for this section  Note: Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Examination Number:  Set:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-27T02:39:41.848Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Shore%202017%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Shore%202019": {
+   "state": "verified",
+   "sha256": "4b1ff5e0856194ad603d8bc15723d6e3dbf8492b6a5aff667774d929ad95b2dd",
+   "bytes": 520557,
+   "pages": 12,
+   "text": "Year 12  HSC Assessment Task 4 - Trial HSC  Monday 26 August 2019  Mathematics Extension 1  General Instructions     Reading time − 5 minutes     Working time − 2 hours     Write using black pen     NESA-approved calculators may be used     A NESA reference sheet is provided     Answer Questions 1–10 on the Multiple Choice Answer Sheet provided     Start each of Questions 11–14 in a new writing booklet     In Questions 11–14, your responses should include relevant mathematical reasoning and/or calculations     Write your examination number on the front cover of each booklet     If you do not attempt a question, submit a blank booklet marked your examination number and “N/A” on the front cover  Total marks – 70  Section I   Pages 3–6  10 marks     Attempt Questions 1−10     Allow about 15 minutes for this section  Section II   Pages 7–11  60 marks     Attempt Questions 11−14     Allow about 1 hour 45 minutes for this section  Note: Any time you have remaining should be spent revising your answers.  DO NOT REMOVE THIS PAPER FROM THE EXAMINATION ROOM  Examination Number:  Set:",
+   "transport": "thsc-fragments",
+   "at": "2026-11-27T02:39:43.951Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Shore%202019"
+  },
+  "https://www.thsconline.net/s/v/5338/Shore%202022%20w.%20sol": {
+   "state": "verified",
+   "sha256": "3e30c7c29eeb4c9bc5277d42f0f0a63f69e7878522e30248faf5f76690af8794",
+   "bytes": 1841525,
+   "pages": 13,
+   "text": "Section I   10 marks Attempt Questions 1-10 Allow about 15 minutes for this section 1.   Which of the following is the angle between the vectors   ~ a   =  ( 3 4  )  and   ~ b   =  ( − 1 2  )  A. 10 °  B. 63 °  C. 140 °  D. 117 °  2.   Which of the following equal to cos   θ  A. sin 2   θ  2   −   cos 2   θ  2 B. 2 cos 2   θ  2  + 1 C. 1   −   2 cos 2   θ  D.   sin   θ  tan   θ  3.   The polynomial   P   ( x ) =   x 3   −   x 2   −   5 x   −   3 has a double root at   x   =   α . What is the value of   α ? A.   − 5 3 B.   − 1 C. 1 D.   5 3  4.   Which of the following is equivalent to   ∫   sin   x   cos   x dx ? A.   −   cos 2 x   +   c  B.   −   1 2  cos 2 x   +   c  C.   −   1 4  cos 2 x   +   c  D.   1 4  cos 2 x   +   c  5.   What is the domain of   y   = 3 cos − 1 (2 x   + 1)? A. Domain [ − 1 ,   0] B. Domain (1 ,   0) C. Domain [ −   1 2   ,   0] D. Domain [  1 2   ,   0]  4  Shore 2022 Maths Ext 1 Trial HSC Exam",
+   "transport": "thsc-fragments",
+   "at": "2026-11-27T02:39:46.479Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Shore%202022%20w.%20sol"
+  },
+  "https://www.thsconline.net/s/v/5338/Smiths%20Hill%202025%20w.%20sol": {
+   "state": "verified",
+   "sha256": "5b6fe7680bc30e7ec0ddbbea8ce3ed4fbe178997a62f3d1b184219df86cffb99",
+   "bytes": 5080741,
+   "pages": 31,
+   "text": "",
+   "transport": "thsc-fragments",
+   "at": "2026-11-27T02:39:48.966Z",
+   "proofSource": "https://thsconline.github.io/s/d/5338/Smiths%20Hill%202025%20w.%20sol"
   }
  },
  "releaseRefresh": {
